@@ -1,0 +1,4 @@
+- add my signature to all those examples with some copyright.
+- unify verything to one makefile.
+- make the output of the makefile look nicer.
+- start blogging about the different entries.
