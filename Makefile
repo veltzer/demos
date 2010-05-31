@@ -1,8 +1,6 @@
-# we handle both C and C++ executables in this file...
-SRC_CC:=$(shell find . -name "*.cc")
+#SRC_CC:=$(shell find . -name "*.cc")
 SRC_CC:=$(shell find user_space -name "*.cc")
 EXE_CC:=$(addsuffix .exe,$(basename $(SRC_CC)))
-CC:=gcc
 
 EXE:=$(EXE_CC)
 
@@ -13,11 +11,10 @@ all: $(EXE)
 clean:
 	-rm -f $(EXE)
 
-#FLAGS=-Wall -Werror -O2 -s
-#FLAGS:=-Wall -Werror -O2
-FLAGS=-Wall -Werror -g3 -Iinclude
+#CODEGEN=-g3
+CODEGEN=-O2 -s
+FLAGS=-Wall -Werror $(CODEGEN) -Iinclude
 CXXFLAGS:=$(FLAGS)
-CXXFLAGS_NOOPT:=-Wall -Werror
 
 # general rules...
 $(EXE_CC): %.exe: %.cc
