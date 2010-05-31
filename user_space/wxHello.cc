@@ -7,6 +7,7 @@
 		Mark Veltzer
 
 EXTRA_LIBS=
+EXTRA_CMDS=wx-config --cflags --libs
 */
 
 class MyApp:public wxApp {

@@ -11,6 +11,8 @@
 
 /*
 	This shows how to create threads with a certain affinity
+
+EXTRA_LIBS=-lpthread
 */
 
 void print_cpu_set(cpu_set_t* p) {
@@ -20,9 +22,6 @@ void print_cpu_set(cpu_set_t* p) {
 		if (CPU_ISSET(j, p)) {
 			printf("    CPU %d\n", j);
 		}
-	}
-	for(int j=0;j<max;j++) {
-		printf("j is %d",j);
 	}
 }
 
@@ -47,13 +46,13 @@ int main(int argc,char** argv,char** envp) {
 		CPU_ZERO(cpu_sets+i);
 		CPU_SET(i%cpu_num,cpu_sets+i);
 		print_cpu_set(cpu_sets+i);
-		SC0(pthread_attr_init(attrs+i),"pthread_attr_init");
-		SC0(pthread_attr_setaffinity_np(attrs+i,sizeof(cpu_set_t),cpu_sets+i),"pthread_attr_setaffinity_np");
-		SC0(pthread_create(threads+i,attrs+i,worker,ids+i),"pthread_create");
+		SCIG(pthread_attr_init(attrs+i),"pthread_attr_init");
+		SCIG(pthread_attr_setaffinity_np(attrs+i,sizeof(cpu_set_t),cpu_sets+i),"pthread_attr_setaffinity_np");
+		SCIG(pthread_create(threads+i,attrs+i,worker,ids+i),"pthread_create");
 	}
 	fprintf(stderr,"main ended creating threads\n");
 	for(int i=0;i<num;i++) {
-		SC0(pthread_join(threads[i],rets+i),"pthread_join");
+		SCIG(pthread_join(threads[i],rets+i),"pthread_join");
 	}
 	fprintf(stderr,"main ended\n");
 	return 0;

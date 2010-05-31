@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stdlib.h>
+#include<stdio.h>
 #include<execinfo.h>
 #include<exception>
 #include"demangle.h"

@@ -1,11 +1,12 @@
 #include<gtk/gtk.h>
-#include<stdio.h>
+//#include<stdio.h>
 
 /*
 	This is an simple gtk application.
 
 				Mark Veltzer
 EXTRA_LIBS=
+EXTRA_CMDS=pkg-config --cflags --libs gtk+-2.0
 */
 
 int main(int argc,char** argv,char** envp) {

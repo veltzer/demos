@@ -1,6 +1,8 @@
 # we handle both C and C++ executables in this file...
 SRC_CC:=$(shell find . -name "*.cc")
 SRC_C:=$(shell find . -name "*.c")
+SRC_CC:=$(shell find user_space -name "*.cc")
+SRC_C:=$(shell find user_space -name "*.c")
 EXE_CC:=$(basename $(SRC_CC))
 EXE_C:=$(basename $(SRC_C))
 CC:=gcc
@@ -12,11 +14,11 @@ all: $(EXE)
 
 .PHONY: clean
 clean:
-	-@rm -f $(EXE)
+	-rm -f $(EXE)
 
 #FLAGS=-Wall -Werror -O2 -s
 #FLAGS:=-Wall -Werror -O2
-FLAGS=-Wall -Werror -g3
+FLAGS=-Wall -Werror -g3 -I.
 CXXFLAGS:=$(FLAGS)
 CXXFLAGS_NOOPT:=-Wall -Werror
 CFLAGS:=$(FLAGS)
@@ -50,7 +52,7 @@ backtrace: backtrace.c
 
 # general rules...
 $(EXE_CC): %: %.cc
-	$(CXX) $(CXXFLAGS) -o $@ $< `grep EXTRA_LIBS $< | cut -f 2 -d =`
+	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2 -d =`; EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2 -d =`; EXTRA_CMDS=$$($$EXTRA_CMDS); $(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
 $(EXE_C): %: %.c
 	$(CC) $(CFLAGS) -o $@ $<
 
