@@ -7,6 +7,8 @@
  * In this file the three parameters: database name,
  * database user and the password are hardcoded. Get
  * them out of here to some outside xml options file
+
+EXTRA_LIBS=-lmysqlclient
  */
 
 int main(int argc,char** argv,char** envp) {

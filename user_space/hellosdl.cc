@@ -4,6 +4,11 @@
 #include<SDL/SDL.h>
 #include<stdlib.h>
 
+/*
+EXTRA_CMDS=pkg-config --cflags --libs sdl gl glu
+EXTRA_LIB=
+*/
+
 const int SCREEN_WIDTH=640;
 const int SCREEN_HEIGHT=480;
 const int SCREEN_BPP=16;
@@ -43,7 +48,7 @@ int resizeWindow( int width, int height )
 	return(true);
 }
 
-int initGL(GLvoid)
+int initGL()
 {
 	glShadeModel(GL_SMOOTH);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -54,7 +59,7 @@ int initGL(GLvoid)
 	return(true);
 }
 
-int drawGLScene(GLvoid)
+int drawGLScene()
 {
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();

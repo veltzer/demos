@@ -1,4 +1,7 @@
-/* This is a demo program for using the sigc++ signaling library */
+/* This is a demo program for using the sigc++ signaling library
+
+EXTRA_LIBS=-I/usr/include/sigc++-1.0 -I/usr/lib/sigc++-1.0/include -lsigc -lpthread
+ * */
 
 #include<iostream>
 #include<string>

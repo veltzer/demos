@@ -2,6 +2,10 @@
 #include<stdio.h>
 #include<string.h>
 
+/*
+EXTRA_LIBS=-lz
+*/
+
 int main(int argc,char** argv) {
 	const char* source="Merry had a little lamb";
 	unsigned long sourcelen=strlen((char*)source);

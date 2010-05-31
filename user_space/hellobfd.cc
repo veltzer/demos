@@ -5,6 +5,8 @@
 /*
  * This program demos the libbfd library which enabled you
  * to scan and manipulate object files in various formats
+
+EXTRA_LIBS=-lbfd
  */
 
 int main(int argc,char** argv) {
