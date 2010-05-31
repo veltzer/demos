@@ -77,7 +77,11 @@
              perror("sendsock connect failed");
              exit(errno);
          }
-         write(sendsock, obuffer, strlen(obuffer));
+         size_t size=write(sendsock, obuffer, strlen(obuffer));
+	 if(size!=strlen(obuffer)) {
+		perror("sendsock connect failed");
+		exit(errno);
+	 }
 
          close(sendsock);
      }

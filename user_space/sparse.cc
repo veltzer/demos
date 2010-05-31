@@ -3,6 +3,13 @@
 #include<stdlib.h>
 #include<string.h>
 
+/*
+ * This program demostrates the concept of sparse files...
+ * see the result using ?
+ * du -s my.sparse
+ * ls -l my.sparse
+ */
+
 // this is the position we will seek to...
 //const int pos=1024*1024;
 const int pos=1000000;
