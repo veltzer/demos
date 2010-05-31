@@ -1,6 +1,8 @@
 This list of demos explains some of the deeper issues of handling errors from C/C++
 code in systems programming on a linux system.
 
+- some of these examples need to be compiled with -rdynamic and -g to work (tracing stuff)
+
 // Creating errors (this is the easy part)
 
 You can trace the actual signal sent by the OS using strace.
