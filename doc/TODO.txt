@@ -2,3 +2,8 @@
 - unify verything to one makefile.
 - make the output of the makefile look nicer.
 - start blogging about the different entries.
+
+do a demo of using the rtc in an application.
+Demo the accuracy of those sleeps as compared to a application using a regular clock
+Show that when using the RTC the interrupts are coming in (/etc/interrupts) not via
+the timer interrupts but rather through the RTC line...
