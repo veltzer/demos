@@ -1,11 +1,18 @@
-/* This is a demo program for using Gnome-- */
+#include<libgnomeuimm.h>
 
-#include<gnome--.h>
+/*
+	This is a demo program for using Gnome--
 
-int main(int argc,char** argv) {
-	Gnome::Main application("mdi-test","1.0",argc,argv);
-	Gnome::MDI* MDI_WINDOW=new Gnome::MDI("mdi-test","the great mdi test");
-	MDI_WINDOW->open_toplevel();
-	application.run();
+EXTRA_CMDS=pkg-config --libs --cflags libgnomeuimm-2.6
+*/
+
+int main(int argc,char** argv,char** envp) {
+	Glib::OptionContext context;
+	Gnome::Main app("gnome-hello", "0.1",
+		Gnome::UI::module_info_get(), argc, argv,
+		context);
+	Gnome::UI::App* a=new Gnome::UI::App("foo","bar");
+	a->show();
+	app.run();
 	return(0);
 }

@@ -11,6 +11,10 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/*
+EXTRA_LIBS=-llog4cpp
+*/
+
 int main(int argc, char** argv) {
 	log4cpp::SyslogAppender* syslogAppender=new log4cpp::SyslogAppender("syslog","hellolog4cpp",LOG_USER);
 	log4cpp::Category& root=log4cpp::Category::getRoot();
@@ -22,4 +26,4 @@ int main(int argc, char** argv) {
 	return(0);
 }
 
-template char* std::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&, std::forward_iterator_tag);
+//template char* std::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&, std::forward_iterator_tag);

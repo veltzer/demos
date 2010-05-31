@@ -1,6 +1,10 @@
-#include<libpq-fe.h>
+#include<postgresql/libpq-fe.h>
 #include<stdio.h>
 #include<stdlib.h>
+
+/*
+EXTRA_LIBS=-lpq
+*/
 
 void exit_nicely(PGconn *conn)
 {

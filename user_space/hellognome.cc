@@ -1,5 +1,9 @@
 /* This is a demo program for using C Gnome */
 
+/*
+EXTRA_CMDS=pkg-config --cflags --libs libgnomeui-2.0 
+*/
+
 #include<gnome.h>
 
 int main(int argc,char** argv) {
