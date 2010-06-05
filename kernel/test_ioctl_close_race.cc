@@ -12,6 +12,8 @@
 		- one running like crazy doing ioctls.
 		- one asking to close the driver (which halts).
 		- main asking for input and releases the close process...
+
+EXTRA_LIBS=-lpthread
 */
 
 /*

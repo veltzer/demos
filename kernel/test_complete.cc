@@ -10,6 +10,8 @@
 /*
 	This is a demo of how to put a thread to sleep and wake it up
 	from another thread...
+
+EXTRA_LIBS=-lpthread -lcpufreq
 */
 
 // file descriptor
