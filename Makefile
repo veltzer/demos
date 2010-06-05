@@ -1,3 +1,25 @@
+TARGET:=curr
+ifeq ($(TARGET),curr)
+KDIR:=/lib/modules/$(shell uname -r)/build
+CXX:=g++
+endif
+ifeq ($(TARGET),target_release)
+KDIR:=/home/mark/rafael/sources/rafael-rel/filesystem/root/lib/modules/2.6.26.5-rt9/build
+TOOLCHAIN_BASE:=/opt/Rafael/i686-unknown-linux-gnu/gcc-4.1.2-glibc-2.7-kernel-2.6.18/bin/i686-unknown-linux-gnu-
+CXX:=$(TOOLCHAIN_BASE)g++
+endif
+
+DEBUG:=1
+OPT:=0
+ifeq ($(DEBUG),1)
+CXXFLAGS:=$(CXXFLAGS) -g3
+else
+LDFLAGS:=$(LDFLAGS) -s
+endif
+ifeq ($(OPT),1)
+CXXFLAGS:=$(CXXFLAGS) -O2
+endif
+
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
@@ -64,3 +86,51 @@ debug:
 	$(info KCFLAGS is $(KCFLAGS))
 	$(info CLEAN is $(CLEAN))
 	$(info CLEAN_DIRS is $(CLEAN_DIRS))
+
+.PHONY: check
+check:
+	cd kernel;for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
+	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
+
+# kernel section
+
+.PHONY: kern_help
+kern_help:
+	$(MAKE) -C $(KDIR) help
+.PHONY: kern_tail
+kern_tail:
+	sudo tail /var/log/kern.log
+.PHONY: kern_tailf
+kern_tailf:
+	sudo tail -f /var/log/kern.log
+.PHONY: kern_syslog_tail
+kern_syslog_tail:
+	sudo tail /var/log/kern.log
+.PHONY: kern_syslog_tailf
+kern_syslog_tailf:
+	sudo tail -f /var/log/kern.log
+.PHONY: kern_dmesg
+kern_dmesg:
+	@sudo dmesg
+.PHONY: kern_dmesg_clean
+kern_dmesg_clean:
+	@sudo dmesg -c > /dev/null
+.PHONY: kern_halt
+kern_halt:
+	sudo halt
+.PHONY: kern_reboot
+kern_reboot:
+	sudo reboot
+.PHONY: kern_tips
+kern_tips:
+	@echo "do make V=1 [target] to see more of what is going on"
+	@echo
+	@echo "in order for the operational targets to work you need to"
+	@echo "make sure that can do 'sudo', preferably with no password."
+	@echo "one way to do that is to add yourself to the 'sudo' group"
+	@echo "and add to the /etc/sudoers file, using visudo, the line:"
+	@echo "%sudo ALL=NOPASSWD: ALL"
+	@echo
+	@echo "you can compile your module to a different kernel version"
+	@echo "like this: make KVER=2.6.13 [target]"
+	@echo "or edit the file and permanently change the version"
