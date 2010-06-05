@@ -1,5 +1,6 @@
 ALL:=
 CLEAN:=
+CLEAN_DIRS:=
 
 CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc")
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
@@ -7,11 +8,16 @@ ALL:=$(ALL) $(CC_EXE)
 CLEAN:=$(CLEAN) $(CC_EXE)
 
 MOD_SRC=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
-MOD_SR2=$(addsuffix .mod.c,$(basename $(MOD_SRC)))
-MOD_OB2=$(addsuffix .mod.o,$(basename $(MOD_SRC)))
-MOD_MOD:=$(addsuffix .ko,$(basename $(MOD_SRC)))
+MOD_BAS=$(basename $(MOD_SRC))
+MOD_SR2=$(addsuffix .mod.c,$(MOD_BAS))
+MOD_OB2=$(addsuffix .mod.o,$(MOD_BAS))
+MOD_CM1=$(addprefix kernel/.,$(addsuffix .ko.cmd,$(notdir $(MOD_BAS))))
+MOD_CM2=$(addprefix kernel/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
+MOD_CM3=$(addprefix kernel/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
+MOD_MOD:=$(addsuffix .ko,$(MOD_BAS))
 ALL:=$(ALL) $(MOD_MOD)
-CLEAN:=$(ALL) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2)
+CLEAN:=$(ALL) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) kernel/Module.symvers kernel/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3)
+CLEAN_DIRS:=$(CLEAN_DIRS) kernel/.tmp_versions
 
 .PHONY: all
 all: $(ALL)
@@ -19,6 +25,7 @@ all: $(ALL)
 .PHONY: clean
 clean:
 	-rm -f $(CLEAN)
+	-rm -rf $(CLEAN_DIRS)
 
 #CODEGEN=-g3
 CODEGEN=-O2 -s
@@ -54,3 +61,5 @@ debug:
 	$(info KDIR is $(KDIR))
 	$(info V is $(V))
 	$(info KCFLAGS is $(KCFLAGS))
+	$(info CLEAN is $(CLEAN))
+	$(info CLEAN_DIRS is $(CLEAN_DIRS))
