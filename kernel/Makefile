@@ -1,12 +1,6 @@
-# the name of the module we are doing
-NAME:=demo
-# object files to compile for the kernel module
-obj-m:=demo.o
-# extra objects in the "top" part of the driver
-demo-objs:=
-# fill in the name of the genrated ko file
-MOD:=demo.ko
-# fill in the directory of the kernel build system
+MODULE_SOURCES=$(shell find . -name "drv_*.c")
+MODULE_KO:=$(addsuffix .ko,$(basename $(MODULE_SOURCES)))
+
 
 DEBUG=1
 OPT=0
@@ -23,7 +17,7 @@ endif
 # fill in the vervosity level you want
 V:=0
 # flags for the C++ compiler
-CXXFLAGS:=-Wall -Werror
+CXXFLAGS:=-Wall -Werror -I../include
 # flags for the linker
 LDFLAGS=
 
@@ -43,7 +37,7 @@ FLAGS:=-C $(KDIR) $(CROSS_FLAGS) M=$(CURDIR) V=$(V) KCFLAGS=$(KCFLAGS)
 TESTS:=$(shell find . -name "test_*.cc")
 EXES:=$(basename $(TESTS))
 
-all: $(EXES) modules
+all: $(EXES) $(MODULE_KO)
 
 $(EXES): %: %.cc
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $< -lpthread -lcpufreq
@@ -51,11 +45,15 @@ modules:
 	$(MAKE) $(FLAGS) modules
 modules_install:
 	$(MAKE) $(FLAGS) modules_install
+.PHONY: clean_kernel
 clean_kernel:
 	$(MAKE) $(FLAGS) clean
 	# some how this file does get cleaned
 	-@rm -f modules.order Module.markers
-clean: clean_kernel
+.PHONY: clean
+clean:
+	# remove the kernel stuff
+	-rm -f $(MODULE_KO) $(MODULE_OBJ) modules.order Module.markers Module.symvers *.mod.o
 	# remove the user space
 	-@rm -f $(EXES) 
 help:
@@ -98,6 +96,8 @@ tips:
 	@echo "or edit the file and permanently change the version"
 
 debug:
+	@echo MODULE_SOURCES is $(MODULE_SOURCES)
+	@echo MODULE_KO is $(MODULE_KO)
 	@echo KDIR is $(KDIR)
 	@echo MOD is $(MOD)
 	@echo V is $(V)
@@ -112,3 +112,7 @@ SRC_DRVS:=$(shell find . -type f -name "drv_*.c")
 check:
 	for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 	for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
+
+# rule about how to create .ko files...
+$(MODULE_KO): %.ko: %.c
+	$(MAKE) $(FLAGS) modules obj-m=$(addsuffix .o,$(basename $<))

@@ -40,19 +40,8 @@ static int kern_minor=0;
 module_param(kern_minor,int,0444);
 MODULE_PARM_DESC(kern_minor,"minor to allocate in static mode");
 
-// constants for this module
-
-// The name of this module (several options)
-//#define MYNAME "pld"
-//#define MYNAME THIS_MODULE->name
-#define MYNAME KBUILD_MODNAME
-static const char myname[]=MYNAME;
-
 // number of files we expose via the chr dev
 static const int MINORS_COUNT=1;
-
-// name of the kobject we use
-#define KOBJ_NAME MYNAME
 
 int register_dev(void);
 void unregister_dev(void);
@@ -172,7 +161,7 @@ int register_dev() {
 	cdev_init(&pdev->cdev,&my_fops);
 	pdev->cdev.owner=THIS_MODULE;
 	pdev->cdev.ops=&my_fops;
-	kobject_set_name(&pdev->cdev.kobj,KOBJ_NAME);
+	kobject_set_name(&pdev->cdev.kobj,MYNAME);
 	if(cdev_add(&pdev->cdev,pdev->first_dev,1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;

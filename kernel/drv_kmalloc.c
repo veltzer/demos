@@ -36,9 +36,6 @@ static int kern_minor=0;
 // number of files we expose via the chr dev
 static const int MINORS_COUNT=1;
 
-// name of the kobject we use
-#define KOBJNAME MYNAME
-
 // first the structures
 
 struct kern_dev {
@@ -190,7 +187,7 @@ static int register_dev(void) {
 	cdev_init(&pdev->cdev,&my_fops);
 	pdev->cdev.owner=THIS_MODULE;
 	pdev->cdev.ops=&my_fops;
-	kobject_set_name(&pdev->cdev.kobj,KOBJNAME);
+	kobject_set_name(&pdev->cdev.kobj,MYNAME);
 	if(cdev_add(&pdev->cdev,pdev->first_dev,1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;

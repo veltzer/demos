@@ -30,17 +30,8 @@ static int kern_minor=0;
 
 // constants for this module
 
-// The name of this module (several options)
-//#define MYNAME "pld"
-//#define MYNAME THIS_MODULE->name
-#define MYNAME KBUILD_MODNAME
-static const char myname[]=MYNAME;
-
 // number of files we expose via the chr dev
 static const int MINORS_COUNT=1;
-
-// name of the kobject we use
-#define KOBJNAME MYNAME
 
 // first the structures
 
@@ -96,7 +87,7 @@ static struct file_operations my_fops={
 	.ioctl=kern_ioctl,
 };
 
-int register_dev() {
+int register_dev(void) {
 	// create a class
 	my_class = class_create(THIS_MODULE, MYNAME);
 	if (IS_ERR(my_class)) {
@@ -127,7 +118,7 @@ int register_dev() {
 	cdev_init(&pdev->cdev,&my_fops);
 	pdev->cdev.owner=THIS_MODULE;
 	pdev->cdev.ops=&my_fops;
-	kobject_set_name(&pdev->cdev.kobj,KOBJNAME);
+	kobject_set_name(&pdev->cdev.kobj,MYNAME);
 	if(cdev_add(&pdev->cdev,pdev->first_dev,1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;
@@ -162,7 +153,7 @@ int register_dev() {
 		return -1;
 }
 
-void unregister_dev() {
+void unregister_dev(void) {
 	device_destroy(my_class,pdev->first_dev);
 	cdev_del(&pdev->cdev);
 	unregister_chrdev_region(pdev->first_dev,MINORS_COUNT);

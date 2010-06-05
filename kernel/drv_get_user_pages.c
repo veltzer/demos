@@ -39,9 +39,6 @@ static int kern_minor=0;
 // number of files we expose via the chr dev
 static const int MINORS_COUNT=1;
 
-// name of the kobject we use
-#define KOBJ_NAME MYNAME
-
 // first the structures
 
 struct kern_dev {
@@ -260,7 +257,7 @@ static struct file_operations my_fops={
 
 static int register_dev(void) {
 	// create a class
-	my_class = class_create(THIS_MODULE, MYNAME);
+	my_class = class_create(THIS_MODULE,MYNAME);
 	if (IS_ERR(my_class)) {
 		goto goto_nothing;
 	}
@@ -289,7 +286,7 @@ static int register_dev(void) {
 	cdev_init(&pdev->cdev,&my_fops);
 	pdev->cdev.owner=THIS_MODULE;
 	pdev->cdev.ops=&my_fops;
-	kobject_set_name(&pdev->cdev.kobj,KOBJ_NAME);
+	kobject_set_name(&pdev->cdev.kobj,MYNAME);
 	if(cdev_add(&pdev->cdev,pdev->first_dev,1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;

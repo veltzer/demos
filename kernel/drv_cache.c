@@ -22,15 +22,6 @@ MODULE_DESCRIPTION("Demo module for testing");
 
 // constants for this module
 
-// The name of this module (several options)
-//#define MYNAME "pld"
-//#define MYNAME THIS_MODULE->name
-#define MYNAME KBUILD_MODNAME
-static const char myname[]=MYNAME;
-
-// name of the kobject we use
-#define KOBJ_NAME MYNAME
-
 // our own functions
 
 // This demo is to show how to create caches and use them.
