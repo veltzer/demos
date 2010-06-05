@@ -1,6 +1,5 @@
-MODULE_SOURCES=$(shell find . -name "drv_*.c")
+MODULE_SOURCES=$(shell find . -name "drv_*.c" -and -not -name "drv_*.mod.c")
 MODULE_KO:=$(addsuffix .ko,$(basename $(MODULE_SOURCES)))
-
 
 DEBUG=1
 OPT=0
@@ -53,7 +52,8 @@ clean_kernel:
 .PHONY: clean
 clean:
 	# remove the kernel stuff
-	-rm -f $(MODULE_KO) $(MODULE_OBJ) modules.order Module.markers Module.symvers *.mod.o
+	-rm -f $(MODULE_KO) $(MODULE_OBJ) modules.order Module.markers Module.symvers *.mod.o *.mod.c .*.o.cmd .*.ko.cmd
+	-rm -rf .tmp_versions
 	# remove the user space
 	-@rm -f $(EXES) 
 help:

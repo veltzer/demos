@@ -12,6 +12,7 @@
 #include <linux/mm.h>
 #include <linux/err.h>
 
+#define DO_DEBUG
 #include "kernel_helper.h"
 
 static int __init mod_init(void) {
