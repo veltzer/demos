@@ -34,11 +34,11 @@ KCFLAGS:=-Werror
 FLAGS:=-C $(KDIR) $(CROSS_FLAGS) M=$(CURDIR) V=$(V) KCFLAGS=$(KCFLAGS)
 
 TESTS:=$(shell find . -name "test_*.cc")
-EXES:=$(basename $(TESTS))
+EXES:=$(addsuffix .exe,$(basename $(TESTS)))
 
 all: $(EXES) $(MODULE_KO)
 
-$(EXES): %: %.cc
+$(EXES): %.exe: %.cc
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $< -lpthread -lcpufreq
 modules:
 	$(MAKE) $(FLAGS) modules
