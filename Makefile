@@ -1,19 +1,24 @@
 ALL:=
+CLEAN:=
 
 CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc")
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
 ALL:=$(ALL) $(CC_EXE)
+CLEAN:=$(CLEAN) $(CC_EXE)
 
 MOD_SRC=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
+MOD_SR2=$(addsuffix .mod.c,$(basename $(MOD_SRC)))
+MOD_OB2=$(addsuffix .mod.o,$(basename $(MOD_SRC)))
 MOD_MOD:=$(addsuffix .ko,$(basename $(MOD_SRC)))
 ALL:=$(ALL) $(MOD_MOD)
+CLEAN:=$(ALL) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2)
 
 .PHONY: all
 all: $(ALL)
 
 .PHONY: clean
 clean:
-	-rm -f $(ALL)
+	-rm -f $(CLEAN)
 
 #CODEGEN=-g3
 CODEGEN=-O2 -s
