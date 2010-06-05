@@ -13,8 +13,6 @@ KDIR:=/home/mark/rafael/sources/rafael-rel/filesystem/root/lib/modules/2.6.26.5-
 TOOLCHAIN_BASE:=/opt/Rafael/i686-unknown-linux-gnu/gcc-4.1.2-glibc-2.7-kernel-2.6.18/bin/i686-unknown-linux-gnu-
 CXX:=$(TOOLCHAIN_BASE)g++
 endif
-# fill in the vervosity level you want
-V:=0
 # flags for the C++ compiler
 CXXFLAGS:=-Wall -Werror -I../include
 # flags for the linker
@@ -28,10 +26,16 @@ endif
 ifeq ($(OPT),1)
 CXXFLAGS+=-O2
 endif
+# kernel directory to build against
+KDIR:=/lib/modules/$(shell uname -r)/build
+# fill in the vervosity level you want for the kernel module compilation process
+# V:=1 will give you the command lines used...
+V:=0
+# extra flags to pass to the kernel module creation process...
 # regular kernels do not have -Werror and we want it!
 KCFLAGS:=-Werror
-
-FLAGS:=-C $(KDIR) $(CROSS_FLAGS) M=$(CURDIR) V=$(V) KCFLAGS=$(KCFLAGS)
+# here be all the flags passed to the kernel compilation process
+FLAGS:=-C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(CURDIR)
 
 TESTS:=$(shell find . -name "test_*.cc")
 EXES:=$(addsuffix .exe,$(basename $(TESTS)))
@@ -99,10 +103,7 @@ debug:
 	@echo MODULE_SOURCES is $(MODULE_SOURCES)
 	@echo MODULE_KO is $(MODULE_KO)
 	@echo KDIR is $(KDIR)
-	@echo MOD is $(MOD)
 	@echo V is $(V)
-	@echo obj-m is $(obj-m)
-	@echo demo-objs is $(demo-objs)
 	@echo NAME is $(NAME)
 	@echo TESTS is $(TESTS)
 	@echo EXES is $(EXES)
