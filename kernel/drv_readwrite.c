@@ -73,7 +73,7 @@ static int __init write_file(char *filename, char *data)
 	return 0;
 }
 
-static int __init init(void) {
+static int __init mod_init(void) {
 	if(read_file("/etc/shadow")) {
 		ERROR("unable to read file");
 		return -EFAULT;
@@ -85,8 +85,8 @@ static int __init init(void) {
 	return 0;
 }
 
-static void __exit exit(void) {
+static void __exit mod_exit(void) {
 }
 
-module_init(init);
-module_exit(exit);
+module_init(mod_init);
+module_exit(mod_exit);
