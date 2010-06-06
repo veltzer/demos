@@ -5,12 +5,19 @@
 #include <linux/fcntl.h>
 #include <linux/fs.h>
 #include <linux/mm.h>
-#include <linux/vmalloc.h>
 #include <linux/slab.h>
 #include <linux/sched.h>
 #include <asm/uaccess.h>
 
 #include "kernel_helper.h"
+
+/*
+ * This is a module that demos how to read and write files inside the kernel
+ */
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Mark Veltzer");
+MODULE_DESCRIPTION("Demo module for testing");
 
 static int __init read_file(char *filename)
 {
@@ -80,8 +87,6 @@ static int __init init(void) {
 
 static void __exit exit(void) {
 }
-
-MODULE_LICENSE("GPL");
 
 module_init(init);
 module_exit(exit);
