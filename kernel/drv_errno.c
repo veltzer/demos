@@ -43,24 +43,6 @@ MODULE_PARM_DESC(kern_minor,"minor to allocate in static mode");
 // number of files we expose via the chr dev
 static const int MINORS_COUNT=1;
 
-int register_dev(void);
-void unregister_dev(void);
-
-// our own functions
-
-static int __init mod_init(void) {
-	return register_dev();
-}
-
-static void __exit mod_exit(void) {
-	unregister_dev();
-}
-
-// declaration of init/cleanup functions of this module
-
-module_init(mod_init);
-module_exit(mod_exit);
-
 // first the structures
 
 struct kern_dev {
@@ -130,7 +112,7 @@ static struct file_operations my_fops={
 	.ioctl=kern_ioctl,
 };
 
-int register_dev() {
+static int register_dev(void) {
 	// create a class
 	my_class = class_create(THIS_MODULE, MYNAME);
 	if (IS_ERR(my_class)) {
@@ -196,10 +178,25 @@ int register_dev() {
 		return -1;
 }
 
-void unregister_dev() {
+static void unregister_dev(void) {
 	device_destroy(my_class,pdev->first_dev);
 	cdev_del(&pdev->cdev);
 	unregister_chrdev_region(pdev->first_dev,MINORS_COUNT);
 	kfree(pdev);
 	class_destroy(my_class);
 }
+
+// our own functions
+
+static int __init mod_init(void) {
+	return register_dev();
+}
+
+static void __exit mod_exit(void) {
+	unregister_dev();
+}
+
+// declaration of init/cleanup functions of this module
+
+module_init(mod_init);
+module_exit(mod_exit);
