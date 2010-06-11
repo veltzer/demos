@@ -14,6 +14,8 @@
  * - the wmemset function not inline assembly (you cannot break on it in the debugger)
  * - this example does not explore the inner workins of the wmemset function (meanins whether
  *      it is implemented efficiently or not).
+ *
+ * TODO: find out how wmemset work and discuss it's efficiency.
 
 		Mark Veltzer
 
