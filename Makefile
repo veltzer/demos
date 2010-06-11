@@ -51,7 +51,9 @@ clean:
 	-rm -rf $(CLEAN_DIRS)
 
 #CODEGEN=-g3
-CODEGEN=-O2 -s
+#CODEGEN=-O2 -s
+# optimization with debug info (for disassembly)
+CODEGEN=-O2 -g3
 FLAGS=-Wall -Werror $(CODEGEN) -Iinclude
 CXXFLAGS:=$(FLAGS)
 
