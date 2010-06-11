@@ -25,9 +25,10 @@ CLEAN:=
 CLEAN_DIRS:=
 
 CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc")
+CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
-ALL:=$(ALL) $(CC_EXE)
-CLEAN:=$(CLEAN) $(CC_EXE)
+ALL:=$(ALL) $(CC_EXE) $(CC_DIS)
+CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS)
 
 MOD_SRC=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
 MOD_BAS=$(basename $(MOD_SRC))
@@ -72,6 +73,8 @@ KCFLAGS:=-Werror
 # how to create regular executables...
 $(CC_EXE): %.exe: %.cc
 	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2 -d =`; EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2 -d =`; EXTRA_CMDS=$$($$EXTRA_CMDS); $(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
+$(CC_DIS): %.dis: %.exe
+	objdump --source --disassemble $< > $@
 # rule about how to create .ko files...
 $(MOD_MOD): %.ko: %.c
 	$(MAKE) -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<)))
@@ -79,6 +82,7 @@ $(MOD_MOD): %.ko: %.c
 .PHONY: debug
 debug:
 	$(info CC_SRC is $(CC_SRC))
+	$(info CC_DIS is $(CC_DIS))
 	$(info CC_EXE is $(CC_EXE))
 	$(info MOD_SRC is $(MOD_SRC))
 	$(info MOD_MOD is $(MOD_MOD))
