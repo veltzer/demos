@@ -25,10 +25,11 @@ CLEAN:=
 CLEAN_DIRS:=
 
 CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc")
+CC_ASX:=$(addsuffix .s,$(basename $(CC_SRC)))
 CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
-ALL:=$(ALL) $(CC_EXE) $(CC_DIS)
-CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS)
+ALL:=$(ALL) $(CC_EXE) $(CC_DIS) $(CC_ASX)
+CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS) $(CC_ASX)
 
 MOD_SRC=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
 MOD_BAS=$(basename $(MOD_SRC))
@@ -54,7 +55,7 @@ clean:
 #CODEGEN=-g3
 #CODEGEN=-O2 -s
 # optimization with debug info (for disassembly)
-CODEGEN=-O2 -g3
+CODEGEN=-O2 -g3 -mtune=native
 FLAGS=-Wall -Werror $(CODEGEN) -Iinclude
 CXXFLAGS:=$(FLAGS)
 
@@ -73,6 +74,8 @@ KCFLAGS:=-Werror
 # how to create regular executables...
 $(CC_EXE): %.exe: %.cc
 	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2 -d =`; EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2 -d =`; EXTRA_CMDS=$$($$EXTRA_CMDS); $(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
+$(CC_ASX): %.s: %.cc
+	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2 -d =`; EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2 -d =`; EXTRA_CMDS=$$($$EXTRA_CMDS); $(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
 $(CC_DIS): %.dis: %.exe
 	objdump --source --disassemble $< > $@
 # rule about how to create .ko files...

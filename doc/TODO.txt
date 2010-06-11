@@ -10,3 +10,6 @@ the timer interrupts but rather through the RTC line...
 
 show a demo of how memset works. Show the disassembly.
 	Show how wmemset work. Does it work the same as memset ?
+
+add a feature to the makefile that deduces all the libraries that I'm using
+and all the packages that I need (and installs them ?!?).
