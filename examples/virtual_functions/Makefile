@@ -9,7 +9,7 @@ main: $(OBJECTS)
 
 .PHONY: clean
 clean:
-	-rm -f $(OBJECTS) 
+	-rm -f $(OBJECTS) main
 
 .PHONY: debug
 debug:
