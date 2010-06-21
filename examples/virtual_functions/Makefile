@@ -2,14 +2,14 @@ SOURCES=$(shell find . -name "*.cc")
 OBJECTS=$(addsuffix .o,$(basename $(SOURCES)))
 
 .PHONY: all
-all: main
+all: main.exe
 
-main: $(OBJECTS)
+main.exe: $(OBJECTS)
 	g++ -o $@ $^
 
 .PHONY: clean
 clean:
-	-rm -f $(OBJECTS) main
+	-rm -f $(OBJECTS) main.exe
 
 .PHONY: debug
 debug:
