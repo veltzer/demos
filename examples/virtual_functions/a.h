@@ -1,6 +1,6 @@
-
 class A {
 	public:
-		virtual void doit(void);
-		virtual void dothat(void);
+		void foo(void);
+		virtual void bar(void);
+		virtual void zoo(void);
 };
