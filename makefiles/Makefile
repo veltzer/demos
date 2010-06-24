@@ -1,1 +1,1 @@
-Makefile.check_ifneq
+Makefile.check_ifneq.mk
