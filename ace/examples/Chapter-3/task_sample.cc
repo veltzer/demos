@@ -1,6 +1,6 @@
 // page05.html,v 1.10 2000/03/19 20:09:26 jcej Exp
 
-#include <examples/Chapter-3/task.h>
+#include "task.h"
 #include <ace/Message_Block.h>
 /*
 EXTRA_CMDS=pkg-config --cflags --libs ACE
@@ -77,10 +77,10 @@ int Task::svc (void)
    // What we really put into the queue is a Message_Block, so we'll
    // cast the 'message' to 'message_block' after getting it.  I'm
    // going through some extra steps here just to be explicit
-  Message_Block * message_block;
+  ACE_Message_Block * message_block;
    // The baseclass of the work object we put into the queue.  Notice
    // that we can use this and not bother with the Work object at all.
-  Unit_Of_Work * unit_of_work;
+  //Unit_Of_Work * unit_of_work;
 
   while (1)
   {
@@ -101,7 +101,7 @@ int Task::svc (void)
      // Cast the pointer to our specialized Message_Block.  We could
      // have done this at the getq() call but I wanted to be explicit
      // about what we're doing here
-    message_block = (Message_Block*)message;
+    message_block = (ACE_Message_Block*)message;
 
      /*
        Since we left alone the ACE_Data_Block used by the
@@ -117,13 +117,13 @@ int Task::svc (void)
        Message_Block.  Since the methods of interest are virtual, we
        don't have to know what kind of work we're to do.
      */
-    unit_of_work = message_block->data();
+    //unit_of_work = message_block->data();
 
     /*
        Invoke a couple of method calls on the object we constructed.
      */
-    unit_of_work->who_am_i ();
-    unit_of_work->what_am_i ();
+    //unit_of_work->who_am_i ();
+    //unit_of_work->what_am_i ();
 
     ACE_DEBUG ((LM_DEBUG, "(%P|%t) Block 0x%x contains (%s)\n", (void *) message, cp));
 
@@ -143,4 +143,8 @@ int Task::svc (void)
   }
 
   return (0);
+}
+
+int main(int argc,char** argv) {
+	return 0;
 }
