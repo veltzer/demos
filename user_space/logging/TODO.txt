@@ -1,0 +1,7 @@
+more examples that I need to put here:
+1. how to use __FILE__, __LINE__, __FUNCTION__.
+2. measure times for all debugging.
+3. demo on how to put the debug file on a ram disk.
+4. libcwd logging.
+5. boost logging.
+6. buffering examples to show how to line buffer files for logging.
