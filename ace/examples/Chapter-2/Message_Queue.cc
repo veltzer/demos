@@ -89,7 +89,7 @@ int Message_Receiver::handle_input(ACE_HANDLE)
 	}
 
 	if (dch.deviceId_ < 0)
-	{                                // Handle shutdown.
+	{                                     // Handle shutdown.
 		this->handler_->putq(shut_down_message());
 		return(-1);
 	}

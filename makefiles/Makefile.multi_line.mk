@@ -1,10 +1,10 @@
 # the idea is to show how to define a multi line variable in makefiles...
 
-MULT=\
+MULTI=\
 	one\
 	three
 #	two\
 
 
 all:
-	echo $(MULT)
+	echo $(MULTI)

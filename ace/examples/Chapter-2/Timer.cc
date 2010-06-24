@@ -48,8 +48,8 @@ int ACE_TMAIN(int, char **)
 	{
 		timer_id[i] = reactor.schedule_timer(
 			th,
-			(const void *)i,                                                                                                               // argument sent to handle_timeout()
-			ACE_Time_Value(2 * i + 1)                                                                                                      // set timer to go off with delay
+			(const void *)i,                                                                                                                              // argument sent to handle_timeout()
+			ACE_Time_Value(2 * i + 1)                                                                                                                     // set timer to go off with delay
 			);
 	}
 	// Cancel the fifth timer before it goes off
