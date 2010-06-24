@@ -13,4 +13,4 @@ mainpg.objdump: mainpg
 	objdump -D $< > $@
 
 clean:
-	-rm mainpg main main.objdump mainpg.objdump
+	-rm mainpg main main.objdump mainpg.objdump gmon.out

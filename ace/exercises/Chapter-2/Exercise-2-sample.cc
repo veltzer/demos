@@ -11,6 +11,9 @@
 #include <ace/Thread_Manager.h>
 #include <ace/Service_Config.h>
 #include <ace/Truncate.h>
+/*
+EXTRA_CMDS=pkg-config --cflags --libs ACE
+*/
 
 // Global thread manager.
 static ACE_Thread_Manager thr_mgr;
