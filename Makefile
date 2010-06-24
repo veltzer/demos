@@ -42,7 +42,7 @@ MOD_CM2=$(addprefix kernel/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
 MOD_CM3=$(addprefix kernel/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
 MOD_MOD:=$(addsuffix .ko,$(MOD_BAS))
 ALL:=$(ALL) $(MOD_MOD)
-CLEAN:=$(ALL) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) kernel/Module.symvers kernel/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3) $(MOD_OBJ)
+CLEAN:=$(CLEAN) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) kernel/Module.symvers kernel/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3) $(MOD_OBJ)
 CLEAN_DIRS:=$(CLEAN_DIRS) kernel/.tmp_versions
 
 .PHONY: all
