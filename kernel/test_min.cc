@@ -1,18 +1,18 @@
-#include<stdio.h>
-#include<sys/types.h>
-#include<sys/stat.h>
-#include<fcntl.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<sys/ioctl.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
 
-#include"us_helper.h"
+#include "us_helper.h"
 
 /*
-	The most minimal test
-*/
-
-int main(int argc,char** argv,char** envp) {
+ *      The most minimal test
+ */
+int main(int argc, char **argv, char **envp)
+{
 	DEBUG("hello");
-	return 0;
+	return(0);
 }

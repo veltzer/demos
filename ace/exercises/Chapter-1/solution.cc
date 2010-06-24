@@ -15,33 +15,39 @@
 // Use %I to cause indentation. without trace this does nothing.
 // With trace enabled it will indent according to functions entered.
 // Multiple "%I" usage is possible.
-// 
+//
 #define ACE_NTRACE 0
 #include <ace/Log_Msg.h>
-/*
-EXTRA_CMDS=pkg-config --cflags --libs ACE
-*/
 
-void FunB () {
+/*
+ * EXTRA_CMDS=pkg-config --cflags --libs ACE
+ */
+void FunB()
+{
 	//ACE_TRACE(ACE_TEXT("FunB"));
-	ACE_DEBUG((LM_DEBUG,ACE_TEXT("%I DEBUG : pid=%P Line:%l File=%N\n")));
+	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%I DEBUG : pid=%P Line:%l File=%N\n")));
 	//ACE_DEBUG((LM_INFO,ACE_TEXT("%I INFO : pid=%P Line:%l File=%N\n")));
 	//ACE_DEBUG((LM_NOTICE,ACE_TEXT("%I NOTICE: pid=%P Line:%l File=%N\n")));
 }
 
-void FunA () {
+
+void FunA()
+{
 	//ACE_TRACE(ACE_TEXT("FunA"));
-	ACE_DEBUG((LM_DEBUG,ACE_TEXT("%I DEBUG : pid=%P Line:%l File=%N\n")));
+	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%I DEBUG : pid=%P Line:%l File=%N\n")));
 	//ACE_DEBUG((LM_INFO,ACE_TEXT("%I INFO : pid=%P Line:%l File=%N\n")));
 	//ACE_DEBUG((LM_NOTICE,ACE_TEXT("%I NOTICE: pid=%P Line:%l File=%N\n")));
 	FunB();
 }
 
-int ACE_TMAIN(int,ACE_TCHAR**)
+
+int ACE_TMAIN(int, ACE_TCHAR **)
 {
 	ACE_LOG_MSG->priority_mask(LM_DEBUG | LM_INFO | LM_NOTICE | LM_TRACE, ACE_Log_Msg::PROCESS);
 	ACE_TRACE(ACE_TEXT("main"));
-	for(int i=0;i<2;i++)
+	for (int i = 0; i < 2; i++)
+	{
 		FunA();
-	return 0;
+	}
+	return(0);
 }

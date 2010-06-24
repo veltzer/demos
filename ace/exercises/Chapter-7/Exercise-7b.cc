@@ -12,250 +12,308 @@
 #include <ace/Task.h>
 #include <ace/Future.h>
 #include <ace/Auto_Ptr.h>
+
 /*
-EXTRA_CMDS=pkg-config --cflags --libs ACE
-*/
+ * EXTRA_CMDS=pkg-config --cflags --libs ACE
+ */
 
 static const long max_queue = LONG_MAX;
 
-ACE_Message_Queue<ACE_MT_SYNCH> msg_queue (max_queue);
-int ReadMessage (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue);
+ACE_Message_Queue<ACE_MT_SYNCH> msg_queue(max_queue);
+int ReadMessage(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue);
 
 class MessageAgent
-{ // Proxy to the MessageAgent that is on the network.
+{  // Proxy to the MessageAgent that is on the network.
 public:
-  MessageAgent ()
-  { ACE_TRACE (ACE_TEXT ("MessageAgent::MessageAgentAgent"));
-    status_result_ = 1;
-  }
+	MessageAgent()
+	{
+		ACE_TRACE(ACE_TEXT("MessageAgent::MessageAgentAgent"));
+		status_result_ = 1;
+	}
 
-  int message_read (void)
-  { ACE_TRACE (ACE_TEXT ("MessageAgent::message_read"));
-    ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) Message Read ") ));
-    // Read message from queue
-    ReadMessage (&msg_queue);   // Read Single message
-    ACE_OS::sleep (2);
-    return next_result_id ();
-  }
+
+	int message_read(void)
+	{
+		ACE_TRACE(ACE_TEXT("MessageAgent::message_read"));
+		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Message Read ")));
+		// Read message from queue
+		ReadMessage(&msg_queue);                                                    // Read Single message
+		ACE_OS::sleep(2);
+		return(next_result_id());
+	}
+
 
 private:
-  int next_result_id (void)
-  { ACE_TRACE (ACE_TEXT ("MessageAgent::next_cmd_id"));
-    return status_result_++;
-  }
+	int next_result_id(void)
+	{
+		ACE_TRACE(ACE_TEXT("MessageAgent::next_cmd_id"));
+		return(status_result_++);
+	}
 
-  int status_result_;
+
+	int status_result_;
 };
 
 class MessageRequest : public ACE_Method_Request
 {
 public:
-  MessageRequest (MessageAgent& message, ACE_Future<int>& returnVal)
-    : message_(message), returnVal_(returnVal)
-  { ACE_TRACE (ACE_TEXT ("MessageRequest::MessageRequest"));
-  }
+	MessageRequest(MessageAgent& message, ACE_Future<int>& returnVal)
+		: message_(message), returnVal_(returnVal)
+	{
+		ACE_TRACE(ACE_TEXT("MessageRequest::MessageRequest"));
+	}
 
-  virtual int call (void)
-  { ACE_TRACE (ACE_TEXT ("MessageRequest::call"));
 
-    // message_read with the message.
-    this->returnVal_.set (this->message_.message_read ());
-    return 0;
-  }
+	virtual int call(void)
+	{
+		ACE_TRACE(ACE_TEXT("MessageRequest::call"));
+
+		// message_read with the message.
+		this->returnVal_.set(this->message_.message_read());
+		return(0);
+	}
+
 
 private:
-  MessageAgent& message_;
-  ACE_Future<int> returnVal_;
+	MessageAgent&   message_;
+	ACE_Future<int> returnVal_;
 };
 
 class ExitMethod : public ACE_Method_Request
 {
 public:
-  virtual int call (void)
-  { // Cause exit.
-    ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) Finally reached Future call()\n")));
-    return -1;
-  }
+	virtual int call(void)
+	{                           // Cause exit.
+		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Finally reached Future call()\n")));
+		return(-1);
+	}
 };
 
 class Scheduler : public ACE_Task_Base
 {
 public:
-  Scheduler ()
-  { ACE_TRACE (ACE_TEXT ("Scheduler::Scheduler"));
-    this->activate ();
-  }
+	Scheduler()
+	{
+		ACE_TRACE(ACE_TEXT("Scheduler::Scheduler"));
+		this->activate();
+	}
 
-  virtual int svc (void)
-  { ACE_TRACE (ACE_TEXT ("Scheduler::svc"));
 
-    while (1)
-      { // Dequeue the next method object
-        auto_ptr<ACE_Method_Request> request (this->activation_queue_.dequeue ());
+	virtual int svc(void)
+	{
+		ACE_TRACE(ACE_TEXT("Scheduler::svc"));
 
-        // Invoke the method request.
-        if (request->call () == -1)
-          break;
-      }
+		while (1)
+		{                                                    // Dequeue the next method object
+			auto_ptr<ACE_Method_Request> request(this->activation_queue_.dequeue());
 
-    return 0;
-  }
+			// Invoke the method request.
+			if (request->call() == -1)
+			{
+				break;
+			}
+		}
 
-  int enqueue (ACE_Method_Request *request)
-  { ACE_TRACE (ACE_TEXT ("Scheduler::enqueue"));
-    return this->activation_queue_.enqueue (request);
-  }
+		return(0);
+	}
+
+
+	int enqueue(ACE_Method_Request *request)
+	{
+		ACE_TRACE(ACE_TEXT("Scheduler::enqueue"));
+		return(this->activation_queue_.enqueue(request));
+	}
+
 
 private:
-  ACE_Activation_Queue activation_queue_;
+	ACE_Activation_Queue activation_queue_;
 };
 
 class MessageAgentProxy
-{ // This acts as a Proxy to the message impl object.
+{  // This acts as a Proxy to the message impl object.
 public:
-  ACE_Future<int> status_update (void)
-  { ACE_TRACE (ACE_TEXT ("MessageAgentProxy::status_update"));
-    ACE_Future<int> result;
+	ACE_Future<int> status_update(void)
+	{
+		ACE_TRACE(ACE_TEXT("MessageAgentProxy::status_update"));
+		ACE_Future<int> result;
 
-    // Create and enqueue a method request on the scheduler.
-    this->scheduler_.enqueue (new MessageRequest (this->message_, result));
+		// Create and enqueue a method request on the scheduler.
+		this->scheduler_.enqueue(new MessageRequest(this->message_, result));
 
-    // Return Future to the client.
-    return result;
-  }
+		// Return Future to the client.
+		return(result);
+	}
 
-  void exit (void)
-  { ACE_TRACE (ACE_TEXT ("MessageAgentProxy::exit"));
-    this->scheduler_.enqueue (new ExitMethod);
-  }
+
+	void exit(void)
+	{
+		ACE_TRACE(ACE_TEXT("MessageAgentProxy::exit"));
+		this->scheduler_.enqueue(new ExitMethod);
+	}
+
 
 private:
-  Scheduler scheduler_;
-  MessageAgent message_;
+	Scheduler    scheduler_;
+	MessageAgent message_;
 };
 
 class CompletionCallBack : public ACE_Future_Observer<int>
 {
 public:
-  CompletionCallBack (MessageAgentProxy& proxy)
-    : proxy_(proxy)
-  { }
+	CompletionCallBack(MessageAgentProxy& proxy)
+		: proxy_(proxy)
+	{ }
 
-  virtual void update (const ACE_Future<int>& future)
-  { int result = 0;
-    ((ACE_Future<int>)future).get (result);
-    if (result == 10)
-      this->proxy_.exit ();
-  }
+	virtual void update(const ACE_Future<int>& future)
+	{
+		int result = 0;
+
+		((ACE_Future<int> )future).get(result);
+		if (result == 10)
+		{
+			this->proxy_.exit();
+		}
+	}
+
 
 private:
-  MessageAgentProxy& proxy_;
+	MessageAgentProxy& proxy_;
 };
 
 int GetMessageType(char *data)
-{ static ACE_Read_Buffer rb (ACE_STDIN);        // Read new line from stdin
+{
+	static ACE_Read_Buffer rb(ACE_STDIN);                                 // Read new line from stdin
 
-  // read a single line from stdin
-  // Allocate a new buffer.
-	char *buffer = rb.read ('\n');
+	// read a single line from stdin
+	// Allocate a new buffer.
+	char *buffer = rb.read('\n');
 
-  if ( buffer == 0)
-     { // return message type zero when EOF is reached
-       return 0;                        // Return 0 as message type
-     }
-  else
-     { int type;
-			 sscanf (buffer, "%d", &type);
-			 ACE_OS::sprintf (data, "%s", buffer+2);   // Remove the type from the buffer
-       return type;
-    }
+	if (buffer == 0)
+	{                                                                                      // return message type zero when EOF is reached
+		return(0);                                                                          // Return 0 as message type
+	}
+	else
+	{
+		int type;
+		sscanf(buffer, "%d", &type);
+		ACE_OS::sprintf(data, "%s", buffer + 2);                                                                       // Remove the type from the buffer
+		return(type);
+	}
 }
 
-int SendMessage ( char * buffer, int type )
-{ // ACE_DEBUG ((LM_DEBUG , ACE_TEXT ("SendMessage Line:%l\n")));
 
-  ACE_Message_Block *mb;
-	size_t size=ACE_OS::strlen(buffer);    // get message size
-  // Allocate a new message, but have it "borrow" its memory from the buffer.
+int SendMessage(char *buffer, int type)
+{                                                                            // ACE_DEBUG ((LM_DEBUG , ACE_TEXT ("SendMessage Line:%l\n")));
+	ACE_Message_Block *mb;
+	size_t            size = ACE_OS::strlen(buffer);                          // get message size
+
+	// Allocate a new message, but have it "borrow" its memory from the buffer.
 //ACE_NEW_RETURN (mb, ACE_Message_Block (size+1, ACE_Message_Block::MB_DATA, 0, buffer), 0);
-  ACE_NEW_RETURN (mb, ACE_Message_Block (size+1), 0);  // Reserve location for buffer internally
-	ACE_OS::strcpy (mb->wr_ptr(), buffer);               // Then we DO NOT need to re-allocate buffer
-  mb->wr_ptr (size+1);                                 // Also we release ONLY the mb which holds the buffer
-	mb->msg_type(type);                                  // Set Message Type
+	ACE_NEW_RETURN(mb, ACE_Message_Block(size + 1), 0);                                // Reserve location for buffer internally
+	ACE_OS::strcpy(mb->wr_ptr(), buffer);                                              // Then we DO NOT need to re-allocate buffer
+	mb->wr_ptr(size + 1);                                                              // Also we release ONLY the mb which holds the buffer
+	mb->msg_type(type);                                                                // Set Message Type
 	switch (type)
-         {  case 1:
+	{
+	case 1:
 //                 Enqueue in tail queue
-                   if (msg_queue.enqueue_tail (mb) == -1)
-                       ACE_ERROR ((LM_ERROR, "(%t) %p\n", "put_next"));
-                   break;
-            case 2:
+		if (msg_queue.enqueue_tail(mb) == -1)
+		{
+			ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
+		}
+		break;
+
+	case 2:
 //                 Enqueue in head queue
-                   if (msg_queue.enqueue_head (mb) == -1)
-                       ACE_ERROR ((LM_ERROR, "(%t) %p\n", "put_next"));
-                   break;
-            case 3:
+		if (msg_queue.enqueue_head(mb) == -1)
+		{
+			ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
+		}
+		break;
+
+	case 3:
 //                 Enqueue in tail queue
-                   if (msg_queue.enqueue_tail (mb) == -1)
-                       ACE_ERROR ((LM_ERROR, "(%t) %p\n", "put_next"));
-                   break;
-            case 4:
+		if (msg_queue.enqueue_tail(mb) == -1)
+		{
+			ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
+		}
+		break;
+
+	case 4:
 //                 Enqueue in head queue
-                   if (msg_queue.enqueue_head (mb) == -1)
-                       ACE_ERROR ((LM_ERROR, "(%t) %p\n", "put_next"));
-                   break;
-             default:
+		if (msg_queue.enqueue_head(mb) == -1)
+		{
+			ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
+		}
+		break;
+
+	default:
 //                 Enqueue the message at priority 10
-                   mb->msg_priority (10);
-                   if (msg_queue.enqueue_prio (mb) == -1)
-                       ACE_ERROR ((LM_ERROR, "(%t) %p\n", "put_next"));
-                   break;
-         }
+		mb->msg_priority(10);
+		if (msg_queue.enqueue_prio(mb) == -1)
+		{
+			ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
+		}
+		break;
+	}
 
-  return 0;
+	return(0);
 }
 
-int ReadMessage (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
-{ ACE_Message_Block *mb;
 
-  if (msg_queue->dequeue_head (mb) == -1)
-      return 1;
-  int length = ACE_Utils::truncate_cast<int> (mb->length ());
-	int type = mb->msg_type();
-  if (length > 0)
-	    ACE_DEBUG ((LM_DEBUG , "(%d)-<%s>\n", type, mb->rd_ptr ()));
+int ReadMessage(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
+{
+	ACE_Message_Block *mb;
 
-  // Free up the Message_Block. Buffer is includede and is NOT pointed.
-  mb->release (); // Free the Memory Block
+	if (msg_queue->dequeue_head(mb) == -1)
+	{
+		return(1);
+	}
+	int length = ACE_Utils::truncate_cast<int> (mb->length());
+	int type   = mb->msg_type();
+	if (length > 0)
+	{
+		ACE_DEBUG((LM_DEBUG, "(%d)-<%s>\n", type, mb->rd_ptr()));
+	}
 
-  return type;
+	// Free up the Message_Block. Buffer is includede and is NOT pointed.
+	mb->release();                          // Free the Memory Block
+
+	return(type);
 }
 
-int ACE_TMAIN (int, ACE_TCHAR *[])
-{ MessageAgentProxy message;
+
+int ACE_TMAIN(int, ACE_TCHAR *[])
+{
+	MessageAgentProxy message;
+
 	// Save place for up to 100 messages. If we are not sure we may use malloc
 	// and have unlimited number.
-  ACE_Future<int> results[100];
-	char buffer[100];
+	ACE_Future<int> results[100];
+	char            buffer[100];
 
-  CompletionCallBack cb (message);
-  int i = -1;
+	CompletionCallBack cb(message);
+	int                i = -1;
 	// Set a value just initializing the while loop. It will terminate when EOF will generate type = 0
-	int type = 1; 
+	int type = 1;
 
-	while ( type )
-	   { type = GetMessageType(buffer);
-			 if ( ! type )
-			    break;
-       ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) Sending message: <%s> (%d)\n"),buffer, type ));
-       SendMessage ( buffer, type ); // Send the Message
-			 // Increment index before being used, therefore we do not need
-			 // to decrease outside the loop if there is a need for that
-			 i++;
-       results[i] = message.status_update ();
-       results[i].attach (&cb);
-     }
+	while (type)
+	{
+		type = GetMessageType(buffer);
+		if (!type)
+		{
+			break;
+		}
+		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Sending message: <%s> (%d)\n"), buffer, type));
+		SendMessage(buffer, type);                                                       // Send the Message
+		// Increment index before being used, therefore we do not need
+		// to decrease outside the loop if there is a need for that
+		i++;
+		results[i] = message.status_update();
+		results[i].attach(&cb);
+	}
 
-  ACE_Thread_Manager::instance ()->wait ();
- ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) Finshed. After waiting for threads\n")));
-  return 0;
+	ACE_Thread_Manager::instance()->wait();
+	ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Finshed. After waiting for threads\n")));
+	return(0);
 }

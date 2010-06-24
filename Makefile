@@ -156,3 +156,8 @@ kern_tips:
 	@echo "you can compile your module to a different kernel version"
 	@echo "like this: make KVER=2.6.13 [target]"
 	@echo "or edit the file and permanently change the version"
+
+# code beautifucation
+.PHONY: do_beautify
+do_beautify:
+	uncrustify -c uncrustify.cfg --replace --no-backup $(CC_SRC)

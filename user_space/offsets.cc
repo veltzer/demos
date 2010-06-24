@@ -1,17 +1,17 @@
-#include<iostream>
+#include <iostream>
 
 /*
-	watch these macros and see if you can figure out what they do...
-	we use '1' instead of '0' in these next lines because g++ is smart
-	enough to understand that using 0 will mean that we use the NULL
-	object and not let us do anything with it including taking fields
-	or doing pointer arithmetic...
-						Mark Veltzer
-EXTRA_LIBS=
-*/
+ *      watch these macros and see if you can figure out what they do...
+ *      we use '1' instead of '0' in these next lines because g++ is smart
+ *      enough to understand that using 0 will mean that we use the NULL
+ *      object and not let us do anything with it including taking fields
+ *      or doing pointer arithmetic...
+ *                                              Mark Veltzer
+ * EXTRA_LIBS=
+ */
 
-#define CppOffsetOf(className,FieldName) ((char*)(&(((className*)1)->FieldName))-(char*)1)
-#define CastOffsetOf(className,castName) ((char*)((castName*)((className*)1))-(char*)((className*)1))
+#define CppOffsetOf(className, FieldName) ((char *)(&(((className *)1)->FieldName)) - (char *)1)
+#define CastOffsetOf(className, castName) ((char *)((castName *)((className *)1)) - (char *)((className *)1))
 
 // alternativly we could have used the builtin __builtin_offsetof(field,struct)
 
@@ -29,35 +29,38 @@ class NameTwochar {
 	char c2;
 };
 class NameOnevirt {
-	virtual void doit(void)=0;
+	virtual void doit(void) = 0;
 };
 class NameTwovirt {
-	virtual void doother(void)=0;
-	virtual void dothat(void)=0;
+	virtual void doother(void) = 0;
+	virtual void dothat(void)  = 0;
 };
-class NameSimpleInherit: public NameOnevirt {
+class NameSimpleInherit : public NameOnevirt {
 };
-class NameSimpleInherit2: public NameTwovirt {
+class NameSimpleInherit2 : public NameTwovirt {
 };
-class NameMultInherit: public NameOnevirt, public NameTwovirt {
+class NameMultInherit : public NameOnevirt, public NameTwovirt {
 };
 class NameOneVirtOneField {
-	public:
-		virtual void doit(void)=0;
-		int x;
+public:
+	virtual void doit(void) = 0;
+
+	int x;
 };
 class NameOneVirtTwoField {
-	public:
-		virtual void doother(void)=0;
-		int m;
-		int y;
+public:
+	virtual void doother(void) = 0;
+
+	int m;
+	int y;
 };
-class NameFMultInherit: public NameOneVirtOneField, public NameOneVirtTwoField {
-	public:
-		int z;
+class NameFMultInherit : public NameOneVirtOneField, public NameOneVirtTwoField {
+public:
+	int z;
 };
 
-int main(int argc,char** argv,char** envp) {
+int main(int argc, char **argv, char **envp)
+{
 	std::cout << "Hello, World!" << std::endl;
 	// this will print out 1 just because an object needs to take at least
 	// one byte of ram...
@@ -83,17 +86,17 @@ int main(int argc,char** argv,char** envp) {
 	std::cout << "sizeof(NameMultInherit) is " << sizeof(NameMultInherit) << std::endl;
 	// this shows the use of the CppOffsetOf macro we defined above and that the first
 	// field comes right after the vtable pointer...
-	std::cout << "CppOffsetOf(NameOneVirtOneField,x) is " << CppOffsetOf(NameOneVirtOneField,x) << std::endl;
+	std::cout << "CppOffsetOf(NameOneVirtOneField,x) is " << CppOffsetOf(NameOneVirtOneField, x) << std::endl;
 	// now lets see what happends of we have more than one field...
-	std::cout << "CppOffsetOf(NameOneVirtTwoField,y) is " << CppOffsetOf(NameOneVirtTwoField,y) << std::endl;
+	std::cout << "CppOffsetOf(NameOneVirtTwoField,y) is " << CppOffsetOf(NameOneVirtTwoField, y) << std::endl;
 	// the next prints prove that the object is laid out this way: vtable for parent 1, data for
 	// parent 1, vtable for parent 2, data for parent 2, ...
-	
-	std::cout << "CppOffsetOf(NameFMultInherit,x) is " << CppOffsetOf(NameFMultInherit,x) << std::endl;
-	std::cout << "CppOffsetOf(NameFMultInherit,m) is " << CppOffsetOf(NameFMultInherit,m) << std::endl;
-	std::cout << "CppOffsetOf(NameFMultInherit,y) is " << CppOffsetOf(NameFMultInherit,y) << std::endl;
-	std::cout << "CppOffsetOf(NameFMultInherit,z) is " << CppOffsetOf(NameFMultInherit,z) << std::endl;
-	std::cout << "CastOffsetOf(NameFMultInherit,NameOneVirtOneField) is " << CastOffsetOf(NameFMultInherit,NameOneVirtOneField) << std::endl;
-	std::cout << "CastOffsetOf(NameFMultInherit,NameOneVirtTwoField) is " << CastOffsetOf(NameFMultInherit,NameOneVirtTwoField) << std::endl;
-	return 0;
+
+	std::cout << "CppOffsetOf(NameFMultInherit,x) is " << CppOffsetOf(NameFMultInherit, x) << std::endl;
+	std::cout << "CppOffsetOf(NameFMultInherit,m) is " << CppOffsetOf(NameFMultInherit, m) << std::endl;
+	std::cout << "CppOffsetOf(NameFMultInherit,y) is " << CppOffsetOf(NameFMultInherit, y) << std::endl;
+	std::cout << "CppOffsetOf(NameFMultInherit,z) is " << CppOffsetOf(NameFMultInherit, z) << std::endl;
+	std::cout << "CastOffsetOf(NameFMultInherit,NameOneVirtOneField) is " << CastOffsetOf(NameFMultInherit, NameOneVirtOneField) << std::endl;
+	std::cout << "CastOffsetOf(NameFMultInherit,NameOneVirtTwoField) is " << CastOffsetOf(NameFMultInherit, NameOneVirtTwoField) << std::endl;
+	return(0);
 }

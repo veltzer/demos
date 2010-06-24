@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 
 /*
  * This example examines the question of whether it is more efficient to loop
@@ -14,20 +14,23 @@
  * The disassembly actually proves that counting down is more efficient than
  * counting up in this specific compiler (g++ 4.4.3) since it saves one machine
  * instruction inside the loop.
+ *
+ *              Mark Veltzer
+ *
+ * EXTRA_LIBS=
+ */
+int main(int argc, char **argv, char **envp)
+{
+	int sum = 0;
 
-		Mark Veltzer
-
-EXTRA_LIBS=
-*/
-
-int main(int argc,char** argv,char** envp) {
-	int sum=0;
-	for(int i=0;i<100;i++) {
-		sum+=i*i;
+	for (int i = 0; i < 100; i++)
+	{
+		sum += i * i;
 	}
-	for(int j=99;j>0;j--) {
-		sum+=j*j;
+	for (int j = 99; j > 0; j--)
+	{
+		sum += j * j;
 	}
-	printf("sum is %d\n",sum);
-	return 0;
+	printf("sum is %d\n", sum);
+	return(0);
 }

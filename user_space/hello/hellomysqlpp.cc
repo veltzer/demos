@@ -1,38 +1,42 @@
-#include<iostream>
-#include<iomanip>
-#include<mysql++.h>
+#include <iostream>
+#include <iomanip>
+#include <mysql++.h>
 
 /*
-EXTRA_LIBS=-I/usr/include/mysql++ -I/usr/include/mysql -lmysqlpp
-*/
+ * EXTRA_LIBS=-I/usr/include/mysql++ -I/usr/include/mysql -lmysqlpp
+ */
 
 /* This is a mysql++ demo program */
 
 using namespace mysqlpp;
 using namespace std;
 
-int main(int,char**,char**) {
+int main(int, char **, char **)
+{
 	try {
-		Connection con("mysql","database","master","master",true);
-		Query query = con.query("select item from stock");
+		Connection con("mysql", "database", "master", "master", true);
+		Query      query = con.query("select item from stock");
 //		Query query=con.query();
 //		query << "select * from user";
-		StoreQueryResult res=query.store("select * from user");
+		StoreQueryResult           res = query.store("select * from user");
 		StoreQueryResult::iterator i;
-		int j=0;
-		for(i=res.begin();i!=res.end();i++) {
-			Row row=*i;
+		int j = 0;
+		for (i = res.begin(); i != res.end(); i++)
+		{
+			Row row = *i;
 			cout << j << ":" << row[0] << "\n";
 			j++;
 		}
 		cout << "Records Found: " << res.size() << endl;
-	} catch(...)
+	}
+	catch (...)
 	{
 		cerr << "exception\n";
 		return(-1);
 	}
 	return(0);
 }
+
 
 //unfortunate template stuff
 
