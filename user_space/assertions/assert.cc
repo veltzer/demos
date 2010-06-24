@@ -1,5 +1,5 @@
 /*
- *      Demo the use of assert in C/C++
+ *   Demo the use of glibc assert in C/C++
  *
  * - assert_perror macro also exists and allows to validate correct results
  *   from system calls and print the right errors in case of error.
@@ -19,6 +19,11 @@
  * - when an assertion fails it prints the executable name, source file name,
  *   line number, function (unmangled) and the assertion code itself that failed.
  *   It them proceeds to call abort (you can see all of this using strace).
+ * - assert(X) should never produce side effects so that the program will behave
+ *   the same whether assertions are enabled or not.
+ * - The `assert' facility is designed for detecting _internal inconsistency_;
+ *   it is not suitable for reporting invalid input or improper usage by the
+ *   _user_ of the program.
  *
  *              Mark Veltzer
  *
