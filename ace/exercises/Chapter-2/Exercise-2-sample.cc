@@ -27,7 +27,7 @@ static void * consumer (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 { ACE_Message_Block *mb;
 
   if (msg_queue->dequeue_head (mb) == -1)
-      return;
+      return NULL;
 
   int length = ACE_Utils::truncate_cast<int> (mb->length ());
 
@@ -39,7 +39,7 @@ static void * consumer (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
       mb->release ();                                      // Release the Message Block
 
       if (length == 0)   // you may use the zero length as program termination
-        break;
+        return NULL;
 
   return 0;
 }
@@ -62,8 +62,9 @@ static void * producer (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 	//   and for the Message_Block as follows:
 	//
   //=== ACE_Message_Block ======From: <ace/Message_Block.h> ===========================
+  /*
   ACE_Message_Block (size_t size,
-                     ACE_Message_Type type = MB_DATA,
+                     ACE_Message_Block::ACE_Message_Type type = MB_DATA,
   		               ACE_Message_Block *cont = 0,
   		               const char *data = 0,                // Pointer to the data buffer
  		                 ACE_Allocator *allocator_strategy = 0,
@@ -73,6 +74,7 @@ static void * producer (ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 		                 const ACE_Time_Value &deadline_time = ACE_Time_Value::max_time,
 		                 ACE_Allocator *data_block_allocator = 0,
 		                 ACE_Allocator *message_block_allocator = 0);
+  */
  //==============================================
  ACE_NEW_RETURN (mb, 
                 ACE_Message_Block (rb.size (), ACE_Message_Block::MB_DATA, 0, buffer),
