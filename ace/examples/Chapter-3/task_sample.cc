@@ -2,6 +2,9 @@
 
 #include <examples/Chapter-3/task.h>
 #include <ace/Message_Block.h>
+/*
+EXTRA_CMDS=pkg-config --cflags --libs ACE
+*/
 
 /*
   Boring default constructor.  Be sure our barrier_ is initialized in
