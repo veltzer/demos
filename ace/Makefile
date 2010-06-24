@@ -25,7 +25,7 @@ check_files:
 
 .PHONY: check_include
 check_include:
-	-@grep "include \"ace" `find . -name "*.cpp" -or -name "*.h"`
+	-grep "include \"ace" `find . -name "*.cc" -or -name "*.h"`
 
 # debug
 .PHONY: debug

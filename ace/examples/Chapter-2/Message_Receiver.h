@@ -8,47 +8,37 @@
 #include <ace/Synch.h>
 #include <ace/Task.h>
 
-struct DeviceCommandHeader
-       { int length_;
-         int deviceId_;
-       };
+struct DeviceCommandHeader {
+	int length_;
+	int deviceId_;
+};
 
 class HA_Device_Repository
 {
-public:
-  HA_Device_Repository ();
-
-  int update_device (int device_id, char *commands);
-    
-private:
-  ACE_Task_Base *owner_;
+	public:
+		HA_Device_Repository();
+		int update_device(int device_id,char* commands);
+	private:
+		ACE_Task_Base* owner_;
 };
 
-HA_Device_Repository::HA_Device_Repository ()
-{ }
+HA_Device_Repository::HA_Device_Repository() {}
 
-int HA_Device_Repository::update_device (int, char *)
-    { return 0;
-    }
+int HA_Device_Repository::update_device(int,char*) {
+	return 0;
+}
 
-class HA_CommandHandler : public ACE_Task<ACE_MT_SYNCH>
-{
-public:
-  HA_CommandHandler (HA_Device_Repository &rep) : rep_(rep)
-  { }
-
-  virtual int svc();
-
-private:
-  HA_Device_Repository &rep_;
+class HA_CommandHandler:public ACE_Task<ACE_MT_SYNCH> {
+	public:
+		HA_CommandHandler(HA_Device_Repository &rep):rep_(rep) {}
+		virtual int svc();
+	private:
+		HA_Device_Repository &rep_;
 };
 
-class Message_Receiver :
-  public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_MT_SYNCH>
-{
+class Message_Receiver : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_MT_SYNCH> {
 public:
-  Message_Receiver () : handler_(0)
-  { ACE_ASSERT(0); }
+	Message_Receiver () : handler_(0) { ACE_ASSERT(0); }
   
   Message_Receiver (HA_CommandHandler *ch) : handler_(ch)
   { }
@@ -65,10 +55,10 @@ public:
   }
     
 private:
-  int read_header (DeviceCommandHeader *dch);
-  int copy_payload (ACE_Message_Block *mb, int payload_length);
+	int read_header (DeviceCommandHeader *dch);
+	int copy_payload (ACE_Message_Block *mb, int payload_length);
 
 private:
-  HA_CommandHandler *handler_;
+	HA_CommandHandler *handler_;
 };
 #endif /* __MESSAGE_RECEIVER_H */

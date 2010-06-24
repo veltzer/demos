@@ -24,7 +24,7 @@ ALL:=
 CLEAN:=
 CLEAN_DIRS:=
 
-CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc")
+CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc") $(shell find ace -name "*.cc")
 CC_ASX:=$(addsuffix .s,$(basename $(CC_SRC)))
 CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
