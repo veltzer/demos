@@ -28,7 +28,8 @@ CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc") 
 CC_ASX:=$(addsuffix .s,$(basename $(CC_SRC)))
 CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
-ALL:=$(ALL) $(CC_EXE) $(CC_DIS) $(CC_ASX)
+ALL:=$(ALL) $(CC_EXE)
+#ALL:=$(ALL) $(CC_DIS) $(CC_ASX)
 CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS) $(CC_ASX)
 
 MOD_SRC=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
@@ -96,13 +97,22 @@ debug:
 	$(info CLEAN is $(CLEAN))
 	$(info CLEAN_DIRS is $(CLEAN_DIRS))
 
-.PHONY: check
-check:
+# various checks...
+.PHONY: check_ws
+check_ws:
+	-@grep "  " `find . -name "*.cpp" -or -name "*.h"`
+.PHONY: check_files
+check_files:
+	-@find . -mindepth 2 -type f -and -not -name "*.cpp" -and -not -name "*.h" -and -not -name "*.h" -and -not -name "*.txt" -and -not -name "*.conf" -and -not -name "*.ini" -and -not -name "*.sample" -and -not -name "*.data" -and -not -name "*.doc" -and -not -name "*.bash"
+.PHONY: check_include
+check_include:
+	-grep "include \"ace" `find . -name "*.cc" -or -name "*.h"`
+.PHONY: check_tests_for_drivers
+check_tests_for_drivers:
 	cd kernel;for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 
 # kernel section
-
 .PHONY: kern_help
 kern_help:
 	$(MAKE) -C $(KDIR) help
