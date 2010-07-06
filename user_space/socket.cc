@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	bzero(&server, sizeof(server));
 	server.sin_family      = AF_INET;
 	server.sin_addr.s_addr = INADDR_ANY;
-	server.sin_port        = htons(6969);                                                             // should use getservbyname()
+	server.sin_port        = htons(6969);                                                                  // should use getservbyname()
 
 	if (bind(brsock, (struct sockaddr *)&server,
 				sizeof(server)) < 0)
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 			perror("brsock recvfrom failed");
 			exit(errno);
 		}
-		ibuffer[datalen - 1] = '\0';                                                                                                                          // get rid of '\n'
+		ibuffer[datalen - 1] = '\0';                                                                                                                                    // get rid of '\n'
 		printf("Got ==>%s<==\n", ibuffer);
 		sprintf(obuffer, "Bad request");
 		if (strcmp(ibuffer, "date") == 0)
@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 			exit(errno);
 		}
 
-		fromaddr.sin_port = htons(6996);                                                                                                                            // reply port id
+		fromaddr.sin_port = htons(6996);                                                                                                                                      // reply port id
 		if (connect(sendsock, (struct sockaddr *)&fromaddr,
 						fromaddrlen) == -1)
 		{

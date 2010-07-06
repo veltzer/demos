@@ -204,8 +204,8 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 			current->mm,
 			aligned,
 			nr_pages,
-			1,                        /* write */
-			0,                        /* force */
+			1,                                       /* write */
+			0,                                       /* force */
 			pages,
 			NULL
 			);
@@ -348,8 +348,8 @@ static int register_dev(void)
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,           /* our class */
-		NULL,               /* device we are subdevices of */
+		my_class,                     /* our class */
+		NULL,                         /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

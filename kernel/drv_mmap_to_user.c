@@ -121,13 +121,13 @@ static unsigned long map_to_user(struct file *filp, void *kptr, unsigned int siz
 	oldval             = filp->private_data;
 	filp->private_data = kptr;
 	uptr = do_mmap_pgoff(
-		filp,                           /* file pointer for which filp->mmap will be called */
-		0,                              /* address - this is the address we recommend for user space - best not to ... */
-		size,                           /* size */
-		PROT_READ | PROT_WRITE,         /* protection */
-												  //PROT_READ, /* protection */
-		flags,                          /* flags */
-		0                               /* pg offset */
+		filp,                                     /* file pointer for which filp->mmap will be called */
+		0,                                        /* address - this is the address we recommend for user space - best not to ... */
+		size,                                     /* size */
+		PROT_READ | PROT_WRITE,                   /* protection */
+																//PROT_READ, /* protection */
+		flags,                                    /* flags */
+		0                                         /* pg offset */
 		);
 	filp->private_data = oldval;
 	up_write(&mm->mmap_sem);
@@ -437,18 +437,18 @@ static int register_dev(void)
 	DEBUG("added the device");
 
 	// now register it in /dev
-#if LINUX_VERSION_CODE == 132634 /* target kernel */
+#if LINUX_VERSION_CODE == 132634           /* target kernel */
 	my_device = device_create(
-		my_class,                  /* our class */
-		NULL,                      /* device we are subdevices of */
+		my_class,                            /* our class */
+		NULL,                                /* device we are subdevices of */
 		pdev->first_dev,
 		"%s",
 		name
 		);
 #else /* ubuntu kernel */
 	my_device = device_create(
-		my_class,           /* our class */
-		NULL,           /* device we are subdevices of */
+		my_class,                     /* our class */
+		NULL,                     /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		"%s",

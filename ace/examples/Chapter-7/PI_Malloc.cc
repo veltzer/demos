@@ -39,14 +39,19 @@ public:
 	{
 		return(name_);
 	}
+
+
 	int id1(void)
 	{
 		return(id1_);
 	}
+
+
 	int id2(void)
 	{
 		return(id2_);
 	}
+
 
 private:
 	int id1_;

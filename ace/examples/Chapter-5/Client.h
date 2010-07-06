@@ -40,7 +40,8 @@ public:
 										const void            *act = 0);
 
 private:
-	enum {
+	enum
+	{
 		ITERATIONS = 5
 	};
 	int iterations_;

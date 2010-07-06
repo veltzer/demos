@@ -225,8 +225,8 @@ static int register_dev(void)
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,           /* our class */
-		NULL,               /* device we are subdevices of */
+		my_class,                     /* our class */
+		NULL,                         /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		"%s",

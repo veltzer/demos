@@ -43,14 +43,20 @@ public:
 	{
 		return(name_);
 	}
+
+
 	int id1(void)
 	{
 		return(id1_);
 	}
+
+
 	int id2(void)
 	{
 		return(id2_);
 	}
+
+
 private:
 	int id1_;
 	int id2_;
@@ -116,7 +122,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[])
 	{
 		addRecords();
 	}
-	g_allocator->sync();                                                              // Flush to the disk
+	g_allocator->sync();                                                                   // Flush to the disk
 	delete g_allocator;
 	return(0);
 }

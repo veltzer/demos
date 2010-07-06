@@ -19,19 +19,25 @@ public:
 	{
 		return(this->errno_);
 	}
+
+
 	void error(int i)
 	{
 		this->errno_ = i;
 	}
 
+
 	int line(void)
 	{
 		return(this->lineno_);
 	}
+
+
 	void line(int l)
 	{
 		this->lineno_ = l;
 	}
+
 
 	// Errno::flags_ is a static variable, so we've got to protect it
 	// with a mutex since it isn't kept in thread-specific storage.

@@ -21,20 +21,24 @@ public:
 		return(this->owner_ == 0);
 	}
 
+
 	int is_owner(ACE_Task_Base *tb)
 	{
 		return(this->owner_ == tb);
 	}
+
 
 	ACE_Task_Base *get_owner(void)
 	{
 		return(this->owner_);
 	}
 
+
 	void set_owner(ACE_Task_Base *owner)
 	{
 		this->owner_ = owner;
 	}
+
 
 	int update_device(int device_id);
 
@@ -46,7 +50,8 @@ private:
 class HA_CommandHandler : public ACE_Task_Base
 {
 public:
-	enum {
+	enum
+	{
 		NUM_USES = 10
 	};
 

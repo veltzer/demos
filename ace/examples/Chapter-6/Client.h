@@ -33,7 +33,8 @@ public:
 	virtual int handle_timeout(const ACE_Time_Value& current_time, const void *act = 0);
 
 private:
-	enum {
+	enum
+	{
 		ITERATIONS = 5
 	};
 	int iterations_;

@@ -204,7 +204,7 @@ public:
 
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-	if (argc > 1)                                                              // Slave mode
+	if (argc > 1)                                                                   // Slave mode
 	{
 		Slave s;
 		return(s.doWork());

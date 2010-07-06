@@ -187,13 +187,13 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		flags &= ~(MAP_EXECUTABLE | MAP_DENYWRITE);
 		down_write(&mm->mmap_sem);
 		addr = do_mmap_pgoff(
-			filp,                                        /* file pointer */
-																		//(unsigned long)kaddr, /* address - this is the buffer we kmalloc'ed */
+			filp,                                                       /* file pointer */
+																							//(unsigned long)kaddr, /* address - this is the buffer we kmalloc'ed */
 			0,
-			ioctl_size,                                  /* size */
-			PROT_READ | PROT_WRITE,                      /* protection */
-			flags,                                       /* flags */
-			0                                            /* pg offset */
+			ioctl_size,                                                 /* size */
+			PROT_READ | PROT_WRITE,                                     /* protection */
+			flags,                                                      /* flags */
+			0                                                           /* pg offset */
 			);
 		up_write(&mm->mmap_sem);
 		//DEBUG("kaddr is (p) %p",kaddr);
@@ -339,11 +339,11 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 	phys   = virt_to_phys(vaddr);
 	pg_num = phys >> PAGE_SHIFT;
 	if (remap_pfn_range(
-			 vma,                    // vma
-			 vma->vm_start,          // start
+			 vma,                                   // vma
+			 vma->vm_start,                         // start
 			 pg_num,
-			 size,                   // size (derived from the vma)
-			 vma->vm_page_prot       // protection
+			 size,                                  // size (derived from the vma)
+			 vma->vm_page_prot                      // protection
 			 ))
 	{
 		DEBUG("error path");
@@ -418,8 +418,8 @@ int register_dev()
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,           /* our class */
-		NULL,               /* device we are subdevices of */
+		my_class,                     /* our class */
+		NULL,                         /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

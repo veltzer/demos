@@ -36,14 +36,19 @@ public:
 	{
 		return(name_);
 	}
+
+
 	int id1(void)
 	{
 		return(id1_);
 	}
+
+
 	int id2(void)
 	{
 		return(id2_);
 	}
+
 
 private:
 	int  id1_;
@@ -71,7 +76,7 @@ void showRecords()
 
 int addRecords()
 {
-	char buf[64];                                                             // old char buf[32];
+	char buf[64];                                                                  // old char buf[32];
 
 	for (int i = 0; i < 10; i++)
 	{

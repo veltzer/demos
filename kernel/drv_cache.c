@@ -33,11 +33,11 @@ static int __init mod_init(void)
 {
 	DEBUG("start");
 	cache_p = kmem_cache_create(
-		"mark",                                          // name of cache
-		10,                                              // size to allocate
-		0,                                               // alignment
-		SLAB_HWCACHE_ALIGN | SLAB_DEBUG_OBJECTS,         // flags
-		NULL                                             // ctor/dtor
+		"mark",                                                    // name of cache
+		10,                                                        // size to allocate
+		0,                                                         // alignment
+		SLAB_HWCACHE_ALIGN | SLAB_DEBUG_OBJECTS,                   // flags
+		NULL                                                       // ctor/dtor
 		);
 	if (cache_p == NULL)
 	{
