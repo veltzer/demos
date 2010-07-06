@@ -49,6 +49,7 @@ Task::~Task(void)
 int Task::start(int threads)
 {
 	barrier_ = new ACE_Barrier(threads);
+
 	return(this->activate(THR_NEW_LWP, threads));
 }
 

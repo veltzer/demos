@@ -21,7 +21,8 @@ void addCommand(iovec [], const char *)
 
 int ACE_TMAIN(int, ACE_TCHAR *[])
 {
-	ACE_INET_Addr      srvr(50000, ACE_LOCALHOST);
+	ACE_INET_Addr srvr(50000, ACE_LOCALHOST);
+
 	ACE_SOCK_Connector connector;
 	ACE_SOCK_Stream    peer;
 

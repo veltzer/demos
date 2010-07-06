@@ -61,6 +61,7 @@ public:
 int ACE_TMAIN(int, ACE_TCHAR **)
 {
 	MyTimerHandler *timer = new MyTimerHandler();
+
 	ACE_Time_Value initialDelay(3);
 	ACE_Time_Value interval(5);
 
@@ -69,6 +70,7 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 														 initialDelay,
 														 interval);
 	SigintHandler *handleExit = new SigintHandler();
+
 	ACE_Reactor::instance()->register_handler(SIGINT, handleExit);
 	ACE_DEBUG((LM_INFO, ACE_TEXT("Pressing 3 times on ^c will stop execution\n")));
 	ACE_Reactor::instance()->run_reactor_event_loop();

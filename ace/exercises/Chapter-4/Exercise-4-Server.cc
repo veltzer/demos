@@ -33,7 +33,8 @@ int GetMessageType(char *data)
 
 int ACE_TMAIN(int, ACE_TCHAR *[])
 {
-	ACE_INET_Addr     port_to_listen(20000);
+	ACE_INET_Addr port_to_listen(20000);
+
 	ACE_SOCK_Acceptor acceptor;
 	int               type = 1;
 	char              buffer[4096];
@@ -59,6 +60,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	}
 #else
 	ACE_Time_Value timeout(10, 0);
+
 	if (acceptor.accept(peer, &peer_addr, &timeout, 0) == -1)
 	{
 		if (ACE_OS::last_error() == EINTR)

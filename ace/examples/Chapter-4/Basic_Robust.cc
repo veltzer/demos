@@ -47,6 +47,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACE_SOCK_Stream status;
 	ACE_OS::last_error(0);
 	ACE_SOCK_Connector statusConnector(status, addr);
+
 	if (ACE_OS::last_error())
 	{
 		ACE_ERROR_RETURN((LM_ERROR,
@@ -66,8 +67,9 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 
 	// Listing 4 code/ch06
 	ACE_SOCK_Connector logConnector;
-	ACE_Time_Value     timeout(10);
-	ACE_SOCK_Stream    log;
+	ACE_Time_Value timeout(10);
+
+	ACE_SOCK_Stream log;
 	if (logConnector.connect(log, addr, &timeout) == -1)
 	{
 		if (ACE_OS::last_error() == ETIME)
@@ -103,6 +105,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 
 	// Listing 6 code/ch06
 	ACE_Time_Value sendTimeout(0, 5);
+
 	if (status.send_n("uptime\n", 7, &sendTimeout) == -1)
 	{
 		if (ACE_OS::last_error() == ETIME)
@@ -122,8 +125,9 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	}
 
 	// Listing 7 code/ch06
-	ssize_t        bc;
+	ssize_t bc;
 	ACE_Time_Value recvTimeout(0, 1);
+
 	if ((bc = status.recv(buf, sizeof(buf), &recvTimeout)) == -1)
 	{
 		ACE_ERROR((LM_ERROR,

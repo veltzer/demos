@@ -1,7 +1,8 @@
 #include "Foo.h"
+
 /*
-EXTRA_CMDS=pkg-config --cflags --libs ACE
-*/
+ * EXTRA_CMDS=pkg-config --cflags --libs ACE
+ */
 
 /*
  * This is the explicit instantiation file.

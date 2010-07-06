@@ -1,6 +1,7 @@
-#include<cpp/test/helloworld.h>
+#include <cpp/test/helloworld.h>
 
-int main() {
+int main()
+{
 	helloworld();
 	return(0);
 }

@@ -18,6 +18,7 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 {
 	// lets open the port...
 	ACE_INET_Addr port_to_listen(50000);
+
 	//ACE_INET_Addr port_to_listen("HAStatus");
 	ACE_SOCK_Acceptor acceptor;
 
@@ -38,7 +39,8 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 	{
 		ACE_SOCK_Stream peer;
 		ACE_INET_Addr   peer_addr;
-		ACE_Time_Value  timeout(10, 0);
+		ACE_Time_Value timeout(10, 0);
+
 		if (acceptor.accept(peer, &peer_addr, &timeout, 1) == -1)
 		{
 			//if(acceptor.accept(peer) == -1) {

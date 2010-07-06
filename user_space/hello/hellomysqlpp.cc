@@ -15,7 +15,8 @@ int main(int, char **, char **)
 {
 	try {
 		Connection con("mysql", "database", "master", "master", true);
-		Query      query = con.query("select item from stock");
+
+		Query query = con.query("select item from stock");
 //		Query query=con.query();
 //		query << "select * from user";
 		StoreQueryResult           res = query.store("select * from user");
@@ -29,7 +30,7 @@ int main(int, char **, char **)
 		}
 		cout << "Records Found: " << res.size() << endl;
 	}
-	catch (...)
+	catch(...)
 	{
 		cerr << "exception\n";
 		return(-1);

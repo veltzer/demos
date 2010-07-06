@@ -15,7 +15,7 @@ class Server {
 public:
 	Server(int port) :
 		server_addr_(port), peer_acceptor_(server_addr_)
-	{                                               //
+	{                                                              //
 	}
 
 
@@ -23,8 +23,8 @@ public:
 //connection is handled by reading BUFFER_SIZE amount of data from the
 //remote and then closing the connection stream down.
 	int handle_connection()
-	{                                                                                                                                   // Read data from client
-		static char message[BUFFER_SIZE + 10];                                                                                           // Save some more space than being read
+	{                                                                                                                                                                 // Read data from client
+		static char message[BUFFER_SIZE + 10];                                                                                                                         // Save some more space than being read
 
 		while (1)
 		{
@@ -39,8 +39,10 @@ public:
 				ACE_DEBUG((LM_DEBUG, "%s \n", message));
 			}
 			if (!ACE_OS::strcmp(message, "Quit"))
-			{ break; }
-		}                                                                                           // End while
+			{
+				break;
+			}
+		}                                                                                                                         // End while
 // Close new endpoint
 		if (new_stream_.close() == -1)
 		{
@@ -66,6 +68,7 @@ public:
 #define TIMEOUT
 #ifdef TIMEOUT
 			ACE_Time_Value timeout(ACE_DEFAULT_TIMEOUT);
+
 			if (peer_acceptor_.accept(new_stream_, &client_addr_, &timeout) == -1)
 			{
 				ACE_ERROR((LM_ERROR, "%p\n", "accept"));
@@ -75,11 +78,11 @@ public:
 			{
 				ACE_DEBUG((LM_DEBUG, "Connection established with remote %s:%d\n",
 							  client_addr_.get_host_name(), client_addr_.get_port_number()));
-				handle_connection();                                                                                                                                                                                     //          Handle the connection
+				handle_connection();                                                                                                                                                                                                                                                 //          Handle the connection
 				ACE_OS::exit(1);
 			}
-#endif                                                                                            /* TIMEOUT */
-		}                                                                                           // End while
+#endif                                                                                                                          /* TIMEOUT */
+		}                                                                                                                         // End while
 	}
 
 
@@ -99,5 +102,6 @@ int main(int argc, char *argv[])
 		ACE_OS::exit(1);
 	}
 	Server server(ACE_OS::atoi(argv[1]));
+
 	server.accept_connections();
 }

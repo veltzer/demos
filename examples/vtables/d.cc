@@ -1,4 +1,5 @@
-#include"d.h"
+#include "d.h"
 
-void D::bar(void) {
+void D::bar(void)
+{
 }

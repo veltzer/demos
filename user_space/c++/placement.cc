@@ -91,11 +91,12 @@ int main(int argc, char **argv, char **envp)
 {
 	DEBUG("heap no arguments example");
 	A *a = new A();
+
 	std::cerr << "a->val is " << a->val << std::endl;
 	delete a;
 
 	DEBUG("heap arguments example");
-	A *b = new (5.5)A();
+	A *b = new(5.5) A();
 	std::cerr << "b->val is " << b->val << std::endl;
 	delete b;
 
@@ -120,6 +121,7 @@ int main(int argc, char **argv, char **envp)
 
 	DEBUG("stack arguments example");
 	A d(6.7);
+
 	std::cerr << "d.val is " << d.val << std::endl;
 	return(0);
 }

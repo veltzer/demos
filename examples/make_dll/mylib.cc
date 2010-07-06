@@ -1,5 +1,6 @@
-#include<math.h>
+#include <math.h>
 
-double myfunc(double arg) {
-	return(sin(arg)/cos(arg));
+double myfunc(double arg)
+{
+	return(sin(arg) / cos(arg));
 }

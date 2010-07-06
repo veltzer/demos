@@ -16,7 +16,7 @@ class Net_Handler : public ACE_Event_Handler {
 protected:
 	ACE_SOCK_Stream stream;
 public:
-	Net_Handler(ACE_SOCK_Stream& s);
+	Net_Handler(ACE_SOCK_Stream & s);
 	virtual int handle_input(ACE_HANDLE handle);
 	virtual int handle_close(ACE_HANDLE handle, ACE_Reactor_Mask close_mask);
 	virtual ACE_HANDLE get_handle(void) const;
@@ -155,9 +155,9 @@ int Net_Listener::handle_input(ACE_HANDLE handle)
 	int reset_new_handle = this->reactor()->uses_event_associations();
 	int result           = this->acceptor.accept(stream,
 																&remote_address,
-																0,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // timeout
-																1,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // restart
-																reset_new_handle);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // reset new handler
+																0,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // timeout
+																1,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // restart
+																reset_new_handle);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 // reset new handler
 	ACE_ASSERT(result == 0);
 	ACE_UNUSED_ARG(result);
 	remote_address.dump();
@@ -186,9 +186,11 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	}
 	ACE_DEBUG((LM_DEBUG, "Listening to ports (%d %d)\n", port, port + 1));
 	Net_Listener *listener1 = new Net_Listener(port);
+
 	ACE_DEBUG((LM_DEBUG, "Have opened port (%d)\n", port));
 	port++;
 	Net_Listener *listener2 = new Net_Listener(port);
+
 	ACE_DEBUG((LM_DEBUG, "Have opened port (%d)\n", port));
 	ACE_Reactor::run_event_loop();
 	listener1->close();

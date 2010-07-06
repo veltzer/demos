@@ -30,5 +30,6 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 {
 	auto_ptr<A> a(new A("a"));
 	new A("b");
+
 	return(0);
 }

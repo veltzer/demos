@@ -29,7 +29,8 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 {
 	typedef ACE_Acceptor<ClientService, ACE_SOCK_ACCEPTOR>   ClientAcceptor;
 	//ACE_INET_Addr port_to_listen (50000, ACE_LOCALHOST );
-	ACE_INET_Addr  port_to_listen(50000);
+	ACE_INET_Addr port_to_listen(50000);
+
 	ClientAcceptor acceptor;
 	acceptor.open(port_to_listen);
 	ACE_Reactor::instance()->run_reactor_event_loop();

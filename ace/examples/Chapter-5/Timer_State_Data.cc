@@ -24,7 +24,8 @@ public:
 		  count_(0),
 		  temperature_(0.0)
 		  // ...
-	{ }
+	{
+	}
 
 	const char *location() const
 	{
@@ -58,10 +59,10 @@ class TemperatureQueryHandler : public ACE_Event_Handler
 {
 public:
 	TemperatureQueryHandler()
-		: ACE_Event_Handler(),
-		  counter_(0),
-		  averageTemperature_(0.0)
-		  // ...
+	: ACE_Event_Handler(),
+	counter_(0),
+	averageTemperature_(0.0)
+	// ...
 	{
 	}
 
@@ -113,7 +114,7 @@ class SigintHandler : public ACE_Event_Handler
 {
 public:
 	int handle_signal(int signum, siginfo_t * = 0,
-							ucontext_t * = 0)
+		ucontext_t * = 0)
 	{
 		if (signum == SIGINT)
 		{
@@ -128,10 +129,12 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	// Listing 2 code/ch07
 	TemperatureQueryHandler *temperatureMonitor =
 		new TemperatureQueryHandler();
+
 	// Listing 2
 
 	ACE_Time_Value initialDelay(3);
 	ACE_Time_Value intervalOne(5);
+
 	// Listing 3 code/ch07
 	TemperatureSensor *sensorOne =
 		new TemperatureSensor("Kitchen");
@@ -143,6 +146,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	// Listing 3
 
 	ACE_Time_Value intervalTwo(4);
+
 	// Listing 4 code/ch07
 	TemperatureSensor *sensorTwo =
 		new TemperatureSensor("Foyer");

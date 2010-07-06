@@ -11,7 +11,8 @@ class HA_CommandHandler : public ACE_Task<ACE_MT_SYNCH>
 {
 public:
 	HA_CommandHandler(const char *name) : name_(name)
-	{ }
+	{
+	}
 
 	virtual int svc(void)
 	{
@@ -72,6 +73,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	lp_handler.activate(THR_NEW_LWP | THR_JOINABLE, 1, 1, ACE_THR_PRI_OTHER_DEF);
 
 	HA_CommandHandler hp_handler("HighPriority");
+
 	hp_handler.activate(THR_NEW_LWP | THR_JOINABLE, 1, 1, ACE_THR_PRI_OTHER_MAX);
 
 	ACE_Message_Block mb;
@@ -85,6 +87,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	}
 
 	ACE_Message_Block stop(0, ACE_Message_Block::MB_BREAK);
+
 	hp_handler.putq(stop.clone());
 	lp_handler.putq(stop.clone());
 	hp_handler.wait();

@@ -12,7 +12,7 @@ typedef ACE_Module<ACE_MT_SYNCH>   MT_Module;
 typedef ACE_Task<ACE_MT_SYNCH>     MT_Task;
 
 static int ProducerData = 0;
-class Consumer : public MT_Task
+class      Consumer : public MT_Task
 {
 public:
 	// Initialize Consumer.

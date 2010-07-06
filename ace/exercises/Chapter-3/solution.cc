@@ -67,7 +67,9 @@ public:
 	// the right set of cirumstances this method will loop forever.
 	void increaseValue(int value)
 	{
-		while (!attemptIncreaseValue(value)) {}
+		while (!attemptIncreaseValue(value))
+		{
+		}
 	}
 };
 
@@ -79,7 +81,9 @@ private:
 	const int        value;
 
 public:
-	HA_CommandHandler(SharedResource& sharedResource, const int value) : sharedResource(sharedResource), value(value) {}
+	HA_CommandHandler(SharedResource & sharedResource, const int value) : sharedResource(sharedResource), value(value)
+	{
+	}
 
 	// The real body of the thread
 	virtual int svc(void)
@@ -103,7 +107,8 @@ public:
 
 int ACE_TMAIN(int, ACE_TCHAR *[])
 {
-	SharedResource    sharedResource;
+	SharedResource sharedResource;
+
 	HA_CommandHandler handler1(sharedResource, 0);
 	HA_CommandHandler handler2(sharedResource, 1);
 	HA_CommandHandler handler3(sharedResource, 2);

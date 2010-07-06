@@ -90,7 +90,9 @@ private:
 	const int       attempts;
 
 public:
-	HA_CommandHandler(SharedResource& sharedResource, const int value, const int attempts) : sharedResource(sharedResource), value(value), attempts(attempts) {}
+	HA_CommandHandler(SharedResource & sharedResource, const int value, const int attempts) : sharedResource(sharedResource), value(value), attempts(attempts)
+	{
+	}
 
 	// The real body of the thread
 	virtual int svc(void)
@@ -108,7 +110,7 @@ public:
 
 int ACE_TMAIN(int, ACE_TCHAR *[])
 {
-	SharedResource    sharedResource(3);
+	SharedResource sharedResource(3);
 	HA_CommandHandler handler1(sharedResource, 0, 1000);
 	HA_CommandHandler handler2(sharedResource, 1, 1000);
 	HA_CommandHandler handler3(sharedResource, 2, 1000);

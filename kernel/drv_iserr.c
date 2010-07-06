@@ -15,16 +15,21 @@
 #define DO_DEBUG
 #include "kernel_helper.h"
 
-static int __init mod_init(void) {
-	unsigned long ptr1=15;
-	unsigned long ptr2=-15;
-	DEBUG("IS_ERR_VALUE(%lu) is %ld\n",ptr1,IS_ERR_VALUE(ptr1));
-	DEBUG("IS_ERR_VALUE(%lu) is %ld\n",ptr2,IS_ERR_VALUE(ptr2));
-	return 0;
+static int __init mod_init(void)
+{
+	unsigned long ptr1 = 15;
+	unsigned long ptr2 = -15;
+
+	DEBUG("IS_ERR_VALUE(%lu) is %ld\n", ptr1, IS_ERR_VALUE(ptr1));
+	DEBUG("IS_ERR_VALUE(%lu) is %ld\n", ptr2, IS_ERR_VALUE(ptr2));
+	return(0);
 }
 
-static void __exit mod_exit(void) {
+
+static void __exit mod_exit(void)
+{
 }
+
 
 // declaration of init/cleanup functions of this module
 

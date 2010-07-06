@@ -7,6 +7,7 @@
 int main(void)
 {
 	std::vector<int> v(3);
+
 	v[0] = 5;
 	v[1] = 8;
 	v[2] = 9;

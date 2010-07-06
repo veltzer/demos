@@ -17,7 +17,7 @@
 class Manager : public ACE_Process
 {
 public:
-	Manager(const ACE_TCHAR *program_name)
+	Manager(const ACE_TCHAR * program_name)
 	{
 		ACE_TRACE("Manager::Manager");
 		ACE_OS::strcpy(programName_, program_name);
@@ -204,7 +204,7 @@ public:
 
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-	if (argc > 1)                                               // Slave mode
+	if (argc > 1)                                                              // Slave mode
 	{
 		Slave s;
 		return(s.doWork());
@@ -212,5 +212,6 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
 	// Else, Master mode
 	Manager m(argv[0]);
+
 	return(m.doWork());
 }

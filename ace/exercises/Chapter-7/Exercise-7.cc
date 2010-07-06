@@ -21,7 +21,7 @@ SHARED_ALLOC *shared;
 class Record
 {
 public:
-	Record(SHARED_ALLOC *shared, char *name)
+	Record(SHARED_ALLOC * shared, char *name)
 	{
 		size_t len  = ACE_OS::strlen(name) + 1;
 		char   *buf = reinterpret_cast<char *> (shared->malloc(len));
@@ -31,9 +31,14 @@ public:
 	}
 
 
-	~Record() { shared->free(name_.addr()); }
+	~Record() {
+		shared->free(name_.addr());
+	}
 
-	char *name(void) { return(name_); }
+	char *name(void)
+	{
+		return(name_);
+	}
 
 private:
 	ACE_Based_Pointer_Basic<char> name_;
@@ -66,7 +71,7 @@ int StoreMessages(SHARED_ALLOC *shared, char *buf)
 	}
 
 	// Allocate and place record
-	Record *newRecord = new (memory)Record(shared, buf);
+	Record *newRecord = new(memory) Record(shared, buf);
 	if (shared->bind(buf, newRecord) == -1)
 	{
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("bind failed")), -1);
@@ -77,21 +82,21 @@ int StoreMessages(SHARED_ALLOC *shared, char *buf)
 
 int GetMessageType(char *data)
 {
-	static ACE_Read_Buffer rb(ACE_STDIN);                                                // Read new line from stdin
+	static ACE_Read_Buffer rb(ACE_STDIN);                                                               // Read new line from stdin
 
 	// read a single line from stdin
 	// Allocate a new buffer.
 	char *buffer = rb.read('\n');
 
 	if (buffer == 0)
-	{                                                                                                                    // return message type zero when EOF is reached
-		return(0);                                                                                                        // Return 0 as message type
+	{                                                                                                                                                  // return message type zero when EOF is reached
+		return(0);                                                                                                                                      // Return 0 as message type
 	}
 	else
 	{
 		int type;
 		sscanf(buffer, "%d", &type);
-		ACE_OS::sprintf(data, "%s", buffer + 2);                                                                                                     // Remove the type from the buffer
+		ACE_OS::sprintf(data, "%s", buffer + 2);                                                                                                                                   // Remove the type from the buffer
 		return(type);
 	}
 }
@@ -103,9 +108,10 @@ int GetMessageType(char *data)
 
 int ACE_TMAIN(int argc, ACE_TCHAR *[])
 {
-	if (argc > 1)                                             // Use an existing file
+	if (argc > 1)                                                            // Use an existing file
 	{
 		ACE_MMAP_Memory_Pool_Options options(ACE_DEFAULT_BASE_ADDR, ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
+
 		ACE_NEW_RETURN(shared, SHARED_ALLOC(STORE_NAME, STORE_NAME, &options), -1);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("Mapped to base address %@\n"), shared->base_addr()));
 
@@ -114,6 +120,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[])
 	else
 	{
 		ACE_MMAP_Memory_Pool_Options options(0, ACE_MMAP_Memory_Pool_Options::NEVER_FIXED);
+
 		ACE_NEW_RETURN(shared, SHARED_ALLOC(STORE_NAME, STORE_NAME, &options), -1);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("Mapped to base address %@\n"), shared->base_addr()));
 

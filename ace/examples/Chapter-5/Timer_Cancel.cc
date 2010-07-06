@@ -28,9 +28,9 @@ class SignalHandler : public ACE_Event_Handler
 {
 public:
 	SignalHandler(long timerId, int currentInterval)
-		: ACE_Event_Handler(),
-		  timerId_(timerId),
-		  currentInterval_(currentInterval)
+	: ACE_Event_Handler(),
+	timerId_(timerId),
+	currentInterval_(currentInterval)
 	{
 	}
 
@@ -42,6 +42,7 @@ public:
 			ACE_DEBUG((LM_INFO, ACE_TEXT("Resetting interval of timer ") ACE_TEXT("%d to %d\n"),
 						  this->timerId_, ++this->currentInterval_));
 			ACE_Time_Value newInterval(this->currentInterval_);
+
 			ACE_Reactor::instance()->
 				reset_timer_interval(this->timerId_, newInterval);
 		}
@@ -66,7 +67,8 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACE_Time_Value interval(5);
 
 	MyTimerHandler *handler = new MyTimerHandler();
-	long           timerId  = ACE_Reactor::instance()->schedule_timer(handler, 0, initialDelay, interval);
+
+	long timerId = ACE_Reactor::instance()->schedule_timer(handler, 0, initialDelay, interval);
 
 	SignalHandler *mutateTimer = new SignalHandler(timerId, 5);
 

@@ -1,5 +1,6 @@
-#include"base.h"
+#include "base.h"
 
-base::base(void) {
-	i=1972;
+base::base(void)
+{
+	i = 1972;
 }

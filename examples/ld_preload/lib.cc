@@ -1,3 +1,4 @@
-double sin(double x) {
-	return x;
+double sin(double x)
+{
+	return(x);
 }

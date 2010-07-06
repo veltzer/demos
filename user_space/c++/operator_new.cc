@@ -96,11 +96,12 @@ int main(int argc, char **argv, char **envp)
 	myobj *obj1 = new myobj;
 
 	delete obj1;
-	myobj *obj2 = new (17)myobj;
+	myobj  *obj2 = new(17) myobj;
 	delete obj2;
-	myobj *arr1 = new myobj[60];
+	myobj  *arr1 = new myobj[60];
+
 	delete [] arr1;
-	myobj *arr2 = new (17)myobj[60];
+	myobj *arr2 = new(17) myobj[60];
 	delete [] arr2;
 	return(0);
 }

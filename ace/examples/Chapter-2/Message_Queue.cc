@@ -89,7 +89,7 @@ int Message_Receiver::handle_input(ACE_HANDLE)
 	}
 
 	if (dch.deviceId_ < 0)
-	{                                               // Handle shutdown.
+	{                                                              // Handle shutdown.
 		this->handler_->putq(shut_down_message());
 		return(-1);
 	}
@@ -123,8 +123,9 @@ static void report_usage(int argc, ACE_TCHAR *argv[])
 class Acceptor : public ACE_Acceptor<Message_Receiver, ACE_SOCK_ACCEPTOR>
 {
 public:
-	Acceptor(HA_CommandHandler *handler) : handler_(handler)
-	{ }
+	Acceptor(HA_CommandHandler * handler) : handler_(handler)
+	{
+	}
 
 protected:
 	virtual int make_svc_handler(Message_Receiver *& mr)
@@ -145,12 +146,14 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	u_short port = ACE_OS::atoi(argv[1]);
 
 	HA_Device_Repository rep;
-	HA_CommandHandler    handler(rep);
+	HA_CommandHandler handler(rep);
+
 	ACE_ASSERT(handler.activate() == 0);
 	//start up the handler.
 
-	Acceptor      acceptor(&handler);
+	Acceptor acceptor(& handler);
 	ACE_INET_Addr addr(port);
+
 	if (acceptor.open(addr) == -1)
 	{
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"),

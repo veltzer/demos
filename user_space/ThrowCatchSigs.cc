@@ -125,7 +125,8 @@ int main(int argc, char **argv, char **envp)
 		try {
 			doBadCode(c % 2);
 		}
-		catch (std::exception e) {
+		catch(std::exception e)
+		{
 			std::cerr << "Got exception, lets continue anyway" << std::endl;
 		}
 	}

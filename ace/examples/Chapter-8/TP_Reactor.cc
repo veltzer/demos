@@ -131,7 +131,9 @@ public:
 
 class Client : public ACE_Task_Base {
 public:
-	Client() : addr_(rendezvous) {}
+	Client() : addr_(rendezvous)
+	{
+	}
 	virtual int svc()
 	{
 		ACE_OS::sleep(3);
@@ -153,8 +155,10 @@ private:
 	{
 		ACE_SOCK_Stream    stream;
 		ACE_SOCK_Connector connect;
-		ACE_Time_Value     delay(0, req_delay);
-		size_t             len = *reinterpret_cast<ACE_TCHAR *> (arg);
+
+		ACE_Time_Value delay(0, req_delay);
+
+		size_t len = *reinterpret_cast<ACE_TCHAR *> (arg);
 
 		for (size_t i = 0; i < cli_conn_no; i++)
 		{
@@ -218,11 +222,13 @@ private:
 int ACE_TMAIN(int, ACE_TCHAR *[])
 {
 	ACE_TP_Reactor sr;
-	ACE_Reactor    new_reactor(&sr);
+
+	ACE_Reactor new_reactor(& sr);
 
 	ACE_Reactor::instance(&new_reactor);
-	ACCEPTOR      acceptor;
+	ACCEPTOR acceptor;
 	ACE_INET_Addr accept_addr(rendezvous);
+
 	if (acceptor.open(accept_addr) == -1)
 	{
 		ACE_ERROR_RETURN((LM_ERROR,

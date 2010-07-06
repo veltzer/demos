@@ -24,7 +24,8 @@ class Client : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNCH> {
 
 public:
 	Client() : notifier_(0, this, ACE_Event_Handler::WRITE_MASK)
-	{}
+	{
+	}
 
 	virtual int open(void * = 0);
 
@@ -39,7 +40,9 @@ public:
 										const void            *act = 0);
 
 private:
-	enum { ITERATIONS = 5 };
+	enum {
+		ITERATIONS = 5
+	};
 	int iterations_;
 	ACE_Reactor_Notification_Strategy notifier_;
 };

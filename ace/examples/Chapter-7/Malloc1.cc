@@ -15,7 +15,7 @@ typedef ACE_Malloc_LIFO_Iterator<ACE_MMAP_MEMORY_POOL,
 MALLOC_LIFO_ITERATOR;
 
 ALLOCATOR *g_allocator;
-class Record
+class     Record
 {
 public:
 	Record(int id1, int id2, char *name)
@@ -29,10 +29,21 @@ public:
 	}
 
 
-	~Record() { g_allocator->free(name_); }
-	char *name(void) { return(name_); }
-	int id1(void) { return(id1_); }
-	int id2(void) { return(id2_); }
+	~Record() {
+		g_allocator->free(name_);
+	}
+	char *name(void)
+	{
+		return(name_);
+	}
+	int id1(void)
+	{
+		return(id1_);
+	}
+	int id2(void)
+	{
+		return(id2_);
+	}
 
 private:
 	int  id1_;
@@ -60,7 +71,7 @@ void showRecords()
 
 int addRecords()
 {
-	char buf[64];                                              // old char buf[32];
+	char buf[64];                                                             // old char buf[32];
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -74,7 +85,7 @@ int addRecords()
 		}
 
 		// Allocate and place record
-		Record *newRecord = new (memory)Record(i, i + 1, buf);
+		Record *newRecord = new(memory) Record(i, i + 1, buf);
 		if (g_allocator->bind(buf, newRecord) == -1)
 		{
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"),

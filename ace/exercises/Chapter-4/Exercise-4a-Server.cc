@@ -45,6 +45,7 @@ int MakeConnection(ACE_SOCK_Acceptor *acceptor, ACE_INET_Addr *port_to_listen, A
 	}
 #else
 	ACE_Time_Value timeout(10, 0);
+
 	if (acceptor->accept(*peer, peer_addr, &timeout, 0) == -1)
 	{
 		if (ACE_OS::last_error() == EINTR)

@@ -31,9 +31,9 @@ class SigintHandler : public ACE_Event_Handler
 {
 public:
 	SigintHandler(long timerId, int currentInterval)
-		: ACE_Event_Handler(),
-		  timerId_(timerId),
-		  currentInterval_(currentInterval)
+	: ACE_Event_Handler(),
+	timerId_(timerId),
+	currentInterval_(currentInterval)
 	{
 	}
 
@@ -48,6 +48,7 @@ public:
 					  this->timerId_,
 					  ++this->currentInterval_));
 		ACE_Time_Value newInterval(this->currentInterval_);
+
 		ACE_Reactor::instance()->
 			reset_timer_interval(this->timerId_, newInterval);
 		return(0);

@@ -7,7 +7,7 @@
 
 class Follower {
 public:
-	Follower(ACE_Thread_Mutex& leader_lock) : cond_(leader_lock)
+	Follower(ACE_Thread_Mutex & leader_lock) : cond_(leader_lock)
 	{
 		owner_ = ACE_Thread::self();
 	}
@@ -96,7 +96,8 @@ int LF_ThreadPool::svc(void)
 		// Block until this thread is the leader.
 		become_leader();
 		ACE_Message_Block *mb = 0;
-		ACE_Time_Value    tv(LONG_TIME);
+		ACE_Time_Value tv(LONG_TIME);
+
 		tv += ACE_OS::gettimeofday();
 		// Get a message, elect new leader, then process message.
 		if (this->getq(mb, &tv) < 0)
@@ -197,7 +198,8 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	tp.activate(THR_NEW_LWP | THR_JOINABLE, 5);
 	// Wait for a few seconds...
 	ACE_OS::sleep(2);
-	ACE_Time_Value    tv(1L);
+	ACE_Time_Value tv(1L);
+
 	ACE_Message_Block *mb;
 	for (int i = 0; i < 30; i++)
 	{

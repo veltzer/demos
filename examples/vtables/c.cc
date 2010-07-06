@@ -1,4 +1,5 @@
-#include"c.h"
+#include "c.h"
 
-void C::zoo(void) {
+void C::zoo(void)
+{
 }

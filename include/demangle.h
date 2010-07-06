@@ -50,7 +50,8 @@ inline void error_demangle(
 		char   *ret = abi::__cxa_demangle(begin_name, funcname, &funcnamesize, &status);
 		if (status == 0)
 		{
-			funcname = ret;                               // use possibly realloc()-ed string
+			// use possibly realloc()-ed string
+			funcname = ret;
 			strncpy(result_name, ret, max_name);
 			strncpy(result_offset, begin_offset, max_offset);
 		}

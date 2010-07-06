@@ -13,19 +13,28 @@ class HA_Device_Repository
 {
 public:
 	HA_Device_Repository() : owner_(0)
-	{ }
+	{
+	}
 
 	int is_free(void)
-	{ return(this->owner_ == 0); }
+	{
+		return(this->owner_ == 0);
+	}
 
 	int is_owner(ACE_Task_Base *tb)
-	{ return(this->owner_ == tb); }
+	{
+		return(this->owner_ == tb);
+	}
 
 	ACE_Task_Base *get_owner(void)
-	{ return(this->owner_); }
+	{
+		return(this->owner_);
+	}
 
 	void set_owner(ACE_Task_Base *owner)
-	{ this->owner_ = owner; }
+	{
+		this->owner_ = owner;
+	}
 
 	int update_device(int device_id);
 
@@ -37,13 +46,16 @@ private:
 class HA_CommandHandler : public ACE_Task_Base
 {
 public:
-	enum { NUM_USES = 10 };
+	enum {
+		NUM_USES = 10
+	};
 
-	HA_CommandHandler(HA_Device_Repository&            rep,
-							ACE_Condition<ACE_Thread_Mutex>& wait,
-							ACE_Thread_Mutex&                mutex)
+	HA_CommandHandler(HA_Device_Repository & rep,
+							ACE_Condition<ACE_Thread_Mutex> &wait,
+							ACE_Thread_Mutex & mutex)
 		: rep_(rep), waitCond_(wait), mutex_(mutex)
-	{ }
+	{
+	}
 
 	virtual int svc(void);
 
@@ -101,6 +113,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 
 	//FUZZ: disable check_for_lack_ACE_OS
 	ACE_Condition<ACE_Thread_Mutex> wait(rep_mutex);
+
 	//FUZZ: enable check_for_lack_ACE_OS
 
 	HA_CommandHandler handler1(rep, wait, rep_mutex);

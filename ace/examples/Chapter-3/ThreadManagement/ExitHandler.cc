@@ -23,8 +23,9 @@ public:
 class HA_CommandHandler : public ACE_Task_Base
 {
 public:
-	HA_CommandHandler(ExitHandler& eh) : eh_(eh)
-	{ }
+	HA_CommandHandler(ExitHandler & eh) : eh_(eh)
+	{
+	}
 
 	virtual int svc(void)
 	{

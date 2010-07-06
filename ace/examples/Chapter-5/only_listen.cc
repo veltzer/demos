@@ -55,7 +55,8 @@ int ClientAcceptor::handle_input(ACE_HANDLE)
 
 int ACE_TMAIN(int, ACE_TCHAR *[])
 {
-	ACE_INET_Addr  port_to_listen(50000);
+	ACE_INET_Addr port_to_listen(50000);
+
 	ClientAcceptor acceptor;
 
 	acceptor.reactor(ACE_Reactor::instance());

@@ -26,8 +26,10 @@ public:
 		ACE_SOCK_Stream    peer;
 		int                bc;
 		static char        buf[64];
-		ACE_Time_Value     timeout(10, 0);
-		int                i = 0;
+
+		ACE_Time_Value timeout(10, 0);
+
+		int i = 0;
 
 		ACE_DEBUG((LM_DEBUG,
 					  ACE_TEXT("(%t) SocketHandler Thread %d running\n"), value));

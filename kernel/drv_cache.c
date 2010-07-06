@@ -26,36 +26,42 @@ MODULE_DESCRIPTION("Demo module for testing");
 
 // This demo is to show how to create caches and use them.
 
-struct kmem_cache* cache_p;
-void* p;
+struct kmem_cache *cache_p;
+void              *p;
 
-static int __init mod_init(void) {
+static int __init mod_init(void)
+{
 	DEBUG("start");
-	cache_p=kmem_cache_create(
-		"mark", // name of cache
-		10, // size to allocate
-		0, // alignment
-		SLAB_HWCACHE_ALIGN|SLAB_DEBUG_OBJECTS, // flags
-		NULL // ctor/dtor
-	);
-	if(cache_p==NULL) {
-		return -ENOMEM;
+	cache_p = kmem_cache_create(
+		"mark",                                          // name of cache
+		10,                                              // size to allocate
+		0,                                               // alignment
+		SLAB_HWCACHE_ALIGN | SLAB_DEBUG_OBJECTS,         // flags
+		NULL                                             // ctor/dtor
+		);
+	if (cache_p == NULL)
+	{
+		return(-ENOMEM);
 	}
-	p=kmem_cache_alloc(cache_p,GFP_KERNEL);
-	if(p==NULL) {
+	p = kmem_cache_alloc(cache_p, GFP_KERNEL);
+	if (p == NULL)
+	{
 		// there is not too much that we can do here
 		DEBUG("Cannot allocate memory");
 	}
 	DEBUG("Allocated all");
-	return 0;
+	return(0);
 }
 
-static void __exit mod_exit(void) {
-	kmem_cache_free(cache_p,p);
+
+static void __exit mod_exit(void)
+{
+	kmem_cache_free(cache_p, p);
 	//kmem_cache_free(cache_p,p);
 	kmem_cache_destroy(cache_p);
 	DEBUG("start");
 }
+
 
 // declaration of init/cleanup functions of this module
 

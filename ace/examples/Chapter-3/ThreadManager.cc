@@ -30,7 +30,7 @@ class HA_CommandHandler : public ACE_Task_Base
 private:
 	ExitHandler& eh_;
 public:
-	HA_CommandHandler(ExitHandler& eh) : eh_(eh)
+	HA_CommandHandler(ExitHandler & eh) : eh_(eh)
 	{
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) at HA_CommandHandler\n")));
 	}
@@ -55,14 +55,16 @@ public:
 int ACE_TMAIN(int, ACE_TCHAR **)
 {
 	// first thread
-	ExitHandler       eh;
+	ExitHandler eh;
+
 	HA_CommandHandler handler(eh);
 
 	handler.activate();
 
 	// second thread
-	ExitHandler       eh2;
+	ExitHandler eh2;
 	HA_CommandHandler handler2(eh2);
+
 	handler2.activate();
 
 	ACE_Thread_Manager::instance()->wait();

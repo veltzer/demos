@@ -38,7 +38,8 @@ public:
 		while (1)
 		{
 			ACE_Message_Block *mb = 0;
-			ACE_Time_Value    tv(0, 1000);
+			ACE_Time_Value tv(0, 1000);
+
 			tv += ACE_OS::time(0);
 
 			int result = this->getq(mb, &tv);
@@ -83,7 +84,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACE_Sig_Handler sh;
 	sh.register_handler(SIGUSR1, &handler);
 
-	ACE_OS::sleep(1);                                                   // Allow threads to start
+	ACE_OS::sleep(1);                                                                  // Allow threads to start
 
 	for (int i = 0; i < 5; i++)
 	{

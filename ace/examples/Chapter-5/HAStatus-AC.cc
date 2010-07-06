@@ -70,8 +70,9 @@ int ClientService::handle_input(ACE_HANDLE)
 		static_cast<size_t> ((recv_cnt - send_cnt));
 	ACE_NEW_RETURN(mb, ACE_Message_Block(remaining), -1);
 	mb->copy(&buffer[send_cnt], remaining);
-	int            output_off = this->msg_queue()->is_empty();
+	int output_off = this->msg_queue()->is_empty();
 	ACE_Time_Value nowait(ACE_OS::gettimeofday());
+
 	if (this->putq(mb, &nowait) == -1)
 	{
 		ACE_ERROR((LM_ERROR,
@@ -91,7 +92,8 @@ int ClientService::handle_input(ACE_HANDLE)
 int ClientService::handle_output(ACE_HANDLE)
 {
 	ACE_Message_Block *mb = 0;
-	ACE_Time_Value    nowait(ACE_OS::gettimeofday());
+
+	ACE_Time_Value nowait(ACE_OS::gettimeofday());
 
 	while (-1 != this->getq(mb, &nowait))
 	{
@@ -129,7 +131,8 @@ int ClientService::handle_close(ACE_HANDLE h, ACE_Reactor_Mask mask)
 
 int ACE_TMAIN(int, ACE_TCHAR *[])
 {
-	ACE_INET_Addr  port_to_listen("HAStatus");
+	ACE_INET_Addr port_to_listen("HAStatus");
+
 	ClientAcceptor acceptor;
 
 	if (acceptor.open(port_to_listen,

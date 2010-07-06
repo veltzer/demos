@@ -84,6 +84,7 @@ static inline void scie(int t, const char *msg, int errval = -1)
 	if (t == errval)
 	{
 		throw new std::exception();
+
 		//perror("error in system call");
 		//exit(1);
 	}
@@ -95,6 +96,7 @@ static inline void scig(int t, const char *msg, int goodval = 0)
 	if (t != goodval)
 	{
 		throw new std::exception();
+
 		//perror("error in system call");
 		//exit(1);
 	}
@@ -106,6 +108,7 @@ static inline void scig2(int t, const char *msg, int v1, int v2)
 	if ((t != v1) && (t != v2))
 	{
 		throw new std::exception();
+
 		//perror("error in system call");
 		//exit(1);
 	}
@@ -117,6 +120,7 @@ static inline void scpe(void *t, const char *msg, void *errval = (void *)-1)
 	if (t == errval)
 	{
 		throw new std::exception();
+
 		//perror("error in system call");
 		//exit(1);
 	}

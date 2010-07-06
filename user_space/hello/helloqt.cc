@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {
 	QApplication app(argc, argv);
-	QPushButton  hello("Hello, world!", 0);
+	QPushButton hello("Hello, world!", 0);
 
 	QObject::connect(&hello, SIGNAL(clicked()), &app, SLOT(quit()));
 	hello.show();

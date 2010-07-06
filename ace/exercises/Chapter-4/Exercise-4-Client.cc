@@ -17,8 +17,9 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACE_SOCK_Stream    peer;
 	int                bc;
 	static char        buf[64];
-	ACE_Time_Value     timeout(10, 0);
-	int                i = 0;
+	ACE_Time_Value timeout(10, 0);
+
+	int i = 0;
 	if (connector.connect(peer, addr, &timeout) == -1)
 	{
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("Client connect")), 1);

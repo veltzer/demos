@@ -45,9 +45,9 @@ private:
 class StatusUpdate : public ACE_Method_Request
 {
 public:
-	StatusUpdate(HA_ControllerAgent& controller,
-					 ACE_Future<int>&    returnVal)
-		: controller_(controller), returnVal_(returnVal)
+	StatusUpdate(HA_ControllerAgent & controller,
+					 ACE_Future<int> &returnVal)
+	: controller_(controller), returnVal_(returnVal)
 	{
 		ACE_TRACE(ACE_TEXT("StatusUpdate::StatusUpdate"));
 	}
@@ -72,7 +72,7 @@ class ExitMethod : public ACE_Method_Request
 {
 public:
 	virtual int call(void)
-	{                                               // Cause exit.
+	{                                                              // Cause exit.
 		return(-1);
 	}
 };
@@ -92,7 +92,7 @@ public:
 		ACE_TRACE(ACE_TEXT("Scheduler::svc"));
 
 		while (1)
-		{                                                                                            // Dequeue the next method object
+		{                                                                                                                          // Dequeue the next method object
 			auto_ptr<ACE_Method_Request>
 			request(this->activation_queue_.dequeue());
 
@@ -136,7 +136,7 @@ public:
 
 	//FUZZ: disable check_for_lack_ACE_OS
 	void exit(void)
-	{                                               //FUZZ: enable check_for_lack_ACE_OS
+	{                                                              //FUZZ: enable check_for_lack_ACE_OS
 		ACE_TRACE(ACE_TEXT("HA_ControllerAgentProxy::exit"));
 		this->scheduler_.enqueue(new ExitMethod);
 	}
@@ -150,9 +150,10 @@ private:
 class CompletionCallBack : public ACE_Future_Observer<int>
 {
 public:
-	CompletionCallBack(HA_ControllerAgentProxy& proxy)
-		: proxy_(proxy)
-	{ }
+	CompletionCallBack(HA_ControllerAgentProxy & proxy)
+	: proxy_(proxy)
+	{
+	}
 
 	virtual void update(const ACE_Future<int>& future)
 	{
@@ -176,7 +177,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 {
 	HA_ControllerAgentProxy controller;
 
-	ACE_Future<int>    results[10];
+	ACE_Future<int> results[10];
 	CompletionCallBack cb(controller);
 
 	for (int i = 0; i < 10; i++)

@@ -103,6 +103,7 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 {
 	// A synchronized message queue.
 	ACE_Message_Queue<ACE_MT_SYNCH> msg_queue(max_queue);
+
 	if (thr_mgr.spawn(ACE_THR_FUNC(producer), (void *)&msg_queue,
 							THR_NEW_LWP | THR_DETACHED) == -1)
 	{

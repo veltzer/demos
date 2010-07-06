@@ -17,7 +17,9 @@ class Client : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNCH>
 	typedef ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNCH>   super;
 
 public:
-	Client() : notifier_(0, this, ACE_Event_Handler::WRITE_MASK) {}
+	Client() : notifier_(0, this, ACE_Event_Handler::WRITE_MASK)
+	{
+	}
 	// Called when the connection is established.
 	virtual int open(void * = 0);
 
@@ -31,7 +33,9 @@ public:
 	virtual int handle_timeout(const ACE_Time_Value& current_time, const void *act = 0);
 
 private:
-	enum { ITERATIONS = 5 };
+	enum {
+		ITERATIONS = 5
+	};
 	int iterations_;
 	ACE_Reactor_Notification_Strategy notifier_;
 };

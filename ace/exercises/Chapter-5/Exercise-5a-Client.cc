@@ -15,7 +15,9 @@ public:
 	ACE_SOCK_Stream    client_stream_;
 	ACE_INET_Addr      remote_addr_;
 	ACE_SOCK_Connector connector_;
-	Client(char *hostname, int port) : remote_addr_(port, hostname) {}
+	Client(char *hostname, int port) : remote_addr_(port, hostname)
+	{
+	}
 
 	// Uses a connector component `connector_ to connect to a
 	// remote machine and pass the connection into a stream
@@ -44,7 +46,10 @@ public:
 		{
 			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "close"), -1);
 		}
-		else{ return(0); }
+		else
+		{
+			return(0);
+		}
 	}
 };
 
@@ -93,8 +98,10 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		}
 	}
 	Client client1((char *)(ACE_LOCALHOST), port);
+
 	port++;
 	Client client2((char *)(ACE_LOCALHOST), port);
+
 	client1.connect_to_server();
 	client2.connect_to_server();
 	int  type = 1;

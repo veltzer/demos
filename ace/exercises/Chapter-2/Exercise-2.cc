@@ -65,6 +65,7 @@ static void *producer()
 {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("producer : thread=%t Line:%l\n")));
 	ACE_Read_Buffer rb(ACE_STDIN);
+
 	// Keep reading stdin, until we reach EOF.
 	while (true)
 	{
@@ -96,7 +97,7 @@ static void *producer()
 			// get message size
 			mb->wr_ptr(rb.size());
 			// ACE_DEBUG ((LM_DEBUG, "enqueueing message of size %d\n", size));
-			char c = *buffer;                                                                                                                                      // Get message type into c variable
+			char c = *buffer;                                                                                                                                                                                   // Get message type into c variable
 			switch (c)
 			{
 			case '1':

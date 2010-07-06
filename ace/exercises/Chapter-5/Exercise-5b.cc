@@ -13,7 +13,7 @@ bool Termination = false;
 
 class Net_Handler : public ACE_Event_Handler {
 public:
-	Net_Handler(ACE_SOCK_Stream& s);
+	Net_Handler(ACE_SOCK_Stream & s);
 	virtual int handle_input(ACE_HANDLE handle);
 	virtual int handle_close(ACE_HANDLE handle, ACE_Reactor_Mask close_mask);
 	virtual void terminate();
@@ -157,9 +157,9 @@ int Net_Listener::handle_input(ACE_HANDLE handle)
 	int reset_new_hndl = this->reactor()->uses_event_associations();
 	int result         = this->acceptor.accept(stream,
 															 &remote_address,
-															 0,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  // timeout
-															 1,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  // restart
-															 reset_new_hndl);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    // reset new handler
+															 0,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   // timeout
+															 1,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   // restart
+															 reset_new_hndl);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     // reset new handler
 	ACE_ASSERT(result == 0);
 	ACE_UNUSED_ARG(result);
 	remote_address.dump();
@@ -185,7 +185,9 @@ public:
 	Net_Listener *listener;
 	int          signum;
 public:
-	CatchSignal(int isignum) : signum(isignum) {}
+	CatchSignal(int isignum) : signum(isignum)
+	{
+	}
 	virtual ~CatchSignal() {}
 	virtual int handle_signal(int signum, siginfo_t * = 0, ucontext_t * = 0)
 	{
@@ -214,7 +216,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	Net_Listener    *listener2 = 0;
 	int             port       = ACE_DEFAULT_SERVER_PORT;
 	ACE_Sig_Handler handler;
-	CatchSignal     terminate(SIGTRAP);                                              // SIGTRAP is 5
+
+	CatchSignal terminate(SIGTRAP);                                                                 // SIGTRAP is 5
 
 	if (argc > 1)
 	{
@@ -223,8 +226,10 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	ACE_DEBUG((LM_DEBUG, "Listening to ports(%d %d)\n", port, port + 1));
 	handler.register_handler(SIGTRAP, &terminate);
 	listener1 = new Net_Listener(port);
+
 	port++;
 	listener2 = new Net_Listener(port);
+
 	// Store Net_Listener for Reactor method
 	terminate.listener = listener1;
 	ACE_DEBUG((LM_DEBUG, "my ppid is: %P\n"));
