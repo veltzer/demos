@@ -3,17 +3,17 @@
 
 #include <iostream>
 #include <errno.h>
-#include <stdio.h>  // for printf(3)
+#include <stdio.h> // for printf(3)
 #include <stdlib.h> // for system(3)
 #include <stdarg.h>
 #include <sys/ioctl.h>
-#include <sys/types.h>   // for getpid, gettid
+#include <sys/types.h> // for getpid, gettid
 #include <sys/syscall.h> // for syscall
-#include <unistd.h>      // for getpid, syscall, sysconf
+#include <unistd.h> // for getpid, syscall, sysconf
 #include <cpufreq.h>
 
 /*
- *      getting a thread id (glibc doesnt have this)
+ * getting a thread id (glibc doesnt have this)
  */
 static inline pid_t gettid(void)
 {
@@ -41,10 +41,10 @@ static inline unsigned int min(unsigned int a, unsigned int b)
 
 
 /*
- *      Functions which handle the RDTSC
+ * Functions which handle the RDTSC
  */
 
-typedef unsigned long long   ticks_t;
+typedef unsigned long long ticks_t;
 
 static inline ticks_t getticks(void)
 {
@@ -62,9 +62,9 @@ static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2)
 		fprintf(stderr, "What's going on? t2<t1...\n");
 		exit(1);
 	}
-	unsigned long long diff  = (t2 - t1) / 1000;
-	unsigned long      freq  = cpufreq_get_freq_kernel(0);
-	unsigned long      mpart = freq / 1000;
+	unsigned long long diff=(t2-t1)/1000;
+	unsigned long freq=cpufreq_get_freq_kernel(0);
+	unsigned long mpart = freq / 1000;
 	//unsigned long mdiff=difft/freq;
 	unsigned long mdiff = diff / mpart;
 	//fprintf(stdout,"diff is %llu\n",diff);
@@ -76,8 +76,8 @@ static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2)
 
 
 /*
- *      A system call handler, will take care of all those pesky error values
- *      and will throw an exception if any of them pops up.
+ * A system call handler, will take care of all those pesky error values
+ * and will throw an exception if any of them pops up.
  */
 static inline void scie(int t, const char *msg, int errval = -1)
 {
@@ -127,9 +127,9 @@ static inline void scpe(void *t, const char *msg, void *errval = (void *)-1)
 }
 
 
-#define SCIE(v, msg)          std::cout << msg << " " << "started" << std::endl; scie(v, msg); std::cout << msg << " " << "ended" << std::endl;
-#define SCPE(v, msg)          std::cout << msg << " " << "started" << std::endl; scpe(v, msg); std::cout << msg << " " << "ended" << std::endl;
-#define SCIG(v, msg)          std::cout << msg << " " << "started" << std::endl; scig(v, msg); std::cout << msg << " " << "ended" << std::endl;
+#define SCIE(v, msg) std::cout << msg << " " << "started" << std::endl; scie(v, msg); std::cout << msg << " " << "ended" << std::endl;
+#define SCPE(v, msg) std::cout << msg << " " << "started" << std::endl; scpe(v, msg); std::cout << msg << " " << "ended" << std::endl;
+#define SCIG(v, msg) std::cout << msg << " " << "started" << std::endl; scig(v, msg); std::cout << msg << " " << "ended" << std::endl;
 #define SCIG2(v, msg, v1, v2) std::cout << msg << " " << "started" << std::endl; scig2(v, msg, v1, v2); std::cout << msg << " " << "ended" << std::endl;
 
 // kernel log handling functions
@@ -170,9 +170,9 @@ static inline void waitkey(const char *msg = NULL)
 static inline void debug(const char *file, const char *function, int line, const char *fmt, ...)
 {
 	extern char *program_invocation_short_name;
-	char        str[1024];
-	pid_t       pid = getpid();
-	pid_t       tid = gettid();
+	char str[1024];
+	pid_t pid = getpid();
+	pid_t tid = gettid();
 
 	snprintf(str, 1024, "%s %d/%d %s %s %d: %s\n", program_invocation_short_name, pid, tid, file, function, line, fmt);
 	va_list args;
@@ -185,14 +185,14 @@ static inline void debug(const char *file, const char *function, int line, const
 void debug(const char *file, const char *function, int line, const char *fmt, ...) __attribute__((format(printf, 4, 5)));
 
 #define DEBUG(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
-#define INFO(fmt, args...)  debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
+#define INFO(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
 #define TRACE(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
 
 static inline int printproc(const char *filter)
 {
-	pid_t              pid      = getpid();
+	pid_t pid=getpid();
 	const unsigned int cmd_size = 256;
-	char               cmd[cmd_size];
+	char cmd[cmd_size];
 
 	if (filter == NULL)
 	{
@@ -252,19 +252,19 @@ static inline void do_prog(unsigned int i, unsigned int mod, unsigned int full)
 
 static inline void do_prog_finish(void)
 {
-	printf("\tfinished...           \n");
+	printf("\tfinished...\n");
 	fflush(stdout);
 }
 
 
 /*
- *      An enhanced system(3) version which also:
- *      - accepts variable argument and does the substitution.
- *      - checks for errors on return from system(3)
+ * An enhanced system(3) version which also:
+ * - accepts variable argument and does the substitution.
+ * - checks for errors on return from system(3)
  */
 static inline void my_system(const char *fmt, ...)
 {
-	char    str[1024];
+	char str[1024];
 	va_list args;
 
 	va_start(args, fmt);

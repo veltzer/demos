@@ -3,7 +3,7 @@
 
 typedef struct _BufferStruct
 {
-	void         *pointer;
+	void *pointer;
 	unsigned int size;
 } BufferStruct;
 
