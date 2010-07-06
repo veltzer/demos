@@ -33,7 +33,7 @@ public:
 
 			result = this->gmutex_.release();
 			ACE_ASSERT(result == 0);
-			ACE_OS::sleep(1);                                                                                                              // Give other process a chance.
+			ACE_OS::sleep(1);                                                                                                                             // Give other process a chance.
 		}
 	}
 
@@ -44,15 +44,15 @@ private:
 
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-	if (argc > 1)                                        // Run as the child.
-	{                                                    // Create or get the global mutex.
+	if (argc > 1)                                             // Run as the child.
+	{                                                         // Create or get the global mutex.
 		ACE_Process_Mutex mutex("GlobalMutex");
 
 		GResourceUser acquirer(mutex);
 		acquirer.run();
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P| %t) Done (Child).\n")));
 	}
-	else                                                // Run as the parent.
+	else                                                     // Run as the parent.
 	{
 		ACE_Process_Options options;
 		options.command_line(ACE_TEXT("%s a"), argv[0]);
@@ -72,7 +72,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		{
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("processb wait")), -1);
 		}
-		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P| %t) Done (Parent).\n")));                                                                          // Print Done for the parent only
+		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P| %t) Done (Parent).\n")));                                                                                    // Print Done for the parent only
 	}
 
 	return(0);

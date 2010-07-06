@@ -25,6 +25,7 @@ CLEAN:=
 CLEAN_DIRS:=
 
 CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc") $(shell find ace -name "*.cc")
+HH_SRC:=$(shell find . -name "*.h")
 CC_ASX:=$(addsuffix .s,$(basename $(CC_SRC)))
 CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
@@ -103,7 +104,7 @@ check_ws:
 	-@grep "  " `find . -name "*.cpp" -or -name "*.h"`
 .PHONY: check_files
 check_files:
-	-@find . -mindepth 2 -type f -and -not -name "*.cpp" -and -not -name "*.h" -and -not -name "*.h" -and -not -name "*.txt" -and -not -name "*.conf" -and -not -name "*.ini" -and -not -name "*.sample" -and -not -name "*.data" -and -not -name "*.doc" -and -not -name "*.bash"
+	-@find . -mindepth 2 -type f -and -not -name "*.cc" -and -not -name "*.h" -and -not -name "*.h" -and -not -name "*.txt" -and -not -name "*.conf" -and -not -name "*.ini" -and -not -name "*.sample" -and -not -name "*.data" -and -not -name "*.doc" -and -not -name "*.bash" -and -not -name "*.c"
 .PHONY: check_include
 check_include:
 	-grep "include \"ace" `find . -name "*.cc" -or -name "*.h"`
@@ -160,4 +161,4 @@ kern_tips:
 # code beautifucation
 .PHONY: do_beautify
 do_beautify:
-	uncrustify -c uncrustify.cfg --replace --no-backup --mtime $(CC_SRC)
+	uncrustify -c uncrustify.cfg --replace --no-backup --mtime $(CC_SRC) $(HH_SRC)

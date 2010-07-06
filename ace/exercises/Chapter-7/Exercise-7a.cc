@@ -84,21 +84,21 @@ int StoreMessages(SHARED_ALLOC *shared, char *buf)
 
 int GetMessageType(char *data)
 {
-	static ACE_Read_Buffer rb(ACE_STDIN);                                      // Read new line from stdin
+	static ACE_Read_Buffer rb(ACE_STDIN);                                           // Read new line from stdin
 
 	// read a single line from stdin
 	// Allocate a new buffer.
 	char *buffer = rb.read('\n');
 
 	if (buffer == 0)
-	{                                                                                                // return message type zero when EOF is reached
-		return(0);                                                                                    // Return 0 as message type
+	{                                                                                                          // return message type zero when EOF is reached
+		return(0);                                                                                              // Return 0 as message type
 	}
 	else
 	{
 		int type;
 		sscanf(buffer, "%d", &type);
-		ACE_OS::sprintf(data, "%s", buffer + 2);                                                                                 // Remove the type from the buffer
+		ACE_OS::sprintf(data, "%s", buffer + 2);                                                                                           // Remove the type from the buffer
 		return(type);
 	}
 }
@@ -117,7 +117,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[])
 	StoreName[1] = (char *)"Exercise_7a-store.1";
 	StoreName[2] = (char *)"Exercise_7a-store.2";
 
-	if (argc > 1)                                   // Use an existing file
+	if (argc > 1)                                        // Use an existing file
 	{
 		ACE_MMAP_Memory_Pool_Options option0(ACE_DEFAULT_BASE_ADDR,
 														 ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
@@ -143,7 +143,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[])
 	{
 		ACE_MMAP_Memory_Pool_Options option0(0, ACE_MMAP_Memory_Pool_Options::NEVER_FIXED);
 		for (i = 0; i < 3; i++)
-		{                                                                     //ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%C\n"), StoreName[i]));
+		{                                                                               //ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%C\n"), StoreName[i]));
 			ACE_NEW_RETURN(shared[i], SHARED_ALLOC(StoreName[i], StoreName[i], &option0), -1);
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(shared%d) Mapped to base address %@\n"), i,
 						  shared[i]->base_addr()));
@@ -180,7 +180,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[])
 				index = 2;
 			}
 			StoreMessages(shared[index], buffer);
-		}                                                                  // End while loop
+		}                                                                            // End while loop
 	}
 
 	for (i = 0; i < 3; i++)

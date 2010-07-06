@@ -75,13 +75,13 @@ static void *producer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 	// Keep reading stdin, until we reach EOF.
 
 	for ( ; ;)
-	{                                     // Allocate a new buffer.
+	{                                          // Allocate a new buffer.
 		char *buffer = rb.read('\n');
 
 		ACE_Message_Block *mb;
 
 		if (buffer == 0)
-		{                                                                         // Send a 0-sized shutdown message to the other thread and
+		{                                                                                   // Send a 0-sized shutdown message to the other thread and
 			// exit.
 
 			ACE_NEW_RETURN(mb, ACE_Message_Block((size_t)0), 0);

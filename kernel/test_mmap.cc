@@ -68,20 +68,20 @@ int main(int argc, char **argv, char **envp)
 	//printproc();
 
 	SCPE(data = mmap(
-			  NULL,                                                                                                                               /* we DO NOT recommend an address - better to let the kernel decide */
-			  size,                                                                                                                               /* the size we need */
-			  PROT_READ | PROT_WRITE,                                                                                                             /* we want read AND write */
-			  flags,                                                                                                                              /* we don't want page faults */
-			  d,                                                                                                                                  /* file descriptor */
-			  offset                                                                                                                              /* offset */
+			  NULL,                                                                                                                                              /* we DO NOT recommend an address - better to let the kernel decide */
+			  size,                                                                                                                                              /* the size we need */
+			  PROT_READ | PROT_WRITE,                                                                                                                            /* we want read AND write */
+			  flags,                                                                                                                                             /* we don't want page faults */
+			  d,                                                                                                                                                 /* file descriptor */
+			  offset                                                                                                                                             /* offset */
 			  ), "mmap");
 	SCPE(data2 = mmap(
-			  NULL,                                                                                                                               /* we DO NOT recommend an address - better to let the kernel decide */
-			  size,                                                                                                                               /* the size we need */
-			  PROT_READ | PROT_WRITE,                                                                                                             /* we want read AND write */
-			  flags,                                                                                                                              /* we don't want page faults */
-			  d,                                                                                                                                  /* file descriptor */
-			  offset                                                                                                                              /* offset */
+			  NULL,                                                                                                                                              /* we DO NOT recommend an address - better to let the kernel decide */
+			  size,                                                                                                                                              /* the size we need */
+			  PROT_READ | PROT_WRITE,                                                                                                                            /* we want read AND write */
+			  flags,                                                                                                                                             /* we don't want page faults */
+			  d,                                                                                                                                                 /* file descriptor */
+			  offset                                                                                                                                             /* offset */
 			  ), "mmap");
 	fprintf(stderr, "pointer I got is %p\n", data);
 	print_data(data, size);

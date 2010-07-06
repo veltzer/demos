@@ -56,7 +56,7 @@ int DoAccept(long ReceivePort, ACE_SOCK_Stream *peer, ACE_INET_Addr *peer_addr, 
 	ACE_Time_Value timeout(10, 0);
 	ACE_INET_Addr  address_to_listen = ACE_INET_Addr(ReceivePort, ACE_LOCALHOST);
 
-	if (acceptor->open(address_to_listen, 1) == -1)                                       // Use the address as well as re-use flag
+	if (acceptor->open(address_to_listen, 1) == -1)                                            // Use the address as well as re-use flag
 	{
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("acceptor.open")), 100);
 	}
@@ -94,30 +94,30 @@ int ReceiveMessages(ACE_SOCK_Stream peer[], ACE_SOCK_Acceptor acceptor[])
 	int    socket_fd, result;
 	fd_set readset;
 
-	socket_fd = acceptor[1].get_handle();                                                     /* The second handle is the highest one */
+	socket_fd = acceptor[1].get_handle();                                                          /* The second handle is the highest one */
 
-	for (int count = 0; count < NCHILDREN; count++)                                           // We are waiting for NCHILDREN messages one from each child
+	for (int count = 0; count < NCHILDREN; count++)                                                // We are waiting for NCHILDREN messages one from each child
 	{
 		do
 		{
-			FD_ZERO(&readset);                                                                                                                       // Zero the bit list
+			FD_ZERO(&readset);                                                                                                                                      // Zero the bit list
 			for (int i = 0; i < socket_fd + 1; i++)
 			{
-				FD_SET(i, &readset);                                                                                                                                                                                     // Set the appropriate fd
+				FD_SET(i, &readset);                                                                                                                                                                                                         // Set the appropriate fd
 			}
-			result = select(socket_fd + 1, &readset, NULL, NULL, NULL);                                                                                                                                                 // Wiat for input
+			result = select(socket_fd + 1, &readset, NULL, NULL, NULL);                                                                                                                                                                     // Wiat for input
 		} while (result == -1 && errno == EINTR);
 
 		if (result > 0)
 		{
-			for (int i = 0; i < socket_fd; i++)                                                                                                               // Loop on all bits and find one
+			for (int i = 0; i < socket_fd; i++)                                                                                                                              // Loop on all bits and find one
 			{
 				if (FD_ISSET(i, &readset))
 				{
 					result = peer[count].recv(buffer, sizeof(buffer));
 					ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) R E C E I V I N G: <%s>\n"), buffer));
 					if (result == 0)
-					{                                                                                                                                                                                                                   /* This means the other side closed the socket */
+					{                                                                                                                                                                                                                                            /* This means the other side closed the socket */
 						ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) result=0 for count: %d\n"), count));
 						peer[count].close();
 					}
@@ -125,10 +125,10 @@ int ReceiveMessages(ACE_SOCK_Stream peer[], ACE_SOCK_Acceptor acceptor[])
 					{
 						peer[count].send_n("OK", 3, 0);
 					}
-				}                                                                                                                                                                                                            // if FD_ISSET
-			}                                                                                                                                                                                                               // End of for loop
+				}                                                                                                                                                                                                                                // if FD_ISSET
+			}                                                                                                                                                                                                                                   // End of for loop
 		}
-	}                                                                                                                                                                                                                     /* End of for count loop */
+	}                                                                                                                                                                                                                                         /* End of for count loop */
 	// Close both ports
 	peer[0].close();
 	peer[1].close();
@@ -145,15 +145,15 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("Usage: %s Port1 Port2\n"), argv[0]));
 		return(1);
 	}
-	if (argc > 3)                                        // Running as a child.
+	if (argc > 3)                                             // Running as a child.
 	{
 		ACE_Sig_Handler    sh;
 		ACE_SOCK_Stream    peer;
 		ACE_SOCK_Connector connector;
 		char               buffer[4096];
 		ACE_Time_Value     timeout(10, 0);
-		sh.register_handler(SIGUSR1, &handler);                                                                          // Use SIGUSR1
-		sh.register_handler(SIGUSR2, &handler);                                                                          // Use SIGUSR2
+		sh.register_handler(SIGUSR1, &handler);                                                                                    // Use SIGUSR1
+		sh.register_handler(SIGUSR2, &handler);                                                                                    // Use SIGUSR2
 		// wait untill MyIndex is modified
 		while (MyIndex == -1)
 		{
@@ -172,13 +172,13 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		sprintf(buffer, "I'm Child %d This is My Message.", MyIndex + 1);
 		size_t size = ACE_OS::strlen(buffer);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Child %d   sending: <%s>\n"), MyIndex + 1, buffer));
-		ACE_OS::sleep(2);                                                                                           // Wait some time before sending a message
+		ACE_OS::sleep(2);                                                                                                     // Wait some time before sending a message
 		peer.send_n(buffer, size, 0);
-		peer.recv(buffer, sizeof(buffer));                                                                          // Get Acknowledge
+		peer.recv(buffer, sizeof(buffer));                                                                                    // Get Acknowledge
 		peer.close();
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Child %d is terminating.\n"), MyIndex + 1));
 	}
-	else                                               // Running as a parent.
+	else                                                    // Running as a parent.
 	{
 		ACE_Process_Manager *pm = ACE_Process_Manager::instance();
 		// Get the processwide process manager.
@@ -194,8 +194,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		pid_t pids[NCHILDREN];
 		pm->spawn_n(NCHILDREN, options, pids);
 
-		ACE_OS::kill(pids[0], SIGUSR1);                                                                           // 1st process will use the 1st port
-		ACE_OS::kill(pids[1], SIGUSR2);                                                                           // 2nd process will use the 2nd port
+		ACE_OS::kill(pids[0], SIGUSR1);                                                                                     // 1st process will use the 1st port
+		ACE_OS::kill(pids[1], SIGUSR2);                                                                                     // 2nd process will use the 2nd port
 
 		// Wait for the child we just terminated.
 		long ListenPort1 = atoi(argv[1]);

@@ -11,10 +11,10 @@ Map;
 class ClientContext
 {
 public:
-  void *get_attribute (const char *name);
-  void set_attribute (const char *name, void *value);
+	void *get_attribute(const char *name);
+	void set_attribute(const char *name, void *value);
 
 private:
-  Map attributeMap_;
+	Map attributeMap_;
 };
 #endif /* __CLIENTCONTEXT_H_ */

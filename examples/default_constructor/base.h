@@ -1,6 +1,6 @@
 class base {
-	protected:
-		int i;
-	public:
-		base(void);
+protected:
+	int i;
+public:
+	base(void);
 };

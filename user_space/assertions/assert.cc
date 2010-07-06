@@ -32,8 +32,7 @@
 
 //#define NDEBUG
 #include <assert.h> // for assert(3)
-#include <stdio.h> // for printf(3)
-
+#include <stdio.h>  // for printf(3)
 int main(int argc, char **argv, char **envp)
 {
 	assert(1 == 1);
