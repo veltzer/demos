@@ -76,13 +76,13 @@ static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 		return(0);
 	}
 	size_t length = mb->length();
-	mb->rd_ptr(mb->rd_ptr() + Message_Offset);                                       // Skip the type and delay
+	mb->rd_ptr(mb->rd_ptr() + Message_Offset);                                            // Skip the type and delay
 	if (length > 0)
 	{
 		ACE_OS::puts((mb->rd_ptr()));
 	}
 	// Free up the buffer memory and the Message_Block.
-	mb->rd_ptr(mb->rd_ptr() - Message_Offset);                                          // Return to the actual buffer address
+	mb->rd_ptr(mb->rd_ptr() - Message_Offset);                                               // Return to the actual buffer address
 	//ACE_Allocator::instance ()->free (mb->rd_ptr ()); // Free the buffer
 	mb->release();
 

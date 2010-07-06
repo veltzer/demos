@@ -69,14 +69,14 @@ void *malloc_align(unsigned int size)
 void *mmap_alloc(unsigned int size)
 {
 	//int flags=MAP_ANONYMOUS | MAP_PRIVATE; /* we want anonymous mapping */
-	int  flags = MAP_ANONYMOUS | MAP_SHARED;                                                                                   /* we want anonymous mapping */
+	int  flags = MAP_ANONYMOUS | MAP_SHARED;                                                                                             /* we want anonymous mapping */
 	void *res  = mmap(
-		NULL,                                                                                                                   /* dont recommend address */
-		size,                                                                                                                   /* the size we need */
-		PROT_READ | PROT_WRITE,                                                                                                 /* we want read AND write */
+		NULL,                                                                                                                             /* dont recommend address */
+		size,                                                                                                                             /* the size we need */
+		PROT_READ | PROT_WRITE,                                                                                                           /* we want read AND write */
 		flags,
-		-1,                                                                                                                     /* we do not have a device to allocate from */
-		0                                                                                                                       /* we dont need an offset as we don't have a file and are doing anon */
+		-1,                                                                                                                               /* we do not have a device to allocate from */
+		0                                                                                                                                 /* we dont need an offset as we don't have a file and are doing anon */
 		);
 
 	if (res == MAP_FAILED)

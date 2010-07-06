@@ -63,12 +63,12 @@ int main(int argc, char **argv, char **envp)
 		void *p;
 		klog_clear();
 		SCPE(p = mmap(
-				  NULL,                                                                                                                                                                                              /* we DO NOT recommend an address - better to let the kernel decide */
-				  size,                                                                                                                                                                                              /* the size we need */
-				  PROT_READ | PROT_WRITE,                                                                                                                                                                            /* we want read AND write */
-				  MAP_SHARED | MAP_POPULATE,                                                                                                                                                                         /* we want to shard with kernel and don't want page faults */
-				  d,                                                                                                                                                                                                 /* file descriptor */
-				  0                                                                                                                                                                                                  /* offset */
+				  NULL,                                                                                                                                                                                                                  /* we DO NOT recommend an address - better to let the kernel decide */
+				  size,                                                                                                                                                                                                                  /* the size we need */
+				  PROT_READ | PROT_WRITE,                                                                                                                                                                                                /* we want read AND write */
+				  MAP_SHARED | MAP_POPULATE,                                                                                                                                                                                             /* we want to shard with kernel and don't want page faults */
+				  d,                                                                                                                                                                                                                     /* file descriptor */
+				  0                                                                                                                                                                                                                      /* offset */
 				  ), "mmap");
 		printf("the pointer I got is %p\n", p);
 		klog_show();
@@ -125,12 +125,12 @@ int main(int argc, char **argv, char **envp)
 		{
 			void *p;
 			SCPE(p = mmap(
-					  NULL,                                                                                                                                                                                                                                           /* we DO NOT recommend an address - better to let the kernel decide */
-					  size,                                                                                                                                                                                                                                           /* the size we need */
-					  PROT_READ | PROT_WRITE,                                                                                                                                                                                                                         /* we want read AND write */
-					  MAP_SHARED | MAP_POPULATE,                                                                                                                                                                                                                      /* we want to shard with kernel and don't want page faults */
-					  d,                                                                                                                                                                                                                                              /* file descriptor */
-					  0                                                                                                                                                                                                                                               /* offset */
+					  NULL,                                                                                                                                                                                                                                                                    /* we DO NOT recommend an address - better to let the kernel decide */
+					  size,                                                                                                                                                                                                                                                                    /* the size we need */
+					  PROT_READ | PROT_WRITE,                                                                                                                                                                                                                                                  /* we want read AND write */
+					  MAP_SHARED | MAP_POPULATE,                                                                                                                                                                                                                                               /* we want to shard with kernel and don't want page faults */
+					  d,                                                                                                                                                                                                                                                                       /* file descriptor */
+					  0                                                                                                                                                                                                                                                                        /* offset */
 					  ), "mmap");
 			printf("the pointer I got is %p\n", p);
 			memset(p, 0, size);

@@ -37,7 +37,7 @@ public:
 
 			result = this->gmutex_.release();
 			ACE_ASSERT(result == 0);
-			ACE_OS::sleep(1);                                                                                                                             // Give other process a chance.
+			ACE_OS::sleep(1);                                                                                                                                            // Give other process a chance.
 		}
 	}
 
@@ -50,7 +50,7 @@ private:
 // Listing 0 code/ch10
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-	if (argc > 1)                                             // Run as the child.
+	if (argc > 1)                                                  // Run as the child.
 	{
 		// Create or get the global mutex.
 		ACE_Process_Mutex mutex("GlobalMutex");
@@ -58,7 +58,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		GResourceUser acquirer(mutex);
 		acquirer.run();
 	}
-	else                                                     // Run as the parent.
+	else                                                          // Run as the parent.
 	{
 		ACE_Process_Options options;
 		options.command_line(ACE_TEXT("%s a"), argv[0]);

@@ -28,6 +28,7 @@ HA_Device_Repository::HA_Device_Repository()
 {
 }
 
+
 int HA_Device_Repository::update_device(int, char *)
 {
 	return(0);

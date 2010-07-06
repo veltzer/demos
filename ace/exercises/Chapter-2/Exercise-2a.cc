@@ -44,7 +44,7 @@ static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 			ACE_DEBUG((LM_DEBUG, "Special Message: <%s> type: %d\n", mb->rd_ptr() + 2, mb->msg_type()));
 			// Change the message type 4 and re-send
 			mb->msg_type(4);
-			if (msg_queue2.enqueue_head(mb) == -1)                                                                                                                                         // Re-send the message !!
+			if (msg_queue2.enqueue_head(mb) == -1)                                                                                                                                                        // Re-send the message !!
 			{
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
 			}
@@ -57,7 +57,7 @@ static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 			}
 			// Free up the buffer memory and the Message_Block.
 			//ACE_Allocator::instance ()->free (mb->rd_ptr ()); // Free the buffer
-			mb->release();                                                                                                                                         // Free the Memory Block
+			mb->release();                                                                                                                                                        // Free the Memory Block
 			if (length == 0)
 			{
 				break;
@@ -107,12 +107,12 @@ static void *producer()
 			// get message size
 			mb->wr_ptr(rb.size());
 			// ACE_DEBUG ((LM_DEBUG, "enqueueing message of size %d\n", size));
-			char c = *buffer;                                                                                                                                      // Get message type into c variable
+			char c = *buffer;                                                                                                                                                     // Get message type into c variable
 			switch (c)
 			{
 			case '1':
 				ACE_DEBUG((LM_DEBUG, "case1: <%c>\n", c));
-				mb->msg_type(1);                                                                                                                                                                                             // Set message type
+				mb->msg_type(1);                                                                                                                                                                                                                 // Set message type
 				// Enqueue in tail queue1
 				if (msg_queue1.enqueue_tail(mb) == -1)
 				{
@@ -122,7 +122,7 @@ static void *producer()
 
 			case '2':
 				ACE_DEBUG((LM_DEBUG, "case2: <%c>\n", c));
-				mb->msg_type(2);                                                                                                                                                                                              // Set message type
+				mb->msg_type(2);                                                                                                                                                                                                                  // Set message type
 				// Enqueue in head queue1
 				if (msg_queue1.enqueue_head(mb) == -1)
 				{
@@ -132,7 +132,7 @@ static void *producer()
 
 			case '3':
 				ACE_DEBUG((LM_DEBUG, "case3: <%c>\n", c));
-				mb->msg_type(3);                                                                                                                                                                                              // Set message type
+				mb->msg_type(3);                                                                                                                                                                                                                  // Set message type
 				// Enqueue in tail queue2
 				if (msg_queue2.enqueue_tail(mb) == -1)
 				{
@@ -142,7 +142,7 @@ static void *producer()
 
 			case '4':
 				ACE_DEBUG((LM_DEBUG, "case4: <%c>\n", c));
-				mb->msg_type(4);                                                                                                                                                                                              // Set message type
+				mb->msg_type(4);                                                                                                                                                                                                                  // Set message type
 				// Enqueue in head queue2
 				if (msg_queue2.enqueue_head(mb) == -1)
 				{
@@ -152,7 +152,7 @@ static void *producer()
 
 			default:
 				ACE_DEBUG((LM_DEBUG, "default: <%c> doing nothing!!!\n", c));
-				mb->msg_type(5);                                                                                                                                                                                             // Set message type
+				mb->msg_type(5);                                                                                                                                                                                                                 // Set message type
 				mb->msg_priority(10);
 				if (msg_queue1.enqueue_prio(mb) == -1)
 				{
