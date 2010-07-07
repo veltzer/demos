@@ -6,8 +6,8 @@
 #include "us_helper.h"
 
 /*
- *      This is an example showing how to sleep for very short periods of
- *      time and proves that it is indeed so...
+ *	This is an example showing how to sleep for very short periods of
+ *	time and proves that it is indeed so...
  *
  *      As you can see there is a diff of about 100 micro between the time
  *      to sleep and the real time slept. This is MUCH less than the HZ

@@ -2,9 +2,9 @@
 #include <string.h>
 
 /*
- *      This is to test octal use in user space...
+ *	This is to test octal use in user space...
  *
- *              Mark Veltzer
+ *		Mark Veltzer
  *
  * EXTRA_LIBS=
  */

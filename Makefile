@@ -104,7 +104,7 @@ debug:
 # various checks...
 .PHONY: check_ws
 check_ws:
-	-@grep "  " `find . -name "*.cpp" -or -name "*.h"`
+	-@grep "  " `find . -name "*.cc" -or -name "*.hh"`
 .PHONY: check_files
 check_files:
 	-@find . -mindepth 2 -type f -and -not -name "*.cc" -and -not -name "*.h" -and -not -name "*.h" -and -not -name "*.txt" -and -not -name "*.conf" -and -not -name "*.ini" -and -not -name "*.sample" -and -not -name "*.data" -and -not -name "*.doc" -and -not -name "*.bash" -and -not -name "*.c"
