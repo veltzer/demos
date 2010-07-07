@@ -28,6 +28,7 @@ CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc") 
 ALL_C:=$(shell find . -name "*.c")
 ALL_CC:=$(shell find . -name "*.cc")
 ALL_H:=$(shell find . -name "*.h")
+ALL_HH:=$(shell find . -name "*.hh")
 CC_ASX:=$(addsuffix .s,$(basename $(CC_SRC)))
 CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
@@ -163,4 +164,4 @@ kern_tips:
 # code beautifucation
 .PHONY: do_beautify
 do_beautify:
-	uncrustify -c uncrustify.cfg --replace --no-backup --mtime $(ALL_C) $(ALL_CC) $(ALL_H)
+	uncrustify -c uncrustify.cfg --replace --no-backup --mtime $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
