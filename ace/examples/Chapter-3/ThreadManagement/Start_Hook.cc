@@ -4,7 +4,7 @@
 #include <ace/Task.h>
 #include <ace/Log_Msg.h>
 
-#include "SecurityContext.h"
+#include "SecurityContext.hh"
 
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE

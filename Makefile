@@ -115,10 +115,20 @@ check_include:
 check_tests_for_drivers:
 	cd kernel;for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
+
+# various file finds...
 SOURCE_EXPR:=-name "*.cc" -or -name "*.hh" -or -name "*.h" -or -name "*.c" -or -name "Makefile" -or -name "*.txt" -or -name "*.sed" -or -name "*.patch" -or -name "*.mk" -or -name "*.cfg" -or -name "*.sh"
-.PHONY: check_not_source
-check_not_source:
-	find -type f -not -path "./.git/*" -and -not \( $(SOURCE_EXPR) \)
+TARGET_EXPR:=-name "*.exe" -or -name "*.d" -or -name "*.o" -or -name "*.so"
+
+.PHONY: find_not_source
+find_not_source:
+	-@find -type f -not -path "./.git/*" -and -not \( $(SOURCE_EXPR) \)
+.PHONY: find_not_target
+find_not_target:
+	-@find -type f -not -path "./.git/*" -and -not \( $(TARGET_EXPR) \)
+.PHONY: find_not_source_target
+find_not_source_target:
+	-@find -type f -not -path "./.git/*" -and -not \( $(SOURCE_EXPR) \) -and -not \( $(TARGET_EXPR) \)
 
 # kernel section
 .PHONY: kern_help
