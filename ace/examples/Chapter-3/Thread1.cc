@@ -1,14 +1,3 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//// This example is from the ACE Programmers Guide.
-////  Chapter:  "Thread Management"
-//// For details please see the guide at
-//// http://www.cs.wustl.edu/~schmidt/ACE.html
-////  AUTHOR: Umar Syyid (usyyid@hns.com)
-//// and Ambreen Ilyas (ambreen@bitsmart.com)
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Example 2
-//#include <ace/OS.h>
 #include <ace/Synch.h>
 
 /*
@@ -31,8 +20,7 @@ worker(void *arguments) {
 	Args *arg = (Args *)arguments;
 
 	for (int i = 0; i < arg->iterations_; i++) {
-		ACE_DEBUG((LM_DEBUG,
-		           "(%t) Trying to get a hold of this iteration\n"));
+		ACE_DEBUG((LM_DEBUG,"(%t) Trying to get a hold of this iteration\n"));
 		//This is our critical section
 		arg->mutex_.acquire();
 		ACE_DEBUG((LM_DEBUG, "(%t) This is iteration number %d\n", i));
@@ -43,19 +31,16 @@ worker(void *arguments) {
 	return(0);
 }
 
-
 int main(int argc, char *argv[]) {
 	if (argc < 2) {
 		ACE_OS::printf("Usage: egx <number_of_threads> <number_of_iterations>\n");
 		ACE_OS::exit(1);
 	}
-//Setup the arguments
+	//Setup the arguments
 	Args arg(ACE_OS::atoi(argv[2]));
 
-	ACE_Thread::spawn_n
-	                  (ACE_OS::atoi(argv[1]), (ACE_THR_FUNC)worker, (void *)&arg);
-//Spawn the worker threads
+	ACE_Thread::spawn_n(ACE_OS::atoi(argv[1]), (ACE_THR_FUNC)worker, (void *)&arg);
+	//Spawn the worker threads
 	while (ACE_Thread::join(NULL, NULL, NULL) == 0) {
-		;
 	}
 }

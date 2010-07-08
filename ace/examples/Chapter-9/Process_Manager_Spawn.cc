@@ -43,9 +43,9 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 		}
 #else
 		ACE_DEBUG
-		                  ((LM_DEBUG,
-		                    ACE_TEXT("The process terminated with exit code %d\n"),
-		                    status));
+		                                                      ((LM_DEBUG,
+		                                                        ACE_TEXT("The process terminated with exit code %d\n"),
+		                                                        status));
 #endif /*ACE_WIN32*/
 
 		// Wait for all (only one left) of the

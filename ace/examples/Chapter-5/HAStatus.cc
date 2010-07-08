@@ -75,7 +75,7 @@ int ClientAcceptor::open(const ACE_INET_Addr& listen_addr) {
 		                 -1);
 	}
 	return(this->reactor()->register_handler
-	                             (this, ACE_Event_Handler::ACCEPT_MASK));
+	                                                                 (this, ACE_Event_Handler::ACCEPT_MASK));
 }
 
 
@@ -123,7 +123,7 @@ int ClientService::open(void) {
 		           peer_name));
 	}
 	return(this->reactor()->register_handler
-	                             (this, ACE_Event_Handler::READ_MASK));
+	                                                                 (this, ACE_Event_Handler::READ_MASK));
 }
 
 
@@ -167,7 +167,7 @@ int ClientService::handle_input(ACE_HANDLE) {
 	}
 	if (output_off) {
 		return(this->reactor()->register_handler
-		                             (this, ACE_Event_Handler::WRITE_MASK));
+		                                                                 (this, ACE_Event_Handler::WRITE_MASK));
 	}
 	return(0);
 }
