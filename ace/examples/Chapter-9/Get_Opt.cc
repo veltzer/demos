@@ -31,9 +31,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	while ((option = cmd_opts()) != EOF) {
 		switch (option) {
 		case 'f':
-			ACE_OS_String::strncpy(config_file,
-			                       cmd_opts.opt_arg(),
-			                       MAXPATHLEN);
+			ACE_OS_String::strncpy(config_file, cmd_opts.opt_arg(), MAXPATHLEN);
 			break;
 
 		// Listing 2 code/ch04
@@ -47,14 +45,11 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 		// Listing 2
 
 		case ':':
-			ACE_ERROR_RETURN
-			                                                                                          ((LM_ERROR, ACE_TEXT("-%c requires an argument\n"),
-			                                                                                            cmd_opts.opt_opt()), -1);
+			ACE_ERROR_RETURN ((LM_ERROR, ACE_TEXT("-%c requires an argument\n"), cmd_opts.opt_opt()), -1);
 
 
 		default:
-			ACE_ERROR_RETURN
-			                                                                                          ((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
+			ACE_ERROR_RETURN ((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
 		}
 	}
 
