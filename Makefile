@@ -129,6 +129,9 @@ find_not_target:
 .PHONY: find_not_source_target
 find_not_source_target:
 	-@find -type f -not -path "./.git/*" -and -not \( $(SOURCE_EXPR) \) -and -not \( $(TARGET_EXPR) \)
+.PHONY: find_exercises
+find_exercises:
+	-@find -type f -name "*_exercise.txt"
 
 # kernel section
 .PHONY: kern_help
