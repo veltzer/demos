@@ -122,7 +122,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[])
 	{
 		addRecords();
 	}
-	g_allocator->sync();                                                                   // Flush to the disk
+	g_allocator->sync();                                                                                       // Flush to the disk
 	delete g_allocator;
 	return(0);
 }

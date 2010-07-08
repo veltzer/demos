@@ -6,7 +6,7 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-const int SIZE_BUF     = 128;
+const int SIZE_BUF = 128;
 const int NO_ITERATION = 5;
 
 class Client {

@@ -1,7 +1,7 @@
 /*
- *      This is an empty testing application
+ *	This is an empty testing application
  *
- *              Mark Veltzer
+ *		Mark Veltzer
  *
  * EXTRA_LIBS=
  */

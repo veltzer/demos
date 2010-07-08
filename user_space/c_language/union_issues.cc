@@ -33,7 +33,7 @@ int main(int argc, char **argv, char **envp)
 	// this is how you would use such a union...
 	LARGE_INTEGER li;
 
-	li.LowPart  = 15;
+	li.LowPart = 15;
 	li.HighPart = 16;
 	li.QuadPart = 17;
 	// this is the offsets of it's relevant parts...

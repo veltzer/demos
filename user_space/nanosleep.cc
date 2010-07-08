@@ -42,7 +42,7 @@ int main(int argc, char **argv, char **envp)
 			ticks_t start = getticks();
 			//usleep(i);
 			timespec t;
-			t.tv_sec  = 0;
+			t.tv_sec = 0;
 			t.tv_nsec = 1000 * i;
 			nanosleep(&t, NULL);
 			ticks_t end = getticks();

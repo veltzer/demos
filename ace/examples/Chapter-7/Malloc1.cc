@@ -76,7 +76,7 @@ void showRecords()
 
 int addRecords()
 {
-	char buf[64];                                                                  // old char buf[32];
+	char buf[64];                                                                                      // old char buf[32];
 
 	for (int i = 0; i < 10; i++)
 	{

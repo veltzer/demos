@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-const int page_size   = 4096;
+const int page_size = 4096;
 const int page_number = 2000;
 
 /*

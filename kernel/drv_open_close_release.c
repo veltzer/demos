@@ -153,7 +153,7 @@ int register_dev()
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -163,8 +163,8 @@ int register_dev()
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

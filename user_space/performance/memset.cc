@@ -1,23 +1,23 @@
 #include <string.h> // for memset
 #include <stdlib.h> // for malloc
-#include <wchar.h>  // for wmemset
+#include <wchar.h> // for wmemset
 
 /*
  * This example explores the workings of memset...
  *
  * From the disassembly we can see that:
  * - no call to memset is used since memset is a macro.
- *       (you cannot break on memset in the debuffer and actually stop on that function)
+ *	(you cannot break on memset in the debuffer and actually stop on that function)
  * - this means that memset inline assembly is inserted into our code.
  * - the compiler uses "rep stos" for to do the actual memsetting which is
- *      a single machine instruction on Intel which means that it is very efficient.
+ *	a single machine instruction on Intel which means that it is very efficient.
  * - the wmemset function not inline assembly (you cannot break on it in the debugger)
  * - this example does not explore the inner workins of the wmemset function (meanins whether
- *      it is implemented efficiently or not).
+ *	it is implemented efficiently or not).
  *
  * TODO: find out how wmemset work and discuss it's efficiency.
  *
- *              Mark Veltzer
+ *		Mark Veltzer
  *
  * EXTRA_LIBS=
  */

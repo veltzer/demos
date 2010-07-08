@@ -16,9 +16,9 @@ int main(int argc, char **argv, char **envp)
 	struct sockaddr_in srvr;
 
 	memset(&srvr, 0, sizeof(srvr));
-	srvr.sin_family      = AF_INET;
+	srvr.sin_family = AF_INET;
 	srvr.sin_addr.s_addr = inet_addr("127.0.0.1");
-	srvr.sin_port        = htons(50000);
+	srvr.sin_port = htons(50000);
 	int fd = socket(AF_INET, SOCK_STREAM, 0);
 	assert(fd >= 0);
 	assert(connect(fd, (struct sockaddr *)&srvr, sizeof(srvr)) == 0);

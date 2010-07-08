@@ -39,7 +39,7 @@ static int __init mod_init(void)
 	const int size = 10000;
 
 	order = get_order(size);
-	addr  = __get_free_pages(
+	addr = __get_free_pages(
 		GFP_KERNEL,
 		order
 		);

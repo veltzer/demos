@@ -57,9 +57,9 @@ static void capi_print_addressinfo(void *logical_adr)
 
 static void capi_debug_address(unsigned int phys)
 {
-	void         *logical  = __va(phys);
+	void         *logical = __va(phys);
 	void         *logical2 = phys_to_virt(phys);
-	unsigned int phys2     = __pa(logical);
+	unsigned int phys2 = __pa(logical);
 
 	PRINT("phys is %u", phys);
 	PRINT("logical is %p", logical);
@@ -70,7 +70,7 @@ static void capi_debug_address(unsigned int phys)
 
 
 static unsigned int physaddr = 0x32000000;
-static unsigned int size     = 170 * 1024 * 1024;
+static unsigned int size = 170 * 1024 * 1024;
 static void         *logical;
 
 static int __init mod_init(void)

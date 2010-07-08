@@ -29,7 +29,7 @@ void *worker1(void *p)
 	fprintf(stderr, "errno is %d (%s)\n", err, strerror(err));
 	fprintf(stderr, "test 3: setting error myself\n");
 	errno = 3;
-	err   = 3;
+	err = 3;
 	perror("msg from perror");
 	fprintf(stderr, "errno is %d (%s)\n", err, strerror(err));
 	fprintf(stderr, "worker1 ending thread\n");

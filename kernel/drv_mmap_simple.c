@@ -29,7 +29,7 @@ unsigned int  pages;
 //struct page* pp;
 //void* start_addr;
 bool do_kmalloc = false;
-bool alloc      = false;
+bool alloc = false;
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Mark Veltzer");
@@ -182,18 +182,18 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		 *      kaddr=(void*)__get_free_pages(GFP_KERNEL,order);
 		 * }
 		 */
-		mm     = current->mm;
-		flags  = MAP_POPULATE | MAP_SHARED;
+		mm = current->mm;
+		flags = MAP_POPULATE | MAP_SHARED;
 		flags &= ~(MAP_EXECUTABLE | MAP_DENYWRITE);
 		down_write(&mm->mmap_sem);
 		addr = do_mmap_pgoff(
-			filp,                                                       /* file pointer */
-																							//(unsigned long)kaddr, /* address - this is the buffer we kmalloc'ed */
+			filp,                                                                                                                   /* file pointer */
+			//(unsigned long)kaddr, /* address - this is the buffer we kmalloc'ed */
 			0,
-			ioctl_size,                                                 /* size */
-			PROT_READ | PROT_WRITE,                                     /* protection */
-			flags,                                                      /* flags */
-			0                                                           /* pg offset */
+			ioctl_size,                                                                                                             /* size */
+			PROT_READ | PROT_WRITE,                                                                                                 /* protection */
+			flags,                                                                                                                  /* flags */
+			0                                                                                                                       /* pg offset */
 			);
 		up_write(&mm->mmap_sem);
 		//DEBUG("kaddr is (p) %p",kaddr);
@@ -208,9 +208,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	 */
 	case 5:
 		DEBUG("trying to unmap");
-		vma         = find_vma(current->mm, addr);
+		vma = find_vma(current->mm, addr);
 		kernel_addr = vma->vm_private_data;
-		size        = vma->vm_end - vma->vm_start;
+		size = vma->vm_end - vma->vm_start;
 		DEBUG("deduced kernel_addr is %p", kernel_addr);
 		DEBUG("deduced size is (d) %d", size);
 		DEBUG("real size is (d) %d", ioctl_size);
@@ -332,24 +332,24 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 	void          *kaddr;
 
 	DEBUG("start");
-	size   = vma->vm_end - vma->vm_start;
-	order  = get_order(size);
-	addr   = __get_free_pages(GFP_KERNEL, order);
-	kaddr  = (void *)addr;
-	phys   = virt_to_phys(vaddr);
+	size = vma->vm_end - vma->vm_start;
+	order = get_order(size);
+	addr = __get_free_pages(GFP_KERNEL, order);
+	kaddr = (void *)addr;
+	phys = virt_to_phys(vaddr);
 	pg_num = phys >> PAGE_SHIFT;
 	if (remap_pfn_range(
-			 vma,                                   // vma
-			 vma->vm_start,                         // start
+			 vma,                                                                                               // vma
+			 vma->vm_start,                                                                                     // start
 			 pg_num,
-			 size,                                  // size (derived from the vma)
-			 vma->vm_page_prot                      // protection
+			 size,                                                                                              // size (derived from the vma)
+			 vma->vm_page_prot                                                                                  // protection
 			 ))
 	{
 		DEBUG("error path");
 		return(-EAGAIN);
 	}
-	vma->vm_ops          = &kern_remap_vm_ops;
+	vma->vm_ops = &kern_remap_vm_ops;
 	vma->vm_private_data = kaddr;
 	kern_vma_open(vma);
 	return(0);
@@ -408,7 +408,7 @@ int register_dev()
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -418,8 +418,8 @@ int register_dev()
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

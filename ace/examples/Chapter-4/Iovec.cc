@@ -10,8 +10,8 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-const char *UPTIME      = "uptime";
-const char *HUMIDITY    = "humidity";
+const char *UPTIME = "uptime";
+const char *HUMIDITY = "humidity";
 const char *TEMPERATURE = "temperature";
 
 void addCommand(iovec [], const char *)
@@ -33,11 +33,11 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	// Listing 1 code/ch06
 	iovec send[4];
 	send[0].iov_base = const_cast<char *> ("up");
-	send[0].iov_len  = 2;
+	send[0].iov_len = 2;
 	send[1].iov_base = const_cast<char *> ("time");
-	send[1].iov_len  = 4;
+	send[1].iov_len = 4;
 	send[2].iov_base = const_cast<char *> ("\n");
-	send[2].iov_len  = 1;
+	send[2].iov_len = 1;
 
 	peer.sendv(send, 3);
 	// Listing 1
@@ -58,9 +58,9 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	// Listing 3 code/ch06
 	iovec receive[2];
 	receive[0].iov_base = new char [32];
-	receive[0].iov_len  = 32;
+	receive[0].iov_len = 32;
 	receive[1].iov_base = new char [64];
-	receive[1].iov_len  = 64;
+	receive[1].iov_len = 64;
 
 	bc = peer.recvv(receive, 2);
 	// Listing 3

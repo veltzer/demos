@@ -19,7 +19,7 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 	}
 	char buf[64];
 	peer.send_n("uptime\n", 7);
-	int bc  = peer.recv(buf, sizeof(buf));
+	int bc = peer.recv(buf, sizeof(buf));
 	int res = write(1, buf, bc);
 	res++;
 	peer.close();

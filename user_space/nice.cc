@@ -11,7 +11,7 @@
 int main(int argc, char **argv, char **envp)
 {
 	pid_t mypid = getpid();
-	int   i     = 0;
+	int   i = 0;
 
 	while (1)
 	{

@@ -25,11 +25,11 @@
 // file descriptor to access the device with...
 int d;
 
-const bool do_stack_test   = true;
-const bool do_valloc_test  = true;
+const bool do_stack_test = true;
+const bool do_valloc_test = true;
 const bool do_dataseg_test = true;
-const bool do_malloc_test  = true;
-const bool do_stacks_test  = true;
+const bool do_malloc_test = true;
+const bool do_stacks_test = true;
 
 static void show_data(char *data, unsigned int size)
 {
@@ -45,8 +45,8 @@ static void do_test(char *data, unsigned int size, const char *name)
 {
 	printf("starting test named [%s]\n", name);
 	int          PAGE_SIZE = getpagesize();
-	unsigned int adr       = (unsigned int)data;
-	bool         aligned   = (adr % PAGE_SIZE == 0);
+	unsigned int adr = (unsigned int)data;
+	bool         aligned = (adr % PAGE_SIZE == 0);
 	if (aligned)
 	{
 		printf("data %p is page aligned\n", data);
@@ -63,7 +63,7 @@ static void do_test(char *data, unsigned int size, const char *name)
 	memset(data, 'a', size);
 	show_data(data, size);
 	BufferStruct b;
-	b.size    = size;
+	b.size = size;
 	b.pointer = data;
 	//klog_clear();
 	SCIE(ioctl(d, IOCTL_DEMO_MAP, &b), "asking to map memory");

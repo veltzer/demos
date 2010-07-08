@@ -5,10 +5,10 @@
 #include <string.h>
 #include "demangle.h"
 
-const int max_stack_frames  = 25;
+const int max_stack_frames = 25;
 const int drop_frames_start = 3;
-const int drop_frames_end   = 1;
-const int max_message_size  = 256;
+const int drop_frames_end = 1;
+const int max_message_size = 256;
 
 struct error_data
 {
@@ -27,7 +27,7 @@ inline void error_create(const char *message)
 {
 	error_data *p = (error_data *)malloc(sizeof(error_data));
 
-	p->size    = backtrace(p->array, max_stack_frames);
+	p->size = backtrace(p->array, max_stack_frames);
 	p->symbols = backtrace_symbols(p->array, p->size);
 	strncpy(p->message, message, max_message_size);
 	last_error = p;

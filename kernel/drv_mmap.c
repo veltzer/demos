@@ -190,17 +190,17 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 			order = get_order(ioctl_size);
 			kaddr = (void *)__get_free_pages(GFP_KERNEL, order);
 		}
-		mm     = current->mm;
-		flags  = MAP_POPULATE | MAP_SHARED | MAP_LOCKED;
+		mm = current->mm;
+		flags = MAP_POPULATE | MAP_SHARED | MAP_LOCKED;
 		flags &= ~(MAP_EXECUTABLE | MAP_DENYWRITE);
 		down_write(&mm->mmap_sem);
 		addr = do_mmap_pgoff(
-			filp,                                                       /* file pointer */
-			(unsigned long)kaddr,                                       /* address - this is the buffer we kmalloc'ed */
-			ioctl_size,                                                 /* size */
-			PROT_READ | PROT_WRITE,                                     /* protection */
-			flags,                                                      /* flags */
-			0                                                           /* pg offset */
+			filp,                                                                                                                   /* file pointer */
+			(unsigned long)kaddr,                                                                                                   /* address - this is the buffer we kmalloc'ed */
+			ioctl_size,                                                                                                             /* size */
+			PROT_READ | PROT_WRITE,                                                                                                 /* protection */
+			flags,                                                                                                                  /* flags */
+			0                                                                                                                       /* pg offset */
 			);
 		up_write(&mm->mmap_sem);
 		DEBUG("kaddr is (p) %p", kaddr);
@@ -215,9 +215,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	 */
 	case 5:
 		DEBUG("trying to unmap");
-		vma         = find_vma(current->mm, addr);
+		vma = find_vma(current->mm, addr);
 		kernel_addr = vma->vm_private_data;
-		size        = vma->vm_end - vma->vm_start;
+		size = vma->vm_end - vma->vm_start;
 		DEBUG("deduced kernel_addr is %p", kernel_addr);
 		DEBUG("deduced size is (d) %d", size);
 		DEBUG("real size is (d) %d", ioctl_size);
@@ -303,7 +303,7 @@ void kern_vma_close(struct vm_area_struct *vma)
 #ifdef DO_FREE
 	unsigned int order;
 #endif // DO_FREE
-	unsigned int size  = vma->vm_end - vma->vm_start;
+	unsigned int size = vma->vm_end - vma->vm_start;
 	void         *addr = vma->vm_private_data;
 	DEBUG("start");
 	DEBUG("pointer as long is %lu", vma->vm_start);
@@ -392,7 +392,7 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 		 *      This code used __get_free_pages
 		 */
 		order = get_order(size);
-		addr  = __get_free_pages(
+		addr = __get_free_pages(
 			GFP_KERNEL,
 			order
 			);
@@ -402,7 +402,7 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 	}
 	DEBUG("vaddr is %p", vaddr);
 	//memset(vaddr,'a',size);
-	phys   = virt_to_phys(vaddr);
+	phys = virt_to_phys(vaddr);
 	pg_num = phys >> PAGE_SHIFT;
 	DEBUG("phys is %lx", phys);
 	DEBUG("pg_num is %d", pg_num);
@@ -433,7 +433,7 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 	}
 	//memset(vaddr,'b',size);
 	vma->vm_private_data = vaddr;
-	vma->vm_ops          = &kern_remap_vm_ops;
+	vma->vm_ops = &kern_remap_vm_ops;
 	kern_vma_open(vma);
 	return(0);
 }
@@ -492,7 +492,7 @@ int register_dev()
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -502,8 +502,8 @@ int register_dev()
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

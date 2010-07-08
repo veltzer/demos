@@ -14,11 +14,11 @@ void exit_nicely(PGconn *conn)
 
 int main(int argc, char **argv)
 {
-	char *pghost    = (char *)"database";
-	char *pgport    = NULL;
+	char *pghost = (char *)"database";
+	char *pgport = NULL;
 	char *pgoptions = NULL;
-	char *pgtty     = NULL;
-	char *dbName    = (char *)"thumbnail";
+	char *pgtty = NULL;
+	char *dbName = (char *)"thumbnail";
 
 	PGconn *conn = PQsetdb(pghost, pgport, pgoptions, pgtty, dbName);
 

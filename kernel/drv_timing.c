@@ -119,10 +119,10 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		freq = cpufreq_quick_get(0);
 		cnt1 = get_cycles();
 		long_code(arg);
-		cnt2   = get_cycles();
-		cdiff  = cnt2 - cnt1;
-		crmil  = cdiff / freq;
-		crmic  = crmil * 1000;
+		cnt2 = get_cycles();
+		cdiff = cnt2 - cnt1;
+		crmil = cdiff / freq;
+		crmic = crmil * 1000;
 		crmic2 = (cdiff * 1000) / freq;
 		DEBUG("cnt1: %llu\n", cnt1);
 		DEBUG("cnt2: %llu\n", cnt2);
@@ -141,7 +141,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		 */
 		j1 = jiffies;
 		long_code(arg);
-		j2    = jiffies;
+		j2 = jiffies;
 		jdiff = (j2 - j1) * 1000;
 		//jmic=do_div(jdiff,HZ);
 		jmil = jdiff / HZ;
@@ -214,7 +214,7 @@ int register_dev(void)
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -224,8 +224,8 @@ int register_dev(void)
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

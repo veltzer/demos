@@ -22,7 +22,7 @@ public:
 	Record(int id1, int id2, char *name)
 		: id1_(id1), id2_(id2)
 	{
-		size_t len  = ACE_OS::strlen(name) + 1;
+		size_t len = ACE_OS::strlen(name) + 1;
 		char   *buf =
 			reinterpret_cast<char *> (g_allocator->malloc(len));
 

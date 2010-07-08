@@ -33,7 +33,7 @@ class NameOnevirt {
 };
 class NameTwovirt {
 	virtual void doother(void) = 0;
-	virtual void dothat(void)  = 0;
+	virtual void dothat(void) = 0;
 };
 class NameSimpleInherit : public NameOnevirt {
 };

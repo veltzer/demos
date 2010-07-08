@@ -243,7 +243,7 @@ int register_dev()
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -253,8 +253,8 @@ int register_dev()
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,
@@ -305,7 +305,7 @@ void unregister_dev()
 typedef struct _list_struct
 {
 	struct list_head list;
-	void             *ptr;      /* this is my specific data */
+	void             *ptr;                          /* this is my specific data */
 } list_struct;
 
 /*
@@ -372,7 +372,7 @@ int capi_list_iter_isover(void *lptr, void *iter)
 void *capi_list_iter_getval(void *lptr, void *iter)
 {
 	//struct list_head* lp=(struct list_head*)lptr;
-	struct list_head *li    = (struct list_head *)iter;
+	struct list_head *li = (struct list_head *)iter;
 	list_struct      *entry = list_entry(li, struct _list_struct, list);
 
 	return(entry->ptr);
@@ -397,7 +397,7 @@ void *capi_list_iter_next(void *lptr, void *iter)
 void capi_list_iter_del(void *lptr, void *iter)
 {
 	//struct list_head* lp=(struct list_head*)lptr;
-	struct list_head *li    = (struct list_head *)iter;
+	struct list_head *li = (struct list_head *)iter;
 	list_struct      *entry = list_entry(li, struct _list_struct, list);
 
 	kfree(entry);
@@ -409,7 +409,7 @@ void capi_list_iter_del(void *lptr, void *iter)
  */
 void *capi_list_pop(void *lptr)
 {
-	struct list_head *lp   = (struct list_head *)lptr;
+	struct list_head *lp = (struct list_head *)lptr;
 	struct list_head *prev = lp->prev;
 	list_struct      *entry;
 	void             *ret;
@@ -422,7 +422,7 @@ void *capi_list_pop(void *lptr)
 	else
 	{
 		entry = list_entry(prev, struct _list_struct, list);
-		ret   = entry->ptr;
+		ret = entry->ptr;
 		list_del(prev);
 		kfree(entry);
 		return(ret);
@@ -435,7 +435,7 @@ void *capi_list_pop(void *lptr)
  */
 void capi_list_add(void *lptr, void *ptr)
 {
-	struct list_head *lp    = (struct list_head *)lptr;
+	struct list_head *lp = (struct list_head *)lptr;
 	list_struct      *entry = kmalloc(sizeof(list_struct), GFP_KERNEL);
 
 	entry->ptr = ptr;

@@ -69,7 +69,7 @@ static void *worker(void *c)
 
 		ACE_DEBUG((LM_DEBUG, "(%t) in worker 1, key = %d, ip = %x\n", key, ip));
 
-		{                                                                                                                                    // tmp is workaround for gcc strict aliasing warning.
+		{                                                                                                                                                                            // tmp is workaround for gcc strict aliasing warning.
 			void *tmp = reinterpret_cast<void *> (ip);
 
 			if (ACE_Thread::setspecific(key, tmp) == -1)
@@ -178,7 +178,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	ACE_Service_Config daemon(argv[0]);
 
 	int      threads = argc > 1 ? ACE_OS::atoi(argv[1]) : 4;
-	intptr_t count   = argc > 2 ? ACE_OS::atoi(argv[2]) : 10;
+	intptr_t count = argc > 2 ? ACE_OS::atoi(argv[2]) : 10;
 
 	// Register a signal handler.
 	ACE_Sig_Action sa((ACE_SignalHandler)(handler), SIGINT);

@@ -55,7 +55,7 @@ Request_Handler::Request_Handler(ACE_Thread_Manager *thr_mgr) : ACE_Svc_Handler<
 int Request_Handler::handle_input(ACE_HANDLE fd)
 {
 	ACE_TCHAR buffer[BUFSIZ];
-	ACE_TCHAR len    = 0;
+	ACE_TCHAR len = 0;
 	ssize_t   result = this->peer().recv(&len, sizeof(ACE_TCHAR));
 
 	if ((result > 0) && (this->peer().recv_n(buffer, len * sizeof(ACE_TCHAR)) == static_cast<ssize_t> (len * sizeof(ACE_TCHAR))))

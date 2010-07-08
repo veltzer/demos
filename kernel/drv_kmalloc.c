@@ -27,9 +27,9 @@
 // parameters for this module
 
 static int chrdev_alloc_dynamic = 1;
-static int first_minor          = 0;
-static int kern_major           = 253;
-static int kern_minor           = 0;
+static int first_minor = 0;
+static int kern_major = 253;
+static int kern_minor = 0;
 
 // constants for this module
 
@@ -74,7 +74,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	 */
 	case IOCTL_DEMO_KMALLOC:
 		size = arg * PAGE_SIZE;
-		ptr  = kmalloc(GFP_KERNEL, size);
+		ptr = kmalloc(GFP_KERNEL, size);
 		if (ptr == NULL)
 		{
 			ERROR("unable to allocate %lu", size);
@@ -124,7 +124,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	 */
 	case IOCTL_DEMO_PCI_ALLOC_CONSISTENT:
 		size = arg * PAGE_SIZE;
-		ptr  = pci_alloc_consistent(NULL, size, &dma_handle);
+		ptr = pci_alloc_consistent(NULL, size, &dma_handle);
 		if (ptr == NULL)
 		{
 			ERROR("unable to allocate %lu", size);
@@ -145,7 +145,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 	case IOCTL_DEMO_DMA_ALLOC_COHERENT:
 		size = arg * PAGE_SIZE;
-		ptr  = dma_alloc_coherent(my_device, size, &dma_handle, GFP_KERNEL);
+		ptr = dma_alloc_coherent(my_device, size, &dma_handle, GFP_KERNEL);
 		if (ptr == NULL)
 		{
 			ERROR("unable to allocate %lu", size);
@@ -215,7 +215,7 @@ static int register_dev(void)
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -225,8 +225,8 @@ static int register_dev(void)
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		"%s",

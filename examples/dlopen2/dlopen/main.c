@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv, char **envp)
 {
-	void *h   = dlopen("libadd.so", RTLD_NOW);
+	void *h = dlopen("libadd.so", RTLD_NOW);
 	void *sym = dlsym(h, "func");
 
 	if (!sym)

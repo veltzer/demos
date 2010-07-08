@@ -25,7 +25,7 @@ void uptime(float *time1, float *time2)
 	*time2 = 0;
 	// read the data from the /proc/uptime virtual file...
 	const char         *filename = "/proc/uptime";
-	const unsigned int size      = 256;
+	const unsigned int size = 256;
 	char               buf[size];
 	int                d, res;
 	scie(d = open(filename, O_RDONLY), "open");
@@ -33,7 +33,7 @@ void uptime(float *time1, float *time2)
 	char *saveptr;
 	char *ptr = strtok_r(buf, " ", &saveptr);
 	*time1 = atof(ptr);
-	ptr    = strtok_r(NULL, " ", &saveptr);
+	ptr = strtok_r(NULL, " ", &saveptr);
 	*time2 = atof(ptr);
 	scie(close(d), "close file");
 }

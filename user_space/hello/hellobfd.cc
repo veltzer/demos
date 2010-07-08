@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 		std::cerr << "problem with open\n";
 		return(1);
 	}
-	bfd_format format    = bfd_object;
+	bfd_format format = bfd_object;
 	bool       ok_format = bfd_check_format(b, format);
 	if (!ok_format)
 	{

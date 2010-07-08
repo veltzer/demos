@@ -38,12 +38,12 @@ int main(int argc, char **argv, char **envp)
 	/*
 	 * struct sigaction sa;
 	 * if(sigaction(SIGUSR1,sa,NULL)==-1) {
-	 *      perror("problem with calling sigaction(2)");
-	 *      exit(1);
+	 *	perror("problem with calling sigaction(2)");
+	 *	exit(1);
 	 * }
 	 * if(sigaction(SIGUSR2,sa,NULL)==-1) {
-	 *      perror("problem with calling sigaction(2)");
-	 *      exit(1);
+	 *	perror("problem with calling sigaction(2)");
+	 *	exit(1);
 	 * }
 	 */
 	std::cerr << "main: set up the sig handler, lets start" << std::endl;

@@ -17,7 +17,7 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 static int number = 0;
-static int seed   = 0;
+static int seed = 0;
 
 static void *worker(void *arg)
 {

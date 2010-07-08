@@ -26,7 +26,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	}
 	while (true)
 	{
-		bc      = peer.recv(buf, sizeof(buf));
+		bc = peer.recv(buf, sizeof(buf));
 		buf[bc] = 0;
 		if (!bc)
 		{

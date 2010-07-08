@@ -26,7 +26,7 @@ public:
 		{
 			mutex[i].acquire();
 		}
-		LockedCounter  = 0;
+		LockedCounter = 0;
 		AttemptCounter = 0;
 	}
 

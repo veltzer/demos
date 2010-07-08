@@ -5,7 +5,7 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 static int number = 0;
-static int seed   = 0;
+static int seed = 0;
 static void *
 worker(void *arg)
 {
@@ -32,14 +32,14 @@ int main(int argc, char *argv[])
 //setup the random number generator
 	unsigned int n_threads = ACE_OS::atoi(argv[1]);
 //number of threads to spawn
-	ACE_thread_t  *threadID      = new ACE_thread_t[n_threads + 1];
+	ACE_thread_t  *threadID = new ACE_thread_t[n_threads + 1];
 	ACE_hthread_t *threadHandles = new ACE_hthread_t[n_threads + 1];
 	if (ACE_Thread::spawn_n(
-			 threadID,                                                                                                                                                                                                                         //id's for each of the threads
-			 n_threads,                                                                                                                                                                                                                        //number of threads to spawn
-			 (ACE_THR_FUNC)worker,                                                                                                                                                                                                             //entry point for new thread
-			 NULL,                                                                                                                                                                                                                             //args to worker
-			 THR_JOINABLE | THR_NEW_LWP,                                                                                                                                                                                                       //flags
+			 threadID,                                                                                                                                                                                                                                                                                     //id's for each of the threads
+			 n_threads,                                                                                                                                                                                                                                                                                    //number of threads to spawn
+			 (ACE_THR_FUNC)worker,                                                                                                                                                                                                                                                                         //entry point for new thread
+			 NULL,                                                                                                                                                                                                                                                                                         //args to worker
+			 THR_JOINABLE | THR_NEW_LWP,                                                                                                                                                                                                                                                                   //flags
 			 ACE_DEFAULT_THREAD_PRIORITY,
 			 NULL,
 			 0,

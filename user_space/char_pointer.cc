@@ -25,9 +25,9 @@
  */
 int main(int argc, char **argv, char **envp)
 {
-	const char *other  = "blabla";
+	const char *other = "blabla";
 	const char *other2 = "blabla";
-	const char *foo    = "bar";
+	const char *foo = "bar";
 
 	printproc(NULL);
 

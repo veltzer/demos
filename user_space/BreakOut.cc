@@ -7,7 +7,7 @@
 
 static int counterUSR1 = 0;
 static int counterUSR2 = 0;
-static int flag        = 0;
+static int flag = 0;
 
 static void SignalHandlerUSR1(int sig)
 {

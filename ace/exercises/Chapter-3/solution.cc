@@ -19,7 +19,7 @@ private:
 public:
 	SharedResource()
 	{
-		LockedCounter  = 0;
+		LockedCounter = 0;
 		AttemptCounter = 0;
 	}
 

@@ -36,13 +36,13 @@ static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 
 	if (length > 0)
 	{
-		ACE_OS::puts(mb->rd_ptr());                                                                                                                                       // Output to the STDOUT
+		ACE_OS::puts(mb->rd_ptr());                                                                                                                                                                               // Output to the STDOUT
 	}
 	// Free up the buffer memory and the Message_Block.
-	ACE_Allocator::instance()->free(mb->rd_ptr());                                                                           // Free the pointed buffer
-	mb->release();                                                                                                           // Release the Message Block
+	ACE_Allocator::instance()->free(mb->rd_ptr());                                                                                               // Free the pointed buffer
+	mb->release();                                                                                                                               // Release the Message Block
 
-	if (length == 0)                                                                                                         // you may use the zero length as program termination
+	if (length == 0)                                                                                                                             // you may use the zero length as program termination
 	{
 		return(NULL);
 	}
@@ -58,12 +58,12 @@ static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 // know when to exit.
 static void *producer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 {
-	ACE_Read_Buffer rb(ACE_STDIN);                                                                  // Create linkage to STDIN
+	ACE_Read_Buffer rb(ACE_STDIN);                                                                                      // Create linkage to STDIN
 
 	// Keep reading stdin, until we reach EOF. (size is zero)
 
-	char              *buffer = rb.read('\n');                                                                  // reading a line
-	ACE_Message_Block *mb;                                                                                      // Message Block definition
+	char              *buffer = rb.read('\n');                                                                                      // reading a line
+	ACE_Message_Block *mb;                                                                                                          // Message Block definition
 
 	// Allocation of message block example
 	//      #define ACE_NEW_RETURN(POINTER,CONSTRUCTOR,RET_VAL)

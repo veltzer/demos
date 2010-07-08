@@ -31,7 +31,7 @@ void printBuff(FILE *s, const char *name)
 int main(int argc, char **argv, char **envp)
 {
 	const char *writeFileName = "/tmp/newfile.txt";
-	const char *readFileName  = "/etc/passwd";
+	const char *readFileName = "/etc/passwd";
 
 	printBuff(stdin, "stdin");
 	printBuff(stdout, "stdout");

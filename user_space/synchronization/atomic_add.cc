@@ -24,8 +24,8 @@
  */
 const int         cpu_num = sysconf(_SC_NPROCESSORS_ONLN);
 pthread_barrier_t bar;
-int               counter    = 0;
-FILE              *pfile     = stdout;
+int               counter = 0;
+FILE              *pfile = stdout;
 const int         wait_usecs = 0;
 //FILE* pfile=stderr;
 void print_cpu_set(cpu_set_t *p)

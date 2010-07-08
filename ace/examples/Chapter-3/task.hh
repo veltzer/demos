@@ -24,7 +24,7 @@ class Task : public ACE_Task<ACE_MT_SYNCH>
 {
 public:
 
-	typedef ACE_Task<ACE_MT_SYNCH> inherited;
+	typedef ACE_Task<ACE_MT_SYNCH>   inherited;
 
 	Task(void);
 	~Task(void);

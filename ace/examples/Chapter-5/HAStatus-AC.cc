@@ -65,7 +65,7 @@ int ClientService::handle_input(ACE_HANDLE)
 	{
 		send_cnt = 0;
 	}
-	ACE_Message_Block *mb       = 0;
+	ACE_Message_Block *mb = 0;
 	size_t            remaining =
 		static_cast<size_t> ((recv_cnt - send_cnt));
 	ACE_NEW_RETURN(mb, ACE_Message_Block(remaining), -1);

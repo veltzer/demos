@@ -26,9 +26,9 @@
 // parameters for this module
 
 static int chrdev_alloc_dynamic = 1;
-static int first_minor          = 0;
-static int kern_major           = 253;
-static int kern_minor           = 0;
+static int first_minor = 0;
+static int kern_major = 253;
+static int kern_minor = 0;
 
 // constants for this module
 
@@ -118,16 +118,16 @@ static unsigned long map_to_user(struct file *filp, void *kptr, unsigned int siz
 	//flags=MAP_POPULATE|MAP_PRIVATE;
 	flags &= ~(MAP_EXECUTABLE | MAP_DENYWRITE);
 	down_write(&mm->mmap_sem);
-	oldval             = filp->private_data;
+	oldval = filp->private_data;
 	filp->private_data = kptr;
 	uptr = do_mmap_pgoff(
-		filp,                                     /* file pointer for which filp->mmap will be called */
-		0,                                        /* address - this is the address we recommend for user space - best not to ... */
-		size,                                     /* size */
-		PROT_READ | PROT_WRITE,                   /* protection */
-																//PROT_READ, /* protection */
-		flags,                                    /* flags */
-		0                                         /* pg offset */
+		filp,                                                                             /* file pointer for which filp->mmap will be called */
+		0,                                                                                /* address - this is the address we recommend for user space - best not to ... */
+		size,                                                                             /* size */
+		PROT_READ | PROT_WRITE,                                                           /* protection */
+		//PROT_READ, /* protection */
+		flags,                                                                            /* flags */
+		0                                                                                 /* pg offset */
 		);
 	filp->private_data = oldval;
 	up_write(&mm->mmap_sem);
@@ -306,9 +306,9 @@ static int kern_vma_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
 
 	DEBUG("start");
 	offset = (unsigned long)vmf->virtual_address - vma->vm_start;
-	kaddr  = vma->vm_private_data;
+	kaddr = vma->vm_private_data;
 	kaddr += offset;
-	page   = virt_to_page(kaddr);
+	page = virt_to_page(kaddr);
 	if (page == NULL)
 	{
 		ERROR("couldnt find page");
@@ -368,11 +368,11 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 	void *kadr;
 
 	DEBUG("start");
-	kadr           = filp->private_data;
+	kadr = filp->private_data;
 	vma->vm_flags |= VM_RESERVED;
 
 	vma->vm_private_data = kadr;
-	vma->vm_ops          = &kern_vm_ops;
+	vma->vm_ops = &kern_vm_ops;
 	kern_vma_open(vma);
 	DEBUG("all ok from mmap. returning");
 	return(0);
@@ -427,7 +427,7 @@ static int register_dev(void)
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -437,18 +437,18 @@ static int register_dev(void)
 	DEBUG("added the device");
 
 	// now register it in /dev
-#if LINUX_VERSION_CODE == 132634           /* target kernel */
+#if LINUX_VERSION_CODE == 132634                     /* target kernel */
 	my_device = device_create(
-		my_class,                            /* our class */
-		NULL,                                /* device we are subdevices of */
+		my_class,                                                                    /* our class */
+		NULL,                                                                        /* device we are subdevices of */
 		pdev->first_dev,
 		"%s",
 		name
 		);
 #else /* ubuntu kernel */
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                     /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                             /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		"%s",

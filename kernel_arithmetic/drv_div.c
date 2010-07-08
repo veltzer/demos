@@ -22,10 +22,10 @@
 // parameters for this module
 
 static int       chrdev_alloc_dynamic = 1;
-static int       first_minor          = 0;
-static int       kern_major           = 253;
-static int       kern_minor           = 0;
-static const int MINORS_COUNT         = 1;
+static int       first_minor = 0;
+static int       kern_major = 253;
+static int       kern_minor = 0;
+static const int MINORS_COUNT = 1;
 
 // first the structures
 
@@ -137,7 +137,7 @@ static int register_dev(void)
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -147,8 +147,8 @@ static int register_dev(void)
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		"%s",

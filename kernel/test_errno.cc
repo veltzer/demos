@@ -26,8 +26,8 @@ int main(int argc, char **argv, char **envp)
 
 	for (int i = -1000; i < 1000; i++)
 	{
-		errno   = 2005;
-		res     = ioctl(d, 0, i);
+		errno = 2005;
+		res = ioctl(d, 0, i);
 		myerrno = errno;
 		printf("code is %d, res is %d, errno is %d\n", i, res, myerrno);
 	}

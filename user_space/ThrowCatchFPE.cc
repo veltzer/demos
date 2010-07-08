@@ -75,7 +75,7 @@ static void doBadCode(int i)
 	 */
 	case 1:
 		std::cerr << "Lets access some illegal memory address" << std::endl;
-		p    = 0;
+		p = 0;
 		p[0] = 0;
 		break;
 

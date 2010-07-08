@@ -2,9 +2,9 @@
 #include <string.h>
 
 /*
- *      This is an attempt to return a struct from a function
+ *	This is an attempt to return a struct from a function
  *
- *              Mark Veltzer
+ *		Mark Veltzer
  *
  * EXTRA_LIBS=
  */

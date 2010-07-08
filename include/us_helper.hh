@@ -62,8 +62,8 @@ static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2)
 		fprintf(stderr, "What's going on? t2<t1...\n");
 		exit(1);
 	}
-	unsigned long long diff  = (t2 - t1) / 1000;
-	unsigned long      freq  = cpufreq_get_freq_kernel(0);
+	unsigned long long diff = (t2 - t1) / 1000;
+	unsigned long      freq = cpufreq_get_freq_kernel(0);
 	unsigned long      mpart = freq / 1000;
 	//unsigned long mdiff=difft/freq;
 	unsigned long mdiff = diff / mpart;
@@ -190,7 +190,7 @@ void debug(const char *file, const char *function, int line, const char *fmt, ..
 
 static inline int printproc(const char *filter)
 {
-	pid_t              pid      = getpid();
+	pid_t              pid = getpid();
 	const unsigned int cmd_size = 256;
 	char               cmd[cmd_size];
 

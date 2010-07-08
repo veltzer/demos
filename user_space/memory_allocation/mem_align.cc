@@ -52,11 +52,11 @@ void *mem_align(unsigned int size)
  */
 void *malloc_align(unsigned int size)
 {
-	int          ps       = getpagesize();
-	int          pages    = size / ps + 1;
+	int          ps = getpagesize();
+	int          pages = size / ps + 1;
 	int          new_size = pages * ps;
-	void         *ptr     = malloc(new_size);
-	unsigned int iptr     = (unsigned int)ptr;
+	void         *ptr = malloc(new_size);
+	unsigned int iptr = (unsigned int)ptr;
 
 	iptr = (iptr / ps + 1) * ps;
 	return((void *)iptr);
@@ -69,14 +69,14 @@ void *malloc_align(unsigned int size)
 void *mmap_alloc(unsigned int size)
 {
 	//int flags=MAP_ANONYMOUS | MAP_PRIVATE; /* we want anonymous mapping */
-	int  flags = MAP_ANONYMOUS | MAP_SHARED;                                                                                                                                     /* we want anonymous mapping */
-	void *res  = mmap(
-		NULL,                                                                                                                                                                     /* dont recommend address */
-		size,                                                                                                                                                                     /* the size we need */
-		PROT_READ | PROT_WRITE,                                                                                                                                                   /* we want read AND write */
+	int  flags = MAP_ANONYMOUS | MAP_SHARED;                                                                                                                                                              /* we want anonymous mapping */
+	void *res = mmap(
+		NULL,                                                                                                                                                                                                             /* dont recommend address */
+		size,                                                                                                                                                                                                             /* the size we need */
+		PROT_READ | PROT_WRITE,                                                                                                                                                                                           /* we want read AND write */
 		flags,
-		-1,                                                                                                                                                                       /* we do not have a device to allocate from */
-		0                                                                                                                                                                         /* we dont need an offset as we don't have a file and are doing anon */
+		-1,                                                                                                                                                                                                               /* we do not have a device to allocate from */
+		0                                                                                                                                                                                                                 /* we dont need an offset as we don't have a file and are doing anon */
 		);
 
 	if (res == MAP_FAILED)
@@ -92,9 +92,9 @@ int main(int argc, char **argv, char **envp)
 {
 	// the size to allocate
 	const unsigned int size = 20200;
-	int                ps1  = getpagesize();
-	long               ps2  = sysconf(_SC_PAGESIZE);
-	int                ps   = ps1;
+	int                ps1 = getpagesize();
+	long               ps2 = sysconf(_SC_PAGESIZE);
+	int                ps = ps1;
 
 	printf("getpagesize() is %d\n", ps1);
 	printf("sysconf(_SC_PAGESIZE) is %ld\n", ps2);

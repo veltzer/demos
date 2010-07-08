@@ -30,9 +30,9 @@ MODULE_DESCRIPTION("Demo module for testing");
 // parameters for this module
 
 static int chrdev_alloc_dynamic = 1;
-static int first_minor          = 0;
-static int kern_major           = 253;
-static int kern_minor           = 0;
+static int first_minor = 0;
+static int kern_major = 253;
+static int kern_minor = 0;
 
 // constants for this module
 
@@ -170,9 +170,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		}
 		DEBUG("after copy");
 		bpointer = (unsigned int)b.pointer;
-		offset   = bpointer % PAGE_SIZE;
-		aligned  = bpointer - offset;
-		newsize  = b.size + offset;
+		offset = bpointer % PAGE_SIZE;
+		aligned = bpointer - offset;
+		newsize = b.size + offset;
 		DEBUG("bpointer is %x", bpointer);
 		DEBUG("offset is %u", offset);
 		DEBUG("aligned is %x", aligned);
@@ -204,12 +204,12 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 			current->mm,
 			aligned,
 			nr_pages,
-			1,                                       /* write */
-			0,                                       /* force */
+			1,                                                                                                   /* write */
+			0,                                                                                                   /* force */
 			pages,
 			NULL
 			);
-		vma            = find_vma(current->mm, bpointer);
+		vma = find_vma(current->mm, bpointer);
 		vma->vm_flags |= VM_DONTCOPY;
 		up_write(&current->mm->mmap_sem);
 		DEBUG("after get_user_pages res is %d", res);
@@ -231,7 +231,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 			kfree(pages);
 			return(-EFAULT);
 		}
-		ptr  = vptr + offset;
+		ptr = vptr + offset;
 		size = b.size;
 		DEBUG("after vmap - vptr is %p", vptr);
 		// free the pages
@@ -251,9 +251,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	case IOCTL_DEMO_UNMAP:
 		// this function does NOT return an error code. Strange...:)
 		vunmap(vptr);
-		vptr     = NULL;
-		ptr      = NULL;
-		size     = 0;
+		vptr = NULL;
+		ptr = NULL;
+		size = 0;
 		nr_pages = 0;
 		pages_unmap();
 		return(0);
@@ -265,7 +265,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	 *      No arguments are passed
 	 */
 	case IOCTL_DEMO_READ:
-		cptr  = (char *)ptr;
+		cptr = (char *)ptr;
 		sloop = min(size, (unsigned int)10);
 		DEBUG("sloop is %d", sloop);
 		for (i = 0; i < sloop; i++)
@@ -338,7 +338,7 @@ static int register_dev(void)
 	// create the add the sync device
 	cdev_init(&pdev->cdev, &my_fops);
 	pdev->cdev.owner = THIS_MODULE;
-	pdev->cdev.ops   = &my_fops;
+	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
 	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
 	{
@@ -348,8 +348,8 @@ static int register_dev(void)
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                     /* our class */
-		NULL,                         /* device we are subdevices of */
+		my_class,                                                             /* our class */
+		NULL,                                                                 /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

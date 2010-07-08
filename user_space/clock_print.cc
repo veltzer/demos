@@ -19,7 +19,7 @@ typedef struct _clock_data
 	clockid_t  id;
 } clock_data;
 
-const int  num_clocks         = 4;
+const int  num_clocks = 4;
 clock_data clocks[num_clocks] =
 {
 	{
