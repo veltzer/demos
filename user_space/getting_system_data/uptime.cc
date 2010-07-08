@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This demo shows how to get the uptime of the machine...

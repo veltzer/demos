@@ -2,7 +2,7 @@
 #include <string.h>
 #include <sys/utsname.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This is a demo showing the sizes of variables on the architecture

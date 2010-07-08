@@ -5,7 +5,7 @@
 #include <sys/mman.h>  // for mmap
 #include <string.h>    // for memset
 
-#include "us_helper.h" // for printproc
+#include "us_helper.hh" // for printproc
 
 /*
  *      This demo shows how to allocate memory which is PAGE_SIZE aligned...

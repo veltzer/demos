@@ -7,7 +7,7 @@
 #include <sys/ioctl.h>
 #include <string.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 #include "shared.h"
 #include "ioctls.h"
 

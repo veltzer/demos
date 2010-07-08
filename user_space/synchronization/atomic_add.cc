@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <unistd.h> // for sysconf
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This is a demo which shows atomic add using the

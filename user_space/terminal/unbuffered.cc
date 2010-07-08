@@ -2,7 +2,7 @@
 #include <unistd.h>  // for isatty, ttyname
 #include <termios.h> // for tcsetattr, tcgetattr
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      Try to think of the next exercise: try to read just one character from

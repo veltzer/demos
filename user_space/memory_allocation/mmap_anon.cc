@@ -3,7 +3,7 @@
 #include <sys/mman.h>
 #include <unistd.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This application demonstrates the use of anonymous memory mappings

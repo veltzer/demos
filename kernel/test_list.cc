@@ -7,7 +7,7 @@
 #include <sys/ioctl.h>
 #include <sys/wait.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      this is a test for in kernel lists

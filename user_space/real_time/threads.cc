@@ -9,3 +9,7 @@
  * - locking all memory (mlock).
  * - blocking all malloc from that moment onward.
  */
+
+int main(int argc,char** argv,char** envp) {
+	return 0;
+}

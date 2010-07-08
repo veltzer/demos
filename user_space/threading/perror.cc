@@ -7,7 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This is a demo which shows that perror, errno etc all work on a thread

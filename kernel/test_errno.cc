@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      A test that runs ioctl 0 with no data, sleeps for 1 second and then

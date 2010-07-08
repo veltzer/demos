@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This is a standard pthread demo

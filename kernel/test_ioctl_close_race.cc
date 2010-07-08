@@ -6,7 +6,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This application has two threads:

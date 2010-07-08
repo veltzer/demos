@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <sys/syscall.h> // For SYS_xxx definitions
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      Example of how to reboot the system

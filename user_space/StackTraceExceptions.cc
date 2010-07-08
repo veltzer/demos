@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <execinfo.h>
 #include <exception>
-#include "demangle.h"
+#include "demangle.hh"
 
 class TracedException : public std::exception {
 private:

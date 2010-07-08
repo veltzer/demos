@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      The most minimal test

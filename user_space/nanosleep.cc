@@ -3,7 +3,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *	This is an example showing how to sleep for very short periods of

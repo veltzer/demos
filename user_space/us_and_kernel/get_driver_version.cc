@@ -27,7 +27,7 @@
  * EXTRA_LIBS=-ldl
  */
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 void get_driver_version(const char *filename) {
 	void *handle;

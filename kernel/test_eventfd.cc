@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This tests eventfd code in the kernel...

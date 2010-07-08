@@ -1,6 +1,6 @@
 #include <stdlib.h> // for abort(3)
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This example explores the abort(3) function call.

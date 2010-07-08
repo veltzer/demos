@@ -1,7 +1,7 @@
 #include <pthread.h> // for pthread_create
 #include <unistd.h>  // for sleep
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This example creates a zombie thread.

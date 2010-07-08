@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This example explains how parents should wait for their children

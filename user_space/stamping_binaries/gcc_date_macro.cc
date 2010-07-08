@@ -15,7 +15,7 @@
  * EXTRA_LIBS=
  */
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 int main(int argc, char **argv, char **envp) {
 	printf("date is %s\n", __DATE__);

@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This test shows how you can do mmap via an ioctl...

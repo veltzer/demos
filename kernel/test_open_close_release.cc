@@ -7,7 +7,7 @@
 #include <sys/ioctl.h>
 #include <sys/wait.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This is a test which will explain which methods in the driver are

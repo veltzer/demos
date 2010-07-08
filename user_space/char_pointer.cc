@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This demo shows several different things:

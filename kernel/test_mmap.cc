@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This is a test for the mmap demo:

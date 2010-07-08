@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include <errno.h>
-#include <stdio.h>  // for printf(3)
+#include <stdio.h> // for printf(3)
 #include <stdlib.h> // for system(3)
 #include <stdarg.h>
 #include <sys/ioctl.h>
-#include <sys/types.h>   // for getpid, gettid
+#include <sys/types.h> // for getpid, gettid
 #include <sys/syscall.h> // for syscall
-#include <unistd.h>      // for getpid, syscall, sysconf
+#include <unistd.h> // for getpid, syscall, sysconf
 #include <cpufreq.h>
 
 /*
@@ -110,9 +110,9 @@ static inline void scpe(void *t, const char *msg, void *errval = (void *)-1) {
 }
 
 
-#define SCIE(v, msg)          std::cout << msg << " " << "started" << std::endl; scie(v, msg); std::cout << msg << " " << "ended" << std::endl;
-#define SCPE(v, msg)          std::cout << msg << " " << "started" << std::endl; scpe(v, msg); std::cout << msg << " " << "ended" << std::endl;
-#define SCIG(v, msg)          std::cout << msg << " " << "started" << std::endl; scig(v, msg); std::cout << msg << " " << "ended" << std::endl;
+#define SCIE(v, msg) std::cout << msg << " " << "started" << std::endl; scie(v, msg); std::cout << msg << " " << "ended" << std::endl;
+#define SCPE(v, msg) std::cout << msg << " " << "started" << std::endl; scpe(v, msg); std::cout << msg << " " << "ended" << std::endl;
+#define SCIG(v, msg) std::cout << msg << " " << "started" << std::endl; scig(v, msg); std::cout << msg << " " << "ended" << std::endl;
 #define SCIG2(v, msg, v1, v2) std::cout << msg << " " << "started" << std::endl; scig2(v, msg, v1, v2); std::cout << msg << " " << "ended" << std::endl;
 
 // kernel log handling functions
@@ -160,7 +160,7 @@ static inline void debug(const char *file, const char *function, int line, const
 void debug(const char *file, const char *function, int line, const char *fmt, ...) __attribute__((format(printf, 4, 5)));
 
 #define DEBUG(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
-#define INFO(fmt, args...)  debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
+#define INFO(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
 #define TRACE(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
 
 static inline int printproc(const char *filter) {
@@ -208,7 +208,7 @@ static inline void do_prog_init(void) {
 
 static inline void do_prog(unsigned int i, unsigned int mod, unsigned int full) {
 	if (i % mod == 0) {
-		printf("\r\t%d/%d         ", i, full);
+		printf("\r\t%d/%d", i, full);
 		fflush(stdout);
 	}
 }

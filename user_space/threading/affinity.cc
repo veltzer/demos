@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h> // for sysconf
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This shows how to create threads with a certain affinity

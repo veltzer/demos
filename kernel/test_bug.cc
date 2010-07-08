@@ -7,7 +7,7 @@
 #include <sys/ioctl.h>
 #include <iostream>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 /*
  *      This is a demo of how to use the BUG() macro in the kernel to find bugs...
