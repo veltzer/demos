@@ -12,6 +12,9 @@
  *
  *              Mark Veltzer
  *
+ *      TODO:
+ *      	add checksum example with the relevant makefile fragment...
+ *
  * EXTRA_LIBS=
  */
 
