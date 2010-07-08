@@ -115,9 +115,10 @@ check_include:
 check_tests_for_drivers:
 	cd kernel;for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
-.PHONY: check_extra_files
-check_extra_files:
-	find -type f -and -not -name "*.cc" -and -not -name "*.hh" -and -not -name "*.h" -and -not -name "*.c" -and -not -name "Makefile" -and -not -name "*.txt" -and -not -path "./.git/*" -and -not -name "*.sed" -and -not -name "*.patch" -and -not -name "*.mk" -and -not -name "*.cfg" -and -not -name "*.sh"
+SOURCE_EXPR:=-name "*.cc" -or -name "*.hh" -or -name "*.h" -or -name "*.c" -or -name "Makefile" -or -name "*.txt" -or -name "*.sed" -or -name "*.patch" -or -name "*.mk" -or -name "*.cfg" -or -name "*.sh"
+.PHONY: check_not_source
+check_not_source:
+	find -type f -not -path "./.git/*" -and -not \( $(SOURCE_EXPR) \)
 
 # kernel section
 .PHONY: kern_help

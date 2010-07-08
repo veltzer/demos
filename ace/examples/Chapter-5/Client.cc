@@ -12,7 +12,7 @@
 #include <ace/OS_NS_errno.h>
 #include <ace/OS_NS_string.h>
 #include <ace/OS_NS_sys_time.h>
-#include "Client.h"
+#include "Client.hh"
 
 // Listing 2 code/ch07
 int Client::open(void *p) {

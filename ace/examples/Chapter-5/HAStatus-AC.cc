@@ -7,7 +7,7 @@
 #include <ace/Reactor.h>
 #include <ace/Acceptor.h>
 
-#include "ClientService.h"
+#include "ClientService.hh"
 
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
