@@ -37,12 +37,10 @@ int HA_Status::init(int argc, ACE_TCHAR *argv[]) { // Do ACE_Get_Opt and get con
 			break;
 
 		case ':':
-			ACE_ERROR_RETURN
-			                                                                        ((LM_ERROR, ACE_TEXT("-%c requires an argument\n"), cmd_opts.opt_opt()), -1);
+			ACE_ERROR_RETURN ((LM_ERROR, ACE_TEXT("-%c requires an argument\n"), cmd_opts.opt_opt()), -1);
 
 		default:
-			ACE_ERROR_RETURN
-			                                                                        ((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
+			ACE_ERROR_RETURN ((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
 		}
 	}
 

@@ -19,10 +19,7 @@ public:
 	virtual int handle_exit(ACE_Process *process) {
 		ACE_TRACE(ACE_TEXT("DeathHandler::handle_exit"));
 
-		ACE_DEBUG
-		                                                                        ((LM_DEBUG,
-		                                                                          ACE_TEXT("Process %d exited with exit code %d\n"),
-		                                                                          process->getpid(), process->return_value()));
+		ACE_DEBUG ((LM_DEBUG, ACE_TEXT("Process %d exited with exit code %d\n"), process->getpid(), process->return_value()));
 
 		if (++count_ == NCHILDREN) {
 			ACE_Reactor::instance()->end_reactor_event_loop();
@@ -36,7 +33,8 @@ private:
 	int count_;
 };
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
-	if (argc > 1) {                                                                                                       // Running as a child.
+	if (argc > 1) {
+		// Running as a child.
 		return(0);
 	}
 
