@@ -6,7 +6,7 @@
 #include <ace/Signal.h>
 #include <ace/Log_Msg.h>
 
-#include "thread_specific.h"
+#include "thread_specific.hh"
 
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
