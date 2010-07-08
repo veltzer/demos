@@ -1,0 +1,11 @@
+{
+	identifier: "id",
+	items: [
+		{type:"hobby", id:"H001", label: "cooking"},
+		{type:"hobby", id:"H002", label: "photography"},
+		{type:"hobby", id:"H003", label: "yoga"},
+		{type:"hobby", id:"H004", label: "salsa"},
+		{type:"hobby", id:"H005", label: "running"},
+		{type:"hobby", id:"H006", label: "tennis"}
+	]
+}

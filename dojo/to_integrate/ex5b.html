@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Hello, publish/subscribe</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true, isDebug:true"></script>
+		<style type="text/css">
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.form.TextBox");
+			function do_console(p) {
+				console.debug(p);
+			}
+			function do_alert(p) {
+				alert(p);
+			}
+			function do_sub1() {
+				handle1=dojo.subscribe("/myevent",do_console);
+				var w_sub=dijit.byId("sub1");
+				var w_unsub=dijit.byId("unsub1");
+				w_sub.attr('disabled',true);
+				w_unsub.attr('disabled',false);
+			}
+			function do_unsub1() {
+				dojo.unsubscribe(handle1);
+				var w_sub=dijit.byId("sub1");
+				var w_unsub=dijit.byId("unsub1");
+				w_sub.attr('disabled',false);
+				w_unsub.attr('disabled',true);
+			}
+			function do_sub2() {
+				handle2=dojo.subscribe("/myevent",do_alert);
+				var w_sub=dijit.byId("sub2");
+				var w_unsub=dijit.byId("unsub2");
+				w_sub.attr('disabled',true);
+				w_unsub.attr('disabled',false);
+			}
+			function do_unsub2() {
+				dojo.unsubscribe(handle2);
+				var w_sub=dijit.byId("sub2");
+				var w_unsub=dijit.byId("unsub2");
+				w_sub.attr('disabled',false);
+				w_unsub.attr('disabled',true);
+			}
+			function do_publish() {
+				w_textbox=dijit.byId("textbox");
+				dojo.publish("/myevent",[ w_textbox.attr('value') ]);
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" id="sub1" title="sub1" onclick="do_sub1">sub1</div>
+		<div dojoType="dijit.form.Button" id="unsub1" title="unsub1" onclick="do_unsub1" disabled="true">unsub1</div>
+		<div dojoType="dijit.form.Button" id="sub2" title="sub2" onclick="do_sub2">sub2</div>
+		<div dojoType="dijit.form.Button" id="unsub2" title="unsub2" onclick="do_unsub2" disabled="true">unsub2</div>
+		<div dojoType="dijit.form.Button" id="pub" title="publish" onClick="do_publish">publish</div>
+		<div dojoType="dijit.form.TextBox" id="textbox" title="This is the value to publish"></div>
+	</body>
+</html>

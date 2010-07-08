@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Hello, World (in the programmatic style)!</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style>
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			function init() {
+				var mydiv=dojo.byId("myid");
+				var button=new dijit.form.Button({label:"This is the new button"},mydiv);
+				button.startup();
+			}
+			dojo.addOnLoad(init);
+		</script>
+	</head>
+	<body class="tundra">
+		<div id="myid"/>
+	</body>
+</html>

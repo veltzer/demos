@@ -1,0 +1,45 @@
+<html>
+	<!--
+		This example shows how to use a reg exp
+	-->
+	<head>
+		<title>Hello, Regular expression!</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style>
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.form.TextBox");
+			function do_check() {
+				var w_re=dijit.byId("re")
+				var w_text=dijit.byId("text")
+				var v_re=w_re.attr('value')
+				var v_text=w_text.attr('value')
+				var re=new RegExp(v_re)
+				//alret(re)
+				var res=re.test(v_text)
+				var w_result=dijit.byId("result")
+				w_result.attr('value',res)
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		Regexp: <div dojoType="dijit.form.TextBox" id="re">
+			regexp
+		</div>
+		</br>
+		Text: <div dojoType="dijit.form.TextBox" id="text">
+			text
+		</div>
+		</br>
+		Result: <div dojoType="dijit.form.TextBox" id="result">
+			result
+		</div>
+		</br>
+		<div dojoType="dijit.form.Button" onClick="do_check">
+			Check if they match!
+		</div>
+	</body>
+</html>

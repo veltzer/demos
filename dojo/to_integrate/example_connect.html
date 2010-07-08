@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Hello, dojo.connect</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style type="text/css">
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			function do_click() {
+				alert("yes!")
+			}
+			function do_connect() {
+				var w=dijit.byId("mybutton")
+				dojo.connect(w,"onClick",do_click)
+			}
+			dojo.addOnLoad(do_connect);
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" id="mybutton" title="Hello, World!">Connect</div>
+	</body>
+</html>

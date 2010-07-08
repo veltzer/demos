@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Hello, Tree world!</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true, isDebug:true"></script>
+		<style type="text/css">
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dojo.data.ItemFileReadStore");
+			dojo.require("dijit.Tree");
+			dojo.require("dijit.form.TextBox");
+			function do_click(item,node) {
+				var w_tree=dijit.byId("tree");
+				var w_textbox=dijit.byId("textbox");
+				w_textbox.attr('value',w_tree.store.getLabel(item));
+			}
+			function do_sub(e) {
+				// e.item is the item which is involved in the event.
+				for(x in e) {
+					console.debug(x+": "+e[x]);
+				}
+				var w_textbox=dijit.byId("textbox2");
+				w_textbox.attr('value',e.tree.store.getLabel(e.item));
+			}
+			function do_init() {
+				dojo.subscribe("tree",do_sub);
+			}
+			dojo.addOnLoad(do_init);
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dojo.data.ItemFileReadStore"
+			id="store"
+			url="hello_tree.ajax"
+			jsid="popStore"
+		/>
+
+		<div dojoType="dijit.Tree"
+			store="popStore"
+			id="tree"
+			onClick="do_click"
+			label="Pop Tarts">
+		</div>
+		<div dojoType="dijit.form.TextBox" id="textbox" disabled="true" title="selection"></div>
+		<div dojoType="dijit.form.TextBox" id="textbox2" disabled="true" title="selection"></div>
+	</body>
+</html>

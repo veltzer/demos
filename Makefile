@@ -117,7 +117,7 @@ check_tests_for_drivers:
 	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 
 # various file finds...
-SOURCE_EXPR:=-name "*.cc" -or -name "*.hh" -or -name "*.h" -or -name "*.c" -or -name "Makefile" -or -name "*.txt" -or -name "*.sed" -or -name "*.patch" -or -name "*.mk" -or -name "*.cfg" -or -name "*.sh"
+SOURCE_EXPR:=-name "*.cc" -or -name "*.hh" -or -name "*.h" -or -name "*.c" -or -name "Makefile" -or -name "*.txt" -or -name "*.sed" -or -name "*.patch" -or -name "*.mk" -or -name "*.cfg" -or -name "*.sh" -or -name "*.cfg"
 TARGET_EXPR:=-name "*.exe" -or -name "*.d" -or -name "*.o" -or -name "*.so" -or -name "*.o.cmd" -or -name "*.ko" -or -name "*.ko.cmd" -or -wholename "*/.tmp_versions/*" -or -name "Module.symvers" -or -name "modules.order"
 
 .PHONY: find_not_source
@@ -175,8 +175,8 @@ kern_tips:
 # code beautifucation
 .PHONY: do_astyle
 do_astyle:
-	astyle --verbose --suffix=none --formatted --preserve-date --options=astyle.cfg $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
+	astyle --verbose --suffix=none --formatted --preserve-date --options=conf/astyle.cfg $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
 # I do not use uncrustify because it changes code that it already beautified...
 .PHONY: do_uncrustify
 do_uncrustify:
-	uncrustify -c uncrustify.cfg --replace --no-backup $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
+	uncrustify -c conf/uncrustify.cfg --replace --no-backup $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
