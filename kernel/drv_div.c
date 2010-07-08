@@ -13,7 +13,7 @@
 
 #include "kernel_helper.h"
 
-#include "buffer.h"
+#include "div_buffer.h"
 
 /*
  *      Driver that demostrates arithmetic operations in the kernel...
