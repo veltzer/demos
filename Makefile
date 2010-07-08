@@ -117,7 +117,7 @@ check_tests_for_drivers:
 	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 .PHONY: check_extra_files
 check_extra_files:
-	find -type f -and -not -name "*.cc" -and -not -name "*.h" -and -not -name "*.c" -and -not -name "Makefile" -and -not -name "*.txt" -and -not -path "./.git/*" -and -not -name "*.sed" -and -not -name "*.patch" -and -not -name "*.mk" -and -not -name "*.cfg"
+	find -type f -and -not -name "*.cc" -and -not -name "*.hh" -and -not -name "*.h" -and -not -name "*.c" -and -not -name "Makefile" -and -not -name "*.txt" -and -not -path "./.git/*" -and -not -name "*.sed" -and -not -name "*.patch" -and -not -name "*.mk" -and -not -name "*.cfg" -and -not -name "*.sh"
 
 # kernel section
 .PHONY: kern_help
