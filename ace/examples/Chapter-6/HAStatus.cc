@@ -94,7 +94,7 @@ ClientAcceptor::open(const ACE_INET_Addr& listen_addr) {
 		                 -1);
 	}
 	return(this->reactor()->register_handler
-	                                                                 (this, ACE_Event_Handler::ACCEPT_MASK));
+	                                                                                   (this, ACE_Event_Handler::ACCEPT_MASK));
 }
 
 
@@ -154,7 +154,7 @@ ClientService::open(void) {
 		           peer_name));
 	}
 	return(this->reactor()->register_handler
-	                                                                 (this, ACE_Event_Handler::READ_MASK));
+	                                                                                   (this, ACE_Event_Handler::READ_MASK));
 }
 
 
@@ -204,7 +204,7 @@ ClientService::handle_input(ACE_HANDLE) {
 	}
 	if (output_off) {
 		return(this->reactor()->register_handler
-		                                                                 (this, ACE_Event_Handler::WRITE_MASK));
+		                                                                                   (this, ACE_Event_Handler::WRITE_MASK));
 	}
 	return(0);
 }
@@ -220,7 +220,7 @@ ClientService::handle_output(ACE_HANDLE) {
 	ACE_Time_Value nowait(ACE_OS::gettimeofday());
 
 	while (0 <= this->output_queue_.dequeue_head
-	                                                                      (mb, &nowait)) {
+	                                                                                        (mb, &nowait)) {
 		ssize_t send_cnt =
 		        this->sock_.send(mb->rd_ptr(), mb->length());
 		if (send_cnt == -1) {
