@@ -1,4 +1,3 @@
-//#define _GNU_SOURCE
 #include<pthread.h> // for pthread_create, pthread_join
 #include<stdio.h> // for printf(3)
 #include<stdlib.h> // for exit(3)
@@ -12,6 +11,12 @@
 	- for the main thread (the one going from the main function) the thread id
 	is the same as the process id.
 	- for other threads the process id is the same but the thread id is different.
+	- pthread_self() is different than all of the above (some opaque value).
+	- there is no wrapper function in libc for this one. Just create the wrapper
+	yourself or use some framework which gives you wrappers.
+	- there are no "thread names" in linux. There are process names (although even
+	they are not unique in any way) but no thread names. The way to get thread names
+	is to create some user space construct that stores that information.
  
 EXTRA_LIBS=-lpthread
 */
