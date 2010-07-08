@@ -69,7 +69,7 @@ static void *worker(void *c)
 
 		ACE_DEBUG((LM_DEBUG, "(%t) in worker 1, key = %d, ip = %x\n", key, ip));
 
-		{                                                                                                                                                                            // tmp is workaround for gcc strict aliasing warning.
+		{                                                                                                                                                                                      // tmp is workaround for gcc strict aliasing warning.
 			void *tmp = reinterpret_cast<void *> (ip);
 
 			if (ACE_Thread::setspecific(key, tmp) == -1)

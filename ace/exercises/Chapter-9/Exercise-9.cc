@@ -28,12 +28,12 @@ public:
 	virtual int handle_signal(int signum, siginfo_t * = 0, ucontext_t * = 0)
 	{
 		if (signum == SIGUSR1)
-		{                                                                                                                                                                            // ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) received a %S signal\n"), signum));
+		{                                                                                                                                                                                      // ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) received a %S signal\n"), signum));
 			MyIndex = 0;
 			handle_alert();
 		}
 		if (signum == SIGUSR2)
-		{                                                                                                                                                                            // ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) received a %S signal\n"), signum));
+		{                                                                                                                                                                                      // ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) received a %S signal\n"), signum));
 			MyIndex = 1;
 			handle_alert();
 		}
@@ -92,7 +92,7 @@ int ReceiveMessage(ACE_SOCK_Stream *peer)
 
 	peer->recv(buffer, sizeof(buffer));
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) R E C E I V I N G: <%s>\n"), buffer));
-	peer->send_n("OK", 3, 0);                                                                                        // Send Acknowledge
+	peer->send_n("OK", 3, 0);                                                                                             // Send Acknowledge
 	ACE_OS::sleep(1);
 	peer->close();
 	return(0);
@@ -108,7 +108,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("Usage: %s Port1 Port2\n"), argv[0]));
 		return(1);
 	}
-	if (argc > 3)                                                                                          // Running as a child.
+	if (argc > 3)                                                                                               // Running as a child.
 	{
 		ACE_Sig_Handler    sh;
 		ACE_SOCK_Stream    peer;
@@ -116,8 +116,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		char               buffer[4096];
 		ACE_Time_Value timeout(10, 0);
 
-		sh.register_handler(SIGUSR1, &handler);                                                                                                                                                                              // Use SIGUSR1
-		sh.register_handler(SIGUSR2, &handler);                                                                                                                                                                              // Use SIGUSR2
+		sh.register_handler(SIGUSR1, &handler);                                                                                                                                                                                        // Use SIGUSR1
+		sh.register_handler(SIGUSR2, &handler);                                                                                                                                                                                        // Use SIGUSR2
 		// wit untill MyIndex is modified
 		while (MyIndex == -1)
 		{
@@ -137,11 +137,11 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		size_t size = ACE_OS::strlen(buffer);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Child %d   sending: <%s>\n"), MyIndex + 1, buffer));
 		peer.send_n(buffer, size, 0);
-		peer.recv(buffer, sizeof(buffer));                                                                                                                                                                              // Get Acknowledge
+		peer.recv(buffer, sizeof(buffer));                                                                                                                                                                                        // Get Acknowledge
 		peer.close();
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Child %d is terminating.\n"), MyIndex + 1));
 	}
-	else                                                                                                 // Running as a parent.
+	else                                                                                                      // Running as a parent.
 	{
 		ACE_Process_Manager *pm = ACE_Process_Manager::instance();
 		// Get the processwide process manager.
@@ -157,8 +157,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		pid_t pids[NCHILDREN];
 		pm->spawn_n(NCHILDREN, options, pids);
 
-		ACE_OS::kill(pids[0], SIGUSR1);                                                                                                                                                                               // 1st process will use the 1st port
-		ACE_OS::kill(pids[1], SIGUSR2);                                                                                                                                                                               // 2nd process will use the 2nd port
+		ACE_OS::kill(pids[0], SIGUSR1);                                                                                                                                                                                         // 1st process will use the 1st port
+		ACE_OS::kill(pids[1], SIGUSR2);                                                                                                                                                                                         // 2nd process will use the 2nd port
 
 		// Wait for the child we just terminated.
 		long ListenPort1 = atoi(argv[1]);
@@ -167,8 +167,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		// Do the messaging with 1st Process
 		DoAccept(ListenPort1, &peer[0], &peer_addr[0], &acceptor[0]);
 		DoAccept(ListenPort2, &peer[1], &peer_addr[1], &acceptor[1]);
-		ReceiveMessage(&peer[0]);                                                                                                                                                                               // Do the messaging with 1st Process
-		ReceiveMessage(&peer[1]);                                                                                                                                                                               // Do the messaging with 2nd Process
+		ReceiveMessage(&peer[0]);                                                                                                                                                                                         // Do the messaging with 1st Process
+		ReceiveMessage(&peer[1]);                                                                                                                                                                                         // Do the messaging with 2nd Process
 		// Wait for all the children to exit.
 		pm->wait(0);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Parent is terminating.\n")));

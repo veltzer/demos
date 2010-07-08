@@ -17,12 +17,12 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 	const char *command1 = "<InitialDataPart>";
 	const char *command2 = "< More Data ...>";
 
-	ACE_OS::sprintf(mb->wr_ptr(), command1);                                                                                         // Use the pointer to insert the string
+	ACE_OS::sprintf(mb->wr_ptr(), command1);                                                                                              // Use the pointer to insert the string
 
 	// Move the wr_ptr() forward in the buffer by the amount of data we just put in.
 
 	mb->wr_ptr(ACE_OS::strlen(command1));
-	ACE_OS::sprintf(mb->wr_ptr(), command2);                                                                                         // Use the pointer to add another string
+	ACE_OS::sprintf(mb->wr_ptr(), command2);                                                                                              // Use the pointer to add another string
 	mb->wr_ptr(ACE_OS::strlen(command2) + 1);
 
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("Command Sequence --> %C\n"), mb->rd_ptr()));

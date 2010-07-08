@@ -169,8 +169,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	ACE_LOG_MSG->open(argv[0]);
 	parse_args(argc, argv);
 
-	current_readers = 0;                                                                                      // Possibly already done
-	current_writers = 0;                                                                                      // Possibly already done
+	current_readers = 0;                                                                                           // Possibly already done
+	current_writers = 0;                                                                                           // Possibly already done
 
 	ACE_DEBUG((LM_DEBUG, "(%t) main thread starting\n"));
 

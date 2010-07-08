@@ -84,7 +84,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACE_Sig_Handler sh;
 	sh.register_handler(SIGUSR1, &handler);
 
-	ACE_OS::sleep(1);                                                                                           // Allow threads to start
+	ACE_OS::sleep(1);                                                                                                // Allow threads to start
 
 	for (int i = 0; i < 5; i++)
 	{

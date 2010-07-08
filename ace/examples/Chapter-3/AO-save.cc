@@ -103,7 +103,7 @@ public:
 		ACE_TRACE(ACE_TEXT("Scheduler::svc"));
 
 		while (1)
-		{                                                                                                                                                                            // Dequeue the next method object
+		{                                                                                                                                                                                      // Dequeue the next method object
 			ACE_DEBUG((LM_DEBUG,
 						  ACE_TEXT("%N - In Scheduler::svc waiting for queue data dequeue\n")));
 			auto_ptr<ACE_Method_Request> request(this->activation_queue_.dequeue());
@@ -154,7 +154,7 @@ public:
 
 	//FUZZ: disable check_for_lack_ACE_OS
 	void exit(void)
-	{                                                                                       //FUZZ: enable check_for_lack_ACE_OS
+	{                                                                                            //FUZZ: enable check_for_lack_ACE_OS
 		ACE_TRACE(ACE_TEXT("HA_ControllerAgentProxy::exit"));
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("%N - In HA_ControllerAgentProxy::exit\n")));
 		this->scheduler_.enqueue(new ExitMethod);
@@ -179,7 +179,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	}
 
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%N - We simulate doing other work by sleep(5)\n")));
-	ACE_OS::sleep(5);                                                                                       // Do other work.
+	ACE_OS::sleep(5);                                                                                            // Do other work.
 
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%N - ------Until now we did not request any data----\n")));
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%N - After the sleep we are going to get the results\n")));

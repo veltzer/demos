@@ -195,12 +195,12 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		flags &= ~(MAP_EXECUTABLE | MAP_DENYWRITE);
 		down_write(&mm->mmap_sem);
 		addr = do_mmap_pgoff(
-			filp,                                                                                                                   /* file pointer */
-			(unsigned long)kaddr,                                                                                                   /* address - this is the buffer we kmalloc'ed */
-			ioctl_size,                                                                                                             /* size */
-			PROT_READ | PROT_WRITE,                                                                                                 /* protection */
-			flags,                                                                                                                  /* flags */
-			0                                                                                                                       /* pg offset */
+			filp,                                                                                                                                  /* file pointer */
+			(unsigned long)kaddr,                                                                                                                  /* address - this is the buffer we kmalloc'ed */
+			ioctl_size,                                                                                                                            /* size */
+			PROT_READ | PROT_WRITE,                                                                                                                /* protection */
+			flags,                                                                                                                                 /* flags */
+			0                                                                                                                                      /* pg offset */
 			);
 		up_write(&mm->mmap_sem);
 		DEBUG("kaddr is (p) %p", kaddr);
@@ -357,7 +357,7 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 	// for the reserve loop
 	int i;
 #endif // DO_RESERVE
-	// for return values
+		 // for return values
 	int ret;
 	// for __get_user_pages
 	int order = 0;
@@ -502,8 +502,8 @@ int register_dev()
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                                                             /* our class */
-		NULL,                                                                 /* device we are subdevices of */
+		my_class,                                                                       /* our class */
+		NULL,                                                                           /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,

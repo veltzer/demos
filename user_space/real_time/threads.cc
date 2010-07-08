@@ -1,4 +1,3 @@
-
 /*
  * This application should show how to create real time threads...
  *

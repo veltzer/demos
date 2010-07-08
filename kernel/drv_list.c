@@ -253,8 +253,8 @@ int register_dev()
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                                                             /* our class */
-		NULL,                                                                 /* device we are subdevices of */
+		my_class,                                                                       /* our class */
+		NULL,                                                                           /* device we are subdevices of */
 		pdev->first_dev,
 		NULL,
 		name,
@@ -305,7 +305,7 @@ void unregister_dev()
 typedef struct _list_struct
 {
 	struct list_head list;
-	void             *ptr;                          /* this is my specific data */
+	void             *ptr;                               /* this is my specific data */
 } list_struct;
 
 /*

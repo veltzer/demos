@@ -164,4 +164,4 @@ kern_tips:
 # code beautifucation
 .PHONY: do_beautify
 do_beautify:
-	uncrustify -c uncrustify.cfg --replace --no-backup --mtime $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
+	uncrustify -c uncrustify.cfg --replace --no-backup $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
