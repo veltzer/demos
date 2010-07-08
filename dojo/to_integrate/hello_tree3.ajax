@@ -1,0 +1,17 @@
+{ label: 'name',
+  identifier: 'id',
+   items: [
+     { id: '0', name:'Fruit', type:'category'},
+     { id: '2', name:'Cinammon Roll', type:'poptart' },
+     { id: '3', name:'Brown Sugar Cinnamon', type:'poptart' },
+     { id: '4', name:'French Toast', type:'poptart' },
+     { id: '1', name:'Cinammon', type: 'category', 
+        children: [
+           {_reference: '2'}, 
+           {_reference: '3'}, 
+           {_reference: '4'}
+        ]
+     },
+     { id: '5', name:'Chocolate', type: 'category'}
+    ]
+}
