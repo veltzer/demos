@@ -27,35 +27,26 @@
 // file descriptor
 int d, d2;
 
-void *function_crazy(void *p)
-{
+void *function_crazy(void *p) {
 	bool over = false;
 	int  counter = 0;
 	bool err = false;
 
-	while (!over)
-	{
+	while (!over) {
 		counter++;
 		// ioctl to do nothing...
 		int res = ioctl(d, 0, NULL);
-		if (res == -1)
-		{
+		if (res == -1) {
 			err = true;
 			//perror("ERROR from crazy thread...");
 			//over=true;
+		} else {
 		}
-		else
-		{
-		}
-		if (counter % 10000 == 0)
-		{
+		if (counter % 10000 == 0) {
 			char c;
-			if (err)
-			{
+			if (err) {
 				c = 'E';
-			}
-			else
-			{
+			} else {
 				c = '.';
 			}
 			fprintf(stdout, "%c", c);
@@ -67,23 +58,20 @@ void *function_crazy(void *p)
 }
 
 
-void *function_long(void *p)
-{
+void *function_long(void *p) {
 	SCIE(ioctl(d, 1, NULL), "long ioctl 1");
 	SCIE(ioctl(d, 1, NULL), "long ioctl 2");
 	return(NULL);
 }
 
 
-void *function_long2(void *p)
-{
+void *function_long2(void *p) {
 	SCIE(ioctl(d2, 2, NULL), "very long ioctl");
 	return(NULL);
 }
 
 
-void *function_close(void *p)
-{
+void *function_close(void *p) {
 	fprintf(stderr, "close thread started and going to sleep for two seconds\n");
 	sleep(2);
 	fprintf(stderr, "close thread trying to close handle...\n");
@@ -93,8 +81,7 @@ void *function_close(void *p)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// file to be used
 	const char *filename = "/dev/demo";
 

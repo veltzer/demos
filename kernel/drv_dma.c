@@ -34,15 +34,13 @@ void         *vptr;
 
 #define DO_LOOP
 
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 #ifdef DO_LOOP
 	int i;
 #endif // DO_LOOP
 	DEBUG("start");
 #ifdef DO_LOOP
-	for (i = 0; i < 1000; i++)
-	{
+	for (i = 0; i < 1000; i++) {
 		vptr = dma_alloc_coherent(NULL, size, &device_addr, GFP_KERNEL | GFP_DMA);
 		dma_free_coherent(NULL, size, vptr, device_addr);
 	}
@@ -56,8 +54,7 @@ static int __init mod_init(void)
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	DEBUG("start");
 #ifndef DO_LOOP
 	dma_free_coherent(NULL, size, vptr, device_addr);

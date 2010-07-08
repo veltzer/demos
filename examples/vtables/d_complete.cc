@@ -1,10 +1,8 @@
 #include "d.h"
 
-void D::foo(void)
-{
+void D::foo(void) {
 }
 
 
-void D::zoo(void)
-{
+void D::zoo(void) {
 }

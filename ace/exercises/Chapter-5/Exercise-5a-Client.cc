@@ -15,39 +15,30 @@ public:
 	ACE_SOCK_Stream    client_stream_;
 	ACE_INET_Addr      remote_addr_;
 	ACE_SOCK_Connector connector_;
-	Client(char *hostname, int port) : remote_addr_(port, hostname)
-	{
+	Client(char *hostname, int port) : remote_addr_(port, hostname) {
 	}
 
 	// Uses a connector component `connector_ to connect to a
 	// remote machine and pass the connection into a stream
 	// component client_stream_
-	int connect_to_server()
-	{
+	int connect_to_server() {
 		// Initiate blocking connection with server.
 		ACE_DEBUG((LM_DEBUG, "(%P|%t) Starting connect to %s:%d\n", remote_addr_.get_host_name(), remote_addr_.get_port_number()));
-		if (connector_.connect(client_stream_, remote_addr_) == -1)
-		{
+		if (connector_.connect(client_stream_, remote_addr_) == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "connection failed"), -1);
-		}
-		else
-		{
+		} else {
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) connected to %s\n",
-						  remote_addr_.get_host_name()));
+					   remote_addr_.get_host_name()));
 		}
 		return(0);
 	}
 
 
 	//Close down the connection properly.
-	int close()
-	{
-		if (client_stream_.close() == -1)
-		{
+	int close() {
+		if (client_stream_.close() == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "close"), -1);
-		}
-		else
-		{
+		} else {
 			return(0);
 		}
 	}
@@ -56,19 +47,15 @@ public:
 // Global Read_Buffer that reads from STDIN
 static ACE_Read_Buffer rb(ACE_STDIN);
 
-int GetMessageType(char *data)
-{
+int GetMessageType(char *data) {
 	// read a single line from stdin
 	// Allocate a new buffer.
 	char *buffer = rb.read('\n');
 
-	if (buffer == 0)
-	{
+	if (buffer == 0) {
 		// return message type zero when EOF is reached
 		return(0);
-	}
-	else
-	{
+	} else {
 		int type;
 		sscanf(buffer, "%d", &type);
 		// Remove the type from the buffer
@@ -78,22 +65,18 @@ int GetMessageType(char *data)
 }
 
 
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	int FinalDelay = 4;
 
-	if (argc < 2)
-	{
+	if (argc < 2) {
 		ACE_DEBUG((LM_DEBUG, "Usage %s <port_number> [Final delay(sec)]\n", argv[0]));
 		ACE_DEBUG((LM_DEBUG, " (Final delay is useful for Exercise 5b)\n"));
 		ACE_OS::exit(1);
 	}
 	int port = ACE_OS::atoi(argv[1]);
-	if (argc > 1)
-	{
+	if (argc > 1) {
 		int value = ACE_OS::atoi(argv[2]);
-		if (value > FinalDelay)
-		{
+		if (value > FinalDelay) {
 			FinalDelay = value;
 		}
 	}
@@ -106,27 +89,20 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	client2.connect_to_server();
 	int  type = 1;
 	char buffer[100];
-	while (type)
-	{
+	while (type) {
 		type = GetMessageType(buffer);
 		// ACE_DEBUG((LM_DEBUG,"%s\n", buffer));
-		if ((type == 1) || (type == 2))
-		{
-			if (client1.client_stream_.send_n(buffer, ACE_OS::strlen(buffer) + 1, 0) == -1)
-			{
+		if ((type == 1) || (type == 2)) {
+			if (client1.client_stream_.send_n(buffer, ACE_OS::strlen(buffer) + 1, 0) == -1) {
 				ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "send_n"), 0);
 			}
-		}
-		else
-		{
-			if (client2.client_stream_.send_n(buffer, ACE_OS::strlen(buffer) + 1, 0) == -1)
-			{
+		} else {
+			if (client2.client_stream_.send_n(buffer, ACE_OS::strlen(buffer) + 1, 0) == -1) {
 				ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "send_n"), 0);
 			}
 		}
 	}
-	if (client1.client_stream_.send_n("Quit", 5, 0) == -1)
-	{
+	if (client1.client_stream_.send_n("Quit", 5, 0) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "send_n"), 0);
 	}
 	// Close down the connections

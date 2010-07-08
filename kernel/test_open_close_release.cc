@@ -47,8 +47,7 @@ int d, d2;
 // file to be used
 const char *filename = "/dev/demo";
 
-void do_open_close(void)
-{
+void do_open_close(void) {
 	int d;
 
 	SCIE(d = open(filename, O_RDWR), "open");
@@ -56,22 +55,19 @@ void do_open_close(void)
 }
 
 
-void do_close(void)
-{
+void do_close(void) {
 	SCIE(close(d), "close file");
 }
 
 
-void do_open_and_forget(void)
-{
+void do_open_and_forget(void) {
 	int d;
 
 	SCIE(d = open(filename, O_RDWR), "open");
 }
 
 
-void do_open_and_segfault(void)
-{
+void do_open_and_segfault(void) {
 	int d;
 
 	SCIE(d = open(filename, O_RDWR), "open");
@@ -80,25 +76,20 @@ void do_open_and_segfault(void)
 }
 
 
-pid_t run_in_process(void (*f)(void))
-{
+pid_t run_in_process(void (*f)(void)) {
 	pid_t pid;
 
 	SCIE(pid = fork(), "fork");
-	if (pid == 0)
-	{
+	if (pid == 0) {
 		f();
 		exit(0);
-	}
-	else
-	{
+	} else {
 		return(pid);
 	}
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	printf("Scenario 1 - a single process opening and closing...\n");
 	printf("=============================================================\n");
 	klog_clear();

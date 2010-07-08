@@ -9,33 +9,27 @@
  */
 
 // Listing 1 code/ch12
-class HA_Device_Repository
-{
+class HA_Device_Repository {
 public:
-	HA_Device_Repository() : owner_(0)
-	{
+	HA_Device_Repository() : owner_(0) {
 	}
 
-	int is_free(void)
-	{
+	int is_free(void) {
 		return(this->owner_ == 0);
 	}
 
 
-	int is_owner(ACE_Task_Base *tb)
-	{
+	int is_owner(ACE_Task_Base *tb) {
 		return(this->owner_ == tb);
 	}
 
 
-	ACE_Task_Base *get_owner(void)
-	{
+	ACE_Task_Base *get_owner(void) {
 		return(this->owner_);
 	}
 
 
-	void set_owner(ACE_Task_Base *owner)
-	{
+	void set_owner(ACE_Task_Base *owner) {
 		this->owner_ = owner;
 	}
 
@@ -47,19 +41,16 @@ private:
 };
 // Listing 1
 
-class HA_CommandHandler : public ACE_Task_Base
-{
+class HA_CommandHandler : public ACE_Task_Base {
 public:
-	enum
-	{
+	enum {
 		NUM_USES = 10
 	};
 
 	HA_CommandHandler(HA_Device_Repository & rep,
-							ACE_Condition<ACE_Thread_Mutex> &wait,
-							ACE_Thread_Mutex & mutex)
-		: rep_(rep), waitCond_(wait), mutex_(mutex)
-	{
+					  ACE_Condition<ACE_Thread_Mutex> &wait,
+					  ACE_Thread_Mutex & mutex)
+			: rep_(rep), waitCond_(wait), mutex_(mutex) {
 	}
 
 	virtual int svc(void);
@@ -71,16 +62,13 @@ private:
 };
 // Listing 2 code/ch12
 int
-HA_CommandHandler::svc(void)
-{
+HA_CommandHandler::svc(void) {
 	ACE_DEBUG((LM_DEBUG,
-				  ACE_TEXT("(%t) Handler Thread running\n")));
+			   ACE_TEXT("(%t) Handler Thread running\n")));
 
-	for (int i = 0; i < NUM_USES; i++)
-	{
+	for (int i = 0; i < NUM_USES; i++) {
 		this->mutex_.acquire();
-		while (!this->rep_.is_free())
-		{
+		while (!this->rep_.is_free()) {
 			this->waitCond_.wait();
 		}
 		this->rep_.set_owner(this);
@@ -100,10 +88,9 @@ HA_CommandHandler::svc(void)
 
 // Listing 2
 int
-HA_Device_Repository::update_device(int device_id)
-{
+HA_Device_Repository::update_device(int device_id) {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Updating device %d\n"),
-				  device_id));
+			   device_id));
 
 	ACE_OS::sleep(1);
 	return(0);
@@ -111,8 +98,7 @@ HA_Device_Repository::update_device(int device_id)
 
 
 // Listing 3 code/ch12
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	HA_Device_Repository rep;
 	ACE_Thread_Mutex     rep_mutex;
 

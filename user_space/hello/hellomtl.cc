@@ -8,8 +8,7 @@
  * using namespace mtl;
  * using namespace std;
  */
-int main(void)
-{
+int main(void) {
 	/*
 	 * const int N=5;
 	 * double dx[N]={1,2,3,4,5};

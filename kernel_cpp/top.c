@@ -7,32 +7,27 @@ MODULE_DESCRIPTION("Module written in C++");
 int cpp_init(void);
 void cpp_exit(void);
 
-static int __init link_init(void)
-{
+static int __init link_init(void) {
 	return(cpp_init());
 }
 
 
-static void __exit link_exit(void)
-{
+static void __exit link_exit(void) {
 	cpp_exit();
 }
 
 
-void myprintk(const char *msg)
-{
+void myprintk(const char *msg) {
 	printk(msg);
 }
 
 
-void *mymalloc(unsigned int size)
-{
+void *mymalloc(unsigned int size) {
 	return(kmalloc(size, GFP_KERNEL));
 }
 
 
-void myfree(void *pointer)
-{
+void myfree(void *pointer) {
 	kfree(pointer);
 }
 

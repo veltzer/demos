@@ -18,32 +18,27 @@ const char *string = "hello";
 // this is the name of the file to be used
 const char *fname = "my.sparse";
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// this will be used to check return values
 	int  ret = 0;
 	FILE *f = fopen(fname, "w");
 
-	if (f == NULL)
-	{
+	if (f == NULL) {
 		perror("could not open file");
 		exit(1);
 	}
 	ret = fseek(f, pos, SEEK_CUR);
-	if (ret == -1)
-	{
+	if (ret == -1) {
 		perror("could not seek file");
 		exit(1);
 	}
 	ret = fwrite(string, strlen(string), 1, f);
-	if (ret == -1)
-	{
+	if (ret == -1) {
 		perror("could not read file");
 		exit(1);
 	}
 	ret = fclose(f);
-	if (ret == -1)
-	{
+	if (ret == -1) {
 		perror("could not close file");
 		exit(1);
 	}

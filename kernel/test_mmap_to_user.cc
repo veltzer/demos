@@ -28,8 +28,7 @@ const bool         do_single = false;
 const bool         do_stress = true;
 const unsigned int count = 10000;
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// file to be used
 	const char *filename = "/dev/demo";
 	// file descriptor
@@ -44,8 +43,7 @@ int main(int argc, char **argv, char **envp)
 	//klog_show_clear();
 	waitkey();
 
-	if (do_single)
-	{
+	if (do_single) {
 		// the size of data that we need
 		const unsigned int size = 1000000;
 		SCPE(ptr = (void *)ioctl(d, IOCTL_DEMO_MAP, size), "map to user");
@@ -65,11 +63,9 @@ int main(int argc, char **argv, char **envp)
 		//klog_show_clear();
 		waitkey();
 	}
-	if (do_stress)
-	{
+	if (do_stress) {
 		do_prog_init();
-		for (unsigned int i = 0; i < count; i++)
-		{
+		for (unsigned int i = 0; i < count; i++) {
 			do_prog(i, 10, count);
 			unsigned int size = (i % 1000 + 1) * 4096;
 			char         c = i % 20 + 'a';

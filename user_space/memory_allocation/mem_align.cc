@@ -25,14 +25,12 @@
  *
  * EXTRA_LIBS=
  */
-void *mem_align(unsigned int size)
-{
+void *mem_align(unsigned int size) {
 	int  ps = getpagesize();
 	void *ptr;
 	int  res = posix_memalign(&ptr, ps, size);
 
-	if (res != 0)
-	{
+	if (res != 0) {
 		fprintf(stderr, "error with posix_memalign\n");
 		exit(1);
 	}
@@ -50,8 +48,7 @@ void *mem_align(unsigned int size)
  *      wants the ORIGINAL malloc returned pointer and not the rounded one. This
  *      is not demonstrated in this example...
  */
-void *malloc_align(unsigned int size)
-{
+void *malloc_align(unsigned int size) {
 	int          ps = getpagesize();
 	int          pages = size / ps + 1;
 	int          new_size = pages * ps;
@@ -66,21 +63,19 @@ void *malloc_align(unsigned int size)
 /*
  *      mmap anonymous allocation function
  */
-void *mmap_alloc(unsigned int size)
-{
+void *mmap_alloc(unsigned int size) {
 	//int flags=MAP_ANONYMOUS | MAP_PRIVATE; /* we want anonymous mapping */
-	int  flags = MAP_ANONYMOUS | MAP_SHARED;                                                                                                                                                                   /* we want anonymous mapping */
+	int  flags = MAP_ANONYMOUS | MAP_SHARED;                                                                                                                                                                             /* we want anonymous mapping */
 	void *res = mmap(
-		NULL,                                                                                                                                                                                                                       /* dont recommend address */
-		size,                                                                                                                                                                                                                       /* the size we need */
-		PROT_READ | PROT_WRITE,                                                                                                                                                                                                     /* we want read AND write */
-		flags,
-		-1,                                                                                                                                                                                                                         /* we do not have a device to allocate from */
-		0                                                                                                                                                                                                                           /* we dont need an offset as we don't have a file and are doing anon */
-		);
+					NULL,                                                                                                                                                                                                                                           /* dont recommend address */
+					size,                                                                                                                                                                                                                                           /* the size we need */
+					PROT_READ | PROT_WRITE,                                                                                                                                                                                                                         /* we want read AND write */
+					flags,
+					-1,                                                                                                                                                                                                                                             /* we do not have a device to allocate from */
+					0                                                                                                                                                                                                                                               /* we dont need an offset as we don't have a file and are doing anon */
+				);
 
-	if (res == MAP_FAILED)
-	{
+	if (res == MAP_FAILED) {
 		perror("mmap failed");
 		exit(1);
 	}
@@ -88,8 +83,7 @@ void *mmap_alloc(unsigned int size)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// the size to allocate
 	const unsigned int size = 20200;
 	int                ps1 = getpagesize();

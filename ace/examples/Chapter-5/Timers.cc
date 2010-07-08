@@ -15,38 +15,31 @@ typedef void (*timerTask_t)(void);
 
 // Listing 1 code/ch07
 pid_t timerTask(int         initialDelay,
-					 int         interval,
-					 timerTask_t task)
-{
-	if ((initialDelay < 1) && (interval < 1))
-	{
+				int         interval,
+				timerTask_t task) {
+	if ((initialDelay < 1) && (interval < 1)) {
 		return(-1);
 	}
 
 	pid_t pid = ACE_OS::fork();
 
-	if (pid < 0)
-	{
+	if (pid < 0) {
 		return(-1);
 	}
 
-	if (pid > 0)
-	{
+	if (pid > 0) {
 		return(pid);
 	}
 
-	if (initialDelay > 0)
-	{
+	if (initialDelay > 0) {
 		ACE_OS::sleep(initialDelay);
 	}
 
-	if (interval < 1)
-	{
+	if (interval < 1) {
 		return(0);
 	}
 
-	while (1)
-	{
+	while (1) {
 		(*task)();
 		ACE_OS::sleep(interval);
 	}
@@ -58,8 +51,7 @@ pid_t timerTask(int         initialDelay,
 // Listing 1
 
 // Listing 2 code/ch07
-void foo()
-{
+void foo() {
 	time_t now = ACE_OS::time(0);
 
 	cerr << "The time is " << ACE_OS::ctime(&now) << endl;
@@ -67,15 +59,13 @@ void foo()
 
 
 // Listing 2
-void programMainLoop(void)
-{
+void programMainLoop(void) {
 	ACE_OS::sleep(30);
 }
 
 
 // Listing 3 code/ch07
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	pid_t timerId = timerTask(3, 5, foo);
 
 	programMainLoop();

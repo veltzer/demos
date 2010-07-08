@@ -13,26 +13,19 @@
  *
  * EXTRA_LIBS=
  */
-void print_timeval(struct timeval *tv, const char *name)
-{
+void print_timeval(struct timeval *tv, const char *name) {
 	printf("%s - sec is %lu\n", name, tv->tv_sec);
 	printf("%s - usec is %lu\n", name, tv->tv_usec);
 }
 
 
-unsigned long diff_timeval_in_micro(struct timeval *tv1, struct timeval *tv2)
-{
-	if (tv1->tv_sec > tv2->tv_sec)
-	{
+unsigned long diff_timeval_in_micro(struct timeval *tv1, struct timeval *tv2) {
+	if (tv1->tv_sec > tv2->tv_sec) {
 		fprintf(stderr, "tv1>tv2\n");
 		exit(-1);
-	}
-	else
-	{
-		if (tv1->tv_sec == tv2->tv_sec)
-		{
-			if (tv1->tv_usec > tv2->tv_usec)
-			{
+	} else {
+		if (tv1->tv_sec == tv2->tv_sec) {
+			if (tv1->tv_usec > tv2->tv_usec) {
 				fprintf(stderr, "tv1>tv2\n");
 				exit(-1);
 			}
@@ -44,8 +37,7 @@ unsigned long diff_timeval_in_micro(struct timeval *tv1, struct timeval *tv2)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	struct timeval tv_start, tv_end;
 
 	SCIG(gettimeofday(&tv_start, NULL), "gettimeofday");

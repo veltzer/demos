@@ -62,14 +62,12 @@ int register_dev(void);
 void unregister_dev(void);
 
 // our own functions
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	return(register_dev());
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	unregister_dev();
 }
 
@@ -81,8 +79,7 @@ module_exit(mod_exit);
 
 // first the structures
 
-struct kern_dev
-{
+struct kern_dev {
 	// pointer to the first device number allocated to us
 	dev_t       first_dev;
 	// cdev structures for the char devices we expose to user space
@@ -104,8 +101,7 @@ static struct device   *my_device;
 unsigned long addr;
 int           ioctl_size;
 void          *kaddr;
-static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg)
-{
+static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	//int i;
 	char         str[256];
 	void         *ptr;
@@ -120,11 +116,10 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	void                  *kernel_addr;
 	unsigned long         flags;
 	DEBUG("start");
-	switch (cmd)
-	{
-	/*
-	 *      Exploring VMA issues
-	 */
+	switch (cmd) {
+		/*
+		 *      Exploring VMA issues
+		 */
 	case 0:
 		ptr = (void *)arg;
 		DEBUG("ptr is %p", ptr);
@@ -140,9 +135,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		DEBUG("adjusted (p) is %p", (void *)adjusted);
 		break;
 
-	/*
-	 *      This is asking the kernel to read the memory
-	 */
+		/*
+		 *      This is asking the kernel to read the memory
+		 */
 	case 1:
 		DEBUG("starting to read");
 		memcpy(str, vaddr, 256);
@@ -150,27 +145,27 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		DEBUG("data is %s", str);
 		break;
 
-	/*
-	 *      This is asking the kernel to write the memory
-	 */
+		/*
+		 *      This is asking the kernel to write the memory
+		 */
 	case 2:
 		DEBUG("starting to write");
 		memset(vaddr, arg, size);
 		break;
 
-	/*
-	 *      This demos how to take the user space pointer and turn it
-	 *      into a kernel space pointer
-	 */
+		/*
+		 *      This demos how to take the user space pointer and turn it
+		 *      into a kernel space pointer
+		 */
 	case 3:
 		DEBUG("starting to write using us pointer");
 		ptr = (void *)arg;
 		DEBUG("ptr is %p", ptr);
 		break;
 
-	/*
-	 *      mmap a region
-	 */
+		/*
+		 *      mmap a region
+		 */
 	case 4:
 		DEBUG("trying to mmap");
 
@@ -187,14 +182,14 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		flags &= ~(MAP_EXECUTABLE | MAP_DENYWRITE);
 		down_write(&mm->mmap_sem);
 		addr = do_mmap_pgoff(
-			filp,                                                                                                                                  /* file pointer */
-			//(unsigned long)kaddr, /* address - this is the buffer we kmalloc'ed */
-			0,
-			ioctl_size,                                                                                                                            /* size */
-			PROT_READ | PROT_WRITE,                                                                                                                /* protection */
-			flags,                                                                                                                                 /* flags */
-			0                                                                                                                                      /* pg offset */
-			);
+				   filp,                                                                                                                                                                /* file pointer */
+				   //(unsigned long)kaddr, /* address - this is the buffer we kmalloc'ed */
+				   0,
+				   ioctl_size,                                                                                                                                                          /* size */
+				   PROT_READ | PROT_WRITE,                                                                                                                                              /* protection */
+				   flags,                                                                                                                                                               /* flags */
+				   0                                                                                                                                                                    /* pg offset */
+			   );
 		up_write(&mm->mmap_sem);
 		//DEBUG("kaddr is (p) %p",kaddr);
 		//DEBUG("real size is (d) %d",ioctl_size);
@@ -203,9 +198,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-	/*
-	 *      unmap a region
-	 */
+		/*
+		 *      unmap a region
+		 */
 	case 5:
 		DEBUG("trying to unmap");
 		vma = find_vma(current->mm, addr);
@@ -216,12 +211,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		DEBUG("real size is (d) %d", ioctl_size);
 		DEBUG("real kaddr is (p) %p", kaddr);
 		ret = do_munmap(current->mm, addr, ioctl_size);
-		if (do_kmalloc)
-		{
+		if (do_kmalloc) {
 			kfree(kernel_addr);
-		}
-		else
-		{
+		} else {
 			order = get_order(size);
 			free_pages((unsigned long)kernel_addr, order);
 		}
@@ -229,9 +221,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-	/*
-	 *      The the size of the region
-	 */
+		/*
+		 *      The the size of the region
+		 */
 	case 6:
 		DEBUG("setting the size");
 		ioctl_size = arg;
@@ -245,8 +237,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 /*
  * The open implementation. Currently this does nothing
  */
-static int kern_open(struct inode *inode, struct file *filp)
-{
+static int kern_open(struct inode *inode, struct file *filp) {
 	DEBUG("start");
 	return(0);
 }
@@ -255,8 +246,7 @@ static int kern_open(struct inode *inode, struct file *filp)
 /*
  * The release implementation. Currently this does nothing
  */
-static int kern_release(struct inode *inode, struct file *filp)
-{
+static int kern_release(struct inode *inode, struct file *filp) {
 	DEBUG("start");
 	return(0);
 }
@@ -265,8 +255,7 @@ static int kern_release(struct inode *inode, struct file *filp)
 /*
  * The read implementation. Currently this does nothing.
  */
-static ssize_t kern_read(struct file *filp, char __user *buf, size_t count, loff_t *pos)
-{
+static ssize_t kern_read(struct file *filp, char __user *buf, size_t count, loff_t *pos) {
 	DEBUG("start");
 	return(0);
 }
@@ -275,8 +264,7 @@ static ssize_t kern_read(struct file *filp, char __user *buf, size_t count, loff
 /*
  * The write implementation. Currently this does nothing.
  */
-static ssize_t kern_write(struct file *filp, const char __user *buf, size_t count, loff_t *pos)
-{
+static ssize_t kern_write(struct file *filp, const char __user *buf, size_t count, loff_t *pos) {
 	DEBUG("start");
 	return(0);
 }
@@ -285,14 +273,12 @@ static ssize_t kern_write(struct file *filp, const char __user *buf, size_t coun
 /*
  *      VMA ops
  */
-void kern_vma_open(struct vm_area_struct *vma)
-{
+void kern_vma_open(struct vm_area_struct *vma) {
 	DEBUG("start");
 }
 
 
-void kern_vma_close(struct vm_area_struct *vma)
-{
+void kern_vma_close(struct vm_area_struct *vma) {
 	unsigned int size = vma->vm_end - vma->vm_start;
 	unsigned int order;
 	void         *addr = vma->vm_private_data;
@@ -302,20 +288,16 @@ void kern_vma_close(struct vm_area_struct *vma)
 	DEBUG("pointer as pointer is %p", (void *)(vma->vm_start));
 	DEBUG("addr is %p", addr);
 	DEBUG("size is %d", size);
-	if (do_kmalloc)
-	{
+	if (do_kmalloc) {
 		kfree(addr);
-	}
-	else
-	{
+	} else {
 		order = get_order(size);
 		free_pages((unsigned int)addr, order);
 	}
 }
 
 
-static struct vm_operations_struct kern_remap_vm_ops =
-{
+static struct vm_operations_struct kern_remap_vm_ops = {
 	.open  = kern_vma_open,
 	.close = kern_vma_close,
 };
@@ -325,8 +307,7 @@ static struct vm_operations_struct kern_remap_vm_ops =
  *      you don't really state WHAT memory kernel side you are mapping to user
  *      space...
  */
-static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
-{
+static int kern_mmap(struct file *filp, struct vm_area_struct *vma) {
 	unsigned int  size, order, pg_num;
 	unsigned long addr, phys;
 	void          *kaddr;
@@ -339,13 +320,12 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 	phys = virt_to_phys(vaddr);
 	pg_num = phys >> PAGE_SHIFT;
 	if (remap_pfn_range(
-			 vma,                                                                                                              // vma
-			 vma->vm_start,                                                                                                    // start
-			 pg_num,
-			 size,                                                                                                             // size (derived from the vma)
-			 vma->vm_page_prot                                                                                                 // protection
-			 ))
-	{
+				vma,                                                                                                                                            // vma
+				vma->vm_start,                                                                                                                                  // start
+				pg_num,
+				size,                                                                                                                                           // size (derived from the vma)
+				vma->vm_page_prot                                                                                                                               // protection
+			)) {
 		DEBUG("error path");
 		return(-EAGAIN);
 	}
@@ -359,8 +339,7 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma)
 /*
  * The file operations structure.
  */
-static struct file_operations my_fops =
-{
+static struct file_operations my_fops = {
 	.owner   = THIS_MODULE,
 	.open    = kern_open,
 	.release = kern_release,
@@ -370,36 +349,28 @@ static struct file_operations my_fops =
 	.write   = kern_write,
 };
 
-int register_dev()
-{
+int register_dev() {
 	// create a class
 	my_class = class_create(THIS_MODULE, MYNAME);
-	if (IS_ERR(my_class))
-	{
+	if (IS_ERR(my_class)) {
 		goto goto_nothing;
 	}
 	DEBUG("created the class");
 	// alloc and zero
 	pdev = kmalloc(sizeof(struct kern_dev), GFP_KERNEL);
-	if (pdev == NULL)
-	{
+	if (pdev == NULL) {
 		goto goto_destroy;
 	}
 	memset(pdev, 0, sizeof(struct kern_dev));
 	DEBUG("set up the structure");
-	if (chrdev_alloc_dynamic)
-	{
-		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname))
-		{
+	if (chrdev_alloc_dynamic) {
+		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname)) {
 			DEBUG("cannot alloc_chrdev_region");
 			goto goto_dealloc;
 		}
-	}
-	else
-	{
+	} else {
 		pdev->first_dev = MKDEV(kern_major, kern_minor);
-		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname))
-		{
+		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname)) {
 			DEBUG("cannot register_chrdev_region");
 			goto goto_dealloc;
 		}
@@ -410,23 +381,21 @@ int register_dev()
 	pdev->cdev.owner = THIS_MODULE;
 	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
-	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
-	{
+	if (cdev_add(&pdev->cdev, pdev->first_dev, 1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;
 	}
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                                                                       /* our class */
-		NULL,                                                                           /* device we are subdevices of */
-		pdev->first_dev,
-		NULL,
-		name,
-		0
-		);
-	if (my_device == NULL)
-	{
+					my_class,                                                                                           /* our class */
+					NULL,                                                                                               /* device we are subdevices of */
+					pdev->first_dev,
+					NULL,
+					name,
+					0
+				);
+	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;
 	}
@@ -448,8 +417,7 @@ goto_nothing:
 }
 
 
-void unregister_dev()
-{
+void unregister_dev() {
 	device_destroy(my_class, pdev->first_dev);
 	cdev_del(&pdev->cdev);
 	unregister_chrdev_region(pdev->first_dev, MINORS_COUNT);

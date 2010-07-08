@@ -14,8 +14,7 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	//struct hsearch_data HTAB;
 	//SCIE(hcreate_r(50,&HTAB),"hcreate_r");
 	// next function does not return any status...

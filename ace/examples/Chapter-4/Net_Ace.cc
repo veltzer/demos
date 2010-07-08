@@ -6,15 +6,13 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-int ACE_TMAIN(int, ACE_TCHAR **)
-{
+int ACE_TMAIN(int, ACE_TCHAR **) {
 	ACE_INET_Addr srvr(50000, ACE_LOCALHOST);
 
 	ACE_SOCK_Connector connector;
 	ACE_SOCK_Stream    peer;
 
-	if (connector.connect(peer, srvr) == -1)
-	{
+	if (connector.connect(peer, srvr) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("connect")), 1);
 	}
 	char buf[64];

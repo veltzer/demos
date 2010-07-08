@@ -28,28 +28,23 @@ int               counter = 0;
 FILE              *pfile = stdout;
 const int         wait_usecs = 0;
 //FILE* pfile=stderr;
-void print_cpu_set(cpu_set_t *p)
-{
+void print_cpu_set(cpu_set_t *p) {
 	fprintf(pfile, "_SC_NRPROCESSORS_ONLN is %d\n", cpu_num);
 	fprintf(pfile, "CPU_COUNT is %d\n", CPU_COUNT(p));
 	fprintf(pfile, "CPU_SETSIZE is %d\n", CPU_SETSIZE);
-	for (int j = 0; j < CPU_SETSIZE; j++)
-	{
-		if (CPU_ISSET(j, p))
-		{
+	for (int j = 0; j < CPU_SETSIZE; j++) {
+		if (CPU_ISSET(j, p)) {
 			printf("\tCPU %d\n", j);
 		}
 	}
 }
 
 
-void *worker(void *p)
-{
+void *worker(void *p) {
 	int num = *(int *)p;
 
 	fprintf(pfile, "starting thread %d\n", num);
-	for (int i = 0; i < 10; i++)
-	{
+	for (int i = 0; i < 10; i++) {
 		int ret;
 		SCIG2(ret = pthread_barrier_wait(&bar), "pthread_barrier_wait", 0, PTHREAD_BARRIER_SERIAL_THREAD);
 		fprintf(pfile, "thread %d got %d from pthread_barrier_wait\n", num, ret);
@@ -63,8 +58,7 @@ void *worker(void *p)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	const int      num = 10;
 	pthread_t      threads[num];
 	pthread_attr_t attrs[num];
@@ -74,8 +68,7 @@ int main(int argc, char **argv, char **envp)
 
 	SCIG(pthread_barrier_init(&bar, NULL, 10), "pthread_barrier_init");
 	fprintf(pfile, "main starting\n");
-	for (int i = 0; i < num; i++)
-	{
+	for (int i = 0; i < num; i++) {
 		ids[i] = i;
 		CPU_ZERO(cpu_sets + i);
 		CPU_SET(i % cpu_num, cpu_sets + i);
@@ -85,8 +78,7 @@ int main(int argc, char **argv, char **envp)
 		SCIG(pthread_create(threads + i, attrs + i, worker, ids + i), "pthread_create");
 	}
 	fprintf(pfile, "main ended creating threads\n");
-	for (int i = 0; i < num; i++)
-	{
+	for (int i = 0; i < num; i++) {
 		SCIG(pthread_join(threads[i], rets + i), "pthread_join");
 	}
 	SCIG(pthread_barrier_destroy(&bar), "pthread_barrier_destroy");

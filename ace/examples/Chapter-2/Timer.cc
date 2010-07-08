@@ -13,12 +13,10 @@ const int   NUMBER_TIMERS = 10;
 static bool done = false;
 static int  count = 0;
 static int  last_arrived = -1;
-class       MyTime_Handler : public ACE_Event_Handler
-{
+class       MyTime_Handler : public ACE_Event_Handler {
 public:
 	//Method which is called back by the Reactor when timeout occurs.
-	virtual int handle_timeout(const ACE_Time_Value& tv, const void *arg)
-	{
+	virtual int handle_timeout(const ACE_Time_Value& tv, const void *arg) {
 		long current_count = long(arg);
 
 		// assert that we are not getting the 5'th timer
@@ -29,8 +27,7 @@ public:
 		ACE_DEBUG((LM_DEBUG, "%t %d: Timer #%d timed out at %d!\n", count, current_count, tv.sec()));
 		// If all timers done then set done flag
 		count++;
-		if (count == NUMBER_TIMERS - 1)
-		{
+		if (count == NUMBER_TIMERS - 1) {
 			done = true;
 		}
 		// Keep yourself registered with the Reactor.
@@ -38,19 +35,17 @@ public:
 	}
 };
 
-int ACE_TMAIN(int, char **)
-{
+int ACE_TMAIN(int, char **) {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%t: main thread starting\n")));
 	ACE_Reactor    reactor;
 	MyTime_Handler *th = new MyTime_Handler;
 	int            timer_id[NUMBER_TIMERS];
-	for (int i = 0; i < NUMBER_TIMERS; i++)
-	{
+	for (int i = 0; i < NUMBER_TIMERS; i++) {
 		timer_id[i] = reactor.schedule_timer(
-			th,
-			(const void *)i,                                                                                                                                                                                                                                                                                                   // argument sent to handle_timeout()
-			ACE_Time_Value(2 * i + 1)                                                                                                                                                                                                                                                                                          // set timer to go off with delay
-			);
+						  th,
+						  (const void *)i,                                                                                                                                                                                                                                                                                                                                 // argument sent to handle_timeout()
+						  ACE_Time_Value(2 * i + 1)                                                                                                                                                                                                                                                                                                                        // set timer to go off with delay
+					  );
 	}
 	// Cancel the fifth timer before it goes off
 	//Timer ID of timer to be removed
@@ -59,8 +54,7 @@ int ACE_TMAIN(int, char **)
 	// this is done when the last one is activated.
 	// This termination trick is only one option for termination out of many other possibilities.
 	// and is not a good one at that because it makes us write the logic for the termination.
-	while (!done)
-	{
+	while (!done) {
 		reactor.handle_events();
 	}
 	return(0);

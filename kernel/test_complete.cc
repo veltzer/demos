@@ -18,8 +18,7 @@
 // file descriptor
 int d;
 
-void *wait_function(void *p)
-{
+void *wait_function(void *p) {
 	std::cerr << "wait thread started" << std::endl;
 	ticks_t t1 = getticks();
 	SCIE(ioctl(d, 3, 1000), "wait thread going to sleep");
@@ -29,14 +28,12 @@ void *wait_function(void *p)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// file to be used
 	const char *filename = "/dev/demo";
 
 	SCIE(d = open(filename, O_RDWR), "open");
-	if (argc == 1)
-	{
+	if (argc == 1) {
 		SCIE(ioctl(d, 0, NULL), "creating the completion");
 	}
 	pthread_t thread_wait1, thread_wait2;

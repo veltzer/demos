@@ -8,8 +8,7 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	int i = 0777;
 
 	printf("i is %d\n", i);

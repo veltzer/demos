@@ -31,11 +31,10 @@ static Object *object;
 
 // Listing 1 code/ch12
 int
-HA_Device_Repository::update_device(int device_id)
-{
+HA_Device_Repository::update_device(int device_id) {
 	this->mutex_.acquire();
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Updating device %d\n"),
-				  device_id));
+			   device_id));
 
 	// Allocate a new object.
 	ACE_NEW_RETURN(object, Object, -1);
@@ -49,8 +48,7 @@ HA_Device_Repository::update_device(int device_id)
 // Listing 1
 // Listing 2 code/ch12
 int
-HA_Device_Repository::update_device(int device_id)
-{
+HA_Device_Repository::update_device(int device_id) {
 	// Construct a guard specifying the type of the mutex as
 	// a template parameter and passing in the mutex to hold
 	// as a parameter.
@@ -70,8 +68,7 @@ HA_Device_Repository::update_device(int device_id)
 
 // Listing 3 code/ch12
 int
-HA_Device_Repository::update_device(int /* device_id */)
-{
+HA_Device_Repository::update_device(int /* device_id */) {
 	ACE_GUARD_RETURN(ACE_Thread_Mutex, mon, mutex_, -1);
 
 	ACE_NEW_RETURN(object, Object, -1);
@@ -82,8 +79,7 @@ HA_Device_Repository::update_device(int /* device_id */)
 
 
 // Listing 3
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	HA_Device_Repository rep;
 
 	rep.update_device(42);

@@ -6,8 +6,7 @@
 
 void foo(void);
 
-int ACE_TMAIN(int, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *argv[]) {
 	// This will be directed to stderr (the default ACE_Log_Msg behavior).
 	ACE_TRACE("main");
 
@@ -26,8 +25,7 @@ int ACE_TMAIN(int, ACE_TCHAR *argv[])
 }
 
 
-void foo(void)
-{
+void foo(void) {
 	ACE_TRACE("foo");
 	ACE_DEBUG((LM_INFO, ACE_TEXT("%IThis is a log test\n")));
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%I(0)Is this info seen?\n")));

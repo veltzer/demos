@@ -15,8 +15,7 @@
 //              --the_answer                - we get 42 into the switch
 //
 //
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{  // Example for a long option without a corresponding short option.
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) { // Example for a long option without a corresponding short option.
 	// Just put some context here so the following compiles and runs.
 	static const ACE_TCHAR options[] = ACE_TEXT(":f:l:gh");
 
@@ -28,10 +27,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	int       option;
 	ACE_TCHAR config_file[MAXPATHLEN];
 	ACE_OS_String::strcpy(config_file, ACE_TEXT("HAStatus.conf"));
-	while ((option = cmd_opts()) != EOF)
-	{
-		switch (option)
-		{
+	while ((option = cmd_opts()) != EOF) {
+		switch (option) {
 		case 'f':
 			ACE_OS_String::strncpy(config_file, cmd_opts.opt_arg(), MAXPATHLEN);
 			ACE_DEBUG((LM_DEBUG, "-f: The new config_file: %s\n", config_file));
@@ -59,7 +56,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
 		case ':':
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("-%c requires an argument\n"),
-									cmd_opts.opt_opt()), -1);
+							  cmd_opts.opt_opt()), -1);
 
 
 		default:

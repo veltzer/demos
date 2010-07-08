@@ -13,8 +13,7 @@
 /*
  *      This tests eventfd code in the kernel...
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// file to be used
 	const char *filename = "/dev/demo";
 	// file descriptor
@@ -25,8 +24,7 @@ int main(int argc, char **argv, char **envp)
 	SCIE(efd = eventfd(0, 0), "open");
 	int pid;
 	SCIE(pid = fork(), "fork");
-	switch (pid)
-	{
+	switch (pid) {
 	case 0:
 		printf("Child\n");
 

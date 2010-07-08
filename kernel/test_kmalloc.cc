@@ -13,8 +13,7 @@
  *      This test explores how kmalloc behaves when given various
  *      sizes to allocate
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// file to be used
 	const char *filename = "/dev/demo";
 	// file descriptor
@@ -23,8 +22,7 @@ int main(int argc, char **argv, char **envp)
 	//klog_clear();
 	scie(d = open(filename, O_RDWR), "open");
 	printf("starting out\n");
-	for (unsigned int i = 1; i < 1000000; i += 100)
-	{
+	for (unsigned int i = 1; i < 1000000; i += 100) {
 		// kmalloc does not allocate on a page boundry...
 		//sc(ioctl(d,IOCTL_DEMO_KMALLOC,i),"kmalloc");
 		//printf("kmalloc: i is %d\n",i);

@@ -12,12 +12,10 @@ typedef ACE_Module<ACE_MT_SYNCH>   MT_Module;
 typedef ACE_Task<ACE_MT_SYNCH>     MT_Task;
 
 static int ProducerData = 0;
-class      Consumer : public MT_Task
-{
+class      Consumer : public MT_Task {
 public:
 	// Initialize Consumer.
-	virtual int open(void *)
-	{
+	virtual int open(void *) {
 		// <activate> is inherited from class Task.
 		return(activate(THR_BOUND));
 	}
@@ -25,8 +23,7 @@ public:
 
 	// Enqueue the message on the Message_Queue
 	// for subsequent processing in <svc>.
-	virtual int put(ACE_Message_Block *mb, ACE_Time_Value *tv = 0)
-	{
+	virtual int put(ACE_Message_Block *mb, ACE_Time_Value *tv = 0) {
 		// <putq> is inherited from class Task.
 		return(putq(mb, tv));
 	}
@@ -37,12 +34,10 @@ public:
 };
 
 // Define the Producer interface
-class Producer : public MT_Task
-{
+class Producer : public MT_Task {
 public:
 	// Initialize Producer.
-	virtual int open(void *)
-	{
+	virtual int open(void *) {
 		// activate() is inherited from class Task.
 		return(activate(THR_BOUND));
 	}
@@ -52,32 +47,25 @@ public:
 	virtual int svc(void);
 };
 
-int Producer::svc(void)
-{
-	if (ProducerData)
-	{
-		while (true)
-		{
+int Producer::svc(void) {
+	if (ProducerData) {
+		while (true) {
 			printf("Second Program Running\n");
 			sleep(1);
 		}
 	}
-	while (true)
-	{
+	while (true) {
 		ACE_Message_Block *mb;
 		// Allocate a new message.
 		ACE_NEW_RETURN(mb, ACE_Message_Block(BUFSIZ), -1);
 		// Keep reading stdin, until we reach EOF.
 		ssize_t n = ACE_OS::read(ACE_STDIN, mb->wr_ptr(), mb->size());
-		if (n <= 0)
-		{
+		if (n <= 0) {
 			// Send shutdown message to other thread and exit.
 			mb->length(0);
 			this->put_next(mb);
 			break;
-		}
-		else
-		{
+		} else {
 			// Adjust write pointer.
 			mb->wr_ptr(n);
 			// Send the message to the other thread.
@@ -88,27 +76,22 @@ int Producer::svc(void)
 }
 
 
-int Consumer::svc(void)
-{
+int Consumer::svc(void) {
 	ACE_Message_Block *mb = 0;
 
 	// Keep looping, reading a message from the queue,
 	// until we get a 0 length message, then quit.
-	while (true)
-	{
+	while (true) {
 		int result = getq(mb);
-		if (result == -1)
-		{
+		if (result == -1) {
 			break;
 		}
 		int length = mb->length();
-		if (length > 0)
-		{
+		if (length > 0) {
 			ACE_OS::write(ACE_STDOUT, mb->rd_ptr(), length);
 		}
 		mb->release();
-		if (length == 0)
-		{
+		if (length == 0) {
 			break;
 		}
 	}
@@ -116,8 +99,7 @@ int Consumer::svc(void)
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	// Control hierarchically-related active objects.
 	MT_Stream stream;
 

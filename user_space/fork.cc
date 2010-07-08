@@ -17,27 +17,21 @@
  *                              Mark Veltzer
  * EXTRA_LIBS=
  */
-void print_status(int status)
-{
-	if (WIFEXITED(status))
-	{
+void print_status(int status) {
+	if (WIFEXITED(status)) {
 		TRACE("child exited normally with status %d", WEXITSTATUS(status));
 	}
-	if (WIFSTOPPED(status))
-	{
+	if (WIFSTOPPED(status)) {
 		TRACE("child was stopped with signal %s", strsignal(WSTOPSIG(status)));
 	}
-	if (WIFSIGNALED(status))
-	{
+	if (WIFSIGNALED(status)) {
 		TRACE("child was signaled with signal %s", strsignal(WTERMSIG(status)));
 	}
 }
 
 
-void print_code(int code)
-{
-	switch (code)
-	{
+void print_code(int code) {
+	switch (code) {
 	case CLD_EXITED:
 		TRACE("child exited of it's own accord");
 		break;
@@ -57,21 +51,17 @@ void print_code(int code)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	TRACE("this is the parent");
 	pid_t child_pid = fork();
-	if (child_pid == -1)
-	{
+	if (child_pid == -1) {
 		perror("could not fork");
 		exit(1);
 	}
-	if (child_pid == 0)
-	{
+	if (child_pid == 0) {
 		bool selected = false;
 		int  selection;
-		while (!selected)
-		{
+		while (!selected) {
 			TRACE("this is the child");
 			TRACE("Please select what do you want to do:");
 			TRACE("1) exit(0)");
@@ -81,19 +71,16 @@ int main(int argc, char **argv, char **envp)
 			TRACE("- do 'kill -s SIGCONT %d'", getpid());
 			char str[256];
 			char *ret = fgets(str, 256, stdin);
-			if (ret != str)
-			{
+			if (ret != str) {
 				perror("could not get value");
 				exit(1);
 			}
 			selection = atoi(str);
-			if ((selection >= 1) && (selection <= 3))
-			{
+			if ((selection >= 1) && (selection <= 3)) {
 				selected = true;
 			}
 		}
-		switch (selection)
-		{
+		switch (selection) {
 		case 1:
 			exit(0);
 			break;
@@ -106,25 +93,20 @@ int main(int argc, char **argv, char **envp)
 			*((char *)0) = 0;
 			break;
 		}
-	}
-	else
-	{
+	} else {
 		TRACE("this is the parent");
 		bool over = false;
-		while (!over)
-		{
+		while (!over) {
 			TRACE("waiting for the child...");
 			siginfo_t info;
 			int       res = waitid(P_PID, child_pid, &info, WEXITED | WSTOPPED | WCONTINUED);
-			if (res == -1)
-			{
+			if (res == -1) {
 				perror("could not waitid(2)");
 				exit(1);
 			}
 			print_code(info.si_code);
 			print_status(info.si_status);
-			if ((info.si_code == CLD_EXITED) || (info.si_code == CLD_KILLED))
-			{
+			if ((info.si_code == CLD_EXITED) || (info.si_code == CLD_KILLED)) {
 				over = true;
 			}
 		}

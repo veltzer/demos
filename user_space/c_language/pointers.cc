@@ -7,19 +7,16 @@
  *
  * EXTRA_LIBS=
  */
-void func(char **p)
-{
+void func(char **p) {
 }
 
 
-typedef struct _Foobar
-{
+typedef struct _Foobar {
 	int i;
 	int j;
 } Foobar;
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// releasing the next two lines will trigger a compilation error!!!
 	//Foobar* f=(Foobar*)malloc(sizeof(Foobar));
 	//func(&f);

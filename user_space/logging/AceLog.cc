@@ -20,22 +20,19 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-void bar(void)
-{
+void bar(void) {
 	ACE_TRACE(ACE_TEXT("bar"));
 	ACE_DEBUG((LM_INFO, ACE_TEXT("%IMessage from bar\n")));
 }
 
 
-void foo(void)
-{
+void foo(void) {
 	ACE_DEBUG((LM_INFO, ACE_TEXT("%IMessage from foo\n")));
 	bar();
 }
 
 
-int ACE_TMAIN(int, ACE_TCHAR **)
-{
+int ACE_TMAIN(int, ACE_TCHAR **) {
 	ACE_TRACE(ACE_TEXT("main"));
 	ACE_DEBUG((LM_INFO, ACE_TEXT("%IBefore\n")));
 	foo();

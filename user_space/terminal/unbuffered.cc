@@ -38,8 +38,7 @@
  *
  * EXTRA_LIBS=
  */
-void set_noncannon(int desc)
-{
+void set_noncannon(int desc) {
 	struct termios settings;
 
 	scie(tcgetattr(desc, &settings), "tcgetattr");
@@ -49,25 +48,20 @@ void set_noncannon(int desc)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// lets take the file descriptor number from stdin which is usually
 	// a terminal (unless you redirect it...)
 	int filedes = fileno(stdin);
 
-	if (isatty(filedes))
-	{
+	if (isatty(filedes)) {
 		DEBUG("it is a terminal with name [%s]", ttyname(filedes));
-	}
-	else
-	{
+	} else {
 		DEBUG("it is not a terminal");
 	}
 	set_noncannon(filedes);
 
 	int c = fgetc(stdin);
-	while (c != 'e')
-	{
+	while (c != 'e') {
 		printf("got [%c]\n", (unsigned char)c);
 		c = fgetc(stdin);
 	}

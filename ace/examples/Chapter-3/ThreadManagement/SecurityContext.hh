@@ -8,8 +8,7 @@
 #ifndef __SECURITYCONTEXT_H_
 #define __SECURITYCONTEXT_H_
 
-struct SecurityContext
-{
+struct SecurityContext {
 	const char *user;
 };
 

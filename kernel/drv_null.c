@@ -26,16 +26,14 @@ MODULE_DESCRIPTION("Demo module for testing");
 // constants for this module
 
 // our own functions
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	DEBUG("start");
 	DEBUG("NULL is %p", NULL);
 	return(0);
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	DEBUG("start");
 }
 

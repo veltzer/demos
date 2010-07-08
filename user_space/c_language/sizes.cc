@@ -16,8 +16,7 @@
  */
 #define PRINT_SIZEOF(astr, a) printf("size of " astr " is %d\n", sizeof(a));
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	struct utsname buf;
 
 	scie(uname(&buf), "get uname");

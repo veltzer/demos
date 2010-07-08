@@ -38,8 +38,7 @@ static const int MINORS_COUNT = 1;
 
 // first the structures
 
-struct kern_dev
-{
+struct kern_dev {
 	// pointer to the first device number allocated to us
 	dev_t       first_dev;
 	// cdev structures for the char devices we expose to user space
@@ -56,8 +55,7 @@ static struct device   *my_device;
  * This is the ioctl implementation. Currently this function supports
  * getting the image rows and columns
  */
-static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg)
-{
+static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	void          *ptr = NULL;
 	unsigned long addr = -1;
 	dma_addr_t    dma_handle;
@@ -65,24 +63,21 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 	//int res;
 	DEBUG("start");
-	switch (cmd)
-	{
-	/*
-	 *      kmalloc function.
-	 *
-	 *      One argument which is the size to allocate
-	 */
+	switch (cmd) {
+		/*
+		 *      kmalloc function.
+		 *
+		 *      One argument which is the size to allocate
+		 */
 	case IOCTL_DEMO_KMALLOC:
 		size = arg * PAGE_SIZE;
 		ptr = kmalloc(GFP_KERNEL, size);
-		if (ptr == NULL)
-		{
+		if (ptr == NULL) {
 			ERROR("unable to allocate %lu", size);
 			return(-EFAULT);
 		}
 		addr = (unsigned int)ptr;
-		if (addr % PAGE_SIZE != 0)
-		{
+		if (addr % PAGE_SIZE != 0) {
 			ERROR("page size issue with addr=%lu", addr);
 			return(-EFAULT);
 		}
@@ -93,22 +88,20 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-	/*
-	 *      __get_free_pages function.
-	 *
-	 *      One argument which is the size to allocate
-	 */
+		/*
+		 *      __get_free_pages function.
+		 *
+		 *      One argument which is the size to allocate
+		 */
 	case IOCTL_DEMO_GET_FREE_PAGES:
 		size = arg * PAGE_SIZE;
 		addr = __get_free_pages(GFP_KERNEL, get_order(size));
-		if (addr == 0)
-		{
+		if (addr == 0) {
 			//if(IS_ERR_VALUE(addr)) {
 			ERROR("unable to allocate %lu", size);
 			return(-EFAULT);
 		}
-		if (addr % PAGE_SIZE != 0)
-		{
+		if (addr % PAGE_SIZE != 0) {
 			ERROR("page size issue with addr=%lu", addr);
 			return(-EFAULT);
 		}
@@ -119,20 +112,18 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-	/*
-	 *      PCI allocation function
-	 */
+		/*
+		 *      PCI allocation function
+		 */
 	case IOCTL_DEMO_PCI_ALLOC_CONSISTENT:
 		size = arg * PAGE_SIZE;
 		ptr = pci_alloc_consistent(NULL, size, &dma_handle);
-		if (ptr == NULL)
-		{
+		if (ptr == NULL) {
 			ERROR("unable to allocate %lu", size);
 			return(-EFAULT);
 		}
 		addr = (unsigned int)ptr;
-		if (addr % PAGE_SIZE != 0)
-		{
+		if (addr % PAGE_SIZE != 0) {
 			ERROR("page size issue with addr=%lu", addr);
 			return(-EFAULT);
 		}
@@ -146,14 +137,12 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	case IOCTL_DEMO_DMA_ALLOC_COHERENT:
 		size = arg * PAGE_SIZE;
 		ptr = dma_alloc_coherent(my_device, size, &dma_handle, GFP_KERNEL);
-		if (ptr == NULL)
-		{
+		if (ptr == NULL) {
 			ERROR("unable to allocate %lu", size);
 			return(-EFAULT);
 		}
 		addr = (unsigned int)ptr;
-		if (addr % PAGE_SIZE != 0)
-		{
+		if (addr % PAGE_SIZE != 0) {
 			ERROR("page size issue with addr=%lu", addr);
 			return(-EFAULT);
 		}
@@ -171,42 +160,33 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 /*
  * The file operations structure.
  */
-static struct file_operations my_fops =
-{
+static struct file_operations my_fops = {
 	.owner = THIS_MODULE,
 	.ioctl = kern_ioctl,
 };
 
-static int register_dev(void)
-{
+static int register_dev(void) {
 	// create a class
 	my_class = class_create(THIS_MODULE, MYNAME);
-	if (IS_ERR(my_class))
-	{
+	if (IS_ERR(my_class)) {
 		goto goto_nothing;
 	}
 	DEBUG("created the class");
 	// alloc and zero
 	pdev = kmalloc(sizeof(struct kern_dev), GFP_KERNEL);
-	if (pdev == NULL)
-	{
+	if (pdev == NULL) {
 		goto goto_destroy;
 	}
 	memset(pdev, 0, sizeof(struct kern_dev));
 	DEBUG("set up the structure");
-	if (chrdev_alloc_dynamic)
-	{
-		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname))
-		{
+	if (chrdev_alloc_dynamic) {
+		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname)) {
 			DEBUG("cannot alloc_chrdev_region");
 			goto goto_dealloc;
 		}
-	}
-	else
-	{
+	} else {
 		pdev->first_dev = MKDEV(kern_major, kern_minor);
-		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname))
-		{
+		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname)) {
 			DEBUG("cannot register_chrdev_region");
 			goto goto_dealloc;
 		}
@@ -217,23 +197,21 @@ static int register_dev(void)
 	pdev->cdev.owner = THIS_MODULE;
 	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
-	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
-	{
+	if (cdev_add(&pdev->cdev, pdev->first_dev, 1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;
 	}
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                                                                       /* our class */
-		NULL,                                                                           /* device we are subdevices of */
-		pdev->first_dev,
-		NULL,
-		"%s",
-		name
-		);
-	if (my_device == NULL)
-	{
+					my_class,                                                                                           /* our class */
+					NULL,                                                                                               /* device we are subdevices of */
+					pdev->first_dev,
+					NULL,
+					"%s",
+					name
+				);
+	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;
 	}
@@ -255,8 +233,7 @@ goto_nothing:
 }
 
 
-static void unregister_dev(void)
-{
+static void unregister_dev(void) {
 	device_destroy(my_class, pdev->first_dev);
 	cdev_del(&pdev->cdev);
 	unregister_chrdev_region(pdev->first_dev, MINORS_COUNT);
@@ -265,14 +242,12 @@ static void unregister_dev(void)
 }
 
 
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	return(register_dev());
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	unregister_dev();
 }
 

@@ -14,31 +14,26 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-class Manager : public ACE_Process
-{
+class Manager : public ACE_Process {
 public:
-	Manager(const ACE_TCHAR * program_name)
-	{
+	Manager(const ACE_TCHAR * program_name) {
 		ACE_TRACE("Manager::Manager");
 		ACE_OS::strcpy(programName_, program_name);
 	}
 
 
-	int doWork(void)
-	{
+	int doWork(void) {
 		ACE_TRACE("Manager::doWork");
 
 		// Spawn the new process; prepare() hook is called first.
 		ACE_Process_Options options;
 		pid_t               pid = this->spawn(options);
-		if (pid == ACE_INVALID_PID)
-		{
+		if (pid == ACE_INVALID_PID) {
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("spawn")), -1);
 		}
 
 		// Wait forever for my child to exit.
-		if (this->wait() == -1)
-		{
+		if (this->wait() == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("wait")), -1);
 		}
 
@@ -49,12 +44,10 @@ public:
 
 
 private:
-	int dumpRun(void)
-	{
+	int dumpRun(void) {
 		ACE_TRACE("Manager::dumpRun");
 
-		if (ACE_OS::lseek(this->outputfd_, 0, SEEK_SET) == -1)
-		{
+		if (ACE_OS::lseek(this->outputfd_, 0, SEEK_SET) == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("lseek")), -1);
 		}
 
@@ -62,8 +55,7 @@ private:
 		ssize_t length = 0;
 
 		// Read the contents of the error stream written by the child and print it out.
-		while ((length = ACE_OS::read(this->outputfd_, buf, sizeof(buf) - 1)) > 0)
-		{
+		while ((length = ACE_OS::read(this->outputfd_, buf, sizeof(buf) - 1)) > 0) {
 			buf[length] = 0;
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("%C\n"), buf));
 		}
@@ -74,14 +66,12 @@ private:
 
 
 	// prepare() is inherited from ACE_Process.
-	int prepare(ACE_Process_Options& options)
-	{
+	int prepare(ACE_Process_Options& options) {
 		ACE_TRACE("Manager::prepare");
 
 		options.command_line(ACE_TEXT("%s 1"), this->programName_);
 		if ((this->setStdHandles(options) == -1) ||
-			 (this->setEnvVariable(options) == -1))
-		{
+				(this->setEnvVariable(options) == -1)) {
 			return(-1);
 		}
 #if !defined (ACE_WIN32) && !defined (ACE_LACKS_PWD_FUNCTIONS)
@@ -93,8 +83,7 @@ private:
 	}
 
 
-	int setStdHandles(ACE_Process_Options& options)
-	{
+	int setStdHandles(ACE_Process_Options& options) {
 		ACE_TRACE("Manager::setStdHandles");
 
 		ACE_OS::unlink("output.dat");
@@ -103,20 +92,17 @@ private:
 	}
 
 
-	int setEnvVariable(ACE_Process_Options& options)
-	{
+	int setEnvVariable(ACE_Process_Options& options) {
 		ACE_TRACE("Manager::setEnvVariables");
 		return(options.setenv(ACE_TEXT("PRIVATE_VAR=/that/seems/to/be/it")));
 	}
 
 
 #if !defined (ACE_LACKS_PWD_FUNCTIONS)
-	int setUserID(ACE_Process_Options& options)
-	{
+	int setUserID(ACE_Process_Options& options) {
 		ACE_TRACE("Manager::setUserID");
 		passwd *pw = ACE_OS::getpwnam("nobody");
-		if (pw == 0)
-		{
+		if (pw == 0) {
 			return(-1);
 		}
 		options.seteuid(pw->pw_uid);
@@ -133,40 +119,36 @@ private:
 	ACE_TCHAR  programName_[256];
 };
 
-class Slave
-{
+class Slave {
 public:
-	Slave()
-	{
+	Slave() {
 		ACE_TRACE("Slave::Slave");
 	}
 
 
-	int doWork(void)
-	{
+	int doWork(void) {
 		ACE_TRACE("Slave::doWork");
 
 		ACE_DEBUG((LM_INFO,
-					  ACE_TEXT("(%P) started at %T, parent is %d\n"),
-					  ACE_OS::getppid()));
+				   ACE_TEXT("(%P) started at %T, parent is %d\n"),
+				   ACE_OS::getppid()));
 		this->showWho();
 		ACE_DEBUG((LM_INFO,
-					  ACE_TEXT("(%P) the private environment is %s\n"),
-					  ACE_OS::getenv("PRIVATE_VAR")));
+				   ACE_TEXT("(%P) the private environment is %s\n"),
+				   ACE_OS::getenv("PRIVATE_VAR")));
 
 		ACE_TCHAR str[128];
 		ACE_OS::sprintf(str, ACE_TEXT("(%d) Enter your command\n"),
-							 static_cast<int>(ACE_OS::getpid()));
+						static_cast<int>(ACE_OS::getpid()));
 		ACE_OS::write(ACE_STDOUT, str, ACE_OS::strlen(str));
 		this->readLine(str);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P) Executed: %C\n"),
-					  str));
+				   str));
 		return(0);
 	}
 
 
-	void showWho(void)
-	{
+	void showWho(void) {
 		ACE_TRACE("Slave::showWho");
 #if !defined (ACE_LACKS_PWD_FUNCTIONS)
 //    passwd *pw = ::getpwuid (ACE_OS::geteuid ());
@@ -177,35 +159,27 @@ public:
 	}
 
 
-	ACE_TCHAR *readLine(ACE_TCHAR *str)
-	{
+	ACE_TCHAR *readLine(ACE_TCHAR *str) {
 		ACE_TRACE("Slave::readLine");
 
 		int i = 0;
-		while (true)
-		{
+		while (true) {
 			ssize_t retval = ACE_OS::read(ACE_STDIN, &str[i], 1);
-			if (retval > 0)
-			{
-				if (str[i] == '\n')
-				{
+			if (retval > 0) {
+				if (str[i] == '\n') {
 					str[++i] = 0;
 					return(str);
 				}
 				i++;
-			}
-			else
-			{
+			} else {
 				return(str);
 			}
 		}
 	}
 };
 
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
-	if (argc > 1)                                                                                            // Slave mode
-	{
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
+	if (argc > 1) {                                                                                                    // Slave mode
 		Slave s;
 		return(s.doWork());
 	}

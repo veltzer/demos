@@ -1,5 +1,4 @@
 #include "b.h"
 
-void B::bar(void)
-{
+void B::bar(void) {
 }

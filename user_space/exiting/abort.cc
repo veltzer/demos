@@ -14,8 +14,7 @@
  *                              Mark Veltzer
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	abort();
 	return(0);
 }

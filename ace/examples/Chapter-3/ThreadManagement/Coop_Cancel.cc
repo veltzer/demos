@@ -11,20 +11,16 @@
  */
 
 // Listing 1 code/ch13
-class CanceledTask : public ACE_Task<ACE_MT_SYNCH>
-{
+class CanceledTask : public ACE_Task<ACE_MT_SYNCH> {
 public:
 
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) starting up \n")));
 
 		// Cache our ACE_Thread_Manager pointer.
 		ACE_Thread_Manager *mgr = this->thr_mgr();
-		while (1)
-		{
-			if (mgr->testcancel(mgr->thr_self()))
-			{
+		while (1) {
+			if (mgr->testcancel(mgr->thr_self())) {
 				return(0);
 			}
 
@@ -33,12 +29,9 @@ public:
 
 			tv += ACE_OS::time(0);
 			int result = this->getq(mb, &tv);
-			if ((result == -1) && (errno == EWOULDBLOCK))
-			{
+			if ((result == -1) && (errno == EWOULDBLOCK)) {
 				continue;
-			}
-			else
-			{
+			} else {
 				// Do real work.
 			}
 		}
@@ -49,8 +42,7 @@ public:
 // Listing 1
 
 // Listing 2 code/ch13
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	CanceledTask task;
 
 	task.activate();

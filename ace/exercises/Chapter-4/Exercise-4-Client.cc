@@ -8,8 +8,7 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	ACE_INET_Addr addr;
 
 	addr.set(20000, ACE_LOCALHOST);
@@ -20,16 +19,13 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACE_Time_Value timeout(10, 0);
 
 	int i = 0;
-	if (connector.connect(peer, addr, &timeout) == -1)
-	{
+	if (connector.connect(peer, addr, &timeout) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("Client connect")), 1);
 	}
-	while (true)
-	{
+	while (true) {
 		bc = peer.recv(buf, sizeof(buf));
 		buf[bc] = 0;
-		if (!bc)
-		{
+		if (!bc) {
 			printf("End\n");
 			break;
 		}

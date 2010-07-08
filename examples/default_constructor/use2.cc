@@ -1,8 +1,7 @@
 #include "a.h"
 #include "b.h"
 
-void func2(void)
-{
+void func2(void) {
 	A a;
 
 	a.print();

@@ -28,17 +28,14 @@
  *
  * EXTRA_LIBS=-lcpufreq
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	//SC(nanosleep(100000),"nanosleep");
 	//for(int i=1000;i<20000;i+=1000) {
 	const int repeats = 100;
 
-	for (int i = 100; i < 2000; i += 100)
-	{
+	for (int i = 100; i < 2000; i += 100) {
 		unsigned long sum = 0;
-		for (int j = 0; j < repeats; j++)
-		{
+		for (int j = 0; j < repeats; j++) {
 			ticks_t start = getticks();
 			//usleep(i);
 			timespec t;

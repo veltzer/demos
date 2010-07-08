@@ -54,8 +54,7 @@
 // this is what gives us the division...
 #include <asm/div64.h>
 
-unsigned long long __udivdi3(unsigned long long divided, unsigned long long divisor)
-{
+unsigned long long __udivdi3(unsigned long long divided, unsigned long long divisor) {
 	unsigned int reminder;
 
 	DEBUG("divided is %llu", divided);
@@ -64,8 +63,7 @@ unsigned long long __udivdi3(unsigned long long divided, unsigned long long divi
 }
 
 
-long long __divdi3(long long divided, long long divisor)
-{
+long long __divdi3(long long divided, long long divisor) {
 	unsigned int reminder;
 
 	DEBUG("divided is %lld", divided);

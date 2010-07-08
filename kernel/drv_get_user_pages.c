@@ -41,8 +41,7 @@ static const int MINORS_COUNT = 1;
 
 // first the structures
 
-struct kern_dev
-{
+struct kern_dev {
 	// pointer to the first device number allocated to us
 	dev_t       first_dev;
 	// cdev structures for the char devices we expose to user space
@@ -74,51 +73,42 @@ struct page **pages;
 unsigned int nr_pages;
 
 
-static inline void pages_unlock(void)
-{
+static inline void pages_unlock(void) {
 	unsigned int i;
 
 	// unlock the pages
-	for (i = 0; i < nr_pages; i++)
-	{
+	for (i = 0; i < nr_pages; i++) {
 		unlock_page(pages[i]);
 	}
 }
 
 
-static inline void pages_lock(void)
-{
+static inline void pages_lock(void) {
 	unsigned int i;
 
 	// unlock the pages
-	for (i = 0; i < nr_pages; i++)
-	{
+	for (i = 0; i < nr_pages; i++) {
 		lock_page(pages[i]);
 	}
 }
 
 
-static inline void pages_dirty(void)
-{
+static inline void pages_dirty(void) {
 	unsigned int i;
 
 	// set the pages as dirty
-	for (i = 0; i < nr_pages; i++)
-	{
+	for (i = 0; i < nr_pages; i++) {
 		SetPageDirty(pages[i]);
 	}
 }
 
 
-static inline void pages_unmap(void)
-{
+static inline void pages_unmap(void) {
 	unsigned int i;
 
 	// set the pages as dirty
-	for (i = 0; i < nr_pages; i++)
-	{
-		if (!PageReserved(pages[i]))
-		{
+	for (i = 0; i < nr_pages; i++) {
+		if (!PageReserved(pages[i])) {
 			SetPageDirty(pages[i]);
 		}
 		page_cache_release(pages[i]);
@@ -126,20 +116,17 @@ static inline void pages_unmap(void)
 }
 
 
-static inline void pages_reserve(void)
-{
+static inline void pages_reserve(void) {
 	unsigned int i;
 
 	// set the pages as reserved
-	for (i = 0; i < nr_pages; i++)
-	{
+	for (i = 0; i < nr_pages; i++) {
 		SetPageReserved(pages[i]);
 	}
 }
 
 
-static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg)
-{
+static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	// this is the buffer which will hold the data of the buffer from user space...
 	BufferStruct b;
 	// for results from calls
@@ -156,15 +143,13 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 	struct vm_area_struct *vma;
 
 	DEBUG("start with ioctl %u", cmd);
-	switch (cmd)
-	{
-	/*
-	 *      This is asking the kernel to map the memory to kernel space.
-	 */
+	switch (cmd) {
+		/*
+		 *      This is asking the kernel to map the memory to kernel space.
+		 */
 	case IOCTL_DEMO_MAP:
 		// get the data from the user
-		if (copy_from_user(&b, (void *)arg, sizeof(b)))
-		{
+		if (copy_from_user(&b, (void *)arg, sizeof(b))) {
 			ERROR("ERROR: problem with copy_from_user");
 			return(-EFAULT);
 		}
@@ -190,8 +175,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		nr_pages = (newsize - 1) / PAGE_SIZE + 1;
 		DEBUG("nr_pages is %d", nr_pages);
 		// alocate page structures...
-		if ((pages = kmalloc(nr_pages * sizeof(struct page *), GFP_KERNEL)) == NULL)
-		{
+		if ((pages = kmalloc(nr_pages * sizeof(struct page *), GFP_KERNEL)) == NULL) {
 			ERROR("ERROR: could not allocate page structs");
 			return(-ENOMEM);
 		}
@@ -200,22 +184,21 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		down_write(&current->mm->mmap_sem);
 		// rw==READ means read from drive, write into memory area
 		res = get_user_pages(
-			current,
-			current->mm,
-			aligned,
-			nr_pages,
-			1,                                                                                                                  /* write */
-			0,                                                                                                                  /* force */
-			pages,
-			NULL
-			);
+				  current,
+				  current->mm,
+				  aligned,
+				  nr_pages,
+				  1,                                                                                                                                                /* write */
+				  0,                                                                                                                                                /* force */
+				  pages,
+				  NULL
+			  );
 		vma = find_vma(current->mm, bpointer);
 		vma->vm_flags |= VM_DONTCOPY;
 		up_write(&current->mm->mmap_sem);
 		DEBUG("after get_user_pages res is %d", res);
 		// Errors and no page mapped should return here
-		if (res != nr_pages)
-		{
+		if (res != nr_pages) {
 			ERROR("ERROR: could not get_user_pages. res was %d", res);
 			kfree(pages);
 			return(-EFAULT);
@@ -225,8 +208,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		//pages_unlock();
 		// map the pages to kernel space...
 		vptr = vmap(pages, nr_pages, VM_MAP, PAGE_KERNEL);
-		if (vptr == NULL)
-		{
+		if (vptr == NULL) {
 			ERROR("ERROR: could not get_user_pages. res was %d", res);
 			kfree(pages);
 			return(-EFAULT);
@@ -244,10 +226,10 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-	/*
-	 *      This is asking the kernel to unmap the data
-	 *      No arguments are passed
-	 */
+		/*
+		 *      This is asking the kernel to unmap the data
+		 *      No arguments are passed
+		 */
 	case IOCTL_DEMO_UNMAP:
 		// this function does NOT return an error code. Strange...:)
 		vunmap(vptr);
@@ -260,26 +242,25 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-	/*
-	 *      This is asking the kernel to read the data.
-	 *      No arguments are passed
-	 */
+		/*
+		 *      This is asking the kernel to read the data.
+		 *      No arguments are passed
+		 */
 	case IOCTL_DEMO_READ:
 		cptr = (char *)ptr;
 		sloop = min(size, (unsigned int)10);
 		DEBUG("sloop is %d", sloop);
-		for (i = 0; i < sloop; i++)
-		{
+		for (i = 0; i < sloop; i++) {
 			DEBUG("value of %d is %c", i, cptr[i]);
 		}
 		return(0);
 
 		break;
 
-	/*
-	 *      This is asking the kernel to write on our data
-	 *      argument is the constant which will be used...
-	 */
+		/*
+		 *      This is asking the kernel to write on our data
+		 *      argument is the constant which will be used...
+		 */
 	case IOCTL_DEMO_WRITE:
 		memset(ptr, arg, size);
 		//pages_dirty();
@@ -294,42 +275,33 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 /*
  * The file operations structure.
  */
-static struct file_operations my_fops =
-{
+static struct file_operations my_fops = {
 	.owner = THIS_MODULE,
 	.ioctl = kern_ioctl,
 };
 
-static int register_dev(void)
-{
+static int register_dev(void) {
 	// create a class
 	my_class = class_create(THIS_MODULE, MYNAME);
-	if (IS_ERR(my_class))
-	{
+	if (IS_ERR(my_class)) {
 		goto goto_nothing;
 	}
 	DEBUG("created the class");
 	// alloc and zero
 	pdev = kmalloc(sizeof(struct kern_dev), GFP_KERNEL);
-	if (pdev == NULL)
-	{
+	if (pdev == NULL) {
 		goto goto_destroy;
 	}
 	memset(pdev, 0, sizeof(struct kern_dev));
 	DEBUG("set up the structure");
-	if (chrdev_alloc_dynamic)
-	{
-		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname))
-		{
+	if (chrdev_alloc_dynamic) {
+		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname)) {
 			DEBUG("cannot alloc_chrdev_region");
 			goto goto_dealloc;
 		}
-	}
-	else
-	{
+	} else {
 		pdev->first_dev = MKDEV(kern_major, kern_minor);
-		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname))
-		{
+		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname)) {
 			DEBUG("cannot register_chrdev_region");
 			goto goto_dealloc;
 		}
@@ -340,23 +312,21 @@ static int register_dev(void)
 	pdev->cdev.owner = THIS_MODULE;
 	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
-	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
-	{
+	if (cdev_add(&pdev->cdev, pdev->first_dev, 1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;
 	}
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                                                                       /* our class */
-		NULL,                                                                           /* device we are subdevices of */
-		pdev->first_dev,
-		NULL,
-		name,
-		0
-		);
-	if (my_device == NULL)
-	{
+					my_class,                                                                                           /* our class */
+					NULL,                                                                                               /* device we are subdevices of */
+					pdev->first_dev,
+					NULL,
+					name,
+					0
+				);
+	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;
 	}
@@ -378,8 +348,7 @@ goto_nothing:
 }
 
 
-static void unregister_dev(void)
-{
+static void unregister_dev(void) {
 	device_destroy(my_class, pdev->first_dev);
 	cdev_del(&pdev->cdev);
 	unregister_chrdev_region(pdev->first_dev, MINORS_COUNT);
@@ -389,15 +358,13 @@ static void unregister_dev(void)
 
 
 // our own functions
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	DEBUG("start");
 	return(register_dev());
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	DEBUG("start");
 	unregister_dev();
 }

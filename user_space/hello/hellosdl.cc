@@ -15,17 +15,14 @@ const int SCREEN_BPP = 16;
 
 static SDL_Surface *surface;
 
-void Quit(int returnCode)
-{
+void Quit(int returnCode) {
 	SDL_Quit();
 	exit(returnCode);
 }
 
 
-void handleKeyPress(SDL_keysym *keysym)
-{
-	switch (keysym->sym)
-	{
+void handleKeyPress(SDL_keysym *keysym) {
+	switch (keysym->sym) {
 	case SDLK_ESCAPE:
 		Quit(0);
 		break;
@@ -36,10 +33,8 @@ void handleKeyPress(SDL_keysym *keysym)
 }
 
 
-int resizeWindow(int width, int height)
-{
-	if (height == 0)
-	{
+int resizeWindow(int width, int height) {
+	if (height == 0) {
 		height = 1;
 	}
 	GLfloat ratio = (GLfloat)width / (GLfloat)height;
@@ -53,8 +48,7 @@ int resizeWindow(int width, int height)
 }
 
 
-int initGL()
-{
+int initGL() {
 	glShadeModel(GL_SMOOTH);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClearDepth(1.0f);
@@ -65,63 +59,54 @@ int initGL()
 }
 
 
-int drawGLScene()
-{
+int drawGLScene() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 	glTranslatef(-1.5f, 0.0f, -6.0f);
-	glBegin(GL_TRIANGLES);                                                                                                      /* Drawing Using Triangles */
-	glColor3f(1.0f, 0.0f, 0.0f);                                                                                                /* Red */
-	glVertex3f(0.0f, 1.0f, 0.0f);                                                                                               /* Top Of Triangle */
-	glColor3f(0.0f, 1.0f, 0.0f);                                                                                                /* Green */
-	glVertex3f(-1.0f, -1.0f, 0.0f);                                                                                             /* Left Of Triangle */
-	glColor3f(0.0f, 0.0f, 1.0f);                                                                                                /* Blue */
-	glVertex3f(1.0f, -1.0f, 0.0f);                                                                                              /* Right Of Triangle */
-	glEnd();                                                                                                                    /* Finished Drawing The Triangle */
+	glBegin(GL_TRIANGLES);                                                                                                                /* Drawing Using Triangles */
+	glColor3f(1.0f, 0.0f, 0.0f);                                                                                                          /* Red */
+	glVertex3f(0.0f, 1.0f, 0.0f);                                                                                                         /* Top Of Triangle */
+	glColor3f(0.0f, 1.0f, 0.0f);                                                                                                          /* Green */
+	glVertex3f(-1.0f, -1.0f, 0.0f);                                                                                                       /* Left Of Triangle */
+	glColor3f(0.0f, 0.0f, 1.0f);                                                                                                          /* Blue */
+	glVertex3f(1.0f, -1.0f, 0.0f);                                                                                                        /* Right Of Triangle */
+	glEnd();                                                                                                                              /* Finished Drawing The Triangle */
 	glTranslatef(3.0f, 0.0f, 0.0f);
 	glColor3f(0.5f, 0.5f, 1.0f);
-	glBegin(GL_QUADS);                                                                                                          /* Draw A Quad */
-	glVertex3f(1.0f, 1.0f, 0.0f);                                                                                               /* Top Right Of The Quad */
-	glVertex3f(-1.0f, 1.0f, 0.0f);                                                                                              /* Top Left Of The Quad */
-	glVertex3f(-1.0f, -1.0f, 0.0f);                                                                                             /* Bottom Left Of The Quad */
-	glVertex3f(1.0f, -1.0f, 0.0f);                                                                                              /* Bottom Right Of The Quad */
-	glEnd();                                                                                                                    /* Done Drawing The Quad */
+	glBegin(GL_QUADS);                                                                                                                    /* Draw A Quad */
+	glVertex3f(1.0f, 1.0f, 0.0f);                                                                                                         /* Top Right Of The Quad */
+	glVertex3f(-1.0f, 1.0f, 0.0f);                                                                                                        /* Top Left Of The Quad */
+	glVertex3f(-1.0f, -1.0f, 0.0f);                                                                                                       /* Bottom Left Of The Quad */
+	glVertex3f(1.0f, -1.0f, 0.0f);                                                                                                        /* Bottom Right Of The Quad */
+	glEnd();                                                                                                                              /* Done Drawing The Quad */
 	SDL_GL_SwapBuffers();
 	return(true);
 }
 
 
-int main(int argc, char **argv)
-{
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
+int main(int argc, char **argv) {
+	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		fprintf(stderr, "Video initialization failed: %s\n", SDL_GetError());
 		Quit(1);
 	}
 	const SDL_VideoInfo *videoInfo = SDL_GetVideoInfo();
-	if (!videoInfo)
-	{
+	if (!videoInfo) {
 		fprintf(stderr, "Video query failed: %s\n", SDL_GetError());
 		Quit(1);
 	}
-	int videoFlags = SDL_OPENGL;                                                                                                   /* Enable OpenGL in SDL */
-	videoFlags |= SDL_GL_DOUBLEBUFFER;                                                                                             /* Enable double buffering */
-	if (videoInfo->hw_available)
-	{
+	int videoFlags = SDL_OPENGL;                                                                                                             /* Enable OpenGL in SDL */
+	videoFlags |= SDL_GL_DOUBLEBUFFER;                                                                                                       /* Enable double buffering */
+	if (videoInfo->hw_available) {
 		videoFlags |= SDL_HWSURFACE;
-	}
-	else
-	{
+	} else {
 		videoFlags |= SDL_SWSURFACE;
 	}
-	if (videoInfo->blit_hw)
-	{
+	if (videoInfo->blit_hw) {
 		videoFlags |= SDL_HWACCEL;
 	}
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	surface = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, videoFlags);
-	if (!surface)
-	{
+	if (!surface) {
 		fprintf(stderr, "Video mode set failed: %s\n", SDL_GetError());
 		Quit(1);
 	}
@@ -129,13 +114,10 @@ int main(int argc, char **argv)
 	resizeWindow(SCREEN_WIDTH, SCREEN_HEIGHT);
 	drawGLScene();
 	bool done = false;
-	while (!done)
-	{
+	while (!done) {
 		SDL_Event event;
-		while (SDL_PollEvent(&event))
-		{
-			switch (event.type)
-			{
+		while (SDL_PollEvent(&event)) {
+			switch (event.type) {
 			case SDL_KEYDOWN:
 				handleKeyPress(&event.key.keysym);
 				break;

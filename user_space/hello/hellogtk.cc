@@ -4,8 +4,7 @@
  * This is a simple hello gtk program
  * EXTRA_CMDS=pkg-config --cflags --libs gtk+-2.0
  */
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	gtk_init(&argc, &argv);
 	GtkWidget *w = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_widget_show(w);

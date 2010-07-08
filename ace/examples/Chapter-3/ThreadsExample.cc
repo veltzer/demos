@@ -7,8 +7,7 @@
 static int number = 0;
 static int seed = 0;
 static void *
-worker(void *arg)
-{
+worker(void *arg) {
 	ACE_UNUSED_ARG(arg);
 	ACE_DEBUG((LM_DEBUG, "Thread (%t) Created to do some work"));
 	::number++;
@@ -21,10 +20,8 @@ worker(void *arg)
 }
 
 
-int main(int argc, char *argv[])
-{
-	if (argc < 2)
-	{
+int main(int argc, char *argv[]) {
+	if (argc < 2) {
 		ACE_DEBUG((LM_DEBUG, "Usage: %s <number of threads>\n", argv[0]));
 		ACE_OS::exit(1);
 	}
@@ -35,21 +32,19 @@ int main(int argc, char *argv[])
 	ACE_thread_t  *threadID = new ACE_thread_t[n_threads + 1];
 	ACE_hthread_t *threadHandles = new ACE_hthread_t[n_threads + 1];
 	if (ACE_Thread::spawn_n(
-			 threadID,                                                                                                                                                                                                                                                                                                    //id's for each of the threads
-			 n_threads,                                                                                                                                                                                                                                                                                                   //number of threads to spawn
-			 (ACE_THR_FUNC)worker,                                                                                                                                                                                                                                                                                        //entry point for new thread
-			 NULL,                                                                                                                                                                                                                                                                                                        //args to worker
-			 THR_JOINABLE | THR_NEW_LWP,                                                                                                                                                                                                                                                                                  //flags
-			 ACE_DEFAULT_THREAD_PRIORITY,
-			 NULL,
-			 0,
-			 threadHandles) != n_threads)
-	{
+				threadID,                                                                                                                                                                                                                                                                                                                                  //id's for each of the threads
+				n_threads,                                                                                                                                                                                                                                                                                                                                 //number of threads to spawn
+				(ACE_THR_FUNC)worker,                                                                                                                                                                                                                                                                                                                      //entry point for new thread
+				NULL,                                                                                                                                                                                                                                                                                                                                      //args to worker
+				THR_JOINABLE | THR_NEW_LWP,                                                                                                                                                                                                                                                                                                                //flags
+				ACE_DEFAULT_THREAD_PRIORITY,
+				NULL,
+				0,
+				threadHandles) != n_threads) {
 		ACE_DEBUG((LM_DEBUG, "Error in spawning thread\n"));
 	}
 //spawn n_threads
-	for (unsigned int i = 0; i < n_threads; i++)
-	{
+	for (unsigned int i = 0; i < n_threads; i++) {
 		ACE_Thread::join(threadHandles[i]);
 	}
 //Wait for all the threads to exit before you let the main fall through

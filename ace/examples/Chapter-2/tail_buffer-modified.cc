@@ -24,25 +24,21 @@ static const long max_queue = LONG_MAX;
 // the message to the stderr stream, and deletes the message.  The
 // producer sends a 0-sized message to inform the consumer to stop
 // reading and exit.
-static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
-{  // Keep looping, reading a message out of the queue, until we
+static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue) { // Keep looping, reading a message out of the queue, until we
 	// timeout or get a message with a length == 0, which signals us to
 	// quit.
 
-	for ( ; ;)
-	{
+	for (; ;) {
 		ACE_Message_Block *mb;
 
 		// Read from the head
-		if (msg_queue->dequeue_tail(mb) == -1)
-		{
+		if (msg_queue->dequeue_tail(mb) == -1) {
 			break;
 		}
 
 		size_t length = mb->length();
 
-		if (length > 0)
-		{
+		if (length > 0) {
 			ACE_OS::puts(mb->rd_ptr());
 		}
 
@@ -50,8 +46,7 @@ static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 		ACE_Allocator::instance()->free(mb->rd_ptr());
 		mb->release();
 
-		if (length == 0)
-		{
+		if (length == 0) {
 			break;
 		}
 	}
@@ -65,49 +60,43 @@ static void *consumer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 // removed by the consumer thread.  A 0-sized message is enqueued when
 // there is no more data to read.  The consumer uses this as a flag to
 // know when to exit.
-static void *producer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
-{
+static void *producer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue) {
 	ACE_Read_Buffer rb(ACE_STDIN);
 
 	// Keep reading stdin, until we reach EOF.
 
-	for ( ; ;)
-	{                                                                                            // Allocate a new buffer.
+	for (; ;) {                                                                                                     // Allocate a new buffer.
 		char *buffer = rb.read('\n');
 
 		ACE_Message_Block *mb;
 
-		if (buffer == 0)
-		{                                                                                                                                                                                       // Send a 0-sized shutdown message to the other thread and
+		if (buffer == 0) {                                                                                                                                                                                                          // Send a 0-sized shutdown message to the other thread and
 			// exit.
 
 			ACE_NEW_RETURN(mb, ACE_Message_Block((size_t)0), 0);
 
-			if (msg_queue->enqueue_head(mb) == -1)
-			{
+			if (msg_queue->enqueue_head(mb) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
 			}
 			break;
 		}
 
 		// Enqueue the message in fifo order.
-		else
-		{
+		else {
 			// Allocate a new message, but have it "borrow" its memory
 			// from the buffer.
 			ACE_NEW_RETURN(mb,
-								ACE_Message_Block(rb.size(),
-														ACE_Message_Block::MB_DATA,
-														0,
-														buffer),
-								0);
+						   ACE_Message_Block(rb.size(),
+											 ACE_Message_Block::MB_DATA,
+											 0,
+											 buffer),
+						   0);
 			mb->wr_ptr(rb.size());
 
 			ACE_DEBUG((LM_DEBUG, "enqueueing message of size %d\n", rb.size()));
 
 			// Enqueue into the tail
-			if (msg_queue->enqueue_tail(mb) == -1)
-			{
+			if (msg_queue->enqueue_tail(mb) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "put_next"));
 			}
 		}
@@ -122,13 +111,11 @@ static void *producer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue)
 }
 
 
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{  // Message queue.
+int ACE_TMAIN(int, ACE_TCHAR *[]) { // Message queue.
 	ACE_Message_Queue<ACE_MT_SYNCH> msg_queue(max_queue);
 
 	if (thr_mgr.spawn(ACE_THR_FUNC(producer), (void *)&msg_queue,
-							THR_NEW_LWP | THR_DETACHED) == -1)
-	{
+					  THR_NEW_LWP | THR_DETACHED) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, "%p\n", "spawn"), 1);
 	}
 

@@ -23,8 +23,7 @@ protected:
 	ACE_SOCK_Stream stream;
 };
 
-Net_Handler::Net_Handler(ACE_SOCK_Stream& s) : stream(s)
-{
+Net_Handler::Net_Handler(ACE_SOCK_Stream& s) : stream(s) {
 	this->reactor(ACE_Reactor::instance());
 	int result = this->reactor()->register_handler(this, READ_MASK);
 	ACE_ASSERT(result == 0);
@@ -32,65 +31,49 @@ Net_Handler::Net_Handler(ACE_SOCK_Stream& s) : stream(s)
 }
 
 
-ACE_HANDLE Net_Handler::get_handle(void) const
-{
+ACE_HANDLE Net_Handler::get_handle(void) const {
 	return(this->stream.get_handle());
 }
 
 
-void Net_Handler::terminate()
-{
+void Net_Handler::terminate() {
 	ACE_Reactor::end_event_loop();
 }
 
 
-int Net_Handler::handle_input(ACE_HANDLE handle)
-{
+int Net_Handler::handle_input(ACE_HANDLE handle) {
 	// if Quit(and only this string) is detected in the message the close everything
 	char message[BUFSIZ];
 
-	if (Termination)
-	{
+	if (Termination) {
 		ACE_Reactor::end_event_loop();
 		return(-1);
 	}
 	int result = this->stream.recv(message, sizeof message);
-	if (result > 0)
-	{
+	if (result > 0) {
 		message[result] = 0;
 		// Trim CR and LF(in case of telnet)
-		while (true)
-		{
+		while (true) {
 			char value = message[result - 1];
-			if ((value == 10) || (value == 13))
-			{
+			if ((value == 10) || (value == 13)) {
 				message[--result] = 0;
-			}
-			else
-			{
+			} else {
 				break;
 			}
 		}
-		if (!ACE_OS::strcmp(message, "Quit"))
-		{
+		if (!ACE_OS::strcmp(message, "Quit")) {
 			ACE_Reactor::end_event_loop();
 			return(-1);
 		}
 		ACE_DEBUG((LM_DEBUG, "handle: %d - Remote message: %s\n", handle, message));
 		// Wait to allow kill from other terminal
 		// ACE_OS::sleep(1);
-	}
-	else if (result == 0)
-	{
+	} else if (result == 0) {
 		ACE_DEBUG((LM_DEBUG, "(1) - Connection closed\n"));
 		return(-1);
-	}
-	else if (errno == EWOULDBLOCK)
-	{
+	} else if (errno == EWOULDBLOCK) {
 		return(0);
-	}
-	else
-	{
+	} else {
 		ACE_DEBUG((LM_DEBUG, "Problems in receiving data, result = %d", result));
 		return(-1);
 	}
@@ -98,8 +81,7 @@ int Net_Handler::handle_input(ACE_HANDLE handle)
 }
 
 
-int Net_Handler::handle_close(ACE_HANDLE handle, ACE_Reactor_Mask)
-{
+int Net_Handler::handle_close(ACE_HANDLE handle, ACE_Reactor_Mask) {
 	ACE_DEBUG((LM_DEBUG, "Net_Handler::handle_close handle = %d\n", handle));
 	this->stream.close();
 	delete this;
@@ -122,8 +104,7 @@ public:
 	Net_Handler       *Save_handler;
 };
 
-Net_Listener::Net_Listener(int local_address)
-{
+Net_Listener::Net_Listener(int local_address) {
 	acceptor = ACE_INET_Addr(local_address, ACE_LOCALHOST);
 	this->reactor(ACE_Reactor::instance());
 	int result = this->reactor()->register_handler(this, ACE_Event_Handler::ACCEPT_MASK);
@@ -133,19 +114,16 @@ Net_Listener::Net_Listener(int local_address)
 }
 
 
-Net_Listener::~Net_Listener(void)
-{
+Net_Listener::~Net_Listener(void) {
 }
 
 
-ACE_HANDLE Net_Listener::get_handle(void) const
-{
+ACE_HANDLE Net_Listener::get_handle(void) const {
 	return(this->acceptor.get_handle());
 }
 
 
-int Net_Listener::handle_input(ACE_HANDLE handle)
-{
+int Net_Listener::handle_input(ACE_HANDLE handle) {
 	ACE_DEBUG((LM_DEBUG, "Net_Listener::handle_input handle = %d\n", handle));
 	ACE_INET_Addr   remote_address;
 	ACE_SOCK_Stream stream;
@@ -156,10 +134,10 @@ int Net_Listener::handle_input(ACE_HANDLE handle)
 	// associations.
 	int reset_new_hndl = this->reactor()->uses_event_associations();
 	int result = this->acceptor.accept(stream,
-												  &remote_address,
-												  0,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              // timeout
-												  1,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              // restart
-												  reset_new_hndl);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                // reset new handler
+									   &remote_address,
+									   0,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      // timeout
+									   1,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      // restart
+									   reset_new_hndl);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        // reset new handler
 	ACE_ASSERT(result == 0);
 	ACE_UNUSED_ARG(result);
 	remote_address.dump();
@@ -170,8 +148,7 @@ int Net_Listener::handle_input(ACE_HANDLE handle)
 }
 
 
-int Net_Listener::handle_close(ACE_HANDLE handle, ACE_Reactor_Mask)
-{
+int Net_Listener::handle_close(ACE_HANDLE handle, ACE_Reactor_Mask) {
 	ACE_DEBUG((LM_DEBUG, "Net_Listener::handle_close handle = %d\n", handle));
 	this->acceptor.close();
 	delete this;
@@ -185,23 +162,18 @@ public:
 	Net_Listener *listener;
 	int          signum;
 public:
-	CatchSignal(int isignum) : signum(isignum)
-	{
+	CatchSignal(int isignum) : signum(isignum) {
 	}
 	virtual ~CatchSignal() {}
-	virtual int handle_signal(int signum, siginfo_t * = 0, ucontext_t * = 0)
-	{
+	virtual int handle_signal(int signum, siginfo_t * = 0, ucontext_t * = 0) {
 		ACE_TRACE(ACE_TEXT("CatchSignal::handle_signal"));
 		// Make sure the right handler was called back.
 		ACE_ASSERT(signum == this->signum);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("%S occured. Terminating the program\n"), signum));
-		if (listener->Save_handler)
-		{
+		if (listener->Save_handler) {
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("Pointer exists. Terminating the program\n")));
 			listener->Save_handler->terminate();
-		}
-		else
-		{
+		} else {
 			// Since the Save_handler does not
 			// have a pointer we will set a flag
 			Termination = true;
@@ -210,17 +182,15 @@ public:
 	}
 };
 
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	Net_Listener    *listener1 = 0;
 	Net_Listener    *listener2 = 0;
 	int             port = ACE_DEFAULT_SERVER_PORT;
 	ACE_Sig_Handler handler;
 
-	CatchSignal terminate(SIGTRAP);                                                                                               // SIGTRAP is 5
+	CatchSignal terminate(SIGTRAP);                                                                                                         // SIGTRAP is 5
 
-	if (argc > 1)
-	{
+	if (argc > 1) {
 		port = atoi(argv[1]);
 	}
 	ACE_DEBUG((LM_DEBUG, "Listening to ports(%d %d)\n", port, port + 1));

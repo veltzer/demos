@@ -9,15 +9,12 @@
  */
 
 // Listing 1 code/ch13
-class HA_CommandHandler : public ACE_Task<ACE_MT_SYNCH>
-{
+class HA_CommandHandler : public ACE_Task<ACE_MT_SYNCH> {
 public:
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) starting up \n")));
 		ACE_Message_Block *mb;
-		if (this->getq(mb) == -1)
-		{
+		if (this->getq(mb) == -1) {
 			return(-1);
 		}
 		// ... do something with the message.
@@ -26,8 +23,7 @@ public:
 };
 // Listing 1
 // Listing 2 code/ch13
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	HA_CommandHandler handler;
 
 	// Create 4 threads.

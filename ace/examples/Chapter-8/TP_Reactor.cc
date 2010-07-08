@@ -46,55 +46,47 @@ static int req_delay = 50;
 typedef ACE_Strategy_Acceptor<Request_Handler, ACE_SOCK_ACCEPTOR>   ACCEPTOR;
 
 
-Request_Handler::Request_Handler(ACE_Thread_Manager *thr_mgr) : ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_MT_SYNCH> (thr_mgr), nr_msgs_rcvd_(0)
-{
+Request_Handler::Request_Handler(ACE_Thread_Manager *thr_mgr) : ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_MT_SYNCH> (thr_mgr), nr_msgs_rcvd_(0) {
 	this->reactor(ACE_Reactor::instance());
 }
 
 
-int Request_Handler::handle_input(ACE_HANDLE fd)
-{
+int Request_Handler::handle_input(ACE_HANDLE fd) {
 	ACE_TCHAR buffer[BUFSIZ];
 	ACE_TCHAR len = 0;
 	ssize_t   result = this->peer().recv(&len, sizeof(ACE_TCHAR));
 
-	if ((result > 0) && (this->peer().recv_n(buffer, len * sizeof(ACE_TCHAR)) == static_cast<ssize_t> (len * sizeof(ACE_TCHAR))))
-	{
+	if ((result > 0) && (this->peer().recv_n(buffer, len * sizeof(ACE_TCHAR)) == static_cast<ssize_t>(len * sizeof(ACE_TCHAR)))) {
 		++this->nr_msgs_rcvd_;
 		ACE_DEBUG((LM_DEBUG,
-					  ACE_TEXT("(%t) svr input; fd: 0x%x; input: %s\n"),
-					  fd,
-					  buffer));
-		if (ACE_OS::strcmp(buffer, ACE_TEXT("shutdown")) == 0)
-		{
+				   ACE_TEXT("(%t) svr input; fd: 0x%x; input: %s\n"),
+				   fd,
+				   buffer));
+		if (ACE_OS::strcmp(buffer, ACE_TEXT("shutdown")) == 0) {
 			ACE_Reactor::instance()->end_reactor_event_loop();
 		}
 		return(0);
-	}
-	else
-	{
+	} else {
 		ACE_DEBUG((LM_DEBUG,
-					  ACE_TEXT("(%t) Request_Handler: 0x%x peer closed (0x%x)\n"),
-					  this, fd));
+				   ACE_TEXT("(%t) Request_Handler: 0x%x peer closed (0x%x)\n"),
+				   this, fd));
 	}
 	return(-1);
 }
 
 
-int Request_Handler::handle_close(ACE_HANDLE fd, ACE_Reactor_Mask)
-{
+int Request_Handler::handle_close(ACE_HANDLE fd, ACE_Reactor_Mask) {
 	ACE_DEBUG((LM_DEBUG,
-				  ACE_TEXT("(%t) svr close; fd: 0x%x, rcvd %d msgs\n"),
-				  fd,
-				  this->nr_msgs_rcvd_));
+			   ACE_TEXT("(%t) svr close; fd: 0x%x, rcvd %d msgs\n"),
+			   fd,
+			   this->nr_msgs_rcvd_));
 
-	if (this->nr_msgs_rcvd_ != cli_req_no)
-	{
+	if (this->nr_msgs_rcvd_ != cli_req_no) {
 		ACE_ERROR((LM_ERROR,
-					  ACE_TEXT("(%t) Handler 0x%x: Expected %d messages; got %d\n"),
-					  this,
-					  cli_req_no,
-					  this->nr_msgs_rcvd_));
+				   ACE_TEXT("(%t) Handler 0x%x: Expected %d messages; got %d\n"),
+				   this,
+				   cli_req_no,
+				   this->nr_msgs_rcvd_));
 	}
 
 	this->destroy();
@@ -103,8 +95,7 @@ int Request_Handler::handle_close(ACE_HANDLE fd, ACE_Reactor_Mask)
 
 
 // Listing 2 code/ch16
-static int reactor_event_hook(ACE_Reactor *)
-{
+static int reactor_event_hook(ACE_Reactor *) {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) handling events ....\n")));
 	return(0);
 }
@@ -112,16 +103,14 @@ static int reactor_event_hook(ACE_Reactor *)
 
 class ServerTP : public ACE_Task_Base {
 public:
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Running the event loop\n")));
 		int result = ACE_Reactor::instance()->run_reactor_event_loop(&reactor_event_hook);
-		if (result == -1)
-		{
+		if (result == -1) {
 			ACE_ERROR_RETURN((LM_ERROR,
-									ACE_TEXT("(%t) %p\n"),
-									ACE_TEXT("Error handling events")),
-								  0);
+							  ACE_TEXT("(%t) %p\n"),
+							  ACE_TEXT("Error handling events")),
+							 0);
 		}
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Done handling events.\n")));
 		return(0);
@@ -131,18 +120,15 @@ public:
 
 class Client : public ACE_Task_Base {
 public:
-	Client() : addr_(rendezvous)
-	{
+	Client() : addr_(rendezvous) {
 	}
-	virtual int svc()
-	{
+	virtual int svc() {
 		ACE_OS::sleep(3);
 		const ACE_TCHAR *msg = ACE_TEXT("Message from Connection worker");
 		ACE_TCHAR       buf [BUFSIZ];
 		buf[0] = ACE_OS::strlen(msg) + 1;
 		ACE_OS::strcpy(&buf[1], msg);
-		for (size_t i = 0; i < cli_runs; i++)
-		{
+		for (size_t i = 0; i < cli_runs; i++) {
 			send_work_to_server(buf);
 		}
 		shut_down();
@@ -151,35 +137,30 @@ public:
 
 
 private:
-	void send_work_to_server(ACE_TCHAR *arg)
-	{
+	void send_work_to_server(ACE_TCHAR *arg) {
 		ACE_SOCK_Stream    stream;
 		ACE_SOCK_Connector connect;
 
 		ACE_Time_Value delay(0, req_delay);
 
-		size_t len = *reinterpret_cast<ACE_TCHAR *> (arg);
+		size_t len = *reinterpret_cast<ACE_TCHAR *>(arg);
 
-		for (size_t i = 0; i < cli_conn_no; i++)
-		{
-			if (connect.connect(stream, addr_) < 0)
-			{
+		for (size_t i = 0; i < cli_conn_no; i++) {
+			if (connect.connect(stream, addr_) < 0) {
 				ACE_ERROR((LM_ERROR,
-							  ACE_TEXT("(%t) %p\n"),
-							  ACE_TEXT("connect")));
+						   ACE_TEXT("(%t) %p\n"),
+						   ACE_TEXT("connect")));
 				continue;
 			}
-			for (size_t j = 0; j < cli_req_no; j++)
-			{
+			for (size_t j = 0; j < cli_req_no; j++) {
 				ACE_DEBUG((LM_DEBUG,
-							  ACE_TEXT("Sending work to server on handle 0x%x, req %d\n"),
-							  stream.get_handle(),
-							  j + 1));
-				if (stream.send_n(arg, (len + 1) * sizeof(ACE_TCHAR)) == -1)
-				{
+						   ACE_TEXT("Sending work to server on handle 0x%x, req %d\n"),
+						   stream.get_handle(),
+						   j + 1));
+				if (stream.send_n(arg, (len + 1) * sizeof(ACE_TCHAR)) == -1) {
 					ACE_ERROR((LM_ERROR,
-								  ACE_TEXT("(%t) %p\n"),
-								  ACE_TEXT("send_n")));
+							   ACE_TEXT("(%t) %p\n"),
+							   ACE_TEXT("send_n")));
 					continue;
 				}
 				ACE_OS::sleep(delay);
@@ -189,27 +170,24 @@ private:
 	}
 
 
-	void shut_down()
-	{
+	void shut_down() {
 		ACE_SOCK_Stream    stream;
 		ACE_SOCK_Connector connect;
 
-		if (connect.connect(stream, addr_) == -1)
-		{
+		if (connect.connect(stream, addr_) == -1) {
 			ACE_ERROR((LM_ERROR,
-						  ACE_TEXT("(%t) %p Error while connecting\n"),
-						  ACE_TEXT("connect")));
+					   ACE_TEXT("(%t) %p Error while connecting\n"),
+					   ACE_TEXT("connect")));
 		}
 
 		const ACE_TCHAR *sbuf = ACE_TEXT("\011shutdown");
 		ACE_DEBUG((LM_DEBUG,
-					  ACE_TEXT("shutdown stream handle = %x\n"),
-					  stream.get_handle()));
-		if (stream.send_n(sbuf, (ACE_OS::strlen(sbuf) + 1) * sizeof(ACE_TCHAR)) == -1)
-		{
+				   ACE_TEXT("shutdown stream handle = %x\n"),
+				   stream.get_handle()));
+		if (stream.send_n(sbuf, (ACE_OS::strlen(sbuf) + 1) * sizeof(ACE_TCHAR)) == -1) {
 			ACE_ERROR((LM_ERROR,
-						  ACE_TEXT("(%t) %p\n"),
-						  ACE_TEXT("send_n")));
+					   ACE_TEXT("(%t) %p\n"),
+					   ACE_TEXT("send_n")));
 		}
 		stream.close();
 	}
@@ -219,8 +197,7 @@ private:
 	ACE_INET_Addr addr_;
 };
 
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	ACE_TP_Reactor sr;
 
 	ACE_Reactor new_reactor(& sr);
@@ -229,16 +206,15 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACCEPTOR acceptor;
 	ACE_INET_Addr accept_addr(rendezvous);
 
-	if (acceptor.open(accept_addr) == -1)
-	{
+	if (acceptor.open(accept_addr) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR,
-								ACE_TEXT("%p\n"),
-								ACE_TEXT("open")),
-							  1);
+						  ACE_TEXT("%p\n"),
+						  ACE_TEXT("open")),
+						 1);
 	}
 	ACE_DEBUG((LM_DEBUG,
-				  ACE_TEXT("(%t) Spawning %d server threads...\n"),
-				  svr_thrno));
+			   ACE_TEXT("(%t) Spawning %d server threads...\n"),
+			   svr_thrno));
 	ServerTP serverTP;
 	serverTP.activate(THR_NEW_LWP | THR_JOINABLE, svr_thrno);
 	Client client;

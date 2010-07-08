@@ -14,10 +14,8 @@
  * }
  */
 
-template<class T> T syscall(T val, T err_val)
-{
-	if (val == err_val)
-	{
+template<class T> T syscall(T val, T err_val) {
+	if (val == err_val) {
 		perror("C++ exception thrown");
 		throw std::exception();
 	}
@@ -25,23 +23,19 @@ template<class T> T syscall(T val, T err_val)
 }
 
 
-void myhandler(int sig)
-{
+void myhandler(int sig) {
 	std::cerr << "in signal handler for signal " << sig << std::endl;
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// here is an example of using this construct
 	int fd[2];
 
 	try {
 		syscall(pipe(fd), -1);
 		syscall(signal(SIGPIPE, myhandler), SIG_ERR);
-	}
-	catch(std::exception e)
-	{
+	} catch (std::exception e) {
 		std::cerr << "cought exception" << std::endl;
 	}
 	return(0);

@@ -17,8 +17,7 @@ public:
 	virtual ~ClientAcceptor();
 	int open(const ACE_INET_Addr& listen_addr);
 
-	virtual ACE_HANDLE get_handle(void) const
-	{
+	virtual ACE_HANDLE get_handle(void) const {
 		return(this->acceptor_.get_handle());
 	}
 
@@ -29,16 +28,13 @@ protected:
 	ACE_SOCK_Acceptor acceptor_;
 };
 
-ClientAcceptor::~ClientAcceptor()
-{
+ClientAcceptor::~ClientAcceptor() {
 	this->handle_close(ACE_INVALID_HANDLE, 0);
 }
 
 
-int ClientAcceptor::open(const ACE_INET_Addr& listen_addr)
-{
-	if (this->acceptor_.open(listen_addr, 1) == -1)
-	{
+int ClientAcceptor::open(const ACE_INET_Addr& listen_addr) {
+	if (this->acceptor_.open(listen_addr, 1) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("acceptor.open")), -1);
 	}
 	ACE_OS::printf("connected\n");
@@ -46,22 +42,19 @@ int ClientAcceptor::open(const ACE_INET_Addr& listen_addr)
 }
 
 
-int ClientAcceptor::handle_input(ACE_HANDLE)
-{
+int ClientAcceptor::handle_input(ACE_HANDLE) {
 	ACE_OS::printf("received\n");
 	return(0);
 }
 
 
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	ACE_INET_Addr port_to_listen(50000);
 
 	ClientAcceptor acceptor;
 
 	acceptor.reactor(ACE_Reactor::instance());
-	if (acceptor.open(port_to_listen) == -1)
-	{
+	if (acceptor.open(port_to_listen) == -1) {
 		return(1);
 	}
 	ACE_OS::printf("before event loop\n");

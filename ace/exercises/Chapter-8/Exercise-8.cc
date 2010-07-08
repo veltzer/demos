@@ -5,8 +5,7 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-void FunB()
-{
+void FunB() {
 	ACE_TRACE(ACE_TEXT("FunB"));
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("DEBUG : pid=%P Line:%l File=%N\n")));
 	ACE_DEBUG((LM_INFO, ACE_TEXT("INFO : pid=%P Line:%l File=%N\n")));
@@ -14,8 +13,7 @@ void FunB()
 }
 
 
-void FunA()
-{
+void FunA() {
 	ACE_TRACE(ACE_TEXT("FunA"));
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("DEBUG : pid=%P Line:%l File=%N\n")));
 	ACE_DEBUG((LM_INFO, ACE_TEXT("INFO : pid=%P Line:%l File=%N\n")));
@@ -24,8 +22,7 @@ void FunA()
 }
 
 
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	int i;
 
 	ACE_LOG_MSG->open(argv[0], ACE_Log_Msg::SYSLOG, ACE_TEXT("ACE-Course"));
@@ -34,12 +31,11 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	ACE_DEBUG((LM_INFO, ACE_TEXT("argv[0]=%s\n"), argv[0]));
 	ACE_DEBUG((LM_INFO, ACE_TEXT("INFO : pid=%P Line:%l File=%N\n")));
 	ACE_LOG_MSG->priority_mask(LM_DEBUG |
-										LM_INFO |
-										LM_NOTICE |
-										LM_TRACE, ACE_Log_Msg::PROCESS);
+							   LM_INFO |
+							   LM_NOTICE |
+							   LM_TRACE, ACE_Log_Msg::PROCESS);
 	ACE_TRACE(ACE_TEXT("main"));
-	for (i = 0; i < 2; i++)
-	{
+	for (i = 0; i < 2; i++) {
 		FunA();
 	}
 	ACE_LOG_MSG->open(argv[0]);

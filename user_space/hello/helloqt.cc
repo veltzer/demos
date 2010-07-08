@@ -6,8 +6,7 @@
  *
  * EXTRA_CMDS=pkg-config --cflags --libs QtGui
  */
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	QApplication app(argc, argv);
 	QPushButton hello("Hello, world!", 0);
 

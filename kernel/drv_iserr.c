@@ -15,8 +15,7 @@
 #define DO_DEBUG
 #include "kernel_helper.h"
 
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	unsigned long ptr1 = 15;
 	unsigned long ptr2 = -15;
 
@@ -26,8 +25,7 @@ static int __init mod_init(void)
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 }
 
 

@@ -1,10 +1,8 @@
 #include "a.h"
 
-void A::bar(void)
-{
+void A::bar(void) {
 }
 
 
-void A::zoo(void)
-{
+void A::zoo(void) {
 }

@@ -17,8 +17,7 @@
 
 #include "us_helper.h"
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	printf("date is %s\n", __DATE__);
 	printf("time is %s\n", __TIME__);
 	struct tm tm;

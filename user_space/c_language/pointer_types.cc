@@ -18,35 +18,30 @@
 //#define DO_IT
 
 #ifdef DO_IT
- #define __space1 __attribute__((noderef, address_space(1)))
- #define __space2 __attribute__((noderef, address_space(2)))
+#define __space1 __attribute__((noderef, address_space(1)))
+#define __space2 __attribute__((noderef, address_space(2)))
 #else // DO_IT
- #define __space1
- #define __space2
+#define __space1
+#define __space2
 #endif // DO_IT
-void func1(void *__space1 pointer)
-{
+void func1(void *__space1 pointer) {
 }
 
 
-void *__space1 malloc1(unsigned int size)
-{
+void *__space1 malloc1(unsigned int size) {
 	return(NULL);
 }
 
 
-void func2(void *__space2 pointer)
-{
+void func2(void *__space2 pointer) {
 }
 
 
-void *__space2 malloc2(unsigned int size)
-{
+void *__space2 malloc2(unsigned int size) {
 	return(NULL);
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	return(0);
 }

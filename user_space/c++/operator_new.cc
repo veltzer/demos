@@ -29,8 +29,7 @@
  *
  * EXTRA_LIBS=
  */
-inline void *operator new(const unsigned int size)
-{
+inline void *operator new(const unsigned int size) {
 	void *p = malloc(size);
 
 	fprintf(stderr, "in operator new with size=%d,p=%p\n", size, p);
@@ -38,15 +37,13 @@ inline void *operator new(const unsigned int size)
 }
 
 
-inline void operator delete(void *p)
-{
+inline void operator delete(void *p) {
 	fprintf(stderr, "in operator delete with p=%p\n", p);
 	free(p);
 }
 
 
-inline void *operator new(const unsigned int size, const unsigned int type)
-{
+inline void *operator new(const unsigned int size, const unsigned int type) {
 	void *p = malloc(size);
 
 	fprintf(stderr, "in operator new with size=%d,type=%d,p=%p\n", size, type, p);
@@ -54,8 +51,7 @@ inline void *operator new(const unsigned int size, const unsigned int type)
 }
 
 
-inline void *operator new[] (const unsigned int size)
-{
+inline void *operator new[](const unsigned int size) {
 	void *p = malloc(size);
 
 	fprintf(stderr, "in operator new[] with size=%d, p=%p\n", size, p);
@@ -63,15 +59,13 @@ inline void *operator new[] (const unsigned int size)
 }
 
 
-inline void operator delete[] (void *p)
-{
+inline void operator delete[](void *p) {
 	fprintf(stderr, "in operator delete[] with p=%p\n", p);
 	free(p);
 }
 
 
-inline void *operator new[] (const unsigned int size, const unsigned int type)
-{
+inline void *operator new[](const unsigned int size, const unsigned int type) {
 	void *p = malloc(size);
 
 	fprintf(stderr, "in operator new[] with size=%d,type=%d,p=%p\n", size, type, p);
@@ -79,20 +73,17 @@ inline void *operator new[] (const unsigned int size, const unsigned int type)
 }
 
 
-inline void operator delete[] (void *p, const unsigned int type)
-{
+inline void operator delete[](void *p, const unsigned int type) {
 	fprintf(stderr, "in operator delete[] with p=%p,type=%d\n", p, type);
 	free(p);
 }
 
 
-typedef struct _myobj
-{
+typedef struct _myobj {
 	char data[10];
 } myobj;
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	myobj *obj1 = new myobj;
 
 	delete obj1;

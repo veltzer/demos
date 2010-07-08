@@ -24,20 +24,18 @@ public:
 	void OnAbout(wxCommandEvent& event);
 };
 
-enum
-{
+enum {
 	ID_Quit=1,
 	ID_About
 };
 
-bool MyApp::OnInit(void)
-{
+bool MyApp::OnInit(void) {
 	MyFrame *frame = new MyFrame(_T("Hello World"), wxPoint(50, 50), wxSize(450, 350));
 
 	frame->Connect(ID_Quit, wxEVT_COMMAND_MENU_SELECTED,
-						(wxObjectEventFunction) & MyFrame::OnQuit);
+				   (wxObjectEventFunction) & MyFrame::OnQuit);
 	frame->Connect(ID_About, wxEVT_COMMAND_MENU_SELECTED,
-						(wxObjectEventFunction) & MyFrame::OnAbout);
+				   (wxObjectEventFunction) & MyFrame::OnAbout);
 
 	frame->Show(TRUE);
 	SetTopWindow(frame);
@@ -45,8 +43,7 @@ bool MyApp::OnInit(void)
 }
 
 
-MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size) : wxFrame((wxFrame *)NULL, -1, title, pos, size)
-{
+MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size) : wxFrame((wxFrame *)NULL, -1, title, pos, size) {
 	// create menubar
 	wxMenuBar *menuBar = new wxMenuBar;
 	// create menu
@@ -68,13 +65,11 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size) 
 }
 
 
-void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
-{
+void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {
 	Close(TRUE);
 }
 
 
-void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
-{
+void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
 	wxMessageBox(_T("wxWindows Hello World example."), _T("About Hello World"), wxOK | wxICON_INFORMATION, this);
 }

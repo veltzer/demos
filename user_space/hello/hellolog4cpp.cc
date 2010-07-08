@@ -14,8 +14,7 @@
 /*
  * EXTRA_LIBS=-llog4cpp
  */
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	log4cpp::SyslogAppender *syslogAppender = new log4cpp::SyslogAppender("syslog", "hellolog4cpp", LOG_USER);
 
 	log4cpp::Category& root = log4cpp::Category::getRoot();

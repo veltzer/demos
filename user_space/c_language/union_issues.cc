@@ -18,18 +18,15 @@
 // or union that contains it...
 #define OffsetOf(StructName, FieldName) ((char *)(&(((StructName *)1)->FieldName)) - (char *)1)
 
-typedef union _LARGE_INTEGER
-{
-	struct
-	{
+typedef union _LARGE_INTEGER {
+	struct {
 		unsigned int LowPart;
 		unsigned int HighPart;
 	};
 	long long QuadPart;
 } LARGE_INTEGER;
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// this is how you would use such a union...
 	LARGE_INTEGER li;
 

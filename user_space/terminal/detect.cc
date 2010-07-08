@@ -11,18 +11,14 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// lets take the file descriptor number from stdin which is usually
 	// a terminal (unless you redirect it...)
 	int filedes = fileno(stdin);
 
-	if (isatty(filedes))
-	{
+	if (isatty(filedes)) {
 		DEBUG("it is a terminal with name [%s]", ttyname(filedes));
-	}
-	else
-	{
+	} else {
 		DEBUG("it is not a terminal");
 	}
 	return(0);

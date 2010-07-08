@@ -5,8 +5,7 @@ template<class T> class Foo {
 protected:
 	T t;
 public:
-	void setT(T it)
-	{
+	void setT(T it) {
 		t = it;
 	}
 };

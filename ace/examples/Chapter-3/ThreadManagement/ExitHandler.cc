@@ -8,11 +8,9 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-class ExitHandler : public ACE_At_Thread_Exit
-{
+class ExitHandler : public ACE_At_Thread_Exit {
 public:
-	virtual void apply(void)
-	{
+	virtual void apply(void) {
 		ACE_DEBUG((LM_INFO, ACE_TEXT("(%t) is exiting \n")));
 
 		// Shut down all devices.
@@ -20,15 +18,12 @@ public:
 };
 // Listing 1
 // Listing 2 code/ch13
-class HA_CommandHandler : public ACE_Task_Base
-{
+class HA_CommandHandler : public ACE_Task_Base {
 public:
-	HA_CommandHandler(ExitHandler & eh) : eh_(eh)
-	{
+	HA_CommandHandler(ExitHandler & eh) : eh_(eh) {
 	}
 
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) starting up \n")));
 
 		this->thr_mgr()->at_exit(eh_);
@@ -48,8 +43,7 @@ private:
 };
 // Listing 2
 // Listing 3 code/ch13
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	ExitHandler eh;
 
 	HA_CommandHandler handler(eh);
@@ -64,8 +58,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 // Listing 3
 #if 0
 // Listing 4 code/ch13
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	ExitHandler        eh;
 	ACE_Thread_Manager tm;
 

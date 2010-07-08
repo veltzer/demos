@@ -24,20 +24,17 @@
 class A {
 public:
 	float val;
-	A(void)
-	{
+	A(void) {
 		val = -7.6;
 	}
 
 
-	A(double ival)
-	{
+	A(double ival) {
 		val = ival;
 	}
 
 
-	void *operator new(size_t size, double val)
-	{
+	void *operator new(size_t size, double val) {
 		std::cerr << "in new operator" << std::endl;
 		std::cerr << "size is " << size << std::endl;
 		void *pointer = malloc(size);
@@ -50,8 +47,7 @@ public:
 
 	// this is for allocating arrays, the size that you get
 	// is SizeOfObject*NumOfObjects...
-	void *operator new[] (const unsigned int size)
-	{
+	void *operator new[](const unsigned int size) {
 		std::cerr << "in new[] operator" << std::endl;
 		std::cerr << "size is " << size << std::endl;
 		void *pointer = malloc(size);
@@ -61,16 +57,14 @@ public:
 
 
 	// notice that this does NOT get called...
-	void operator delete[] (void *pointer)
-	{
+	void operator delete[](void *pointer) {
 		std::cerr << "in delete[] operator" << std::endl;
 		std::cerr << "pointer is " << pointer << std::endl;
 		free(pointer);
 	}
 
 
-	void *operator new(size_t size)
-	{
+	void *operator new(size_t size) {
 		std::cerr << "in new operator" << std::endl;
 		std::cerr << "size is " << size << std::endl;
 		void *pointer = malloc(size);
@@ -79,16 +73,14 @@ public:
 	}
 
 
-	void operator delete(void *pointer)
-	{
+	void operator delete(void *pointer) {
 		std::cerr << "in delete operator" << std::endl;
 		std::cerr << "pointer is " << pointer << std::endl;
 		free(pointer);
 	}
 };
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	DEBUG("heap no arguments example");
 	A *a = new A();
 
@@ -103,8 +95,7 @@ int main(int argc, char **argv, char **envp)
 	DEBUG("many heap no arguments example");
 	const unsigned int num_objs = 5;
 	A                  *e = new A[num_objs];
-	for (unsigned int i = 0; i < num_objs; i++)
-	{
+	for (unsigned int i = 0; i < num_objs; i++) {
 		std::cerr << i << " " << "e->val is " << e[i].val << std::endl;
 	}
 	delete e;

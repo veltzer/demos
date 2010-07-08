@@ -22,16 +22,12 @@ bool do_ioctl_once_write = false;
 bool do_stress_ioctl = false;
 bool do_stress_mmap = true;
 
-void print_data(void *data, int size)
-{
+void print_data(void *data, int size) {
 	int msize;
 
-	if (size < 256)
-	{
+	if (size < 256) {
 		msize = size;
-	}
-	else
-	{
+	} else {
 		msize = 256;
 	}
 	char *pdata = (char *)malloc(msize);
@@ -42,8 +38,7 @@ void print_data(void *data, int size)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// size of the buffer we want
 	const int size = 1024 * 1024;
 	// file handle
@@ -58,18 +53,17 @@ int main(int argc, char **argv, char **envp)
 	//printf("setting the size to %d\n",size);
 	//SCIE(res=ioctl(d,6,size),"setting the size");
 
-	if (do_mmap_once)
-	{
+	if (do_mmap_once) {
 		void *p;
 		klog_clear();
 		SCPE(p = mmap(
-				  NULL,                                                                                                                                                                                                                                                                                                                                                                                                      /* we DO NOT recommend an address - better to let the kernel decide */
-				  size,                                                                                                                                                                                                                                                                                                                                                                                                      /* the size we need */
-				  PROT_READ | PROT_WRITE,                                                                                                                                                                                                                                                                                                                                                                                    /* we want read AND write */
-				  MAP_SHARED | MAP_POPULATE,                                                                                                                                                                                                                                                                                                                                                                                 /* we want to shard with kernel and don't want page faults */
-				  d,                                                                                                                                                                                                                                                                                                                                                                                                         /* file descriptor */
-				  0                                                                                                                                                                                                                                                                                                                                                                                                          /* offset */
-				  ), "mmap");
+					 NULL,                                                                                                                                                                                                                                                                                                                                                                                                                                              /* we DO NOT recommend an address - better to let the kernel decide */
+					 size,                                                                                                                                                                                                                                                                                                                                                                                                                                              /* the size we need */
+					 PROT_READ | PROT_WRITE,                                                                                                                                                                                                                                                                                                                                                                                                                            /* we want read AND write */
+					 MAP_SHARED | MAP_POPULATE,                                                                                                                                                                                                                                                                                                                                                                                                                         /* we want to shard with kernel and don't want page faults */
+					 d,                                                                                                                                                                                                                                                                                                                                                                                                                                                 /* file descriptor */
+					 0                                                                                                                                                                                                                                                                                                                                                                                                                                                  /* offset */
+				 ), "mmap");
 		printf("the pointer I got is %p\n", p);
 		klog_show();
 		printproc("demo");
@@ -78,8 +72,7 @@ int main(int argc, char **argv, char **envp)
 		klog_show();
 		printbuddy();
 	}
-	if (do_ioctl_once)
-	{
+	if (do_ioctl_once) {
 		printproc("demo");
 		klog_clear();
 		SCIE(res = ioctl(d, 4, NULL), "trying to map memory");
@@ -92,8 +85,7 @@ int main(int argc, char **argv, char **envp)
 		klog_show();
 		printproc("demo");
 	}
-	if (do_ioctl_once_write)
-	{
+	if (do_ioctl_once_write) {
 		printproc("demo");
 		klog_clear();
 		SCIE(res = ioctl(d, 4, NULL), "trying to map memory");
@@ -107,31 +99,27 @@ int main(int argc, char **argv, char **envp)
 		klog_show();
 		printproc("demo");
 	}
-	if (do_stress_ioctl)
-	{
+	if (do_stress_ioctl) {
 		const int number = 10;
-		for (int i = 0; i < number; i++)
-		{
+		for (int i = 0; i < number; i++) {
 			SCIE(res = ioctl(d, 4, NULL), "trying to map memory");
 			void *p = (void *)res;
 			printf("the pointer I got is %p\n", p);
 			SCIE(res = ioctl(d, 5, NULL), "trying to unmap memory");
 		}
 	}
-	if (do_stress_mmap)
-	{
+	if (do_stress_mmap) {
 		const int number = 100000;
-		for (int i = 0; i < number; i++)
-		{
+		for (int i = 0; i < number; i++) {
 			void *p;
 			SCPE(p = mmap(
-					  NULL,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     /* we DO NOT recommend an address - better to let the kernel decide */
-					  size,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     /* the size we need */
-					  PROT_READ | PROT_WRITE,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /* we want read AND write */
-					  MAP_SHARED | MAP_POPULATE,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                /* we want to shard with kernel and don't want page faults */
-					  d,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        /* file descriptor */
-					  0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         /* offset */
-					  ), "mmap");
+						 NULL,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       /* we DO NOT recommend an address - better to let the kernel decide */
+						 size,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       /* the size we need */
+						 PROT_READ | PROT_WRITE,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     /* we want read AND write */
+						 MAP_SHARED | MAP_POPULATE,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  /* we want to shard with kernel and don't want page faults */
+						 d,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          /* file descriptor */
+						 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           /* offset */
+					 ), "mmap");
 			printf("the pointer I got is %p\n", p);
 			memset(p, 0, size);
 			SCIE(munmap(p, size), "unmap");

@@ -12,16 +12,13 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	int sum = 0;
 
-	for (int i = 0; i < 100; i++)
-	{
+	for (int i = 0; i < 100; i++) {
 		sum += i;
 	}
-	for (int j = 99; j > 0; j--)
-	{
+	for (int j = 99; j > 0; j--) {
 		sum += j;
 	}
 	printf("sum is %d\n", sum);

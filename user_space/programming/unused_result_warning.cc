@@ -14,14 +14,12 @@
 int add(int a, int b) __attribute__((warn_unused_result));
 
 // now for the function definition...
-int add(int a, int b)
-{
+int add(int a, int b) {
 	return(a + b);
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	const int a = 5;
 	const int b = 5;
 

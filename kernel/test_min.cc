@@ -11,8 +11,7 @@
 /*
  *      The most minimal test
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	DEBUG("hello");
 	return(0);
 }

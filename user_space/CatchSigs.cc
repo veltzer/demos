@@ -7,8 +7,7 @@
 
 static int counter = 0;
 
-static void SignalHandler(int sig)
-{
+static void SignalHandler(int sig) {
 	// before we throw an exception or do a longjmp we need to unblock
 	// the signal or the kernel will think we are still in the signal handler
 	counter++;
@@ -21,16 +20,13 @@ static void SignalHandler(int sig)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// set up the signal handler (only need to do this once)
-	if (signal(SIGUSR1, SignalHandler) == SIG_ERR)
-	{
+	if (signal(SIGUSR1, SignalHandler) == SIG_ERR) {
 		perror("problem with calling signal(2)");
 		exit(1);
 	}
-	if (signal(SIGUSR2, SignalHandler) == SIG_ERR)
-	{
+	if (signal(SIGUSR2, SignalHandler) == SIG_ERR) {
 		perror("problem with calling signal(2)");
 		exit(1);
 	}
@@ -49,8 +45,7 @@ int main(int argc, char **argv, char **envp)
 	std::cerr << "main: set up the sig handler, lets start" << std::endl;
 	// This is a non busy wait loop which only wakes up when there
 	// are signals
-	while (1)
-	{
+	while (1) {
 		int ret = pause();
 		std::cerr << "main: wakeup with ret " << ret << std::endl;
 	}

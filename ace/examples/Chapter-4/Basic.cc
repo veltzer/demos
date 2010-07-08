@@ -9,8 +9,7 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	// Listing 1 code/ch06
 	ACE_INET_Addr srvr(50000, ACE_LOCALHOST);
 
@@ -20,11 +19,10 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	ACE_SOCK_Connector connector;
 	ACE_SOCK_Stream    peer;
 
-	if (-1 == connector.connect(peer, srvr))
-	{
+	if (-1 == connector.connect(peer, srvr)) {
 		ACE_ERROR_RETURN((LM_ERROR,
-								ACE_TEXT("%p\n"),
-								ACE_TEXT("connect")), 1);
+						  ACE_TEXT("%p\n"),
+						  ACE_TEXT("connect")), 1);
 	}
 	// Listing 2
 

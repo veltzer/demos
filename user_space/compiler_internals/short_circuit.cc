@@ -12,26 +12,20 @@
  *
  * EXTRA_LIBS=
  */
-int do_something(int val)
-{
+int do_something(int val) {
 	printf("Im doing something...\n");
 	return(val);
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
-	if (argc != 3)
-	{
+int main(int argc, char **argv, char **envp) {
+	if (argc != 3) {
 		printf("usage: %s [val1] [val2]\n", argv[0]);
 		return(-1);
 	}
-	if (atoi(argv[1]) || do_something(atoi(argv[2])))
-	{
+	if (atoi(argv[1]) || do_something(atoi(argv[2]))) {
 		printf("Inside the if statement\n");
-	}
-	else
-	{
+	} else {
 		printf("Outside the if statement\n");
 	}
 	return(0);

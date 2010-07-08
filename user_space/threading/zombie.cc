@@ -13,8 +13,7 @@
  *
  * EXTRA_LIBS=-lpthread
  */
-void *worker(void *p)
-{
+void *worker(void *p) {
 	DEBUG("starting thread");
 	sleep(3);
 	DEBUG("ending thread");
@@ -22,8 +21,7 @@ void *worker(void *p)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	pthread_t thread;
 
 	DEBUG("main started");

@@ -22,15 +22,13 @@
  *      bugs to kernel maintainers.
  *      - BUG() generates a stack trace that you can use for debugging.
  */
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	BUG();
 	return(0);
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 }
 
 

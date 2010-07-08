@@ -3,8 +3,7 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-int ACE_TMAIN(int, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *argv[]) {
 	ACE_LOG_MSG->open(argv[0], ACE_Log_Msg::SYSLOG, ACE_TEXT("syslogTest"));
 	ACE_DEBUG((LM_INFO, ACE_TEXT("%I 1-Eytan Carmiel was here\n")));
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%I 2-Eytan Carmiel Can't be here\n")));

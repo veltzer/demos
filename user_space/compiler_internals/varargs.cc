@@ -15,8 +15,7 @@
  *
  * EXTRA_LIBS=
  */
-int trace(const char *fmt, ...)
-{
+int trace(const char *fmt, ...) {
 	extern char *program_invocation_short_name;
 
 	printf("%s: ", program_invocation_short_name);
@@ -31,8 +30,7 @@ int trace(const char *fmt, ...)
 
 int trace(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	trace("%s %d %f\n", "Hello", 5, 3.14);
 	// the next line will produce a compile time error (passing int as string...)
 	//trace("%s %s %f\n","Hello",5,3.14);

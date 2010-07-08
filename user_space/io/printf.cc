@@ -7,8 +7,7 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	unsigned long i = 0xabcd0123;
 	void          *p = (void *)i;
 

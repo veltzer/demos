@@ -17,8 +17,7 @@
  *
  * EXTRA_LIBS=-lpthread
  */
-void *worker1(void *p)
-{
+void *worker1(void *p) {
 	fprintf(stderr, "worker1 starting thread\n");
 	fprintf(stderr, "test 1: with no error\n");
 	int err = errno;
@@ -37,8 +36,7 @@ void *worker1(void *p)
 }
 
 
-void *worker2(void *p)
-{
+void *worker2(void *p) {
 	fprintf(stderr, "worker2 starting thread\n");
 	fprintf(stderr, "errno is %d\n", errno);
 	perror("printing perror");
@@ -47,8 +45,7 @@ void *worker2(void *p)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	pthread_t thread1;
 	pthread_t thread2;
 	const int num = 2;

@@ -17,16 +17,14 @@ public:
 	virtual int open(void * = 0);
 };
 
-int ClientService::open(void *p)
-{
+int ClientService::open(void *p) {
 	super::open(p);
 	ACE_OS::printf("connected\n");
 	return(0);
 }
 
 
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	typedef ACE_Acceptor<ClientService, ACE_SOCK_ACCEPTOR>   ClientAcceptor;
 	//ACE_INET_Addr port_to_listen (50000, ACE_LOCALHOST );
 	ACE_INET_Addr port_to_listen(50000);

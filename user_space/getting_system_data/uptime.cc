@@ -18,8 +18,7 @@
  *
  * EXTRA_LIBS=
  */
-void uptime(float *time1, float *time2)
-{
+void uptime(float *time1, float *time2) {
 	// null the pointers
 	*time1 = 0;
 	*time2 = 0;
@@ -39,8 +38,7 @@ void uptime(float *time1, float *time2)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	float time1, time2;
 
 	uptime(&time1, &time2);

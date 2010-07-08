@@ -10,8 +10,7 @@ class ExitHandler : public ACE_At_Thread_Exit {
 private:
 	int *a;
 protected:
-	virtual void apply()
-	{
+	virtual void apply() {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) doing exit\n")));
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) a is %d\n"), *a));
 		delete a;
@@ -19,25 +18,21 @@ protected:
 
 
 public:
-	void setA(int *ia)
-	{
+	void setA(int *ia) {
 		a = ia;
 	}
 };
 
-class HA_CommandHandler : public ACE_Task_Base
-{
+class HA_CommandHandler : public ACE_Task_Base {
 private:
 	ExitHandler& eh_;
 public:
-	HA_CommandHandler(ExitHandler & eh) : eh_(eh)
-	{
+	HA_CommandHandler(ExitHandler & eh) : eh_(eh) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) at HA_CommandHandler\n")));
 	}
 
 
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) starting up\n")));
 		thr_mgr()->at_exit(eh_);
 		int *a = new int(8);
@@ -52,8 +47,7 @@ public:
 	}
 };
 
-int ACE_TMAIN(int, ACE_TCHAR **)
-{
+int ACE_TMAIN(int, ACE_TCHAR **) {
 	// first thread
 	ExitHandler eh;
 

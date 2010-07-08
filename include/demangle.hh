@@ -13,30 +13,22 @@ inline void error_demangle(
 	unsigned int max_name,
 	char         *result_offset,
 	unsigned int max_offset
-	)
-{
+) {
 	char *begin_name = NULL, *begin_offset = NULL, *end_offset = NULL;
 
 	// find parentheses and +address offset surrounding the mangled name:
 	// ./module(function+0x15c) [0x8048a6d]
-	for (char *p = symbol; *p; ++p)
-	{
-		if (*p == '(')
-		{
+	for (char *p = symbol; *p; ++p) {
+		if (*p == '(') {
 			begin_name = p;
-		}
-		else if (*p == '+')
-		{
+		} else if (*p == '+') {
 			begin_offset = p;
-		}
-		else if (*p == ')' && begin_offset)
-		{
+		} else if (*p == ')' && begin_offset) {
 			end_offset = p;
 			break;
 		}
 	}
-	if (begin_name && begin_offset && end_offset && (begin_name < begin_offset))
-	{
+	if (begin_name && begin_offset && end_offset && (begin_name < begin_offset)) {
 		*begin_name++ = '\0';
 		*begin_offset++ = '\0';
 		*end_offset = '\0';
@@ -48,24 +40,19 @@ inline void error_demangle(
 		char   *funcname = (char *)malloc(funcnamesize);
 		int    status;
 		char   *ret = abi::__cxa_demangle(begin_name, funcname, &funcnamesize, &status);
-		if (status == 0)
-		{
+		if (status == 0) {
 			// use possibly realloc()-ed string
 			funcname = ret;
 			strncpy(result_name, ret, max_name);
 			strncpy(result_offset, begin_offset, max_offset);
-		}
-		else
-		{
+		} else {
 			// demangling failed. Output function name as a C function with
 			// no arguments.
 			snprintf(result_name, max_name, "%s()", begin_name);
 			snprintf(result_offset, max_offset, "%s", begin_offset);
 			//fprintf(stderr, "error demangle: %s : %s()+%s\n", symbol, begin_name, begin_offset);
 		}
-	}
-	else
-	{
+	} else {
 		// couldn't parse the line? print the whole line.
 		fprintf(stderr, "error parsing: %s\n", symbol);
 	}

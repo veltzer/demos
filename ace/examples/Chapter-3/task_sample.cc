@@ -12,8 +12,7 @@
  * case we get destructed before opened.
  */
 Task::Task(void)
-	: barrier_(0)
-{
+		: barrier_(0) {
 	ACE_DEBUG((LM_DEBUG, "(%P|%t) Task ctor 0x%x\n", (void *)this));
 }
 
@@ -28,8 +27,7 @@ Task::Task(void)
  * We also delete the barrier_ object we used to synch the svc()
  * methods.
  */
-Task::~Task(void)
-{
+Task::~Task(void) {
 	ACE_DEBUG((LM_DEBUG, "(%P|%t) Task dtor 0x%x\n", (void *)this));
 
 	ACE_Message_Block *message;
@@ -46,8 +44,7 @@ Task::~Task(void)
  * get here.  We then pass the thread count through to our base class'
  * activate().
  */
-int Task::start(int threads)
-{
+int Task::start(int threads) {
 	barrier_ = new ACE_Barrier(threads);
 
 	return(this->activate(THR_NEW_LWP, threads));
@@ -58,8 +55,7 @@ int Task::start(int threads)
  * We don't really do anything here but I wanted to provide a message
  * in the output.
  */
-int Task::close(u_long flags)
-{
+int Task::close(u_long flags) {
 	ACE_DEBUG((LM_DEBUG, "(%P|%t) Task close 0x%x\n", (void *)this));
 	return(inherited::close(flags));
 }
@@ -68,8 +64,7 @@ int Task::close(u_long flags)
 /*
  * Now the svc() method where everything interesting happens.
  */
-int Task::svc(void)
-{
+int Task::svc(void) {
 	/*
 	 * All of the threads will block here until the last thread
 	 * arrives.  They will all then be free to begin doing work.
@@ -88,17 +83,14 @@ int Task::svc(void)
 	// that we can use this and not bother with the Work object at all.
 	//Unit_Of_Work * unit_of_work;
 
-	while (1)
-	{
+	while (1) {
 		// Get the message...
-		if (this->getq(message) == -1)
-		{
+		if (this->getq(message) == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, "%p\n", "getq"), -1);
 		}
 
 		// Is it a shutdown request?
-		if (message->msg_type() == ACE_Message_Block::MB_HANGUP)
-		{
+		if (message->msg_type() == ACE_Message_Block::MB_HANGUP) {
 			// Send the shutdown to all of our pool peers
 			this->putq(message);
 			break;
@@ -152,7 +144,6 @@ int Task::svc(void)
 }
 
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	return(0);
 }

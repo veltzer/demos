@@ -29,8 +29,7 @@ pthread_barrier_t mybarrier;
 int min_priority = 0;
 
 
-void print_scheduling_info()
-{
+void print_scheduling_info() {
 	//pthread_t thread_id = pthread_self();
 	pid_t tid = gettid();
 	int   pri = getpriority(PRIO_PROCESS, tid);
@@ -39,21 +38,18 @@ void print_scheduling_info()
 }
 
 
-void *thread_body(void *arg)
-{
+void *thread_body(void *arg) {
 	pid_t tid = gettid();
 	int   pri = *(int *)arg;
 	int   err = nice(pri);
 
-	if (err == -1)
-	{
+	if (err == -1) {
 		printf("got error from nice(2)\n");
 		exit(-1);
 	}
 	printf("thread %d starting\n", tid);
 	printf("pri is %d\n", pri);
-	while (true)
-	{
+	while (true) {
 		//pthread_barrier_wait(&mybarrier);
 		print_scheduling_info();
 		sleep(10);
@@ -62,8 +58,7 @@ void *thread_body(void *arg)
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	struct sched_param my_param;
 	pthread_attr_t     hp_attr;
 	pthread_attr_t     mp_attr;

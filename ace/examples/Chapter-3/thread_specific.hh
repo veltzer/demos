@@ -12,45 +12,38 @@
 // ACE_TSS::operator->() are delegated to the appropriate method in
 // the Errno class.
 
-class Errno
-{
+class Errno {
 public:
-	int error(void)
-	{
+	int error(void) {
 		return(this->errno_);
 	}
 
 
-	void error(int i)
-	{
+	void error(int i) {
 		this->errno_ = i;
 	}
 
 
-	int line(void)
-	{
+	int line(void) {
 		return(this->lineno_);
 	}
 
 
-	void line(int l)
-	{
+	void line(int l) {
 		this->lineno_ = l;
 	}
 
 
 	// Errno::flags_ is a static variable, so we've got to protect it
 	// with a mutex since it isn't kept in thread-specific storage.
-	int flags(void)
-	{
+	int flags(void) {
 		ACE_GUARD_RETURN(ACE_Thread_Mutex, ace_mon, Errno::lock_, -1);
 
 		return(Errno::flags_);
 	}
 
 
-	void flags(int f)
-	{
+	void flags(int f) {
 		ACE_GUARD(ACE_Thread_Mutex, ace_mon, Errno::lock_);
 
 		Errno::flags_ = f;

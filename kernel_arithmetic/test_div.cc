@@ -14,8 +14,7 @@
  *      A basic test which opens the device, runs one ioctl with 0 or user given
  *      cmd and no data and then closes the device
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// file to be used
 	const char *filename = "/dev/demo";
 	// file descriptor
@@ -27,20 +26,17 @@ int main(int argc, char **argv, char **envp)
 	char s2[len];
 
 	SC(d = open(filename, O_RDWR), "open");
-	while (true)
-	{
+	while (true) {
 		// read two numbers from the user
 		printf("Please enter a number 1:");
 		fflush(stdout);
-		if (fgets(s1, len, stdin) != s1)
-		{
+		if (fgets(s1, len, stdin) != s1) {
 			perror("problem with fgets");
 			exit(1);
 		}
 		printf("Please enter a number 2:");
 		fflush(stdout);
-		if (fgets(s2, len, stdin) != s2)
-		{
+		if (fgets(s2, len, stdin) != s2) {
 			perror("problem with fgets");
 			exit(1);
 		}

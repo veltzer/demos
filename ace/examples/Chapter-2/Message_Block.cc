@@ -13,8 +13,7 @@
  * This demo does not explain what ACE_NEW_RETURN is. See slides or a different example
  * for that...
  */
-int ACE_TMAIN(int, ACE_TCHAR **)
-{
+int ACE_TMAIN(int, ACE_TCHAR **) {
 	// This sections explains how to create a message block with some data in it
 	// It shows how to use the ACE_NEW_RETURN construct
 	// How to initialize a message block with constant size and how to write
@@ -66,8 +65,7 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 	// Send a hangup notification to the receiver. Notice the type parameter
 	ACE_NEW_RETURN(mb, ACE_Message_Block(size, ACE_Message_Block::MB_HANGUP), -1);
 	// Lets print the Message_Block's types
-	if (mb->msg_type() == ACE_Message_Block::MB_HANGUP)
-	{
+	if (mb->msg_type() == ACE_Message_Block::MB_HANGUP) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("We got a hangup message\n")));
 	}
 	// again, release the mb
@@ -75,8 +73,7 @@ int ACE_TMAIN(int, ACE_TCHAR **)
 
 	// Send an error notification to the receiver. Notice the type parameter
 	ACE_NEW_RETURN(mb, ACE_Message_Block(size, ACE_Message_Block::MB_ERROR), -1);
-	if (mb->msg_type() == ACE_Message_Block::MB_ERROR)
-	{
+	if (mb->msg_type() == ACE_Message_Block::MB_ERROR) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("We got an error message\n")));
 	}
 	// again, release the mb

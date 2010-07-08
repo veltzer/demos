@@ -11,9 +11,9 @@ static const char myname[] = MYNAME;
 // TODO - the macros here could (and should?!?) be turned into inline functions...
 
 #ifdef DO_DEBUG
- #define DEBUG(fmt, args...) printk(KERN_DEBUG "%s %s %s %d: " fmt "\n", myname, __BASE_FILE__, __FUNCTION__, __LINE__, ## args)
+#define DEBUG(fmt, args...) printk(KERN_DEBUG "%s %s %s %d: " fmt "\n", myname, __BASE_FILE__, __FUNCTION__, __LINE__, ## args)
 #else
- #define DEBUG(fmt, args...)
+#define DEBUG(fmt, args...)
 #endif
 // errors are always shown
 #define ERROR(fmt, args...) printk(KERN_ERR "ERROR %s %s %s %d: " fmt "\n", myname, __BASE_FILE__, __FUNCTION__, __LINE__, ## args)
@@ -21,15 +21,12 @@ static const char myname[] = MYNAME;
 // prints are always shown
 #define PRINT(fmt, args...) printk(KERN_INFO "PRINT %s %s %s %d: " fmt "\n", myname, __BASE_FILE__, __FUNCTION__, __LINE__, ## args)
 
-static inline int memcheck(void *buf, char val, unsigned int size)
-{
+static inline int memcheck(void *buf, char val, unsigned int size) {
 	unsigned int i;
 	char         *cbuf = (char *)buf;
 
-	for (i = 0; i < size; i++)
-	{
-		if (cbuf[i] != val)
-		{
+	for (i = 0; i < size; i++) {
+		if (cbuf[i] != val) {
 			ERROR("ERROR: value at %u is %c and not %c", i, cbuf[i], val);
 			return(-EFAULT);
 		}

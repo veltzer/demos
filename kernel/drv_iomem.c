@@ -25,18 +25,16 @@ MODULE_AUTHOR("Mark Veltzer");
 MODULE_DESCRIPTION("Demo module for testing");
 
 // our own functions
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	struct resource *rp;
 
 	PRINT("start");
 	rp = iomem_resource.child;
-	while (rp)
-	{
+	while (rp) {
 		printk("  %0*llx-%0*llx\n",
-				 8, (unsigned long long)rp->start,
-				 8, (unsigned long long)rp->end
-				 );
+			   8, (unsigned long long)rp->start,
+			   8, (unsigned long long)rp->end
+			  );
 		// advance to the next resource...
 		rp = rp->sibling;
 	}
@@ -44,8 +42,7 @@ static int __init mod_init(void)
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	PRINT("start");
 }
 

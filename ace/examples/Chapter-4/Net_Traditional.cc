@@ -11,8 +11,7 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	struct sockaddr_in srvr;
 
 	memset(&srvr, 0, sizeof(srvr));

@@ -25,8 +25,7 @@
 /*
  *      Please keep this a C function, as it should be usable for C infrastructure as well...
  */
-void print_trace(void)
-{
+void print_trace(void) {
 	unsigned int       nptrs;
 	const unsigned int MAX_FRAMES = 100;
 	void               *buffer[MAX_FRAMES];
@@ -37,16 +36,16 @@ void print_trace(void)
 	fprintf(stderr, "backtrace() returned %d addresses\n", nptrs);
 	backtrace_symbols_fd(buffer, nptrs, fileno(stderr));
 
-/*
- *      strings = backtrace_symbols(buffer, nptrs);
- *      if (strings == NULL) {
- *              perror("backtrace_symbols");
- *              exit(EXIT_FAILURE);
- *      }
- *      for (j = 0; j < nptrs; j++)
- *              fprintf(stderr,"%s\n", strings[j]);
- *      free(strings);
- */
+	/*
+	 *      strings = backtrace_symbols(buffer, nptrs);
+	 *      if (strings == NULL) {
+	 *              perror("backtrace_symbols");
+	 *              exit(EXIT_FAILURE);
+	 *      }
+	 *      for (j = 0; j < nptrs; j++)
+	 *              fprintf(stderr,"%s\n", strings[j]);
+	 *      free(strings);
+	 */
 }
 
 
@@ -62,8 +61,7 @@ static sighandler_t old_handler;
  *      Wrapper for signal handling
  */
 //void print_trace_sighandler(int sig, siginfo_t * siginf, void * context) {
-void print_trace_sighandler(int sig)
-{
+void print_trace_sighandler(int sig) {
 	fprintf(stderr, "got sig %d\n", sig);
 	print_trace();
 	(*old_handler)(sig);
@@ -73,27 +71,24 @@ void print_trace_sighandler(int sig)
 /*
  *      Signal handler registration function
  */
-void trace_register(void)
-{
+void trace_register(void) {
 	old_handler = signal(SIGSEGV, print_trace_sighandler);
-	if (old_handler == SIG_ERR)
-	{
+	if (old_handler == SIG_ERR) {
 		perror("could not register signal...");
 		exit(1);
 	}
 
-/*
- *      struct sigaction sa;
- *      memset(sa,0,sizeof(struct sigaction));
- */
+	/*
+	 *      struct sigaction sa;
+	 *      memset(sa,0,sizeof(struct sigaction));
+	 */
 }
 
 
 /*
  *      Simple function that generates a segmentation fault...
  */
-void do_fault(void)
-{
+void do_fault(void) {
 	char *p = (char *)0;
 
 	p[0] = 0;
@@ -108,17 +103,13 @@ void do_fault(void)
  *      finally it worked but I think it is number (3) that made it happen...
  *      Need to investigate this further...
  */
-int rec_func(unsigned int ncalls, unsigned int ret)
-{
+int rec_func(unsigned int ncalls, unsigned int ret) {
 	printf("ncalls is %d\n", ncalls);
 	ret += ncalls;
-	asm ("");
-	if (ncalls > 1)
-	{
+	asm("");
+	if (ncalls > 1) {
 		rec_func(ncalls - 1, ret);
-	}
-	else
-	{
+	} else {
 		//print_trace();
 		do_fault();
 	}
@@ -126,19 +117,15 @@ int rec_func(unsigned int ncalls, unsigned int ret)
 }
 
 
-int rec_func(unsigned int ncalls, unsigned int ret) __attribute__ ((__noinline__));
+int rec_func(unsigned int ncalls, unsigned int ret) __attribute__((__noinline__));
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	unsigned int num;
 
 	trace_register();
-	if (argc > 1)
-	{
+	if (argc > 1) {
 		num = atoi(argv[1]);
-	}
-	else
-	{
+	} else {
 		num = 3;
 	}
 	rec_func(num, 0);

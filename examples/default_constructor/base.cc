@@ -1,6 +1,5 @@
 #include "base.h"
 
-base::base(void)
-{
+base::base(void) {
 	i = 1972;
 }

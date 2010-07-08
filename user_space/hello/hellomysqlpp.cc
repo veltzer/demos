@@ -11,8 +11,7 @@
 using namespace mysqlpp;
 using namespace std;
 
-int main(int, char **, char **)
-{
+int main(int, char **, char **) {
 	try {
 		Connection con("mysql", "database", "master", "master", true);
 
@@ -22,16 +21,13 @@ int main(int, char **, char **)
 		StoreQueryResult           res = query.store("select * from user");
 		StoreQueryResult::iterator i;
 		int j = 0;
-		for (i = res.begin(); i != res.end(); i++)
-		{
+		for (i = res.begin(); i != res.end(); i++) {
 			Row row = *i;
 			cout << j << ":" << row[0] << "\n";
 			j++;
 		}
 		cout << "Records Found: " << res.size() << endl;
-	}
-	catch(...)
-	{
+	} catch (...) {
 		cerr << "exception\n";
 		return(-1);
 	}

@@ -28,20 +28,18 @@ MODULE_DESCRIPTION("Demo module for testing");
 // constants for this module
 
 // our own functions
-static void capi_print_addressinfo(void *logical_adr)
-{
+static void capi_print_addressinfo(void *logical_adr) {
 	struct page *page = virt_to_page(logical_adr);
 
-	if (page == NULL)
-	{
+	if (page == NULL) {
 		PRINT("unable to translate address %p to page", logical_adr);
 		return;
 	}
 	PRINT("address %p, page:%p flags:0x%0*lx mapping:%p mapcount:%d count:%d\n",
-			logical_adr,
-			page, (int)(2 * sizeof(unsigned long)),
-			page->flags, page->mapping,
-			page_mapcount(page), page_count(page));
+		  logical_adr,
+		  page, (int)(2 * sizeof(unsigned long)),
+		  page->flags, page->mapping,
+		  page_mapcount(page), page_count(page));
 
 	PRINT("PG_lru is %lu", page->flags & (1 << PG_lru));
 	PRINT("PG_private is %lu", page->flags & (1 << PG_private));
@@ -55,8 +53,7 @@ static void capi_print_addressinfo(void *logical_adr)
 }
 
 
-static void capi_debug_address(unsigned int phys)
-{
+static void capi_debug_address(unsigned int phys) {
 	void         *logical = __va(phys);
 	void         *logical2 = phys_to_virt(phys);
 	unsigned int phys2 = __pa(logical);
@@ -73,20 +70,18 @@ static unsigned int physaddr = 0x32000000;
 static unsigned int size = 170 * 1024 * 1024;
 static void         *logical;
 
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	DEBUG("start");
 	capi_debug_address(physaddr);
 
-/*
- *      if (!request_mem_region(physaddr,size,)) {
- *              ERROR("could not get the memory");
- *              return 1;
- *      }
- */
+	/*
+	 *      if (!request_mem_region(physaddr,size,)) {
+	 *              ERROR("could not get the memory");
+	 *              return 1;
+	 *      }
+	 */
 	logical = ioremap(physaddr, size);
-	if (logical == NULL)
-	{
+	if (logical == NULL) {
 		ERROR("could not ioremap");
 		release_mem_region(physaddr, size);
 		return(1);
@@ -106,8 +101,7 @@ static int __init mod_init(void)
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	DEBUG("start");
 	iounmap(logical);
 	release_mem_region(physaddr, size);

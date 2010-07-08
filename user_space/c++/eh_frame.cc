@@ -11,20 +11,17 @@
 
 class A {
 public:
-	static void inner(void)
-	{
+	static void inner(void) {
 		printf("Hello\n");
 	}
 
 
-	void doit(void)
-	{
+	void doit(void) {
 		inner();
 	}
 };
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	A a;
 
 	a.doit();

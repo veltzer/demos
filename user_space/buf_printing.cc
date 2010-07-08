@@ -8,16 +8,11 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
-	for (int c = 0; c < 256; c++)
-	{
-		if (isgraph(c))
-		{
+int main(int argc, char **argv, char **envp) {
+	for (int c = 0; c < 256; c++) {
+		if (isgraph(c)) {
 			printf("asc %d is %c\n", c, c);
-		}
-		else
-		{
+		} else {
 			printf("asc %d is non graphic\n", c);
 		}
 	}

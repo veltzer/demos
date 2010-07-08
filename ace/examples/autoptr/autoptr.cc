@@ -14,20 +14,17 @@ class A {
 private:
 	const char *p;
 public:
-	A(const char *ip) : p(ip)
-	{
+	A(const char *ip) : p(ip) {
 		std::cerr << "in constructor of " << p << std::endl;
 	}
 
 
-	~A()
-	{
+	~A() {
 		std::cerr << "in destructor of " << p << std::endl;
 	}
 };
 
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	auto_ptr<A> a(new A("a"));
 	new A("b");
 

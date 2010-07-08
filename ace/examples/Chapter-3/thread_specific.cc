@@ -25,20 +25,18 @@ static ACE_SYNCH_MUTEX printf_lock;
 typedef ACE_TSS_Guard<ACE_Thread_Mutex>   GUARD;
 
 extern "C" void
-cleanup(void *ptr)
-{
+cleanup(void *ptr) {
 	ACE_DEBUG((LM_DEBUG,
-				  "(%t) in cleanup, ptr = %x\n",
-				  ptr));
+			   "(%t) in cleanup, ptr = %x\n",
+			   ptr));
 
-	delete reinterpret_cast<char *> (ptr);
+	delete reinterpret_cast<char *>(ptr);
 }
 
 
 // This worker function is the entry point for each thread.
-static void *worker(void *c)
-{
-	intptr_t count = reinterpret_cast<intptr_t> (c);
+static void *worker(void *c) {
+	intptr_t count = reinterpret_cast<intptr_t>(c);
 
 	ACE_thread_key_t key = ACE_OS::NULL_key;
 	int              *ip = 0;
@@ -46,22 +44,18 @@ static void *worker(void *c)
 	// Make one key that will be available when the thread exits so that
 	// we'll have something to cleanup!
 
-	if (ACE_Thread::keycreate(&key, cleanup) == -1)
-	{
+	if (ACE_Thread::keycreate(&key, cleanup) == -1) {
 		ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::keycreate"));
 	}
 
 	ACE_NEW_RETURN(ip, int, 0);
 
-	if (ACE_Thread::setspecific(key, (void *)ip) == -1)
-	{
+	if (ACE_Thread::setspecific(key, (void *)ip) == -1) {
 		ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::setspecific"));
 	}
 
-	for (intptr_t i = 0; i < count; i++)
-	{
-		if (ACE_Thread::keycreate(&key, cleanup) == -1)
-		{
+	for (intptr_t i = 0; i < count; i++) {
+		if (ACE_Thread::keycreate(&key, cleanup) == -1) {
 			ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::keycreate"));
 		}
 
@@ -69,29 +63,25 @@ static void *worker(void *c)
 
 		ACE_DEBUG((LM_DEBUG, "(%t) in worker 1, key = %d, ip = %x\n", key, ip));
 
-		{                                                                                                                                                                                      // tmp is workaround for gcc strict aliasing warning.
-			void *tmp = reinterpret_cast<void *> (ip);
+		{                                                                                                                                                                                                          // tmp is workaround for gcc strict aliasing warning.
+			void *tmp = reinterpret_cast<void *>(ip);
 
-			if (ACE_Thread::setspecific(key, tmp) == -1)
-			{
+			if (ACE_Thread::setspecific(key, tmp) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::setspecific"));
 			}
 
-			if (ACE_Thread::getspecific(key, &tmp) == -1)
-			{
+			if (ACE_Thread::getspecific(key, &tmp) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::setspecific"));
 			}
 
-			if (ACE_Thread::setspecific(key, (void *)0) == -1)
-			{
+			if (ACE_Thread::setspecific(key, (void *)0) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::setspecific"));
 			}
 		}
 
 		delete ip;
 
-		if (ACE_Thread::keyfree(key) == -1)
-		{
+		if (ACE_Thread::keyfree(key) == -1) {
 			ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::keyfree"));
 		}
 
@@ -117,14 +107,13 @@ static void *worker(void *c)
 			ACE_OS::printf("(%t)", handle);
 
 			ACE_OS::printf(" errno = %d, lineno = %d, flags = %d\n",
-								tss_error->error(),
-								tss_error->line(),
-								tss_error->flags());
+						   tss_error->error(),
+						   tss_error->line(),
+						   tss_error->flags());
 		}
 		key = ACE_OS::NULL_key;
 
-		if (ACE_Thread::keycreate(&key, cleanup) == -1)
-		{
+		if (ACE_Thread::keycreate(&key, cleanup) == -1) {
 			ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::keycreate"));
 		}
 
@@ -134,28 +123,24 @@ static void *worker(void *c)
 
 		{
 			// Tmp is workaround for GCC strict aliasing warning.
-			void *tmp(reinterpret_cast<void *> (ip));
+			void *tmp(reinterpret_cast<void *>(ip));
 
-			if (ACE_Thread::setspecific(key, tmp) == -1)
-			{
+			if (ACE_Thread::setspecific(key, tmp) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::setspecific"));
 			}
 
-			if (ACE_Thread::getspecific(key, &tmp) == -1)
-			{
+			if (ACE_Thread::getspecific(key, &tmp) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::setspecific"));
 			}
 
-			if (ACE_Thread::setspecific(key, (void *)0) == -1)
-			{
+			if (ACE_Thread::setspecific(key, (void *)0) == -1) {
 				ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::setspecific"));
 			}
 		}
 
 		delete ip;
 
-		if (ACE_Thread::keyfree(key) == -1)
-		{
+		if (ACE_Thread::keyfree(key) == -1) {
 			ACE_ERROR((LM_ERROR, "(%t) %p\n", "ACE_Thread::keyfree"));
 		}
 	}
@@ -166,15 +151,13 @@ static void *worker(void *c)
 
 
 extern "C" void
-handler(int signum)
-{
+handler(int signum) {
 	ACE_DEBUG((LM_DEBUG, "signal = %S\n", signum));
 	ACE_Thread_Manager::instance()->exit(0);
 }
 
 
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{  // The Service_Config must be the first object defined in main...
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) { // The Service_Config must be the first object defined in main...
 	ACE_Service_Config daemon(argv[0]);
 
 	int      threads = argc > 1 ? ACE_OS::atoi(argv[1]) : 4;
@@ -186,10 +169,9 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	ACE_UNUSED_ARG(sa);
 
 	if (ACE_Thread_Manager::instance()->spawn_n(threads,
-															  ACE_THR_FUNC(&worker),
-															  reinterpret_cast<void *> (count),
-															  THR_BOUND | THR_DETACHED) == -1)
-	{
+			ACE_THR_FUNC(&worker),
+			reinterpret_cast<void *>(count),
+			THR_BOUND | THR_DETACHED) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, "%p\n", "ACE_Thread_Manager::spawn_n"), -1);
 	}
 

@@ -8,20 +8,16 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-class CanceledTask : public ACE_Task<ACE_MT_SYNCH>
-{
+class CanceledTask : public ACE_Task<ACE_MT_SYNCH> {
 public:
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Starting thread\n")));
 
-		if (this->set_cancel_mode() < 0)
-		{
+		if (this->set_cancel_mode() < 0) {
 			return(-1);
 		}
 
-		while (1)
-		{
+		while (1) {
 			// Put this thread in a compute loop.. no
 			// cancellation points are available.
 		}
@@ -32,26 +28,23 @@ public:
 	}
 
 
-	int set_cancel_mode(void)
-	{
+	int set_cancel_mode(void) {
 		cancel_state new_state;
 
 		// Set the cancel state to asynchronous and enabled.
 		new_state.cancelstate = PTHREAD_CANCEL_ENABLE;
 		new_state.canceltype = PTHREAD_CANCEL_ASYNCHRONOUS;
-		if (ACE_Thread::setcancelstate(new_state, 0) == -1)
-		{
+		if (ACE_Thread::setcancelstate(new_state, 0) == -1) {
 			ACE_ERROR_RETURN((LM_ERROR,
-									ACE_TEXT("%p\n"),
-									ACE_TEXT("cancelstate")), -1);
+							  ACE_TEXT("%p\n"),
+							  ACE_TEXT("cancelstate")), -1);
 		}
 		return(0);
 	}
 };
 // Listing 1
 // Listing 2 code/ch13
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	CanceledTask task;
 
 	task.activate();

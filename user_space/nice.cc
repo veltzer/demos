@@ -8,15 +8,12 @@
  *    TODO: This example should be improved to set it's own nice level via APIs and
  *    fork on it's own so that no user intervention should be needed....
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	pid_t mypid = getpid();
 	int   i = 0;
 
-	while (1)
-	{
-		if (i % 10000000 == 0)
-		{
+	while (1) {
+		if (i % 10000000 == 0) {
 			printf("%d: I'm alive with counter %d!\n", mypid, i);
 		}
 		i++;

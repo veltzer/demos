@@ -5,8 +5,7 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	Callback *callback = new Callback;
 
 	ACE_LOG_MSG->set_flags(ACE_Log_Msg::MSG_CALLBACK);

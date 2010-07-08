@@ -12,8 +12,7 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	const int size = 1000000;
 	void      *p;
 	int       page_size;

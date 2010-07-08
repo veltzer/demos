@@ -2,10 +2,8 @@
 #include <stdlib.h>
 #include "mylib.h"
 
-int main(int argc, char **argv, char **envp)
-{
-	if (argc != 2)
-	{
+int main(int argc, char **argv, char **envp) {
+	if (argc != 2) {
 		fprintf(stderr, "%s: usage %s arg\n", argv[0], argv[0]);
 		exit(-1);
 	}

@@ -15,26 +15,20 @@
 /*
  * getting a thread id (glibc doesnt have this)
  */
-static inline pid_t gettid(void)
-{
+static inline pid_t gettid(void) {
 	return(syscall(SYS_gettid));
 }
 
 
-static inline unsigned int get_clk_tck(void)
-{
+static inline unsigned int get_clk_tck(void) {
 	return(sysconf(_SC_CLK_TCK));
 }
 
 
-static inline unsigned int min(unsigned int a, unsigned int b)
-{
-	if (a < b)
-	{
+static inline unsigned int min(unsigned int a, unsigned int b) {
+	if (a < b) {
 		return(a);
-	}
-	else
-	{
+	} else {
 		return(b);
 	}
 }
@@ -46,19 +40,16 @@ static inline unsigned int min(unsigned int a, unsigned int b)
 
 typedef unsigned long long   ticks_t;
 
-static inline ticks_t getticks(void)
-{
+static inline ticks_t getticks(void) {
 	unsigned int a, d;
 
-	asm volatile ("rdtsc" : "=a" (a), "=d" (d));
+asm volatile("rdtsc" : "=a"(a), "=d"(d));
 	return(((ticks_t)a) | (((ticks_t)d) << 32));
 }
 
 
-static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2)
-{
-	if (t2 < t1)
-	{
+static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2) {
+	if (t2 < t1) {
 		fprintf(stderr, "What's going on? t2<t1...\n");
 		exit(1);
 	}
@@ -79,10 +70,8 @@ static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2)
  * A system call handler, will take care of all those pesky error values
  * and will throw an exception if any of them pops up.
  */
-static inline void scie(int t, const char *msg, int errval = -1)
-{
-	if (t == errval)
-	{
+static inline void scie(int t, const char *msg, int errval = -1) {
+	if (t == errval) {
 		throw new std::exception();
 
 		//perror("error in system call");
@@ -91,10 +80,8 @@ static inline void scie(int t, const char *msg, int errval = -1)
 }
 
 
-static inline void scig(int t, const char *msg, int goodval = 0)
-{
-	if (t != goodval)
-	{
+static inline void scig(int t, const char *msg, int goodval = 0) {
+	if (t != goodval) {
 		throw new std::exception();
 
 		//perror("error in system call");
@@ -103,10 +90,8 @@ static inline void scig(int t, const char *msg, int goodval = 0)
 }
 
 
-static inline void scig2(int t, const char *msg, int v1, int v2)
-{
-	if ((t != v1) && (t != v2))
-	{
+static inline void scig2(int t, const char *msg, int v1, int v2) {
+	if ((t != v1) && (t != v2)) {
 		throw new std::exception();
 
 		//perror("error in system call");
@@ -115,10 +100,8 @@ static inline void scig2(int t, const char *msg, int v1, int v2)
 }
 
 
-static inline void scpe(void *t, const char *msg, void *errval = (void *)-1)
-{
-	if (t == errval)
-	{
+static inline void scpe(void *t, const char *msg, void *errval = (void *)-1) {
+	if (t == errval) {
 		throw new std::exception();
 
 		//perror("error in system call");
@@ -133,33 +116,26 @@ static inline void scpe(void *t, const char *msg, void *errval = (void *)-1)
 #define SCIG2(v, msg, v1, v2) std::cout << msg << " " << "started" << std::endl; scig2(v, msg, v1, v2); std::cout << msg << " " << "ended" << std::endl;
 
 // kernel log handling functions
-static inline void klog_clear(void)
-{
+static inline void klog_clear(void) {
 	SCIE(system("sudo dmesg -c > /dev/null"), "clearing log");
 }
 
 
-static inline void klog_show(void)
-{
+static inline void klog_show(void) {
 	SCIE(system("sudo dmesg"), "showing log");
 }
 
 
-static inline void klog_show_clear(void)
-{
+static inline void klog_show_clear(void) {
 	klog_show();
 	klog_clear();
 }
 
 
-static inline void waitkey(const char *msg = NULL)
-{
-	if (msg)
-	{
+static inline void waitkey(const char *msg = NULL) {
+	if (msg) {
 		fprintf(stdout, "%s...\n", msg);
-	}
-	else
-	{
+	} else {
 		fprintf(stdout, "Press any key to continue...\n");
 	}
 	//scie(setvbuf(stdin,NULL,_IONBF,0),"setvbuf");
@@ -167,8 +143,7 @@ static inline void waitkey(const char *msg = NULL)
 }
 
 
-static inline void debug(const char *file, const char *function, int line, const char *fmt, ...)
-{
+static inline void debug(const char *file, const char *function, int line, const char *fmt, ...) {
 	extern char *program_invocation_short_name;
 	char        str[1024];
 	pid_t       pid = getpid();
@@ -188,18 +163,14 @@ void debug(const char *file, const char *function, int line, const char *fmt, ..
 #define INFO(fmt, args...)  debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
 #define TRACE(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
 
-static inline int printproc(const char *filter)
-{
+static inline int printproc(const char *filter) {
 	pid_t              pid = getpid();
 	const unsigned int cmd_size = 256;
 	char               cmd[cmd_size];
 
-	if (filter == NULL)
-	{
+	if (filter == NULL) {
 		snprintf(cmd, cmd_size, "cat /proc/%d/maps", pid);
-	}
-	else
-	{
+	} else {
 		snprintf(cmd, cmd_size, "cat /proc/%d/maps | grep %s", pid, filter);
 	}
 	int res = system(cmd);
@@ -208,8 +179,7 @@ static inline int printproc(const char *filter)
 }
 
 
-static inline int printbuddy(void)
-{
+static inline int printbuddy(void) {
 	int res = system("cat /proc/buddyinfo");
 
 	//waitkey();
@@ -217,14 +187,11 @@ static inline int printbuddy(void)
 }
 
 
-static inline void memcheck(void *buf, char val, unsigned int size)
-{
+static inline void memcheck(void *buf, char val, unsigned int size) {
 	char *cbuf = (char *)buf;
 
-	for (unsigned int i = 0; i < size; i++)
-	{
-		if (cbuf[i] != val)
-		{
+	for (unsigned int i = 0; i < size; i++) {
+		if (cbuf[i] != val) {
 			fprintf(stderr, "ERROR: value at %u is %c and not %c\n", i, cbuf[i], val);
 			exit(1);
 		}
@@ -233,25 +200,21 @@ static inline void memcheck(void *buf, char val, unsigned int size)
 
 
 // progress handling functions...
-static inline void do_prog_init(void)
-{
+static inline void do_prog_init(void) {
 	printf("progress: \n");
 	fflush(stdout);
 }
 
 
-static inline void do_prog(unsigned int i, unsigned int mod, unsigned int full)
-{
-	if (i % mod == 0)
-	{
+static inline void do_prog(unsigned int i, unsigned int mod, unsigned int full) {
+	if (i % mod == 0) {
 		printf("\r\t%d/%d         ", i, full);
 		fflush(stdout);
 	}
 }
 
 
-static inline void do_prog_finish(void)
-{
+static inline void do_prog_finish(void) {
 	printf("\tfinished...\n");
 	fflush(stdout);
 }
@@ -262,8 +225,7 @@ static inline void do_prog_finish(void)
  * - accepts variable argument and does the substitution.
  * - checks for errors on return from system(3)
  */
-static inline void my_system(const char *fmt, ...)
-{
+static inline void my_system(const char *fmt, ...) {
 	char    str[1024];
 	va_list args;
 

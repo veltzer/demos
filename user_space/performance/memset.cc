@@ -21,14 +21,12 @@
  *
  * EXTRA_LIBS=
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	const int size = 1000;
 	char      *buf = (char *)malloc(size);
 
 	memset(buf, 0, size);
-	for (int i = 0; i < size; i++)
-	{
+	for (int i = 0; i < size; i++) {
 		buf[i] = 0;
 	}
 	wchar_t *buf2 = (wchar_t *)malloc(size * sizeof(wchar_t));

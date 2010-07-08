@@ -38,24 +38,20 @@ ACE_Atomic_Op<ACE_Thread_Mutex, int> current_readers, current_writers;
 static ACE_Thread_Manager thr_mgr;
 
 // Explain usage and exit.
-static void print_usage_and_die(void)
-{
+static void print_usage_and_die(void) {
 	ACE_DEBUG((LM_DEBUG, "usage: %n [-r n_readers] [-w n_writers] [-n iteration_count]\n"));
 	ACE_OS::exit(1);
 }
 
 
 // Parse the command-line arguments and set options.
-static void parse_args(int argc, ACE_TCHAR *argv[])
-{
+static void parse_args(int argc, ACE_TCHAR *argv[]) {
 	ACE_Get_Opt get_opt(argc, argv, ACE_TEXT("r:w:n:l:"));
 
 	int c;
 
-	while ((c = get_opt()) != -1)
-	{
-		switch (c)
-		{
+	while ((c = get_opt()) != -1) {
+		switch (c) {
 		case 'r':
 			n_readers = ACE_OS::atoi(get_opt.opt_arg());
 			break;
@@ -82,32 +78,27 @@ static void parse_args(int argc, ACE_TCHAR *argv[])
 
 // Iterate <n_iterations> each time checking that nobody modifies the
 // data while we have a read lock.
-static void *reader(void *)
-{
+static void *reader(void *) {
 	ACE_DEBUG((LM_DEBUG, "(%t) reader starting\n"));
 
-	for (int iterations = 1; iterations <= n_iterations; iterations++)
-	{
+	for (int iterations = 1; iterations <= n_iterations; iterations++) {
 		ACE_Read_Guard<ACE_RW_Mutex> g(rw_mutex);
 
 		++current_readers;
 
-		if (current_writers > 0)
-		{
+		if (current_writers > 0) {
 			ACE_DEBUG((LM_DEBUG, "(%t) writers found!!!\n"));
 		}
 
 		ACE_thread_t thr_id = shared_thr_id;
 
-		for (int loop = 1; loop <= n_loops; loop++)
-		{
+		for (int loop = 1; loop <= n_loops; loop++) {
 			ACE_Thread::yield();
 
-			if (ACE_OS::thr_equal(shared_thr_id, thr_id) == 0)
-			{
+			if (ACE_OS::thr_equal(shared_thr_id, thr_id) == 0) {
 				ACE_DEBUG((LM_DEBUG,
-							  "(%t) somebody changed %d to %d\n",
-							  thr_id, shared_thr_id));
+						   "(%t) somebody changed %d to %d\n",
+						   thr_id, shared_thr_id));
 			}
 		}
 
@@ -121,37 +112,31 @@ static void *reader(void *)
 
 // Iterate <n_iterations> each time modifying the global data
 // and checking that nobody steps on it while we can write it.
-static void *writer(void *)
-{
+static void *writer(void *) {
 	ACE_DEBUG((LM_DEBUG, "(%t) writer starting\n"));
 
-	for (int iterations = 1; iterations <= n_iterations; iterations++)
-	{
+	for (int iterations = 1; iterations <= n_iterations; iterations++) {
 		ACE_Write_Guard<ACE_RW_Mutex> g(rw_mutex);
 
 		++current_writers;
 
-		if (current_writers > 1)
-		{
+		if (current_writers > 1) {
 			ACE_DEBUG((LM_DEBUG, "(%t) other writers found!!!\n"));
 		}
 
-		if (current_readers > 0)
-		{
+		if (current_readers > 0) {
 			ACE_DEBUG((LM_DEBUG, "(%t) readers found!!!\n"));
 		}
 
 		ACE_thread_t self = ACE_Thread::self();
 		shared_thr_id = self;
 
-		for (int loop = 1; loop <= n_loops; loop++)
-		{
+		for (int loop = 1; loop <= n_loops; loop++) {
 			ACE_Thread::yield();
 
-			if (ACE_OS::thr_equal(shared_thr_id, self) == 0)
-			{
+			if (ACE_OS::thr_equal(shared_thr_id, self) == 0) {
 				ACE_DEBUG((LM_DEBUG, "(%t) somebody wrote on my data %d\n",
-							  shared_thr_id));
+						   shared_thr_id));
 			}
 		}
 
@@ -164,19 +149,17 @@ static void *writer(void *)
 
 
 // Spawn off threads.
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	ACE_LOG_MSG->open(argv[0]);
 	parse_args(argc, argv);
 
-	current_readers = 0;                                                                                           // Possibly already done
-	current_writers = 0;                                                                                           // Possibly already done
+	current_readers = 0;                                                                                                     // Possibly already done
+	current_writers = 0;                                                                                                     // Possibly already done
 
 	ACE_DEBUG((LM_DEBUG, "(%t) main thread starting\n"));
 
 	if ((thr_mgr.spawn_n(n_readers, (ACE_THR_FUNC)reader, 0, THR_NEW_LWP) == -1) ||
-		 (thr_mgr.spawn_n(n_writers, (ACE_THR_FUNC)writer, 0, THR_NEW_LWP) == -1))
-	{
+			(thr_mgr.spawn_n(n_writers, (ACE_THR_FUNC)writer, 0, THR_NEW_LWP) == -1)) {
 		ACE_ERROR_RETURN((LM_ERROR, "%p\n", "spawn_n"), 1);
 	}
 

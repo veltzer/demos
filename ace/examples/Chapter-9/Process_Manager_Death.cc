@@ -9,26 +9,22 @@
 
 static const int NCHILDREN = 2;
 
-class DeathHandler : public ACE_Event_Handler
-{
+class DeathHandler : public ACE_Event_Handler {
 public:
-	DeathHandler() : count_(0)
-	{
+	DeathHandler() : count_(0) {
 		ACE_TRACE(ACE_TEXT("DeathHandler::DeathHandler"));
 	}
 
 
-	virtual int handle_exit(ACE_Process *process)
-	{
+	virtual int handle_exit(ACE_Process *process) {
 		ACE_TRACE(ACE_TEXT("DeathHandler::handle_exit"));
 
 		ACE_DEBUG
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		  ((LM_DEBUG,
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			 ACE_TEXT("Process %d exited with exit code %d\n"),
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			 process->getpid(), process->return_value()));
+		((LM_DEBUG,
+		  ACE_TEXT("Process %d exited with exit code %d\n"),
+		  process->getpid(), process->return_value()));
 
-		if (++count_ == NCHILDREN)
-		{
+		if (++count_ == NCHILDREN) {
 			ACE_Reactor::instance()->end_reactor_event_loop();
 		}
 
@@ -39,10 +35,8 @@ public:
 private:
 	int count_;
 };
-int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
-	if (argc > 1)                                                                                               // Running as a child.
-	{
+int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
+	if (argc > 1) {                                                                                                       // Running as a child.
 		return(0);
 	}
 
@@ -61,8 +55,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	pm.spawn_n(NCHILDREN, options, pids);
 
 	// Register handler to be called when these processes exit.
-	for (int i = 0; i < NCHILDREN; i++)
-	{
+	for (int i = 0; i < NCHILDREN; i++) {
 		pm.register_handler(&handler, pids[i]);
 	}
 

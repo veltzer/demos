@@ -1,5 +1,4 @@
 #include <stdio.h>
-int debug()
-{
+int debug() {
 	printf("Hello from debug");
 }

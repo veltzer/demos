@@ -7,23 +7,18 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-class HA_CommandHandler : public ACE_Task<ACE_MT_SYNCH>
-{
+class HA_CommandHandler : public ACE_Task<ACE_MT_SYNCH> {
 public:
-	HA_CommandHandler(const char *name) : name_(name)
-	{
+	HA_CommandHandler(const char *name) : name_(name) {
 	}
 
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) starting up %C\n"), name_));
 
 		ACE_OS::sleep(2);
 		ACE_Message_Block *mb = 0;
-		while (this->getq(mb) != -1)
-		{
-			if (mb->msg_type() == ACE_Message_Block::MB_BREAK)
-			{
+		while (this->getq(mb) != -1) {
+			if (mb->msg_type() == ACE_Message_Block::MB_BREAK) {
 				mb->release();
 				break;
 			}
@@ -34,20 +29,17 @@ public:
 	}
 
 
-	void process_message(ACE_Message_Block *)
-	{
+	void process_message(ACE_Message_Block *) {
 		static int counter = 0;
 
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Processing message %C\n"), name_));
 		// If we cancel the following condition than the LowPriorit will win the race
 		// since the Highpriority will start too late to win.
-		if (++counter == 1)
-		{
+		if (++counter == 1) {
 			sleep(1);
 		}
 		// Simulate compute bound task.
-		for (int i = 0; i < 100; i++)
-		{
+		for (int i = 0; i < 100; i++) {
 			;
 		}
 	}
@@ -59,15 +51,14 @@ private:
 
 #if !defined (ACE_THR_PRI_OTHER_MAX)
 // This should be fixed in ACE... There's no _MAX, _MIN values for thread priorities.
- #if defined (ACE_WIN32)
-  #  define ACE_THR_PRI_OTHER_MAX ((ACE_THR_PRI_OTHER_DEF)+1)
- #elif defined (VXWORKS)
-  #  define ACE_THR_PRI_OTHER_MAX 0
- #endif
+#if defined (ACE_WIN32)
+#  define ACE_THR_PRI_OTHER_MAX ((ACE_THR_PRI_OTHER_DEF)+1)
+#elif defined (VXWORKS)
+#  define ACE_THR_PRI_OTHER_MAX 0
+#endif
 #endif
 
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	HA_CommandHandler lp_handler("LowPriority");
 
 	lp_handler.activate(THR_NEW_LWP | THR_JOINABLE, 1, 1, ACE_THR_PRI_OTHER_DEF);
@@ -77,8 +68,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[])
 	hp_handler.activate(THR_NEW_LWP | THR_JOINABLE, 1, 1, ACE_THR_PRI_OTHER_MAX);
 
 	ACE_Message_Block mb;
-	for (int i = 0; i < 20; i++)
-	{
+	for (int i = 0; i < 20; i++) {
 		ACE_Message_Block *mb_hp, *mb_lp;
 		mb_hp = mb.clone();
 		mb_lp = mb.clone();

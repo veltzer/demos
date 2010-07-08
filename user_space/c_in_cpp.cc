@@ -30,16 +30,14 @@ public:
 };
 
 // this is a function of C++ code linked in C++ style
-int cpp_style_add(int a, int b)
-{
+int cpp_style_add(int a, int b) {
 	return(a + b);
 }
 
 
 // this is a function of C++ code linked in C style
 // notice that you can still write C code in this function...
-extern "C" int c_style_add(int a, int b)
-{
+extern "C" int c_style_add(int a, int b) {
 	// the next line will produce an error
 	A *obj = new A();
 
@@ -48,8 +46,7 @@ extern "C" int c_style_add(int a, int b)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	printf("These are the symbols without demangling:\n");
 	my_system("nm ./c_in_cpp | grep style_add");
 	printf("These are the symbols with demangling:\n");

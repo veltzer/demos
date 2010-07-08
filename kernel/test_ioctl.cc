@@ -12,12 +12,10 @@
  *      A basic test which opens the device, runs one ioctl with 0 or user given
  *      cmd and no data and then closes the device
  */
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	int ioctl_num = 0;
 
-	if (argc > 1)
-	{
+	if (argc > 1) {
 		ioctl_num = atoi(argv[1]);
 	}
 	// file to be used

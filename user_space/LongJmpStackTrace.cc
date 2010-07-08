@@ -10,8 +10,7 @@ const int drop_frames_start = 3;
 const int drop_frames_end = 1;
 const int max_message_size = 256;
 
-struct error_data
-{
+struct error_data {
 	int  size;
 	void *array[max_stack_frames];
 	char **symbols;
@@ -23,8 +22,7 @@ static error_data *last_error;
 // point we wish to jump to
 static jmp_buf env;
 
-inline void error_create(const char *message)
-{
+inline void error_create(const char *message) {
 	error_data *p = (error_data *)malloc(sizeof(error_data));
 
 	p->size = backtrace(p->array, max_stack_frames);
@@ -35,11 +33,9 @@ inline void error_create(const char *message)
 }
 
 
-inline void error_print(FILE *f, error_data *p)
-{
+inline void error_print(FILE *f, error_data *p) {
 	fprintf(f, "error message is [%s]\n", p->message);
-	for (int i = p->size - drop_frames_start; i >= drop_frames_end; i--)
-	{
+	for (int i = p->size - drop_frames_start; i >= drop_frames_end; i--) {
 		char *symbol = p->symbols[i];
 		char result_name[256];
 		char result_offset[256];
@@ -49,37 +45,30 @@ inline void error_print(FILE *f, error_data *p)
 }
 
 
-inline void error_print_last(FILE *f)
-{
+inline void error_print_last(FILE *f) {
 	error_print(f, last_error);
 }
 
 
-inline void error_free(error_data *p)
-{
+inline void error_free(error_data *p) {
 	free(p->symbols);
 	free(p);
 }
 
 
-inline void error_free_last()
-{
+inline void error_free_last() {
 	error_free(last_error);
 }
 
 
 // This function **must** be inlined as if setjmp returns then env will no longer
 // be valid. That's why we don't use it (there is no way to guarantee inlining).
-inline error_data *error_setjmp()
-{
+inline error_data *error_setjmp() {
 	int ret = setjmp(env);
 
-	if (!ret)
-	{
+	if (!ret) {
 		return(NULL);
-	}
-	else
-	{
+	} else {
 		return((error_data *)ret);
 	}
 }
@@ -89,36 +78,29 @@ inline error_data *error_setjmp()
 #define mac_error_setjmp() ((error_data *)setjmp(env))
 
 /* this simulates a function which sometimes encounters errors */
-void func()
-{
+void func() {
 	static int counter = 0;
 
 	counter++;
-	if (counter % 3 == 0)
-	{
+	if (counter % 3 == 0) {
 		error_create("some error");
 	}
 	fprintf(stderr, "this is the continuation of the function\n");
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
-	for (int c = 0; c < 10; c++)
-	{
+int main(int argc, char **argv, char **envp) {
+	for (int c = 0; c < 10; c++) {
 		//int ret=setjmp(env);
 		//error_data* p=(error_data*)ret;
 		//error_data* p=error_setjmp();
 		error_data *p = mac_error_setjmp();
-		if (p == NULL)
-		{
+		if (p == NULL) {
 			// This is the regular code. We get here when setting doing the
 			// setjmp for the first time
 			fprintf(stderr, "c is %d\n", c);
 			func();
-		}
-		else
-		{
+		} else {
 			// we got an error
 			error_print(stderr, p);
 			error_free(p);

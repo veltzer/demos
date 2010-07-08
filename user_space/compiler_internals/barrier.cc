@@ -10,14 +10,12 @@
  *
  * EXTRA_LIBS=
  */
-void print_int(int a)
-{
+void print_int(int a) {
 	fprintf(stderr, "int is %d\n", a);
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	int a = 0;
 	int u = 0;
 	// p will point to a but the compiler does not know it.
@@ -33,8 +31,7 @@ int main(int argc, char **argv, char **envp)
 	//fprintf(stderr,"p is %p\n",p);
 	//fprintf(stderr,"&a is %p\n",&a);
 	//this code will cause the compiler to put a into a register
-	for (int i = 0; i < 100; i++)
-	{
+	for (int i = 0; i < 100; i++) {
 		a++;
 	}
 	// the compiler writes a to it's 'natural' place on the stack
@@ -49,8 +46,7 @@ int main(int argc, char **argv, char **envp)
 	// bacause it wrote it to memory after the 'for' loop.
 	__sync_synchronize();
 	print_int(a);
-	while (a < 3000)
-	{
+	while (a < 3000) {
 		a++;
 	}
 	*p = 2000;

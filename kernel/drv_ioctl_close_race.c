@@ -48,14 +48,12 @@ int register_dev(void);
 void unregister_dev(void);
 
 // our own functions
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	return(register_dev());
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	unregister_dev();
 }
 
@@ -67,8 +65,7 @@ module_exit(mod_exit);
 
 // first the structures
 
-struct kern_dev
-{
+struct kern_dev {
 	// pointer to the first device number allocated to us
 	dev_t       first_dev;
 	// cdev structures for the char devices we expose to user space
@@ -87,11 +84,9 @@ static struct device   *my_device;
  * This is the ioctl implementation. Currently this function supports
  * getting the image rows and columns
  */
-static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg)
-{
+static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	DEBUG("start");
-	switch (cmd)
-	{
+	switch (cmd) {
 	case 0:
 		// empty ioctl to 'just work';
 		DEBUG("end");
@@ -117,8 +112,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 /*
  * The release implementation. Currently this does nothing
  */
-static int kern_release(struct inode *inode, struct file *filp)
-{
+static int kern_release(struct inode *inode, struct file *filp) {
 	DEBUG("start");
 	ssleep(2);
 	DEBUG("end");
@@ -129,42 +123,33 @@ static int kern_release(struct inode *inode, struct file *filp)
 /*
  * The file operations structure.
  */
-static struct file_operations my_fops =
-{
+static struct file_operations my_fops = {
 	.owner   = THIS_MODULE,
 	.release = kern_release,
 	.ioctl   = kern_ioctl,
 };
 
-int register_dev()
-{
+int register_dev() {
 	// create a class
 	my_class = class_create(THIS_MODULE, MYNAME);
-	if (IS_ERR(my_class))
-	{
+	if (IS_ERR(my_class)) {
 		goto goto_nothing;
 	}
 	DEBUG("created the class");
 	// alloc and zero
 	pdev = kmalloc(sizeof(struct kern_dev), GFP_KERNEL);
-	if (pdev == NULL)
-	{
+	if (pdev == NULL) {
 		goto goto_destroy;
 	}
 	memset(pdev, 0, sizeof(struct kern_dev));
-	if (chrdev_alloc_dynamic)
-	{
-		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname))
-		{
+	if (chrdev_alloc_dynamic) {
+		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname)) {
 			DEBUG("cannot alloc_chrdev_region");
 			goto goto_dealloc;
 		}
-	}
-	else
-	{
+	} else {
 		pdev->first_dev = MKDEV(kern_major, kern_minor);
-		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname))
-		{
+		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname)) {
 			DEBUG("cannot register_chrdev_region");
 			goto goto_dealloc;
 		}
@@ -175,23 +160,21 @@ int register_dev()
 	pdev->cdev.owner = THIS_MODULE;
 	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
-	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
-	{
+	if (cdev_add(&pdev->cdev, pdev->first_dev, 1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;
 	}
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                                                                       /* our class */
-		NULL,                                                                           /* device we are subdevices of */
-		pdev->first_dev,
-		NULL,
-		name,
-		0
-		);
-	if (my_device == NULL)
-	{
+					my_class,                                                                                           /* our class */
+					NULL,                                                                                               /* device we are subdevices of */
+					pdev->first_dev,
+					NULL,
+					name,
+					0
+				);
+	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;
 	}
@@ -213,8 +196,7 @@ goto_nothing:
 }
 
 
-void unregister_dev()
-{
+void unregister_dev() {
 	device_destroy(my_class, pdev->first_dev);
 	cdev_del(&pdev->cdev);
 	unregister_chrdev_region(pdev->first_dev, MINORS_COUNT);

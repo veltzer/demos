@@ -30,8 +30,7 @@ MODULE_DESCRIPTION("Demo module for testing");
 
 // This demo is to show how to get a big size buffer with __get_free_pages
 // and release them...
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	int           order;
 	unsigned long addr;
 	int           i;
@@ -40,12 +39,11 @@ static int __init mod_init(void)
 
 	order = get_order(size);
 	addr = __get_free_pages(
-		GFP_KERNEL,
-		order
-		);
+			   GFP_KERNEL,
+			   order
+		   );
 	/* lets manipulate the memory */
-	for (i = 0; i < size; i++)
-	{
+	for (i = 0; i < size; i++) {
 		((char *)addr)[i] = 0;
 	}
 	/* lets release the memory */
@@ -54,8 +52,7 @@ static int __init mod_init(void)
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	DEBUG("start");
 }
 

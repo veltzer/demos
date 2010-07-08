@@ -9,8 +9,7 @@
  */
 
 // Notice the use of ACE_TMAIN for main
-int ACE_TMAIN(int argc, ACE_TCHAR **)
-{
+int ACE_TMAIN(int argc, ACE_TCHAR **) {
 	printf("It seems that printf is working\n");
 	cout << "It seems like C++ streams are working" << endl;
 	// Notice that ACE_DEBUG takes one argument

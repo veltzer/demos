@@ -61,14 +61,12 @@ void capi_list_add(void *lptr, void *ptr);
 void capi_list_print(void *lptr);
 
 // our own functions
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	return(register_dev());
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	unregister_dev();
 }
 
@@ -80,8 +78,7 @@ module_exit(mod_exit);
 
 // first the structures
 
-struct kern_dev
-{
+struct kern_dev {
 	// pointer to the first device number allocated to us
 	dev_t       first_dev;
 	// cdev structures for the char devices we expose to user space
@@ -101,15 +98,13 @@ static struct device   *my_device;
  * getting the image rows and columns
  */
 void *lptr;
-static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg)
-{
+static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	int  res;
 	void *p;
 
 	DEBUG("start");
-	switch (cmd)
-	{
-	/* Create the list */
+	switch (cmd) {
+		/* Create the list */
 	case 0:
 		lptr = capi_list_create();
 		return(0);
@@ -155,8 +150,7 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 /*
  * The open implementation. Currently this does nothing
  */
-static int kern_open(struct inode *inode, struct file *filp)
-{
+static int kern_open(struct inode *inode, struct file *filp) {
 	DEBUG("start");
 	return(0);
 }
@@ -165,8 +159,7 @@ static int kern_open(struct inode *inode, struct file *filp)
 /*
  * The release implementation. Currently this does nothing
  */
-static int kern_release(struct inode *inode, struct file *filp)
-{
+static int kern_release(struct inode *inode, struct file *filp) {
 	DEBUG("start");
 	return(0);
 }
@@ -175,8 +168,7 @@ static int kern_release(struct inode *inode, struct file *filp)
 /*
  * The read implementation. Currently this does nothing.
  */
-static ssize_t kern_read(struct file *filp, char __user *buf, size_t count, loff_t *pos)
-{
+static ssize_t kern_read(struct file *filp, char __user *buf, size_t count, loff_t *pos) {
 	DEBUG("start");
 	return(0);
 }
@@ -185,8 +177,7 @@ static ssize_t kern_read(struct file *filp, char __user *buf, size_t count, loff
 /*
  * The write implementation. Currently this does nothing.
  */
-static ssize_t kern_write(struct file *filp, const char __user *buf, size_t count, loff_t *pos)
-{
+static ssize_t kern_write(struct file *filp, const char __user *buf, size_t count, loff_t *pos) {
 	DEBUG("start");
 	return(0);
 }
@@ -195,8 +186,7 @@ static ssize_t kern_write(struct file *filp, const char __user *buf, size_t coun
 /*
  * The file operations structure.
  */
-static struct file_operations my_fops =
-{
+static struct file_operations my_fops = {
 	.owner   = THIS_MODULE,
 	.open    = kern_open,
 	.release = kern_release,
@@ -205,36 +195,28 @@ static struct file_operations my_fops =
 	.ioctl   = kern_ioctl,
 };
 
-int register_dev()
-{
+int register_dev() {
 	// create a class
 	my_class = class_create(THIS_MODULE, MYNAME);
-	if (IS_ERR(my_class))
-	{
+	if (IS_ERR(my_class)) {
 		goto goto_nothing;
 	}
 	DEBUG("created the class");
 	// alloc and zero
 	pdev = kmalloc(sizeof(struct kern_dev), GFP_KERNEL);
-	if (pdev == NULL)
-	{
+	if (pdev == NULL) {
 		goto goto_destroy;
 	}
 	memset(pdev, 0, sizeof(struct kern_dev));
 	DEBUG("set up the structure");
-	if (chrdev_alloc_dynamic)
-	{
-		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname))
-		{
+	if (chrdev_alloc_dynamic) {
+		if (alloc_chrdev_region(&pdev->first_dev, first_minor, MINORS_COUNT, myname)) {
 			DEBUG("cannot alloc_chrdev_region");
 			goto goto_dealloc;
 		}
-	}
-	else
-	{
+	} else {
 		pdev->first_dev = MKDEV(kern_major, kern_minor);
-		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname))
-		{
+		if (register_chrdev_region(pdev->first_dev, MINORS_COUNT, myname)) {
 			DEBUG("cannot register_chrdev_region");
 			goto goto_dealloc;
 		}
@@ -245,23 +227,21 @@ int register_dev()
 	pdev->cdev.owner = THIS_MODULE;
 	pdev->cdev.ops = &my_fops;
 	kobject_set_name(&pdev->cdev.kobj, MYNAME);
-	if (cdev_add(&pdev->cdev, pdev->first_dev, 1))
-	{
+	if (cdev_add(&pdev->cdev, pdev->first_dev, 1)) {
 		DEBUG("cannot cdev_add");
 		goto goto_deregister;
 	}
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-		my_class,                                                                       /* our class */
-		NULL,                                                                           /* device we are subdevices of */
-		pdev->first_dev,
-		NULL,
-		name,
-		0
-		);
-	if (my_device == NULL)
-	{
+					my_class,                                                                                           /* our class */
+					NULL,                                                                                               /* device we are subdevices of */
+					pdev->first_dev,
+					NULL,
+					name,
+					0
+				);
+	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;
 	}
@@ -283,8 +263,7 @@ goto_nothing:
 }
 
 
-void unregister_dev()
-{
+void unregister_dev() {
 	device_destroy(my_class, pdev->first_dev);
 	cdev_del(&pdev->cdev);
 	unregister_chrdev_region(pdev->first_dev, MINORS_COUNT);
@@ -302,17 +281,15 @@ void unregister_dev()
 /*
  *      private structure to hold void pointers
  */
-typedef struct _list_struct
-{
+typedef struct _list_struct {
 	struct list_head list;
-	void             *ptr;                               /* this is my specific data */
+	void             *ptr;                                         /* this is my specific data */
 } list_struct;
 
 /*
  *      Create a list
  */
-void *capi_list_create(void)
-{
+void *capi_list_create(void) {
 	struct list_head *lp = kmalloc(sizeof(struct list_head), GFP_KERNEL);
 
 	INIT_LIST_HEAD(lp);
@@ -324,8 +301,7 @@ void *capi_list_create(void)
  *      Destroy a list
  *      TODO: need to clean the list...
  */
-void capi_list_destroy(void *lptr)
-{
+void capi_list_destroy(void *lptr) {
 	struct list_head *lp = (struct list_head *)lptr;
 
 	kfree(lp);
@@ -335,8 +311,7 @@ void capi_list_destroy(void *lptr)
 /*
  *      Is empty call
  */
-int capi_list_isempty(void *lptr)
-{
+int capi_list_isempty(void *lptr) {
 	struct list_head *lp = (struct list_head *)lptr;
 
 	return(list_empty(lp));
@@ -346,8 +321,7 @@ int capi_list_isempty(void *lptr)
 /*
  *      Init an iterator
  */
-void *capi_list_iter_init(void *lptr)
-{
+void *capi_list_iter_init(void *lptr) {
 	struct list_head *lp = (struct list_head *)lptr;
 
 	return(lp->next);
@@ -357,8 +331,7 @@ void *capi_list_iter_init(void *lptr)
 /*
  *      Is the iterator over
  */
-int capi_list_iter_isover(void *lptr, void *iter)
-{
+int capi_list_iter_isover(void *lptr, void *iter) {
 	struct list_head *lp = (struct list_head *)lptr;
 	struct list_head *li = (struct list_head *)iter;
 
@@ -369,8 +342,7 @@ int capi_list_iter_isover(void *lptr, void *iter)
 /*
  *      Get the current value from the current iterator
  */
-void *capi_list_iter_getval(void *lptr, void *iter)
-{
+void *capi_list_iter_getval(void *lptr, void *iter) {
 	//struct list_head* lp=(struct list_head*)lptr;
 	struct list_head *li = (struct list_head *)iter;
 	list_struct      *entry = list_entry(li, struct _list_struct, list);
@@ -382,8 +354,7 @@ void *capi_list_iter_getval(void *lptr, void *iter)
 /*
  *      Advance the iterator one step
  */
-void *capi_list_iter_next(void *lptr, void *iter)
-{
+void *capi_list_iter_next(void *lptr, void *iter) {
 	//struct list_head* lp=(struct list_head*)lptr;
 	struct list_head *li = (struct list_head *)iter;
 
@@ -394,8 +365,7 @@ void *capi_list_iter_next(void *lptr, void *iter)
 /*
  *      Delete an element at the current position of the iterator
  */
-void capi_list_iter_del(void *lptr, void *iter)
-{
+void capi_list_iter_del(void *lptr, void *iter) {
 	//struct list_head* lp=(struct list_head*)lptr;
 	struct list_head *li = (struct list_head *)iter;
 	list_struct      *entry = list_entry(li, struct _list_struct, list);
@@ -407,20 +377,16 @@ void capi_list_iter_del(void *lptr, void *iter)
 /*
  *      Pop an element and return its pointer
  */
-void *capi_list_pop(void *lptr)
-{
+void *capi_list_pop(void *lptr) {
 	struct list_head *lp = (struct list_head *)lptr;
 	struct list_head *prev = lp->prev;
 	list_struct      *entry;
 	void             *ret;
 
-	if (list_empty(lp))
-	{
+	if (list_empty(lp)) {
 		DEBUG("ERROR - pop should not be called on an empty list");
 		return(NULL);
-	}
-	else
-	{
+	} else {
 		entry = list_entry(prev, struct _list_struct, list);
 		ret = entry->ptr;
 		list_del(prev);
@@ -433,8 +399,7 @@ void *capi_list_pop(void *lptr)
 /*
  *      Add a pointer
  */
-void capi_list_add(void *lptr, void *ptr)
-{
+void capi_list_add(void *lptr, void *ptr) {
 	struct list_head *lp = (struct list_head *)lptr;
 	list_struct      *entry = kmalloc(sizeof(list_struct), GFP_KERNEL);
 
@@ -446,14 +411,12 @@ void capi_list_add(void *lptr, void *ptr)
 /*
  *      Print the list
  */
-void capi_list_print(void *lptr)
-{
+void capi_list_print(void *lptr) {
 	struct list_head *lp = (struct list_head *)lptr;
 	void             *item;
 	void             *iter = capi_list_iter_init(lp);
 
-	while (!capi_list_iter_isover(lp, iter))
-	{
+	while (!capi_list_iter_isover(lp, iter)) {
 		item = capi_list_iter_getval(lp, iter);
 		DEBUG("item is %d", (int)item);
 		iter = capi_list_iter_next(lp, iter);

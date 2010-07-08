@@ -12,13 +12,11 @@
 /*
  *      this is a test for in kernel lists
  */
-int get_number(void)
-{
+int get_number(void) {
 	printf("please enter a number> ");
 	char str[256];
 	char *res = fgets(str, 256, stdin);
-	if (res == NULL)
-	{
+	if (res == NULL) {
 		perror("problem with fgets");
 		exit(1);
 	}
@@ -26,8 +24,7 @@ int get_number(void)
 }
 
 
-int show_menu(void)
-{
+int show_menu(void) {
 	printf("What would you like to do ?\n");
 	printf("===========================\n");
 	printf("0) create\n");
@@ -40,8 +37,7 @@ int show_menu(void)
 	printf("choice> ");
 	char str[256];
 	char *res = fgets(str, 256, stdin);
-	if (res == NULL)
-	{
+	if (res == NULL) {
 		perror("problem with fgets");
 		exit(1);
 	}
@@ -49,20 +45,17 @@ int show_menu(void)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	const char *filename = "/dev/demo";
 	int        d;
 	int        arg;
 
 	SCIE(d = open(filename, O_RDWR), "open");
 	int choice = show_menu();
-	while (choice != 6)
-	{
+	while (choice != 6) {
 		printf("your choice is %d> \n", choice);
 		arg = 0;
-		if (choice == 4)
-		{
+		if (choice == 4) {
 			arg = get_number();
 		}
 		klog_clear();

@@ -31,8 +31,7 @@ const bool do_dataseg_test = true;
 const bool do_malloc_test = true;
 const bool do_stacks_test = true;
 
-static void show_data(char *data, unsigned int size)
-{
+static void show_data(char *data, unsigned int size) {
 	printf("data is [");
 	//int psize=min(size,10);
 //	fwrite(data,1,psize,stdout);
@@ -41,18 +40,14 @@ static void show_data(char *data, unsigned int size)
 }
 
 
-static void do_test(char *data, unsigned int size, const char *name)
-{
+static void do_test(char *data, unsigned int size, const char *name) {
 	printf("starting test named [%s]\n", name);
 	int          PAGE_SIZE = getpagesize();
 	unsigned int adr = (unsigned int)data;
 	bool         aligned = (adr % PAGE_SIZE == 0);
-	if (aligned)
-	{
+	if (aligned) {
 		printf("data %p is page aligned\n", data);
-	}
-	else
-	{
+	} else {
 		printf("data %p is NOT page aligned\n", data);
 	}
 
@@ -88,33 +83,27 @@ static void do_test(char *data, unsigned int size, const char *name)
 
 const int   csize = 64000;
 static char data_ds[csize];
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	// file name of the device
 	const char *filename = "/dev/demo";
 
 	SCIE(d = open(filename, O_RDWR), "open");
-	if (do_stack_test)
-	{
+	if (do_stack_test) {
 		char data[csize + getpagesize() * 10];
 		do_test(data, csize, "stack");
 	}
-	if (do_valloc_test)
-	{
+	if (do_valloc_test) {
 		char *data = (char *)valloc(csize);
 		do_test(data, csize, "valloc");
 	}
-	if (do_malloc_test)
-	{
+	if (do_malloc_test) {
 		char *data = (char *)malloc(csize);
 		do_test(data, csize, "malloc");
 	}
-	if (do_dataseg_test)
-	{
+	if (do_dataseg_test) {
 		do_test(data_ds, csize, "dataset");
 	}
-	if (do_stacks_test)
-	{
+	if (do_stacks_test) {
 		static char data[csize];
 		do_test(data, csize, "stacks");
 	}

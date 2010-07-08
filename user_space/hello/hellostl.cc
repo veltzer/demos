@@ -4,8 +4,7 @@
 /*
  *      This program demonstrates the use of STL (Standard Template Library).
  */
-int main(void)
-{
+int main(void) {
 	std::vector<int> v(3);
 
 	v[0] = 5;

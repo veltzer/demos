@@ -9,14 +9,12 @@
  * EXTRA_LIBS=
  */
 
-typedef struct _foo
-{
+typedef struct _foo {
 	int a;
 	int b;
 } foo;
 
-foo giveMeFoo(void)
-{
+foo giveMeFoo(void) {
 	// following line causes a compilation error...
 	//return {3,4};
 	foo f;
@@ -25,8 +23,7 @@ foo giveMeFoo(void)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	foo f = giveMeFoo();
 
 	printf("f.a is %d\n", f.a);

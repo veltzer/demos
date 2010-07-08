@@ -9,14 +9,12 @@
 
 using namespace SigC;
 
-void print(const std::string& str)
-{
+void print(const std::string& str) {
 	std::cout << str;
 }
 
 
-int main(int args, char **argv)
-{
+int main(int args, char **argv) {
 	Signal1<void, const std::string&> printer;
 	printer.connect(slot(print));
 	printer("Hello, World!\n");

@@ -6,45 +6,37 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-class HA_Device_Repository
-{
+class HA_Device_Repository {
 public:
-	HA_Device_Repository()
-	{
+	HA_Device_Repository() {
 	}
 
-	void update_device(int device_id)
-	{
+	void update_device(int device_id) {
 		mutex_.acquire();
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Updating device %d\n"),
-					  device_id));
+				   device_id));
 		ACE_OS::sleep(1);
 		mutex_.release();
-		ACE_OS::sleep(1);                                                                                                                                                                                     // Let the other thread to make the aquire
+		ACE_OS::sleep(1);                                                                                                                                                                                                         // Let the other thread to make the aquire
 	}
 
 
 private:
 	ACE_Thread_Mutex mutex_;
 };
-class HA_CommandHandler : public ACE_Task_Base
-{
+class HA_CommandHandler : public ACE_Task_Base {
 public:
-	enum
-	{
+	enum {
 		NUM_USES = 10
 	};
 
-	HA_CommandHandler(HA_Device_Repository & rep) : rep_(rep)
-	{
+	HA_CommandHandler(HA_Device_Repository & rep) : rep_(rep) {
 	}
 
-	virtual int svc(void)
-	{
+	virtual int svc(void) {
 		ACE_DEBUG
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		  ((LM_DEBUG, ACE_TEXT("(%t) Handler Thread running\n")));
-		for (int i = 0; i < NUM_USES; i++)
-		{
+		((LM_DEBUG, ACE_TEXT("(%t) Handler Thread running\n")));
+		for (int i = 0; i < NUM_USES; i++) {
 			this->rep_.update_device(i);
 		}
 		return(0);
@@ -55,8 +47,7 @@ private:
 	HA_Device_Repository& rep_;
 };
 
-int ACE_TMAIN(int, ACE_TCHAR *[])
-{
+int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	HA_Device_Repository rep;
 
 	HA_CommandHandler handler1(rep);

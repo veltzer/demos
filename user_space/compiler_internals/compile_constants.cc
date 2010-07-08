@@ -9,10 +9,9 @@
  *
  * EXTRA_LIBS=
  */
-static inline int _sum(int i)
-{
+static inline int _sum(int i) {
 	std::cerr << "in _sum for " << i << std::endl;
-	return(i * (i + 1) / 2);
+	return(i *(i + 1) / 2);
 }
 
 
@@ -24,27 +23,21 @@ static inline int _sum(int i)
  *      return false and so the entire branch of that code goes away including the 'if'
  *      statement itself!
  */
-static inline int sum(int i)
-{
-	if (__builtin_constant_p(i) && (i == 100))
-	{
+static inline int sum(int i) {
+	if (__builtin_constant_p(i) && (i == 100)) {
 		return(5051);
-	}
-	else
-	{
+	} else {
 		return(_sum(i));
 	}
 }
 
 
-void fake_manipulate_int(int *ip)
-{
+void fake_manipulate_int(int *ip) {
 	*ip = atoi("100");
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	std::cerr << "sum for 99 is " << sum(99) << std::endl;
 	int j = 0;
 	fake_manipulate_int(&j);

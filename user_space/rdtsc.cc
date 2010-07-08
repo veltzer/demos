@@ -33,22 +33,20 @@
  *
  * EXTRA_LIBS=-lcpufreq
  */
-void long_task(void)
-{
+void long_task(void) {
 //	const int sleep_time=100;
 //	usleep(sleep_time);
 	sleep(1);
 
-/*
- *      const int count=1000000;
- *      for(int i=0;i<count;i++) {
- *      }
- */
+	/*
+	 *      const int count=1000000;
+	 *      for(int i=0;i<count;i++) {
+	 *      }
+	 */
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	printf("starting up...\n");
 	int c;
 	scie(syscall(__NR_getcpu, &c, NULL, NULL), "getcpu");

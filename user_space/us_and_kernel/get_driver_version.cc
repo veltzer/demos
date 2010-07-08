@@ -29,8 +29,7 @@
 
 #include "us_helper.h"
 
-void get_driver_version(const char *filename)
-{
+void get_driver_version(const char *filename) {
 	void *handle;
 
 	scpe(handle = dlopen(filename, RTLD_LAZY), "dlopen", NULL);
@@ -39,8 +38,7 @@ void get_driver_version(const char *filename)
 }
 
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp) {
 	struct utsname buf;
 
 	SCIE(uname(&buf), "uname");

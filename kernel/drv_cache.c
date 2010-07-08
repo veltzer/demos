@@ -29,23 +29,20 @@ MODULE_DESCRIPTION("Demo module for testing");
 struct kmem_cache *cache_p;
 void              *p;
 
-static int __init mod_init(void)
-{
+static int __init mod_init(void) {
 	DEBUG("start");
 	cache_p = kmem_cache_create(
-		"mark",                                                                                                      // name of cache
-		10,                                                                                                          // size to allocate
-		0,                                                                                                           // alignment
-		SLAB_HWCACHE_ALIGN | SLAB_DEBUG_OBJECTS,                                                                     // flags
-		NULL                                                                                                         // ctor/dtor
-		);
-	if (cache_p == NULL)
-	{
+				  "mark",                                                                                                                          // name of cache
+				  10,                                                                                                                              // size to allocate
+				  0,                                                                                                                               // alignment
+				  SLAB_HWCACHE_ALIGN | SLAB_DEBUG_OBJECTS,                                                                                         // flags
+				  NULL                                                                                                                             // ctor/dtor
+			  );
+	if (cache_p == NULL) {
 		return(-ENOMEM);
 	}
 	p = kmem_cache_alloc(cache_p, GFP_KERNEL);
-	if (p == NULL)
-	{
+	if (p == NULL) {
 		// there is not too much that we can do here
 		DEBUG("Cannot allocate memory");
 	}
@@ -54,8 +51,7 @@ static int __init mod_init(void)
 }
 
 
-static void __exit mod_exit(void)
-{
+static void __exit mod_exit(void) {
 	kmem_cache_free(cache_p, p);
 	//kmem_cache_free(cache_p,p);
 	kmem_cache_destroy(cache_p);
