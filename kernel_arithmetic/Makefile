@@ -13,7 +13,7 @@ KDIR:=/lib/modules/$(shell uname -r)/build
 # fill in the vervosity level you want
 V:=0
 # flags for the C++ compiler
-CXXFLAGS:=-Wall -Werror -O2 -lpthread
+CXXFLAGS:=-Wall -Werror -O2 -lpthread -I../include
 # regular kernels do not have -Werror and we want it!
 KCFLAGS:=-Werror
 

@@ -4,9 +4,10 @@
 
 /*
  *    This demo is to be used when demoing nice level.
- *    Run a couple of these processes and loot at the output.
+ *    Run a couple of these processes and look at the output.
  *    TODO: This example should be improved to set it's own nice level via APIs and
  *    fork on it's own so that no user intervention should be needed....
+ *    See the performance difference between two of these with different nice levels.
  */
 int main(int argc, char **argv, char **envp) {
 	pid_t mypid = getpid();

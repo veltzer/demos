@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#include "us_helper.h"
+#include "us_helper.hh"
 
 #include "buffer.h"
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv, char **envp) {
 	char s1[len];
 	char s2[len];
 
-	SC(d = open(filename, O_RDWR), "open");
+	SCIE(d = open(filename, O_RDWR), "open");
 	while (true) {
 		// read two numbers from the user
 		printf("Please enter a number 1:");
@@ -46,7 +46,7 @@ int main(int argc, char **argv, char **envp) {
 		b.d1 = atoi(s1);
 		b.d2 = atoi(s2);
 		klog_clear();
-		sc(ioctl(d, 0, &b), "ioctl to div");
+		scie(ioctl(d, 0, &b), "ioctl to div");
 		klog_show();
 		printf("unsigned long long results:\n");
 		printf("div is %llu - should be %llu\n", b.udiv, b.u1 / b.u2);
@@ -59,6 +59,6 @@ int main(int argc, char **argv, char **envp) {
 		printf("add is %lld - should be %lld\n", b.dadd, b.u1 + b.u2);
 		printf("sub is %lld - should be %lld\n", b.dsub, b.u1 - b.u2);
 	}
-	SC(close(d), "close");
+	SCIE(close(d), "close");
 	return(0);
 }

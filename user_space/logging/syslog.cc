@@ -1,5 +1,9 @@
 #include <syslog.h>
 
+/*
+ * This example shows syslog basic usage
+ */
+
 int main(int argc, char **argv, char **envp) {
 	const int a = 2, b = 2;
 	int c = a + b;
