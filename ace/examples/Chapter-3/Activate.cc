@@ -18,7 +18,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Main Thread running\n")));
 
 	HA_CommandHandler handler;
-	int               result = handler.activate();
+	int result = handler.activate();
 	ACE_ASSERT(result == 0);
 
 	ACE_UNUSED_ARG(result);

@@ -32,13 +32,13 @@ int Client::open(void *p) {
 
 // Listing 3 code/ch07
 int Client::handle_input(ACE_HANDLE) {
-	char    buf[64];
+	char buf[64];
 	ssize_t recv_cnt = this->peer().recv(buf, sizeof(buf) - 1);
 
 	if (recv_cnt > 0) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("%.*C"),
-				   static_cast<int>(recv_cnt),
-				   buf));
+		           static_cast<int>(recv_cnt),
+		           buf));
 		return(0);
 	}
 
@@ -62,7 +62,7 @@ int Client::handle_timeout(const ACE_Time_Value&, const void *) {
 	ACE_Message_Block *mb;
 	ACE_NEW_RETURN(mb, ACE_Message_Block(128), -1);
 	int nbytes = ACE_OS::sprintf
-				 (mb->wr_ptr(), "Iteration %d\n", this->iterations_);
+	                                           (mb->wr_ptr(), "Iteration %d\n", this->iterations_);
 	ACE_ASSERT(nbytes > 0);
 	mb->wr_ptr(static_cast<size_t>(nbytes));
 	this->putq(mb);
@@ -80,11 +80,11 @@ int Client::handle_output(ACE_HANDLE) {
 
 	while (-1 != this->getq(mb, &nowait)) {
 		ssize_t send_cnt =
-			this->peer().send(mb->rd_ptr(), mb->length());
+		        this->peer().send(mb->rd_ptr(), mb->length());
 		if (send_cnt == -1) {
 			ACE_ERROR((LM_ERROR,
-					   ACE_TEXT("(%P|%t) %p\n"),
-					   ACE_TEXT("send")));
+			           ACE_TEXT("(%P|%t) %p\n"),
+			           ACE_TEXT("send")));
 		} else {
 			mb->rd_ptr(static_cast<size_t>(send_cnt));
 		}
@@ -96,10 +96,10 @@ int Client::handle_output(ACE_HANDLE) {
 	}
 	if (this->msg_queue()->is_empty()) {
 		this->reactor()->cancel_wakeup
-		(this, ACE_Event_Handler::WRITE_MASK);
+		                  (this, ACE_Event_Handler::WRITE_MASK);
 	} else {
 		this->reactor()->schedule_wakeup
-		(this, ACE_Event_Handler::WRITE_MASK);
+		                  (this, ACE_Event_Handler::WRITE_MASK);
 	}
 	return(0);
 }
@@ -116,7 +116,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	Client *pc = &client;
 	if (connector.connect(pc, port_to_connect) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"),
-						  ACE_TEXT("connect")), 1);
+		                  ACE_TEXT("connect")), 1);
 	}
 
 	ACE_Reactor::instance()->run_reactor_event_loop();

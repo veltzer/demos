@@ -42,9 +42,9 @@ static void show_data(char *data, unsigned int size) {
 
 static void do_test(char *data, unsigned int size, const char *name) {
 	printf("starting test named [%s]\n", name);
-	int          PAGE_SIZE = getpagesize();
+	int PAGE_SIZE = getpagesize();
 	unsigned int adr = (unsigned int)data;
-	bool         aligned = (adr % PAGE_SIZE == 0);
+	bool aligned = (adr % PAGE_SIZE == 0);
 	if (aligned) {
 		printf("data %p is page aligned\n", data);
 	} else {
@@ -81,7 +81,7 @@ static void do_test(char *data, unsigned int size, const char *name) {
 }
 
 
-const int   csize = 64000;
+const int csize = 64000;
 static char data_ds[csize];
 int main(int argc, char **argv, char **envp) {
 	// file name of the device

@@ -111,7 +111,7 @@ int main(int argc, char **argv, char **envp) {
 	klog_clear();
 	pid_t c1 = run_in_process(do_open_close);
 	pid_t c2 = run_in_process(do_open_close);
-	int   status;
+	int status;
 	SCIE(waitpid(c1, &status, 0), "waitpid");
 	SCIE(waitpid(c2, &status, 0), "waitpid");
 	klog_show();

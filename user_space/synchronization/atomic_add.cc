@@ -22,11 +22,11 @@
  *
  * EXTRA_LIBS=-lpthread
  */
-const int         cpu_num = sysconf(_SC_NPROCESSORS_ONLN);
+const int cpu_num = sysconf(_SC_NPROCESSORS_ONLN);
 pthread_barrier_t bar;
-int               counter = 0;
+int counter = 0;
 FILE              *pfile = stdout;
-const int         wait_usecs = 0;
+const int wait_usecs = 0;
 //FILE* pfile=stderr;
 void print_cpu_set(cpu_set_t *p) {
 	fprintf(pfile, "_SC_NRPROCESSORS_ONLN is %d\n", cpu_num);
@@ -59,11 +59,11 @@ void *worker(void *p) {
 
 
 int main(int argc, char **argv, char **envp) {
-	const int      num = 10;
-	pthread_t      threads[num];
+	const int num = 10;
+	pthread_t threads[num];
 	pthread_attr_t attrs[num];
-	int            ids[num];
-	cpu_set_t      cpu_sets[num];
+	int ids[num];
+	cpu_set_t cpu_sets[num];
 	void           *rets[num];
 
 	SCIG(pthread_barrier_init(&bar, NULL, 10), "pthread_barrier_init");

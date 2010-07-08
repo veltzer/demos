@@ -35,7 +35,7 @@ int MakeConnection(ACE_SOCK_Acceptor *acceptor, ACE_INET_Addr *port_to_listen, A
 #ifdef NO_TIMEOUT
 	if (acceptor->accept(*peer) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("(%P|%t) Failed to accept ")
-						  ACE_TEXT("client connection\n")), 100);
+		                  ACE_TEXT("client connection\n")), 100);
 	}
 #else
 	ACE_Time_Value timeout(10, 0);
@@ -43,10 +43,10 @@ int MakeConnection(ACE_SOCK_Acceptor *acceptor, ACE_INET_Addr *port_to_listen, A
 	if (acceptor->accept(*peer, peer_addr, &timeout, 0) == -1) {
 		if (ACE_OS::last_error() == EINTR) {
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Interrupted while ")
-					   ACE_TEXT("waiting for connection\n")));
+			           ACE_TEXT("waiting for connection\n")));
 		} else if (ACE_OS::last_error() == ETIMEDOUT) {
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Timeout while ")
-					   ACE_TEXT("waiting for connection\n")));
+			           ACE_TEXT("waiting for connection\n")));
 		}
 	} else {
 		ACE_TCHAR peer_name[MAXHOSTNAMELEN];
@@ -59,12 +59,12 @@ int MakeConnection(ACE_SOCK_Acceptor *acceptor, ACE_INET_Addr *port_to_listen, A
 
 
 int ACE_TMAIN(int, ACE_TCHAR *[]) {
-	ACE_INET_Addr     port_to_listen[3];
+	ACE_INET_Addr port_to_listen[3];
 	ACE_SOCK_Acceptor acceptor[3];
-	ACE_INET_Addr     peer_addr[3];
-	ACE_SOCK_Stream   peer[3];
-	int               type = 1;
-	char              buffer[4096];
+	ACE_INET_Addr peer_addr[3];
+	ACE_SOCK_Stream peer[3];
+	int type = 1;
+	char buffer[4096];
 
 	for (int i = 0; i < 3; i++) {
 		port_to_listen[i] = ACE_INET_Addr(50000 + i, ACE_LOCALHOST);

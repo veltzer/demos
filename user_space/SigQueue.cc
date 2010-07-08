@@ -13,9 +13,9 @@ int main(int argc, char **argv, char **envp) {
 		std::cerr << argv[0] << ": usage " << argv[0] << " [pid] [sig] [value]" << std::endl;
 		return(-1);
 	}
-	int          pid = atoi(argv[1]);
-	int          sig = atoi(argv[2]);
-	int          val = atoi(argv[3]);
+	int pid = atoi(argv[1]);
+	int sig = atoi(argv[2]);
+	int val = atoi(argv[3]);
 	union sigval sval;
 	sval.sival_int = val;
 	if (sigqueue(pid, sig, sval) == -1) {

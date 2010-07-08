@@ -16,8 +16,8 @@ const int NO_ITERATIONS = 5;
 
 class Client {
 public:
-	ACE_SOCK_Stream    client_stream_;
-	ACE_INET_Addr      remote_addr_;
+	ACE_SOCK_Stream client_stream_;
+	ACE_INET_Addr remote_addr_;
 	ACE_SOCK_Connector connector_;
 	Client(char *hostname, int port) : remote_addr_(port, hostname) {                                                                                                      // Nothing need to be done
 	}
@@ -27,12 +27,12 @@ public:
 //remote machine and pass the connection into a stream component client_stream_
 	int connect_to_server() {                                                                                                     // Initiate blocking connection with server.
 		ACE_DEBUG((LM_DEBUG, "(%P|%t) Starting connect to %s:%d\n",
-				   remote_addr_.get_host_name(), remote_addr_.get_port_number()));
+		           remote_addr_.get_host_name(), remote_addr_.get_port_number()));
 		if (connector_.connect(client_stream_, remote_addr_) == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "connection failed"), -1);
 		} else {
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) connected to %s\n",
-					   remote_addr_.get_host_name()));
+			           remote_addr_.get_host_name()));
 		}
 		return(0);
 	}
@@ -86,7 +86,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	Client client(argv[1], port);
 
 	client.connect_to_server();
-	int  type = 1;
+	int type = 1;
 	char buffer[100];
 
 	while (type) {

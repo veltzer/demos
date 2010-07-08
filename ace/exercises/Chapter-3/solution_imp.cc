@@ -47,7 +47,7 @@ public:
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) waiting for lock\n")));
 		AttemptCounter++;
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Trying to update variable modulu=%d value=%d\n"),
-				   LockedCounter % 3, value));
+		           LockedCounter % 3, value));
 		if (LockedCounter % 3 == value) {
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) increasing counter\n")));
 			LockedCounter++;
@@ -75,8 +75,8 @@ public:
 class HA_CommandHandler : public ACE_Task_Base {
 private:
 	SharedResource& sharedResource;
-	const int       value;
-	const int       attempts;
+	const int value;
+	const int attempts;
 
 public:
 	HA_CommandHandler(SharedResource & sharedResource, const int value, const int attempts) : sharedResource(sharedResource), value(value), attempts(attempts) {

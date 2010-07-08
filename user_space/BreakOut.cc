@@ -46,7 +46,7 @@ int main(int argc, char **argv, char **envp) {
 	// This is a non busy wait loop which only wakes up when there
 	// are signals
 	const int size = 256;
-	char      buf[size];
+	char buf[size];
 	while (1) {
 		std::cerr << "main: before read" << std::endl;
 		if (read(0, buf, size) == -1) {

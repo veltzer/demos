@@ -13,9 +13,9 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 
 	addr.set(20000, ACE_LOCALHOST);
 	ACE_SOCK_Connector connector;
-	ACE_SOCK_Stream    peer;
-	int                bc;
-	static char        buf[64];
+	ACE_SOCK_Stream peer;
+	int bc;
+	static char buf[64];
 	ACE_Time_Value timeout(10, 0);
 
 	int i = 0;

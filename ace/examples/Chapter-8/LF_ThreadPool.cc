@@ -71,12 +71,12 @@ private:
 
 
 private:
-	int                             shutdown_;
-	ACE_thread_t                    current_leader_;
-	ACE_Thread_Mutex                leader_lock_;
+	int shutdown_;
+	ACE_thread_t current_leader_;
+	ACE_Thread_Mutex leader_lock_;
 	ACE_Unbounded_Queue<Follower *> followers_;
-	ACE_Thread_Mutex                followers_lock_;
-	static long                     LONG_TIME;
+	ACE_Thread_Mutex followers_lock_;
+	static long LONG_TIME;
 };
 
 int LF_ThreadPool::svc(void) {
@@ -157,12 +157,12 @@ void LF_ThreadPool::process_message(ACE_Message_Block *mb) {
 	ACE_OS::memcpy(&msgId, mb->rd_ptr(), sizeof(int));
 	mb->release();
 	ACE_DEBUG((LM_DEBUG,
-			   ACE_TEXT("(%t) Started processing message:%d\n"),
-			   msgId));
+	           ACE_TEXT("(%t) Started processing message:%d\n"),
+	           msgId));
 	ACE_OS::sleep(1);
 	ACE_DEBUG((LM_DEBUG,
-			   ACE_TEXT("(%t) Finished processing message:%d\n"),
-			   msgId));
+	           ACE_TEXT("(%t) Finished processing message:%d\n"),
+	           msgId));
 }
 
 

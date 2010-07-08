@@ -12,7 +12,7 @@ private:
 	static const int drop_frames = 2;
 	static const int size = 25;
 	void             *array[size];
-	int              nSize;
+	int nSize;
 	char             **symbols;
 public:
 	TracedException() {
@@ -34,10 +34,10 @@ public:
 			char result_offset[256];
 			error_demangle(symbol, result_name, 256, result_offset, 256);
 			std::cerr
-				<< symbol << ","
-				<< result_name << ","
-				<< result_offset
-				<< std::endl;
+			        << symbol << ","
+			        << result_name << ","
+			        << result_offset
+			        << std::endl;
 		}
 	}
 };

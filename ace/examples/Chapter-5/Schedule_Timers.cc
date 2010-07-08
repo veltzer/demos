@@ -21,7 +21,7 @@ public:
 		time_t epoch = ((timespec_t)current_time).tv_sec;
 
 		ACE_DEBUG((LM_INFO, ACE_TEXT("handle_timeout: %s\n"),
-				   ACE_OS::ctime(&epoch)));
+		           ACE_OS::ctime(&epoch)));
 		return(0);
 	}
 };
@@ -57,9 +57,9 @@ int ACE_TMAIN(int, ACE_TCHAR **) {
 	ACE_Time_Value interval(5);
 
 	ACE_Reactor::instance()->schedule_timer(timer,
-											0,
-											initialDelay,
-											interval);
+	                                        0,
+	                                        initialDelay,
+	                                        interval);
 	SigintHandler *handleExit = new SigintHandler();
 
 	ACE_Reactor::instance()->register_handler(SIGINT, handleExit);

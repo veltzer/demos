@@ -10,7 +10,7 @@
  */
 int main(int argc, char **argv, char **envp) {
 	pid_t mypid = getpid();
-	int   i = 0;
+	int i = 0;
 
 	while (1) {
 		if (i % 10000000 == 0) {

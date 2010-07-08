@@ -29,15 +29,15 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	 */
 
 	ACE_INET_Addr addr;
-	ACE_TCHAR     peerAddress[64];
+	ACE_TCHAR peerAddress[64];
 
 	// Listing 2 code/ch06
 	addr.set(ACE_TEXT("HAStatus"), ACE_LOCALHOST);
 	if (addr.addr_to_string(peerAddress,
-							sizeof(peerAddress), 0) == 0) {
+	                        sizeof(peerAddress), 0) == 0) {
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("(%P|%t) Connecting to %s\n"),
-				   peerAddress));
+		           ACE_TEXT("(%P|%t) Connecting to %s\n"),
+		           peerAddress));
 	}
 	// Listing 2
 
@@ -48,17 +48,17 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 
 	if (ACE_OS::last_error()) {
 		ACE_ERROR_RETURN((LM_ERROR,
-						  ACE_TEXT("%p\n"),
-						  ACE_TEXT("status")), 100);
+		                  ACE_TEXT("%p\n"),
+		                  ACE_TEXT("status")), 100);
 	}
 	// Listing 3
 
 	addr.set(ACE_TEXT("HALog"), ACE_LOCALHOST);
 	if (addr.addr_to_string(peerAddress,
-							sizeof(peerAddress), 0) == 0) {
+	                        sizeof(peerAddress), 0) == 0) {
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("(%P|%t) Connecting to %s\n"),
-				   peerAddress));
+		           ACE_TEXT("(%P|%t) Connecting to %s\n"),
+		           peerAddress));
 	}
 
 	// Listing 4 code/ch06
@@ -69,12 +69,12 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	if (logConnector.connect(log, addr, &timeout) == -1) {
 		if (ACE_OS::last_error() == ETIME) {
 			ACE_DEBUG((LM_DEBUG,
-					   ACE_TEXT("(%P|%t) Timeout while ")
-					   ACE_TEXT("connecting to log server\n")));
+			           ACE_TEXT("(%P|%t) Timeout while ")
+			           ACE_TEXT("connecting to log server\n")));
 		} else {
 			ACE_ERROR((LM_ERROR,
-					   ACE_TEXT("%p\n"),
-					   ACE_TEXT("log")));
+			           ACE_TEXT("%p\n"),
+			           ACE_TEXT("log")));
 		}
 		return(101);
 	}
@@ -101,14 +101,14 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	if (status.send_n("uptime\n", 7, &sendTimeout) == -1) {
 		if (ACE_OS::last_error() == ETIME) {
 			ACE_DEBUG((LM_DEBUG,
-					   ACE_TEXT("(%P|%t) Timeout while sending ")
-					   ACE_TEXT("query to status server\n")));
+			           ACE_TEXT("(%P|%t) Timeout while sending ")
+			           ACE_TEXT("query to status server\n")));
 		}
 		// Listing 6
 		else {
 			ACE_ERROR((LM_ERROR,
-					   ACE_TEXT("%p\n"),
-					   ACE_TEXT("send_n")));
+			           ACE_TEXT("%p\n"),
+			           ACE_TEXT("send_n")));
 		}
 		return(102);
 	}
@@ -119,8 +119,8 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 
 	if ((bc = status.recv(buf, sizeof(buf), &recvTimeout)) == -1) {
 		ACE_ERROR((LM_ERROR,
-				   ACE_TEXT("%p\n"),
-				   ACE_TEXT("recv")));
+		           ACE_TEXT("%p\n"),
+		           ACE_TEXT("recv")));
 		return(103);
 	}
 

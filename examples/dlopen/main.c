@@ -16,7 +16,7 @@ int main(int argc, char **argv, char **envp) {
 		exit(errno);
 	}
 	int (*f)(int, int);
-	f = ((int(*)(int, int))sym);
+	f = ((int(*) (int, int))sym);
 	int result = f(2, 2);
 	printf("2+2 is %d\n", result);
 	int rc = dlclose(h);

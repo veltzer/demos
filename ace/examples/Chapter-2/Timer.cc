@@ -9,11 +9,11 @@
 /*
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
-const int   NUMBER_TIMERS = 10;
+const int NUMBER_TIMERS = 10;
 static bool done = false;
-static int  count = 0;
-static int  last_arrived = -1;
-class       MyTime_Handler : public ACE_Event_Handler {
+static int count = 0;
+static int last_arrived = -1;
+class MyTime_Handler : public ACE_Event_Handler {
 public:
 	//Method which is called back by the Reactor when timeout occurs.
 	virtual int handle_timeout(const ACE_Time_Value& tv, const void *arg) {
@@ -37,15 +37,15 @@ public:
 
 int ACE_TMAIN(int, char **) {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("%t: main thread starting\n")));
-	ACE_Reactor    reactor;
+	ACE_Reactor reactor;
 	MyTime_Handler *th = new MyTime_Handler;
-	int            timer_id[NUMBER_TIMERS];
+	int timer_id[NUMBER_TIMERS];
 	for (int i = 0; i < NUMBER_TIMERS; i++) {
 		timer_id[i] = reactor.schedule_timer(
-						  th,
-						  (const void *)i,                                                                                                                                                                                                                                                                                                                                 // argument sent to handle_timeout()
-						  ACE_Time_Value(2 * i + 1)                                                                                                                                                                                                                                                                                                                        // set timer to go off with delay
-					  );
+		        th,
+		        (const void *)i,                                                                                                                                                                                                                                                                                                                                                           // argument sent to handle_timeout()
+		        ACE_Time_Value(2 * i + 1)                                                                                                                                                                                                                                                                                                                                                  // set timer to go off with delay
+		        );
 	}
 	// Cancel the fifth timer before it goes off
 	//Timer ID of timer to be removed

@@ -12,7 +12,7 @@
  * case we get destructed before opened.
  */
 Task::Task(void)
-		: barrier_(0) {
+	: barrier_(0) {
 	ACE_DEBUG((LM_DEBUG, "(%P|%t) Task ctor 0x%x\n", (void *)this));
 }
 

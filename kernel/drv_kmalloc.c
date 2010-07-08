@@ -40,7 +40,7 @@ static const int MINORS_COUNT = 1;
 
 struct kern_dev {
 	// pointer to the first device number allocated to us
-	dev_t       first_dev;
+	dev_t first_dev;
 	// cdev structures for the char devices we expose to user space
 	struct cdev cdev;
 };
@@ -58,17 +58,17 @@ static struct device   *my_device;
 static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	void          *ptr = NULL;
 	unsigned long addr = -1;
-	dma_addr_t    dma_handle;
+	dma_addr_t dma_handle;
 	unsigned long size;
 
 	//int res;
 	DEBUG("start");
 	switch (cmd) {
-		/*
-		 *      kmalloc function.
-		 *
-		 *      One argument which is the size to allocate
-		 */
+	/*
+	 *      kmalloc function.
+	 *
+	 *      One argument which is the size to allocate
+	 */
 	case IOCTL_DEMO_KMALLOC:
 		size = arg * PAGE_SIZE;
 		ptr = kmalloc(GFP_KERNEL, size);
@@ -88,11 +88,11 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      __get_free_pages function.
-		 *
-		 *      One argument which is the size to allocate
-		 */
+	/*
+	 *      __get_free_pages function.
+	 *
+	 *      One argument which is the size to allocate
+	 */
 	case IOCTL_DEMO_GET_FREE_PAGES:
 		size = arg * PAGE_SIZE;
 		addr = __get_free_pages(GFP_KERNEL, get_order(size));
@@ -112,9 +112,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      PCI allocation function
-		 */
+	/*
+	 *      PCI allocation function
+	 */
 	case IOCTL_DEMO_PCI_ALLOC_CONSISTENT:
 		size = arg * PAGE_SIZE;
 		ptr = pci_alloc_consistent(NULL, size, &dma_handle);
@@ -204,13 +204,13 @@ static int register_dev(void) {
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-					my_class,                                                                                           /* our class */
-					NULL,                                                                                               /* device we are subdevices of */
-					pdev->first_dev,
-					NULL,
-					"%s",
-					name
-				);
+	        my_class,                                                                                                                   /* our class */
+	        NULL,                                                                                                                       /* device we are subdevices of */
+	        pdev->first_dev,
+	        NULL,
+	        "%s",
+	        name
+	        );
 	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;

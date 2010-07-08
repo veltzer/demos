@@ -110,7 +110,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[]) {
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("Mapped to base address %@\n"), shared->base_addr()));
 
 		char buffer[100];
-		int  type = 1;
+		int type = 1;
 		while (type) {
 			type = GetMessageType(buffer);
 			StoreMessages(shared, buffer);

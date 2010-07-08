@@ -51,7 +51,7 @@ static const int MINORS_COUNT = 1;
 
 struct kern_dev {
 	// pointer to the first device number allocated to us
-	dev_t       first_dev;
+	dev_t first_dev;
 	// cdev structures for the char devices we expose to user space
 	struct cdev cdev;
 };
@@ -85,11 +85,11 @@ static void long_code(unsigned long mic) {
 // cycles_t is actually unsigned long long (look at arch/x86/include/asm/tsc.h).
 static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	// for register measurements...
-	cycles_t      curreg, cnt1, cnt2;
+	cycles_t curreg, cnt1, cnt2;
 	unsigned long cdiff, crmil, crmic, crmic2;
 	// for jiffies measurements...
 	unsigned long j1, j2, jdiff, jmil, jmic;
-	unsigned int  freq;
+	unsigned int freq;
 
 	DEBUG("start");
 	//char str[256];
@@ -210,13 +210,13 @@ int register_dev(void) {
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-					my_class,                                                                                           /* our class */
-					NULL,                                                                                               /* device we are subdevices of */
-					pdev->first_dev,
-					NULL,
-					name,
-					0
-				);
+	        my_class,                                                                                                                   /* our class */
+	        NULL,                                                                                                                       /* device we are subdevices of */
+	        pdev->first_dev,
+	        NULL,
+	        name,
+	        0
+	        );
 	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;

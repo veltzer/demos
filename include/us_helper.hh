@@ -38,12 +38,12 @@ static inline unsigned int min(unsigned int a, unsigned int b) {
  * Functions which handle the RDTSC
  */
 
-typedef unsigned long long   ticks_t;
+typedef unsigned long long ticks_t;
 
 static inline ticks_t getticks(void) {
 	unsigned int a, d;
 
-asm volatile("rdtsc" : "=a"(a), "=d"(d));
+	asm volatile ("rdtsc" : "=a" (a), "=d" (d));
 	return(((ticks_t)a) | (((ticks_t)d) << 32));
 }
 
@@ -54,8 +54,8 @@ static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2) {
 		exit(1);
 	}
 	unsigned long long diff = (t2 - t1) / 1000;
-	unsigned long      freq = cpufreq_get_freq_kernel(0);
-	unsigned long      mpart = freq / 1000;
+	unsigned long freq = cpufreq_get_freq_kernel(0);
+	unsigned long mpart = freq / 1000;
 	//unsigned long mdiff=difft/freq;
 	unsigned long mdiff = diff / mpart;
 	//fprintf(stdout,"diff is %llu\n",diff);
@@ -145,9 +145,9 @@ static inline void waitkey(const char *msg = NULL) {
 
 static inline void debug(const char *file, const char *function, int line, const char *fmt, ...) {
 	extern char *program_invocation_short_name;
-	char        str[1024];
-	pid_t       pid = getpid();
-	pid_t       tid = gettid();
+	char str[1024];
+	pid_t pid = getpid();
+	pid_t tid = gettid();
 
 	snprintf(str, 1024, "%s %d/%d %s %s %d: %s\n", program_invocation_short_name, pid, tid, file, function, line, fmt);
 	va_list args;
@@ -164,9 +164,9 @@ void debug(const char *file, const char *function, int line, const char *fmt, ..
 #define TRACE(fmt, args...) debug(__BASE_FILE__, __FUNCTION__, __LINE__, fmt, ## args)
 
 static inline int printproc(const char *filter) {
-	pid_t              pid = getpid();
+	pid_t pid = getpid();
 	const unsigned int cmd_size = 256;
-	char               cmd[cmd_size];
+	char cmd[cmd_size];
 
 	if (filter == NULL) {
 		snprintf(cmd, cmd_size, "cat /proc/%d/maps", pid);
@@ -226,7 +226,7 @@ static inline void do_prog_finish(void) {
  * - checks for errors on return from system(3)
  */
 static inline void my_system(const char *fmt, ...) {
-	char    str[1024];
+	char str[1024];
 	va_list args;
 
 	va_start(args, fmt);

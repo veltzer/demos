@@ -21,17 +21,17 @@
 
 // parameters for this module
 
-static int       chrdev_alloc_dynamic = 1;
-static int       first_minor = 0;
-static int       kern_major = 253;
-static int       kern_minor = 0;
+static int chrdev_alloc_dynamic = 1;
+static int first_minor = 0;
+static int kern_major = 253;
+static int kern_minor = 0;
 static const int MINORS_COUNT = 1;
 
 // first the structures
 
 struct kern_dev {
 	// pointer to the first device number allocated to us
-	dev_t       first_dev;
+	dev_t first_dev;
 	// cdev structures for the char devices we expose to user space
 	struct cdev cdev;
 };
@@ -132,13 +132,13 @@ static int register_dev(void) {
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-					my_class,                                                                                           /* our class */
-					NULL,                                                                                               /* device we are subdevices of */
-					pdev->first_dev,
-					NULL,
-					"%s",
-					name
-				);
+	        my_class,                                                                                                                   /* our class */
+	        NULL,                                                                                                                       /* device we are subdevices of */
+	        pdev->first_dev,
+	        NULL,
+	        "%s",
+	        name
+	        );
 	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;

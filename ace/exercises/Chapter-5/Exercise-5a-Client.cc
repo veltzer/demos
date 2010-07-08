@@ -12,8 +12,8 @@ const int NO_ITERATION = 5;
 class Client {
 public:
 
-	ACE_SOCK_Stream    client_stream_;
-	ACE_INET_Addr      remote_addr_;
+	ACE_SOCK_Stream client_stream_;
+	ACE_INET_Addr remote_addr_;
 	ACE_SOCK_Connector connector_;
 	Client(char *hostname, int port) : remote_addr_(port, hostname) {
 	}
@@ -28,7 +28,7 @@ public:
 			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p\n", "connection failed"), -1);
 		} else {
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) connected to %s\n",
-					   remote_addr_.get_host_name()));
+			           remote_addr_.get_host_name()));
 		}
 		return(0);
 	}
@@ -87,7 +87,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 
 	client1.connect_to_server();
 	client2.connect_to_server();
-	int  type = 1;
+	int type = 1;
 	char buffer[100];
 	while (type) {
 		type = GetMessageType(buffer);

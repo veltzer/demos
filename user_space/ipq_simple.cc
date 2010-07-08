@@ -32,8 +32,8 @@ static void die(struct ipq_handle *h) {
 
 
 int main(int argc, char **argv, char **envp) {
-	int               status;
-	unsigned char     buf[BUFSIZE];
+	int status;
+	unsigned char buf[BUFSIZE];
 	struct ipq_handle *h;
 
 	h = ipq_create_handle(0, NFPROTO_IPV4);
@@ -63,7 +63,7 @@ int main(int argc, char **argv, char **envp) {
 			fprintf(stderr, "got packet\n");
 			ipq_packet_msg_t *m = ipq_get_packet(buf);
 			status = ipq_set_verdict(h, m->packet_id,
-									 NF_ACCEPT, 0, NULL);
+			                         NF_ACCEPT, 0, NULL);
 			if (status < 0) {
 				die(h);
 			}

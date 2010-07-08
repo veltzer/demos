@@ -14,12 +14,12 @@
 #include <strings.h>
 
 int main(int argc, char **argv) {
-	int                brsock, sendsock;
-	ssize_t            datalen;
-	socklen_t          fromaddrlen;
+	int brsock, sendsock;
+	ssize_t datalen;
+	socklen_t fromaddrlen;
 	struct sockaddr_in server, fromaddr;
-	time_t             t;
-	char               ibuffer[1000], obuffer[1000];
+	time_t t;
+	char ibuffer[1000], obuffer[1000];
 
 	if ((brsock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
 		perror("brsock socket failed");
@@ -39,15 +39,15 @@ int main(int argc, char **argv) {
 	server.sin_port = htons(6969);                                                                                                            // should use getservbyname()
 
 	if (bind(brsock, (struct sockaddr *)&server,
-			 sizeof(server)) < 0) {
+	         sizeof(server)) < 0) {
 		perror("brsock connect failed");
 		exit(errno);
 	}
 
 	while (1) {
 		if ((datalen = recvfrom(brsock, ibuffer, sizeof(ibuffer), 0,
-								(struct sockaddr *)&fromaddr,
-								&fromaddrlen)) == -1) {
+		                        (struct sockaddr *)&fromaddr,
+		                        &fromaddrlen)) == -1) {
 			perror("brsock recvfrom failed");
 			exit(errno);
 		}
@@ -66,10 +66,10 @@ int main(int argc, char **argv) {
 			perror("sendsock socket failed");
 			exit(errno);
 		}
-
-		fromaddr.sin_port = htons(6996);                                                                                                                                                                                                            // reply port id
+		// reply port id
+		fromaddr.sin_port = htons(6996);
 		if (connect(sendsock, (struct sockaddr *)&fromaddr,
-					fromaddrlen) == -1) {
+		            fromaddrlen) == -1) {
 			perror("sendsock connect failed");
 			exit(errno);
 		}

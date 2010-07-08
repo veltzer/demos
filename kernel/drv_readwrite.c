@@ -21,8 +21,8 @@ MODULE_DESCRIPTION("Demo module for testing");
 
 static int __init read_file(char *filename) {
 	struct file *filp;
-	char        buf[1];
-	loff_t      pos;
+	char buf[1];
+	loff_t pos;
 
 	mm_segment_t old_fs = get_fs();
 
@@ -50,7 +50,7 @@ static int __init read_file(char *filename) {
 
 static int __init write_file(char *filename, char *data) {
 	struct file  *filp;
-	loff_t       pos = 0;
+	loff_t pos = 0;
 	unsigned int len;
 
 	mm_segment_t old_fs = get_fs();

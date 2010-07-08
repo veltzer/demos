@@ -53,7 +53,7 @@ private:
 class MessageRequest : public ACE_Method_Request {
 public:
 	MessageRequest(MessageAgent & message, ACE_Future<int> &returnVal)
-			: message_(message), returnVal_(returnVal) {
+	: message_(message), returnVal_(returnVal) {
 		ACE_TRACE(ACE_TEXT("MessageRequest::MessageRequest"));
 	}
 
@@ -135,14 +135,14 @@ public:
 
 
 private:
-	Scheduler    scheduler_;
+	Scheduler scheduler_;
 	MessageAgent message_;
 };
 
 class CompletionCallBack : public ACE_Future_Observer<int> {
 public:
 	CompletionCallBack(MessageAgentProxy & proxy)
-			: proxy_(proxy) {
+	: proxy_(proxy) {
 	}
 
 	virtual void update(const ACE_Future<int>& future) {
@@ -179,7 +179,7 @@ int GetMessageType(char *data) {
 
 int SendMessage(char *buffer, int type) {                                                                                                                   // ACE_DEBUG ((LM_DEBUG , ACE_TEXT ("SendMessage Line:%l\n")));
 	ACE_Message_Block *mb;
-	size_t            size = ACE_OS::strlen(buffer);                                                                                                // get message size
+	size_t size = ACE_OS::strlen(buffer);                                                                                                           // get message size
 
 	// Allocate a new message, but have it "borrow" its memory from the buffer.
 //ACE_NEW_RETURN (mb, ACE_Message_Block (size+1, ACE_Message_Block::MB_DATA, 0, buffer), 0);
@@ -254,7 +254,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	// Save place for up to 100 messages. If we are not sure we may use malloc
 	// and have unlimited number.
 	ACE_Future<int> results[100];
-	char            buffer[100];
+	char buffer[100];
 
 	CompletionCallBack cb(message);
 

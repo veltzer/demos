@@ -12,14 +12,14 @@
  * EXTRA_LIBS=
  */
 
-#define handle_error(msg)						 \
-	do { perror(msg); exit(EXIT_FAILURE); } \
-	while (0)
+#define handle_error(msg)                                                \
+        do { perror(msg); exit(EXIT_FAILURE); } \
+        while (0)
 
 int main(int argc, char **argv, char **envp) {
-	int      efd, j;
+	int efd, j;
 	uint64_t u;
-	ssize_t  s;
+	ssize_t s;
 
 	if (argc < 2) {
 		fprintf(stderr, "Usage: %s <num>...\n", argv[0]);
@@ -56,7 +56,7 @@ int main(int argc, char **argv, char **envp) {
 				handle_error("read");
 			}
 			printf("Parent read %llu (0x%llx) from efd\n",
-				   (unsigned long long)u, (unsigned long long)u);
+			       (unsigned long long)u, (unsigned long long)u);
 		}
 		return(0);
 	}

@@ -15,7 +15,7 @@
 int main(int argc, char **argv, char **envp) {
 	const int size = 1000000;
 	void      *p;
-	int       page_size;
+	int page_size;
 
 	printproc(NULL);
 	SCPE(p = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_POPULATE | MAP_ANONYMOUS, -1, 0), "doing anonymous mmap");

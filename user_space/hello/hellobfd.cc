@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 		return(1);
 	}
 	bfd_format format = bfd_object;
-	bool       ok_format = bfd_check_format(b, format);
+	bool ok_format = bfd_check_format(b, format);
 	if (!ok_format) {
 		std::cerr << "problem with bfd_check_format\n";
 		return(1);

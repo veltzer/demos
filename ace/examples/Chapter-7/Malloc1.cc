@@ -11,18 +11,18 @@
 typedef ACE_Malloc<ACE_MMAP_MEMORY_POOL, ACE_Null_Mutex>
 ALLOCATOR;
 typedef ACE_Malloc_LIFO_Iterator<ACE_MMAP_MEMORY_POOL,
-ACE_Null_Mutex>
+                                 ACE_Null_Mutex>
 MALLOC_LIFO_ITERATOR;
 
 ALLOCATOR *g_allocator;
-class     Record {
+class Record {
 public:
 	Record(int id1, int id2, char *name)
-			: id1_(id1), id2_(id2), name_(0) {
+		: id1_(id1), id2_(id2), name_(0) {
 		size_t len = ACE_OS::strlen(name) + 1;
 
 		this->name_ =
-			reinterpret_cast<char *>(g_allocator->malloc(len));
+		        reinterpret_cast<char *>(g_allocator->malloc(len));
 		ACE_OS::strcpy(this->name_, name);
 	}
 
@@ -46,8 +46,8 @@ public:
 
 
 private:
-	int  id1_;
-	int  id2_;
+	int id1_;
+	int id2_;
 	char *name_;
 };
 void showRecords() {
@@ -58,10 +58,10 @@ void showRecords() {
 		for (void *temp = 0; iter.next(temp) != 0; iter.advance()) {
 			Record *record = reinterpret_cast<Record *>(temp);
 			ACE_DEBUG((LM_DEBUG,
-					   ACE_TEXT("Record name: %C|id1:%d|id2:%d\n"),
-					   record->name(),
-					   record->id1(),
-					   record->id2()));
+			           ACE_TEXT("Record name: %C|id1:%d|id2:%d\n"),
+			           record->name(),
+			           record->id1(),
+			           record->id2()));
 		}
 	}
 }
@@ -75,16 +75,16 @@ int addRecords() {
 		void *memory = g_allocator->malloc(sizeof(Record));
 		if (memory == 0) {
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"),
-							  ACE_TEXT("Unable to malloc")),
-							 -1);
+			                  ACE_TEXT("Unable to malloc")),
+			                 -1);
 		}
 
 		// Allocate and place record
 		Record *newRecord = new(memory) Record(i, i + 1, buf);
 		if (g_allocator->bind(buf, newRecord) == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"),
-							  ACE_TEXT("bind failed")),
-							 -1);
+			                  ACE_TEXT("bind failed")),
+			                 -1);
 		}
 	}
 

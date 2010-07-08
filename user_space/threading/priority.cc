@@ -32,7 +32,7 @@ int min_priority = 0;
 void print_scheduling_info() {
 	//pthread_t thread_id = pthread_self();
 	pid_t tid = gettid();
-	int   pri = getpriority(PRIO_PROCESS, tid);
+	int pri = getpriority(PRIO_PROCESS, tid);
 
 	printf("thread %d is here with priority %d\n", tid, pri);
 }
@@ -40,8 +40,8 @@ void print_scheduling_info() {
 
 void *thread_body(void *arg) {
 	pid_t tid = gettid();
-	int   pri = *(int *)arg;
-	int   err = nice(pri);
+	int pri = *(int *)arg;
+	int err = nice(pri);
 
 	if (err == -1) {
 		printf("got error from nice(2)\n");
@@ -60,9 +60,9 @@ void *thread_body(void *arg) {
 
 int main(int argc, char *argv[]) {
 	struct sched_param my_param;
-	pthread_attr_t     hp_attr;
-	pthread_attr_t     mp_attr;
-	pthread_attr_t     lp_attr;
+	pthread_attr_t hp_attr;
+	pthread_attr_t mp_attr;
+	pthread_attr_t lp_attr;
 
 	/* MAIN-THREAD WITH LOW PRIORITY */
 	my_param.sched_priority = sched_get_priority_min(SCHED_FIFO);

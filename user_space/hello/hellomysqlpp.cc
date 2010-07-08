@@ -18,7 +18,7 @@ int main(int, char **, char **) {
 		Query query = con.query("select item from stock");
 //		Query query=con.query();
 //		query << "select * from user";
-		StoreQueryResult           res = query.store("select * from user");
+		StoreQueryResult res = query.store("select * from user");
 		StoreQueryResult::iterator i;
 		int j = 0;
 		for (i = res.begin(); i != res.end(); i++) {

@@ -26,7 +26,7 @@ void *worker(void *p) {
 int main(int argc, char **argv, char **envp) {
 	const int num = 2;
 	pthread_t threads[num];
-	int       ids[num];
+	int ids[num];
 	void      *rets[num];
 
 	fprintf(stderr, "main starting\n");

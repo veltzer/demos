@@ -20,7 +20,7 @@ int trace(const char *fmt, ...) {
 
 	printf("%s: ", program_invocation_short_name);
 	__builtin_va_list args;
-	int               ret;
+	int ret;
 	__builtin_va_start(args, fmt);
 	ret = vprintf(fmt, args);
 	__builtin_va_end(args);

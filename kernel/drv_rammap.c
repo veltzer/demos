@@ -36,10 +36,10 @@ static void capi_print_addressinfo(void *logical_adr) {
 		return;
 	}
 	PRINT("address %p, page:%p flags:0x%0*lx mapping:%p mapcount:%d count:%d\n",
-		  logical_adr,
-		  page, (int)(2 * sizeof(unsigned long)),
-		  page->flags, page->mapping,
-		  page_mapcount(page), page_count(page));
+	      logical_adr,
+	      page, (int)(2 * sizeof(unsigned long)),
+	      page->flags, page->mapping,
+	      page_mapcount(page), page_count(page));
 
 	PRINT("PG_lru is %lu", page->flags & (1 << PG_lru));
 	PRINT("PG_private is %lu", page->flags & (1 << PG_private));

@@ -86,11 +86,11 @@ static void *producer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue) {
 			// Allocate a new message, but have it "borrow" its memory
 			// from the buffer.
 			ACE_NEW_RETURN(mb,
-						   ACE_Message_Block(rb.size(),
-											 ACE_Message_Block::MB_DATA,
-											 0,
-											 buffer),
-						   0);
+			               ACE_Message_Block(rb.size(),
+			                                 ACE_Message_Block::MB_DATA,
+			                                 0,
+			                                 buffer),
+			               0);
 			mb->wr_ptr(rb.size());
 
 			ACE_DEBUG((LM_DEBUG, "enqueueing message of size %d\n", rb.size()));
@@ -115,7 +115,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) { // Message queue.
 	ACE_Message_Queue<ACE_MT_SYNCH> msg_queue(max_queue);
 
 	if (thr_mgr.spawn(ACE_THR_FUNC(producer), (void *)&msg_queue,
-					  THR_NEW_LWP | THR_DETACHED) == -1) {
+	                  THR_NEW_LWP | THR_DETACHED) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, "%p\n", "spawn"), 1);
 	}
 

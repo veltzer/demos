@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **envp) {
 	pthread_t thread1;
 	pthread_t thread2;
 	const int num = 2;
-	int       ids[num];
+	int ids[num];
 	void      *rets[num];
 
 	fprintf(stderr, "main starting\n");

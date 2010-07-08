@@ -43,7 +43,7 @@ static const int MINORS_COUNT = 1;
 
 struct kern_dev {
 	// pointer to the first device number allocated to us
-	dev_t       first_dev;
+	dev_t first_dev;
 	// cdev structures for the char devices we expose to user space
 	struct cdev cdev;
 };
@@ -144,9 +144,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 	DEBUG("start with ioctl %u", cmd);
 	switch (cmd) {
-		/*
-		 *      This is asking the kernel to map the memory to kernel space.
-		 */
+	/*
+	 *      This is asking the kernel to map the memory to kernel space.
+	 */
 	case IOCTL_DEMO_MAP:
 		// get the data from the user
 		if (copy_from_user(&b, (void *)arg, sizeof(b))) {
@@ -184,15 +184,15 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		down_write(&current->mm->mmap_sem);
 		// rw==READ means read from drive, write into memory area
 		res = get_user_pages(
-				  current,
-				  current->mm,
-				  aligned,
-				  nr_pages,
-				  1,                                                                                                                                                /* write */
-				  0,                                                                                                                                                /* force */
-				  pages,
-				  NULL
-			  );
+		        current,
+		        current->mm,
+		        aligned,
+		        nr_pages,
+		        1,                                                                                                                                                          /* write */
+		        0,                                                                                                                                                          /* force */
+		        pages,
+		        NULL
+		        );
 		vma = find_vma(current->mm, bpointer);
 		vma->vm_flags |= VM_DONTCOPY;
 		up_write(&current->mm->mmap_sem);
@@ -226,10 +226,10 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      This is asking the kernel to unmap the data
-		 *      No arguments are passed
-		 */
+	/*
+	 *      This is asking the kernel to unmap the data
+	 *      No arguments are passed
+	 */
 	case IOCTL_DEMO_UNMAP:
 		// this function does NOT return an error code. Strange...:)
 		vunmap(vptr);
@@ -242,10 +242,10 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      This is asking the kernel to read the data.
-		 *      No arguments are passed
-		 */
+	/*
+	 *      This is asking the kernel to read the data.
+	 *      No arguments are passed
+	 */
 	case IOCTL_DEMO_READ:
 		cptr = (char *)ptr;
 		sloop = min(size, (unsigned int)10);
@@ -257,10 +257,10 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      This is asking the kernel to write on our data
-		 *      argument is the constant which will be used...
-		 */
+	/*
+	 *      This is asking the kernel to write on our data
+	 *      argument is the constant which will be used...
+	 */
 	case IOCTL_DEMO_WRITE:
 		memset(ptr, arg, size);
 		//pages_dirty();
@@ -319,13 +319,13 @@ static int register_dev(void) {
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-					my_class,                                                                                           /* our class */
-					NULL,                                                                                               /* device we are subdevices of */
-					pdev->first_dev,
-					NULL,
-					name,
-					0
-				);
+	        my_class,                                                                                                                   /* our class */
+	        NULL,                                                                                                                       /* device we are subdevices of */
+	        pdev->first_dev,
+	        NULL,
+	        name,
+	        0
+	        );
 	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;

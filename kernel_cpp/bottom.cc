@@ -1,12 +1,12 @@
 extern "C" {
 // functions that we need to supply
-	int cpp_init();
-	void cpp_exit();
+int cpp_init();
+void cpp_exit();
 
 // support functions
-	void myprintk(const char *);
-	void *mymalloc(unsigned int);
-	void myfree(void *);
+void myprintk(const char *);
+void *mymalloc(unsigned int);
+void myfree(void *);
 }
 
 /* to satisfy the kernel dynamic linker */

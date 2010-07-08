@@ -43,7 +43,7 @@ int main(int argc, char **argv, char **envp) {
 	bool stop = false;
 	while (!stop) {
 		wint_t c;
-		int    res;
+		int res;
 		res = get_wch(&c);
 		if (res == ERR) {
 			stop = true;

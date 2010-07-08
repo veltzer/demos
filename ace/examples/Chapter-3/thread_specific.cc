@@ -27,8 +27,8 @@ typedef ACE_TSS_Guard<ACE_Thread_Mutex>   GUARD;
 extern "C" void
 cleanup(void *ptr) {
 	ACE_DEBUG((LM_DEBUG,
-			   "(%t) in cleanup, ptr = %x\n",
-			   ptr));
+	           "(%t) in cleanup, ptr = %x\n",
+	           ptr));
 
 	delete reinterpret_cast<char *>(ptr);
 }
@@ -107,9 +107,9 @@ static void *worker(void *c) {
 			ACE_OS::printf("(%t)", handle);
 
 			ACE_OS::printf(" errno = %d, lineno = %d, flags = %d\n",
-						   tss_error->error(),
-						   tss_error->line(),
-						   tss_error->flags());
+			               tss_error->error(),
+			               tss_error->line(),
+			               tss_error->flags());
 		}
 		key = ACE_OS::NULL_key;
 
@@ -160,7 +160,7 @@ handler(int signum) {
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) { // The Service_Config must be the first object defined in main...
 	ACE_Service_Config daemon(argv[0]);
 
-	int      threads = argc > 1 ? ACE_OS::atoi(argv[1]) : 4;
+	int threads = argc > 1 ? ACE_OS::atoi(argv[1]) : 4;
 	intptr_t count = argc > 2 ? ACE_OS::atoi(argv[2]) : 10;
 
 	// Register a signal handler.
@@ -169,9 +169,9 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) { // The Service_Config must be the f
 	ACE_UNUSED_ARG(sa);
 
 	if (ACE_Thread_Manager::instance()->spawn_n(threads,
-			ACE_THR_FUNC(&worker),
-			reinterpret_cast<void *>(count),
-			THR_BOUND | THR_DETACHED) == -1) {
+	                                            ACE_THR_FUNC(&worker),
+	                                            reinterpret_cast<void *>(count),
+	                                            THR_BOUND | THR_DETACHED) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, "%p\n", "ACE_Thread_Manager::spawn_n"), -1);
 	}
 

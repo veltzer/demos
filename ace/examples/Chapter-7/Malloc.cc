@@ -26,7 +26,7 @@ ALLOCATOR *g_allocator;
 class Record {
 public:
 	Record(int id1, int id2, char *name)
-			: id1_(id1), id2_(id2), name_(0) {
+		: id1_(id1), id2_(id2), name_(0) {
 		size_t len = ACE_OS::strlen(name) + 1;
 
 		this->name_ = ACE_reinterpret_cast(char *, g_allocator->malloc(len));
@@ -89,7 +89,7 @@ void showRecords(void) {
 		for (void *temp = 0; iter.next(temp) != 0; iter.advance()) {
 			Record *record = ACE_reinterpret_cast(Record *, temp);
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("Record name: %C|id1:%d|id2:%d\n"),
-					   record->name(), record->id1(), record->id2()));
+			           record->name(), record->id1(), record->id2()));
 		}
 	}
 }

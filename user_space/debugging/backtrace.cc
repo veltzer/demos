@@ -26,7 +26,7 @@
  *      Please keep this a C function, as it should be usable for C infrastructure as well...
  */
 void print_trace(void) {
-	unsigned int       nptrs;
+	unsigned int nptrs;
 	const unsigned int MAX_FRAMES = 100;
 	void               *buffer[MAX_FRAMES];
 
@@ -106,7 +106,7 @@ void do_fault(void) {
 int rec_func(unsigned int ncalls, unsigned int ret) {
 	printf("ncalls is %d\n", ncalls);
 	ret += ncalls;
-	asm("");
+	asm ("");
 	if (ncalls > 1) {
 		rec_func(ncalls - 1, ret);
 	} else {

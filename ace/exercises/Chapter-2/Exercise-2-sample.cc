@@ -81,8 +81,8 @@ static void *producer(ACE_Message_Queue<ACE_MT_SYNCH> *msg_queue) {
 	 */
 	//==============================================
 	ACE_NEW_RETURN(mb,
-				   ACE_Message_Block(rb.size(), ACE_Message_Block::MB_DATA, 0, buffer),
-				   0);
+	               ACE_Message_Block(rb.size(), ACE_Message_Block::MB_DATA, 0, buffer),
+	               0);
 // The following are methods for the queue (assuming using msg_queue):
 //                mb->msg_priority (int);  // Priority MUST be set into the message block
 //          msg_queue->enqueue_head(mb)
@@ -102,7 +102,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) { // Message queue.
 	ACE_Message_Queue<ACE_MT_SYNCH> msg_queue(max_queue);
 
 	if (thr_mgr.spawn(ACE_THR_FUNC(producer), (void *)&msg_queue,
-					  THR_NEW_LWP | THR_DETACHED) == -1) {
+	                  THR_NEW_LWP | THR_DETACHED) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR, "%p\n", "spawn"), 1);
 	}
 

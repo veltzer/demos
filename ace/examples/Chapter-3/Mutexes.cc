@@ -14,7 +14,7 @@ public:
 	void update_device(int device_id) {
 		mutex_.acquire();
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Updating device %d\n"),
-				   device_id));
+		           device_id));
 		ACE_OS::sleep(1);
 		mutex_.release();
 		ACE_OS::sleep(1);                                                                                                                                                                                                         // Let the other thread to make the aquire
@@ -35,7 +35,7 @@ public:
 
 	virtual int svc(void) {
 		ACE_DEBUG
-		((LM_DEBUG, ACE_TEXT("(%t) Handler Thread running\n")));
+		                  ((LM_DEBUG, ACE_TEXT("(%t) Handler Thread running\n")));
 		for (int i = 0; i < NUM_USES; i++) {
 			this->rep_.update_device(i);
 		}

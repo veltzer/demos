@@ -39,7 +39,7 @@ static const int MINORS_COUNT = 1;
 
 struct kern_dev {
 	// pointer to the first device number allocated to us
-	dev_t       first_dev;
+	dev_t first_dev;
 	// cdev structures for the char devices we expose to user space
 	struct cdev cdev;
 };
@@ -110,14 +110,14 @@ static unsigned long map_to_user(struct file *filp, void *kptr, unsigned int siz
 	oldval = filp->private_data;
 	filp->private_data = kptr;
 	uptr = do_mmap_pgoff(
-			   filp,                                                                                                           /* file pointer for which filp->mmap will be called */
-			   0,                                                                                                              /* address - this is the address we recommend for user space - best not to ... */
-			   size,                                                                                                           /* size */
-			   PROT_READ | PROT_WRITE,                                                                                         /* protection */
-			   //PROT_READ, /* protection */
-			   flags,                                                                                                          /* flags */
-			   0                                                                                                               /* pg offset */
-		   );
+	        filp,                                                                                                                      /* file pointer for which filp->mmap will be called */
+	        0,                                                                                                                         /* address - this is the address we recommend for user space - best not to ... */
+	        size,                                                                                                                      /* size */
+	        PROT_READ | PROT_WRITE,                                                                                                    /* protection */
+	        //PROT_READ, /* protection */
+	        flags,                                                                                                                     /* flags */
+	        0                                                                                                                          /* pg offset */
+	        );
 	filp->private_data = oldval;
 	up_write(&mm->mmap_sem);
 	if (IS_ERR_VALUE(uptr)) {
@@ -157,11 +157,11 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 	DEBUG("start with cmd %d", cmd);
 	switch (cmd) {
-		/*
-		 *      Asking the kernel to mmap into user space.
-		 *
-		 *      Only argument is size.
-		 */
+	/*
+	 *      Asking the kernel to mmap into user space.
+	 *
+	 *      Only argument is size.
+	 */
 	case IOCTL_DEMO_MAP:
 		DEBUG("trying to mmap");
 		size = arg;
@@ -182,11 +182,11 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      Asking the kernel to munmap user space.
-		 *
-		 *      Not arguments are required
-		 */
+	/*
+	 *      Asking the kernel to munmap user space.
+	 *
+	 *      Not arguments are required
+	 */
 	case IOCTL_DEMO_UNMAP:
 		DEBUG("trying to munmap");
 		res = do_munmap(current->mm, uptr, size);
@@ -204,11 +204,11 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      Asking the kernel to write to the buffer
-		 *
-		 *      One argument which is the value to write
-		 */
+	/*
+	 *      Asking the kernel to write to the buffer
+	 *
+	 *      One argument which is the value to write
+	 */
 	case IOCTL_DEMO_WRITE:
 		if (kptr == NULL) {
 			ERROR("ERROR: kptr is NULL?!?");
@@ -219,12 +219,12 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      Asking the kernel to check that the buffer
-		 *      is a certain value
-		 *
-		 *      One argument which is the value to check
-		 */
+	/*
+	 *      Asking the kernel to check that the buffer
+	 *      is a certain value
+	 *
+	 *      One argument which is the value to check
+	 */
 	case IOCTL_DEMO_READ:
 		if (kptr == NULL) {
 			ERROR("ERROR: kptr is NULL?!?");
@@ -234,13 +234,13 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      Asking the kernel to copy the in kernel buffer
-		 *      to user space
-		 *
-		 *      One argument which is the pointer to the user space
-		 *      buffer
-		 */
+	/*
+	 *      Asking the kernel to copy the in kernel buffer
+	 *      to user space
+	 *
+	 *      One argument which is the pointer to the user space
+	 *      buffer
+	 */
 	case IOCTL_DEMO_COPY:
 		if (kptr == NULL) {
 			ERROR("ERROR: kptr is NULL?!?");
@@ -401,21 +401,21 @@ static int register_dev(void) {
 	// now register it in /dev
 #if LINUX_VERSION_CODE == 132634                     /* target kernel */
 	my_device = device_create(
-					my_class,                                                                                                  /* our class */
-					NULL,                                                                                                      /* device we are subdevices of */
-					pdev->first_dev,
-					"%s",
-					name
-				);
+	        my_class,                                                                                                                          /* our class */
+	        NULL,                                                                                                                              /* device we are subdevices of */
+	        pdev->first_dev,
+	        "%s",
+	        name
+	        );
 #else /* ubuntu kernel */
 	my_device = device_create(
-					my_class,                                                                                           /* our class */
-					NULL,                                                                                           /* device we are subdevices of */
-					pdev->first_dev,
-					NULL,
-					"%s",
-					name
-				);
+	        my_class,                                                                                                                   /* our class */
+	        NULL,                                                                                                                   /* device we are subdevices of */
+	        pdev->first_dev,
+	        NULL,
+	        "%s",
+	        name
+	        );
 #endif
 	if (my_device == NULL) {
 		DEBUG("cannot create device");

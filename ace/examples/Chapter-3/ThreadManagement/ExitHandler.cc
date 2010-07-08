@@ -59,7 +59,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 #if 0
 // Listing 4 code/ch13
 int ACE_TMAIN(int, ACE_TCHAR *[]) {
-	ExitHandler        eh;
+	ExitHandler eh;
 	ACE_Thread_Manager tm;
 
 	HA_CommandHandler handler(eh);

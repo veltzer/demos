@@ -14,7 +14,7 @@ const int BUFFER_SIZE = 1024;
 class Server {
 public:
 	Server(int port) :
-			server_addr_(port), peer_acceptor_(server_addr_) {                                                                                                     //
+		server_addr_(port), peer_acceptor_(server_addr_) {                                                                                                             //
 	}
 
 
@@ -63,7 +63,7 @@ public:
 				continue;
 			} else {
 				ACE_DEBUG((LM_DEBUG, "Connection established with remote %s:%d\n",
-						   client_addr_.get_host_name(), client_addr_.get_port_number()));
+				           client_addr_.get_host_name(), client_addr_.get_port_number()));
 				handle_connection();                                                                                                                                                                                                                                                                                                                                                                                                                 //          Handle the connection
 				ACE_OS::exit(1);
 			}
@@ -74,10 +74,10 @@ public:
 
 private:
 //  char *data_buf_;
-	ACE_INET_Addr     server_addr_;
-	ACE_INET_Addr     client_addr_;
+	ACE_INET_Addr server_addr_;
+	ACE_INET_Addr client_addr_;
 	ACE_SOCK_Acceptor peer_acceptor_;
-	ACE_SOCK_Stream   new_stream_;
+	ACE_SOCK_Stream new_stream_;
 };
 
 int main(int argc, char *argv[]) {

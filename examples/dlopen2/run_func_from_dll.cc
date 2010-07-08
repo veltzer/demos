@@ -22,7 +22,7 @@ int main(int argc, char **argv, char **envp) {
 		fprintf(stderr, "error with dlsym: %s\n", dlerror());
 		exit(errno);
 	}
-	double(*f)(double) = (typeof(f))sym;
+	double (*f)(double) = (typeof(f))sym;
 	double result = f(p_dval);
 	printf("result is %lf\n", result);
 	int rc = dlclose(h);

@@ -17,17 +17,17 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 
 	// Listing 2 code/ch06
 	ACE_SOCK_Connector connector;
-	ACE_SOCK_Stream    peer;
+	ACE_SOCK_Stream peer;
 
 	if (-1 == connector.connect(peer, srvr)) {
 		ACE_ERROR_RETURN((LM_ERROR,
-						  ACE_TEXT("%p\n"),
-						  ACE_TEXT("connect")), 1);
+		                  ACE_TEXT("%p\n"),
+		                  ACE_TEXT("connect")), 1);
 	}
 	// Listing 2
 
 	ssize_t bc;
-	char    buf[64];
+	char buf[64];
 
 	// Listing 3 code/ch06
 	peer.send_n("uptime\n", 7);

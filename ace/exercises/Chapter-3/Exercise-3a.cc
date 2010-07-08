@@ -27,8 +27,8 @@ public:
 	int status_update(void) {
 		ACE_TRACE(ACE_TEXT("HA_ControllerAgent::status_update"));
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("Obtaining a status_update in %t ")
-				   ACE_TEXT("thread of control\n")));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     // -- 11
+		           ACE_TEXT("Obtaining a status_update in %t ")
+		           ACE_TEXT("thread of control\n")));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             // -- 11
 		// Simulate time to send message and get status.
 		ACE_OS::sleep(2);
 		return(next_result_id());
@@ -48,7 +48,7 @@ private:
 class StatusUpdate : public ACE_Method_Request {
 public:
 	StatusUpdate(HA_ControllerAgent & controller, ACE_Future<int> &returnVal)
-			: controller_(controller), returnVal_(returnVal) {
+	: controller_(controller), returnVal_(returnVal) {
 		ACE_TRACE(ACE_TEXT("StatusUpdate::StatusUpdate"));
 	}
 
@@ -145,7 +145,7 @@ public:
 
 
 private:
-	Scheduler          scheduler_;
+	Scheduler scheduler_;
 	HA_ControllerAgent controller_;
 };
 
@@ -166,7 +166,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 		}
 		// Allocate a new message, but have it "borrow" its memory from the buffer.
 		ACE_NEW_RETURN(mb, ACE_Message_Block(rb.size(), ACE_Message_Block::MB_DATA,
-											 0, buffer), 0);
+		                                     0, buffer), 0);
 		// get message size
 		//ACE_Utils::truncate_cast<unsigned long> (rb.size ());
 		mb->wr_ptr(rb.size());

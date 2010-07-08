@@ -47,7 +47,7 @@ public:
 
 	// this is for allocating arrays, the size that you get
 	// is SizeOfObject*NumOfObjects...
-	void *operator new[](const unsigned int size) {
+	void *operator new[] (const unsigned int size) {
 		std::cerr << "in new[] operator" << std::endl;
 		std::cerr << "size is " << size << std::endl;
 		void *pointer = malloc(size);
@@ -57,7 +57,7 @@ public:
 
 
 	// notice that this does NOT get called...
-	void operator delete[](void *pointer) {
+	void operator delete[] (void *pointer) {
 		std::cerr << "in delete[] operator" << std::endl;
 		std::cerr << "pointer is " << pointer << std::endl;
 		free(pointer);

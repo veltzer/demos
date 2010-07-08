@@ -48,9 +48,9 @@ public:
 	};
 
 	HA_CommandHandler(HA_Device_Repository & rep,
-					  ACE_Condition<ACE_Thread_Mutex> &wait,
-					  ACE_Thread_Mutex & mutex)
-			: rep_(rep), waitCond_(wait), mutex_(mutex) {
+	                  ACE_Condition<ACE_Thread_Mutex> &wait,
+	                  ACE_Thread_Mutex & mutex)
+		: rep_(rep), waitCond_(wait), mutex_(mutex) {
 	}
 
 	virtual int svc(void);
@@ -64,7 +64,7 @@ private:
 int
 HA_CommandHandler::svc(void) {
 	ACE_DEBUG((LM_DEBUG,
-			   ACE_TEXT("(%t) Handler Thread running\n")));
+	           ACE_TEXT("(%t) Handler Thread running\n")));
 
 	for (int i = 0; i < NUM_USES; i++) {
 		this->mutex_.acquire();
@@ -90,7 +90,7 @@ HA_CommandHandler::svc(void) {
 int
 HA_Device_Repository::update_device(int device_id) {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Updating device %d\n"),
-			   device_id));
+	           device_id));
 
 	ACE_OS::sleep(1);
 	return(0);
@@ -100,7 +100,7 @@ HA_Device_Repository::update_device(int device_id) {
 // Listing 3 code/ch12
 int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	HA_Device_Repository rep;
-	ACE_Thread_Mutex     rep_mutex;
+	ACE_Thread_Mutex rep_mutex;
 
 	//FUZZ: disable check_for_lack_ACE_OS
 	ACE_Condition<ACE_Thread_Mutex> wait(rep_mutex);

@@ -31,17 +31,17 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	ACE_INET_Addr port_to_listen(20000);
 
 	ACE_SOCK_Acceptor acceptor;
-	int               type = 1;
-	char              buffer[4096];
+	int type = 1;
+	char buffer[4096];
 
 	if (acceptor.open(port_to_listen, 1) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR,
-						  ACE_TEXT("%p\n"),
-						  ACE_TEXT("acceptor.open")),
-						 100);
+		                  ACE_TEXT("%p\n"),
+		                  ACE_TEXT("acceptor.open")),
+		                 100);
 	}
 	ACE_SOCK_Stream peer;
-	ACE_INET_Addr   peer_addr;
+	ACE_INET_Addr peer_addr;
 
 	/*
 	 * Basic acceptor usage - No timeout
@@ -57,19 +57,19 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	if (acceptor.accept(peer, &peer_addr, &timeout, 0) == -1) {
 		if (ACE_OS::last_error() == EINTR) {
 			ACE_DEBUG((LM_DEBUG,
-					   ACE_TEXT("(%P|%t) Interrupted while ")
-					   ACE_TEXT("waiting for connection\n")));
+			           ACE_TEXT("(%P|%t) Interrupted while ")
+			           ACE_TEXT("waiting for connection\n")));
 		} else if (ACE_OS::last_error() == ETIMEDOUT) {
 			ACE_DEBUG((LM_DEBUG,
-					   ACE_TEXT("(%P|%t) Timeout while ")
-					   ACE_TEXT("waiting for connection\n")));
+			           ACE_TEXT("(%P|%t) Timeout while ")
+			           ACE_TEXT("waiting for connection\n")));
 		}
 	} else {
 		ACE_TCHAR peer_name[MAXHOSTNAMELEN];
 		peer_addr.addr_to_string(peer_name, MAXHOSTNAMELEN);
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("(%P|%t) Connection from %s\n"),
-				   peer_name));
+		           ACE_TEXT("(%P|%t) Connection from %s\n"),
+		           peer_name));
 	}
 #endif /* NO_TIMEOUT */
 	while (type != 0) {

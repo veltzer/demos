@@ -28,11 +28,11 @@
 unsigned long addr;
 void          *vaddr;
 char          *caddr;
-unsigned int  size;
+unsigned int size;
 //unsigned int size_rounded;
-unsigned int  pg_num;
+unsigned int pg_num;
 unsigned long phys;
-unsigned int  pages;
+unsigned int pages;
 //struct page* pp;
 //void* start_addr;
 bool do_kmalloc = true;
@@ -89,7 +89,7 @@ module_exit(mod_exit);
 
 struct kern_dev {
 	// pointer to the first device number allocated to us
-	dev_t       first_dev;
+	dev_t first_dev;
 	// cdev structures for the char devices we expose to user space
 	struct cdev cdev;
 };
@@ -107,27 +107,27 @@ static struct device   *my_device;
  * getting the image rows and columns
  */
 unsigned long addr;
-int           ioctl_size;
+int ioctl_size;
 void          *kaddr;
 static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
 	//int i;
-	char         str[256];
+	char str[256];
 	void         *ptr;
 	unsigned int order;
 
 	unsigned long private;
-	unsigned long         adjusted;
-	unsigned int          diff;
-	int                   ret;
+	unsigned long adjusted;
+	unsigned int diff;
+	int ret;
 	struct vm_area_struct *vma;
 	struct mm_struct      *mm;
 	void                  *kernel_addr;
-	unsigned long         flags;
+	unsigned long flags;
 	DEBUG("start");
 	switch (cmd) {
-		/*
-		 *      Exploring VMA issues
-		 */
+	/*
+	 *      Exploring VMA issues
+	 */
 	case 0:
 		ptr = (void *)arg;
 		DEBUG("ptr is %p", ptr);
@@ -143,9 +143,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		DEBUG("adjusted (p) is %p", (void *)adjusted);
 		break;
 
-		/*
-		 *      This is asking the kernel to read the memory
-		 */
+	/*
+	 *      This is asking the kernel to read the memory
+	 */
 	case 1:
 		DEBUG("starting to read");
 		memcpy(str, vaddr, 256);
@@ -153,27 +153,27 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		DEBUG("data is %s", str);
 		break;
 
-		/*
-		 *      This is asking the kernel to write the memory
-		 */
+	/*
+	 *      This is asking the kernel to write the memory
+	 */
 	case 2:
 		DEBUG("starting to write");
 		memset(vaddr, arg, size);
 		break;
 
-		/*
-		 *      This demos how to take the user space pointer and turn it
-		 *      into a kernel space pointer
-		 */
+	/*
+	 *      This demos how to take the user space pointer and turn it
+	 *      into a kernel space pointer
+	 */
 	case 3:
 		DEBUG("starting to write using us pointer");
 		ptr = (void *)arg;
 		DEBUG("ptr is %p", ptr);
 		break;
 
-		/*
-		 *      mmap a region
-		 */
+	/*
+	 *      mmap a region
+	 */
 	case 4:
 		DEBUG("trying to mmap");
 		if (do_kmalloc) {
@@ -187,13 +187,13 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 		flags &= ~(MAP_EXECUTABLE | MAP_DENYWRITE);
 		down_write(&mm->mmap_sem);
 		addr = do_mmap_pgoff(
-				   filp,                                                                                                                                                                /* file pointer */
-				   (unsigned long)kaddr,                                                                                                                                                /* address - this is the buffer we kmalloc'ed */
-				   ioctl_size,                                                                                                                                                          /* size */
-				   PROT_READ | PROT_WRITE,                                                                                                                                              /* protection */
-				   flags,                                                                                                                                                               /* flags */
-				   0                                                                                                                                                                    /* pg offset */
-			   );
+		        filp,                                                                                                                                                                           /* file pointer */
+		        (unsigned long)kaddr,                                                                                                                                                           /* address - this is the buffer we kmalloc'ed */
+		        ioctl_size,                                                                                                                                                                     /* size */
+		        PROT_READ | PROT_WRITE,                                                                                                                                                         /* protection */
+		        flags,                                                                                                                                                                          /* flags */
+		        0                                                                                                                                                                               /* pg offset */
+		        );
 		up_write(&mm->mmap_sem);
 		DEBUG("kaddr is (p) %p", kaddr);
 		DEBUG("real size is (d) %d", ioctl_size);
@@ -202,9 +202,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      unmap a region
-		 */
+	/*
+	 *      unmap a region
+	 */
 	case 5:
 		DEBUG("trying to unmap");
 		vma = find_vma(current->mm, addr);
@@ -225,9 +225,9 @@ static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 
 		break;
 
-		/*
-		 *      The the size of the region
-		 */
+	/*
+	 *      The the size of the region
+	 */
 	case 6:
 		DEBUG("setting the size");
 		ioctl_size = arg;
@@ -366,9 +366,9 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma) {
 		 */
 		order = get_order(size);
 		addr = __get_free_pages(
-				   GFP_KERNEL,
-				   order
-			   );
+		        GFP_KERNEL,
+		        order
+		        );
 		vaddr = (void *)addr;
 		DEBUG("addr is %lx", addr);
 		DEBUG("order is %d", order);
@@ -385,12 +385,12 @@ static int kern_mmap(struct file *filp, struct vm_area_struct *vma) {
 	DEBUG("vm_end is %lx", vma->vm_end);
 	DEBUG("vm_pgoff is %lx", vma->vm_pgoff);
 	ret = remap_pfn_range(
-			  vma,
-			  vma->vm_start,
-			  pg_num,
-			  size,
-			  vma->vm_page_prot
-		  );
+	        vma,
+	        vma->vm_start,
+	        pg_num,
+	        size,
+	        vma->vm_page_prot
+	        );
 	if (ret) {
 		DEBUG("in error path");
 		if (do_kmalloc) {
@@ -461,13 +461,13 @@ int register_dev() {
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-					my_class,                                                                                           /* our class */
-					NULL,                                                                                               /* device we are subdevices of */
-					pdev->first_dev,
-					NULL,
-					name,
-					0
-				);
+	        my_class,                                                                                                                   /* our class */
+	        NULL,                                                                                                                       /* device we are subdevices of */
+	        pdev->first_dev,
+	        NULL,
+	        name,
+	        0
+	        );
 	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;

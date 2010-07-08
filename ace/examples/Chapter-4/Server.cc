@@ -23,9 +23,9 @@ int ACE_TMAIN(int, ACE_TCHAR **) {
 
 	if (acceptor.open(port_to_listen, 1) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR,
-						  ACE_TEXT("%p\n"),
-						  ACE_TEXT("acceptor.open")),
-						 100);
+		                  ACE_TEXT("%p\n"),
+		                  ACE_TEXT("acceptor.open")),
+		                 100);
 	}
 	// lets print our own connect address...
 	ACE_TCHAR my_name[MAXHOSTNAMELEN];
@@ -35,7 +35,7 @@ int ACE_TMAIN(int, ACE_TCHAR **) {
 	ACE_DEBUG((LM_DEBUG, ACE_TEXT("Server going into main loop\n")));
 	while (true) {
 		ACE_SOCK_Stream peer;
-		ACE_INET_Addr   peer_addr;
+		ACE_INET_Addr peer_addr;
 		ACE_Time_Value timeout(10, 0);
 
 		if (acceptor.accept(peer, &peer_addr, &timeout, 1) == -1) {
@@ -50,7 +50,7 @@ int ACE_TMAIN(int, ACE_TCHAR **) {
 			ACE_TCHAR peer_name[MAXHOSTNAMELEN];
 			peer_addr.addr_to_string(peer_name, MAXHOSTNAMELEN);
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Connection from %s\n"), peer_name));
-			char    buffer[4096];
+			char buffer[4096];
 			ssize_t bytes_received = peer.recv(buffer, sizeof(buffer));
 			// IMPORTANT NOTICE: do not allow 0 here since it is the end
 			// of file...

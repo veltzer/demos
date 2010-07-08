@@ -38,12 +38,12 @@ void *worker(void *p) {
 
 
 int main(int argc, char **argv, char **envp) {
-	const int      cpu_num = sysconf(_SC_NPROCESSORS_ONLN);
-	const int      num = 10;
-	pthread_t      threads[num];
+	const int cpu_num = sysconf(_SC_NPROCESSORS_ONLN);
+	const int num = 10;
+	pthread_t threads[num];
 	pthread_attr_t attrs[num];
-	cpu_set_t      cpu_sets[num];
-	int            ids[num];
+	cpu_set_t cpu_sets[num];
+	int ids[num];
 	void           *rets[num];
 
 	fprintf(stderr, "main starting\n");

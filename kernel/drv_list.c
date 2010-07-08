@@ -80,7 +80,7 @@ module_exit(mod_exit);
 
 struct kern_dev {
 	// pointer to the first device number allocated to us
-	dev_t       first_dev;
+	dev_t first_dev;
 	// cdev structures for the char devices we expose to user space
 	struct cdev cdev;
 };
@@ -99,12 +99,12 @@ static struct device   *my_device;
  */
 void *lptr;
 static int kern_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, unsigned long arg) {
-	int  res;
+	int res;
 	void *p;
 
 	DEBUG("start");
 	switch (cmd) {
-		/* Create the list */
+	/* Create the list */
 	case 0:
 		lptr = capi_list_create();
 		return(0);
@@ -234,13 +234,13 @@ int register_dev() {
 	DEBUG("added the device");
 	// now register it in /dev
 	my_device = device_create(
-					my_class,                                                                                           /* our class */
-					NULL,                                                                                               /* device we are subdevices of */
-					pdev->first_dev,
-					NULL,
-					name,
-					0
-				);
+	        my_class,                                                                                                                   /* our class */
+	        NULL,                                                                                                                       /* device we are subdevices of */
+	        pdev->first_dev,
+	        NULL,
+	        name,
+	        0
+	        );
 	if (my_device == NULL) {
 		DEBUG("cannot create device");
 		goto goto_create_device;

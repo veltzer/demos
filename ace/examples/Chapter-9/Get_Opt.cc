@@ -25,18 +25,18 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	cmd_opts.long_option(ACE_TEXT("the_answer"), 42);
 	// Listing 1
 
-	int       option;
+	int option;
 	ACE_TCHAR config_file[MAXPATHLEN];
 	ACE_OS_String::strcpy(config_file, ACE_TEXT("HAStatus.conf"));
 	while ((option = cmd_opts()) != EOF) {
 		switch (option) {
 		case 'f':
 			ACE_OS_String::strncpy(config_file,
-								   cmd_opts.opt_arg(),
-								   MAXPATHLEN);
+			                       cmd_opts.opt_arg(),
+			                       MAXPATHLEN);
 			break;
 
-			// Listing 2 code/ch04
+		// Listing 2 code/ch04
 		case 0:
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("Yes, very cool.\n")));
 			break;
@@ -44,17 +44,17 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 		case 42:
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("the_answer is 42\n")));
 			break;
-			// Listing 2
+		// Listing 2
 
 		case ':':
 			ACE_ERROR_RETURN
-			((LM_ERROR, ACE_TEXT("-%c requires an argument\n"),
-			  cmd_opts.opt_opt()), -1);
+			                  ((LM_ERROR, ACE_TEXT("-%c requires an argument\n"),
+			                    cmd_opts.opt_opt()), -1);
 
 
 		default:
 			ACE_ERROR_RETURN
-			((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
+			                  ((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
 		}
 	}
 

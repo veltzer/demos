@@ -23,8 +23,8 @@ public:
 	int status_update(void) {
 		ACE_TRACE(ACE_TEXT("HA_ControllerAgent::status_update"));
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("Obtaining a status_update in %t ")
-				   ACE_TEXT("thread of control\n")));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     // -- 11
+		           ACE_TEXT("Obtaining a status_update in %t ")
+		           ACE_TEXT("thread of control\n")));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             // -- 11
 		// Simulate time to send message and get status.
 		ACE_OS::sleep(2);
 		return(next_result_id());
@@ -45,8 +45,8 @@ private:
 class StatusUpdate : public ACE_Method_Request {
 public:
 	StatusUpdate(HA_ControllerAgent & controller,
-				 ACE_Future<int> &returnVal)
-			: controller_(controller), returnVal_(returnVal) {
+	             ACE_Future<int> &returnVal)
+	: controller_(controller), returnVal_(returnVal) {
 		ACE_TRACE(ACE_TEXT("StatusUpdate::StatusUpdate"));
 	}
 
@@ -92,7 +92,7 @@ public:
 
 		while (1) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       // Dequeue the next method object
 			ACE_DEBUG((LM_DEBUG,
-					   ACE_TEXT("In Scheduler::svc waiting for queue data dequeue\n")));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  // -- 3
+			           ACE_TEXT("In Scheduler::svc waiting for queue data dequeue\n")));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          // -- 3
 			auto_ptr<ACE_Method_Request> request(this->activation_queue_.dequeue());
 
 			// Invoke the method request.
@@ -144,7 +144,7 @@ public:
 
 
 private:
-	Scheduler          scheduler_;
+	Scheduler scheduler_;
 	HA_ControllerAgent controller_;
 };
 

@@ -162,10 +162,10 @@ kern_tips:
 	@echo "or edit the file and permanently change the version"
 
 # code beautifucation
+.PHONY: do_astyle
+do_astyle:
+	astyle --verbose --suffix=none --formatted --preserve-date --options=astyle.cfg $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
+# I do not use uncrustify because it changes code that it already beautified...
 .PHONY: do_uncrustify
 do_uncrustify:
 	uncrustify -c uncrustify.cfg --replace --no-backup $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
-.PHONY: do_astyle
-do_astyle:
-	astyle --options=astyle.cfg $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
-	rm -f `find . -name "*.orig"`

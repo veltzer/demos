@@ -16,7 +16,7 @@
  */
 
 pthread_spinlock_t mylock;
-int                val = 0;
+int val = 0;
 
 void *worker(void *p) {
 	while (true) {
@@ -38,7 +38,7 @@ int main(int argc, char **argv, char **envp) {
 	scig(pthread_spin_init(&mylock, 0), "pthread_spin_init");
 	const int num = 2;
 	pthread_t threads[num];
-	int       ids[num];
+	int ids[num];
 	void      *rets[num];
 	TRACE("starting threads...");
 	for (int i = 0; i < num; i++) {

@@ -24,7 +24,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) { // Example for a long option withou
 	cmd_opts.long_option(ACE_TEXT("cool_option"));
 	cmd_opts.long_option(ACE_TEXT("the_answer"), 42);
 
-	int       option;
+	int option;
 	ACE_TCHAR config_file[MAXPATHLEN];
 	ACE_OS_String::strcpy(config_file, ACE_TEXT("HAStatus.conf"));
 	while ((option = cmd_opts()) != EOF) {
@@ -56,7 +56,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) { // Example for a long option withou
 
 		case ':':
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("-%c requires an argument\n"),
-							  cmd_opts.opt_opt()), -1);
+			                  cmd_opts.opt_opt()), -1);
 
 
 		default:

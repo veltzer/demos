@@ -24,8 +24,8 @@
 
 //const bool do_single=true;
 //const bool do_stress=false;
-const bool         do_single = false;
-const bool         do_stress = true;
+const bool do_single = false;
+const bool do_stress = true;
 const unsigned int count = 10000;
 
 int main(int argc, char **argv, char **envp) {
@@ -68,7 +68,7 @@ int main(int argc, char **argv, char **envp) {
 		for (unsigned int i = 0; i < count; i++) {
 			do_prog(i, 10, count);
 			unsigned int size = (i % 1000 + 1) * 4096;
-			char         c = i % 20 + 'a';
+			char c = i % 20 + 'a';
 			scpe(ptr = (void *)ioctl(d, IOCTL_DEMO_MAP, size), "map to user");
 			// set the buffer to c
 			memset(ptr, c, size);

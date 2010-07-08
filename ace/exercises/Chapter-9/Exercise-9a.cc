@@ -19,7 +19,7 @@
  */
 
 #define NCHILDREN 2
-int  MyIndex = -1;
+int MyIndex = -1;
 long ListenPort;
 
 class SignalableTask : public ACE_Task<ACE_MT_SYNCH> {
@@ -59,10 +59,10 @@ int DoAccept(long ReceivePort, ACE_SOCK_Stream *peer, ACE_INET_Addr *peer_addr, 
 	if (acceptor->accept(*peer, peer_addr, &timeout, 0) == -1) {
 		if (ACE_OS::last_error() == EINTR) {
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Interrupted while ")
-					   ACE_TEXT("waiting for connection\n")));
+			           ACE_TEXT("waiting for connection\n")));
 		} else if (ACE_OS::last_error() == ETIMEDOUT) {
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P|%t) Timeout while ")
-					   ACE_TEXT("waiting for connection\n")));
+			           ACE_TEXT("waiting for connection\n")));
 		}
 	} else {
 		ACE_TCHAR peer_name[MAXHOSTNAMELEN];
@@ -77,7 +77,7 @@ int DoAccept(long ReceivePort, ACE_SOCK_Stream *peer, ACE_INET_Addr *peer_addr, 
 int ReceiveMessages(ACE_SOCK_Stream peer[], ACE_SOCK_Acceptor acceptor[]) {
 	char buffer[4096];
 
-	int    socket_fd, result;
+	int socket_fd, result;
 	fd_set readset;
 
 	socket_fd = acceptor[1].get_handle();                                                                                                                      /* The second handle is the highest one */
@@ -121,10 +121,10 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 		return(1);
 	}
 	if (argc > 3) {                                                                                                       // Running as a child.
-		ACE_Sig_Handler    sh;
-		ACE_SOCK_Stream    peer;
+		ACE_Sig_Handler sh;
+		ACE_SOCK_Stream peer;
 		ACE_SOCK_Connector connector;
-		char               buffer[4096];
+		char buffer[4096];
 		ACE_Time_Value timeout(10, 0);
 
 		sh.register_handler(SIGUSR1, &handler);                                                                                                                                                                                                            // Use SIGUSR1
@@ -153,8 +153,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[]) {
 	} else {                                                                                                             // Running as a parent.
 		ACE_Process_Manager *pm = ACE_Process_Manager::instance();
 		// Get the processwide process manager.
-		ACE_SOCK_Stream   peer[NCHILDREN];
-		ACE_INET_Addr     peer_addr[NCHILDREN];
+		ACE_SOCK_Stream peer[NCHILDREN];
+		ACE_INET_Addr peer_addr[NCHILDREN];
 		ACE_SOCK_Acceptor acceptor[NCHILDREN];
 
 		// Specify the options for the new processes to be spawned.

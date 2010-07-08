@@ -32,9 +32,9 @@ static int __init mod_init(void) {
 	rp = iomem_resource.child;
 	while (rp) {
 		printk("  %0*llx-%0*llx\n",
-			   8, (unsigned long long)rp->start,
-			   8, (unsigned long long)rp->end
-			  );
+		       8, (unsigned long long)rp->start,
+		       8, (unsigned long long)rp->end
+		       );
 		// advance to the next resource...
 		rp = rp->sibling;
 	}

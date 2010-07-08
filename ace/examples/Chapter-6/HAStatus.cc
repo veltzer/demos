@@ -35,8 +35,8 @@ public:
 	virtual int handle_input(ACE_HANDLE fd = ACE_INVALID_HANDLE);
 
 	// Called when this handler is removed from the ACE_Reactor.
-	virtual int handle_close(ACE_HANDLE       handle,
-							 ACE_Reactor_Mask close_mask);
+	virtual int handle_close(ACE_HANDLE handle,
+	                         ACE_Reactor_Mask close_mask);
 
 protected:
 	ACE_SOCK_Acceptor acceptor_;
@@ -67,8 +67,8 @@ public:
 	virtual int handle_output(ACE_HANDLE fd = ACE_INVALID_HANDLE);
 
 	// Called when this handler is removed from the ACE_Reactor.
-	virtual int handle_close(ACE_HANDLE       handle,
-							 ACE_Reactor_Mask close_mask);
+	virtual int handle_close(ACE_HANDLE handle,
+	                         ACE_Reactor_Mask close_mask);
 
 protected:
 	ACE_SOCK_Stream sock_;
@@ -89,12 +89,12 @@ int
 ClientAcceptor::open(const ACE_INET_Addr& listen_addr) {
 	if (this->acceptor_.open(listen_addr, 1) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR,
-						  ACE_TEXT("%p\n"),
-						  ACE_TEXT("acceptor.open")),
-						 -1);
+		                  ACE_TEXT("%p\n"),
+		                  ACE_TEXT("acceptor.open")),
+		                 -1);
 	}
 	return(this->reactor()->register_handler
-		   (this, ACE_Event_Handler::ACCEPT_MASK));
+	                             (this, ACE_Event_Handler::ACCEPT_MASK));
 }
 
 
@@ -110,10 +110,10 @@ ClientAcceptor::handle_input(ACE_HANDLE) {
 
 	if (this->acceptor_.accept(client->peer()) == -1) {
 		ACE_ERROR_RETURN((LM_ERROR,
-						  ACE_TEXT("(%P|%t) %p\n"),
-						  ACE_TEXT("Failed to accept ")
-						  ACE_TEXT("client connection")),
-						 -1);
+		                  ACE_TEXT("(%P|%t) %p\n"),
+		                  ACE_TEXT("Failed to accept ")
+		                  ACE_TEXT("client connection")),
+		                 -1);
 	}
 	p.release();
 	client->reactor(this->reactor());
@@ -131,7 +131,7 @@ int
 ClientAcceptor::handle_close(ACE_HANDLE, ACE_Reactor_Mask) {
 	if (this->acceptor_.get_handle() != ACE_INVALID_HANDLE) {
 		ACE_Reactor_Mask m = ACE_Event_Handler::ACCEPT_MASK |
-							 ACE_Event_Handler::DONT_CALL;
+		                     ACE_Event_Handler::DONT_CALL;
 		this->reactor()->remove_handler(this, m);
 		this->acceptor_.close();
 	}
@@ -144,17 +144,17 @@ ClientAcceptor::handle_close(ACE_HANDLE, ACE_Reactor_Mask) {
 // Listing 7 code/ch07
 int
 ClientService::open(void) {
-	ACE_TCHAR     peer_name[MAXHOSTNAMELEN];
+	ACE_TCHAR peer_name[MAXHOSTNAMELEN];
 	ACE_INET_Addr peer_addr;
 
 	if ((this->sock_.get_remote_addr(peer_addr) == 0) &&
-			(peer_addr.addr_to_string(peer_name, MAXHOSTNAMELEN) == 0)) {
+	    (peer_addr.addr_to_string(peer_name, MAXHOSTNAMELEN) == 0)) {
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("(%P|%t) Connection from %s\n"),
-				   peer_name));
+		           ACE_TEXT("(%P|%t) Connection from %s\n"),
+		           peer_name));
 	}
 	return(this->reactor()->register_handler
-		   (this, ACE_Event_Handler::READ_MASK));
+	                             (this, ACE_Event_Handler::READ_MASK));
 }
 
 
@@ -164,32 +164,32 @@ ClientService::open(void) {
 int
 ClientService::handle_input(ACE_HANDLE) {
 	const size_t INPUT_SIZE = 4096;
-	char         buffer[INPUT_SIZE];
-	ssize_t      recv_cnt, send_cnt;
+	char buffer[INPUT_SIZE];
+	ssize_t recv_cnt, send_cnt;
 
 	if ((recv_cnt = this->sock_.recv(buffer, sizeof(buffer))) <= 0) {
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("(%P|%t) Connection closed\n")));
+		           ACE_TEXT("(%P|%t) Connection closed\n")));
 		return(-1);
 	}
 
 	send_cnt =
-		this->sock_.send(buffer, static_cast<size_t>(recv_cnt));
+	        this->sock_.send(buffer, static_cast<size_t>(recv_cnt));
 	if (send_cnt == recv_cnt) {
 		return(0);
 	}
 	if ((send_cnt == -1) && (ACE_OS::last_error() != EWOULDBLOCK)) {
 		ACE_ERROR_RETURN((LM_ERROR,
-						  ACE_TEXT("(%P|%t) %p\n"),
-						  ACE_TEXT("send")),
-						 0);
+		                  ACE_TEXT("(%P|%t) %p\n"),
+		                  ACE_TEXT("send")),
+		                 0);
 	}
 	if (send_cnt == -1) {
 		send_cnt = 0;
 	}
 	ACE_Message_Block *mb;
-	size_t            remaining =
-		static_cast<size_t>((recv_cnt - send_cnt));
+	size_t remaining =
+	        static_cast<size_t>((recv_cnt - send_cnt));
 	ACE_NEW_RETURN(mb, ACE_Message_Block(remaining), -1);
 	mb->copy(&buffer[send_cnt], remaining);
 	int output_off = this->output_queue_.is_empty();
@@ -197,14 +197,14 @@ ClientService::handle_input(ACE_HANDLE) {
 
 	if (this->output_queue_.enqueue_tail(mb, &nowait) == -1) {
 		ACE_ERROR((LM_ERROR,
-				   ACE_TEXT("(%P|%t) %p; discarding data\n"),
-				   ACE_TEXT("enqueue failed")));
+		           ACE_TEXT("(%P|%t) %p; discarding data\n"),
+		           ACE_TEXT("enqueue failed")));
 		mb->release();
 		return(0);
 	}
 	if (output_off) {
 		return(this->reactor()->register_handler
-			   (this, ACE_Event_Handler::WRITE_MASK));
+		                             (this, ACE_Event_Handler::WRITE_MASK));
 	}
 	return(0);
 }
@@ -220,13 +220,13 @@ ClientService::handle_output(ACE_HANDLE) {
 	ACE_Time_Value nowait(ACE_OS::gettimeofday());
 
 	while (0 <= this->output_queue_.dequeue_head
-			(mb, &nowait)) {
+	                                  (mb, &nowait)) {
 		ssize_t send_cnt =
-			this->sock_.send(mb->rd_ptr(), mb->length());
+		        this->sock_.send(mb->rd_ptr(), mb->length());
 		if (send_cnt == -1) {
 			ACE_ERROR((LM_ERROR,
-					   ACE_TEXT("(%P|%t) %p\n"),
-					   ACE_TEXT("send")));
+			           ACE_TEXT("(%P|%t) %p\n"),
+			           ACE_TEXT("send")));
 		} else {
 			mb->rd_ptr(static_cast<size_t>(send_cnt));
 		}
@@ -249,7 +249,7 @@ ClientService::handle_close(ACE_HANDLE, ACE_Reactor_Mask mask) {
 		return(0);
 	}
 	mask = ACE_Event_Handler::ALL_EVENTS_MASK |
-		   ACE_Event_Handler::DONT_CALL;
+	       ACE_Event_Handler::DONT_CALL;
 	this->reactor()->remove_handler(this, mask);
 	this->sock_.close();
 	this->output_queue_.flush();
@@ -267,8 +267,8 @@ public:
 
 	// Called when object is signaled by OS.
 	virtual int handle_signal(int signum,
-							  siginfo_t * = 0,
-							  ucontext_t * = 0);
+	                          siginfo_t * = 0,
+	                          ucontext_t * = 0);
 };
 
 LoopStopper::LoopStopper(int signum) {
@@ -291,8 +291,8 @@ public:
 
 	// Called when object is signaled by OS.
 	virtual int handle_signal(int signum,
-							  siginfo_t * = 0,
-							  ucontext_t * = 0);
+	                          siginfo_t * = 0,
+	                          ucontext_t * = 0);
 
 	// Called when an exceptional event occurs.
 	virtual int handle_exception(ACE_HANDLE fd = ACE_INVALID_HANDLE);
@@ -307,7 +307,7 @@ private:
 };
 
 LogSwitcher::LogSwitcher(int on_sig, int off_sig)
-		: on_sig_(on_sig), off_sig_(off_sig) {
+	: on_sig_(on_sig), off_sig_(off_sig) {
 	ACE_Sig_Set sigs;
 
 	sigs.sig_add(on_sig);

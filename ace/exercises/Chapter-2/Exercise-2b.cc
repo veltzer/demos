@@ -100,10 +100,10 @@ static void *producer() {
 		// Allocate a new buffer.
 		char              *buffer = rb.read('\n');
 		ACE_Message_Block *mb;
-		int               timer_id;
-		int               type;
-		float             delay;
-		static float      AbsoluteDelay = 0.0;
+		int timer_id;
+		int type;
+		float delay;
+		static float AbsoluteDelay = 0.0;
 		if (buffer == 0) {
 			// Send a 0-sized shutdown message to the other thread and exit.
 			ACE_NEW_RETURN(mb, ACE_Message_Block((size_t)0), 0);

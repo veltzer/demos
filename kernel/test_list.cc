@@ -47,8 +47,8 @@ int show_menu(void) {
 
 int main(int argc, char **argv, char **envp) {
 	const char *filename = "/dev/demo";
-	int        d;
-	int        arg;
+	int d;
+	int arg;
 
 	SCIE(d = open(filename, O_RDWR), "open");
 	int choice = show_menu();

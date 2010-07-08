@@ -21,7 +21,7 @@ public:
 	int status_update(void) {
 		ACE_TRACE(ACE_TEXT("HA_ControllerAgent::status_update"));
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("Obtaining a status_update in %t ")
-				   ACE_TEXT("thread of control\n")));
+		           ACE_TEXT("thread of control\n")));
 		// Simulate sending message to controller and getting status.
 		ACE_OS::sleep(2);
 		return(next_result_id());
@@ -41,8 +41,8 @@ private:
 class StatusUpdate : public ACE_Method_Request {
 public:
 	StatusUpdate(HA_ControllerAgent & controller,
-				 ACE_Future<int> &returnVal)
-			: controller_(controller), returnVal_(returnVal) {
+	             ACE_Future<int> &returnVal)
+	: controller_(controller), returnVal_(returnVal) {
 		ACE_TRACE(ACE_TEXT("StatusUpdate::StatusUpdate"));
 	}
 
@@ -125,7 +125,7 @@ public:
 
 
 private:
-	Scheduler          scheduler_;
+	Scheduler scheduler_;
 	HA_ControllerAgent controller_;
 };
 
@@ -145,7 +145,7 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 		int result = 0;
 		results[j].get(result);
 		ACE_DEBUG((LM_DEBUG,
-				   ACE_TEXT("New status_update %d\n"), result));
+		           ACE_TEXT("New status_update %d\n"), result));
 	}
 
 	// Cause the status_updater threads to exit.

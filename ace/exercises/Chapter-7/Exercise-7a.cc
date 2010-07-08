@@ -108,11 +108,11 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[]) {
 
 	if (argc > 1) {                                                                                                  // Use an existing file
 		ACE_MMAP_Memory_Pool_Options option0(ACE_DEFAULT_BASE_ADDR,
-											 ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
+		                                     ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
 		ACE_MMAP_Memory_Pool_Options option1(ACE_DEFAULT_BASE_ADDR + 100000,
-											 ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
+		                                     ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
 		ACE_MMAP_Memory_Pool_Options option2(ACE_DEFAULT_BASE_ADDR + 200000,
-											 ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
+		                                     ACE_MMAP_Memory_Pool_Options::FIRSTCALL_FIXED);
 
 		options[0] = &option0;
 		options[1] = &option1;
@@ -120,7 +120,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[]) {
 		for (i = 0; i < 3; i++) {
 			ACE_NEW_RETURN(shared[i], SHARED_ALLOC(StoreName[i], StoreName[i], options[i]), -1);
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(shared%d) Mapped to base address %@\n"), i,
-					   shared[i]->base_addr()));
+			           shared[i]->base_addr()));
 		}
 		for (i = 0; i < 3; i++) {
 			PrintMessages(shared[i], i);
@@ -131,11 +131,11 @@ int ACE_TMAIN(int argc, ACE_TCHAR *[]) {
 		for (i = 0; i < 3; i++) {                                                                                                                                                                                                      //ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%C\n"), StoreName[i]));
 			ACE_NEW_RETURN(shared[i], SHARED_ALLOC(StoreName[i], StoreName[i], &option0), -1);
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(shared%d) Mapped to base address %@\n"), i,
-					   shared[i]->base_addr()));
+			           shared[i]->base_addr()));
 		}
 
 		char buffer[100];
-		int  type = 1;
+		int type = 1;
 		while (type) {
 			type = GetMessageType(buffer);
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("Buffer: <%C>\n"), buffer));

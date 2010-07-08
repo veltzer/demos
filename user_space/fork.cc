@@ -60,7 +60,7 @@ int main(int argc, char **argv, char **envp) {
 	}
 	if (child_pid == 0) {
 		bool selected = false;
-		int  selection;
+		int selection;
 		while (!selected) {
 			TRACE("this is the child");
 			TRACE("Please select what do you want to do:");
@@ -99,7 +99,7 @@ int main(int argc, char **argv, char **envp) {
 		while (!over) {
 			TRACE("waiting for the child...");
 			siginfo_t info;
-			int       res = waitid(P_PID, child_pid, &info, WEXITED | WSTOPPED | WCONTINUED);
+			int res = waitid(P_PID, child_pid, &info, WEXITED | WSTOPPED | WCONTINUED);
 			if (res == -1) {
 				perror("could not waitid(2)");
 				exit(1);

@@ -44,7 +44,7 @@ public:
 		mutex.acquire();
 		AttemptCounter++;
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) Trying to update variable modulu=%d value=%d\n"),
-				   LockedCounter % 3, value));
+		           LockedCounter % 3, value));
 		if (LockedCounter % 3 == value) {
 			ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) increasing counter\n")));
 			LockedCounter++;
@@ -69,7 +69,7 @@ class HA_CommandHandler : public ACE_Task_Base {
 private:
 	static const int numAttempts = 1000;
 	SharedResource&  sharedResource;
-	const int        value;
+	const int value;
 
 public:
 	HA_CommandHandler(SharedResource & sharedResource, const int value) : sharedResource(sharedResource), value(value) {

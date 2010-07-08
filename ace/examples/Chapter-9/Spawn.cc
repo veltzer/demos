@@ -27,7 +27,7 @@ public:
 
 		// Spawn the new process; prepare() hook is called first.
 		ACE_Process_Options options;
-		pid_t               pid = this->spawn(options);
+		pid_t pid = this->spawn(options);
 		if (pid == ACE_INVALID_PID) {
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("spawn")), -1);
 		}
@@ -51,7 +51,7 @@ private:
 			ACE_ERROR_RETURN((LM_ERROR, ACE_TEXT("%p\n"), ACE_TEXT("lseek")), -1);
 		}
 
-		char    buf[1024];
+		char buf[1024];
 		ssize_t length = 0;
 
 		// Read the contents of the error stream written by the child and print it out.
@@ -71,7 +71,7 @@ private:
 
 		options.command_line(ACE_TEXT("%s 1"), this->programName_);
 		if ((this->setStdHandles(options) == -1) ||
-				(this->setEnvVariable(options) == -1)) {
+		    (this->setEnvVariable(options) == -1)) {
 			return(-1);
 		}
 #if !defined (ACE_WIN32) && !defined (ACE_LACKS_PWD_FUNCTIONS)
@@ -116,7 +116,7 @@ private:
 
 private:
 	ACE_HANDLE outputfd_;
-	ACE_TCHAR  programName_[256];
+	ACE_TCHAR programName_[256];
 };
 
 class Slave {
@@ -130,20 +130,20 @@ public:
 		ACE_TRACE("Slave::doWork");
 
 		ACE_DEBUG((LM_INFO,
-				   ACE_TEXT("(%P) started at %T, parent is %d\n"),
-				   ACE_OS::getppid()));
+		           ACE_TEXT("(%P) started at %T, parent is %d\n"),
+		           ACE_OS::getppid()));
 		this->showWho();
 		ACE_DEBUG((LM_INFO,
-				   ACE_TEXT("(%P) the private environment is %s\n"),
-				   ACE_OS::getenv("PRIVATE_VAR")));
+		           ACE_TEXT("(%P) the private environment is %s\n"),
+		           ACE_OS::getenv("PRIVATE_VAR")));
 
 		ACE_TCHAR str[128];
 		ACE_OS::sprintf(str, ACE_TEXT("(%d) Enter your command\n"),
-						static_cast<int>(ACE_OS::getpid()));
+		                static_cast<int>(ACE_OS::getpid()));
 		ACE_OS::write(ACE_STDOUT, str, ACE_OS::strlen(str));
 		this->readLine(str);
 		ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%P) Executed: %C\n"),
-				   str));
+		           str));
 		return(0);
 	}
 

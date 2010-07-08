@@ -19,7 +19,7 @@ int ACE_TMAIN(int, ACE_TCHAR **) {
 	// How to initialize a message block with constant size and how to write
 	// data to the message block
 	ACE_Message_Block *mb;
-	const int         size = 128;
+	const int size = 128;
 
 	// Notice that we define a constant size block
 	ACE_NEW_RETURN(mb, ACE_Message_Block(size), -1);

@@ -15,9 +15,9 @@
  */
 int main(int argc, char **argv, char **envp) {
 	const size_t SIZE = 5;
-	const int    BAD_FD = 11;
-	char         buf[SIZE];
-	ssize_t      s = read(BAD_FD, buf, SIZE);
+	const int BAD_FD = 11;
+	char buf[SIZE];
+	ssize_t s = read(BAD_FD, buf, SIZE);
 
 	if (s == -1) {
 		perror("read");

@@ -18,17 +18,17 @@
 int ACE_TMAIN(int, ACE_TCHAR *[]) {
 	static const ACE_TCHAR options[] = ACE_TEXT(":f:h:");
 	static const ACE_TCHAR cmdline[] =
-		ACE_TEXT("-f /home/managed.cfg -h $HOSTNAME");
+	        ACE_TEXT("-f /home/managed.cfg -h $HOSTNAME");
 
 	ACE_ARGV cmdline_args(cmdline);
 	ACE_Get_Opt cmd_opts(cmdline_args.argc(),
-						 cmdline_args.argv(),
-						 options,
-						 0);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          // Don't skip any args
+	                     cmdline_args.argv(),
+	                     options,
+	                     0);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              // Don't skip any args
 
 // Listing 1
 
-	int       option;
+	int option;
 	ACE_TCHAR config_file[MAXPATHLEN];
 	ACE_TCHAR hostname[MAXHOSTNAMELEN];
 
@@ -38,25 +38,25 @@ int ACE_TMAIN(int, ACE_TCHAR *[]) {
 		switch (option) {
 		case 'f':
 			ACE_OS_String::strncpy(config_file,
-								   cmd_opts.opt_arg(),
-								   MAXPATHLEN);
+			                       cmd_opts.opt_arg(),
+			                       MAXPATHLEN);
 			break;
 
 		case 'h':
 			ACE_OS_String::strncpy(hostname,
-								   cmd_opts.opt_arg(),
-								   MAXHOSTNAMELEN);
+			                       cmd_opts.opt_arg(),
+			                       MAXHOSTNAMELEN);
 			break;
 
 		case ':':
 			ACE_ERROR_RETURN
-			((LM_ERROR, ACE_TEXT("-%c requires an argument\n"),
-			  cmd_opts.opt_opt()), -1);
+			                  ((LM_ERROR, ACE_TEXT("-%c requires an argument\n"),
+			                    cmd_opts.opt_opt()), -1);
 
 
 		default:
 			ACE_ERROR_RETURN
-			((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
+			                  ((LM_ERROR, ACE_TEXT("Parse error.\n")), -1);
 		}
 	}
 

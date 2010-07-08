@@ -29,7 +29,7 @@ int d, d2;
 
 void *function_crazy(void *p) {
 	bool over = false;
-	int  counter = 0;
+	int counter = 0;
 	bool err = false;
 
 	while (!over) {

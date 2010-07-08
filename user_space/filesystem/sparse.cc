@@ -20,7 +20,7 @@ const char *fname = "my.sparse";
 
 int main(int argc, char **argv, char **envp) {
 	// this will be used to check return values
-	int  ret = 0;
+	int ret = 0;
 	FILE *f = fopen(fname, "w");
 
 	if (f == NULL) {
