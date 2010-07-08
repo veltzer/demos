@@ -20,7 +20,7 @@
  * EXTRA_CMDS=pkg-config --cflags --libs ACE
  */
 
-#include "Request_Handler.h"
+#include "Request_Handler.hh"
 
 // Accepting end point. This is actually "localhost:10010", but some
 // platform couldn't resolve the name so we use the IP address
