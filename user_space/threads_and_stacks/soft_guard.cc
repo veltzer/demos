@@ -10,6 +10,7 @@
 /*
 	This test shows how to test for bad stack state (distance from
 	end of the stack is too short...)
+ * EXTRA_LIBS=-lpthread
 */
 
 typedef struct big_struct {

@@ -12,6 +12,8 @@
 	- for the main thread (the one going from the main function) the thread id
 	is the same as the process id.
 	- for other threads the process id is the same but the thread id is different.
+ 
+EXTRA_LIBS=-lpthread
 */
 
 pid_t gettid(void) {
