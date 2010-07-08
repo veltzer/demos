@@ -43,12 +43,7 @@ int main(int argc, char **argv, char **envp) {
 		clockid_t clk_id = clocks[i].id;
 		struct timespec res;
 		scig(clock_getres(clk_id, &res), "clock_getres");
-		printf("clock resolution for clock %s (%d) is %ld (sec) %ld (nsec)\n",
-		       clocks[i].name,
-		       clocks[i].id,
-		       res.tv_sec,
-		       res.tv_nsec
-		       );
+		printf("clock resolution for clock %s (%d) is %ld (sec) %ld (nsec)\n", clocks[i].name, clocks[i].id, res.tv_sec, res.tv_nsec);
 	}
 	return(0);
 }
