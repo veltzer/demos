@@ -8,6 +8,12 @@
  * see the result using ?
  * du -s my.sparse
  * ls -l my.sparse
+ *
+ * 	Mark Veltzer
+ *
+ * 	TODO:
+ * 	- at the end of the program do a stat and show the results.
+ * 	- at the end of the program run "system du" and "system ls -l" to show the diff.
  */
 
 // this is the position we will seek to...
@@ -16,7 +22,7 @@ const int pos = 1000000;
 // this is the string to be printed into the file
 const char *string = "hello";
 // this is the name of the file to be used
-const char *fname = "my.sparse";
+const char *fname = "/tmp/my.sparse.file";
 
 int main(int argc, char **argv, char **envp) {
 	// this will be used to check return values
