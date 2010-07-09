@@ -2,20 +2,24 @@
 #include <signal.h>
 #include <stdio.h>
 
-// Here is a template that will take care of all out needs
-
 /*
- * int syscall(int val) {
- *      if(val==-1) {
- *              perror("C++ exception thrown");
- *              throw std::exception();
- *      }
- *      return val;
- * }
+ * This example shows how to eliminate lots of redundant C error checking
+ * from your code when calling system calls or C APIs from C++ and turning
+ * all of those errors in to exceptions...
  */
 
+// this is the non template approach
+int syscall(int val,int err_val) {
+	if(val==err_val) {
+		perror("C++ exception thrown");
+		throw std::exception();
+	}
+	return val;
+}
+
+// Here is a template that will take care of all our needs
 template<class T> T syscall(T val, T err_val) {
-	if (val == err_val) {
+	if(val==err_val) {
 		perror("C++ exception thrown");
 		throw std::exception();
 	}
