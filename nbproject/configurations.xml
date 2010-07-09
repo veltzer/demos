@@ -240,11 +240,6 @@
       <df name="include" kind="SOURCE_LOGICAL_FOLDER">
       </df>
       <df name="kernel" kind="SOURCE_LOGICAL_FOLDER">
-        <df name=".tmp_versions">
-          <in>drv_eventfd.mod</in>
-          <in>drv_null.mod</in>
-          <in>drv_readwrite.mod</in>
-        </df>
         <in>div_buffer.h</in>
         <in>drv_bootmem.c</in>
         <in>drv_bootmem.mod.c</in>
@@ -578,92 +573,6 @@
           </ccTool>
         </makeTool>
       </makefileType>
-      <item path="../../dev/projects/demos/kernel/.tmp_versions/drv_eventfd.mod"
-            ex="true"
-            tool="2">
-      </item>
-      <item path="../../dev/projects/demos/kernel/.tmp_versions/drv_null.mod"
-            ex="true"
-            tool="2">
-      </item>
-      <item path="../../dev/projects/demos/kernel/.tmp_versions/drv_readwrite.mod"
-            ex="true"
-            tool="2">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_bootmem.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_bug.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_cache.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_complete.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_div.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_dma.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_errno.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_eventfd.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_get_free_pages.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_get_user_pages.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_ioctl_close_race.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_iomem.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_iserr.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_kmalloc.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_list.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_min.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_mmap.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_mmap_to_user.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_null.mod.c" ex="true" tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_open_close_release.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_rammap.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_readwrite.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_spin_lock.mod.c"
-            ex="true"
-            tool="0">
-      </item>
-      <item path="../../dev/projects/demos/kernel/drv_timing.mod.c"
-            ex="true"
-            tool="0">
-      </item>
       <item path="examples/default_constructor/a.cc" ex="true" tool="1">
       </item>
       <item path="examples/default_constructor/a.h" ex="true" tool="3">
