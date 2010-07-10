@@ -80,18 +80,13 @@ KCFLAGS:=-Werror
 # general rules...
 # how to create regular executables...
 $(CC_EXE): %.exe: %.cc
-	$(info doing [$@])
-	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2- -d =`;\
-	EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2- -d =`;\
-	EXTRA_CMDS=$(shell $(subst SOURCE,$<,$(shell grep EXTRA_CMDS $< | cut -f 2- -d =)));\
-	$(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
+	$(info doing [$@] from [$<])
+	EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
+	$(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_FLAGS
 $(CC_ASX): %.s: %.cc
 	$(info doing [$@])
-	SOURCE=$<;\
-	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2- -d =`;\
-	EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2- -d =`;\
-	EXTRA_CMDS=$(shell $(subst SOURCE,$<,$(shell grep EXTRA_CMDS $< | cut -f 2- -d =)));\
-	$(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
+	EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
+	$(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_FLAGS
 $(CC_DIS): %.dis: %.exe
 	objdump --source --disassemble $< > $@
 # rule about how to create .ko files...
