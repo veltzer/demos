@@ -80,7 +80,7 @@ KCFLAGS:=-Werror
 # general rules...
 # how to create regular executables...
 $(CC_EXE): %.exe: %.cc
-	$(info doing [$@] from [$<])
+	$(info doing [$@])
 	EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
 	$(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_FLAGS
 $(CC_ASX): %.s: %.cc
