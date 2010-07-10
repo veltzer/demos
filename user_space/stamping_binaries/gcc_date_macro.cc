@@ -9,17 +9,17 @@
  *	- the demo shows how to put stuff in the stamp whether they be strings, numbers or whatever.
  *	- the demo actually demonstrates that the information got to the object or exe file using
  *	  various techniques.
+ *	- the demo also puts the md5 checksum of the source into the object file which could be used to perfectly ascertain from which exact source was this object produced.
  *
  *		Mark Veltzer
  *
- *	TODO:
- *		- add checksum example with the relevant makefile fragment
- *
- * EXTRA_LIBS=
+ * EXTRA_CMDS=echo -DCHECKSUM=`md5sum SOURCE | cut -f 1 -d " "`
  */
 
 #include <stdio.h> // for snprintf(3), printf(3)
 #include <time.h> // for strptime(3), mktime(3)
+#include <sys/types.h> // for getpid(2)
+#include <unistd.h> // for getpid(2)
 #include "us_helper.hh"
 
 #define __stringify_1(x) # x
@@ -37,9 +37,13 @@
 
 // the static allows us to use a compiled on tag for each file so you can put it in a common
 // header and get stamping for all files in your project.
-static const char* ATTR date="date=" __FILE__ " " __stringify(__LINE__) " "__DATE__ " " __TIME__;
-static const char* ATTR string_version="string_version=" STRING_VERSION;
-static const char* ATTR numeric_version="numeric_version=" __stringify(NUMERIC_VERSION);
+static const char* ATTR id_source_file="id_source_file=" __FILE__;
+static const char* ATTR id_compile_date="id_compile_date=" __DATE__ " " __TIME__;
+static const char* ATTR id_string_version="id_string_version=" STRING_VERSION;
+static const char* ATTR id_numeric_version="id_numeric_version=" __stringify(NUMERIC_VERSION);
+static const char* ATTR id_checksum="id_checksum=" __stringify(CHECKSUM);
+
+const char* script="user_space/stamping_binaries/gcc_date_macro.gdb";
 
 int main(int argc, char **argv, char **envp) {
 	printf("date is %s\n", __DATE__);
@@ -51,17 +55,25 @@ int main(int argc, char **argv, char **envp) {
 
 	const unsigned int len=1024;
 	char cmd[len];
-	
+
 	// lets try to run strings(1) on our own binary to see the data...
-	snprintf(cmd,len,"strings %s | grep =",argv[0]);
-	scie(system(cmd),"system");
-	
-	// lets try to run objdump(1) on our own binary to see the data...
-	snprintf(cmd,len,"objdump -h %s | grep " SECTION,argv[0]);
+	snprintf(cmd,len,"strings %s | grep id_ | grep -v grep",argv[0]);
+	printf("\nrunning [%s]\n",cmd);
 	scie(system(cmd),"system");
 
 	// lets try to see the actual symbols using objdump(1)...
-	snprintf(cmd,len,"objdump --section=" SECTION " --source %s",argv[0]);
+	snprintf(cmd,len,"objdump -C --section=" SECTION " -x %s | grep id_",argv[0]);
+	printf("\nrunning [%s]\n",cmd);
+	scie(system(cmd),"system");
+
+	// lets dump our own core
+	snprintf(cmd,len,"gcore -o /tmp/core %d",getpid());
+	printf("\nrunning [%s]\n",cmd);
+	scie(system(cmd),"system");
+
+	// lets run gdb to see if we can see our information from a debugging session
+	snprintf(cmd,len,"gdb -c /tmp/core.%d -q %s -x %s",getpid(),argv[0],script);
+	printf("\nrunning [%s]\n",cmd);
 	scie(system(cmd),"system");
 	return(0);
 }

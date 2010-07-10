@@ -3,7 +3,7 @@
 
 # THIS DOES NOT WORK!!!!
 
-.DEFAULT: Makefile.default
+.DEFAULT: Makefile.default.mk
 
 out: in
 	cp in out

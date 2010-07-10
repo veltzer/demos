@@ -20,6 +20,8 @@ ifeq ($(OPT),1)
 CXXFLAGS:=$(CXXFLAGS) -O2
 endif
 
+.SILENT:
+
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
@@ -78,9 +80,18 @@ KCFLAGS:=-Werror
 # general rules...
 # how to create regular executables...
 $(CC_EXE): %.exe: %.cc
-	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2 -d =`; EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2 -d =`; EXTRA_CMDS=$$($$EXTRA_CMDS); $(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
+	$(info doing [$@])
+	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2- -d =`;\
+	EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2- -d =`;\
+	EXTRA_CMDS=$(shell $(subst SOURCE,$<,$(shell grep EXTRA_CMDS $< | cut -f 2- -d =)));\
+	$(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
 $(CC_ASX): %.s: %.cc
-	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2 -d =`; EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2 -d =`; EXTRA_CMDS=$$($$EXTRA_CMDS); $(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
+	$(info doing [$@])
+	SOURCE=$<;\
+	EXTRA_LIBS=`grep EXTRA_LIBS $< | cut -f 2- -d =`;\
+	EXTRA_CMDS=`grep EXTRA_CMDS $< | cut -f 2- -d =`;\
+	EXTRA_CMDS=$(shell $(subst SOURCE,$<,$(shell grep EXTRA_CMDS $< | cut -f 2- -d =)));\
+	$(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_LIBS $$EXTRA_CMDS
 $(CC_DIS): %.dis: %.exe
 	objdump --source --disassemble $< > $@
 # rule about how to create .ko files...
@@ -117,7 +128,7 @@ check_tests_for_drivers:
 	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 
 # various file finds...
-SOURCE_EXPR:=-name "*.cc" -or -name "*.hh" -or -name "*.h" -or -name "*.c" -or -name "Makefile" -or -name "*.txt" -or -name "*.sed" -or -name "*.patch" -or -name "*.mk" -or -name "*.cfg" -or -name "*.sh" -or -name "*.cfg" -or -name "*.html" -or -name "*.css" -or -name "*.js" -or -name "*.ajax" -or -name "*.php"
+SOURCE_EXPR:=-name "*.cc" -or -name "*.hh" -or -name "*.h" -or -name "*.c" -or -name "Makefile" -or -name "*.txt" -or -name "*.sed" -or -name "*.patch" -or -name "*.mk" -or -name "*.cfg" -or -name "*.sh" -or -name "*.cfg" -or -name "*.html" -or -name "*.css" -or -name "*.js" -or -name "*.ajax" -or -name "*.php" -or -name "*.gdb"
 TARGET_EXPR:=-name "*.exe" -or -name "*.d" -or -name "*.o" -or -name "*.so" -or -name "*.o.cmd" -or -name "*.ko" -or -name "*.ko.cmd" -or -wholename "*/.tmp_versions/*" -or -name "Module.symvers" -or -name "modules.order"
 
 .PHONY: find_not_source
