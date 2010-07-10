@@ -13,3 +13,5 @@ The idea is to see how long it took both of them. If it is close to one time per
 both of them happened together. If it is two time periods then the kernel was locked.
 
 Question: is going to sleep in the kernel actually release the BLK ? probably so. This means that we should busy wait in the kernel instead... Do both.
+
+This is a small change in this file to test git
