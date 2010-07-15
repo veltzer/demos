@@ -107,6 +107,10 @@ debug:
 	$(info CLEAN is $(CLEAN))
 	$(info CLEAN_DIRS is $(CLEAN_DIRS))
 
+.PHONY: todo
+todo:
+	-@grep TODO $(CC_SRC)
+
 # various checks...
 .PHONY: check_ws
 check_ws:

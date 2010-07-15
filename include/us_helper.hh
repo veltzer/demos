@@ -234,12 +234,14 @@ static inline void do_prog_finish(void) {
  * - checks for errors on return from system(3)
  */
 static inline void my_system(const char *fmt, ...) {
-	char str[1024];
+	const unsigned int cmd_size=1024;
+	char str[cmd_size];
 	va_list args;
 
 	va_start(args, fmt);
-	vsprintf(str, fmt, args);
+	vsnprintf(str, cmd_size,fmt, args);
 	va_end(args);
+	fprintf(stderr,"doing [%s]\n",str);
 	scie(system(str), "system");
 }
 
