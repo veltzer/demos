@@ -27,15 +27,20 @@
  *              Mark Veltzer
  *
  * EXTRA_LIBS=-lcpufreq
+ *
+ * TODO:
+ * - it seems that this example does not work well in Ubuntu since the
+ *   cpu_freq function returns 0 as the frequency of the cpu. Find out why
+ *   and fix the example.
  */
 int main(int argc, char **argv, char **envp) {
 	//SC(nanosleep(100000),"nanosleep");
 	//for(int i=1000;i<20000;i+=1000) {
-	const int repeats = 100;
+	const unsigned int repeats = 100;
 
-	for (int i = 100; i < 2000; i += 100) {
+	for (unsigned int i = 100; i < 2000; i += 100) {
 		unsigned long sum = 0;
-		for (int j = 0; j < repeats; j++) {
+		for (unsigned int j = 0; j < repeats; j++) {
 			ticks_t start = getticks();
 			//usleep(i);
 			timespec t;

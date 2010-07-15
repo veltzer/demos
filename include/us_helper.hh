@@ -50,12 +50,20 @@ static inline ticks_t getticks(void) {
 
 static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2) {
 	if (t2 < t1) {
-		fprintf(stderr, "What's going on? t2<t1...\n");
+		fprintf(stderr, "ERROR: What's going on? t2<t1...\n");
 		exit(1);
 	}
 	unsigned long long diff = (t2 - t1) / 1000;
 	unsigned long freq = cpufreq_get_freq_kernel(0);
+	if(freq==0) {
+		fprintf(stderr, "ERROR: freq is 0\n");
+		exit(1);
+	}
 	unsigned long mpart = freq / 1000;
+	if(mpart==0) {
+		fprintf(stderr, "ERROR: mpart is 0\n");
+		exit(1);
+	}
 	//unsigned long mdiff=difft/freq;
 	unsigned long mdiff = diff / mpart;
 	//fprintf(stdout,"diff is %llu\n",diff);
