@@ -1,6 +1,6 @@
 This demostration show that:
 1. You can write you own init and finish function to be executed when an application starts
-	using your dll.
+	using your dll and when it finishes so.
 2. These hooks will only be called once per application and will NOT be called for threads
 	and forks.
 3. You must register them using the right flags to the linker. 

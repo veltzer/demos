@@ -1,3 +1,18 @@
+/*
+ * Example of a firewall in user space (man libipq).
+ *
+ *              Mark Veltzer
+ *
+ * In order to use this you must do:
+ #!/bin/sh
+ * sudo modprobe iptable_filter
+ * sudo modprobe ip_queue
+ * sudo iptables -A OUTPUT -j QUEUE
+ * sudo ./ipq_simple
+ *
+ * EXTRA_LIBS=-lipq
+ */
+
 extern "C" {
 #include <libipq.h>
 }
@@ -8,20 +23,6 @@ extern "C" {
 #include <stdlib.h> // for exit(3)
 #include <string.h> // for strerror(3)
 
-/*
- *      Example of a firewall in user space (man libipq).
- *
- *              Mark Veltzer
- *
- #!/bin/sh
- * sudo modprobe iptable_filter
- * sudo modprobe ip_queue
- * sudo iptables -A OUTPUT -j QUEUE
- * sudo ./ipq_simple
- *
- * EXTRA_LIBS=-lipq
- */
-
 #define BUFSIZE 2048
 
 static void die(struct ipq_handle *h) {
@@ -29,7 +30,6 @@ static void die(struct ipq_handle *h) {
 	ipq_destroy_handle(h);
 	exit(1);
 }
-
 
 int main(int argc, char **argv, char **envp) {
 	int status;
