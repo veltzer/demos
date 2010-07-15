@@ -1,5 +1,3 @@
-- do make TODO which will show all todo items.
-
 - core dump example: show how an application can dump its own core
 and continue running (gcore on the cmd line, sending itself a signal,
 running the right function).
