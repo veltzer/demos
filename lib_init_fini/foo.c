@@ -6,7 +6,9 @@ void my_init(void) {
 	// call the original...
 	_init();
 	fprintf(stderr, "I'm in my_init %s\n", __FILE__);
-	fprintf(stderr, ".note.gnu.build-id is %s", .note.gnu.build - id);
+	// how do I get the build id from my own object ? This does not work
+	//extern char* build;
+	//fprintf(stderr, ".note.gnu.build-id is %s", build);
 }
 
 

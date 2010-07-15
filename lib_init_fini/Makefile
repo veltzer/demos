@@ -1,5 +1,5 @@
 main: main.c libfoo.so libbar.so
-	gcc -o main main.c -L. -lfoo -lbar
+	gcc -o main main.c -L. -lbar -lfoo
 libfoo.so: foo.c
 	gcc -shared -o libfoo.so foo.c -Xlinker -init -Xlinker my_init -Xlinker -fini -Xlinker my_fini -Xlinker --build-id=0xaabbcc
 libbar.so: bar.c

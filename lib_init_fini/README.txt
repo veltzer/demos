@@ -7,3 +7,5 @@ This demostration show that:
 	-Xlinker -init -Xlinker my_init -Xlinker -fini -Xlinker my_fini
 4. You can also set a build id.
 	-Xlinker --build-id=0xaabbcc
+5. Notice that the order of initialization is derived from the order of linkage.
+	Change the order of linkage and you get different initialization order.
