@@ -1,6 +1,0 @@
-print id_source_file
-print id_compile_date
-print id_string_version
-print id_numeric_version
-print id_checksum
-quit

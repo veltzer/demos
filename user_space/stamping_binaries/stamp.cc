@@ -11,9 +11,12 @@
  *	  various techniques.
  *	- the demo also puts the md5 checksum of the source into the object file which could be used to perfectly ascertain from which exact source was this object produced.
  *
+ *	If you want to see more macros that the compiler provides just run:
+ *	cpp -dM  < /dev/null
+ *
  *		Mark Veltzer
  *
- * EXTRA_CMDS=echo -DCHECKSUM=`md5sum SOURCE | cut -f 1 -d " "`
+ * EXTRA_CMDS=echo -DCHECKSUM=`md5sum SOURCE | cut -f 1 -d " "` -DHOST=`hostname` -DUSER=$USER -DSYSTEM=`uname -a | tr ' ' '-'`
  */
 
 #include <stdio.h> // for snprintf(3), printf(3)
@@ -37,13 +40,20 @@
 
 // the static allows us to use a compiled on tag for each file so you can put it in a common
 // header and get stamping for all files in your project.
-static const char* ATTR id_source_file="id_source_file=" __FILE__;
-static const char* ATTR id_compile_date="id_compile_date=" __DATE__ " " __TIME__;
+static const char* ATTR id_file="id_file=" __FILE__;
+static const char* ATTR id_base_file="id_base_file=" __BASE_FILE__;
+static const char* ATTR id_host="id_host=" __stringify(HOST);
+static const char* ATTR id_user="id_user=" __stringify(USER);
+static const char* ATTR id_system="id_system=" __stringify(SYSTEM);
+static const char* ATTR id_date="id_date=" __DATE__;
+static const char* ATTR id_time="id_time=" __TIME__;
+static const char* ATTR id_timestamp="id_timestamp=" __TIMESTAMP__;
 static const char* ATTR id_string_version="id_string_version=" STRING_VERSION;
 static const char* ATTR id_numeric_version="id_numeric_version=" __stringify(NUMERIC_VERSION);
 static const char* ATTR id_checksum="id_checksum=" __stringify(CHECKSUM);
+static const char* ATTR id_version="id_version=" __VERSION__;
 
-const char* script="user_space/stamping_binaries/gcc_date_macro.gdb";
+const char* script="user_space/stamping_binaries/stamp.gdb";
 
 int main(int argc, char **argv, char **envp) {
 	printf("date is %s\n", __DATE__);
