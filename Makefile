@@ -91,6 +91,7 @@ $(CC_DIS): %.dis: %.exe
 	objdump --source --disassemble $< > $@
 # rule about how to create .ko files...
 $(MOD_MOD): %.ko: %.c
+	$(info doing [$@])
 	$(MAKE) -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<)))
 
 .PHONY: debug

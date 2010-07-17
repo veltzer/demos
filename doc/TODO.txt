@@ -1,3 +1,13 @@
+- when making kernel modules the build process complains:
+	Makefile:602: "WARNING: Appending $KCFLAGS (-Werror) from command line to kernel $CFLAGS"
+	shut it up somehow (this is a good warning).
+- do an example of debugging a driver for memory leaks.
+	The idea: directing all the drivers kmalloc and kfree to a pool of its own
+	and seeing that that pools usage drops back to 0 when the driver is rmmoded.
+	or maybe my own hand coded hash table that checks all allocations and deallocations?
+	See how it goes.
+- bring back the hellofcmp example once I have built an fcmp package for ubuntu.
+	and installed it on the laptop.
 - core dump example: show how an application can dump its own core
 and continue running (gcore on the cmd line, sending itself a signal,
 running the right function).
