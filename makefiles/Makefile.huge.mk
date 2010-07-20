@@ -1092,7 +1092,6 @@ misc_up_interface:
 	-sudo ifconfig eth1 down
 	-sudo ifdown eth0
 	-sudo ifconfig eth0 down
-	sudo ifup eth0=eth0-rafael
 misc_ping_target:
 	ping target
 misc_connect_target:
@@ -1107,8 +1106,6 @@ misc_push_target_lite:
 misc_push_target_lite_lite:
 	@rm -f $$HOME/.ssh/known_hosts
 	@./scripts/scp.ex -r $$PWD/obj/modules $$PWD/obj/bin $$PWD/obj/lib $$PWD/target_env root@target:~
-misc_get_key:
-	@./scripts/scp.ex -F misc/ssh_rafael_config_pass root@target:/etc/dropbear/dropbear_rsa_host_key misc
 misc_add_me_to_root_group:
 	sudo adduser $$USER root
 misc_sloc:

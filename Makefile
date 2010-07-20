@@ -4,8 +4,8 @@ KDIR:=/lib/modules/$(shell uname -r)/build
 CXX:=g++
 endif
 ifeq ($(TARGET),target_release)
-KDIR:=/home/mark/rafael/sources/rafael-rel/filesystem/root/lib/modules/2.6.26.5-rt9/build
-TOOLCHAIN_BASE:=/opt/Rafael/i686-unknown-linux-gnu/gcc-4.1.2-glibc-2.7-kernel-2.6.18/bin/i686-unknown-linux-gnu-
+KDIR:=mykdir
+TOOLCHAIN_BASE:=mytoolchain_base
 CXX:=$(TOOLCHAIN_BASE)g++
 endif
 
