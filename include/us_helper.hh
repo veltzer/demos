@@ -19,11 +19,9 @@ static inline pid_t gettid(void) {
 	return(syscall(SYS_gettid));
 }
 
-
 static inline unsigned int get_clk_tck(void) {
 	return(sysconf(_SC_CLK_TCK));
 }
-
 
 static inline unsigned int min(unsigned int a, unsigned int b) {
 	if (a < b) {
@@ -32,7 +30,6 @@ static inline unsigned int min(unsigned int a, unsigned int b) {
 		return(b);
 	}
 }
-
 
 /*
  * Functions which handle the RDTSC
