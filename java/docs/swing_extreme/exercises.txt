@@ -1,0 +1,31 @@
+Shared model exercise
+=====================
+1. Write an application with two check boxes that share state.
+2. Improve the application so that one of the check boxes is now a menu item of checked/unchecked type.
+
+Multi threading exercise
+========================
+- Design an interface called IProcessControl.
+	It should have APIs for pause, stop etc...
+	It should also have an API for reporting progress.
+- Implement this interface to connect a non swing thread with a swing thread.
+- Create an application that demostrates the use of this interface
+	It will have a swing thread and a non swing thread.
+	The non swing thread will simulate a background CPU intensive task.
+	It will sleep and then report progress in a loop.
+	The application should display the progress of the background job using
+	a JProgressBar and allow, via buttons, to pause and stop the background
+	job, or start a new one
+	You only need to support ONE background job.
+
+Ideas for improvement:
+- add asynchronous queues for communication from the controller to the controlled
+	and the other way.
+- add APIs for determining (from both sides) if the connection between controlled
+	and controlled is still alive.
+- split the API from being an API to be used both for the controller and the controlled
+	to one API for the controller and another for the controlled (to prevent
+	mistakes and to enable a networking implementation).
+- add APIs that allow to disturb a thread in mid run (interrupt anyone ?!?).
+- add a multi job API (class to control many background job).
+	Maybe write a swing component that shows it.

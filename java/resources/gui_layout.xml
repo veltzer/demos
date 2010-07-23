@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_08" class="java.beans.XMLDecoder"> 
+ <object class="javax.swing.JPanel"> 
+  <void method="add"> 
+   <object class="javax.swing.JButton"> 
+    <string></string> 
+    <void property="size"> 
+     <object class="java.awt.Dimension"> 
+      <int>100</int> 
+      <int>100</int> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="add"> 
+   <object class="javax.swing.JRadioButton"> 
+    <void property="size"> 
+     <object class="java.awt.Dimension"> 
+      <int>100</int> 
+      <int>100</int> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="add"> 
+   <object class="javax.swing.JToggleButton"> 
+    <void property="size"> 
+     <object class="java.awt.Dimension"> 
+      <int>100</int> 
+      <int>100</int> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="add"> 
+   <object class="javax.swing.JRadioButton"> 
+    <void property="size"> 
+     <object class="java.awt.Dimension"> 
+      <int>100</int> 
+      <int>100</int> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="add"> 
+   <object class="javax.swing.JToggleButton"> 
+    <void property="size"> 
+     <object class="java.awt.Dimension"> 
+      <int>100</int> 
+      <int>100</int> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="javax.swing.JTextArea"/> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="layout"> 
+   <null/> 
+  </void> 
+ </object> 
+</java> 
