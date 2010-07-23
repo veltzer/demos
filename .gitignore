@@ -12,6 +12,7 @@
 *.s
 *.d
 *.class
+java/bin/*
 
 # kernel stuff...
 *.ko
