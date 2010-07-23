@@ -1,0 +1,4 @@
+- add example about shared models.
+- solve all compilation problems.
+- see that everything works (including resources).
+- add the java programming course examples.
