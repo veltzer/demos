@@ -212,17 +212,21 @@ do_uncrustify:
 # java section
 
 $(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) 
+	$(info doing [$@])
 	javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
 	touch $(JAVA_COMPILE_STAMP)
 
 .PHONY: java_run
 java_run: $(JAVA_COMPILE_STAMP)
+	$(info doing [$@])
 	java -classpath $(CLASSPATH):$(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_prof
 java_prof: $(JAVA_COMPILE_STAMP)
+	$(info doing [$@])
 	java -Xrunhprof:cpu=y -classpath $(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_clean
 java_clean:
+	$(info doing [$@])
 	-rm -rf $(JAVA_BIN)/* $(JAVA_COMPILE_STAMP) java.hprof.txt
