@@ -38,18 +38,30 @@ ALL:=$(ALL) $(CC_EXE)
 #ALL:=$(ALL) $(CC_DIS) $(CC_ASX)
 CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS) $(CC_ASX)
 
-MOD_SRC=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
-MOD_BAS=$(basename $(MOD_SRC))
-MOD_OBJ=$(addsuffix .o,$(MOD_BAS))
-MOD_SR2=$(addsuffix .mod.c,$(MOD_BAS))
-MOD_OB2=$(addsuffix .mod.o,$(MOD_BAS))
-MOD_CM1=$(addprefix kernel/.,$(addsuffix .ko.cmd,$(notdir $(MOD_BAS))))
-MOD_CM2=$(addprefix kernel/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
-MOD_CM3=$(addprefix kernel/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
+MOD_SRC:=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
+MOD_BAS:=$(basename $(MOD_SRC))
+MOD_OBJ:=$(addsuffix .o,$(MOD_BAS))
+MOD_SR2:=$(addsuffix .mod.c,$(MOD_BAS))
+MOD_OB2:=$(addsuffix .mod.o,$(MOD_BAS))
+MOD_CM1:=$(addprefix kernel/.,$(addsuffix .ko.cmd,$(notdir $(MOD_BAS))))
+MOD_CM2:=$(addprefix kernel/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
+MOD_CM3:=$(addprefix kernel/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
 MOD_MOD:=$(addsuffix .ko,$(MOD_BAS))
 ALL:=$(ALL) $(MOD_MOD)
 CLEAN:=$(CLEAN) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) kernel/Module.symvers kernel/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3) $(MOD_OBJ)
 CLEAN_DIRS:=$(CLEAN_DIRS) kernel/.tmp_versions
+
+#### java section
+
+JAVA_SOURCE_DIR=java/src
+JAVA_BIN=java/bin
+JAVA_SOURCES:=$(shell find $(JAVA_SOURCE_DIR) -name "*.java")
+JAVA_COMPILE_STAMP:=java_compile.stamp
+CLASSPATH=java/lib/jdic.jar
+ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
+CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)/*
+
+#### java section
 
 .PHONY: all
 all: $(ALL)
@@ -62,8 +74,8 @@ clean:
 #CODEGEN=-g3
 #CODEGEN=-O2 -s
 # optimization with debug info (for disassembly)
-CODEGEN=-O2 -g3 -mtune=native
-FLAGS=-Wall -Werror $(CODEGEN) -Iinclude
+CODEGEN:=-O2 -g3 -mtune=native
+FLAGS:=-Wall -Werror $(CODEGEN) -Iinclude
 CXXFLAGS:=$(FLAGS)
 
 # kernel module generation variables...
@@ -195,3 +207,21 @@ do_astyle:
 .PHONY: do_uncrustify
 do_uncrustify:
 	uncrustify -c conf/uncrustify.cfg --replace --no-backup $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
+
+# java section
+
+$(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) 
+	javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
+	touch $(JAVA_COMPILE_STAMP)
+
+.PHONY: java_run
+java_run: $(JAVA_COMPILE_STAMP)
+	java -classpath $(CLASSPATH):$(JAVA_BIN) extreme.profile.Main
+
+.PHONY: java_prof
+java_prof: $(JAVA_COMPILE_STAMP)
+	java -Xrunhprof:cpu=y -classpath $(JAVA_BIN) extreme.profile.Main
+
+.PHONY: java_clean
+java_clean:
+	-rm -rf $(JAVA_BIN)/* $(JAVA_COMPILE_STAMP) java.hprof.txt
