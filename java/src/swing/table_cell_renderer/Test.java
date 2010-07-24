@@ -2,10 +2,8 @@ package swing.table_cell_renderer;
 
 import java.awt.BorderLayout;
 
-//import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTable;
-import javax.swing.UIManager;
 
 public class Test {
 

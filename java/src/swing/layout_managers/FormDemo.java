@@ -7,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import swing.layout_managers.com.jgoodies.forms.layout.FormLayout;
 public class FormDemo extends JPanel {
     /**
 	 * 

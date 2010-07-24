@@ -95,6 +95,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 			dukeLabel.setBounds(15, 225, icon.getIconWidth(), icon
 					.getIconHeight());
 		}
+		/*
 		else
 		{
 			System.err
@@ -103,6 +104,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 			dukeLabel.setOpaque(true);
 			dukeLabel.setBackground(Color.BLACK);
 		}
+		*/
 		layeredPane.add(dukeLabel, new Integer(2), 0);
 
 		// Add control pane and layered pane to this JPanel.

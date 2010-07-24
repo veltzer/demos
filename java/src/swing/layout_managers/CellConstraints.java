@@ -36,11 +36,6 @@ import java.awt.Rectangle;
 import java.io.Serializable;
 import java.util.StringTokenizer;
 
-import swing.layout_managers.com.jgoodies.forms.layout.ColumnSpec;
-import swing.layout_managers.com.jgoodies.forms.layout.FormLayout;
-import swing.layout_managers.com.jgoodies.forms.layout.FormSpec;
-import swing.layout_managers.com.jgoodies.forms.layout.RowSpec;
-import swing.layout_managers.com.jgoodies.forms.layout.Sizes;
 
 /**
  * Defines constraints for components that are layed out with the FormLayout.
@@ -688,7 +683,7 @@ public final class CellConstraints implements Cloneable, Serializable {
      * @throws IndexOutOfBoundsException if the display area described
      *     by this constraints object is not inside the grid
      */
-    void ensureValidGridBounds(int colCount, int rowCount) {
+    public void ensureValidGridBounds(int colCount, int rowCount) {
         if (gridX <= 0) {
             throw new IndexOutOfBoundsException(
                 "The column index " + gridX + " must be positive.");
@@ -1011,7 +1006,11 @@ public final class CellConstraints implements Cloneable, Serializable {
      */
     public static final class Alignment implements Serializable {
         
-        private static final int HORIZONTAL = 0;
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		private static final int HORIZONTAL = 0;
         private static final int VERTICAL   = 1;
         private static final int BOTH       = 2;
         

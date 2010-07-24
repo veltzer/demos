@@ -20,11 +20,11 @@ public class MyCellRenderer implements TableCellRenderer {
 
 		@Override
 		protected void paintComponent(Graphics g) {
-			// TODO Auto-generated method stub
 			super.paintComponent(g);
-			//Graphics2D g2=(Graphics2D)g;
-			//Rectangle rec=g2.getClipBounds();
-			//g2.drawLine(rec.x, rec.y, rec.width, rec.height);
+			Graphics2D g2=(Graphics2D)g;
+			Rectangle rec=g2.getClipBounds();
+			long cap=rec.width*disk.getSize();
+			g2.drawLine(rec.x, rec.y, (int)cap, rec.height);
 		}
 		
 	}

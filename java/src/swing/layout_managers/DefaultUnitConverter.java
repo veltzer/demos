@@ -43,8 +43,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import swing.layout_managers.com.jgoodies.forms.util.AbstractUnitConverter;
-import swing.layout_managers.com.jgoodies.forms.util.UnitConverter;
 
 /**
  * This is the default implementation of the {@link UnitConverter} interface.
@@ -64,8 +62,8 @@ import swing.layout_managers.com.jgoodies.forms.util.UnitConverter;
  * @version $Revision: 1.10 $
  * @author  Karsten Lentzsch
  * @see     UnitConverter
- * @see     com.jgoodies.forms.layout.Size
- * @see     com.jgoodies.forms.layout.Sizes
+ * @see     swing.layout_managers.jgoodies.forms.layout.Size
+ * @see     swing.layout_managers.jgoodies.forms.layout.Sizes
  */
 public final class DefaultUnitConverter extends AbstractUnitConverter {
     

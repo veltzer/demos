@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import swing.layout_managers.info.clearthought.layout.TableLayout;
 public class TableDemo extends JPanel {
     /**
 	 * 
