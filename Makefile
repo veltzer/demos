@@ -60,6 +60,7 @@ JAVA_COMPILE_STAMP:=java_compile.stamp
 CLASSPATH=java/lib/jdic.jar
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)/*
+CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
 
 #### java section
 
