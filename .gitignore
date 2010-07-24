@@ -13,6 +13,7 @@
 *.d
 *.class
 java/bin/*
+*.stamp
 
 # kernel stuff...
 *.ko
