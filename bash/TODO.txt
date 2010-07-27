@@ -1,0 +1,2 @@
+1) http://www.linuxjournal.com/content/bash-co-processes 
+	do a demo of co-processes.
