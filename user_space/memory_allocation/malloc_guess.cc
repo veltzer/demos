@@ -3,6 +3,7 @@
 #include <assert.h> // for assert(3)
 #include <sys/types.h> // for getpid(2)
 #include <unistd.h> // for getpid(2)
+#include <string.h> // for memset(3)
 
 /*
  * This application tries to guess where the next malloc allocation would be...
@@ -26,19 +27,34 @@
 static char* p;
 static bool debug=false;
 
+/* convert number of bytes to be allocated to real number of bytes allocated... */
+unsigned int round_it(unsigned int size) {
+	if(size%8>4) {
+		size=size-size%8+16;
+	} else {
+		size=size-size%8+8;
+	}
+	if(size==8) size+=8;
+	return size;
+}
+		
+
 /* let the guessing system know that you have allocated memory */
 void mguess_allocated(unsigned int size) {
-	unsigned int diff;
-	if(size%8>4) {
-		diff=size-size%8+16;
-	} else {
-		diff=size-size%8+8;
-	}
-	if(diff==8) diff+=8;
+	unsigned int real=round_it(size);
 	if(debug) {
-		printf("diff is %d, p is %p\n",diff-size,p);
+		printf("real is %d,diff is %d, p is %p\n",real,real-size,p);
 	}
-	p+=diff;
+	p+=real;
+}
+
+unsigned int get_block_size(void* p) {
+	unsigned int* u=(unsigned int*)p;
+	u-=1;
+	if(debug) {
+		printf("*u is %d (char ptr is %d)\n",*u,*((char*)u));
+	}
+	return *u-1;
 }
 
 /* initialize the guessing system */
@@ -61,15 +77,18 @@ int main(int argc, char **argv, char **envp) {
 	// lets randomize things a bit so everything will be different on each run...
 	srandom(getpid());
 	// lets do some random allocatinons...
-	for(unsigned int i=0;i<100;i++) {
+	for(unsigned int i=0;i<10000;i++) {
 		unsigned int size=random()%10000;
 		void* g=mguess_guess();
 		void* p=malloc(size);
+		unsigned int blk_size=get_block_size(p);
+		unsigned int real_size=round_it(size);
 		mguess_allocated(size);
 		if(debug) {
-			printf("g is %p, p is %p, size is %d\n",g,p,size);
+			printf("g is %p, p is %p, size is %d, blk_size is %d, real_size is %d\n",g,p,size,blk_size,real_size);
 		}
 		assert(g==p);
+		assert(blk_size==real_size);
 	}
 	mguess_fini();
 	return(0);

@@ -3,10 +3,6 @@
 #include <assert.h> // for assert(3)
 
 /*
- *      This application shows that every malloc
- *      requires 9 bytes+ the size that you need
- *      and exposes some of the layout of the memory...
- *
  *              Mark Veltzer
  *
  * EXTRA_LIBS=
