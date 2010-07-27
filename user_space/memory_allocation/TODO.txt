@@ -1,0 +1,11 @@
+TODO:
+1) here is a link:
+	http://hackingheaven.com/
+	there is a mmalloc library there - check it out.
+		demo it.
+2) demo dmalloc.
+3) demo electric fence.
+4) demo mprotect.
+5) demo valgrind.
+6) demo obstacks in GNU.
+7) demo malloc hooks.
