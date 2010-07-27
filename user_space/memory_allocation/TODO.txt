@@ -9,3 +9,4 @@ TODO:
 5) demo valgrind.
 6) demo obstacks in GNU.
 7) demo malloc hooks.
+8) demo mallinfo and more of the functions in info libc.
