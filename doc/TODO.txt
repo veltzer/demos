@@ -100,3 +100,21 @@ came from (extra information?).
 
 5. Show combinations of signal handlers and C++ exceptions. Where
 do they conflict and where do they match.
+
+kernel locking test:
+====================
+In the real time faq on linux it says that "ioctl" when implemented in the linux
+kernel grabs the BKL while "unlocked_ioctl" does not.
+
+The idea is to write a test to check that no locking occurs.
+
+A program which spawns two threads and affines them to two cpus (the program fails if it is run on less than two cpus).
+
+First thread goes into the kernel and sleeps via an ioctl in a pre-prepared driver.
+
+Second thread does the same.
+
+The idea is to see how long it took both of them. If it is close to one time period then
+both of them happened together. If it is two time periods then the kernel was locked.
+
+Question: is going to sleep in the kernel actually release the BLK ? probably so. This means that we should busy wait in the kernel instead... Do both.
