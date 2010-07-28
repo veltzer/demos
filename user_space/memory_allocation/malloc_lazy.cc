@@ -1,7 +1,6 @@
 #include <stdio.h> // for printf(3), fgets(3), perror(3)
 #include <unistd.h> // for sleep(3), getpagesize(2)
 #include <stdlib.h> // for malloc(3), atoi(3), exit(3)
-#include <proc/readproc.h> // for look_up_our_self(3)
 #include <sys/mman.h> // for mlockall(2), munlockall(2)
 
 #include "us_helper.hh"
@@ -25,11 +24,6 @@
  * EXTRA_LIBS=-lproc
  */
 
-void print_stats(void) {
-	static proc_t myproc;
-	look_up_our_self(&myproc);
-	printf("size is %ld, min_flt is %ld\n",myproc.rss, myproc.min_flt);
-}
 int main(int argc, char **argv, char **envp) {
 	const unsigned int page_number = 2000;
 	int page_size=getpagesize();

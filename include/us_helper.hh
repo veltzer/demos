@@ -11,6 +11,7 @@
 #include <sys/syscall.h> // for syscall
 #include <unistd.h> // for getpid, syscall, sysconf
 #include <cpufreq.h>
+#include <proc/readproc.h> // for look_up_our_self(3)
 
 /*
  * getting a thread id (glibc doesnt have this)
@@ -224,6 +225,11 @@ static inline void do_prog_finish(void) {
 	fflush(stdout);
 }
 
+static inline void print_stats(void) {
+	static proc_t myproc;
+	look_up_our_self(&myproc);
+	printf("size is %ld, min_flt is %ld\n",myproc.rss, myproc.min_flt);
+}
 
 /*
  * An enhanced system(3) version which also:
