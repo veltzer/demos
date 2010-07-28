@@ -14,25 +14,30 @@
  *
  * EXTRA_LIBS=
  */
-#define PRINT_SIZEOF(astr, a) printf("size of " astr " is %d\n", sizeof(a));
+#define PRINT_SIZEOF(type) printf("size of " __stringify(type) " is %d\n", sizeof(type));
 
 int main(int argc, char **argv, char **envp) {
 	struct utsname buf;
 
 	scie(uname(&buf), "get uname");
 	printf("architecture is [%s]\n", buf.machine);
-	PRINT_SIZEOF("bool", bool);
-	PRINT_SIZEOF("char", char);
-	PRINT_SIZEOF("unsigned char", unsigned char);
-	PRINT_SIZEOF("short", short);
-	PRINT_SIZEOF("unsigned short", unsigned short);
-	PRINT_SIZEOF("int", int);
-	PRINT_SIZEOF("unsigned int", unsigned int);
-	PRINT_SIZEOF("long", long);
-	PRINT_SIZEOF("unsigned long", unsigned long);
-	PRINT_SIZEOF("long long", long long);
-	PRINT_SIZEOF("unsigned long long", unsigned long long);
-	PRINT_SIZEOF("float", float);
-	PRINT_SIZEOF("double", double);
+	PRINT_SIZEOF(bool);
+	PRINT_SIZEOF(char);
+	PRINT_SIZEOF(unsigned char);
+	PRINT_SIZEOF(short);
+	PRINT_SIZEOF(unsigned short);
+	PRINT_SIZEOF(int);
+	PRINT_SIZEOF(unsigned int);
+	PRINT_SIZEOF(long);
+	PRINT_SIZEOF(unsigned long);
+	PRINT_SIZEOF(long long);
+	PRINT_SIZEOF(unsigned long long);
+	PRINT_SIZEOF(float);
+	PRINT_SIZEOF(double);
+	float x[] = { 5, 3, 2, 1 }; 
+	printf("size of x is %d\n",sizeof(x));
+	// next syntax is NOT allowed in C...
+	//float* y = { 5, 3, 2, 1 }; 
+	//printf("size of y is %d\n",sizeof(y));
 	return(0);
 }

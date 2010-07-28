@@ -242,7 +242,10 @@ static inline void my_system(const char *fmt, ...) {
 	scie(system(str), "system");
 }
 
-
 void my_system(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
+
+#define __stringify_1(x) # x
+#define __stringify(x) __stringify_1(x)
+
 
 #endif // __us_helper_h

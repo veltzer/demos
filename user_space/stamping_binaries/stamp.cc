@@ -25,9 +25,6 @@
 #include <unistd.h> // for getpid(2)
 #include "us_helper.hh"
 
-#define __stringify_1(x) # x
-#define __stringify(x) __stringify_1(x)
-
 #define STRING_VERSION "1.23.56"
 #define NUMERIC_VERSION 1.23.56
 
