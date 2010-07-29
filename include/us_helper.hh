@@ -78,10 +78,15 @@ static inline unsigned int get_mic_diff(ticks_t t1, ticks_t t2) {
  */
 static inline void scie(int t, const char *msg, int errval = -1) {
 	if (t == errval) {
-		throw new std::exception();
+		//throw new std::exception();
 
-		//perror("error in system call");
-		//exit(1);
+		perror("error in system call");
+		exit(1);
+	}
+}
+template<class T> inline void scie(T t,const char *msg, T errval) {
+	if (t == errval) {
+		throw new std::exception();
 	}
 }
 
