@@ -1,7 +1,2 @@
-- add examples about threads and stacks:
-	1) two threads which show that one thread can step over the stack of the
-	other thread with using a very large stack.
-	2) show the use of pthread_attr_setguardsize to protect one thread from the other.
-	3) show the use of pthread_attr_setstacksize and pthread_attr_getstacksize to control
-		stack sizes.
-	4) show using pthread_attr_setstacksize to overcome thread stack issues.
+- do example of an OO wrapper for pthreads.
+- show how this is solved in ACE and Boost and stdlibc++.

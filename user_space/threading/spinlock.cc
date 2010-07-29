@@ -7,18 +7,18 @@
 
 /*
  *      This is a demo for thread spin locks.
- *      Run on a single CPU machine you will see a problem in that they will block
- *      each other.
+ *      Run on any machine and you will see a problem in that they will block
+ *      each other. This blockage does not turn into a dead lock since the OS
+ *      will preempt them and eventually each will get it's turn.
  *
  *                      Mark Veltzer
  *
  * EXTRA_LIBS=-lpthread
  */
 
-pthread_spinlock_t mylock;
-int val = 0;
+static pthread_spinlock_t mylock;
 
-void *worker(void *p) {
+static void *worker(void *p) {
 	while (true) {
 		TRACE("before lock");
 		scig(pthread_spin_lock(&mylock), "pthread_spin_lock");
