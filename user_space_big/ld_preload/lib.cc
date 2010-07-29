@@ -1,4 +1,4 @@
-double sin(double x)
+extern "C" double sin(double x)
 {
 	return(x);
 }
