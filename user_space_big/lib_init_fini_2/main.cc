@@ -1,7 +1,22 @@
 #include <unistd.h> // for fork(2), _exit(2)
 #include <sys/wait.h> // for waitpid(2)
+#include <pthread.h> // for pthread_create(3), pthread_join(3)
 
 #include "us_helper.hh"
+
+/*
+ * EXTRA_LIBS=-lpthread
+ */
+
+/*
+ * This is out thread function for when we'll do multi threading...
+ */
+void *worker(void *p) {
+	TRACE("start");
+	sleep(1);
+	TRACE("end");
+	return NULL;
+}
 
 /*
  *      This is an empty testing application
@@ -36,7 +51,21 @@ int main(int argc, char **argv, char **envp) {
 		TRACE("child ending");
 		_exit(0);
 	}
-	TRACE("end");
 	// lets do some multi-threading work to see how multi-threading is affecting all this...
+	const int num = 2;
+	pthread_t threads[num];
+	int ids[num];
+	void      *rets[num];
+
+	TRACE("before pthread_create");
+	for (int i = 0; i < num; i++) {
+		ids[i] = i;
+		scig(pthread_create(threads + i, NULL, worker, ids + i), "pthread_create");
+	}
+	TRACE("created threads");
+	for (int i = 0; i < num; i++) {
+		scig(pthread_join(threads[i], rets + i), "pthread_join");
+	}
+	TRACE("end");
 	return(0);
 }

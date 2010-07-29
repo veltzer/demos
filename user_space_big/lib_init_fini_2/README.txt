@@ -15,8 +15,15 @@ This demostration show that:
 	end abruptly (not through exit(3) but rather by _exit(2), _Exit(2) or abnormal
 	termination using singal).
 - what happens when you clone(2) ? (the multi-threading case)
-
+	Nothing. This example demostrates that cloning does not call either constructors
+	or destructors.
 - what happens when you have more than one library doing such stuff ? where does the order
 of initialization derive from ?
 	linking order matters. Libraries further back the link line are more important
 	and will be called first on construction and later on destruction.
+	Notice that if library A has a function with priority p1 and library B
+	has a function with priority p2 and A appears later on the linking line
+	then A's functions are going to be called first on construction and later
+	on destruction even though p2<p1 (B's function are "more important").
+	If you want to avoid all of these issues then have one entry point into your
+	system and handle order yourself...

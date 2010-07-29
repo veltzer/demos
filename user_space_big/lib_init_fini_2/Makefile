@@ -3,7 +3,7 @@ ALL:=main.exe libfoo.so libbar.so
 CXXFLAGS=-I../../include
 
 main.exe: main.cc libfoo.so libbar.so
-	g++ $(CXXFLAGS) -o $@ $< -L. -lfoo -lbar
+	g++ $(CXXFLAGS) -o $@ $< -L. -lfoo -lbar -lpthread
 libfoo.so: foo.cc
 	g++ $(CXXFLAGS) -shared -o $@ $<
 libbar.so: bar.cc
