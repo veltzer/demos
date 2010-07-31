@@ -25,8 +25,7 @@ Exercises for using phpunit...
 	Run the test from the browser. Is there any output? Why?
 	Make the test fail. Is there any output? Why?
 
-3. Write a test for your own classes!
-	Write four tests:
+3. Write four tests:
 	1. positive test (which is not supposed to throw an exception)
 	2. negative test (which is supposed to throw an exception).
 		NOTE - you have no ExceptionTestCase.php in your
