@@ -1,7 +1,7 @@
 <?php
 require_once 'PHPUnit/Framework.php';
 
-class StackTest extends PHPUnit_Framework_TestCase
+class StackDepTest extends PHPUnit_Framework_TestCase
 {
 	public function testEmpty()
 	{

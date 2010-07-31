@@ -15,6 +15,13 @@ all: $(ALL)
 .PHONY: clean
 clean:
 	rm -f $(CLEAN)
+	rm -rf myreport
+
+# in order for the report to run you must have Xdebug installed...
+# sudo apt-get install php5-xdebug
+.PHONY: report
+report:
+	phpunit --coverage-html myreport .
 
 # rules section
 

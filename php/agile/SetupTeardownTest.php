@@ -17,25 +17,25 @@ class SetupTeardownTest extends PHPUnit_Framework_TestCase {
 	protected $fixture;
 
 	protected function setUp() {
-		echo "in setDown\n";
+		echo __METHOD__ . "\n";
 		$this->fixture=Array(); // Create the Array fixture.
 	}
 
 	public function testNewArrayIsEmpty() {
-		echo "in testNewArrayIsEmpty\n";
+		echo __METHOD__ . "\n";
 		// Assert that the size of the Array fixture is 0.
 		$this->assertEquals(0,sizeof($this->fixture));
 	}
 
 	public function testArrayContainsAnElement() {
-		echo "in testArrayContainsAnElement\n";
+		echo __METHOD__ . "\n";
 		$this->fixture[]='Element'; // Add an element to the Array fixture.
 		// Assert that the size of the Array fixture is 1.
 		$this->assertEquals(1,sizeof($this->fixture));
 	}
 
 	protected function tearDown() {
-		echo "in tearDown\n";
+		echo __METHOD__ . "\n";
 		$this->fixture = null;
 	}
 }
