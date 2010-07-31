@@ -15,7 +15,7 @@ class ArrayTest extends PHPUnit_Framework_TestCase {
 		// Add an element to the Array fixture.
 		$fixture[] = 'Element';
 		// Assert that the size of the Array fixture is 1.
-		$this->assertEquals(2, sizeof($fixture));
+		$this->assertEquals(1, sizeof($fixture));
 	}
 }
 ?>
