@@ -236,6 +236,12 @@ static inline void print_stats(void) {
 	printf("size is %ld, min_flt is %ld\n",myproc.rss, myproc.min_flt);
 }
 
+static inline void print_stats(pid_t pid) {
+	static proc_t myproc;
+	get_proc_stats(pid,&myproc);
+	printf("size is %ld, min_flt is %ld, state is %c\n",myproc.rss, myproc.min_flt, myproc.state);
+}
+
 /*
  * An enhanced system(3) version which also:
  * - accepts variable argument and does the substitution.

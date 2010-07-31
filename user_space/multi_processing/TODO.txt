@@ -2,10 +2,4 @@ These are more examples to write under this topic:
 - show what happens when a processes father is killed
 	print his ppid before and after.
 	explain how init does whatever it is that it does.
-- show how a process becomes a zombie.
-	a child process dies and the parent does not listen to it's
-	return code.
-	show the child condition in a couple of ways:
-	ps
-	libproc
 - show a primitive example of pstree.
