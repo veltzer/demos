@@ -1,7 +1,7 @@
 ALL:=
 CLEAN:=
 
-SRC:=$(shell find . -name "*.php")
+SRC:=$(shell find . -name "*Test.php")
 STAMP:=$(addsuffix .stamp,$(basename $(SRC)))
 
 ALL:=$(ALL) $(STAMP)
