@@ -1,5 +1,5 @@
 <?php
-require_once 'PHPUnit/Framework/TestCase.php';
+require_once 'PHPUnit/Framework.php';
 
 class ExpectedErrorTest extends PHPUnit_Framework_TestCase {
 	/**
