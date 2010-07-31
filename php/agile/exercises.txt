@@ -1,4 +1,10 @@
-1. Install phpunit on the virtual server you are a developer of.
+Exercises for using phpunit...
+==============================
+
+1. Install phpunit.
+
+	installing phpunit using pear:
+	==============================
 	wget http://pear.php.net/go-pear
 	php ./go-pear
 	(answer the questions as needed... accept the defaults
@@ -6,8 +12,19 @@
 	).
 	pear channel-discover pear.phpunit.de
 	pear install -a phpunit/PHPUnit
-2. Take the simple test you did yesterday. Put it somewhere in your code.
-	Run it from the command line and check that it works.
+
+	installing phpunit on ubuntu (or other distributions):
+	======================================================
+	sudo apt-get install phpunit phpunit-doc
+	ln -s $PWD ~/public_html
+	on UNIX you can do "man phpunit" to get some more info on
+	the use of the phpunit(1) command line tool...
+
+2. Write a simple test. Show that you can run it from the command line.
+	Run it with verbose turned on. What extra info do you see?
+	Run the test from the browser. Is there any output? Why?
+	Make the test fail. Is there any output? Why?
+
 3. Write a test for your own classes!
 	Write four tests:
 	1. positive test (which is not supposed to throw an exception)
