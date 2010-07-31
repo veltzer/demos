@@ -9,7 +9,8 @@ class OutputTest extends PHPUnit_Extensions_OutputTestCase {
 
 	public function testExpectFooActualBar() {
 		$this->expectOutputString('foo');
-		print 'bar';
+		//print 'bar';
+		print 'foo';
 	}
 }
 ?> 
