@@ -1,14 +1,22 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include <stdlib.h> // for atoi(3)
+#include <stdio.h> // for printf(3)
+#include <sys/types.h> // for WIF(3)
+#include <sys/wait.h> // for WIF(3)
 
 /*
- * This executable analyzes and tells you what happened to the child...
+ * This executable receives the status code (exit code) of some process and prints
+ * an analysis of what the code means. Useful in case where you are not sure what
+ * the status code means or as a demo of how to analyze such a code. 
  *
  *              Mark Veltzer
  *
  * EXTRA_LIBS=
  */
 int main(int argc, char **argv, char **envp) {
+	if(argc!=2) {
+		printf("usage: prog [status code]\n");
+		return -1;
+	}
 	int res = atoi(argv[1]);
 	printf("analyzing code %d\n",res);
 
