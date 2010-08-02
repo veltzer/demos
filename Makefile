@@ -22,11 +22,15 @@ endif
 
 .SILENT:
 
+US_DIR:=cpp/user_space
+KERNEL_DIR:=cpp/kernel
+US_INCLUDE:=cpp/include
+
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
 
-CC_SRC:=$(shell find user_space -name "*.cc") $(shell find kernel -name "*.cc") $(shell find ace -name "*.cc")
+CC_SRC:=$(shell find $(US_DIR) $(KERNEL_DIR) -name "*.cc")
 ALL_C:=$(shell find . -name "*.c")
 ALL_CC:=$(shell find . -name "*.cc")
 ALL_H:=$(shell find . -name "*.h")
@@ -38,7 +42,7 @@ ALL:=$(ALL) $(CC_EXE)
 #ALL:=$(ALL) $(CC_DIS) $(CC_ASX)
 CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS) $(CC_ASX)
 
-MOD_SRC:=$(shell find kernel -name "drv_*.c" -and -not -name "drv_*.mod.c")
+MOD_SRC:=$(shell find $(KERNEL_DIR) -name "drv_*.c" -and -not -name "drv_*.mod.c")
 MOD_BAS:=$(basename $(MOD_SRC))
 MOD_OBJ:=$(addsuffix .o,$(MOD_BAS))
 MOD_SR2:=$(addsuffix .mod.c,$(MOD_BAS))
@@ -76,7 +80,7 @@ clean:
 #CODEGEN=-O2 -s
 # optimization with debug info (for disassembly)
 CODEGEN:=-O2 -g3 -mtune=native
-FLAGS:=-Wall -Werror $(CODEGEN) -Iinclude
+FLAGS:=-Wall -Werror $(CODEGEN) -I$(US_INCLUDE)
 CXXFLAGS:=$(FLAGS)
 
 # kernel module generation variables...
