@@ -20,7 +20,7 @@ ifeq ($(OPT),1)
 CXXFLAGS:=$(CXXFLAGS) -O2
 endif
 
-.SILENT:
+#.SILENT:
 
 US_DIR:=cpp/user_space
 KERNEL_DIR:=cpp/kernel
@@ -29,6 +29,7 @@ US_INCLUDE:=cpp/include
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
+CLEAN_EXTRA:=echo doing extra cleanup work
 
 CC_SRC:=$(shell find $(US_DIR) $(KERNEL_DIR) -name "*.cc")
 ALL_C:=$(shell find . -name "*.c")
@@ -63,8 +64,9 @@ JAVA_SOURCES:=$(shell find $(JAVA_SOURCE_DIR) -name "*.java")
 JAVA_COMPILE_STAMP:=java_compile.stamp
 CLASSPATH=java/lib/jdic.jar
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
-CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)/*
+CLEAN_DIRS:=$(CLEAN_DIRS)
 CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
+CLEAN_EXTRA:=$(CLEAN_EXTRA); find $(JAVA_BIN) -name "*.class" -exec rm {} \;
 
 #### java section
 
@@ -75,6 +77,7 @@ all: $(ALL)
 clean:
 	-rm -f $(CLEAN)
 	-rm -rf $(CLEAN_DIRS)
+	@$(CLEAN_EXTRA)
 .PHONY: clean_git
 clean_git:
 	git clean -xdf

@@ -13,7 +13,6 @@
 *.s
 *.d
 *.class
-java/bin/*
 *.stamp
 
 # kernel stuff...
