@@ -75,6 +75,9 @@ all: $(ALL)
 clean:
 	-rm -f $(CLEAN)
 	-rm -rf $(CLEAN_DIRS)
+.PHONY: clean_git
+clean_git:
+	git clean -xdf
 
 #CODEGEN=-g3
 #CODEGEN=-O2 -s
