@@ -1,4 +1,4 @@
-<html>
+e<html>
 <!--
 	This is a solution to the first exercise regarding
 	arrays: enumerated array
@@ -18,6 +18,8 @@
 		foreach($favs as $fav) {
 			echo $fav.'<br/>';
 		}
+		// or another option
+		print_r($favs);
 	?>
 </body>
 </html>
