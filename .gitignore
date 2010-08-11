@@ -14,6 +14,7 @@
 *.d
 *.class
 *.stamp
+java/bin/*
 
 # kernel stuff...
 *.ko

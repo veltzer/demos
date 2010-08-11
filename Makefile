@@ -58,11 +58,11 @@ CLEAN_DIRS:=$(CLEAN_DIRS) kernel/.tmp_versions
 
 #### java section
 
-JAVA_SOURCE_DIR=java/src
-JAVA_BIN=java/bin
+JAVA_SOURCE_DIR:=java/src
+JAVA_BIN:=java/bin
 JAVA_SOURCES:=$(shell find $(JAVA_SOURCE_DIR) -name "*.java")
 JAVA_COMPILE_STAMP:=java_compile.stamp
-CLASSPATH=java/lib/jdic.jar
+CLASSPATH:=java/lib/jdic.jar
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS)
 CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
@@ -82,8 +82,8 @@ clean:
 clean_git:
 	git clean -xdf
 
-#CODEGEN=-g3
-#CODEGEN=-O2 -s
+#CODEGEN:=-g3
+#CODEGEN:=-O2 -s
 # optimization with debug info (for disassembly)
 CODEGEN:=-O2 -g3 -mtune=native
 FLAGS:=-Wall -Werror $(CODEGEN) -I$(US_INCLUDE)
