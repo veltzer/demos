@@ -118,3 +118,18 @@ The idea is to see how long it took both of them. If it is close to one time per
 both of them happened together. If it is two time periods then the kernel was locked.
 
 Question: is going to sleep in the kernel actually release the BLK ? probably so. This means that we should busy wait in the kernel instead... Do both.
+
+User space demos:
+=================
+- profile how long it takes to setup a timer from user space.
+        (this is for the userspace guys - do an example).
+- show how to break from a blocking sys call in user space using a signal.
+        show how to do this using a timer thus turning each sys call to timed.
+        show that the wakeup is pretty near the expected time (rdtsc).
+- do example of fifo and priorities in pthreads.
+
+Kernel demos:
+=============
+- do demo of mempool in demo_kernel.
+- do demo of debugging kmalloc and kfree.
+- do demo of handling interrupts (mouse for instance). take this from the gilad slides.
