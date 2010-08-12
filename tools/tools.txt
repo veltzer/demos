@@ -1,3 +1,4 @@
+talk about these tools...
 	vmstat
 	iostat
 	mpstat
@@ -18,3 +19,5 @@
 	crash
 	gdb
 	gcore
+
+(maybe add more ?!?)
