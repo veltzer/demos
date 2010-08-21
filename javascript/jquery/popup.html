@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Popup</title>
+
+<!-- lets include jQuery -->
+<script type="text/javascript" src="jquery.js"></script>
+<!-- lets include our own code -->
+<script type="text/javascript" src="popup.js"></script>
+
+</head>
+<body>
+	<input class="popupToggle" popupSelector="#mypopup" type="submit" value="Press me for the popup to Toggle"/>
+	<input class="popupShow" popupSelector="#mypopup" type="submit" value="Press me for the popup to Show"/>
+	<input class="popupHide" popupSelector="#mypopup" type="submit" value="Press me for the popup to Hide"/>
+	<br/>
+	<input class="popupToggle" popupSelector="#mypopup2" type="submit" value="Press me for the popup to Toggle"/>
+	<input class="popupShow" popupSelector="#mypopup2" type="submit" value="Press me for the popup to Show"/>
+	<input class="popupHide" popupSelector="#mypopup2" type="submit" value="Press me for the popup to Hide"/>
+	<br/>
+	<input class="popupToggle" popupSelector=".popup" type="submit" value="Press me for the popup to Toggle"/>
+	<input class="popupShow" popupSelector=".popup" type="submit" value="Press me for the popup to Show"/>
+	<input class="popupHide" popupSelector=".popup" type="submit" value="Press me for the popup to Hide"/>
+	<br/>
+	<div id="mypopup" class="popup">
+		<a class="popupHide" popupSelector="#mypopup">close it here...</a>
+		<h1>Title of our cool popup, yay!</h1>
+		<p id="contactArea">
+			This is some text
+		</p>
+	</div>
+	<div id="mypopup2" class="popup">
+		<a class="popupHide" popupSelector="#mypopup2">close it here...</a>
+		<h1>Title of our cool popup, number 2!</h1>
+		<p id="contactArea">
+			This is more text
+		</p>
+	</div>
+</body>
+</html>
