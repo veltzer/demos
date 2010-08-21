@@ -10,32 +10,39 @@
 <script type="text/javascript" src="popup.js"></script>
 
 </head>
-<body>
-	<input class="popupToggle" popupSelector="#mypopup" type="submit" value="Press me for the popup to Toggle"/>
-	<input class="popupShow" popupSelector="#mypopup" type="submit" value="Press me for the popup to Show"/>
-	<input class="popupHide" popupSelector="#mypopup" type="submit" value="Press me for the popup to Hide"/>
+<body id="body">
+	<input class="popupToggle" popupSelector="#mypopup" bgSelector=".popupBg" type="submit" value="Toggle"/>
+	<input class="popupShow" popupSelector="#mypopup" bgSelector=".popupBg" type="submit" value="Show"/>
+	<input class="popupHide" popupSelector="#mypopup" bgSelector=".popupBg" type="submit" value="Hide"/>
+	<input class="popupFadeIn" popupSelector="#mypopup" bgSelector=".popupBg" type="submit" value="FadeIn"/>
+	<input class="popupFadeOut" popupSelector="#mypopup" bgSelector=".popupBg" type="submit" value="FadeOut"/>
 	<br/>
-	<input class="popupToggle" popupSelector="#mypopup2" type="submit" value="Press me for the popup to Toggle"/>
-	<input class="popupShow" popupSelector="#mypopup2" type="submit" value="Press me for the popup to Show"/>
-	<input class="popupHide" popupSelector="#mypopup2" type="submit" value="Press me for the popup to Hide"/>
+	<input class="popupToggle" popupSelector="#mypopup2" bgSelector=".popupBg" type="submit" value="Toggle"/>
+	<input class="popupShow" popupSelector="#mypopup2" bgSelector=".popupBg" type="submit" value="Show"/>
+	<input class="popupHide" popupSelector="#mypopup2" bgSelector=".popupBg" type="submit" value="Hide"/>
+	<input class="popupFadeIn" popupSelector="#mypopup2" bgSelector=".popupBg" type="submit" value="FadeIn"/>
+	<input class="popupFadeOut" popupSelector="#mypopup2" bgSelector=".popupBg" type="submit" value="FadeOut"/>
 	<br/>
-	<input class="popupToggle" popupSelector=".popup" type="submit" value="Press me for the popup to Toggle"/>
-	<input class="popupShow" popupSelector=".popup" type="submit" value="Press me for the popup to Show"/>
-	<input class="popupHide" popupSelector=".popup" type="submit" value="Press me for the popup to Hide"/>
+	<input class="popupToggle" popupSelector=".popup" bgSelector=".popupBg" type="submit" value="Toggle"/>
+	<input class="popupShow" popupSelector=".popup" bgSelector=".popupBg" type="submit" value="Show"/>
+	<input class="popupHide" popupSelector=".popup" bgSelector=".popupBg" type="submit" value="Hide"/>
+	<input class="popupFadeIn" popupSelector=".popup" bgSelector=".popupBg" type="submit" value="FadeIn"/>
+	<input class="popupFadeOut" popupSelector=".popup" bgSelector=".popupBg" type="submit" value="FadeOut"/>
 	<br/>
 	<div id="mypopup" class="popup">
-		<a class="popupHide" popupSelector="#mypopup">close it here...</a>
+		<a class="popupFadeOut" popupSelector="#mypopup" bgSelector=".popupBg">close it here...</a>
 		<h1>Title of our cool popup, yay!</h1>
 		<p id="contactArea">
 			This is some text
 		</p>
 	</div>
 	<div id="mypopup2" class="popup">
-		<a class="popupHide" popupSelector="#mypopup2">close it here...</a>
+		<a class="popupFadeOut" popupSelector="#mypopup2" bgSelector=".popupBg">close it here...</a>
 		<h1>Title of our cool popup, number 2!</h1>
 		<p id="contactArea">
 			This is more text
 		</p>
 	</div>
+	<div class="popupBg"></div>
 </body>
 </html>
