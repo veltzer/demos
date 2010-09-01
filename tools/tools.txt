@@ -6,8 +6,6 @@ talk about these tools...
 	sar, sadc(8), sa1(8), sa2(8), sadf(1), isag(1)
 	free, uptime
 	iotop, ionice
-	slabtop
-	jnettop
 	top
 	/proc, /sys filesystems
 	ps pstree pgrep
@@ -15,9 +13,30 @@ talk about these tools...
 	nice, renice, snice
 	netstat, nc
 	atop, atopsar
-	fuser, pidof, lsof
-	crash
+
+process ids:
+	pidof
+
+used files:
+	fuser, lsof
+
+core dumps:
 	gdb
 	gcore
 
-(maybe add more ?!?)
+kernel:
+	crash
+	slabtop
+
+networking:
+	jnettop
+	iftop
+	ngrep
+	tcpdump
+	wireshark
+	dumpcap
+	rawshark
+	tshark
+	editcap
+	mergecap
+	text2pcap
