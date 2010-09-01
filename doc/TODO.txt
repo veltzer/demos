@@ -1,3 +1,7 @@
+- the sendfile io demo:
+	install a new kernel (2.6.33) and see that it works.
+	Document or script how to compile and install a new kernel for ubuntu.
+
 - when making kernel modules the build process complains:
 	Makefile:602: "WARNING: Appending $KCFLAGS (-Werror) from command line to kernel $CFLAGS"
 	shut it up somehow (this is a good warning).
