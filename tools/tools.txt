@@ -1,11 +1,9 @@
-talk about these tools...
+process statistics:
 	vmstat
-	iostat
 	mpstat
 	pidstat
 	sar, sadc(8), sa1(8), sa2(8), sadf(1), isag(1)
 	free, uptime
-	iotop, ionice
 	top
 	/proc, /sys filesystems
 	ps pstree pgrep
@@ -13,6 +11,11 @@ talk about these tools...
 	nice, renice, snice
 	netstat, nc
 	atop, atopsar
+
+io:
+	iostat
+	iotop, ionice
+	hdparm, sdparm
 
 process ids:
 	pidof
@@ -53,6 +56,7 @@ networking:
 	editcap
 	mergecap
 	text2pcap
+	ethtool
 
 java debugging:
 	jstack
@@ -62,3 +66,6 @@ programming tracing:
 	mtrace (muntrace,malloc tracing).
 	dmalloc(1)
 	pthread_trace_* (pthread tracing).
+
+power managements:
+	powertop.
