@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<title>Python Exercises: Types, Loops, Functions</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="python-exercises-types-loops-functions">
+<h1 class="title">Python Exercises: Types, Loops, Functions</h1>
+
+<!-- -*- rst -*- -->
+<!-- See EXERCISES.html which is nicer to read -->
+<!-- (it was generated from this using http://docutils.sf.net) -->
+<p>Hi.  Here are some exercise that you should be able to do at the current
+point in the course.  If you have any questions, please don't hesitate
+to contact me at &lt;<a class="reference external" href="mailto:beni.cherniavsky&#64;gmail.com">beni.cherniavsky&#64;gmail.com</a>&gt;.  I'll try to answer same day.</p>
+<p>I tried to build them in steps, so you can at least solve them
+partially, if you don't know how to solve the full problem.</p>
+<p>All exercises come with solutions.  It's OK if you fail to solve a few
+and peek at the solutions; and it's a good idea to look at my
+solutions even if your solution works perfectly.  But if there is
+anything unclear in my solutions, please mail me.</p>
+<p>If you don't remember something from the course, the <a class="reference external" href="http://docs.python.org/tutorial/">Python
+Tutorial</a> will probably serve you better than the course slides.
+(It's also accessible among the Python docs that open when you press
+F1 in IDLE.)  Specifically, what you learnt is in chapters 3-5 of the
+tutorial (except 4.7 and 5.1.3-5, the course covers these topics
+later).</p>
+<p>Also, don't forget the builtin <tt class="docutils literal"><span class="pre">help()</span></tt> function.  And again, mail
+me if you get stuck.</p>
+<div class="section" id="warmup">
+<h1>Warmup</h1>
+<p>The following code right-aligns several lines of text:</p>
+<pre class="literal-block">
+def right_align_to(lines, width):
+    &quot;&quot;&quot;Right-align all lines to given width.&quot;&quot;&quot;
+    result = []
+    for line in lines:
+        result.append(line.rjust(width))
+    return result
+
+for line in right_align_to(['foo', 'x', '12345678'], 8):
+    print line
+</pre>
+<p>which prints:</p>
+<pre class="literal-block">
+     foo
+       x
+12345678
+</pre>
+<p>Things to note in this example:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">def</span></tt> defines a function.  You barely reached the functions
+chapter in the course - but as you see it's very simple.  In most of
+these exercise, you won't <em>have</em> to split your code into functions,
+but it's frequently a good idea.</li>
+<li>See how I initialized <tt class="docutils literal"><span class="pre">result</span></tt> to an empty list and then did a
+loop that appends elements to it?  Remember it, it's a very common
+way to build a list.  [In chapter 4, <cite>Data Processing</cite>, you'll learn
+a shorthand syntax for it.  But you don't need it for now.]</li>
+</ul>
+<div class="section" id="up-and-running">
+<h2>Up and running</h2>
+<p>First, try to run this example and see that it works.  This is just to
+check that you remember how to use IDLE.</p>
+<ul class="simple">
+<li>If you're working from IDLE's <cite>Python Shell</cite> window, remember that
+you have to press Enter twice at the end of a complex command, like
+<tt class="docutils literal"><span class="pre">def</span></tt> or <tt class="docutils literal"><span class="pre">for</span></tt>.  [Copy-pasting both commands at once won't work,
+IDLE's shell window doesn't support it.]</li>
+<li>If you're working from IDLE's editing window (File→New, Save As with
+<tt class="docutils literal"><span class="pre">.py</span></tt> extension), just press F5.</li>
+</ul>
+</div>
+<div class="section" id="exercise-1-width">
+<h2>Exercise 1: Width</h2>
+<p>Modify this code so that instead of being told the width (8 in this
+case), it will automatically compute the length of the longest line.</p>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">len(&quot;abc&quot;)</span></tt> returns 3.</li>
+<li><tt class="docutils literal"><span class="pre">max([3,1,8])</span></tt> returns 8.</li>
+</ul>
+<p>Solution: <tt class="docutils literal"><span class="pre">width.py</span></tt></p>
+</div>
+</div>
+<div class="section" id="table">
+<h1>2. Table</h1>
+<p>You are given a list of 3 columns, each being a list of strings (all
+of the same length):</p>
+<pre class="literal-block">
+columns = [['H', 'He', 'Li', 'Be'],
+           ['Hidrogen', 'Helium', 'Litium', 'Berilium'],
+           ['1.008', '4.003', '6.941', '9.012']]
+</pre>
+<p>Your task is to print it as a nice ASCII table.</p>
+<div class="section" id="exercise-2a-fixed-layout">
+<h2>Exercise 2A: fixed layout</h2>
+<p>For starters, assume there are exactly 3 columns and print each column
+10 characters wide:</p>
+<pre class="literal-block">
++----------+----------+----------+
+|H         |Hidrogen  |1.008     |
++----------+----------+----------+
+|He        |Helium    |4.003     |
++----------+----------+----------+
+|Li        |Litium    |6.941     |
++----------+----------+----------+
+|Be        |Berilium  |9.012     |
++----------+----------+----------+
+</pre>
+<p>This is quite easy.  The only tricky part is that the data is arranged
+by columns, so you need to access the i'th element of each column in
+parallel.</p>
+<dl class="docutils">
+<dt><strong>Hints</strong>:</dt>
+<dd><ul class="first last simple">
+<li><tt class="docutils literal"><span class="pre">&quot;-&quot;</span> <span class="pre">*</span> <span class="pre">10</span></tt> returns <tt class="docutils literal"><span class="pre">&quot;----------&quot;</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">&quot;Helium&quot;.ljust(10)</span></tt> returns <tt class="docutils literal"><span class="pre">&quot;Helium</span> <span class="pre">&quot;</span></tt>.</li>
+<li>Try <tt class="docutils literal"><span class="pre">zip(columns[0],</span> <span class="pre">columns[1],</span> <span class="pre">columns[2])</span></tt> in the
+interpreter.  If you don't understand how this helps you, peek
+at the solution - it's an useful function to know!</li>
+</ul>
+</dd>
+</dl>
+<p>Solution: <tt class="docutils literal"><span class="pre">table_fixed.py</span></tt></p>
+</div>
+<div class="section" id="exercise-2b-auto-fit">
+<h2>Exercise 2B: Auto-fit</h2>
+<p>Now, improve it by computing the proper width for each column:</p>
+<pre class="literal-block">
++--+--------+-----+
+|H |Hidrogen|1.008|
++--+--------+-----+
+|He|Helium  |4.003|
++--+--------+-----+
+|Li|Litium  |6.941|
++--+--------+-----+
+|Be|Berilium|9.012|
++--+--------+-----+
+</pre>
+<p>This obviously requires doing 2 passes over the data - one to compute
+the width for each column, one to print the table.</p>
+<p>Solution: <tt class="docutils literal"><span class="pre">table_autofit.py</span></tt></p>
+</div>
+</div>
+<div class="section" id="map">
+<h1>3. Map</h1>
+<p>You're given a dictionary representing a (very simplified) map of
+Frodo's travels around Middle Earth:</p>
+<pre class="literal-block">
+places = {
+    'Shire': {'leave': 'Bree', 'stay': 'DEATH'},
+    'DEATH': {},
+    'Bree': {'with Strider': 'Rivendell', 'alone': 'DEATH'},
+    'Rivendell': {'over mountains': 'DEATH', 'through Moria': 'Lorien'},
+    'Lorien': {'down Anduin': 'Falls of Rauros'},
+    'Falls of Rauros': {'down Anduin': 'Minas Tirith',
+                        'east': 'Ithilien'},
+    'Ithilien': {'south': 'Black Gate'},
+    'Black Gate': {'in': 'DEATH', 'follow Gollum': 'Minas Morgul'},
+    'Minas Morgul': {'road': 'DEATH', 'tunnel': 'Mordor'},
+    'Mordor': {'eagles': 'Minas Tirith'},
+    'Minas Tirith': {'return home': 'Shire (tired)'},
+    'Shire (tired)': {'stay': 'Shire (tired)', 'retire': 'the West'},
+    'the West': {}
+    }
+</pre>
+<p>For each place there is a sub-dictionary mapping actions Frodo could
+take and where they would lead him.  (Many lead to 'DEATH', from which
+there are no more actions possible ;-).</p>
+<div class="section" id="exercise-3a-walk">
+<h2>Exercise 3A: Walk</h2>
+<p>Such a dictionary is all you need for a (very simple) text-based
+role-playing game!  Each time it should print the current place and
+the list of actions, and ask the user which action to take.</p>
+<p>Bonuses: present a nice interface, don't crush on illegal input, allow
+exiting the game.</p>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">raw_input()</span></tt> reads a line from the user and returns it.</li>
+</ul>
+<p>Solution: <tt class="docutils literal"><span class="pre">map_walk.py</span></tt></p>
+</div>
+<div class="section" id="exercise-3b-search">
+<h2>Exercise 3B: Search</h2>
+<p>You're now in Rivendell, and you've just volunteered to take the ring
+to Mordor, though you do not know the way.  Can you write a program
+that tries to find a way?</p>
+<p>For simplicity, we're only looking for sequences of at most 7 actions.</p>
+<p>If it simplifies matters for you, you don't have to find the sequence
+of actions, just check <em>whether</em> it's possible (in no more than 7
+steps).</p>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li>If you have no idea how to solve this, here is a simple approach
+that works.  You'll maintain a dictionary of places to which you
+know the way (the keys will be the action sequences to reach them).<ul>
+<li>Initialize it with only 'Rivendell' (the way to which is [] - no
+actions required).</li>
+<li>Repeat 7 times: for any place P to which you know the way, for any
+action A leading from P to Q to which you don't yet know the way,
+set <tt class="docutils literal"><span class="pre">way_to[Q]</span> <span class="pre">=</span> <span class="pre">way_to[P]</span> <span class="pre">+</span> <span class="pre">[A]</span></tt>.</li>
+</ul>
+</li>
+<li>If you get a &quot;dictionary changed size during iteration&quot; error, it
+means you should do <tt class="docutils literal"><span class="pre">for</span> <span class="pre">k</span> <span class="pre">in</span> <span class="pre">dictionary.keys():</span></tt> instead of <tt class="docutils literal"><span class="pre">for</span>
+<span class="pre">k</span> <span class="pre">in</span> <span class="pre">dictionary:</span></tt>.</li>
+</ul>
+<p>Still lost?  Read the solution, it's shorter that you'd expect.</p>
+<p>Solution: <tt class="docutils literal"><span class="pre">map_search.py</span></tt></p>
+</div>
+</div>
+<div class="section" id="rpn-calculator">
+<h1>4. RPN Calculator</h1>
+<p>A &quot;Reverse Polish Notation&quot; calculator takes input in a strange form,
+where operators come after the operands:</p>
+<pre class="literal-block">
+2 2 + 5 *
+</pre>
+<p>which means (2 + 2) * 5.  There is an extremely simple way to compute
+RPN expressions, using a stack:</p>
+<ul class="simple">
+<li>When you see a number, push it onto the stack.</li>
+<li>When you see an operator, pop 2 operands from the stack, and push
+the result on the stack.</li>
+</ul>
+<p>Write a program that does this, printing the stack after each word:</p>
+<pre class="literal-block">
+[]
+2
+[2.0]
+2
+[2.0, 2.0]
++
+[4.0]
+5
+[4.0, 5.0]
+*
+[20.0]
+</pre>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li>A list works great to represent a stack - use <tt class="docutils literal"><span class="pre">.append(value)</span></tt> and
+<tt class="docutils literal"><span class="pre">.pop()</span></tt> methods.</li>
+</ul>
+<p>Solution: <tt class="docutils literal"><span class="pre">rpn_calculator.py</span></tt> (Read this solution!  It will teach
+you something about using functions in unexpected ways.)</p>
+</div>
+<div class="section" id="make-clone">
+<h1>5. Make clone</h1>
+<p>Make is a tool that reads a file describing files that can be produced
+from other files (e.g. executable from sources), and what commands
+have to be run to do it (e.g. compiler).  It compares file
+modification dates, and only regenerates the files whose dependecies
+changed.</p>
+<p>In this exercise, you'll write a very simplified version of Make.
+You'll only handle dependecy lists (without commands) and you'll
+ignore file modification times (always assuming everything need to be
+rebuilt).</p>
+<div class="section" id="exercise-5a-parsing">
+<h2>Exercise 5A: parsing</h2>
+<p>Write a function that can parse a file like <tt class="docutils literal"><span class="pre">make.txt</span></tt>:</p>
+<pre class="literal-block">
+all:app
+app:a.o b.o
+a.o:a.c
+b.o:b.c
+</pre>
+<p>and return a dictionary giving for each target a list of files on
+which it depends:</p>
+<pre class="literal-block">
+{'all': ['app'],
+ 'a.o': ['a.c'],
+ 'b.o': ['b.c'],
+ 'app': ['a.o', 'b.o']}
+</pre>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li>The simplest way to read a file line-by-line is <tt class="docutils literal"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span>
+<span class="pre">open(&quot;make.txt&quot;):</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">&quot;foo:bar&quot;.split(&quot;:&quot;)</span></tt> returns ['foo', 'bar'].</li>
+</ul>
+<p><strong>Bonus</strong>: also handle command lines (see <tt class="docutils literal"><span class="pre">make_bonus.txt</span></tt>).</p>
+</div>
+<div class="section" id="exercise-5b-solving">
+<h2>Exercise 5B: solving</h2>
+<p>Now write a function that takes such a dictionary and returns a list
+of files that have to be generated.  To build 'all', the result would be:</p>
+<pre class="literal-block">
+['a.o', 'b.o', 'app', 'all']
+</pre>
+<p>Why?  To build 'all' we must first build 'app', but to build 'app', we
+must first build 'a.o' and 'b.o'.  (They in turn depend on 'a.c' and
+'b.c' but since are no rules for how to build them, Make assumes they
+are existing source files.)</p>
+<p>For simplicity, assume that different files won't have common
+dependencies (Make handles that smartly, building each file at most
+once; you don't have to).</p>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li>This is a classical use case for recursion.  There are 2 cases:<ul>
+<li>Source files (no rule to build): <tt class="docutils literal"><span class="pre">plan('a.c')</span> <span class="pre">==</span> <span class="pre">[]</span></tt></li>
+<li>Generated files: <tt class="docutils literal"><span class="pre">plan('app')</span> <span class="pre">==</span> <span class="pre">plan('a.o')</span> <span class="pre">+</span> <span class="pre">plan('b.o')</span> <span class="pre">+</span> <span class="pre">['app']</span></tt></li>
+</ul>
+</li>
+</ul>
+<p><strong>Bonus</strong>: if you also parsed the commands, after computing the plan,
+show which commands would be executed.</p>
+<p>Solutions: <tt class="docutils literal"><span class="pre">make.py</span></tt>, <tt class="docutils literal"><span class="pre">make_bonus.py</span></tt></p>
+</div>
+</div>
+<div class="section" id="lasers">
+<h1>6. Lasers</h1>
+<p>[Credit: this exercise is shamelessly stolen from
+<a class="reference external" href="http://stackoverflow.com/questions/1480023/code-golf-lasers">http://stackoverflow.com/questions/1480023/code-golf-lasers</a>]</p>
+<p>You are given a file such as <tt class="docutils literal"><span class="pre">lasers_hit.txt</span></tt>:</p>
+<pre class="literal-block">
+#########
+#&gt;   \  #
+#  /  x #
+#  \ /  #
+#########
+</pre>
+<p>or <tt class="docutils literal"><span class="pre">lasers_miss.txt</span></tt>:</p>
+<pre class="literal-block">
+#########
+#&gt; \ \  #
+#     x #
+#  \ /  #
+#########
+</pre>
+<p>which describes a rectangular room.</p>
+<ul class="simple">
+<li>The square with <tt class="docutils literal"><span class="pre">&gt;</span></tt> (could also be <tt class="docutils literal"><span class="pre">&lt;</span></tt> / <tt class="docutils literal"><span class="pre">v</span></tt> / <tt class="docutils literal"><span class="pre">^</span></tt>) emits a
+laser beam.</li>
+<li>The laser beam travels empty spaces, and is reflected at 90° by
+<tt class="docutils literal"><span class="pre">/</span></tt> and <tt class="docutils literal"><span class="pre">\</span></tt> mirrors.</li>
+<li>The <tt class="docutils literal"><span class="pre">x</span></tt> is the target, <tt class="docutils literal"><span class="pre">#</span></tt> are walls.</li>
+</ul>
+<p>Your goal is to determine whether the beam ends up hitting the target,
+or anything else (wall, or in rare cases the emitter).  Cute, ha?</p>
+<p>For starters, assume the beam emitter is at (1, 1) and points to the
+right.  When the rest works, look for the emitter.</p>
+<p><strong>Hints</strong>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">open(fname).readlines()</span></tt> returns a list of lines.</li>
+<li>At any point, your state can be described by (x, y, direction).</li>
+<li>The next (x, y) is determined by current (x, y) plus the direction.</li>
+<li>The next direction is determined by room[y][x] and current direction.</li>
+<li>Try to use dictionaries instead of long repetitive if..elif
+statements.  Think about what you learned in the Map and RPN
+calculator exercises...</li>
+<li>Add debugging prints to display your position after every iteration.</li>
+</ul>
+<p>Solution: <tt class="docutils literal"><span class="pre">lasers.py</span></tt></p>
+</div>
+</div>
+</body>
+</html>

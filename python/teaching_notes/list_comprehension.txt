@@ -1,0 +1,8 @@
+
+[expr code] 
+	===>
+
+		newlist=[]
+		code
+			newlist.append(expr)
+		return newlist

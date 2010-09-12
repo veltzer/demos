@@ -1,0 +1,22 @@
+1. Write a synchronized stack.
+	Any thread could push or pop from the stack.
+	- in the first variant a pop from an empty stack simply
+		returns.
+	- in the second variant a pop from an empty stack sleeps
+		until data is available.
+2. Reader Write Lock.
+	Write a reader write lock.
+	Write a python object which will be used by thread authors.
+	It will have the following methods:
+		ReaderEnter
+		ReaderLeave
+		WriterEnter
+		WriterLeave
+	A thread author will use it this way:
+	If the thread is a reader:
+		rwl.ReaderEnter()
+		[do some reading of the data]
+		rwl.ReaderLeave()
+	And the same for the writer...
+
+	* Write some threads to show that your object works.
