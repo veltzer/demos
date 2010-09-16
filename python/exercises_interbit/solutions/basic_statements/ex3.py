@@ -1,10 +1,9 @@
 #!/usr/bin/python
 
-f = open("c:/tmp.txt")
+f = open("input.txt")
 
 report = {}
-lines = f.readlines()
-for line in lines:
+for line in f.readlines():
     for c in line:
         if not(c in [" ","\n","\r","\t"]):
             if (report.has_key(c)):
@@ -12,13 +11,6 @@ for line in lines:
             else:
                 report[c] = 1
 
-f = open("c:/tmp2.txt",'wa')
-for c in report.keys():
-    f.write(c)
-    f.write(" : ")
-    f.write(str(report[c]))
-    f.write("\n")
-
+f = open("report.txt",'wa')
+f.write(str(report));
 f.close()
-    
-
