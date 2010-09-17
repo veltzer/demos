@@ -1,0 +1,30 @@
+<script>
+g_getName=function() {
+	return this.name;
+}
+g_setName=function(iname) {
+	this.name=iname;
+}
+g_getFullName=function() {
+	return this.name+" "+this.age;
+}
+g_printSelf=function() {
+	document.write(this.getFullName());
+}
+
+function createPerson(iname,iage) {
+	return {
+		name: iname,
+		age: iage,
+		getName: g_getName,
+		setName: g_setName,
+		getFullName: g_getFullName,
+		printSelf: g_printSelf 
+	};
+}
+var p1=createPerson('Bilbo',111);
+var p2=createPerson('Frodo',57);
+p1.printSelf();
+document.write('<br>');
+p2.printSelf();
+</script>

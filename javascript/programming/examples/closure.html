@@ -1,0 +1,20 @@
+<script>
+	/* This demo shows the closure feature. The 5 and 13
+	is stored within the closure object */
+	function createSomeOtherFunction(x) {
+		return function addX(y) {
+			return y+x;
+		}
+	}
+	var func5=createSomeOtherFunction(5)
+	var func13=createSomeOtherFunction(13)
+	document.write(func5(7))
+	document.write('<br/>')
+	document.write(func5(9))
+	document.write('<br/>')
+	document.write(func13(11))
+	document.write('<br/>')
+	document.write(func13(102))
+	document.write('<br/>')
+	
+</script>

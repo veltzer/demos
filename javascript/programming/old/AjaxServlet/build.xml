@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AjaxServlet" default="war" basedir=".">
+	<target name="compile" depends="">
+		<javac srcdir="src" classpath="lib/servlet-api.jar"/>
+	</target>
+	<target name="war" depends="compile">
+		<war destfile="AjaxServlet.war" webxml="web.xml">
+			<classes dir="bin"/>	
+		</war>
+	</target>
+</project>

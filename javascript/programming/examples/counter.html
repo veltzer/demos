@@ -1,0 +1,22 @@
+<script>
+	function counter(start,stop,step) {
+		var value=start;
+		return function () {
+			if(value<stop) {
+				var ret=value;
+				value+=step;
+				return ret;
+			} else {
+				throw "Don't bother me. Were done";
+			}
+		}
+	}
+	var c1=counter(0,40,2);
+	var c2=counter(-23,17,2);
+	for(var i=0;i<21;i++) {
+		document.write(c1())
+		document.write('<br/>')
+		document.write(c2())
+		document.write('<br/>')
+	}
+</script>

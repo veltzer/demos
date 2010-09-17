@@ -1,0 +1,29 @@
+<script>
+	function counter(start,stop,step) {
+		var val=start-step;
+		var p={};
+		p.count=function () {
+			if(val<stop) {
+				val+=step;
+			}
+			return val;
+		}
+		// this is the restart func
+		p.restart=function() {
+			val=start-step;
+		}
+		return p;
+	}
+	var c1=counter(4,12,2);
+	var c2=counter(-13,-9,1);
+	for(var i=0;i<10;i++) {
+		document.write("c1 is "+c1.count())
+		document.write('<br/>')
+		document.write("c2 is "+c2.count())
+		document.write('<br/>')
+		if(i%5==0) {
+			document.write('restarting c1 <br/>')
+			c1.restart();
+		}
+	}
+</script>

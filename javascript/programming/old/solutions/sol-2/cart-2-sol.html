@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script src="js2.js"/>
+<script>
+	var ipod = createItem('IPod', 200);
+	var miniMac = createItem('MiniMac', 1000);
+	var macBook = createItem('MacBook', 1400);
+	
+	function addToCart(item) {
+	
+		cart.addItem(item);
+		document.getElementById(item.getName() + "_Q").innerHTML = "X" + cart.getQuantity(item);
+	
+	}
+	
+	
+	function checkout() {
+		
+		document.getElementById("summary").innerHTML = cart.checkout();
+		
+	}
+</script>
+</head>
+<body>
+	<table>
+	  <tr>
+	    <td>IPod</td>
+	    <td>$200</td>
+	    <td><button onclick="addToCart(ipod);">Add to Cart</button></td>
+	    <td id="IPod_Q"></td>
+	  </tr>
+	  <tr>
+	    <td>MiniMac</td>
+	    <td>$1000</td>
+	    <td><button onclick="addToCart(miniMac);">Add to Cart</button></td>
+	    <td id="MiniMac_Q"></td>
+	  </tr>
+	  <tr>
+	    <td>MacBook</td>
+	    <td>$1400</td>
+	    <td><button onclick="addToCart(macBook);">Add to Cart</button></td>
+	    <td id="MacBook_Q"></td>
+	  </tr>
+	  <tr>
+	    <td></td>
+	    <td></td>
+	    <td><button onclick="checkout();">Checkout</button></td>
+	  </tr>
+	</table>
+	
+	<br/>
+	
+	<p id="summary">
+	</p>
+
+</body>
+</html>

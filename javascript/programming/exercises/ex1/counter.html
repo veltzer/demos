@@ -1,0 +1,19 @@
+<script>
+	function counter(start,stop,step) {
+		start-=step
+		return function () {
+			if(start<stop) {
+				start+=step;
+			}
+			return start;
+		}
+	}
+	var c1=counter(4,12,2);
+	var c2=counter(-13,-9,1);
+	for(var i=0;i<10;i++) {
+		document.write(c1())
+		document.write('<br/>')
+		document.write(c2())
+		document.write('<br/>')
+	}
+</script>

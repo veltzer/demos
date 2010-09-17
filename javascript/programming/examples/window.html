@@ -1,0 +1,29 @@
+<script>
+var add_one_stupid_var="stupid_val"
+for(var x in window) {
+	document.write(x)
+	document.write(' ')
+	document.write(window[x])
+	document.write('<br/>')
+}
+document.write("=============================");
+document.write('<br/>')
+for(var x in window.location) {
+	document.write(x)
+	document.write(' ')
+	document.write(window.location[x])
+	document.write('<br/>')
+}
+
+window.location.replace=function() {
+	document.write("wow wow")
+	document.write('<br/>')
+}
+for(var x in window.location) {
+	document.write(x)
+	document.write(' ')
+	document.write(window.location[x])
+	document.write('<br/>')
+}
+//window.location="http://www.microsoft.com";
+</script>

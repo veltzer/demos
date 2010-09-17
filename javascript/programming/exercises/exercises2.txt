@@ -1,0 +1,82 @@
+=========================================
+Basic Java Script concepts (Chapters 1-4)
+=========================================
+1. Write a function that creates a counter that keeps its
+	internal state using a closure and gets three parameters 
+	to control its behaviour: start, stop and step.
+	Use closures.
+	Demostrate the use.
+	Compact your code as much as possible.
+	See page 38
+2. Do an example of a debug function which only prints the
+	debug message the first 3 times it is called via
+	the "alert" function and then stops printing and stores
+	the messages in an array. 
+	Use function properties and the call-once design pattern.
+	The call-once pattern is described in page 23
+	Properties of functions are described in page 32
+3. Write an object called person which has the name and age
+	properties. Write setters and getters for these attributes.
+	Write a method called printSelf which prints the data
+	to the document.
+	Advanced:
+	Now make the setters and getters be shared among all instances
+	of person. Add a toString method and demostrate it.
+	See page 24 for details about basics of OO concepts in javascript.
+==============================
+Java Script and OO (Chapter 5)
+==============================
+4. Improve your Person class. Make the methods shared via a protoype.
+5. Improve your Person class. Add a static field count and static
+	methods to retrieve it.
+6. Improve your Person class. Add the ability to store children.
+	var p=new Person("foo","bar");
+	var p_child=new Person("zoo","goo");
+	p.addChild(p_child);
+	var result=p.getChild(0);
+7. Improve your Person class. Split your constructor. keep the simple
+	version of the constructor but also add a version with
+	a child.
+=========================================
+Using the DOM from Javascript (Chapter 8)
+=========================================
+* In the following set of exercises you are implementing a shopping
+cart in Javascript. The shopping cart is *** Client Side ***.
+1. Write a priceList object that knows how much everything costs
+	and has this method: getPrice("item"). Make it a singleton
+	and store some items with prices in it.
+2. Write a shopping cart object.
+	use prototypes, objects and everything you know about OO
+	javascript. Have the shopping cart be able to calculate
+	it's entire price (using the priceList object).
+3. Write a shopping page where you would show (hardcoded) three
+	items from the priceList. Whenever the user clicks an
+	item it gets added to the shopping cart.
+	The price of the shopping cart is updated and displayed on
+	screen.
+	use "onclick" and connect elements on screen to the function
+	which adds items to the shopping cart.
+4. Make it so the html does not contain ANY products. On window load
+	create all the product names and prices on the page. Connect
+	them so clicking on them will update the shopping cart and
+	price.
+================================
+Java Script and AJAX (Chapter 9)
+================================
+* Use the shopping cart application as starting point.
+1. - Put the previous exercise on a web server (you will need the
+web server since you will be doing HTTP calls to it and the
+file system will not do). The web server could be an Apache server
+or a Tomcat server.
+- Put an HTML snipplet on the web server also (A single table
+with some rows and values that you can see). No <html>,<body>
+or <head>. call it "snipplet.html".
+- Now fix your javascript code to use AJAX to load the HTML snipplet
+- from the server on page load (window.onload) and fill an empty div
+with the content returned from the server.
+
+2. Improve the exercise to load the price list via AJAX.
+- modify 'snipplet' to be in JSON syntax and contain the prices list. 
+- use eval to convert to a javascript object.
+
+3. Improve the exercise even more. Use a JSON parser and secure your app.
