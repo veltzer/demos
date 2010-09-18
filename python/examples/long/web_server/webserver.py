@@ -4,7 +4,11 @@
 # originally grabbed from "http://fragments.turtlemeat.com/pythonwebserver.php".
 # Copyright Jon Berg , turtlemeat.com
 
-import string,cgi,time,os,BaseHTTPServer
+import string,cgi,time,os,BaseHTTPServer,SocketServer
+
+class ThreadedServer(SocketServer.ThreadingMixIn,BaseHTTPServer.HTTPServer):
+	"""Handle requests in a separate thread."""
+	pass
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 	def handle_static(self,mimetype):
@@ -80,7 +84,8 @@ def main():
 	try:
 		port=8001
 		print 'constructing server'
-		server=BaseHTTPServer.HTTPServer(('',port),MyHandler)
+		#server=BaseHTTPServer.HTTPServer(('',port),MyHandler)
+		server=ThreadedServer(('',port),MyHandler)
 		print 'started httpserver on port '+str(port)
 		server.serve_forever()
 	except KeyboardInterrupt:

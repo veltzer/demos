@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from threading import Thread
+import threading
 
 # this function was written with NO consideratiion of threading...
 def func(data):
@@ -14,6 +14,6 @@ def create_func(func_to_run,data):
 	return wrapper
 
 myfunc=create_func(func,"Hello,World")
-t=Thread(target=myfunc)
+t=threading.Thread(target=myfunc)
 t.start()
 t.join()
