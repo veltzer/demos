@@ -1,10 +1,11 @@
 #!/usr/bin/python
 
 # demo of simple web server in python using HTTPServer
-# originally grabbed from "http://fragments.turtlemeat.com/pythonwebserver.php".
+# originally grabbed from 'http://fragments.turtlemeat.com/pythonwebserver.php'.
 # Copyright Jon Berg , turtlemeat.com
+# Modified by Mark Veltzer <mark@veltzer.net>
 
-import string,cgi,time,os,BaseHTTPServer,SocketServer
+import string,cgi,time,os,BaseHTTPServer,SocketServer,threading
 
 class ThreadedServer(SocketServer.ThreadingMixIn,BaseHTTPServer.HTTPServer):
 	"""Handle requests in a separate thread."""
@@ -15,7 +16,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 		f=open(self.realpath)
 		#note that this potentially makes every file on your computer
 		#readable by the internet. A real web server also checks that
-		#the file that it is serving is inside into service "realm".
+		#the file that it is serving is inside into service 'realm'.
 		self.send_response(200)
 		self.send_header('Content-type',mimetype)
 		self.end_headers()
@@ -25,8 +26,8 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
 		self.end_headers()
-		self.wfile.write("today is the"+str(time.localtime()[7]))
-		self.wfile.write("day in the year "+str(time.localtime()[0]))
+		self.wfile.write('today is the'+str(time.localtime()[7]))
+		self.wfile.write('day in the year '+str(time.localtime()[0]))
 	def handle_dir(self):
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
@@ -43,15 +44,15 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 		self.realpath='.'+self.path
 		if(os.path.isfile(self.realpath)):
 			#our dynamic content
-			if self.path.endswith(".esp"):
+			if self.path.endswith('.esp'):
 				self.handle_esp();
 				return
 			#our static HTML content
-			if self.path.endswith(".html"):
+			if self.path.endswith('.html'):
 				self.handle_static('text/html');
 				return
 			#our static icons content
-			if self.path.endswith(".ico"):
+			if self.path.endswith('.ico'):
 				self.handle_static('image/vnd.microsoft.icon');
 				return
 			#unrecognized file suffix
@@ -60,12 +61,13 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 		if(os.path.isdir(self.realpath)):
 			self.handle_dir();
 	def do_GET(self):
+		print threading.current_thread();
 		# this is the method called by the framework... any lower level error
 		# should send internal error to the client...
 		try:
 			self.get();
 		except Exception, e:
-			self.send_error(500,'Internal server error for resource: %s %s' % (self.path,e))
+			self.send_error(500,'GET Internal server error for resource: %s %s' % (self.path,e))
 	def do_POST(self):
 		try:
 			ctype,pdict=cgi.parse_header(self.headers.getheader('content-type'))
@@ -73,23 +75,33 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 				query=cgi.parse_multipart(self.rfile,pdict)
 				self.send_response(301)
 			self.end_headers()
-			upfilecontent = query.get('upfile')
-			print "filecontent", upfilecontent[0]
-			self.wfile.write("<HTML>POST OK.<BR><BR>");
+			upfilecontent=query.get('upfile')
+			#print 'filecontent', upfilecontent[0]
+			self.wfile.write('<html><body>POST OK.<br/><br/>');
+			self.wfile.write('<b>file content is:</b><br/><code>');
 			self.wfile.write(upfilecontent[0]);
+			self.wfile.write('</code></body></html>');
 		except:
-			pass
+			self.send_error(500,'POST Internal server error for resource: %s %s' % (self.path,e))
 
 def main():
 	try:
+		host='localhost'
 		port=8001
+		url='http://'+host+':'+str(port)
 		print 'constructing server'
-		#server=BaseHTTPServer.HTTPServer(('',port),MyHandler)
-		server=ThreadedServer(('',port),MyHandler)
-		print 'started httpserver on port '+str(port)
+		threaded=True
+		threaded=False
+		if threaded==True:
+			server=ThreadedServer((host,port),MyHandler)
+		else:
+			server=BaseHTTPServer.HTTPServer((host,port),MyHandler)
+		print 'contact me at '+url
 		server.serve_forever()
 	except KeyboardInterrupt:
-		print '^C received, shutting down server'
+		print
+		print
+		print 'CTRL+C received, shutting down server'
 		server.socket.close()
 
 if __name__=='__main__':
