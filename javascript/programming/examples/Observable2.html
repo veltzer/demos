@@ -1,0 +1,30 @@
+<script>
+// Here comes a model with no regard to listeners
+function Person(name,age) {
+	this.name=name;
+	this.age=age;
+}
+Person.prototype.setName=function(name) {
+	this.name=name;
+}
+Person.prototype.getName=function() {
+	return this.name;
+}
+
+// here comes the listener
+function MakeItListen() {
+	for(x in Person.prototype) {
+		var tmp=Person.prototype[x];
+		Person.prototype[x]=function() {
+			tmp(arguments);
+			alert("something was changed");
+		}
+	}
+}
+
+MakeItListen();
+var p=new Person("mark",435);
+p.setName("shay");
+p.getName();
+
+</script>

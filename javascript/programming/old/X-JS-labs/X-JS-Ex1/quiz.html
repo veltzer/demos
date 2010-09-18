@@ -1,0 +1,17 @@
+<script>
+	
+	function quiz(x) {
+		if (x) document.write("A");
+		if (x == true) document.write("B");
+		if (x === true) document.write("C");
+		if (x != false) document.write("D");
+		
+		document.write("<br/>");
+	}
+	
+	quiz("0");
+	quiz("1");
+	quiz("2");
+	quiz(true);
+	quiz(new Boolean(true));
+</script>

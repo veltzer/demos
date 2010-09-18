@@ -1,0 +1,16 @@
+<script>
+function Person(name) {
+	this.name=name;
+	Person.count++;
+}
+Person.count=0;
+Person.getCount=function() {
+	return Person.count;
+}
+Person.prototype.getName=function() {
+	return this.name;
+}
+var person=new Person("james");
+var person=new Person("john");
+document.write(Person.getCount());
+</script>

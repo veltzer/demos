@@ -1,0 +1,37 @@
+<script>
+var person1={
+	name: "Bilbo",
+	age: 111,
+	getName: function() {
+		return this.name;
+	},
+	setName: function(iname) {
+		this.name=iname;
+	},
+	getFullName: function() {
+		return this.name+" "+this.age;
+	},
+	printSelf: function() {
+		document.write(this.getFullName());
+	}
+};
+var person2={
+	name: "Frodo",
+	age: 57,
+	getName: function() {
+		return this.name;
+	},
+	setName: function(iname) {
+		this.name=iname;
+	},
+	getFullName: function() {
+		return this.name+" "+this.age;
+	},
+	printSelf: function() {
+		document.write(this.getFullName());
+	}
+};
+person1.printSelf();
+document.write('<br>');
+person2.printSelf();
+</script>

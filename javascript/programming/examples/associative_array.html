@@ -1,0 +1,17 @@
+<script>
+	// this is a demo of how to use associative arrays in javascript...
+	// note that there is no way to know how many elements an associative array has
+	var associativeArray = [];
+	associativeArray["one"] = "First";
+	associativeArray["two"] = "Second";
+	associativeArray["three"] = "Third";
+	document.write('here we go...<br/>');
+	document.write(typeof(associativeArray));
+	document.write('<br/>')
+	for(var x in associativeArray) {
+		document.write(x)
+		document.write('<br/>')
+		document.write(associativeArray[x])
+		document.write('<br/>')
+	}
+</script>

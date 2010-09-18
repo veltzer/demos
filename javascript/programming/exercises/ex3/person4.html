@@ -1,0 +1,40 @@
+<script>
+
+function createPerson(iname,iage) {
+	return {
+		name: iname,
+		age: iage,
+		getName: createPerson.getName,
+		setName: createPerson.setName,
+		getFullName: createPerson.getFullName,
+		printSelf: createPerson.printSelf,
+		toString: createPerson.toString
+	};
+}
+createPerson.getName=function() {
+	return this.name;
+}
+createPerson.setName=function(iname) {
+	this.name=iname;
+}
+createPerson.getFullName=function() {
+	return this.name+" "+this.age;
+}
+createPerson.printSelf=function() {
+	document.write(this.getFullName());
+}
+createPerson.toString=function() {
+	var s="";
+	for(var key in this) {
+		if(typeof(this[key])!='function') {
+			s+=key+": "+this[key]+"<br/>";
+		}
+	}
+	return s;
+}
+
+// This is the client code
+var p1=createPerson('Bilbo',111);
+var p2=createPerson('Frodo',57);
+document.write(p1+'<br>'+p2);
+</script>

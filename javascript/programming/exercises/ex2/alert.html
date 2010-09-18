@@ -1,0 +1,34 @@
+<script>
+	function newalert(message) {
+		// I do not use this and instead initialize after
+		// the function definition
+		//if(!("cnt" in newalert)) {
+		//	newalert.cnt=0;
+		//}
+		if(newalert.cnt<3) {
+			newalert.origalert(message);
+			newalert.cnt++;
+		} else {
+			var tmp=newalert.origalert;
+			newalert=function(message) {
+				newalert.a.push(message);
+			}
+			// there a two options:
+			newalert.a=[message];
+			newalert.origalert=tmp
+			// or
+			//newalert.a=[];
+			//newalert(message);
+		}
+	}
+	newalert.cnt=0;
+	newalert.origalert=alert;
+	//alert=newalert;
+
+	// here is the client code
+	for(var i=0;i<10;i++) {
+		newalert("message "+i);
+	}
+	document.write(newalert+"<br/>");
+	document.write(newalert.a);
+</script>

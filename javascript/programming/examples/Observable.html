@@ -1,0 +1,46 @@
+<script>
+function Person(name,age) {
+	this.name=name;
+	this.age=age;
+	this.listeners={};
+	this.listeners=[];
+}
+Person.prototype.notifyChanges=function() {
+	/*
+	for(x in this.listeners) {
+		console.log(x);
+		//x.notify();
+	}
+	*/
+	for(var i=0;i<this.listeners.length;i++) {
+		this.listeners[i].notify();
+	}
+}
+Person.prototype.addListener=function(l) {
+	//this.listeners[l]=null;
+	this.listeners.push(l);
+}
+Person.prototype.removeListener=function(l) {
+	//delete this.listeners[l];
+}
+
+Person.prototype.setName=function(name) {
+	this.name=name;
+	this.notifyChanges();
+}
+
+// here comes the listener
+
+function Listener() {
+}
+
+Listener.prototype.notify=function() {
+	alert("Hey, I just got a notice that a person was changed!");
+}
+
+var p=new Person("mark",435);
+var l=new Listener();
+p.addListener(l);
+p.setName("shay");
+
+</script>

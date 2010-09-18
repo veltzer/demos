@@ -1,0 +1,25 @@
+<script>
+function Person(name,age) {
+	this.name=name;
+	this.age=age;
+	this.getName=Person.getName;
+	this.setName=Person.setName;
+	this.toString=Person.toString;
+}
+Person.getName=function() {
+	return this.name;
+}
+Person.setName=function(newName) {
+	this.name=newName
+}
+Person.toString=function() {
+	return this.name+" "+this.age;
+}
+
+
+var person1=new Person("james",27);
+var person2=new Person("ralph",23);
+document.write(person1);
+document.write('<br>');
+document.write(person2 instanceof Person);
+</script>

@@ -1,0 +1,23 @@
+<script>
+var base = new Base();
+
+function Base() {
+	this.getName = function() {
+		return 'aaa';
+	}
+}
+
+Base.prototype.protM = function() {
+	return 'bbb';
+}
+
+function Sub() {
+	//this.superclass_Base();
+	Base.call(this);
+}
+
+Sub.prototype = new Base();
+Sub.prototype.superclass_Base = Base;
+
+alert (base.protM());
+</script>

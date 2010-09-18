@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<script>
+			function init() {
+				if(init.oldfunc) {
+					init.oldfunc();
+				}
+				alert("The windows was loaded");
+			}
+			init.oldfunc=window.onload;
+			window.onload = init;
+		</script>
+	</head>
+	<body>
+		This is the body
+	</body>
+</html>

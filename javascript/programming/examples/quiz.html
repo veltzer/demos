@@ -1,0 +1,33 @@
+<script>
+	function quiz(x) {
+		document.write(x);
+		document.write("\t");
+		document.write(typeof x);
+		document.write("\t");
+		if (x) document.write("if(x)");
+		else document.write("not -> if(x)");
+		document.write("\t");
+		if (x == true) document.write("if(x==true)");
+		else document.write("not -> if(x==true)");
+		document.write("\t");
+		if (x === true) document.write("if(x===true)");
+		else document.write("not -> if(x===true)");
+		document.write("\t");
+		if (x != false) document.write("if(x!=false)");
+		else document.write("not -> if(x!=false)");
+		document.write("<br/>");
+	}
+	quiz("");
+	quiz("0");
+	quiz("1");
+	quiz("2");
+	quiz(0);
+	quiz(1);
+	quiz(2);
+	quiz(true);
+	quiz(new Boolean(true));
+	quiz(false);
+	quiz(new Boolean(false));
+	quiz(null);
+	quiz(undefined);
+</script>

@@ -1,0 +1,10 @@
+<script>
+	var p={ foo: "bar" };
+	document.write(p);
+	document.write('<br>');
+	p.toString=function() {
+		return this.foo;
+	}
+	document.write(p);
+	document.write('<br>');
+</script>

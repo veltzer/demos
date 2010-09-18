@@ -1,0 +1,25 @@
+<script>
+function createPerson(iname,iage) {
+	return {
+		name: iname,
+		age: iage,
+		getName: function() {
+			return this.name;
+		},
+		setName: function(iname) {
+			this.name=iname;
+		},
+		getFullName: function() {
+			return this.name+" "+this.age;
+		},
+		printSelf: function() {
+			document.write(this.getFullName());
+		}
+	};
+}
+var p1=createPerson('Bilbo',111);
+var p2=createPerson('Frodo',57);
+p1.printSelf();
+document.write('<br>');
+p2.printSelf();
+</script>

@@ -1,0 +1,32 @@
+<script>
+	function counter(start,stop,step) {
+		var val=start-step;
+		var func1=function () {
+			if(val<stop) {
+				val+=step;
+			}
+			return val;
+		}
+		// this is the restart func
+		var func2=function() {
+			val=start-step;
+		}
+		return [func1,func2];
+	}
+	var c1tuple=counter(4,12,2);
+	var c2tuple=counter(-13,-9,1);
+	var c1=c1tuple[0];
+	var c2=c2tuple[0];
+	var c1restart=c1tuple[1];
+	var c2restart=c1tuple[1];
+	for(var i=0;i<10;i++) {
+		document.write("c1 is "+c1())
+		document.write('<br/>')
+		document.write("c2 is "+c2())
+		document.write('<br/>')
+		if(i%5==0) {
+			document.write('restarting c1 <br/>')
+			c1restart();
+		}
+	}
+</script>
