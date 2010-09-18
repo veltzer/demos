@@ -2,7 +2,7 @@
 
 class A:
 	def __getattr__(self,name):
-		return name[:-1]
+		return name[::-1]
 
 a=A()
 dir(a)

@@ -15,9 +15,20 @@ class Button:
 		self.text=text
 	def setColor(self,color):
 		self.color=color
+	def getColor(self):
+		if 'color' in self.__dict__:
+			return self.color
+		else:
+			return Button.color
+	def getWeight(self):
+		return self.weight
 
 b1=Button()
 b2=Button()
+print Button.color
+print b1.getColor()
+print b1.weight
+print b1.getWeight()
 b1.setColor('white')
 b2.setColor('black')
 b1.doSomething()
