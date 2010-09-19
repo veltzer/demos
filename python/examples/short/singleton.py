@@ -9,6 +9,7 @@ class A:
 		else:
 			print 'in A constructor'
 			A.constructed=True
+			# add construction code here
 
 def getInstance():
 	if A.theA==None:

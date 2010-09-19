@@ -172,11 +172,12 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkButton" id="button1">
-            <property name="label" translatable="yes">button</property>
+          <widget class="GtkCalendar" id="calendar1">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
+            <property name="year">2010</property>
+            <property name="month">8</property>
+            <property name="day">16</property>
           </widget>
           <packing>
             <property name="position">2</property>

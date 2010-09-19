@@ -70,6 +70,12 @@ CLEAN_EXTRA:=$(CLEAN_EXTRA); find $(JAVA_BIN) -name "*.class" -exec rm {} \;
 
 #### java section
 
+#### python section
+
+CLEAN_EXTRA:=$(CLEAN_EXTRA); find python -name "*.pyc" -exec rm {} \;
+
+#### python section
+
 .PHONY: all
 all: $(ALL)
 
