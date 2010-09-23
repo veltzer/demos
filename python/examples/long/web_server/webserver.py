@@ -38,15 +38,15 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 			self.wfile.write('<a href="'+ref+'">'+x+'</a><br/>')
 		self.wfile.write('</body></html>')
 	def get(self):
+		#our dynamic content
+		if self.path.endswith('.esp'):
+			self.handle_esp();
+			return
 		# add a '.' to path to make it a local file path
 		# / -> ./
 		# /index.html -> ./index.html
 		self.realpath='.'+self.path
 		if(os.path.isfile(self.realpath)):
-			#our dynamic content
-			if self.path.endswith('.esp'):
-				self.handle_esp();
-				return
 			#our static HTML content
 			if self.path.endswith('.html'):
 				self.handle_static('text/html');
@@ -73,7 +73,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 			ctype,pdict=cgi.parse_header(self.headers.getheader('content-type'))
 			if ctype=='multipart/form-data':
 				query=cgi.parse_multipart(self.rfile,pdict)
-				self.send_response(301)
+			self.send_response(301)
 			self.end_headers()
 			upfilecontent=query.get('upfile')
 			#print 'filecontent', upfilecontent[0]
@@ -81,7 +81,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 			self.wfile.write('<b>file content is:</b><br/><code>');
 			self.wfile.write(upfilecontent[0]);
 			self.wfile.write('</code></body></html>');
-		except:
+		except Exception, e:
 			self.send_error(500,'POST Internal server error for resource: %s %s' % (self.path,e))
 
 def main():
@@ -91,7 +91,7 @@ def main():
 		url='http://'+host+':'+str(port)
 		print 'constructing server'
 		threaded=True
-		threaded=False
+		#threaded=False
 		if threaded==True:
 			server=ThreadedServer((host,port),MyHandler)
 		else:
