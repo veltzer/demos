@@ -5,7 +5,7 @@ process statistics:
 	sar, sadc(8), sa1(8), sa2(8), sadf(1), isag(1)
 	free, uptime
 	top
-	/proc, /sys filesystems
+	/proc, /sys, /debugfs filesystems
 	ps pstree pgrep
 	skill, pkill, kill, killall, killall5
 	nice, renice, snice
