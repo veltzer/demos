@@ -41,6 +41,7 @@ core dumps:
 kernel:
 	crash
 	slabtop
+	kerneltop
 
 networking:
 	ping
