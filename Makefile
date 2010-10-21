@@ -101,7 +101,7 @@ CXXFLAGS:=$(FLAGS)
 KDIR:=/lib/modules/$(shell uname -r)/build
 # fill in the vervosity level you want for the kernel module compilation process
 # V:=1 will give you the command lines used...
-V:=0
+V:=1
 # extra flags to pass to the kernel module creation process...
 # regular kernels do not have -Werror and we want it!
 KCFLAGS:=-Werror
