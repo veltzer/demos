@@ -1,0 +1,14 @@
+instrumentation and debugging:
+system tap slides
+
+performance:
+sendfile example
+
+logging:
+syslog example
+libcwd stuff.
+
+self introspection:
+./cpp/user_space/linking/ldd.exe
+cpp/user_space/debugging/backtrace.cc
+gcore.cc
