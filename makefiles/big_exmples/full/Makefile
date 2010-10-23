@@ -12,16 +12,16 @@ EXE_SOURCES=$(shell find binmain -name "*.c")
 EXE_BASENAMES=$(basename $(EXE_SOURCES))
 EXE_OBJECTS=$(addsuffix .o,$(EXE_BASENAMES))
 
-all: $(OBJECTS) $(DEPS) libadd.so main
+all: $(OBJECTS) $(DEPS) libadd.so main.exe
 
 libadd.so: $(ADD_OBJECTS)
 	$(CC) -shared -o libadd.so $(ADD_OBJECTS)
 
-main: $(EXE_OBJECTS) libadd.so
-	$(CC) -o main $(EXE_OBJECTS) -L. -ladd
+main.exe: $(EXE_OBJECTS) libadd.so
+	$(CC) -o main.exe $(EXE_OBJECTS) -L. -ladd
 
 clean:
-	-rm $(OBJECTS) $(DEPS) libadd.so main
+	-rm $(OBJECTS) $(DEPS) libadd.so main.exe
 
 debug:
 	echo $(DEPS)
