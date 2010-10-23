@@ -1,6 +1,6 @@
-- the sendfile io demo:
-	install a new kernel (2.6.33) and see that it works.
-	Document or script how to compile and install a new kernel for ubuntu.
+- write a script that use "git ls-files" and a recursive traveral of a directory
+	to show all files which are not under git control
+	this way I could check after a "make clean" there are no leftovers.
 
 - when making kernel modules the build process complains:
 	Makefile:602: "WARNING: Appending $KCFLAGS (-Werror) from command line to kernel $CFLAGS"
