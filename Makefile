@@ -68,7 +68,7 @@ CLASSPATH:=java/lib/jdic.jar
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS)
 CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
-CLEAN_EXTRA:=$(CLEAN_EXTRA); find $(JAVA_BIN) -name "*.class" -exec rm {} \;
+CLEAN_EXTRA:=$(CLEAN_EXTRA); find $(JAVA_BIN) -name "*.class" -or -name "*.gif" -or -name "*.jpg" -or -name "*.xml" -exec rm {} \;
 
 #### java section
 
