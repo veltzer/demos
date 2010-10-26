@@ -27,7 +27,7 @@ US_INCLUDE:=cpp/include
 
 # silent stuff
 #.SILENT:
-DO_MKDBG:=1
+DO_MKDBG:=0
 ifeq ($(DO_MKDBG),1)
 Q:=
 # we are not silent in this branch
@@ -94,7 +94,7 @@ all: $(ALL)
 clean: java_clean
 	-$(Q)rm -f $(CLEAN)
 	-$(Q)rm -rf $(CLEAN_DIRS)
-	$(CLEAN_EXTRA)
+	$(Q)$(CLEAN_EXTRA)
 .PHONY: clean_git
 clean_git:
 	git clean -xdf
@@ -121,18 +121,18 @@ KCFLAGS:=-Werror
 # how to create regular executables...
 $(CC_EXE): %.exe: %.cc
 	$(info doing [$@])
-	EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
+	$(Q)EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
 	$(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_FLAGS
 $(CC_ASX): %.s: %.cc
 	$(info doing [$@])
-	EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
+	$(Q)EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
 	$(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_FLAGS
 $(CC_DIS): %.dis: %.exe
 	objdump --source --disassemble $< > $@
 # rule about how to create .ko files...
 $(MOD_MOD): %.ko: %.c
 	$(info doing [$@])
-	$(MAKE) -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<)))
+	$(Q)$(MAKE) -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<)))
 
 .PHONY: debug
 debug:
