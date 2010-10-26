@@ -1,16 +1,17 @@
-TARGET:=curr
-ifeq ($(TARGET),curr)
-KDIR:=/lib/modules/$(shell uname -r)/build
-CXX:=g++
-endif
-ifeq ($(TARGET),target_release)
-KDIR:=mykdir
-TOOLCHAIN_BASE:=mytoolchain_base
-CXX:=$(TOOLCHAIN_BASE)g++
-endif
+# directories
+US_DIR:=cpp/user_space
+KERNEL_DIR:=cpp/kernel
+US_INCLUDE:=cpp/include
 
+# kernel variables
+KDIR:=/lib/modules/$(shell uname -r)/build
+
+# compilation
+#CXX:=g++
+CXXFLAGS:=
+# optimization with debug info (for disassembly)
 DEBUG:=1
-OPT:=0
+OPT:=1
 ifeq ($(DEBUG),1)
 CXXFLAGS:=$(CXXFLAGS) -g3
 else
@@ -19,11 +20,13 @@ endif
 ifeq ($(OPT),1)
 CXXFLAGS:=$(CXXFLAGS) -O2
 endif
+#CODEGEN:=-g3
+#CODEGEN:=-O2 -s
+FLAGS:=-Wall -Werror -I$(US_INCLUDE)
+CXXFLAGS:=$(CXXFLAGS) $(FLAGS)
 
-
-US_DIR:=cpp/user_space
-KERNEL_DIR:=cpp/kernel
-US_INCLUDE:=cpp/include
+# kernel module generation variables...
+ALL_DEPS:=Makefile
 
 # silent stuff
 #.SILENT:
@@ -99,15 +102,6 @@ clean: java_clean
 clean_git:
 	git clean -xdf
 
-#CODEGEN:=-g3
-#CODEGEN:=-O2 -s
-# optimization with debug info (for disassembly)
-CODEGEN:=-O2 -g3 -mtune=native
-FLAGS:=-Wall -Werror $(CODEGEN) -I$(US_INCLUDE)
-CXXFLAGS:=$(FLAGS)
-
-# kernel module generation variables...
-
 # kernel directory to build against
 KDIR:=/lib/modules/$(shell uname -r)/build
 # fill in the vervosity level you want for the kernel module compilation process
@@ -119,20 +113,20 @@ KCFLAGS:=-Werror
 
 # general rules...
 # how to create regular executables...
-$(CC_EXE): %.exe: %.cc
+$(CC_EXE): %.exe: %.cc $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
 	$(CXX) $(CXXFLAGS) -o $@ $< $$EXTRA_FLAGS
-$(CC_ASX): %.s: %.cc
+$(CC_ASX): %.s: %.cc $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)EXTRA_FLAGS=`./scripts/get_flags.pl $< $@`;\
 	$(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_FLAGS
-$(CC_DIS): %.dis: %.exe
+$(CC_DIS): %.dis: %.exe $(ALL_DEPS)
 	objdump --source --disassemble $< > $@
 # rule about how to create .ko files...
-$(MOD_MOD): %.ko: %.c
+$(MOD_MOD): %.ko: %.c $(ALL_DEPS)
 	$(info doing [$@])
-	$(Q)$(MAKE) -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<)))
+	$(Q)$(MAKE) -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<))) > /dev/null
 
 .PHONY: debug
 debug:
@@ -243,7 +237,7 @@ do_uncrustify:
 
 # java section
 
-$(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) 
+$(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
 	$(Q)touch $(JAVA_COMPILE_STAMP)
