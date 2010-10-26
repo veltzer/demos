@@ -20,7 +20,7 @@ ifeq ($(OPT),1)
 CXXFLAGS:=$(CXXFLAGS) -O2
 endif
 
-#.SILENT:
+.SILENT:
 
 US_DIR:=cpp/user_space
 KERNEL_DIR:=cpp/kernel
