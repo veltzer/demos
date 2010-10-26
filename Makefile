@@ -20,11 +20,20 @@ ifeq ($(OPT),1)
 CXXFLAGS:=$(CXXFLAGS) -O2
 endif
 
-.SILENT:
 
 US_DIR:=cpp/user_space
 KERNEL_DIR:=cpp/kernel
 US_INCLUDE:=cpp/include
+
+# silent stuff
+#.SILENT:
+DO_MKDBG:=1
+ifeq ($(DO_MKDBG),1)
+Q:=
+# we are not silent in this branch
+else # DO_MKDBG
+Q:=@
+endif # DO_MKDBG
 
 # sources from the git perspective
 GIT_SOURCES:=$(shell git ls-files)
@@ -50,13 +59,13 @@ MOD_BAS:=$(basename $(MOD_SRC))
 MOD_OBJ:=$(addsuffix .o,$(MOD_BAS))
 MOD_SR2:=$(addsuffix .mod.c,$(MOD_BAS))
 MOD_OB2:=$(addsuffix .mod.o,$(MOD_BAS))
-MOD_CM1:=$(addprefix kernel/.,$(addsuffix .ko.cmd,$(notdir $(MOD_BAS))))
-MOD_CM2:=$(addprefix kernel/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
-MOD_CM3:=$(addprefix kernel/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
+MOD_CM1:=$(addprefix cpp/kernel/.,$(addsuffix .ko.cmd,$(notdir $(MOD_BAS))))
+MOD_CM2:=$(addprefix cpp/kernel/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
+MOD_CM3:=$(addprefix cpp/kernel/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
 MOD_MOD:=$(addsuffix .ko,$(MOD_BAS))
 ALL:=$(ALL) $(MOD_MOD)
-CLEAN:=$(CLEAN) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) kernel/Module.symvers kernel/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3) $(MOD_OBJ)
-CLEAN_DIRS:=$(CLEAN_DIRS) kernel/.tmp_versions
+CLEAN:=$(CLEAN) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) cpp/kernel/Module.symvers cpp/kernel/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3) $(MOD_OBJ)
+CLEAN_DIRS:=$(CLEAN_DIRS) cpp/kernel/.tmp_versions
 
 #### java section
 
@@ -83,8 +92,8 @@ all: $(ALL)
 
 .PHONY: clean
 clean: java_clean
-	-rm -f $(CLEAN)
-	-rm -rf $(CLEAN_DIRS)
+	-$(Q)rm -f $(CLEAN)
+	-$(Q)rm -rf $(CLEAN_DIRS)
 	$(CLEAN_EXTRA)
 .PHONY: clean_git
 clean_git:
@@ -236,20 +245,20 @@ do_uncrustify:
 
 $(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) 
 	$(info doing [$@])
-	javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
-	touch $(JAVA_COMPILE_STAMP)
+	$(Q)javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
+	$(Q)touch $(JAVA_COMPILE_STAMP)
 
 .PHONY: java_run
 java_run: $(JAVA_COMPILE_STAMP)
 	$(info doing [$@])
-	java -classpath $(CLASSPATH):$(JAVA_BIN) extreme.profile.Main
+	$(Q)java -classpath $(CLASSPATH):$(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_prof
 java_prof: $(JAVA_COMPILE_STAMP)
 	$(info doing [$@])
-	java -Xrunhprof:cpu=y -classpath $(JAVA_BIN) extreme.profile.Main
+	$(Q)java -Xrunhprof:cpu=y -classpath $(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_clean
 java_clean:
 	$(info doing [$@])
-	-rm -rf $(JAVA_BIN)/{swing,extreme} $(JAVA_COMPILE_STAMP) java.hprof.txt
+	$(Q)rm -rf $(JAVA_BIN)/swing $(JAVA_BIN)/extreme $(JAVA_COMPILE_STAMP) java.hprof.txt
