@@ -20,7 +20,7 @@ ifeq ($(OPT),1)
 CXXFLAGS:=$(CXXFLAGS) -O2
 endif
 
-.SILENT:
+#.SILENT:
 
 US_DIR:=cpp/user_space
 KERNEL_DIR:=cpp/kernel
@@ -68,7 +68,7 @@ CLASSPATH:=java/lib/jdic.jar
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS)
 CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
-CLEAN_EXTRA:=$(CLEAN_EXTRA); find $(JAVA_BIN) -name "*.class" -or -name "*.gif" -or -name "*.jpg" -or -name "*.xml" -exec rm {} \;
+CLEAN_EXTRA:=$(CLEAN_EXTRA); rm -rf $(JAVA_BIN)/{swing,extreme}
 
 #### java section
 
@@ -82,10 +82,10 @@ CLEAN_EXTRA:=$(CLEAN_EXTRA); find python -name "*.pyc" -exec rm {} \;
 all: $(ALL)
 
 .PHONY: clean
-clean:
+clean: java_clean
 	-rm -f $(CLEAN)
 	-rm -rf $(CLEAN_DIRS)
-	@$(CLEAN_EXTRA)
+	$(CLEAN_EXTRA)
 .PHONY: clean_git
 clean_git:
 	git clean -xdf
@@ -252,4 +252,4 @@ java_prof: $(JAVA_COMPILE_STAMP)
 .PHONY: java_clean
 java_clean:
 	$(info doing [$@])
-	-rm -rf $(JAVA_BIN)/* $(JAVA_COMPILE_STAMP) java.hprof.txt
+	-rm -rf $(JAVA_BIN)/{swing,extreme} $(JAVA_COMPILE_STAMP) java.hprof.txt
