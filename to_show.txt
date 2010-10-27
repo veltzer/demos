@@ -3,5 +3,3 @@ system tap slides
 
 performance:
 sendfile example
-
-gilad material on fault handling.
