@@ -1,16 +1,8 @@
 #!/usr/bin/python
 
-f = open("input.txt")
+d1 = {"Israel":"Jerusalem","France":"Paris","Italy":"Rome","Egypt":"Cairo"}
+d2 = {}
+for key in d1.keys():
+    d2[d1[key]] = key
 
-report = {}
-for line in f.readlines():
-    for c in line:
-        if not(c in [" ","\n","\r","\t"]):
-            if (report.has_key(c)):
-                report[c] += 1
-            else:
-                report[c] = 1
-
-f = open("report.txt",'wa')
-f.write(str(report));
-f.close()
+print d2
