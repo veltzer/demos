@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 login = raw_input("insert login: ")
 full_name = raw_input("insert full name: ")
 password = raw_input("insert password: ")

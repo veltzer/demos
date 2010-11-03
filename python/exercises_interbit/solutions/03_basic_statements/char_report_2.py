@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 f = open("c:/tmp.txt")
 
 report = {}
