@@ -1,5 +1,0 @@
-instrumentation and debugging:
-system tap slides
-
-performance:
-sendfile example
