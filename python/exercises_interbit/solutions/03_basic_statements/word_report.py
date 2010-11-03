@@ -7,8 +7,8 @@ report={}
 
 # lets read all the lines in our own exercise...
 f = open("word_report.py")
-for line in f.readlines():
-	for word in line.split(" "):
+for line in f:
+	for word in line.split():
 		if report.has_key(word):
 			report[word]+=1
 		else:
