@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 places = {
     'Shire': {'leave': 'Bree', 'stay': 'DEATH'},
     'DEATH': {},

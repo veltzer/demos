@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 """
 Parse a simple Makefile (without commands) and print build plan.
 

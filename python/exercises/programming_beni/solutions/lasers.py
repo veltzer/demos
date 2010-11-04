@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # We represent directions by (dx, dy), so that updating (x, y) will be
 # a matter of simple addition.
 

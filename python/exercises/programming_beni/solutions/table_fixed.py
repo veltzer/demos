@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 columns = [['H', 'He', 'Li', 'Be'],
            ['Hidrogen', 'Helium', 'Litium', 'Berilium'],
            ['1.008', '4.003', '6.941', '9.012']]

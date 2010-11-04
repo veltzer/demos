@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 """
 Parse a simple Makefile and execute it.
 
