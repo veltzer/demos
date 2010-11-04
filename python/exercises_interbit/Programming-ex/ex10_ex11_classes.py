@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 """
 Simple implementation of a hangman game.
     

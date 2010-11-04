@@ -1,5 +1,6 @@
-s = raw_input("Please enter a line of digits: ")
+#!/usr/bin/env python
 
+s = raw_input("Please enter a line of digits: ")
 if not s.isdigit():
     print "Error: only digits allowed!"
 else:

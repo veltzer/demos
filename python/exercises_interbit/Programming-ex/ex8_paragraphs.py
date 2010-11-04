@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 def lines2paragraphs(lines):
     """Group lines into paragraphs - as lists of lines."""
     paragraph = []

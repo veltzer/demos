@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 INPUT_NAME = "tmp.txt"
 OUTPUT_NAME = "tmp2.txt"
 

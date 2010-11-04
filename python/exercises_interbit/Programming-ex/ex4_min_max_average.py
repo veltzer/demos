@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # for int/int to return a float
 from __future__ import division
 
