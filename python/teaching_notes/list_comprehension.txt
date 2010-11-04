@@ -3,6 +3,11 @@
 	===>
 
 		newlist=[]
-		code
+		code:
 			newlist.append(expr)
 		return newlist
+
+examples:
+
+[x*x for x in xrange[0,5]]
+	===>
