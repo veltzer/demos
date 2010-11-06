@@ -22,6 +22,10 @@
 				echo 'my location is '.$v.'</br>';
 			}
 		}
+		$v=isset($me['location']);
+		echo 'isset[\'location\'] is'.$v.'</br>';
+		$v=isset($me['dontexist']);
+		echo 'isset[\'dontexist\'] is'.$v.'</br>';
 	?>
 </body>
 </html>
