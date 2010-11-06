@@ -19,7 +19,6 @@ class A {
 class B extends A {
 	public function foo($a) {
 		echo "<br/>Hello from B::foo, $a<br/>";
-		// this is how we call the parent
 		parent::foo($a);
 	}
 	public function bar($a) {

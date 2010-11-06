@@ -5,7 +5,7 @@
 
 final class A {
 }
-// next lines will produce compilation error as class A is final
+// next lines will produce compilation error as class C is final
 // and cannot be extended
 //class B extends A {
 //}

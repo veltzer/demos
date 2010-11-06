@@ -1,3 +1,6 @@
+<?php
+?>
+
 <html>
 <!--
 	This is a solution to the first exercise regarding
