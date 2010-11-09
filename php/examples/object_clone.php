@@ -2,7 +2,7 @@
 
 /*
 The purpose of this example is to explain the clone methods behaviour
-Notice that __clone method gets called on the cloned object and not on the
+Notice that clone gets called on the cloned object and not on the
 original one.
 */
 

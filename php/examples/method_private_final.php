@@ -37,7 +37,7 @@ class B extends A {
 	}
 }
 $b=new B();
-// this will cause a runtime error
+// this will cause the runtime error
 // $b->trytocallprivate();
 $b->another();
 $b->callanother();
