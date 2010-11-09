@@ -257,3 +257,7 @@ java_prof: $(JAVA_COMPILE_STAMP)
 java_clean:
 	$(info doing [$@])
 	$(Q)rm -rf $(JAVA_BIN)/swing $(JAVA_BIN)/extreme $(JAVA_COMPILE_STAMP) java.hprof.txt
+
+.PHONY: python_clean
+python_clean:
+	$(Q)find python -name "*.pyc" -exec rm {} \;
