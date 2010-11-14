@@ -165,7 +165,7 @@ Login page exercise
 - select the best widget for the job (use theme tester)
 - try not to use any HTML elements - only dojo widgets
 - try to put everything in a container.
-- have nice error messages to be displayed when input is wrong.
+- have nice error messages displayed when input is wrong.
 
 A Tree exercise
 ===============
