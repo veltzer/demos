@@ -1,6 +1,6 @@
 <html>
 	<!--
-		This example shows how to use a reg exp
+		This example shows how to use a regex.
 	-->
 	<head>
 		<title>Hello, Regular expression!</title>
@@ -18,7 +18,6 @@
 				var v_re=w_re.attr('value')
 				var v_text=w_text.attr('value')
 				var re=new RegExp(v_re)
-				//alret(re)
 				var res=re.test(v_text)
 				var w_result=dijit.byId("result")
 				w_result.attr('value',res)
