@@ -7,7 +7,7 @@ US_INCLUDE:=cpp/include
 KDIR:=/lib/modules/$(shell uname -r)/build
 
 # do you want dependency on the makefile itself ?!?
-DO_ALL_DEPS:=0
+DO_ALL_DEPS:=1
 
 # compilation
 #CXX:=g++
