@@ -6,6 +6,9 @@ US_INCLUDE:=cpp/include
 # kernel variables
 KDIR:=/lib/modules/$(shell uname -r)/build
 
+# do you want dependency on the makefile itself ?!?
+DO_ALL_DEPS:=0
+
 # compilation
 #CXX:=g++
 CXXFLAGS:=
@@ -26,7 +29,11 @@ FLAGS:=-Wall -Werror -I$(US_INCLUDE)
 CXXFLAGS:=$(CXXFLAGS) $(FLAGS)
 
 # kernel module generation variables...
+ifeq ($(DO_ALL_DEPS),1)
 ALL_DEPS:=Makefile
+else
+ALL_DEPS:=
+endif
 
 # silent stuff
 #.SILENT:
@@ -131,11 +138,11 @@ $(MOD_MOD): %.ko: %.c $(ALL_DEPS)
 
 .PHONY: debug
 debug:
+	$(info MOD_MOD is $(MOD_MOD))
 	$(info CC_SRC is $(CC_SRC))
 	$(info CC_DIS is $(CC_DIS))
 	$(info CC_EXE is $(CC_EXE))
 	$(info MOD_SRC is $(MOD_SRC))
-	$(info MOD_MOD is $(MOD_MOD))
 	$(info ALL is $(ALL))
 	$(info KDIR is $(KDIR))
 	$(info V is $(V))
@@ -229,7 +236,7 @@ kern_tips:
 
 # code beautifucation
 .PHONY: do_astyle
-do_astyle:
+do_astyle: $(ALL_DEPS)
 	astyle --verbose --suffix=none --formatted --preserve-date --options=conf/astyle.cfg $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
 # I do not use uncrustify because it changes code that it already beautified...
 .PHONY: do_uncrustify
@@ -244,20 +251,20 @@ $(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) $(ALL_DEPS)
 	$(Q)touch $(JAVA_COMPILE_STAMP)
 
 .PHONY: java_run
-java_run: $(JAVA_COMPILE_STAMP)
+java_run: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)java -classpath $(CLASSPATH):$(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_prof
-java_prof: $(JAVA_COMPILE_STAMP)
+java_prof: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)java -Xrunhprof:cpu=y -classpath $(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_clean
-java_clean:
+java_clean: $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)rm -rf $(JAVA_BIN)/swing $(JAVA_BIN)/extreme $(JAVA_COMPILE_STAMP) java.hprof.txt
 
 .PHONY: python_clean
-python_clean:
+python_clean: $(ALL_DEPS)
 	$(Q)find python -name "*.pyc" -exec rm {} \;
