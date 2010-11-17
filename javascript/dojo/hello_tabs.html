@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Hello, tabs!</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style>
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.layout.TabContainer");
+			dojo.require("dijit.layout.ContentPane");
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.layout.TabContainer" style="width: 200px; height: 200px;">
+			<div dojoType="dijit.layout.ContentPane" title="title 1">
+				This is some text 1
+			</div>
+			<div dojoType="dijit.layout.ContentPane" title="title 2">
+				This is some text 2
+			</div>
+		</div>
+	</body>
+</html>
