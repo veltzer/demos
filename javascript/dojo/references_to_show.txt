@@ -19,3 +19,6 @@ http://www.dojotoolkit.org/reference-guide/dojo/io/script.html#dojo-io-script
 Internationalization:
 http://www.dojotoolkit.org/reference-guide/dojo/requireLocalization.html#dojo-requirelocalization
 http://www.dojotoolkit.org/reference-guide/quickstart/internationalization/resource-bundling.html#quickstart-internationalization-resource-bundling
+
+Rest implementation for dojo:
+http://www.dojotoolkit.org/reference-guide/dojox/data/JsonRestStore.html#dojox-data-jsonreststore
