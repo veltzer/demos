@@ -12,3 +12,6 @@ http://www.dojotoolkit.org/reference-guide/dojo/contentHandlers.html#dojo-conten
 
 Finding the version of dojo you are using at runtime:
 http://www.dojotoolkit.org/reference-guide/dojo/version.html#dojo-version
+
+JSONP and script tags:
+http://www.dojotoolkit.org/reference-guide/dojo/io/script.html#dojo-io-script
