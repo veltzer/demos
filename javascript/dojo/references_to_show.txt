@@ -22,3 +22,6 @@ http://www.dojotoolkit.org/reference-guide/quickstart/internationalization/resou
 
 Rest implementation for dojo:
 http://www.dojotoolkit.org/reference-guide/dojox/data/JsonRestStore.html#dojox-data-jsonreststore
+
+Using ItemFileReadStore: Refreshing and polling
+http://dojocampus.org/content/2009/01/31/refeshing-an-itemfilereadstore/
