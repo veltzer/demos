@@ -1,0 +1,27 @@
+dojo.query:
+http://www.dojotoolkit.org/reference-guide/dojo/query.html#dojo-query
+dojo.forEach:
+http://www.dojotoolkit.org/reference-guide/dojo/forEach.html#dojo-foreach
+
+Executing stuff when other stuff happens:
+http://www.dojotoolkit.org/reference-guide/dojo/Deferred.html#dojo-deferred
+http://www.dojotoolkit.org/reference-guide/dojo/when.html#dojo-when
+
+Registering a custom content handler for Ajax:
+http://www.dojotoolkit.org/reference-guide/dojo/contentHandlers.html#dojo-contenthandlers
+
+Finding the version of dojo you are using at runtime:
+http://www.dojotoolkit.org/reference-guide/dojo/version.html#dojo-version
+
+JSONP and script tags:
+http://www.dojotoolkit.org/reference-guide/dojo/io/script.html#dojo-io-script
+
+Internationalization:
+http://www.dojotoolkit.org/reference-guide/dojo/requireLocalization.html#dojo-requirelocalization
+http://www.dojotoolkit.org/reference-guide/quickstart/internationalization/resource-bundling.html#quickstart-internationalization-resource-bundling
+
+Rest implementation for dojo:
+http://www.dojotoolkit.org/reference-guide/dojox/data/JsonRestStore.html#dojox-data-jsonreststore
+
+Using ItemFileReadStore: Refreshing and polling
+http://dojocampus.org/content/2009/01/31/refeshing-an-itemfilereadstore/

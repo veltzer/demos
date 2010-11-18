@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>Hello, Parser (with Ajax)!</title>
+		<script src='dojo/dojo/dojo.js' djConfig='parseOnLoad:true'></script>
+		<style>
+			@import 'dojo/dijit/themes/tundra/tundra.css';
+			@import 'dojo/dojo/resources/dojo.css';
+		</style>
+		<script>
+			dojo.require('dijit.form.Button');
+			dojo.require('dijit.layout.TabContainer');
+			dojo.require('dijit.layout.ContentPane');
+			var i=0;
+			function connectedClick() {
+				alert('it appears that the connection worked well...');
+			}
+			function addTab() {
+				i++;
+				var container=dijit.byId('tabcontainer');
+				var mynewtab=new dijit.layout.ContentPane({title: 'tab '+i});
+				mynewtab.startup();
+				container.addChild(mynewtab);
+				var elem=document.createElement('div');
+				mynewtab.setContent(elem);
+				dojo.xhrGet({
+					url:'hello_parser3.ajax', 
+					load:function(data){
+						elem.innerHTML = data;
+						dojo.parser.parse(elem);
+					}
+				});
+			}
+		</script>
+	</head>
+	<body class='tundra'>
+		<div id='tabcontainer' dojoType='dijit.layout.TabContainer' style='width: 400px; height: 200px'>
+		</div>
+		<div dojoType='dijit.form.Button' onClick='addTab'>
+			Click on me to add a tab!
+		</div>
+	</body>
+</html>

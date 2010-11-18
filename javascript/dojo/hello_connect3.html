@@ -1,0 +1,40 @@
+<!--
+	This example shows how to extend dojo.connect to also pass the object on which
+	the event happened...
+-->
+
+<html>
+	<head>
+		<title>Hello, dojo.connect</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style type="text/css">
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			function my_connect(obj,method,func) {
+				dojo.connect(obj,method,function() {
+					func([obj,arguments]);
+				});
+			}
+			function do_click(arr) {
+				var widget=arr[0];
+				var args=arr[1];
+				var ev=args[0];
+				console.debug(widget);
+				console.debug(ev);
+				alert("in do_click");
+			}
+			function do_connect() {
+				var w=dijit.byId("mybutton")
+				//dojo.connect(w,"onClick",do_click)
+				my_connect(w,"onClick",do_click)
+			}
+			dojo.addOnLoad(do_connect);
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" id="mybutton" title="Hello, World!">Connect</div>
+	</body>
+</html>
