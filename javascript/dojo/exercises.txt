@@ -206,3 +206,24 @@ Override the onKeyDown event on the child grid widget.
 One key (n) would cause the widget to display the next 10 lines
 from the server and another key (p) would cause the widget to
 display the previous 10 lines from the server.
+
+Dojo widget writing exercise:
+=============================
+You need to make THIS dojo application work:
+
+	dojo.require("cisco.Roller");
+
+	<div dojoType="cisco.Roller" initVal="7" incr="2" max="10"></div>
+
+How ?
+
+Create a package(folder), widget (.js file with template within).
+Use attach points and attach events and create the following layout:
+
+		<   [val]   >
+
+(two buttons and an input text).
+
+Connect all relevant events.
+
+DO NOT WORRY about look and feel!!!

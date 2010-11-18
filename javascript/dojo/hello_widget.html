@@ -1,0 +1,19 @@
+<html>
+	<!--
+		This is a solution to the exercise for widget writing.
+	-->
+	<head>
+		<title>Hello, Roller</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true, modulePaths: {'extend': '../../extend'}"></script>
+		<style type="text/css">
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("extend.Roller");
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="extend.Roller" initVal="50" incVal="5" decVal="8" maxVal="100"></div>
+	</body>
+</html>
