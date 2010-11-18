@@ -15,3 +15,7 @@ http://www.dojotoolkit.org/reference-guide/dojo/version.html#dojo-version
 
 JSONP and script tags:
 http://www.dojotoolkit.org/reference-guide/dojo/io/script.html#dojo-io-script
+
+Internationalization:
+http://www.dojotoolkit.org/reference-guide/dojo/requireLocalization.html#dojo-requirelocalization
+http://www.dojotoolkit.org/reference-guide/quickstart/internationalization/resource-bundling.html#quickstart-internationalization-resource-bundling
