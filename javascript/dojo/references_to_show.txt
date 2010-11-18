@@ -2,3 +2,13 @@ dojo.query:
 http://www.dojotoolkit.org/reference-guide/dojo/query.html#dojo-query
 dojo.forEach:
 http://www.dojotoolkit.org/reference-guide/dojo/forEach.html#dojo-foreach
+
+Executing stuff when other stuff happens:
+http://www.dojotoolkit.org/reference-guide/dojo/Deferred.html#dojo-deferred
+http://www.dojotoolkit.org/reference-guide/dojo/when.html#dojo-when
+
+Registering a custom content handler for Ajax:
+http://www.dojotoolkit.org/reference-guide/dojo/contentHandlers.html#dojo-contenthandlers
+
+Finding the version of dojo you are using at runtime:
+http://www.dojotoolkit.org/reference-guide/dojo/version.html#dojo-version
