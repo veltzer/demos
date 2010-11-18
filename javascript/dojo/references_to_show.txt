@@ -1,0 +1,4 @@
+dojo.query:
+http://www.dojotoolkit.org/reference-guide/dojo/query.html#dojo-query
+dojo.forEach:
+http://www.dojotoolkit.org/reference-guide/dojo/forEach.html#dojo-foreach
