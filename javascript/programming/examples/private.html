@@ -1,0 +1,25 @@
+<script>
+	/* This demo shows the closure feature. The 5 and 13
+	is stored within the closure object */
+	function createSomeProtectedVal(initval) {
+		var f_get=function() {
+			return initval;
+		}
+		var f_set=function(newval) {
+			initval=newval;
+		}
+		return [f_get,f_set];
+	}
+	lst=createSomeProtectedVal(5);
+	var f_get=lst[0];
+	var f_set=lst[1];
+	document.write(func5(7))
+	document.write('<br/>')
+	document.write(func5(9))
+	document.write('<br/>')
+	document.write(func13(11))
+	document.write('<br/>')
+	document.write(func13(102))
+	document.write('<br/>')
+	
+</script>

@@ -26,6 +26,7 @@ templateString:'<div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onCli
 			incVal:"2",
 			decVal:"2",
 			maxVal:"10",
+			arr:[5,6,7,8],
 			startup:function() {
 				//alert("hey, I'm in startup");
 				this.textbox.attr('value',this.initVal);
@@ -38,6 +39,7 @@ templateString:'<div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onCli
 				iinitVal%=imaxVal;
 				this.textbox.attr('value',iinitVal);
 				this.initVal=iinitVal;
+				console.dir(this.arr);
 			},
 			_onInc:function() {
 				var iinitVal=parseInt(this.initVal);
@@ -47,6 +49,8 @@ templateString:'<div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onCli
 				iinitVal%=imaxVal;
 				this.textbox.attr('value',iinitVal);
 				this.initVal=iinitVal;
+				this.arr.push(iinitVal);
+				console.dir(this.arr);
 			},
 		}
 	);
