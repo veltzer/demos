@@ -1,0 +1,3 @@
+Ajax exercise
+=============
+Write an application that has a text box and a "get it from server" button. Whenever the "get it from server" button is pressed an Ajax call is generated and gets the url in the box from the server and shows it in a dijit.form.Textarea widget. If the url in the text box is wrong then show the error in a special status box (show ok messages in it also).

@@ -9,16 +9,23 @@
 		<script>
 			dojo.require("dojo.data.ItemFileReadStore");
 			dojo.require("dijit.form.ComboBox");
+			dojo.require("dijit.form.Button");
 			function init() {
-				store = new dojo.data.ItemFileReadStore({url:"hello_data.ajax"});
+				store = new dojo.data.ItemFileReadStore({url:"hello_data3.ajax"});
 				var cb = dijit.byId('hobby');
 				cb.attr('store',store);
 				cb.attr('searchAttr','hobby');
-			}			
+			}
 			dojo.addOnLoad(init);
+			function showSelected() {
+				var cb = dijit.byId('hobby');
+				alert("selected value is "+cb.attr('value'));
+				alert("selected id is "+cb.attr('id'));
+			}
 		</script>
 	</head>
 	<body class="tundra">
 		<div dojoType="dijit.form.ComboBox" id="hobby" value="Enter your hobby"></div>
+		<div dojoType="dijit.form.Button" id="showSelected" onClick="showSelected">show selected value</div>
 	</body>
 </html>

@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Hello, dojo.connect</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style type="text/css">
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			function do_alert() {
+				alert("wow!");
+			}
+			function do_connect() {
+				var w_click=dijit.byId("click");
+				var w_connect=dijit.byId("connect");
+				var w_disconnect=dijit.byId("disconnect");
+				handle=dojo.connect(w_click,"onClick",do_alert);
+				w_connect.setDisabled(true);
+				w_disconnect.setDisabled(false);
+			}
+			function do_disconnect() {
+				var w_click=dijit.byId("click");
+				var w_connect=dijit.byId("connect");
+				var w_disconnect=dijit.byId("disconnect");
+				dojo.disconnect(handle);
+				w_connect.setDisabled(false);
+				w_disconnect.setDisabled(true);
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" id="connect" title="connect the event" onclick="do_connect">Connect</div>
+		<div dojoType="dijit.form.Button" id="disconnect" title="disconnect the event" onclick="do_disconnect" disabled="true">Disconnect</div>
+		<div dojoType="dijit.form.Button" id="click" title="click me">Click</div>
+	</body>
+</html>

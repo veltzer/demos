@@ -58,6 +58,8 @@
 		}
 		MyState.prototype.back=MyState.prototype.restoreState;
 		MyState.prototype.forward=MyState.prototype.restoreState;
+		MyState.prototype.backButton=MyState.prototype.restoreState;
+		MyState.prototype.forwardButton=MyState.prototype.restoreState;
 		MyState.prototype.invalidate=function() {
 			this.valid=false;
 		}
@@ -72,13 +74,13 @@
 	<body class="tundra">
 	<!-- this is a fix for IE -->
 	<script>
-		dojo.back.init()
+		dojo.back.init();
 	</script>
 	<div id="id_sum" disabled="true" dojoType="dijit.form.NumberTextBox">
 	</div>
 	<div id="id_val" dojoType="dijit.form.NumberTextBox">
 	</div>
 	<div dojoType="dijit.form.Button" onClick="sumNumbers">Add</div>
-	<div dojoType="dijit.form.Button" onClick="back">Back</div>
+	<div dojoType="dijit.form.Button" onClick="Back">Back</div>
 	</body>
 </html>

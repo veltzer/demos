@@ -6,6 +6,11 @@
 		{ name: "Second item" }, 
 		{ name: "Third Item" },
 		{ name: "Forth Item" },
-		{ name: "Fifth Item" }
+		{ name: "Fifth Item" },
+		{ name: "Sixth Item" },
+		{ name: "Seventh Item" },
+		{ name: "8 Item" },
+		{ name: "9 Item" },
+		{ name: "10 Item" }
 	]
 }

@@ -1,0 +1,25 @@
+This is a multiple purpose exercise:
+====================================
+a. Work with the grid widget.
+b. Inherit and customize the grid widget.
+c. Add pagination to the grid widget.
+
+a. Work with the grid wiget.
+----------------------------
+Create an application that uses the grid widget to show some
+column/row based data. Make up what ever data you want.
+Add a button that increments a specific cell within the grid
+that has a numeric value.
+
+b. Inherit and customize the grid widget.
+-----------------------------------------
+Inherit from the grid widget. Add a property "url" to the child and make the child fetch the data using Ajax from that URL.
+The url on the server should look like "get_data?start=0,count=10"
+Show 10 lines in the grid.
+
+c. Add pagination to the grid widget
+------------------------------------
+Override the onKeyDown event on the child grid widget.
+One key (n) would cause the widget to display the next 10 lines
+from the server and another key (p) would cause the widget to
+display the previous 10 lines from the server.

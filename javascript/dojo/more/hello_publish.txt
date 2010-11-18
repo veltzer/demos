@@ -1,0 +1,10 @@
+dojo.connect publish/subscribe exercise
+=======================================
+Create an application with 5 buttons: subscribe1, unsubscribe1, subscribe2, unsubscribe2, publish. Also add a TextBox to hold some data.
+At the begining the unsubscribe buttons are off.
+Clicking on publish publishes the same event of a type you decide with the data taken from the textbox.
+Subscribe1 subscribes on the event published and shows the data on the console using
+console.debug.
+Subscribe2 subscribes on the event published and shows the data using an alert.
+Each unsubscribe unsubscribes the appropriate call.
+Handle enable/disable status for the subscribe/unsubscribe buttons.

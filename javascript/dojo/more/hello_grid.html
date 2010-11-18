@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Hello, Grid world!</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true, isDebug:true"></script>
+		<style type="text/css">
+			@import "dojox/grid/_grid/tundraGrid.css";
+			@import "dojox/grid/_grid/Grid.css";
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dojox.grid.Grid");
+			var layout=[
+				{
+					cells: [[
+					{ name: 'Cola', field:"foo" },
+					{ name: 'Colb', field:"bar" }
+					]]
+				}
+			];
+		</script>
+	</head>
+	<body class="tundra">
+		<div class="heading" dojoType="dojox.Grid"
+			structure="layout"
+		/>
+	</body>
+</html>

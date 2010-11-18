@@ -1,0 +1,8 @@
+dojo.connect exercise
+=====================
+Create an application with 3 buttons: connect, disconnect, click
+At the begining the disconnect button is disabled.
+At the begining the click does nothing.
+When connect is called it uses dojo.connect so that when clicking
+the "click" button an alert is shown. Connect then becomes disabled and disconnect
+becomes enabled. Disconnect does the opposite and disconnects the event.

@@ -1,0 +1,4 @@
+Create a tabbed widget with a button in each tab.
+Create a button below the tabbed widget.
+Each time the button is pressed add yet another tab to the
+tabbed widget.

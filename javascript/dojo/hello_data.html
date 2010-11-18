@@ -57,12 +57,12 @@
 			// enable the prev button if we are right at the begining...
 			if (startPoint==0)
 				dijit.byId("prevButton").attr('disabled',false);
-			startPoint+=1;
+			startPoint+=3;
 			getData();
 		}
 		function prev()
 		{
-			startPoint-=1;
+			startPoint-=3;
 			getData();
 			if (startPoint==0)
 				dijit.byId("prevButton").attr('disabled',true);

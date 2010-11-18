@@ -1,0 +1,10 @@
+Dojo.back exercise (history management)
+=======================================
+- Write an application two text boxes and an "add" button.
+- First textbox shows a sum up til now and is disabled.
+- Second textbox is editable by the user.
+- The "add" button should be enabled only when there is a valid number in the textbox.
+- Whenever "add" is clicked, the number shown in the first box should be increased by the value shown in the second box.
+- Now make the back button work so that it will return previous values.
+Advanced:
+- Make odd values addition be undoable. Show this to the user.

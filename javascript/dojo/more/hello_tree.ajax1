@@ -1,0 +1,9 @@
+{
+	label: 'name',
+	identifier: 'name',
+	items: [
+		{ name:'Fruit', type:'category'},
+		{ name:'Cinammon', type: 'category'},
+		{ name:'Chocolate', type: 'category'}
+	]
+}

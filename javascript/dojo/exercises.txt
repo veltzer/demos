@@ -144,21 +144,22 @@ increated and whenever the minus is clicked the value is decreased.
 
 Login page exercise
 ===================
-- This exercise relies on the solution to the themes exercise. Use your solution or ask the instructor for a prepared solution.
 - Create a login page inside the first pane of the tabbed container.
 - The login page should have the following items:
 	a. name entry (validate input).
-			validate alpha and numbers starting with
-			alpha.
+		validate alpha and numbers starting with
+		alpha.
 	b. password entry (use a password field and validate
-			at least 8 characters with both
-			alpha and number and special).
+		at least 8 characters with both
+		alpha and number and special).
 	c. im type. have option read from the server via json
 		and a data store.
 		If IM is "none" then the next field should be
 		disabled.
 		(e.g. yahoo im, google talk, jabber, ...)
+		Do autocomplete on it with the list of IMs coming from the server.
 	d. im name: your id in the im system.
+		Validation should be IM specific.
 	e. your photo with option to upload your photo.
 	f. continue (register) button - should only be available if
 		user and password are ok.
