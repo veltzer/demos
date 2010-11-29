@@ -1,0 +1,47 @@
+Exercise lesson for the php class:
+==================================
+No database in this exercise!!!
+
+Phase 1:
+========
+Write an object(class) called ShoppingCart.
+The shopping cart will contain all items bought by a specifici customer of a
+site.
+The customer may choose to buy any quantity of any item.
+Examble of a shopping cart status at any point in time may be:
+
+	Item name	Quantity	Price
+	Baskeball	2		1.99
+	Baseball	1		0.79
+	lunar module	1		2000000000
+
+Your shopping should support the following methods:
+- constructor - after construction the shopping cart should be empty.
+- Buy(itemname,itemquantity) - this adds the 'itemquantity' items of type 'itemname'
+	to the shopping cart.
+- CancelBuy(itemname,itemquantity) - this cancells the buying of the mentioned items.
+- TotalPrice() - return the total price of the shopping cart. This means the sum
+	of all items bought taking the quantity into consideration.
+- Charge() - Stub method. This method will ultimately charge the users credit card
+	for the items and will issue an order to the warehouse to ship the items
+	to the user.
+
+Write a test to show that your class works. Instantiate, buy some items, cancel some
+	buys and show the total prices is correct.
+
+Phase 2:
+========
+Write a web ui that enables a user to buy and return products on your website.
+Whenever a user buys or returns a product POST back to the server and update the
+shopping cart status.
+Store the shopping cart data on the _SESSION array.
+
+Phase 3:
+========
+Create a singleton object called ProductList which supplies the following methods:
+	isProduct(productname): returns wether productname refers to a product or not.
+	productPrice(productname): returns the prices for product "productname".
+	productList(): returns a array of all product names/prices (associative).
+Use this singleton object in two places:
+	- in the shopping cart to avoid "hardcoding" of prices inside the shopping cart.
+	- in the form to avoid hardcoding button name and values.
