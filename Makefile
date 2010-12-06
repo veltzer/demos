@@ -105,9 +105,16 @@ clean: java_clean
 	-$(Q)rm -f $(CLEAN)
 	-$(Q)rm -rf $(CLEAN_DIRS)
 	$(Q)$(CLEAN_EXTRA)
+
+# -x: remove everything not known to git (not only ignore rules).
+# -d: remove directories also.
+# -f: force.
 .PHONY: clean_git
 clean_git:
-	git clean -xdf
+	@git clean -xdf
+.PHONY: clean_git_test
+clean_git_test:
+	@git clean -xdf --dry-run
 
 # kernel directory to build against
 KDIR:=/lib/modules/$(shell uname -r)/build
