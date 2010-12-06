@@ -1,5 +1,5 @@
-#include"car.hh"
-#include<iostream>
+#include "car.hh"
+#include <iostream>
 
 Car::Car() {
 	number=666;
