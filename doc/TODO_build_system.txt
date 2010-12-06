@@ -6,3 +6,6 @@
 - make the output of the makefile look nicer.
 - add a feature to the makefile that deduces all the libraries that I'm using
 and all the packages that I need (and installs them ?!?).
+
+- sometimes the kernel modules are rebuilt even thought they are built - probably
+	a bug in the makefile but i can't seem to find it.
