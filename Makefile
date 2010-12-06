@@ -237,11 +237,11 @@ kern_tips:
 # code beautifucation
 .PHONY: do_astyle
 do_astyle: $(ALL_DEPS)
-	astyle --verbose --suffix=none --formatted --preserve-date --options=conf/astyle.cfg $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
+	astyle --verbose --suffix=none --formatted --preserve-date --options=scripts/astyle.cfg $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
 # I do not use uncrustify because it changes code that it already beautified...
 .PHONY: do_uncrustify
 do_uncrustify:
-	uncrustify -c conf/uncrustify.cfg --replace --no-backup $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
+	uncrustify -c scripts/uncrustify.cfg --replace --no-backup $(ALL_C) $(ALL_CC) $(ALL_H) $(ALL_HH)
 
 # java section
 
