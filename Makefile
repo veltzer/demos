@@ -116,9 +116,12 @@ clean_git:
 clean_git_test:
 	@git clean -xdf --dry-run
 
+# the reason that tar and gzip were selected and not zip for cpp is that the build system
+# for the cpp demos requires scripts with permissions and stuff. This may be different
+# for other languages where the permission stuff is not that important (e.g. php).
 .PHONY: archive_cpp
 archive_cpp:
-	git archive --format=tar --prefix=demos_cpp/ master cpp Makefile scripts | gzip > /tmp/demos_cpp.tar.gz
+	git archive --format=tar --prefix=archive_cpp/ master cpp Makefile scripts | gzip > /tmp/archive_cpp.tar.gz
 
 # kernel directory to build against
 KDIR:=/lib/modules/$(shell uname -r)/build
