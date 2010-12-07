@@ -46,7 +46,7 @@ Q:=@
 endif # DO_MKDBG
 
 # sources from the git perspective
-GIT_SOURCES:=$(shell git ls-files)
+#GIT_SOURCES:=$(shell git ls-files)
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
@@ -115,6 +115,10 @@ clean_git:
 .PHONY: clean_git_test
 clean_git_test:
 	@git clean -xdf --dry-run
+
+.PHONY: archive_cpp
+archive_cpp:
+	git archive --format=tar --prefix=demos_cpp/ master cpp Makefile scripts | gzip > /tmp/demos_cpp.tar.gz
 
 # kernel directory to build against
 KDIR:=/lib/modules/$(shell uname -r)/build
