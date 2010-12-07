@@ -52,11 +52,11 @@ CLEAN:=
 CLEAN_DIRS:=
 CLEAN_EXTRA:=echo doing extra cleanup work
 
-CC_SRC:=$(shell find $(US_DIR) $(KERNEL_DIR) -name "*.cc")
-ALL_C:=$(shell find . -name "*.c")
-ALL_CC:=$(shell find . -name "*.cc")
-ALL_H:=$(shell find . -name "*.h")
-ALL_HH:=$(shell find . -name "*.hh")
+CC_SRC:=$(shell scripts/find_wrapper.sh $(US_DIR) $(KERNEL_DIR) -name "*.cc")
+ALL_C:=$(shell scripts/find_wrapper.sh . -name "*.c")
+ALL_CC:=$(shell scripts/find_wrapper.sh . -name "*.cc")
+ALL_H:=$(shell scripts/find_wrapper.sh . -name "*.h")
+ALL_HH:=$(shell scripts/find_wrapper.sh . -name "*.hh")
 CC_ASX:=$(addsuffix .s,$(basename $(CC_SRC)))
 CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
@@ -64,7 +64,7 @@ ALL:=$(ALL) $(CC_EXE)
 #ALL:=$(ALL) $(CC_DIS) $(CC_ASX)
 CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS) $(CC_ASX)
 
-MOD_SRC:=$(shell find $(KERNEL_DIR) -name "drv_*.c" -and -not -name "drv_*.mod.c")
+MOD_SRC:=$(shell scripts/find_wrapper.sh $(KERNEL_DIR) -name "drv_*.c" -and -not -name "drv_*.mod.c")
 MOD_BAS:=$(basename $(MOD_SRC))
 MOD_OBJ:=$(addsuffix .o,$(MOD_BAS))
 MOD_SR2:=$(addsuffix .mod.c,$(MOD_BAS))
@@ -81,7 +81,7 @@ CLEAN_DIRS:=$(CLEAN_DIRS) cpp/kernel/.tmp_versions
 
 JAVA_SOURCE_DIR:=java/src
 JAVA_BIN:=java/bin
-JAVA_SOURCES:=$(shell find $(JAVA_SOURCE_DIR) -name "*.java")
+JAVA_SOURCES:=$(shell scripts/find_wrapper.sh $(JAVA_SOURCE_DIR) -name "*.java")
 JAVA_COMPILE_STAMP:=java/java_compile.stamp
 CLASSPATH:=java/lib/jdic.jar
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
