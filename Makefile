@@ -7,7 +7,7 @@ US_INCLUDE:=cpp/include
 KDIR:=/lib/modules/$(shell uname -r)/build
 
 # do you want dependency on the makefile itself ?!?
-DO_ALL_DEPS:=1
+DO_ALL_DEPS:=0
 
 # compilation
 #CXX:=g++
@@ -46,7 +46,7 @@ Q:=@
 endif # DO_MKDBG
 
 # sources from the git perspective
-#GIT_SOURCES:=$(shell git ls-files)
+GIT_SOURCES:=$(shell scripts/git_wrapper.sh ls-files)
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
@@ -84,10 +84,12 @@ JAVA_BIN:=java/bin
 JAVA_SOURCES:=$(shell scripts/find_wrapper.sh $(JAVA_SOURCE_DIR) -name "*.java")
 JAVA_COMPILE_STAMP:=java/java_compile.stamp
 CLASSPATH:=java/lib/jdic.jar
+ifneq ($(JAVA_SOURCES),)
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS)
 CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
 CLEAN_EXTRA:=$(CLEAN_EXTRA); rm -rf $(JAVA_BIN)/{swing,extreme}
+endif
 
 #### java section
 
