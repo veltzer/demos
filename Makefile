@@ -52,7 +52,7 @@ Q:=
 # we are not silent in this branch
 else # DO_MKDBG
 Q:=@
-.SILENT:
+#.SILENT:
 endif # DO_MKDBG
 
 # sources from the git perspective
