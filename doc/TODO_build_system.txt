@@ -1,3 +1,6 @@
+
+- add a clean kernel target for the makefile.
+
 - the build system does not do dependencies!!!
 - write a script that use "git ls-files" and a recursive traveral of a directory
 	to show all files which are not under git control
