@@ -1,3 +1,7 @@
+##############
+# parameters #
+##############
+
 # directories
 US_DIR:=cpp/user_space
 KERNEL_DIR:=cpp/kernel
@@ -9,12 +13,22 @@ KDIR:=/lib/modules/$(shell uname -r)/build
 # do you want dependency on the makefile itself ?!?
 DO_ALL_DEPS:=1
 
-# compilation
-#CXX:=g++
-CXXFLAGS:=
 # optimization with debug info (for disassembly)
 DEBUG:=1
 OPT:=1
+
+# do you want to show the commands executed ?
+DO_MKDBG:=0
+
+# the c++ compiler to be used
+CXX:=g++
+
+#####################
+# end of parameters #
+#####################
+
+# compilation flags
+CXXFLAGS:=
 ifeq ($(DEBUG),1)
 CXXFLAGS:=$(CXXFLAGS) -g3
 else
@@ -23,10 +37,7 @@ endif
 ifeq ($(OPT),1)
 CXXFLAGS:=$(CXXFLAGS) -O2
 endif
-#CODEGEN:=-g3
-#CODEGEN:=-O2 -s
-FLAGS:=-Wall -Werror -I$(US_INCLUDE)
-CXXFLAGS:=$(CXXFLAGS) $(FLAGS)
+CXXFLAGS:=$(CXXFLAGS) -Wall -Werror -I$(US_INCLUDE)
 
 # kernel module generation variables...
 ifeq ($(DO_ALL_DEPS),1)
@@ -36,13 +47,12 @@ ALL_DEPS:=
 endif
 
 # silent stuff
-#.SILENT:
-DO_MKDBG:=0
 ifeq ($(DO_MKDBG),1)
 Q:=
 # we are not silent in this branch
 else # DO_MKDBG
 Q:=@
+.SILENT:
 endif # DO_MKDBG
 
 # sources from the git perspective
@@ -52,6 +62,7 @@ CLEAN:=
 CLEAN_DIRS:=
 CLEAN_EXTRA:=echo doing extra cleanup work
 
+# user space applications (c and c++)
 CC_SRC:=$(shell scripts/find_wrapper.sh $(US_DIR) $(KERNEL_DIR) -name "*.cc")
 ALL_C:=$(shell scripts/find_wrapper.sh . -name "*.c")
 ALL_CC:=$(shell scripts/find_wrapper.sh . -name "*.cc")
@@ -61,24 +72,23 @@ CC_ASX:=$(addsuffix .s,$(basename $(CC_SRC)))
 CC_DIS:=$(addsuffix .dis,$(basename $(CC_SRC)))
 CC_EXE:=$(addsuffix .exe,$(basename $(CC_SRC)))
 ALL:=$(ALL) $(CC_EXE)
-#ALL:=$(ALL) $(CC_DIS) $(CC_ASX)
 CLEAN:=$(CLEAN) $(CC_EXE) $(CC_DIS) $(CC_ASX)
 
+# kernel modules
 MOD_SRC:=$(shell scripts/find_wrapper.sh $(KERNEL_DIR) -name "drv_*.c" -and -not -name "drv_*.mod.c")
 MOD_BAS:=$(basename $(MOD_SRC))
 MOD_OBJ:=$(addsuffix .o,$(MOD_BAS))
 MOD_SR2:=$(addsuffix .mod.c,$(MOD_BAS))
 MOD_OB2:=$(addsuffix .mod.o,$(MOD_BAS))
-MOD_CM1:=$(addprefix cpp/kernel/.,$(addsuffix .ko.cmd,$(notdir $(MOD_BAS))))
-MOD_CM2:=$(addprefix cpp/kernel/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
-MOD_CM3:=$(addprefix cpp/kernel/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
+MOD_CM1:=$(addprefix $(KERNEL_DIR)/.,$(addsuffix .ko.cmd,$(notdir $(MOD_BAS))))
+MOD_CM2:=$(addprefix $(KERNEL_DIR)/.,$(addsuffix .mod.o.cmd,$(notdir $(MOD_BAS))))
+MOD_CM3:=$(addprefix $(KERNEL_DIR)/.,$(addsuffix .o.cmd,$(notdir $(MOD_BAS))))
 MOD_MOD:=$(addsuffix .ko,$(MOD_BAS))
 ALL:=$(ALL) $(MOD_MOD)
-CLEAN:=$(CLEAN) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) cpp/kernel/Module.symvers cpp/kernel/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3) $(MOD_OBJ)
-CLEAN_DIRS:=$(CLEAN_DIRS) cpp/kernel/.tmp_versions
+CLEAN:=$(CLEAN) $(MOD_MOD) $(MOD_SR2) $(MOD_OB2) $(KERNEL_DIR)/Module.symvers $(KERNEL_DIR)/modules.order $(MOD_CM1) $(MOD_CM2) $(MOD_CM3) $(MOD_OBJ)
+CLEAN_DIRS:=$(CLEAN_DIRS) $(KERNEL_DIR)/.tmp_versions
 
-#### java section
-
+# java section
 JAVA_SOURCE_DIR:=java/src
 JAVA_BIN:=java/bin
 JAVA_SOURCES:=$(shell scripts/find_wrapper.sh $(JAVA_SOURCE_DIR) -name "*.java")
@@ -88,22 +98,18 @@ ifneq ($(JAVA_SOURCES),)
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS)
 CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
-CLEAN_EXTRA:=$(CLEAN_EXTRA); rm -rf $(JAVA_BIN)/{swing,extreme}
+CLEAN_EXTRA:=$(CLEAN_EXTRA); rm -rf $(JAVA_BIN)/{swing,extreme} $(JAVA_COMPILE_STAMP) java.hprof.txt
 endif
 
-#### java section
-
-#### python section
-
+# python section
 CLEAN_EXTRA:=$(CLEAN_EXTRA); find python -name "*.pyc" -exec rm {} \;
 
-#### python section
-
+# generic section
 .PHONY: all
 all: $(ALL)
 
 .PHONY: clean
-clean: java_clean
+clean: java_clean python_clean
 	-$(Q)rm -f $(CLEAN)
 	-$(Q)rm -rf $(CLEAN_DIRS)
 	$(Q)$(CLEAN_EXTRA)
@@ -133,9 +139,11 @@ V:=0
 # extra flags to pass to the kernel module creation process...
 # regular kernels do not have -Werror and we want it!
 KCFLAGS:=-Werror
+# I do not pass the -Werror because of the warnings I get from the build process
 KCFLAGS:=
 
 # general rules...
+
 # how to create regular executables...
 $(CC_EXE): %.exe: %.cc $(ALL_DEPS)
 	$(info doing [$@])
@@ -147,6 +155,7 @@ $(CC_ASX): %.s: %.cc $(ALL_DEPS)
 	$(CXX) $(CXXFLAGS) -S -o $@ $< $$EXTRA_FLAGS
 $(CC_DIS): %.dis: %.exe $(ALL_DEPS)
 	objdump --source --disassemble $< > $@
+
 # rule about how to create .ko files...
 $(MOD_MOD): %.ko: %.c $(ALL_DEPS)
 	$(info doing [$@])
@@ -183,8 +192,8 @@ check_include:
 	-grep "include \"ace" `find . -name "*.cc" -or -name "*.h"`
 .PHONY: check_tests_for_drivers
 check_tests_for_drivers:
-	cd kernel;for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
-	cd kernel;for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
+	cd $(KERNEL_DIR);for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
+	cd $(KERNEL_DIR);for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 
 # various file finds...
 PROJECTS_EXPR:=-name ".project" -or -name ".cproject" -or -wholename "./nbproject/*"
@@ -283,4 +292,5 @@ java_clean: $(ALL_DEPS)
 
 .PHONY: python_clean
 python_clean: $(ALL_DEPS)
+	$(info doing [$@])
 	$(Q)find python -name "*.pyc" -exec rm {} \;
