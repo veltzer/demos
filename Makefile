@@ -194,6 +194,9 @@ check_include:
 check_tests_for_drivers:
 	cd $(KERNEL_DIR);for x in test_*.cc; do y=`echo $$x | cut -f 2- -d _`;z=drv_`basename $$y .cc`.c; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
 	cd $(KERNEL_DIR);for x in drv_*.c; do y=`echo $$x | cut -f 2- -d _`;z=test_`basename $$y .c`.cc; if [ ! -f $$z ]; then echo "missing $$z"; fi ; done
+.PHONY: check_my_name
+check_my_name:
+	grep -L "Mark Veltzer" `find cpp/user_space -name "*.cc"` | grep -v "/ace/"
 
 # various file finds...
 PROJECTS_EXPR:=-name ".project" -or -name ".cproject" -or -wholename "./nbproject/*"
