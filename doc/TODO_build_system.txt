@@ -1,4 +1,6 @@
 
+- do a target that compresses ALL demos (or all demos for a specific purpose:
+	php, python etc).
 - add a clean kernel target for the makefile.
 
 - the build system does not do dependencies!!!
