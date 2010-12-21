@@ -216,6 +216,9 @@ find_not_source_target:
 .PHONY: find_not_git_target
 find_not_git_target:
 	-@find -type f -and -not \( $(GIT_SOURCE_EXPR) \) -and -not \( $(TARGET_EXPR) \)
+.PHONY: find_not_git_source
+find_not_git_source:
+	-@find -type f -and -not \( $(GIT_SOURCE_EXPR) \)
 .PHONY: find_exercises
 find_exercises:
 	-@find -type f -name "*_exercise.txt"
