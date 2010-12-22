@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <glade-interface>
   <!-- interface-requires gtk+ 2.6 -->
   <!-- interface-naming-policy toplevel-contextual -->
@@ -176,8 +176,8 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="year">2010</property>
-            <property name="month">8</property>
-            <property name="day">16</property>
+            <property name="month">11</property>
+            <property name="day">14</property>
           </widget>
           <packing>
             <property name="position">2</property>
