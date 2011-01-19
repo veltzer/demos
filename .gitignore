@@ -15,7 +15,7 @@
 *.class
 *.stamp
 *.out
-#java/bin/*
+java/bin/*
 
 # kernel stuff...
 *.ko
