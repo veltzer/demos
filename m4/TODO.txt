@@ -1,0 +1,2 @@
+get some exapmles of m4 processing into here.
+Add Makefile to build them and to clean them.
