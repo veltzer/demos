@@ -41,6 +41,6 @@ public class Atomics {
 			public void run() {
 				
 			}
-		})
+		});
 	}
 }
