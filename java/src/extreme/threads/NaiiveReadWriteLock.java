@@ -1,11 +1,11 @@
 package extreme.threads;
 
 /**
- * A simple implementaion of a read-write-lock. A read-write-lock allows for
- * multiple read actions (read permits), up to a pre-defined limit. A write
+ * A simple implementation of a read-write-lock. A read-write-lock allows for
+ * multiple read actions (read permits), up to a pre defined limit. A write
  * operation is only allowed if no locks are held. Thus, a write operation
  * cannot exist with any other operations. This lock is "unfair", in that it may
- * block a long-waiting write request in favour of newly arrived read requests.
+ * block a long-waiting write request in favor of newly arrived read requests.
  * An improvement could be do a first come first serve approach or maybe even
  * add priorities.
  * 
