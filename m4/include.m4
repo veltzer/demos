@@ -1,0 +1,6 @@
+include(/etc/passwd)
+==========================================
+this next line will not work...
+it seems that m4 does not work with double quotes or with single quotes...
+dont_include("/etc/passwd")
+dont_include('/etc/passwd')
