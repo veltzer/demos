@@ -1,0 +1,5 @@
+sed exercises:
+==============
+1. Find all users who can login to the system (don't have /bin/false or /usr/bin/nologin as their shell), and change their shell to /usr/bin/tcsh. use /etc/passwd as input.
+2. Now do the same for all users with uids between 1000 and 2000 (not including 2000)
+3. Take the Caesar speech and make every sentence with a period stand on a single line.

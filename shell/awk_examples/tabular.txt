@@ -1,0 +1,43 @@
+root x 0 0 root /root /bin/bash
+daemon x 1 1 daemon /usr/sbin /bin/sh
+bin x 2 2 bin /bin /bin/sh
+sys x 3 3 sys /dev /bin/sh
+sync x 4 65534 sync /bin /bin/sync
+games x 5 60 games /usr/games /bin/sh
+man x 6 12 man /var/cache/man /bin/sh
+lp x 7 7 lp /var/spool/lpd /bin/sh
+mail x 8 8 mail /var/mail /bin/sh
+news x 9 9 news /var/spool/news /bin/sh
+uucp x 10 10 uucp /var/spool/uucp /bin/sh
+proxy x 13 13 proxy /bin /bin/sh
+www-data x 33 33 www-data /var/www /bin/sh
+backup x 34 34 backup /var/backups /bin/sh
+list x 38 38 Mailing List Manager /var/list /bin/sh
+irc x 39 39 ircd /var/run/ircd /bin/sh
+gnats x 41 41 Gnats Bug-Reporting System (admin) /var/lib/gnats /bin/sh
+nobody x 65534 65534 nobody /nonexistent /bin/sh
+libuuid x 100 101 /var/lib/libuuid /bin/sh
+dhcp x 101 102 /nonexistent /bin/false
+syslog x 102 103 /home/syslog /bin/false
+klog x 103 104 /home/klog /bin/false
+hplip x 104 7 HPLIP system user,,, /var/run/hplip /bin/false
+avahi-autoipd x 105 113 Avahi autoip daemon,,, /var/lib/avahi-autoipd /bin/false
+messagebus x 106 115 /var/run/dbus /bin/false
+avahi x 107 116 Avahi mDNS daemon,,, /var/run/avahi-daemon /bin/false
+polkituser x 108 118 PolicyKit,,, /var/run/PolicyKit /bin/false
+haldaemon x 109 119 Hardware abstraction layer,,, /var/run/hald /bin/false
+sshd x 110 65534 /var/run/sshd /usr/sbin/nologin
+mysql x 111 120 MySQL Server,,, /var/lib/mysql /bin/false
+tomcat55 x 112 65534 /usr/share/tomcat5.5 /bin/false
+veltzer x 1000 1000 Mark Veltzer,,, /home/veltzer /bin/bash
+mark x 1001 1001 Mark Veltzer,,, /home/mark /bin/bash
+user00 x 1002 1002 ,,, /home/user00 /bin/bash
+user01 x 1003 1003 ,,, /home/user01 /bin/bash
+user02 x 1004 1004 ,,, /home/user02 /bin/bash
+user03 x 1005 1005 ,,, /home/user03 /bin/bash
+user04 x 1006 1006 ,,, /home/user04 /bin/bash
+user05 x 1007 1007 ,,, /home/user05 /bin/bash
+user06 x 1008 1008 ,,, /home/user06 /bin/bash
+user07 x 1009 1009 ,,, /home/user07 /bin/bash
+user08 x 1010 1010 ,,, /home/user08 /bin/bash
+user09 x 1011 1011 ,,, /home/user09 /bin/bash
