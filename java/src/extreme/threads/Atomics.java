@@ -3,14 +3,14 @@ package extreme.threads;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * A simple blocking queue.
- * 
+ * A demonstration of how to use atomic variables.
+ *
  * @author Mark Veltzer
  */
 
 public class Atomics {
 	
-	private class MyRunnable implements Runnable {
+	private static class MyRunnable implements Runnable {
 		private int myVal;
 		private AtomicInteger at;
 		public MyRunnable(int initval,AtomicInteger iat) {
@@ -22,25 +22,15 @@ public class Atomics {
 				if(at.compareAndSet(myVal, myVal+1)) {
 					myVal++;
 				}
-			
 			}
-			
 		}
 	}
 	
 	static public void main(String[] args) {
 		AtomicInteger at=new AtomicInteger(0);
-		Runnable run=new Runnable() {
-			@Override
-			public void run() {				
-			}
-		};
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				
-			}
-		});
+		Runnable run1=new MyRunnable(0, at);
+		Runnable run2=new MyRunnable(1, at);
+		new Thread(run1);
+		new Thread(run2);
 	}
 }
