@@ -1,4 +1,3 @@
-
 .PHONY: compile
 compile:
 	javac InlineMe.java
