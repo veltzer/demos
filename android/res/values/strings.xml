@@ -2,4 +2,6 @@
 <resources>
     <string name="hello">Hello World, SayHello!</string>
     <string name="app_name">HelloWorld</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
 </resources>
