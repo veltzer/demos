@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>title</title>
+	<link rel="stylesheet" href="xhr2.css">
+	<script type="text/javascript">
+		var xhr;
+		window.onload = function(e) {
+			xhr = new XMLHttpRequest();
+			var supported = (typeof xhr.onprogress != "undefined") || (xhr.onprogress != null) ? "Supported" : "Not Supported";
+			document.getElementById("results").innerHTML = supported;
+		}
+	</script>
+</head>
+
+<body>
+	XHR2: <div id="results"></div>
+</body>
+
+</html>
+		

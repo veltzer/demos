@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- Code originally from https://developer.mozilla.org/En/Using_web_workers -->
+<html>
+<title>Test threads fibonacci</title>
+<body>
+
+Fibonacci Results:
+<div id="result"></div>
+
+<script language="javascript">  
+      
+        var worker = new Worker("fibonacci.js");  
+      
+        worker.onmessage = function(event) {  
+          document.getElementById("result").textContent = event.data;  
+          dump("Got: " + event.data + "\n");  
+        };  
+      
+        worker.onerror = function(error) {  
+          dump("Worker error: " + error.message + "\n");  
+          throw error;  
+        };  
+      
+        worker.postMessage("14");  
+      
+      </script>
+</body>
+</html>
