@@ -6,75 +6,92 @@
   android:orientation="vertical"
   >
     <EditText
-    	android:text="First Argument"
-    	android:id="@+id/textView1"
+    	android:text="0"
+    	android:id="@+id/text_a"
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:singleLine="true"
     	android:editable="true"
+    	android:numeric="decimal"
     	>
     </EditText>
     <LinearLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
     	android:orientation="horizontal"
+    	
     >
     	<ToggleButton
+    		android:id="@+id/button_plus"
     		android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
   			android:textOn="+"
   			android:textOff="+"
   			android:layout_weight="1"
+  			android:checked="true"
+  			android:onClick="onToggleClick"
   		>
     	</ToggleButton>
     	<ToggleButton
-    	    android:layout_width="wrap_content"
+    	    android:id="@+id/button_min"
+    		android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
   			android:textOn="-"
   			android:textOff="-"
   			android:layout_weight="1"
+  			android:checked="false"
+  			android:onClick="onToggleClick"
   			>
     	</ToggleButton>
     	<ToggleButton
-  			android:layout_width="wrap_content"
+  			android:id="@+id/button_mul"
+    		android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
   			android:textOn="*"
   			android:textOff="*"
   			android:layout_weight="1"
+  			android:checked="false"
+  			android:onClick="onToggleClick"
   			>
     	</ToggleButton>
     	<ToggleButton
-  			android:layout_width="wrap_content"
+  			android:id="@+id/button_div"
+    		android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
   			android:textOn="/"
   			android:textOff="/"
   			android:layout_weight="1"
+  			android:checked="false"
+  			android:onClick="onToggleClick"
   			>
     	</ToggleButton>
     </LinearLayout>
     <EditText
-    	android:text="Second Argument"
-    	android:id="@+id/textView2"
+    	android:text="0"
+    	android:id="@+id/text_b"
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:singleLine="true"
     	android:editable="true"
+ 		android:numeric="decimal"
     	>
     </EditText>
-	<ToggleButton
-		android:layout_width="fill_parent"
+	<Button
+		android:id="@+id/button_equals"
+    	android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:textOn="="
-		android:textOff="="
+		android:text="="
 		android:layout_weight="1"
+		android:onClick="onEqualsClick"
 	>
- 	</ToggleButton>
+ 	</Button>
  	 <EditText
-    	android:text="Result"
-    	android:id="@+id/textView3"
+    	android:id="@+id/text_result"
+    	android:text="No result yet..."
     	android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:singleLine="true"
+    	android:editable="false"
     	>
     </EditText>
 </LinearLayout>
