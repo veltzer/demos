@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cross-Domain Messaging</title>
+	<link rel="stylesheet" href="crossdomain.css">
+	<script src="crossdomain.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<header>
+		<h1>Cross Domain Messaging</h1>
+	</header>
+	
+	<nav>
+		<h2>Menu</h2>
+		<a href="main.html">[Main]</a> <a href="account.html">[Account]</a> <a href="prefs.html">[Preferences]</a>
+	</nav>
+	
+	<section>
+		<article>
+			<header>
+				<h2>Outer Page</h2>
+			</header>
+            <div id="chatMessages"></div><br/>
+            <p>
+	            <button id="pressMe">Send Message</button>
+            </p>
+			<footer>
+				<h6><div id="status">Play Nice with Each other!</div></h6>
+			</footer>
+		</article>
+		<article>
+			<header>
+				<h2>Inner Frame</h2>
+			</header>
+			<p>
+			<iframe src="http://dev2.nextgened.com/~veltzer/XDM_Lab/crossdomain/solution/inner.html" id="feedback">This will be the inner frame.</iframe>
+			</p>
+			<footer>
+				<h6>footer2</h6>			
+			</footer>
+		</article>
+	</section>
+	<footer>
+		<h5>footer</h5>
+	</footer>
+</body>
+
+</html>
+		
