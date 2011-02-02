@@ -278,6 +278,7 @@ do_uncrustify:
 
 $(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) $(ALL_DEPS)
 	$(info doing [$@])
+	$(Q)mkdir $(JAVA_BIN)
 	$(Q)javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
 	$(Q)touch $(JAVA_COMPILE_STAMP)
 
