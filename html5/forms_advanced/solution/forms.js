@@ -12,7 +12,7 @@ function init() {
 }
 
 function prepFieldsForFeedback() {
-	var inputs = form.querySelectorAll("input", "textarea", "select");
+	var inputs = form.querySelectorAll("input, textarea, select");
 	for (var i = 0; i < inputs.length; i++) {
 		inputs[i].addEventListener("invalid", handleInvalidData, false);
 	}
@@ -27,7 +27,7 @@ function processSubmit() {
 	/* Enter Form Validation Code here */
 	clearStatus();
 	var formValid = true;
-	var inputs = form.querySelectorAll("input", "textarea", "select");
+	var inputs = form.querySelectorAll("input, textarea, select");
 	for (var i = 0; i < inputs.length; i++) {
 		var fieldValid = inputs[i].validity.valid;
 		if (!fieldValid) {
