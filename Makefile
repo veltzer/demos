@@ -60,7 +60,6 @@ GIT_SOURCES:=$(shell scripts/git_wrapper.sh ls-files)
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
-CLEAN_EXTRA:=echo doing extra cleanup work
 
 # user space applications (c and c++)
 CC_SRC:=$(shell scripts/find_wrapper.sh $(US_DIR) $(KERNEL_DIR) -name "*.cc")
@@ -96,13 +95,13 @@ JAVA_COMPILE_STAMP:=java/java_compile.stamp
 CLASSPATH:=java/lib/jdic.jar
 ifneq ($(JAVA_SOURCES),)
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
-CLEAN_DIRS:=$(CLEAN_DIRS)
-CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP)
-CLEAN_EXTRA:=$(CLEAN_EXTRA); rm -rf $(JAVA_BIN)/{swing,extreme} $(JAVA_COMPILE_STAMP) java.hprof.txt
+CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)/swing $(JAVA_BIN)/extreme
+CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP) java.hprof.txt
 endif
 
 # python section
-CLEAN_EXTRA:=$(CLEAN_EXTRA); find python -name "*.pyc" -exec rm {} \;
+PYTHON_OBJECTS:=$(shell find python -name "*.pyc" -or -name "*.pyo")
+CLEAN:=$(CLEAN) $(PYTHON_OBJECTS)
 
 # generic section
 .PHONY: all
@@ -110,9 +109,9 @@ all: $(ALL)
 
 .PHONY: clean
 clean: java_clean python_clean
+	$(info doing [$@])
 	-$(Q)rm -f $(CLEAN)
 	-$(Q)rm -rf $(CLEAN_DIRS)
-	$(Q)$(CLEAN_EXTRA)
 
 # -x: remove everything not known to git (not only ignore rules).
 # -d: remove directories also.
