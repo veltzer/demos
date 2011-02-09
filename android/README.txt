@@ -1,1 +1,1 @@
-This is the place where I put my android projects and examples.
+This is the place where I put my Android projects and examples.
