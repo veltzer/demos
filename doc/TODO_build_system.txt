@@ -1,3 +1,5 @@
+- kernel subsystem does not do depenency management. For instance, if I change kernel_helper.h
+	then the modules do NOT get recompiled.
 
 - do a target that compresses ALL demos (or all demos for a specific purpose:
 	php, python etc).
