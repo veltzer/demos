@@ -1,10 +1,5 @@
-- kernel subsystem does not do depenency management. For instance, if I change kernel_helper.h
-	then the modules do NOT get recompiled.
-
 - do a target that compresses ALL demos (or all demos for a specific purpose:
 	php, python etc).
-- add a clean kernel target for the makefile.
-
 - the build system does not do dependencies!!!
 - write a script that use "git ls-files" and a recursive traveral of a directory
 	to show all files which are not under git control
@@ -14,5 +9,3 @@
 - add a feature to the makefile that deduces all the libraries that I'm using
 and all the packages that I need (and installs them ?!?).
 
-- sometimes the kernel modules are rebuilt even thought they are built - probably
-	a bug in the makefile but i can't seem to find it.
