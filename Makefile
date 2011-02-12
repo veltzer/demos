@@ -3,7 +3,7 @@
 ##############
 
 # directories
-US_DIR:=cpp/user_space
+US_DIRS:=cpp/user_space cpp/user_space_interbit
 KERNEL_DIR:=cpp/kernel
 US_INCLUDE:=cpp/include
 
@@ -62,7 +62,7 @@ CLEAN:=
 CLEAN_DIRS:=
 
 # user space applications (c and c++)
-CC_SRC:=$(shell scripts/find_wrapper.sh $(US_DIR) $(KERNEL_DIR) -name "*.cc")
+CC_SRC:=$(shell scripts/find_wrapper.sh $(US_DIRS) $(KERNEL_DIR) -name "*.cc")
 ALL_C:=$(shell scripts/find_wrapper.sh . -name "*.c")
 ALL_CC:=$(shell scripts/find_wrapper.sh . -name "*.cc")
 ALL_H:=$(shell scripts/find_wrapper.sh . -name "*.h")
