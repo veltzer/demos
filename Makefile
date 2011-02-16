@@ -39,7 +39,7 @@ CXXFLAGS:=$(CXXFLAGS) -O2
 endif
 CXXFLAGS:=$(CXXFLAGS) -Wall -Werror -I$(US_INCLUDE)
 
-# kernel module generation variables...
+# dependency on the makefile itself
 ifeq ($(DO_ALL_DEPS),1)
 ALL_DEPS:=Makefile
 else
