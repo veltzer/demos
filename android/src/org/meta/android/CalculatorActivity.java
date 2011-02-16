@@ -14,7 +14,7 @@ import android.widget.EditText;
 //import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class Calculator extends Activity {
+public class CalculatorActivity extends Activity {
 	private int current_op;
 	/** Called when the activity is first created. */
     @Override
@@ -38,7 +38,7 @@ public class Calculator extends Activity {
 			
 			@Override
 			public void afterTextChanged(Editable s) {
-				Calculator.this.calc();
+				CalculatorActivity.this.calc();
 			}
 		};
 		text_a.addTextChangedListener(tw);
@@ -95,7 +95,7 @@ public class Calculator extends Activity {
     	switch(item.getItemId()) {
     		case R.id.about:
     			//Toast.makeText(this, "Clicked on About", Toast.LENGTH_SHORT).show();
-    			Intent i=new Intent(this, About.class);
+    			Intent i=new Intent(this, AboutActivity.class);
     			startActivity(i);
     			return true;
     		case R.id.exit:

@@ -2,15 +2,14 @@ package org.meta.android;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.widget.AnalogClock;
 
-public class About extends Activity {
+public class JailActivity extends Activity {
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TextView v=new TextView(this);
-        v.setText("This is the about data");
-        setContentView(v);
+        AnalogClock ac=new AnalogClock(this);
+        setContentView(ac);
     }
 }
