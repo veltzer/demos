@@ -95,7 +95,7 @@ JAVA_COMPILE_STAMP:=java/java_compile.stamp
 CLASSPATH:=java/lib/jdic.jar
 ifneq ($(JAVA_SOURCES),)
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
-CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)/swing $(JAVA_BIN)/extreme
+CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)
 CLEAN:=$(CLEAN) $(JAVA_COMPILE_STAMP) java.hprof.txt
 endif
 
@@ -275,9 +275,11 @@ do_uncrustify:
 
 # java section
 
+# the || exit 0 is to prevent make from issueing the haunting "error ignored"
+# message which I do not want to see...
 $(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) $(ALL_DEPS)
 	$(info doing [$@])
-	-$(Q)mkdir $(JAVA_BIN)
+	$(Q)mkdir $(JAVA_BIN) 2> /dev/null || exit 0
 	$(Q)javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
 	$(Q)touch $(JAVA_COMPILE_STAMP)
 
@@ -294,7 +296,7 @@ java_prof: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
 .PHONY: java_clean
 java_clean: $(ALL_DEPS)
 	$(info doing [$@])
-	$(Q)rm -rf $(JAVA_BIN)/swing $(JAVA_BIN)/extreme $(JAVA_COMPILE_STAMP) java.hprof.txt
+	$(Q)rm -rf $(JAVA_BIN) $(JAVA_COMPILE_STAMP) java.hprof.txt
 
 .PHONY: python_clean
 python_clean: $(ALL_DEPS)
