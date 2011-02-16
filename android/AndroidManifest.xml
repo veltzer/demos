@@ -25,10 +25,13 @@
         </activity>
         <activity android:name="ToastActivity"
                   android:label="ToastActivity">
-                  <intent-filter>
+        </activity>
+        <activity android:name="JailActivity"
+                  android:label="JailActivity">
+        			<intent-filter>
 						<action android:name="android.intent.action.MAIN" />
 						<category android:name="android.intent.category.LAUNCHER" />
-            	</intent-filter>
+            		</intent-filter>
         </activity>
         <service android:name="ToastService"></service>
     </application>

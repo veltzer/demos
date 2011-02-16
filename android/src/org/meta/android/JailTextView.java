@@ -28,6 +28,7 @@ public class JailTextView extends TextView {
 		int div=canvas.getWidth()/num_of_bars;
 		Paint paint=new Paint();
 		paint.setColor(Color.RED);
+		paint.setStrokeWidth(6);
 		for(int i=0;i<num_of_bars;i++) {
 			int pos=i*div;
 			canvas.drawLine(pos, 0, pos, canvas.getHeight(), paint);
