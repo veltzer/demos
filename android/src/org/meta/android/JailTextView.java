@@ -23,10 +23,12 @@ public class JailTextView extends TextView {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
+		//canvas.getMatrix().invert(canvas.getMatrix());
 		super.onDraw(canvas);
 		final int num_of_bars=10;
 		int div=canvas.getWidth()/num_of_bars;
 		Paint paint=new Paint();
+		
 		paint.setColor(Color.RED);
 		paint.setStrokeWidth(6);
 		for(int i=0;i<num_of_bars;i++) {
