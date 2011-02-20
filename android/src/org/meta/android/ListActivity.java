@@ -36,10 +36,10 @@ public class ListActivity extends Activity {
     }
     private List<PersonData> getData() {
     	List<PersonData> l=new ArrayList<PersonData>();
-    	PersonData d1=new PersonData();
-    	d1.name="mark";
-    	d1.phone="234324";
-    	l.add(d1);
+    	//PersonData d1=new PersonData();
+    	//d1.name="mark";
+    	//d1.phone="234324";
+    	//l.add(d1);
     	return l;
     }
 }
