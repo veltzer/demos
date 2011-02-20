@@ -28,6 +28,9 @@
         </activity>
         <activity android:name="JailActivity"
                   android:label="JailActivity">
+        </activity>
+        <activity android:name="ListActivity"
+                  android:label="ListActivity">
         			<intent-filter>
 						<action android:name="android.intent.action.MAIN" />
 						<category android:name="android.intent.category.LAUNCHER" />
