@@ -33,7 +33,9 @@ function toggleSound() {
 
 function takeScreenShot() {
 	//context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+	//context.translate(-100,100);
 	context.drawImage(video, 0, 0, 300, 200);
+	//context.translate(+100,-100);
 }
 
 window.onload = init;

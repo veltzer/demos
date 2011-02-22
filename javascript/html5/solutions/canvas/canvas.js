@@ -1,6 +1,15 @@
 function init() {
 	var btnPresMe = document.getElementById("pressMe");
 	btnPresMe.onclick = processSubmit;
+	var btnPresMeBack = document.getElementById("pressMeBack");
+	btnPresMeBack.onclick = processSubmitBack;
+}
+function processSubmitBack() {
+	/* Enter Canvas Code Here */
+	var cnvMyCanvas = document.getElementById("myCanvas");
+	var context = cnvMyCanvas.getContext("2d");
+	drawBackGround(context, cnvMyCanvas);
+	drawGrid(context, cnvMyCanvas);
 }
 
 function processSubmit() {
@@ -84,8 +93,5 @@ function drawBackGround(context, canvas) {
 	context.fillStyle="#dadada";
 	context.fill();
 }
-	
 
 window.onload = init;
-
-
