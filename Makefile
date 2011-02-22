@@ -107,8 +107,8 @@ CLEAN:=$(CLEAN) $(PYTHON_OBJECTS)
 .PHONY: all
 all: $(ALL)
 
-.PHONY: clean
-clean: java_clean python_clean
+.PHONY: clean_manual
+clean_manual: java_clean python_clean
 	$(info doing [$@])
 	-$(Q)rm -f $(CLEAN)
 	-$(Q)rm -rf $(CLEAN_DIRS)
@@ -122,6 +122,8 @@ clean_git:
 .PHONY: clean_git_test
 clean_git_test:
 	@git clean -xdf --dry-run
+.PHONY: clean
+clean: clean_git
 
 # the reason that tar and gzip were selected and not zip for cpp is that the build system
 # for the cpp demos requires scripts with permissions and stuff. This may be different
