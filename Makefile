@@ -139,9 +139,9 @@ KDIR:=/lib/modules/$(shell uname -r)/build
 V:=0
 # extra flags to pass to the kernel module creation process...
 # regular kernels do not have -Werror and we want it!
+# The problem is that this makes the kernel build system scream at me (it fears I am changing
+# the flags in some profound ways). This is what we have wrapper scripts for...
 KCFLAGS:=-Werror
-# I do not pass the -Werror because of the warnings I get from the build process
-KCFLAGS:=
 
 # general rules...
 
@@ -158,9 +158,9 @@ $(CC_DIS): %.dis: %.exe $(ALL_DEPS)
 	objdump --source --disassemble $< > $@
 
 # rule about how to create .ko files...
-$(MOD_MOD): %.ko: %.c $(ALL_DEPS)
+$(MOD_MOD): %.ko: %.c $(ALL_DEPS) scripts/make_wrapper.pl
 	$(info doing [$@])
-	$(Q)$(MAKE) -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<))) > /dev/null
+	$(Q)scripts/make_wrapper.pl -C $(KDIR) V=$(V) KCFLAGS=$(KCFLAGS) M=$(abspath $(dir $<)) modules obj-m=$(addsuffix .o,$(notdir $(basename $<)))
 
 .PHONY: debug
 debug:
@@ -176,6 +176,7 @@ debug:
 	$(info CLEAN is $(CLEAN))
 	$(info CLEAN_DIRS is $(CLEAN_DIRS))
 	$(info GIT_SOURCES is $(GIT_SOURCES))
+	$(info ALL_DEPS is $(ALL_DEPS))
 
 .PHONY: todo
 todo:
