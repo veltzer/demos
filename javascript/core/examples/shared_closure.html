@@ -1,0 +1,21 @@
+<script>
+	function sc(init_val,inc_val,dec_val) {
+		return {
+			"inc":function() {
+				init_val+=inc_val;
+			},
+			"dec":function() {
+				init_val-=dec_val;
+			},
+			"get":function() {
+				return init_val;
+			}
+		}
+	}
+	var t=sc(5,1,2);
+	document.write(t.get()+'<br/>');
+	t.inc();
+	document.write(t.get()+'<br/>');
+	t.dec();
+	document.write(t.get()+'<br/>');
+</script>
