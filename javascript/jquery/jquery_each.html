@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!--
+	Example of using the jQuery each function.
+
+	Things to note:
+	- you can use any of jQuery selectors to get the DOM elements you want to operate on.
+	- inside the function the 'this' automatic variable is the DOM element on which you are operating.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script type='text/javascript' src='jquery/jquery.js'></script>
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#mybutton').click(function() {
+					$('li').each(function() {
+						$(this).text($(this).text()+' - wow');
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>foo</li>
+			<li>bar</li>
+		</ul>
+		<button id='mybutton'>Push me to admire the 'each' function!</button>
+	</body>
+</html>
