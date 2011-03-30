@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <!--
-	A simple example of attaching DOM events via jQuery API.
-
-	Things to notice:
-	- the function attached to the click event will get the DOM element
-	of the element to which it is attached at the automatic 'this' variable.
-	- if you want to use jQuery on that element you must convert it to the
-	jQuery wrapper via the $/jQuery function like this '$(this)'.
+	This is a demo of using the jQuery API for parsing JSON.
+	This API wraps the HTML5 API for JSON (window.JSON) on browsers
+	that support it. When the browser does not support window.JSON it
+	falls back to an internal jQuery JSON parser.
 
 				Mark Veltzer
 -->
@@ -17,12 +14,14 @@
 		<script type='text/javascript'>
 			$(document).ready(function() {
 				$('#mybutton').click(function() {
-					alert('this is a jQuery event'+this);
+					var obj=$.parseJSON('{"name":"John"}');
+					alert(obj.name==="John");
 				});
 			});
 		</script>
 	</head>
 	<body>
 		<button id='mybutton'>Push me!</button>
+		<button id='badjson'>Push me!</button>
 	</body>
 </html>

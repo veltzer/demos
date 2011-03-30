@@ -1,13 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <!--
-	A simple example of attaching DOM events via jQuery API.
-
-	Things to notice:
-	- the function attached to the click event will get the DOM element
-	of the element to which it is attached at the automatic 'this' variable.
-	- if you want to use jQuery on that element you must convert it to the
-	jQuery wrapper via the $/jQuery function like this '$(this)'.
+	Now with the $.ajax function
 
 				Mark Veltzer
 -->
@@ -17,7 +11,13 @@
 		<script type='text/javascript'>
 			$(document).ready(function() {
 				$('#mybutton').click(function() {
-					alert('this is a jQuery event'+this);
+					$.ajax(
+						'jquery_ajax.json',
+						'{key:value}',
+						function(data, textStatus, jqXHR) {
+							alert([data,textStatus,jqXHR,this].join(','));
+						}
+					);
 				});
 			});
 		</script>
