@@ -1,6 +1,6 @@
 do demos for:
-	foreach
+	grep
 	selectors
 	more events
-	json parsing with jquery
-	json emitting with jquery.
+	$.ajax
+	ajax events
