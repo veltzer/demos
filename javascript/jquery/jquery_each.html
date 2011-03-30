@@ -6,6 +6,10 @@
 	Things to note:
 	- you can use any of jQuery selectors to get the DOM elements you want to operate on.
 	- inside the function the 'this' automatic variable is the DOM element on which you are operating.
+	- if you want to use the 'this' variable for jQuery operations wrap it using the $/jQuery function.
+	- the function which you supply can choose to receive two arguments: index and element.
+	- 'index' is the running index for the each iteration (starting from 0).
+	- 'element' is identical to 'this'.
 
 				Mark Veltzer
 -->
@@ -15,8 +19,8 @@
 		<script type='text/javascript'>
 			$(document).ready(function() {
 				$('#mybutton').click(function() {
-					$('li').each(function() {
-						$(this).text($(this).text()+' - wow');
+					$('li').each(function(index,element) {
+						$(this).text($(this).text()+' - '+index);
 					});
 				});
 			});
