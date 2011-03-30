@@ -1,0 +1,6 @@
+do demos for:
+	foreach
+	selectors
+	more events
+	json parsing with jquery
+	json emitting with jquery.
