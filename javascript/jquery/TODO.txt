@@ -1,6 +1,6 @@
 do demos for:
 	grep
-	selectors
+	more selectors
 	more events
 	$.ajax
 	ajax events
