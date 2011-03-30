@@ -1,13 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <!--
-	A simple example of attaching DOM events via jQuery API.
+	This is an example of the 'context' attached to jQuery selectors.
 
-	Things to notice:
-	- the function attached to the click event will get the DOM element
-	of the element to which it is attached at the automatic 'this' variable.
-	- if you want to use jQuery on that element you must convert it to the
-	jQuery wrapper via the $/jQuery function like this '$(this)'.
+	Notice that:
+	- if you pass a second a to the $/jQuery function then that argument is
+	the conext in which the selector will act.
+	- that means that the selector will be restricted to a subtree of the DOM. 
+	- this means that $('selector') == $('selector',document) (as shown below...).
 
 				Mark Veltzer
 -->
@@ -16,8 +16,25 @@
 		<script type='text/javascript' src='jquery.js'></script>
 		<script type='text/javascript'>
 			$(document).ready(function() {
+				$('#mybutton1').click(function() {
+					$('li',$('#list1')).each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
+				});
+				$('#mybutton2').click(function() {
+					$('li',$('#list2')).each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
+				});
 				$('#mybutton').click(function() {
-					alert('this is a jQuery event'+this);
+					$('li').each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
+				});
+				$('#mybuttonmore').click(function() {
+					$('li',document).each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
 				});
 			});
 		</script>
@@ -33,6 +50,9 @@
 			<li>e</li>
 			<li>f</li>
 		</ul>
-		<button id='mybutton'>Push me!</button>
+		<button id='mybutton1'>Push me to manipulate list 1!</button>
+		<button id='mybutton2'>Push me to manipulate list 2!</button>
+		<button id='mybutton'>Push me to manipulate them all!</button>
+		<button id='mybuttonmore'>Push me to manipulate them all!</button>
 	</body>
 </html>
