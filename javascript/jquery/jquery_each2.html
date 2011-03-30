@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!--
+	This is a more advanced example of using the each function in jQuery.
+	The idea here is that the handling function can choose to return false
+	in which case the 'each' loop is stopped and no further DOM elements
+	are processed. You can use this in order to find a specific element, process
+	only a prefix of the elements and more.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script type='text/javascript' src='jquery/jquery.js'></script>
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#mybutton').click(function() {
+					$('li').each(function() {
+						$(this).text($(this).text()+' - wow');
+						if(Math.random()<0.2) {
+							return false;
+						} else {
+							return true;
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li>d</li>
+			<li>e</li>
+			<li>f</li>
+			<li>g</li>
+			<li>h</li>
+			<li>i</li>
+		</ul>
+		<button id='mybutton'>Push me to process <b>some</b> of the elements!</button>
+	</body>
+</html>
