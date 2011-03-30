@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!--
+	This example investigates the $.ready jQuery function further.
+
+	Notice that:
+	- the argument you get in the .ready handler is jQuery itself!
+	- you can use that to rename jQuery. 
+	- or you can use that as a substitute name for $/jQuery.
+	- the 'this' automatic variable that you get in .ready is the document
+	- you can use that to bind more .ready functions as demonstrated.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script type='text/javascript' src='jquery.js'></script>
+		<script type='text/javascript'>
+			$(document).ready(function(doc) {
+				$(this).ready(function() {
+					alert('using this');
+				});
+				// doc is now an alias to $/jQuery...
+				doc(this).ready(function() {
+					alert('using parameter');
+				});
+				alert('global');
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
