@@ -1,4 +1,6 @@
 do demos for:
+	test for compression of jQuery file
+
 	grep
 	selectors
 	more events
