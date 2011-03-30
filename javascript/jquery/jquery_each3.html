@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!--
+	This is an example of using the jQuery each function to simply iterate arrays.
+	This is a purely programmatic usage of the each function.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script type='text/javascript' src='jquery/jquery.js'></script>
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#mybutton').click(function() {
+					$.each([1,2,3],function(index,element) {
+						$('#li'+index).text($('#li'+index).text()+', ('+index+','+element+')');
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li id='li0'>results for 0:</li>
+			<li id='li1'>results for 1:</li>
+			<li id='li2'>results for 2:</li>
+		</ul>
+		<button id='mybutton'>Push me to iterate an array....</button>
+		<div id='result'></div>
+	</body>
+</html>
