@@ -13,15 +13,27 @@
 		<script type='text/javascript' src='jquery/jquery.js'></script>
 		<script type='text/javascript'>
 			$(document).ready(function() {
-				$('#mybutton').click(function() {
+				$('#goodjson').click(function() {
 					var obj=$.parseJSON('{"name":"John"}');
-					alert(obj.name==="John");
+					$('#result_name').text(obj.name);
+					$('#result_type').text(typeof(obj));
+				});
+				$('#badjson').click(function() {
+					// there is a bug in the JSON string on purpose...
+					try {
+						$.parseJSON('{"name":"John"');
+					}
+					catch(err) {
+						alert(err);
+					}
 				});
 			});
 		</script>
 	</head>
 	<body>
-		<button id='mybutton'>Push me!</button>
-		<button id='badjson'>Push me!</button>
+		<button id='goodjson'>Push me to parse good JSON</button>
+		<button id='badjson'>Push me to parse bad JSON!</button>
+		<div id='result_name'></div>
+		<div id='result_type'></div>
 	</body>
 </html>
