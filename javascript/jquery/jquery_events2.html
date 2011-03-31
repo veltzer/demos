@@ -11,7 +11,10 @@
 		<script type='text/javascript'>
 			$(document).ready(function() {
 				$('#hidemebutton').click(function() {
-					$(this).hide();
+					//alert(this);
+					//$(this).hide();
+					$($(this)).hide();
+					//this.hide();
 				});
 			});
 		</script>
