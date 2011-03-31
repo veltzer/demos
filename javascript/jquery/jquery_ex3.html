@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+
+<!--
+-->
+<html>
+	<head>
+		<style>
+			@import "jquery_ex3.css";
+		</style>
+		<script type='text/javascript' src='jquery.js'></script>
+		<script type='text/javascript' src='PaginatedTable3.js'></script>
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#mybutton').click(function() {
+					tab=new PaginatedTable({
+						'id':'#mytable',
+						'rows':5,
+						'cols':5,
+						'create_buttons':0,
+						'dataurl':'jquery_ex3.json',
+						'httpmethod':'GET',
+					});
+				});
+				$('#myprev').click(function() {
+					tab.prev();
+				});
+				$('#mynext').click(function() {
+					tab.next();
+				});
+				$('#myrandomize').click(function() {
+					for(i=0;i<tab.getRows();i++) {
+						for(j=0;j<tab.getCols();j++) {
+							tab.setData(i,j,Math.random());
+						}
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id='mybutton'>Create table!</button>
+		<button id='myprev'>Call prev from outside...</button>
+		<button id='mynext'>Call next from outside...</button>
+		<button id='myrandomize'>Put random data into the table</button>
+		<div id='mytable'></div>
+	</body>
+</html>

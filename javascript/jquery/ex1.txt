@@ -1,0 +1,48 @@
+
+Ex1 : create a table using jQuery
+
+Create a single javascript function.
+
+The function receives:
+1. An id of an empty div.
+2. number of columns
+3. number of rows.
+
+The function would create in that divs location:
+- a table with the specified rows and columns.
+- all odd rows would be greyed.
+- prev and next buttons which are disabled.
+- whenever a user clicks on a table cell, show some alert.
+
+DO NOT USE THE DOM API. Just jQuery.
+
+Demostrate your functions use.
+
+Ex2 - based on Ex1
+
+design your code better
+
+- Make the 'CreateTable' function be a constructor for an object.
+- Store important information that you need to manage this table in it.
+- Separate visuals into css and only refer to class names from your code.
+- Create methods that allow one to call "next" and "prev" functionality from afar
+	(outside your object)
+- Put the 'Table Widget' into it's own file.
+- Use the prototype feature to write methods for this widget.
+- Use a map(object) to initialize all attributes of the widget.
+- Allow one to specify only the attributes that are different from default.
+- Allow one to specify whether next and prev button should be created or not...
+
+Ex3 - based on Ex2
+
+Add paramters to the constructor specifying the source url for the data on the server
+and the HTTP method (GET/POST).
+Make the PaginatedTable object "know" it's position from within the source of the data.
+Do ajax via the jQuery.ajax function.
+Send to the server the rows that you need.
+Get the results from the server.
+Show errors from the server in a predefined position within the paginated table
+(create a new element to show these errors).
+Show the data when request for data from the server succeeds.
+Connect the next and prev methods to "do the right thing" (get more data from the
+server).
