@@ -80,6 +80,10 @@ PaginatedTable.prototype.error=function(jqXHR, textStatus, errorThrown) {
 PaginatedTable.prototype.fetch=function() {
 	// notice the use of the 'context' property that makes 'this' in the response
 	// function be the PaginatedTable object itself...
+	// the cache: false is not strictly needed since we are going to different urls because of
+	// the 'data' that we pass. But in the debugging phase it is better to have that here...
+	// In any case it could be that the server is not deterministic, meanining, that for the same
+	// position in the table it sometimes returns different data...
 	$.ajax({
 		url: this.dataurl,
 		context: this,
@@ -96,7 +100,9 @@ PaginatedTable.prototype.fetch=function() {
 	});
 }
 PaginatedTable.prototype.updatePosition=function() {
-	this.d.text(this.position);
+	if(this.debug_position) {
+		this.d.text(this.position);
+	}
 }
 PaginatedTable.prototype.prev=function() {
 	if(this.position>=this.rows) {
