@@ -15,6 +15,7 @@ function PaginatedTable(options) {
 	this.rows=options.rows || 5;
 	this.cols=options.cols || 5;
 	this.create_buttons=options.create_buttons || 1;
+	this.put_dummy_data=options.put_dummy_data || 0;
 	this.id=options.id;
 	this.tab=$('<table>');
 	this.tab.addClass('PaginatedTable');
@@ -27,11 +28,13 @@ function PaginatedTable(options) {
 			var td=$('<td>');
 			td.addClass('PaginatedTableCells');
 			if(i%2==0) {
-				td.addClass('odd_cells');
+				td.addClass('PaginatedTableCellsOdd');
 			} else {
-				td.addClass('even_cells');
+				td.addClass('PaginatedTableCellsEven');
 			}
-			//td.text(i+','+j);
+			if(this.put_dummy_data) {
+				td.text(i+','+j);
+			}
 			this.data[i][j]=td;
 			tr.append(td);
 		}
@@ -64,36 +67,32 @@ function PaginatedTable(options) {
 	return this;
 }
 // bring over data via ajax...
-PaginatedTable.prototype.populate=function(data) {
-	console.log(data);
-	//alert(this.getCols());
+PaginatedTable.prototype.populate=function(data, textStatus, jqXHR) {
 	for(var i=0;i<this.getRows();i++) {
 		for(var j=0;j<this.getCols();j++) {
-			//alert('i is '+i+' j is '+j+' and data is '+data.data[i][j]);
-			//this.setData(i,j,data.data[i][j]);
-			//this.setData(i,j,Math.random());
+			this.setData(i,j,data.data[i][j]);
 		}
 	}
 }
+PaginatedTable.prototype.error=function(jqXHR, textStatus, errorThrown) {
+	alert('error in ajax request (either server did not respond, url not found, server error or parse error of the return value');
+}
 PaginatedTable.prototype.fetch=function() {
-	//alert(this.dataurl);
+	// notice the use of the 'context' property that makes 'this' in the response
+	// function be the PaginatedTable object itself...
 	$.ajax({
 		url: this.dataurl,
 		context: this,
+		cache: false,
 		data: {
 			position: this.position,
 			rows: this.rows,
+			cols: this.cols,
 		},
-		datatype: 'json',
+		dataType: 'json',
 		method: this.httpmethod,
-		success: function(data) {
-			// now I can access the widget via 'widget'
-			this.populate(data);
-		},
-		error: function() {
-			// now I can access the widget via 'widget'
-			alert('got bad data from the server');
-		},
+		success: PaginatedTable.prototype.populate,
+		error: PaginatedTable.prototype.error,
 	});
 }
 PaginatedTable.prototype.updatePosition=function() {
@@ -104,10 +103,12 @@ PaginatedTable.prototype.prev=function() {
 		this.position-=this.rows;
 		this.updatePosition();
 	}
+	this.fetch();
 }
 PaginatedTable.prototype.next=function() {
 	this.position+=this.rows;
 	this.updatePosition();
+	this.fetch();
 }
 PaginatedTable.prototype.getData=function(x,y) {
 	return this.data[x][y].text();

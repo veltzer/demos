@@ -17,9 +17,9 @@ function PaginatedTable(options) {
 			var td=$('<td>');
 			td.addClass('PaginatedTableCells');
 			if(i%2==0) {
-				td.addClass('odd_cells');
+				td.addClass('PaginatedTableCellsOdd');
 			} else {
-				td.addClass('even_cells');
+				td.addClass('PaginatedTableCellsEven');
 			}
 			td.text(i+','+j);
 			this.data[i][j]=td;
