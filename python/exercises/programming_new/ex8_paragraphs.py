@@ -25,10 +25,11 @@ def reformat(lines):
     Paragraph in input and output are separated by empty lines.
     """
     for p in lines2paragraphs(lines):
-        for line in textwrap.wrap('\n'.join(p)):
-            yield line
-        yield ''
+        for lines in textwrap.wrap(''.join(p),40):
+	    print lines
+        print
 
 # test
 if __name__ == '__main__':
-    print list(reformat(['foo', 'bar', 'baz', '', 'quux', 'quuux']))
+    #print list(reformat(['foo', 'bar', 'baz', '', 'quux', 'quuux']))
+    print ''.join(reformat(open('README.Debian')))
