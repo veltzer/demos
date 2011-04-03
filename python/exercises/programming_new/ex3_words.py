@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 INPUT_NAME = "tmp.txt"
-OUTPUT_NAME = "tmp2.txt"
+OUTPUT = "tmp2.txt"
 
 word_counts = {}
 
-for word in open(INPUT_NAME).split():
-    if word not in report:
-        word_counts[c] = 0
-    word_counts[c] += 1
+for word in open(INPUT_NAME).read().split():
+    if word not in word_counts:
+        word_counts[word] = 0
+    word_counts[word] += 1
 
 f = open(OUTPUT, 'w')
 for word, count in word_counts.items():

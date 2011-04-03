@@ -13,9 +13,9 @@ def rev_hash(o):
 		ret[v]=k
 	return ret
 
-orig={"Israel":"Jerusalem","France":"Paris","Italy":"Rome","Egypt":"Cairo"}
-rev=rev_hash(orig)
-print rev
+#orig={"Israel":"Jerusalem","France":"Paris","Italy":"Rome","Egypt":"Cairo"}
+#rev=rev_hash(orig)
+#print rev
 
 import doctest
 #print dir(doctest)

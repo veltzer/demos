@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 f = open("c:/tmp.txt")
-
 report = {}
 lines = f.readlines()
 for line in lines:
