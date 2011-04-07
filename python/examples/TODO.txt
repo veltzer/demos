@@ -3,3 +3,7 @@
 - do example about __future__ division.
 - do example about cyclic dependency between modules.
 - do example of iteritems in dict and more.
+- show a demo of profiler.
+- show how to see garbage collector events.
+- talk about data strcutures from third parties.
+- get an example of a self made iterator.
