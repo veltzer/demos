@@ -1,0 +1,5 @@
+- do example about finally.
+- do example about //.
+- do example about __future__ division.
+- do example about cyclic dependency between modules.
+- do example of iteritems in dict and more.
