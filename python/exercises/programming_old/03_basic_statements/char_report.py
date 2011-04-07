@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 f = open("input.txt")
-
 report = {}
 for line in f.readlines():
     for c in line:
@@ -10,7 +9,6 @@ for line in f.readlines():
                 report[c] += 1
             else:
                 report[c] = 1
-
-f = open("report.txt",'wa')
+f=open("report.txt",'wa')
 f.write(str(report));
 f.close()

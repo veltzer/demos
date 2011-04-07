@@ -14,6 +14,5 @@ for line in f:
 		else:
 			report[word]=1
 f.close()
-
 # lets print the report...
 print report

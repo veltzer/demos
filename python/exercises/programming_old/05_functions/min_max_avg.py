@@ -8,7 +8,8 @@
 
 def max_min_avg(*num_list):
 	"""return a tuple containing the maximnum_list, minimum and avrage of the given num_listbrs"""
-	//print num_list
+	#print num_list
 	return max(num_list), min(num_list), sum(num_list)/len(num_list)
 
 print max_min_avg(1,2,3,4,5);
+print max_min_avg(*xrange(1000));

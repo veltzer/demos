@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 f = open("ex4.py",'r')
-
 report = {}
 lines = f.readlines()
 for line in lines:
