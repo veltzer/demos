@@ -1,10 +1,4 @@
-1. Write a synchronized stack.
-	Any thread could push or pop from the stack.
-	- in the first variant a pop from an empty stack simply
-		returns.
-	- in the second variant a pop from an empty stack sleeps
-		until data is available.
-2. Reader Write Lock.
+Reader Write Lock.
 	Write a reader write lock.
 	Write a python object which will be used by thread authors.
 	It will have the following methods:
