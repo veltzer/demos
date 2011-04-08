@@ -8,6 +8,6 @@ def callback(b):
 	b.num+=1
 b.connect('clicked', callback)
 w = gtk.Window()
-w.add(b)      # put it inside the window
-w.show_all()  # must do this in GTK
-gtk.main()    #
+w.add(b) # put it inside the window
+w.show_all() # must do this in GTK
+gtk.main() # there's no way out of here
