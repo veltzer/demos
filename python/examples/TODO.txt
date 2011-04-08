@@ -2,6 +2,7 @@
 - do an example that demonstrates the difference between inheriting
 - do more realistic singleton examples. With multi-thread support,
 	safe from direct construction and real static methods.
+- do a multi theading example that shows thread ids at the operating system level.
 
 from 'object' and not. See the 'type' example for a starting point for this one.
 - do example about finally.
