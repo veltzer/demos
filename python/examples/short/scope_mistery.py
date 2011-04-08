@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-
 def my_mistery_function():
 	global g
 	print g

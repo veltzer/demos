@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-# this example explores how python allocates memory...
+"""
+this example explores how python allocates memory.
+"""
 
 import time;
 
