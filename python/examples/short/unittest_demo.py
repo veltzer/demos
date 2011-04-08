@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+"""
+This example demonstrates the use of the 'unittest' module.
+"""
+
 import unittest
 
 class myunittest(unittest.TestCase):
