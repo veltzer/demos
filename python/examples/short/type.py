@@ -2,6 +2,9 @@
 
 """
 This example demostrates types in python and the use of the 'type' function.
+You can see that there is a difference between an object inheriting from object
+and one which does not. See the more advanced oo examples to explain this
+difference in detail.
 """
 
 import math
@@ -12,7 +15,7 @@ def my_func():
 class A:
 	def __init__(self,val):
 		self.privar=val
-class B(Object):
+class B(object):
 	def __init__(self,val):
 		self.privar=val
 
