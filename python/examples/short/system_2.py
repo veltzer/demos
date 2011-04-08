@@ -1,14 +1,12 @@
 #!/usr/bin/python
 
 """
-This example demonstrates the use of the 'exec' family of functions. Notice that after
-you call them you are no longer running (your executable get replaced or rather the python
-virtual machine gets replaced...).
+This example demonstrates how to analyze the return code of a child process.
 """
 
 import os
 
-os.system("ls -l")
-print "Im still here"
-os.execl("/bin/ls");
-print "Where am I?"
+ret=os.system("ls -l > /dev/null")
+print ret
+ret=os.system("ls -l sdfsdf > /dev/null")
+print ret
