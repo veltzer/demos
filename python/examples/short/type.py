@@ -1,21 +1,39 @@
 #!/usr/bin/python
 
+"""
+This example demostrates types in python and the use of the 'type' function.
+"""
+
+import math
+
+def my_func():
+	pass
+
 class A:
 	def __init__(self,val):
 		self.privar=val
-class B:
+class B(Object):
 	def __init__(self,val):
 		self.privar=val
 
-a=A(6)
-b=5
-c=5.5
-d="string"
-e=B(8)
-print type(a), type(b), type(c), type(d), type(e)
-#print dir(a)
-# this prints the class name for a
-print a.__class__
-print e.__class__
-#h={}
-#h[a]=a
+l=[
+	5,
+	5.5,
+	5+6j,
+	"this is a string",
+	True,
+	False,
+	None,
+	[ 1,2,3 ],
+	{},
+	set(),
+	(),
+	type,
+	max,
+	math.sin,
+	my_func,
+	A(6),
+	B(6)
+];
+
+print map(type,l);
