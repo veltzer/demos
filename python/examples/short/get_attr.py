@@ -1,5 +1,17 @@
 #!/usr/bin/python
 
+"""
+This is an example of overloading the __getattr__ python method. This allows
+one to pretend to have various attributes or to decide that attributes
+come in and out of scope at runtime. Uses for this could include:
+- testing and simulation of errors.
+- Aspect Oriented Programming.
+- Proxy implementations.
+- ORM solutions.
+- Backwards compatibility solutions.
+And more...
+"""
+
 class A:
 	def __getattr__(self,name):
 		return name[::-1]
