@@ -1,4 +1,4 @@
-This is a demo of how to write a simple webserver in python.
+This is a demo of a simple webserver in python.
 
 what can it handle?
 - static html files.
