@@ -113,4 +113,25 @@ except RuntimeError as e:
 print """
 example number 6 - adding and removing elements in dictionary while iterating it
 thus keeping the size of the dictionary the same.
+Notice that we do not get an exception in this case.
 """
+d={"one":"ehad","two":"shnaim","three":"shalosh"}
+all_elements=set(d.keys())
+elements_visited=set()
+i=0
+for (k,v) in d.iteritems():
+	if i==1:
+		d['four']='arba'
+		d['five']='hamesh'
+		d['six']='shesh'
+		del d['one']
+		del d['two']
+		del d['three']
+	elements_visited.add(k)
+	i+=1
+print 'elements not visited are',all_elements-elements_visited
+print 'elements visited are',elements_visited
+print 'and you can see we have old and new elements visited'
+if len(elements_visited)!=len(all_elements):
+	print "elements_visited is %d while size is %d" % (len(elements_visited),len(all_elements))
+	print "This can cause problems for various algorithms"
