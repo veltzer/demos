@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class A:
 	a2=9
 	def __init__(self):

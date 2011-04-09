@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class MyClass:
 	pubvar=5
 	__privar=7

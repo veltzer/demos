@@ -1,4 +1,8 @@
 #!/usr/bin/python
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class Book:
 	num=0
 	def __init__(self,price):

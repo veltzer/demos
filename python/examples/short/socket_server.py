@@ -1,6 +1,12 @@
 #!/usr/bin/python
+ 
+"""
+Echo server program
+"""
 
-# Echo server program
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import socket
 import sys
 

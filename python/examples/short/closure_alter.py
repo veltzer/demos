@@ -15,7 +15,9 @@ then they will also be returned by reference and again we could
 alter them from the outside.
 - A third way would be to use the __closure__ attribute and access
 the data through that.
+"""
 
+"""
 	Mark Veltzer <mark@veltzer.net>
 """
 def make_funcs(l):

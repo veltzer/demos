@@ -10,6 +10,10 @@ Things to notice:
 - inside the function globals show the REAL globals (without override of the locals).
 - inside the function you are still in the __main__ scope (__name__=='__main__').
 """
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 def func(x):
 	y=7
 	print 'x is ',x

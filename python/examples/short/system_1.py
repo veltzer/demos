@@ -6,6 +6,9 @@ you call them you are no longer running (your executable get replaced or rather 
 virtual machine gets replaced...).
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import os
 
 os.system("ls -l")

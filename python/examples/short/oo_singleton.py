@@ -21,6 +21,9 @@ as the instance (in A.instance). This can be fixed by moving
 the registration into the constructor function itself.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class A:
 	instance=None
 	def __init__(self):

@@ -4,6 +4,9 @@
 This example explores the None variable and NoneType in python.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 a=None
 
 # lets print the type of None

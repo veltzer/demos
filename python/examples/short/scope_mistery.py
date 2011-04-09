@@ -6,6 +6,9 @@ Question: what does this function print ?
 Answer: exception.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 def my_mistery_function():
 	#global g
 	print g

@@ -7,6 +7,9 @@ held in __values or _values are not really private.
 - __values are just hidden in funny names. The reason for this is ofcourse inheritance.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class Book:
 	def __init__(self,price,name):
 		self.__price=price

@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 def create_func(l):
 	def append_f(x):
 		l.append(x)

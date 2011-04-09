@@ -1,11 +1,17 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
-# this is an example of how to debug a python application
-# just run this application and you will enter debug mode
-# as soon as you start the trace...
+"""
+This is an example of how to debug a python application
+just run this application and you will enter debug mode
+as soon as you start the trace...
+"""
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import pdb
 
+# This will make you enter debug start right from the start...
 #pdb.set_trace()
 
 def calc():

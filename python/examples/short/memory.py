@@ -11,6 +11,9 @@ TODO:
 	- compare the two and discuss the conslusions.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import time;
 
 acc=[];

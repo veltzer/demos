@@ -1,9 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
-# example helloworld.py
+"""
+A pygtk hello, world application
+"""
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import pygtk
-pygtk.require('2.0')
+#pygtk.require('2.0')
 import gtk
 
 class HelloWorld:

@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 def compare(a,b):
 	if a[1]<b[1]:
 		return -1

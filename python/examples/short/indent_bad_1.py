@@ -1,8 +1,14 @@
 #!/usr/bin/python
 
-# this example shows that python is strict about indentation and
-# will fail the compilation/running if the code is not strictly
-# indented.
+"""
+This example shows that python is strict about indentation and
+will fail the compilation/running if the code is not strictly
+indented.
+"""
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 
 x=[1,2,3]
 for y in x:

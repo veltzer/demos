@@ -1,10 +1,15 @@
 #!/usr/bin/python
 
-# This is quite an advanced example of doing meta programming in python.
-# This exercise shows how to:
-#	- how to add a method to a class
-#	- how to add a method to an instance. 
+"""
+This is quite an advanced example of doing meta programming in python.
+This exercise shows how to:
+	- how to add a method to a class
+	- how to add a method to an instance. 
+"""
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 from new import *
 import pprint
 

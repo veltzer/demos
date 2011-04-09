@@ -6,6 +6,9 @@ object returned is a different object than the one which is being iterated.
 This is a nicer design.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class RevIter:
 	def __init__(self, data):
 		self.data = data

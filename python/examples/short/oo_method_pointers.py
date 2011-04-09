@@ -2,7 +2,9 @@
 
 """
 This example shows how to store method pointers and call them
+"""
 
+"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

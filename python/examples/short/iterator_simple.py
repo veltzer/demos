@@ -7,6 +7,9 @@ In this example the object returns itself as the iterator
 chosen to return another object.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class Reverse:
 	"Iterator for looping over a sequence backwards"
 	def __init__(self, data):

@@ -1,6 +1,12 @@
 #!/usr/bin/python
 
-""" This is a fairly simple basic OO example """
+"""
+This is a fairly simple basic OO example
+"""
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class Book(object):
 	""" constructor """
 	def __init__(self,price):

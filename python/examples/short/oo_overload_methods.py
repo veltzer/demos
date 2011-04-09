@@ -5,6 +5,9 @@ This example plainly shows that you cannot have two methods in a class by the sa
 name. This is true for constructors as well as for regular methods.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class A:
 	def __init__(self,val):
 		self.__privar=val

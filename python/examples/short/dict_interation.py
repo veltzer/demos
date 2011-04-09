@@ -1,5 +1,13 @@
 #!/usr/bin/python
 
+"""
+An example exploring the many ways, right and wrong, to iterate
+a dictionary in python.
+"""
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 h={}
 h["keyone"]="valone"
 h["keytwo"]="valtwo"

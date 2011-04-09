@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
-# a basic hello world program...
+"""
+A basic hello world program...
+"""
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 
 print "Hello, World!"

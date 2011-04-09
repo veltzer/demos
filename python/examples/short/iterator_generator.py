@@ -4,6 +4,9 @@
 This is an example of how to build a simple generator
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 def my_reverse(data):
 	for index in range(len(data)-1, -1, -1):
 		yield data[index]

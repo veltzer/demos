@@ -1,5 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import sys
 import pygtk
 import gtk

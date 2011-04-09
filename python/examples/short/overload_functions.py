@@ -12,6 +12,9 @@ in this example, defining a variable named 'foo' would override the
 function so that it cannot be used.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 def foo():
 	print "hello"
 

@@ -12,6 +12,9 @@ come in and out of scope at runtime. Uses for this could include:
 And more...
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class A:
 	def __getattr__(self,name):
 		return name[::-1]

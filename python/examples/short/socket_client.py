@@ -1,6 +1,12 @@
 #!/usr/bin/python
 
-# Echo client program
+"""
+Echo client program
+"""
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import socket
 
 HOST = 'localhost' # The remote host

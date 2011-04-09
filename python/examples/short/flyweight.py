@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class Button:
 	color="blue"
 	text="no text"

@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 class A:
 	def __init__(self,val):
 		print 'in A constructor'

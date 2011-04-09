@@ -16,6 +16,9 @@ in the context of the main thead and the threading module reports it as such.
 This is typical UNIX behaviour.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import os
 import signal
 import threading
