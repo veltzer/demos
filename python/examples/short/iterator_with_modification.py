@@ -7,6 +7,18 @@ data structures while you are iterating them. Mind you that python, unlike
 other languages like Java, will not protect you in the least from doing these
 types of mistakes. You may get an exception, if you are lucky! So if you
 go down this path you are responsible for all your wrong doings...
+
+What about dictionary?
+Well python gives you a little bit more protection here. The iterator will notice
+that the size of the dictionary has changed and will generate a RuntimeError exception
+when it notices it. See the relevant examples that try to add and remove elements
+from a dictionary while iterating it.
+
+What about changing the data structure via the iterator (like in Java) ?
+Not supported since the iterators are not intended to be used directly. See the
+relevant example.
+
+	Mark Veltzer <mark@veltzer.net>
 """
 
 print """
@@ -65,3 +77,40 @@ for i,x in enumerate(l):
 if len(elements_visited)!=len(l):
 	print "elements_visited is %d while size is %d" % (len(elements_visited),len(l))
 	print "This can cause problems for various algorithms"
+
+print """
+example number 4 - adding elements to a dictionary while iterating it
+"""
+try:
+	d={"one":"ehad","two":"shnaim","three":"shalosh"}
+	all_elements=set(d.keys())
+	elements_visited=set()
+	i=0
+	for (k,v) in d.iteritems():
+		if i==1:
+			d['four']='arba'
+		elements_visited.add(k)
+		i+=1
+except RuntimeError as e:
+	print 'yes, got runtime error when trying to modify the exception:',e
+
+print """
+example number 5 - removing elements to a dictionary while iterating it
+"""
+try:
+	d={"one":"ehad","two":"shnaim","three":"shalosh"}
+	all_elements=set(d.keys())
+	elements_visited=set()
+	i=0
+	for (k,v) in d.iteritems():
+		if i==1:
+			del d['one']
+		elements_visited.add(k)
+		i+=1
+except RuntimeError as e:
+	print 'yes, got runtime error when trying to modify the exception:',e
+
+print """
+example number 6 - adding and removing elements in dictionary while iterating it
+thus keeping the size of the dictionary the same.
+"""

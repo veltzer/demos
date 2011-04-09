@@ -1,3 +1,9 @@
+- do an example of changing stuff in the closure from the outside.
+- do an example of how to exit from a python script
+	(quit(),exit() and all).
+- do an oo demo of 'isinstance' and 'issubclass'
+- do example of changing a dictionary while iterating it.
+	And the problems this presents.
 - show the problems of inheritance in python and why we need __
 - show using the iterator interface directly.
 - do an example that demonstrates the difference between inheriting
