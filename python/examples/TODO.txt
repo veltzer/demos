@@ -12,5 +12,5 @@ from 'object' and not. See the 'type' example for a starting point for this one.
 - do example of iteritems in dict and more.
 - show a demo of profiler.
 - show how to see garbage collector events.
-- talk about data strcutures from third parties.
+- show examples about data strcutures from third parties.
 - get an example of a self made iterator.
