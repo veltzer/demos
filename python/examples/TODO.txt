@@ -1,16 +1,14 @@
 - show the problems of inheritance in python and why we need __
+- show using the iterator interface directly.
 - do an example that demonstrates the difference between inheriting
+	from 'object' and not. See the 'type' example for a starting point for this one.
 - do more realistic singleton examples. With multi-thread support,
 	safe from direct construction and real static methods.
 - do a multi theading example that shows thread ids at the operating system level.
-
-from 'object' and not. See the 'type' example for a starting point for this one.
 - do example about finally.
-- do example about //.
-- do example about __future__ division.
+- do example about __future__ division and //.
 - do example about cyclic dependency between modules.
-- do example of iteritems in dict and more.
-- show a demo of profiler.
+- do example of iteritems in the dict example and more.
+- show a demo of a profiler.
 - show how to see garbage collector events.
 - show examples about data strcutures from third parties.
-- get an example of a self made iterator.
