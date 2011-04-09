@@ -1,5 +1,4 @@
 - put my name on all of the examples
-- do an example of changing stuff in the closure from the outside.
 - do an example of how to exit from a python script
 	(quit(),exit() and all).
 - do an oo demo of 'isinstance' and 'issubclass'

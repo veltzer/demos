@@ -1,5 +1,23 @@
 #!/usr/bin/python
 
+"""
+This is an exapmle of how to use the closure feature to do some
+oo work.
+Notice:
+- We treat the 'Person' function as a constructor.
+- We call it with a capital first letter.
+- We pass arguments to it needed to create the instance.
+- In order to have lots of data in the closure we simply
+store a flexible and big data structure in the closure (in this
+case a dictionary).
+- Because we want to return many methods and don't want tuples with
+dozens of elements we return all method pointers in a dictionary as
+well.
+B This allows the user to call our methods by name instead of by
+position in some returned tuple.
+
+	Mark Veltzer <mark@veltzer.net>
+"""
 def Person(name,age):
 	data={}
 	data['name']=name
@@ -23,10 +41,10 @@ def Person(name,age):
 	methods['printMe']=printMe
 	return methods
 
-p1=Person("bilbo",111)
-p1['setName']('frodo')
+p1=Person("Bilbo",111)
+p1['setName']('Frodo')
 p1['printMe']()
-p2=Person("gandalf",513)
-p2['setName']('sauron')
+p2=Person("Gandalf",513)
+p2['setName']('Sauron')
 p2['printMe']()
 p1['printMe']()
