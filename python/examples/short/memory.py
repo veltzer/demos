@@ -1,7 +1,14 @@
 #!/usr/bin/python
 
 """
-this example explores how python allocates memory.
+This example explores how python allocates memory.
+This example assumes that you are watching the memory
+utilisation of this program from outside using the OS or something.
+
+TODO:
+	- make this program print it's own memory utilisation via OS mechanisms.
+	- show pythons APIs for knowing how much RAM you are wasting.
+	- compare the two and discuss the conslusions.
 """
 
 import time;
