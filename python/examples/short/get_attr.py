@@ -18,9 +18,16 @@ And more...
 class A:
 	def __getattr__(self,name):
 		return name[::-1]
+		#def mymethod(self):
+		#	print "in here with name",name
+		#return mymethod
+	def __setattr__(self,name,val):
+		print "ERROR! don't touch this..."
+
 
 a=A()
 dir(a)
 print a.whatIsThis
 print a.whatsGoingOn
 print a.howManyAttributesDoesThisObjectHave
+a.myprivate=7

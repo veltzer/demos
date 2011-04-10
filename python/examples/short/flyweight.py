@@ -11,9 +11,9 @@ class Button:
 	def __init__(self):
 		# look Ma! nothing in init...
 		pass
-	def doSomething(self):
-		print "doing something with color ",self.color
-		print "doing something with text ",self.text
+	def printMe(self):
+		print "color",self.color
+		print "text",self.text
 	def setText(self,text):
 		self.text=text
 	def setColor(self,color):
@@ -27,6 +27,23 @@ class Button:
 		return self.weight
 
 b1=Button()
+b2=Button()
+b1.printMe()
+b2.printMe()
+b1.setColor('green')
+b1.printMe()
+b2.printMe()
+
+Button.color='red'
+b1.printMe()
+b2.printMe()
+#print b1.color
+#print b1.weight
+#print dir(b1)
+
+
+
+"""
 b2=Button()
 print Button.color
 print b1.getColor()
@@ -42,3 +59,4 @@ b2.doSomething()
 print b1.__dict__
 print b2.__dict__
 #print dir(b)
+"""

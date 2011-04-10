@@ -1,6 +1,13 @@
 #!/usr/bin/python
 
 """
+This is the right way to create a static method in python.
+Wrap it using the 'staticmethod' function...
+You can then call the method using the instance AND using
+the class.
+"""
+
+"""
 	Mark Veltzer <mark@veltzer.net>
 """
 class Book:
@@ -12,12 +19,13 @@ class Book:
 		print 'price is',self.__price
 	def setPrice(self,newprice):
 		self.__price=newprice
-	def getNumBooks(self):
+	def getNumBooks():
 		return Book.num
+	getNumBooks=staticmethod(getNumBooks)
 
-b=Book(14)
-b.printit()
+b1=Book(14)
 b2=Book(13)
-b2.printit()
+
 print Book.num
 print Book.getNumBooks() 
+print b1.getNumBooks()

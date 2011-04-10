@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
 """
+A nicer version
+"""
+
+"""
 	Mark Veltzer <mark@veltzer.net>
 """
 class Book:
@@ -12,12 +16,17 @@ class Book:
 		print 'price is',self.__price
 	def setPrice(self,newprice):
 		self.__price=newprice
-def getNumBooks():
-	return Book.num
+	def getNumBooks(self=None):
+		return Book.num
 
-b=Book(14)
-b.printit()
+# lets create some books...
+b1=Book(14)
 b2=Book(13)
-b2.printit()
+
+# lets print the static data in various ways...
 print Book.num
-print getNumBooks() 
+print b1.getNumBooks() 
+print Book.getNumBooks()
+print Book.getNumBooks(b1)
+# This creates an exception...
+#print Book.getNumBooks(None)

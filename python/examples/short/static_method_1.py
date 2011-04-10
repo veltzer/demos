@@ -1,6 +1,11 @@
 #!/usr/bin/python
 
 """
+This is a * sort * of static method but is ugly since the
+function is really global and not in the class.
+"""
+
+"""
 	Mark Veltzer <mark@veltzer.net>
 """
 class Book:
@@ -12,13 +17,24 @@ class Book:
 		print 'price is',self.__price
 	def setPrice(self,newprice):
 		self.__price=newprice
-	def getNumBooks():
-		return Book.num
-	getNumBooks=staticmethod(getNumBooks)
+def getNumBooks():
+	return Book.num
 
-b=Book(14)
-b.printit()
+# lets create some books...
+b1=Book(14)
 b2=Book(13)
-b2.printit()
-print Book.num
-print Book.getNumBooks() 
+
+# lets access the static member and the static methods...
+print 'Book.num (direct access) is ',Book.num
+print 'getNumBooks() is ',getNumBooks() 
+try:
+	print b1.getNumBooks()
+except AttributeError as e:
+	print 'no, cannot access the static method via the instance'
+# access the static member through an instance...
+print b1.num
+print b2.num
+b3=Book(12)
+print b1.num
+print b2.num
+print b3.num

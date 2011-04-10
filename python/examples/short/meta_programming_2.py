@@ -35,9 +35,10 @@ print "Only James is a secret agent..."
 p.printMe()
 b.printMe()
 
-# now everyone is a secret agent...
+# now lets make everyone a secret agent...
 # both of these will work (2nd version is better...)
 #b.__class__.printMe=secret_agent_print
+#Person.printMe=secret_agent_print
 Person.printMe=instancemethod(secret_agent_print,None,Person)
 print "Now we are both secret agents..."
 b.printMe()
@@ -51,10 +52,14 @@ Person.fire=fire_your_berreta
 
 # lets kill some people
 print "Now we both have firing capabilities..."
-p.fire()
 b.fire()
+p.fire()
 
 print "Here is some debug info:"
+print "here is james..."
 pprint.pprint(b.__dict__)
+print "here is mark..."
+pprint.pprint(p.__dict__)
+print "here is the class definition..."
 pprint.pprint(b.__class__)
 pprint.pprint(b.__class__.__dict__)
