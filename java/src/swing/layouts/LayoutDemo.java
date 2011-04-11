@@ -1,6 +1,3 @@
-/*
- * Created on Apr 18, 2005
- */
 package swing.layouts;
 
 import java.awt.Container;
@@ -13,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
- * @author shlomi
+ * @author mark
  */
 public class LayoutDemo
 {
