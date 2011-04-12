@@ -24,6 +24,7 @@ p=Person("Mark","Veltzer");
 p.printMe()
 
 b=Person("James","Bond")
+b.printMe()
 
 # lets define a function that looks like a method of person...
 def secret_agent_print(self):
