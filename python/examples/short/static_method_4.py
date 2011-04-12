@@ -1,10 +1,8 @@
 #!/usr/bin/python
 
 """
-This is the right way to create a static method in python.
-Wrap it using the 'staticmethod' function...
-You can then call the method using the instance AND using
-the class.
+This shows that 'staticmethod' can be used by inheriting
+classes as well. It works!
 """
 
 """
@@ -29,3 +27,12 @@ b2=Book(13)
 print Book.num
 print b1.getNumBooks()
 print Book.getNumBooks() 
+
+class FictionBook(Book):
+	pass
+
+b3=FictionBook(15)
+print Book.num
+print FictionBook.num
+print Book.getNumBooks() 
+print FictionBook.getNumBooks() 

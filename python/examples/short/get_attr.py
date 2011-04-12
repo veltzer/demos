@@ -26,7 +26,7 @@ class A:
 
 
 a=A()
-dir(a)
+print dir(a)
 print a.whatIsThis
 print a.whatsGoingOn
 print a.howManyAttributesDoesThisObjectHave

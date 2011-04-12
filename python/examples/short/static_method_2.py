@@ -26,7 +26,7 @@ b2=Book(13)
 # lets print the static data in various ways...
 print Book.num
 print b1.getNumBooks() 
-print Book.getNumBooks()
 print Book.getNumBooks(b1)
-# This creates an exception...
+# these will throw an exception since you must pass an instance...
+#print Book.getNumBooks()
 #print Book.getNumBooks(None)
