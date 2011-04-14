@@ -41,6 +41,7 @@ print 'yes, if we got this far it means exit was called'
 """ now lets try to suppress the exception thrown """
 with MyResource(suppress=True) as r:
 	print r
+	raise Exception("foobar")
 assert enterCallsCounter==3
 assert exitCallsCounter==3
 print 'yes, if we got this far it means all was well'
