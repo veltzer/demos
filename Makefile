@@ -18,7 +18,9 @@ DEBUG:=1
 OPT:=1
 
 # do you want to show the commands executed ?
-DO_MKDBG:=0
+# Since we are using ?= for assignment it means that you can just
+# set this from the command line and avoid changing the makefile...
+DO_MKDBG?=0
 
 # the c++ compiler to be used
 CXX:=g++
@@ -68,7 +70,7 @@ CLEAN_DIRS:=
 
 # user space applications (c and c++)
 CC_SRC:=$(shell scripts/find_wrapper.sh $(US_DIRS) $(KERNEL_DIR) -name "*.cc")
-C_SRC:=$(shell scripts/find_wrapper.sh $(US_DIRS) $(KERNEL_DIR) -name "*.c")
+C_SRC:=$(shell scripts/find_wrapper.sh $(US_DIRS) $(KERNEL_DIR) -name "*.c" -and -not -name "drv_*.c")
 ALL_C:=$(shell scripts/find_wrapper.sh . -name "*.c")
 ALL_CC:=$(shell scripts/find_wrapper.sh . -name "*.cc")
 ALL_H:=$(shell scripts/find_wrapper.sh . -name "*.h")
@@ -145,7 +147,9 @@ archive_cpp:
 KDIR:=/lib/modules/$(shell uname -r)/build
 # fill in the vervosity level you want for the kernel module compilation process
 # V:=1 will give you the command lines used...
-V:=0
+# Since we are using ?= for assignment it means that you can just
+# set this from the command line and avoid changing the makefile...
+V?=0
 # extra flags to pass to the kernel module creation process...
 # regular kernels do not have -Werror and we want it!
 # The problem is that this makes the kernel build system scream at me (it fears I am changing
