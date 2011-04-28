@@ -2,7 +2,6 @@
 function Person(name,age) {
 	this.name=name;
 	this.age=age;
-	this.listeners={};
 	this.listeners=[];
 }
 Person.prototype.notifyChanges=function() {

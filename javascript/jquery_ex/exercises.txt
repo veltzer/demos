@@ -1,6 +1,5 @@
-
 Ex1 : create a table using jQuery
-
+=================================
 Create a single javascript function.
 
 The function receives:
@@ -19,7 +18,7 @@ DO NOT USE THE DOM API. Just jQuery.
 Demostrate your functions use.
 
 Ex2 - based on Ex1
-
+==================
 design your code better
 
 - Make the 'CreateTable' function be a constructor for an object.
@@ -34,7 +33,7 @@ design your code better
 - Allow one to specify whether next and prev button should be created or not...
 
 Ex3 - based on Ex2
-
+==================
 Add paramters to the constructor specifying the source url for the data on the server
 and the HTTP method (GET/POST).
 Make the PaginatedTable object "know" it's position from within the source of the data.

@@ -1,0 +1,47 @@
+<script>
+// Here comes the post office implementation...
+function PostOffice() {
+	if(PostOffice.instance) {
+		// ERROR! throw exception...
+	} else {
+		this.subscribers={}
+		PostOffice.instance=this;
+	}
+}
+PostOffice.instance=undefined;
+PostOffice.getInstance=function() {
+	if(PostOffice.instance==undefined) {
+		PostOffice.instance=new PostOffice();
+	}
+	return PostOffice.instance;
+}
+PostOffice.prototype.subscribe=function(evt,obj,method) {
+	if(!this.subscribers[evt]) {
+		this.subscribers[evt]=[];
+	}
+	this.subscribers[evt].push([obj,method]);
+}
+PostOffice.prototype.publish=function(evt,data) {
+	if(this.subscribers[evt]) {
+		for(x in this.subscribers[evt]) {
+			var oam=this.subscribers[evt][x];
+			oam[0][oam[1]](data);
+		}
+	} else {
+		// do nothing... (?!?)
+	}
+}
+
+// Listener to test the post office...
+function Listener(name,age) {
+}
+Listener.prototype.alert=function(data) {
+	alert('this is an alert with data ['+data+']');
+}
+
+//var po=new PostOffice();
+var p=new Listener("mark",435);
+PostOffice.getInstance().subscribe('/event',p,'alert');
+// publish the event (no data for now...)
+PostOffice.getInstance().publish('/event',['this is some data']);
+</script>
