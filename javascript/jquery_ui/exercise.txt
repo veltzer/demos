@@ -9,3 +9,34 @@ The widget will create an input box and will validate user input vs.
 	4. Use the options (initialize them and use them in the constructor
 		and other methods if you have any...)
 	5. Write as many methods and data as you like.
+
+jQuery(document).ready(function() {
+	jQuery.widget('ui.mywidget',{
+		// options
+		options:{ name:null, init_text:null },
+		_create:function() {
+			// comply with jquery ui ?!?
+			this.element.addClass('ui-widget');
+			// check that certain options have been passed
+			if(this.options.name==null) {
+				throw 'must declare name attribute';
+			}
+			if(this.options.init_text==null) {
+				throw 'must declare init_text attribute';
+			}
+
+			// add the label
+			this.w_label=jQuery('<label>');
+			this.w_label.html(this.options.name);
+			this.w_label.appendTo(this.element);
+			// add the input box 
+			this.w_input=jQuery('<input>');
+			this.w_input.attr('value',this.options.init_text);
+			this.w_input.appendTo(this.element);
+			// add state label 
+			this.w_label=jQuery('<label>');
+			this.w_label.html(this.options.name);
+			this.w_label.appendTo(this.element);
+		},
+	});
+});
