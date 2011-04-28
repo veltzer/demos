@@ -1,0 +1,11 @@
+Create a jquery.ui widget.
+The widget will create an input box and will validate user input vs.
+	a option passed regular expression.
+
+- Remmember the following points:
+	1. Download jquery ui with some theme.
+	2. import jquery ui css, jquery, jquery ui.
+	3. Write a constructor (_create method).
+	4. Use the options (initialize them and use them in the constructor
+		and other methods if you have any...)
+	5. Write as many methods and data as you like.
