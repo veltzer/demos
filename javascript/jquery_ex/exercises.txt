@@ -45,3 +45,10 @@ Show errors from the server in a predefined position within the paginated table
 Show the data when request for data from the server succeeds.
 Connect the next and prev methods to "do the right thing" (get more data from the
 server).
+
+Ex4 - based on Ex3 + publish subscribe solution
+===============================================
+Connect Ex3 with publish/subscribe in two ways:
+- Each time a user clicks on a row in the table make the publish an appropriate event.
+- Make the table subscribe to 'next' and 'prev' events so that next and prev could
+	be triggered via 'publish' without an explicit handle to the table.
