@@ -23,7 +23,7 @@
 				var elem=document.createElement('div');
 				mynewtab.setContent(elem);
 				dojo.xhrGet({
-					url:'hello_parser3.ajax', 
+					url:'hello_parser3.ajax',
 					load:function(data){
 						elem.innerHTML = data;
 						dojo.parser.parse(elem);

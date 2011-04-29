@@ -3,10 +3,10 @@
 	identifier: 'name',
 	items: [
 		{ name:'Fruit', type:'category'},
-		{ name:'Cinammon', type: 'category', 
+		{ name:'Cinammon', type: 'category',
 			children: [
-				{_reference: 'Cinammon Roll'}, 
-				{_reference:'Brown Sugar Cinnamon'}, 
+				{_reference: 'Cinammon Roll'},
+				{_reference:'Brown Sugar Cinnamon'},
 				{_reference:'French Toast'}
 			]
 		},

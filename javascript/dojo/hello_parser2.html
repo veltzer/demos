@@ -17,8 +17,8 @@ If you want to see this example better then change the #fff color below to #000.
 			#overlay {
 				background:#fff;
 				width:100%;
-				height:100%; 
-				position:absolute; top:0; left:0; 
+				height:100%;
+				position:absolute; top:0; left:0;
 			}
 		</style>
 		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:false"></script>
@@ -28,11 +28,11 @@ If you want to see this example better then change the #fff color below to #000.
 			dojo.require("dijit.form.Button");
 			dojo.addOnLoad(function(){
 				// run the parser. defaults to dojo.body(), but you can pass any node
-				// it runs async, so fadeout when it's done. 
-				dojo.parser.parse();   
-				dojo.fadeOut({ 
+				// it runs async, so fadeout when it's done.
+				dojo.parser.parse();
+				dojo.fadeOut({
 					node:"overlay",
-					onEnd: function(){ 
+					onEnd: function(){
 						// hide it completely after fadeout
 						dojo.style("overlay","display","none");
 					}

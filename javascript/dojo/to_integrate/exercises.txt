@@ -37,7 +37,7 @@ General notes:
 2) Hello, Tabs
 ==============
 - Use your previous exercise solution as starting point or the
-- Write a Hello, Tabs application as per the slides. 
+- Write a Hello, Tabs application as per the slides.
 template provided.
 - Take heed to create at least two tabs.
 - View the results using "view source".
@@ -105,7 +105,7 @@ special status box (show ok messages in it also).
 
 8) Dojo.data exercise
 =====================
-- This exercise relies on the soluton to the previous one. Ask your instructor for a solution if you do not have your own. 
+- This exercise relies on the soluton to the previous one. Ask your instructor for a solution if you do not have your own.
 - Write a UI which uses the previous ItemReadStore object.
 - The UI should have two buttons: prev and next.
 - The UI should have three boxes displaying items.
@@ -127,7 +127,7 @@ use another dojo widget.
 Phase 2
 =======
 Create a new widget based on a button which reverses it's
-title. For example <div dojoType="dojox.widget.YourWidget" label="ABCD"></div> will cause a button with "DCBA" to appear. 
+title. For example <div dojoType="dojox.widget.YourWidget" label="ABCD"></div> will cause a button with "DCBA" to appear.
 
 Phase 3
 =======

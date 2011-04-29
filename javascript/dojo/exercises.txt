@@ -37,7 +37,7 @@ General notes:
 2) Hello, Tabs
 ==============
 - Use your previous exercise solution as starting point or the
-- Write a Hello, Tabs application as per the slides. 
+- Write a Hello, Tabs application as per the slides.
 template provided.
 - Take heed to create at least two tabs.
 - View the results using "view source".
@@ -130,7 +130,7 @@ use another dojo widget.
 Phase 2
 =======
 Create a new widget based on a button which reverses it's
-title. For example <div dojoType="dojox.widget.YourWidget" label="ABCD"></div> will cause a button with "DCBA" to appear. 
+title. For example <div dojoType="dojox.widget.YourWidget" label="ABCD"></div> will cause a button with "DCBA" to appear.
 
 Phase 3
 =======
@@ -220,7 +220,7 @@ How ?
 Create a package(folder), widget (.js file with template within).
 Use attach points and attach events and create the following layout:
 
-		<   [val]   >
+		< [val] >
 
 (two buttons and an input text).
 
