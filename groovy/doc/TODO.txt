@@ -3,3 +3,14 @@
 	- integration of groovy with eclipse.
 	- more examples of how to process input files from the command line.
 - talk about the -l flag in groovy.
+
+- make a groovy script that monitors it's own executing and show what is
+going on.
+
+- example of compiling groovy:
+	complicate the actual example (make it oo).
+	make more than one groovy source files.
+	separate sources and outputs.
+	write slides about compiling groovy.
+
+- show all files that have to do with starting a groovy script.
