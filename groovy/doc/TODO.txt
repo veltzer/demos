@@ -1,0 +1,5 @@
+- add a few slides about:
+	- installing groovy. On windows, on linux, etc.
+	- integration of groovy with eclipse.
+	- more examples of how to process input files from the command line.
+- talk about the -l flag in groovy.
