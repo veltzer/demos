@@ -1,10 +1,27 @@
-hello_world.class: hello_world.groovy
-	groovyc hello_world.groovy
+SOURCES=$(shell find . -name "*.groovy")
+OBJECTS=$(addsuffix .class,$(basename $(SOURCES)))
+STAMP=compile.stamp
+CLASS=hello_world
+
+.PHONY: all
+all: compile
+
+.PHONY: compile
+compile: $(STAMP)
+
+$(STAMP): $(SOURCES)
+	groovyc $(SOURCES)
+	touch $(STAMP)
 
 .PHONY: run
-run: hello_world.class
-	java -cp .:/usr/share/java/groovy-all.jar hello_world
+run: compile
+	java -cp .:/usr/share/java/groovy-all.jar $(CLASS)
 
 .PHONY: clean
 clean:
-	rm -f hello_world.class
+	rm -f $(OBJECTS) $(STAMP)
+
+.PHONY: debug
+debug:
+	$(info SOURCES is $(SOURCES))
+	$(info OBJECTS is $(OBJECTS))
