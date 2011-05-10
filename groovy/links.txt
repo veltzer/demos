@@ -1,0 +1,6 @@
+Closures:
+http://groovy.codehaus.org/Closures
+Embedding groovy in Java:
+http://groovy.codehaus.org/Embedding+Groovy
+Exception handling:
+http://mrhaki.blogspot.com/2009/09/groovy-goodness-exception-handling.html
