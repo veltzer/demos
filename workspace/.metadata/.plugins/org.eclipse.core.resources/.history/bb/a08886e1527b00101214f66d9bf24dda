@@ -1,0 +1,20 @@
+package groovy.embed;
+
+import groovy.lang.GroovyClassLoader;
+import groovy.lang.GroovyObject;
+
+import java.io.File;
+
+public class WithClassLoader {
+	@SuppressWarnings("unchecked")
+	public static void main(String args[]) {
+		ClassLoader parent = WithClassLoader.class.getClassLoader();
+		GroovyClassLoader loader = new GroovyClassLoader(parent);
+		Class<?> groovyClass = loader.parseClass(new File("src/test/groovy/script/HelloWorld.groovy"));
+
+		// let's call some method on an instance
+		GroovyObject groovyObject = (GroovyObject) groovyClass.newInstance();
+		Object[] groovy_args = {};
+		groovyObject.invokeMethod("run", groovy_args);
+	}
+}
