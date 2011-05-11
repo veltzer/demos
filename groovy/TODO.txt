@@ -1,0 +1,14 @@
+- finish more closure examples:
+	2) delegates.
+	3) modifying the closure value from outside (is that possible)
+	write slides about closures.
+- write slides about exception handling.
+
+- finish two methods of embedding + demos.
+- do slides on syntax.
+- read the slides.
+- move more slides from the original presentation to mine.
+
+- finish slides about embedding (at least 5 more slides could be written from the article).
+- add slides from the old presentation.
+- start slides about syntax.
