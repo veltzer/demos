@@ -1,7 +1,7 @@
 - basic syntax comments.
 	functions.
-	strings - single quote, double quote.
-	(tri state)
+	classes.
+	tri state.
 
 - finish more closure examples:
 	2) delegates.
