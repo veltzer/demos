@@ -23,3 +23,7 @@ try {
 } catch(GroovyCastException e) {
 	println 'yes, got an exception '+e
 }
+assert y.class==Integer
+if(y instanceof Integer) {
+	println 'yes!'
+}
