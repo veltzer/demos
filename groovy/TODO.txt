@@ -1,4 +1,5 @@
 - basic syntax comments.
+	functions.
 	strings - single quote, double quote.
 	(tri state)
 
