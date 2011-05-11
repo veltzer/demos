@@ -1,8 +1,11 @@
+- write slides about strings.
+
 - finish more closure examples:
 	2) delegates.
 	3) modifying the closure value from outside (is that possible)
 	write slides about closures.
-- write slides about exception handling.
+
+- do slides about gpar or parallel groovy.
 
 - finish two methods of embedding + demos.
 - do slides on syntax.
