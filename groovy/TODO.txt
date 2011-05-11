@@ -3,14 +3,11 @@
 	functions.
 	classes.
 	tri state.
-
 - finish more closure examples:
 	2) delegates.
 	3) modifying the closure value from outside (is that possible)
 	write slides about closures.
-
 - do slides about gpars or parallel groovy.
-
 - finish slides for two methods of embedding.
 	(at least 5 more slides could be written from the article).
 - move more slides from the original presentation to mine.
