@@ -1,3 +1,4 @@
+- basic syntax comments.
 - write slides about strings.
 
 - finish more closure examples:
