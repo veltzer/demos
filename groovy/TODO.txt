@@ -1,3 +1,6 @@
+- show example of printing a stack trace.
+- finish the slides about exceptions.
+
 - write slides about strings.
 
 - finish more closure examples:
