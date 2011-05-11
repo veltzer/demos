@@ -5,10 +5,11 @@
 	- you dont HAVE to declare a package name.
 	- all class are by default public.
 	- when running a class you run 
+*/
 
 class SumItUp {
 	static sum(a,b) {
-		a+b;
+		a+b
 	}
 	static void main(args) {
 		println sum(1,5)

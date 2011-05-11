@@ -7,10 +7,10 @@
 
 def closureSum = { a,b -> return a+b }
 
-c=closureSum(5,7);
+c=closureSum(5,7)
 println 'c is '+c
 
 def funcSum(a,b) { return a+b }
 
-c=funcSum(5,7);
+c=funcSum(5,7)
 println 'c is '+c

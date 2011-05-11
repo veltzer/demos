@@ -9,10 +9,10 @@ def square = { it*it }
 
 def funcSum(l,c) {
 	def newList = []
-	l.collect(newList,c);
+	l.collect(newList,c)
 	return newList
 }
 
 def list = [5, 6, 7, 8]
-resultList=funcSum(list,square);
+resultList=funcSum(list,square)
 println resultList

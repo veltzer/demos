@@ -6,7 +6,7 @@
 */
 
 try {
-	throw new RuntimeException("fubar");
+	throw new RuntimeException("fubar")
 } catch(RuntimeException e) {
 	println "yes, we got an exception"
 	println "exception is "+e

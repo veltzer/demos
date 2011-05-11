@@ -8,5 +8,9 @@
 def printOne = { a -> println "Hello "+a }
 def printTwo = { println "Hello "+it }
 
-printOne("WorldOne");
-printTwo("WorldTwo");
+printOne("WorldOne")
+printTwo("WorldTwo")
+
+// If you don't pass a parameter then you get null inside the closure...
+printOne()
+printTwo()
