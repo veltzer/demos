@@ -1,6 +1,6 @@
 - basic syntax comments.
+	strings - single quote, double quote.
 	(tri state)
-- write slides about strings.
 
 - finish more closure examples:
 	2) delegates.
@@ -9,11 +9,6 @@
 
 - do slides about gpars or parallel groovy.
 
-- finish two methods of embedding + demos.
-- do slides on syntax.
-- read the slides.
+- finish slides for two methods of embedding.
+	(at least 5 more slides could be written from the article).
 - move more slides from the original presentation to mine.
-
-- finish slides about embedding (at least 5 more slides could be written from the article).
-- add slides from the old presentation.
-- start slides about syntax.
