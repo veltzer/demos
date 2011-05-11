@@ -1,3 +1,4 @@
+- finish the GString material.
 - basic syntax comments.
 	functions.
 	classes.
