@@ -1,5 +1,3 @@
-- read the article about exceptions and fill in blanks.
-
 - write slides about strings.
 
 - finish more closure examples:
