@@ -23,7 +23,12 @@ try {
 } catch(GroovyCastException e) {
 	println 'yes, got an exception '+e
 }
+// second (instanceof) is better for subclassing...
 assert y.class==Integer
+assert y instanceof Integer
 if(y instanceof Integer) {
-	println 'yes!'
+	println 'yes, using instanceof'
+}
+if(y.class==Integer) {
+	println 'yes, using =='
 }
