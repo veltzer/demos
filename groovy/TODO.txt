@@ -1,4 +1,5 @@
 - basic syntax comments.
+	(tri state)
 - write slides about strings.
 
 - finish more closure examples:
@@ -6,7 +7,7 @@
 	3) modifying the closure value from outside (is that possible)
 	write slides about closures.
 
-- do slides about gpar or parallel groovy.
+- do slides about gpars or parallel groovy.
 
 - finish two methods of embedding + demos.
 - do slides on syntax.
