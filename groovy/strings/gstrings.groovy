@@ -16,3 +16,11 @@ println "my name is $myname"
 // if methods have return values...
 foxcolor = ['b', 'r', 'o', 'w', 'n']
 println "The color is ${foxcolor.join()}"
+
+// gstrings are NOT strings...
+def x="this is a gstring ${myname}"
+println "x.class is ${x.class}"
+
+// The smallest GString...
+def y=GString.EMPTY
+println "y.class is ${y.class}"
