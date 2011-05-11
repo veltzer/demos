@@ -23,7 +23,7 @@ try {
 // with type declaration
 try {
 	String pi=3.14
-	println "pi is ${pi}"
+	println "pi is ${pi} and it's type is ${pi.class}"
 } catch(GroovyCastException e) {
 	println 'got exception '+e
 }
