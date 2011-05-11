@@ -1,4 +1,3 @@
-- recursive closure (factorial example).
 - basic syntax comments.
 - write slides about strings.
 
