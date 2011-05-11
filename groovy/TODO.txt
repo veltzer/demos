@@ -1,5 +1,4 @@
-- show example of printing a stack trace.
-- finish the slides about exceptions.
+- read the article about exceptions and fill in blanks.
 
 - write slides about strings.
 
