@@ -1,3 +1,5 @@
 #!/bin/bash
-~/install/eclipse-jee-helios-SR2-linux-gtk/eclipse -data workspace &
-#~/install/eclipse-java-helios/eclipse &
+
+# before running this script make sure that you have eclipse for java installed
+# in ~/install/eclipse-java (may be soft link).
+~/install/eclipse-java/eclipse -data workspace &
