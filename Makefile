@@ -103,7 +103,7 @@ JAVA_SOURCE_DIR:=java/src
 JAVA_BIN:=java/bin
 JAVA_SOURCES:=$(shell scripts/find_wrapper.sh $(JAVA_SOURCE_DIR) -name "*.java")
 JAVA_COMPILE_STAMP:=java/java_compile.stamp
-CLASSPATH:=java/lib/jdic.jar
+JAVA_CLASSPATH:=$(shell scripts/get_java_jars.pl classpath)
 ifneq ($(JAVA_SOURCES),)
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)
@@ -311,13 +311,13 @@ do_uncrustify:
 $(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)mkdir $(JAVA_BIN) 2> /dev/null || exit 0
-	$(Q)javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
+	$(Q)javac -classpath $(JAVA_CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
 	$(Q)touch $(JAVA_COMPILE_STAMP)
 
 .PHONY: java_run
 java_run: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
 	$(info doing [$@])
-	$(Q)java -classpath $(CLASSPATH):$(JAVA_BIN) extreme.profile.Main
+	$(Q)java -classpath $(JAVA_CLASSPATH):$(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_prof
 java_prof: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
