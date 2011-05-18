@@ -127,14 +127,18 @@ clean_manual: java_clean python_clean
 # -x: remove everything not known to git (not only ignore rules).
 # -d: remove directories also.
 # -f: force.
-.PHONY: clean_git
-clean_git:
-	@git clean -xdf
-.PHONY: clean_git_test
-clean_git_test:
-	@git clean -xdf --dry-run
+# I used to do:
+# @git clean -xdf
+# but it is too harsh
+#GIT_CLEAN_FLAGS=-xdf
+GIT_CLEAN_FLAGS=-fXd
 .PHONY: clean
-clean: clean_git
+clean:
+	$(info doing [$@])
+	$(Q)git clean $(GIT_CLEAN_FLAGS) > /dev/null
+.PHONY: clean_test
+clean_test:
+	@git clean $(GIT_CLEAN_FLAGS) --dry-run
 
 # the reason that tar and gzip were selected and not zip for cpp is that the build system
 # for the cpp demos requires scripts with permissions and stuff. This may be different
