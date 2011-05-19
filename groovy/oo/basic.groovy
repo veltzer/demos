@@ -4,10 +4,10 @@
 	A basic class in Groovy
 
 	Notes:
-	private,public, protected support
+	private,public, protected support is there.
 */
 
-class Product{
+class Product {
 	private String name
 	private def price
 	def vendor
