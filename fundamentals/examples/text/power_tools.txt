@@ -1,0 +1,23 @@
+standard power tools:
+ls
+cat
+grep
+tee
+wc
+find
+cut
+tr
+sort
+head
+tail
+xargs
++ the shell syntax
+
+mini languages (need more learning):
+sed
+awk
+
+full languages (need even more learning):
+perl
+python
+ruby

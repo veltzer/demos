@@ -1,0 +1,10 @@
+- - regular file (hard link)
+d - directory
+l - symbolic link
+---------------------------------
+c - character device node
+b - block device node
+---------------------------------
+s - named socket
+p - named pipe
+m - named memory map

@@ -1,0 +1,50 @@
+#
+# @(#)local.profile 1.4	93/09/15 SMI
+#
+stty istrip
+PLATFORM=`uname -m`;export PLATFORM
+
+MOTIFHOME=/usr/dt; export MOTIFHOME
+LD_LIBRARY_PATH=/opt/SUNWspro/lib:/usr/openwin/lib:/usr/dt/lib; export LD_LIBRARY_PATH
+
+PATH=/opt/SUNWspro/bin:/opt/Summertime_96.sparc/bin:/usr/openwin/bin:/usr/local/bin:/usr/bin:/usr/sbin:/usr/ucb:/etc:/usr/ccs/bin:.
+export PATH
+
+MANPATH=/opt/SUNWspro/man:/usr/openwin/share/man:/usr/man:/usr/local/man:/opt/Summertime_96.sparc/man:/opt/Summertime_96.sparc/Perl/man
+export MANPATH
+
+XMCD_LIBDIR=/opt/Summertime_96.sparc/lib/X11/xmcd
+export XMCD_LIBDIR
+
+#LPDEST=prt1;export LPDEST	### Default printer
+ENV=$HOME/.kshrc; export ENV	### see .kshrc
+
+stty erase 
+
+########################################################################
+#
+# If possible, start the windows system
+#
+if [ ! "$DT" ]; then		### to enable use of this profile by dtlogin
+
+if [ `tty` = "/dev/console" ] ; then
+	if [ "$TERM" = "sun" -o "$TERM" = "AT386" ] ; then
+
+		if [ ${OPENWINHOME:-""} = "" ] ; then
+			OPENWINHOME=/usr/openwin
+			export OPENWINHOME
+		fi
+
+		echo ""
+		echo "Starting OpenWindows in 5 seconds (type Control-C to interrupt)"
+		sleep 5
+		echo ""
+		$OPENWINHOME/bin/openwin
+
+		clear		# get rid of annoying cursor rectangle
+		exit		# logout after leaving windows system
+
+	fi
+fi
+
+fi				### for dtlogin
