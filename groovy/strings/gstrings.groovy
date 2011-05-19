@@ -9,7 +9,7 @@ l=['red','green','blue']
 println "the length of the list is ${l.size()}"
 
 // if the name of the variable is simple and there are no ambiguities
-// the use can drop the curly braces...
+// you can drop the curly braces...
 myname='Mark'
 println "my name is $myname"
 
