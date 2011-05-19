@@ -1,0 +1,7 @@
+	sh family			csh family
+	
+script	sh (Steve Bourne) -prop - GPL	csh (C-shell) BSD
+
+inter	bash (Bourne-again shell) GPL	tcsh (turbo c shell) BSD
+
+	ksh (david korn) BSD

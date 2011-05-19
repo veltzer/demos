@@ -1,3 +1,20 @@
+- write closure slides (I already have examples)
+- read about dsl.
+
+- finish the GString material.
+- more about classes.
+
+- basic syntax comments.
+	functions.
+	classes.
+	tri state (? : syntax).
+- finish more closure examples:
+	2) delegates.
+	3) modifying the closure value from outside (is that possible)
+	write slides about closures.
+
+- do slides and examples about gpars or parallel groovy.
+
 - add a few slides about:
 	- installing groovy. On windows, on linux, etc.
 	- integration of groovy with eclipse.
@@ -12,5 +29,3 @@ going on.
 	make more than one groovy source files.
 	separate sources and outputs.
 	write slides about compiling groovy.
-
-- show all files that have to do with starting a groovy script.

@@ -12,6 +12,6 @@
 
 class foo {
 	static void main(args) {
-		println "Hello, World! "+args;
+		println "Hello, World! "+args
 	}
 }

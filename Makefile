@@ -103,7 +103,7 @@ JAVA_SOURCE_DIR:=java/src
 JAVA_BIN:=java/bin
 JAVA_SOURCES:=$(shell scripts/find_wrapper.sh $(JAVA_SOURCE_DIR) -name "*.java")
 JAVA_COMPILE_STAMP:=java/java_compile.stamp
-CLASSPATH:=java/lib/jdic.jar
+JAVA_CLASSPATH:=$(shell scripts/get_java_jars.pl classpath)
 ifneq ($(JAVA_SOURCES),)
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)
@@ -127,14 +127,18 @@ clean_manual: java_clean python_clean
 # -x: remove everything not known to git (not only ignore rules).
 # -d: remove directories also.
 # -f: force.
-.PHONY: clean_git
-clean_git:
-	@git clean -xdf
-.PHONY: clean_git_test
-clean_git_test:
-	@git clean -xdf --dry-run
+# I used to do:
+# @git clean -xdf
+# but it is too harsh
+#GIT_CLEAN_FLAGS=-xdf
+GIT_CLEAN_FLAGS=-fXd
 .PHONY: clean
-clean: clean_git
+clean:
+	$(info doing [$@])
+	$(Q)git clean $(GIT_CLEAN_FLAGS) > /dev/null
+.PHONY: clean_test
+clean_test:
+	@git clean $(GIT_CLEAN_FLAGS) --dry-run
 
 # the reason that tar and gzip were selected and not zip for cpp is that the build system
 # for the cpp demos requires scripts with permissions and stuff. This may be different
@@ -213,10 +217,10 @@ todo:
 # various checks...
 .PHONY: check_ws
 check_ws:
-	-@grep "  " `find . -name "*.cc" -or -name "*.hh"`
+	-grep "  " `find . -name "*.cc" -or -name "*.hh"`
 .PHONY: check_files
 check_files:
-	-@find . -mindepth 2 -type f -and -not -name "*.cc" -and -not -name "*.h" -and -not -name "*.h" -and -not -name "*.txt" -and -not -name "*.conf" -and -not -name "*.ini" -and -not -name "*.sample" -and -not -name "*.data" -and -not -name "*.doc" -and -not -name "*.bash" -and -not -name "*.c"
+	-find . -mindepth 2 -type f -and -not -name "*.cc" -and -not -name "*.h" -and -not -name "*.h" -and -not -name "*.txt" -and -not -name "*.conf" -and -not -name "*.ini" -and -not -name "*.sample" -and -not -name "*.data" -and -not -name "*.doc" -and -not -name "*.bash" -and -not -name "*.c"
 .PHONY: check_include
 check_include:
 	-grep "include \"ace" `find . -name "*.cc" -or -name "*.h"`
@@ -311,13 +315,13 @@ do_uncrustify:
 $(JAVA_COMPILE_STAMP): $(JAVA_SOURCES) $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)mkdir $(JAVA_BIN) 2> /dev/null || exit 0
-	$(Q)javac -classpath $(CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
+	$(Q)javac -classpath $(JAVA_CLASSPATH) -d $(JAVA_BIN) -Xlint:unchecked $(JAVA_SOURCES)
 	$(Q)touch $(JAVA_COMPILE_STAMP)
 
 .PHONY: java_run
 java_run: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
 	$(info doing [$@])
-	$(Q)java -classpath $(CLASSPATH):$(JAVA_BIN) extreme.profile.Main
+	$(Q)java -classpath $(JAVA_CLASSPATH):$(JAVA_BIN) extreme.profile.Main
 
 .PHONY: java_prof
 java_prof: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
