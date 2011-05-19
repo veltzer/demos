@@ -5,6 +5,8 @@
 - write closure slides (I already have examples)
 - write slides about while loops (with example).
 
+- read about dsl.
+
 - basic syntax comments.
 	functions.
 	classes.
