@@ -1,3 +1,15 @@
+Groovy homepage:
+http://groovy.codehaus.org/
+
+Groovy with eclipse tutorial:
+http://www.vogella.de/articles/Groovy/article.html#install_eclipse
+
+Running Groovy:
+http://groovy.codehaus.org/Running
+
+Groovy String and GStrings:
+http://groovy.codehaus.org/Strings+and+GString
+
 Groovy lists or collections:
 http://groovy.codehaus.org/JN1015-Collections
 
@@ -16,5 +28,15 @@ http://groovy.codehaus.org/Functional+Programming+with+Groovy
 Embedding groovy in Java:
 http://groovy.codehaus.org/Embedding+Groovy
 
+Bean Scripting Framework:
+http://groovy.codehaus.org/Bean+Scripting+Framework
+
+Embedding a groovyConsole:
+http://groovy.codehaus.org/Embedding+a+Groovy+Console+in+a+Java+Server+Application
+
 Gpars:
 http://gpars.codehaus.org/
+http://gpars.codehaus.org/Parallelizer
+
+MOPs and mini languages:
+http://www.ibm.com/developerworks/java/library/j-pg09205/index.html
