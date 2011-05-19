@@ -14,3 +14,6 @@ static def myStaticMethod(a,b) {
 def myNonStaticMethod(a,b) {
 	return a+b
 }
+private static def myStaticPrivateMethod(a,b) {
+	return a+b
+}

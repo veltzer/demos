@@ -13,3 +13,5 @@ try {
 } catch(MissingMethodException e) {
 	println 'yes, got exception for a missing method'
 }
+
+println A.myStaticPrivateMethod(2,2)
