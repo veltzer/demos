@@ -38,7 +38,7 @@ class Product{
 	}
 
 	String toString() {
-		return "Name = $name, Price = $price, Vendor = $vendor";
+		return "Name = $name, Price = $price, Vendor = $vendor"
 	}
 
 	static main(arguments) {
@@ -55,7 +55,7 @@ class Product{
 		println(p3.toString())
 
 		def p4 = new Product(name: "DVD Player", vendor: "TCL")
-		p4.setPrice();
+		p4.setPrice()
 		println(p4.toString())
 	}
 }
