@@ -1,3 +1,21 @@
+- finish slides for two methods of embedding.
+	(at least 5 more slides could be written from the article).
+- finish the GString material.
+- more about classes.
+- write closure slides (I already have examples)
+- write slides about while loops (with example).
+
+- basic syntax comments.
+	functions.
+	classes.
+	tri state (? : syntax).
+- finish more closure examples:
+	2) delegates.
+	3) modifying the closure value from outside (is that possible)
+	write slides about closures.
+- do slides about gpars or parallel groovy.
+
+
 - add a few slides about:
 	- installing groovy. On windows, on linux, etc.
 	- integration of groovy with eclipse.

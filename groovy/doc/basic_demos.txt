@@ -1,2 +1,0 @@
-- running directly from the command line:
-	groovy -e 'println "Hello World!";'
