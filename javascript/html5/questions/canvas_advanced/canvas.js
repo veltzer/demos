@@ -21,6 +21,7 @@ function drawRainbow(context) {
 	context.beginPath();
 
 	var gradient = context.createRadialGradient(300,300,220,300,300,280);
+	//var gradient = context.createLinearGradient(0,0,300,300);
 	gradient.addColorStop(0.0, "#0000ff");
 	gradient.addColorStop(0.25, "#00ffff");
 	gradient.addColorStop(0.5, "#00ff00");
