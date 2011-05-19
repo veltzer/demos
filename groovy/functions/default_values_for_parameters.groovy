@@ -29,3 +29,15 @@ try {
 } catch(MethodSelectionException e) {
 	println 'yes, could not find the method to invoke'+e
 }
+
+// default value for first parameter and not for second
+def multiSay2(int num=5,String msg) {
+	for(x in 1..num) {
+		println msg
+	}
+}
+// this next one actually finds the above method...
+multiSay2('my msg')
+// this is passing all arguments
+multiSay2(8,'my msg2')
+multiSay2(')

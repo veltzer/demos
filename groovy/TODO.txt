@@ -1,8 +1,12 @@
 - finish the GString material.
+- investigate default values for functions further.
+- passing parameters by name to functions.
+- functions security (public private)
+
 - basic syntax comments.
 	functions.
 	classes.
-	tri state.
+	tri state (? : syntax).
 - finish more closure examples:
 	2) delegates.
 	3) modifying the closure value from outside (is that possible)
