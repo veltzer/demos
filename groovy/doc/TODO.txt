@@ -1,4 +1,5 @@
 - write closure slides (I already have examples)
+- do the mops and mini languages slides.
 - read about dsl.
 
 - finish the GString material.
