@@ -1,5 +1,7 @@
 - finish the GString material.
-- functions security (public private)
+- more about classes.
+- write closure slides (I already have examples)
+- write slides about while loops (with example).
 
 - basic syntax comments.
 	functions.
