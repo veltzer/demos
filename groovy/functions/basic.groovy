@@ -4,7 +4,9 @@
 	Declaring functions in groovy...
 */
 
-// most short, no return, no types
+import org.codehaus.groovy.runtime.typehandling.GroovyCastException
+
+// most short, no return, no types, no safety...
 def sum1(a,b) {
 	a+b
 }
@@ -13,6 +15,7 @@ int sum2(int a,int b) {
 	return a+b
 }
 // weird, type check the first argument but not the second
+// no type check for the return value
 def sum3(String a,b) {
 	return a+b
 }
@@ -27,5 +30,23 @@ println 'fu+bar is '+sum1('fu','bar')
 try {
 	println 'fu+bar is '+sum2('fu','bar')
 } catch(e) {
-	println 'yes, got an exception '+e
+	println 'yes, got exception for sending the wrong type argument to sum2'
+}
+
+// now lets try to have a method which returns something different than what it says...
+String giveMeAString() {
+	return 7
+}
+// this works because of automatic conversion...
+println giveMeAString()
+
+// lets try the reverse
+int giveMeAnInt() {
+	return 'sdfsdf'
+}
+// this will throw an exception
+try {
+	println giveMeAnInt()
+} catch(GroovyCastException e) {
+	println 'always return what you declare'
 }
