@@ -1,5 +1,3 @@
-- finish slides for two methods of embedding.
-	(at least 5 more slides could be written from the article).
 - finish the GString material.
 - more about classes.
 - write closure slides (I already have examples)
