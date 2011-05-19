@@ -22,3 +22,13 @@ try {
 println x.metaClass
 x.metaClass.minusOne={ return delegate-1 }
 println x.minusOne()
+
+Integer.metaClass.plusOne={ return delegate+1 }
+try {
+	println x.plusOne()
+} catch(MissingMethodException e) {
+	println 'no, x doesnt have pluse One'
+}
+Integer y=5
+println y.class
+println y.plusOne()

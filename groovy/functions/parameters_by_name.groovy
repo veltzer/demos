@@ -5,14 +5,14 @@
 */
 
 // simple function
-def subtract(a,b) {
+def substract(a,b) {
 	a-b
 }
 // positional parameters
-println subtract(2,2)
+println substract(2,2)
 // named parameters (in order)
-println subtract(a=5,b=3)
+println substract(a=5,b=3)
 // named parameters (out of order) NASTY BUG
-println subtract(b=2,a=5)
+println substract(b=2,a=5)
 // wrong names for parameters NASTY BUG
-println subtract(z=2,m=5)
+println substract(z=2,m=5)

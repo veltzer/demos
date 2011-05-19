@@ -11,8 +11,14 @@ def myClosure={
 		assert 1==2
 	} catch(Throwable e) {
 		println "yes, we got an exception"
-		println "exception is "+e
+		println "exception is "
+		println "e.class is ${e.class}"
+		throw e
 		//e.printStackTrace()
 	}
 }
-myClosure()
+try {
+	myClosure()
+} catch(Throwable e) {
+	println "yes, got it..."
+}

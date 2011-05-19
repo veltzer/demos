@@ -40,6 +40,24 @@ def valueAs(closure) {
 Integer.metaClass.getShares = { -> delegate }
 Integer.metaClass.of = { instrument -> [instrument, delegate] }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 orders = []
 newOrder.to.buy(100.shares.of('IBM')) {
 	limitPrice 300

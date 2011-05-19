@@ -6,7 +6,10 @@
 	Here we add a method to the String class that swaps case...
 */
 
-String.metaClass.swapCase = {->
+String s='fooBAR'
+String s2='blaBla'
+//String.metaClass.swapCase = {->
+s.metaClass.swapCase = {->
 	def sb = new StringBuffer()
 	delegate.each {
 		sb << (Character.isUpperCase(it as char) ? Character.toLowerCase(it as char) : 
@@ -14,5 +17,5 @@ String.metaClass.swapCase = {->
 	}
 	sb.toString()
 }
-String s='fooBAR'
 println s.swapCase()
+//println s2.swapCase()

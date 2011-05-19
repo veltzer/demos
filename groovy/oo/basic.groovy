@@ -46,12 +46,12 @@ class Product {
 		println(p1.toString())
 
 		def p2 = new Product(name: 'Laptop', price: "540000", vendor: "IBM")
-		println(p2.toString())
+		println p2
 
 		def p3 = new Product()
 		p3['name'] = "Television"
 		p3.'price' = "45454"
-		p3['vendor'] = "Samsung"
+		p3.setVendor("Samsung")
 		println(p3.toString())
 
 		def p4 = new Product(name: "DVD Player", vendor: "TCL")

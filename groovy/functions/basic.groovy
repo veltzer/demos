@@ -29,7 +29,7 @@ println 'fu+bar is '+sum1('fu','bar')
 // lets pass wrong types to the second function
 try {
 	println 'fu+bar is '+sum2('fu','bar')
-} catch(e) {
+} catch(e MissingMethodException) {
 	println 'yes, got exception for sending the wrong type argument to sum2'
 }
 

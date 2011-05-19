@@ -23,3 +23,21 @@ println "Executing the Closure "+fac2(6)
 // and another way to write the same thing:
 fac3 = { int n -> n == 0 ? 1 : n * fac3.call(n - 1) }
 println "Executing the Closure "+fac3(4)
+
+/*
+// another way to write the same thing:
+def fac4 = { int n -> n == 0 ? 1 : n * delegate.fac4(n - 1) }
+println "Executing the Closure "+fac4(6)
+*/
+
+
+
+
+
+
+
+
+
+
+
+
