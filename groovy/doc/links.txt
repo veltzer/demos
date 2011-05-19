@@ -38,5 +38,9 @@ Gpars:
 http://gpars.codehaus.org/
 http://gpars.codehaus.org/Parallelizer
 
+ExpandoMetaClass:
+http://groovy.codehaus.org/ExpandoMetaClass
+
 MOPs and mini languages:
 http://www.ibm.com/developerworks/java/library/j-pg09205/index.html
+
