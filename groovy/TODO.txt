@@ -1,3 +1,5 @@
+- finish slides for two methods of embedding.
+	(at least 5 more slides could be written from the article).
 - finish the GString material.
 - more about classes.
 - write closure slides (I already have examples)
@@ -12,5 +14,3 @@
 	3) modifying the closure value from outside (is that possible)
 	write slides about closures.
 - do slides about gpars or parallel groovy.
-- finish slides for two methods of embedding.
-	(at least 5 more slides could be written from the article).

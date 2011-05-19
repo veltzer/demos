@@ -1,3 +1,13 @@
+Groovy lists or collections:
+http://groovy.codehaus.org/JN1015-Collections
+
+Groovy maps:
+http://groovy.codehaus.org/JN1035-Maps
+
+Exception handling:
+http://mrhaki.blogspot.com/2009/09/groovy-goodness-exception-handling.html
+http://groovy.codehaus.org/JN3035-Exceptions
+
 Closures:
 http://groovy.codehaus.org/Closures
 http://groovy.codehaus.org/Closures+-+Formal+Definition
@@ -5,10 +15,6 @@ http://groovy.codehaus.org/Functional+Programming+with+Groovy
 
 Embedding groovy in Java:
 http://groovy.codehaus.org/Embedding+Groovy
-
-Exception handling:
-http://mrhaki.blogspot.com/2009/09/groovy-goodness-exception-handling.html
-http://groovy.codehaus.org/JN3035-Exceptions
 
 Gpars:
 http://gpars.codehaus.org/

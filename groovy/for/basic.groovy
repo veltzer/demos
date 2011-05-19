@@ -49,3 +49,11 @@ for(String season in seasons){
 	}
 	println season
 }
+
+d=[
+	'Paris':'France',
+	'Jerusalem':'Israel',
+]
+for(x in d){
+	println "${x.key} is the capital of ${x.value}"
+}
