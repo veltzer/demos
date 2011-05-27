@@ -8,4 +8,4 @@
 - make the output of the makefile look nicer.
 - add a feature to the makefile that deduces all the libraries that I'm using
 and all the packages that I need (and installs them ?!?).
-
+- convert .odp files to .ppt and .pdf files automatically.
