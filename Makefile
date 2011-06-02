@@ -11,16 +11,16 @@ US_INCLUDE:=cpp/include
 KDIR:=/lib/modules/$(shell uname -r)/build
 
 # do you want dependency on the makefile itself ?!?
-DO_ALL_DEPS:=1
+DO_ALL_DEPS:=0
 
 # optimization with debug info (for disassembly)
 DEBUG:=1
-OPT:=1
+OPT?=1
 
 # do you want to show the commands executed ?
 # Since we are using ?= for assignment it means that you can just
 # set this from the command line and avoid changing the makefile...
-DO_MKDBG?=0
+DO_MKDBG?=1
 
 # the c++ compiler to be used
 CXX:=g++
