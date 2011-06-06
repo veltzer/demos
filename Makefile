@@ -121,8 +121,14 @@ all: $(ALL)
 .PHONY: clean_manual
 clean_manual: java_clean python_clean
 	$(info doing [$@])
-	-$(Q)rm -f $(CLEAN)
-	-$(Q)rm -rf $(CLEAN_DIRS)
+	$(Q)-rm -f $(CLEAN)
+	$(Q)-rm -rf $(CLEAN_DIRS)
+
+.PHOMY: clean_kernel
+clean_kernel:
+	$(info doing [$@])
+	$(Q)-rm -rf $(KERNEL_DIR)/.tmp_versions
+	$(Q)-rm -f $(KERNEL_DIR)/drv_*.ko $(KERNEL_DIR)/drv_*.o $(KERNEL_DIR)/*.mod.c $(KERNEL_DIR)/.??*
 
 # -x: remove everything not known to git (not only ignore rules).
 # -d: remove directories also.
@@ -331,9 +337,9 @@ java_prof: $(JAVA_COMPILE_STAMP) $(ALL_DEPS)
 .PHONY: java_clean
 java_clean: $(ALL_DEPS)
 	$(info doing [$@])
-	$(Q)rm -rf $(JAVA_BIN) $(JAVA_COMPILE_STAMP) java.hprof.txt
+	$(Q)-rm -rf $(JAVA_BIN) $(JAVA_COMPILE_STAMP) java.hprof.txt
 
 .PHONY: python_clean
 python_clean: $(ALL_DEPS)
 	$(info doing [$@])
-	$(Q)find python -name "*.pyc" -exec rm {} \;
+	$(Q)-find python -name "*.pyc" -exec rm {} \;
