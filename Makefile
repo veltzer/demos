@@ -343,3 +343,8 @@ java_clean: $(ALL_DEPS)
 python_clean: $(ALL_DEPS)
 	$(info doing [$@])
 	$(Q)-find python -name "*.pyc" -exec rm {} \;
+
+.PHONY: sloccount
+sloccount:
+	$(info doing [$@])
+	$(Q)sloccount .
