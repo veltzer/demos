@@ -153,6 +153,10 @@ clean_test:
 archive_cpp:
 	git archive --format=tar --prefix=archive_cpp/ HEAD cpp Makefile scripts | gzip > /tmp/archive_cpp.tar.gz
 
+.PHONY: git_maintain
+git_maintain:
+	git gc
+
 # kernel directory to build against
 KDIR:=/lib/modules/$(shell uname -r)/build
 # fill in the vervosity level you want for the kernel module compilation process
