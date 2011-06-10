@@ -1,0 +1,9 @@
+- add more exercises and provide solutions to them all.
+- add more hello programs:
+	hello_ruby,
+	hello_python,
+	hello_php,
+	hello_cshell,
+	hello_clojure,
+	hello_groovy,
+	hello_erlang,
