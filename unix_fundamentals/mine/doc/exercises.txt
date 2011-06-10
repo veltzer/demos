@@ -1,0 +1,5 @@
+These are exercises for students studying UNIX fundamentals
+===========================================================
+Find the last modification time of the 5'th largest file in /etc which has "ab" somewhere in it's name
+
+				Mark Veltzer
