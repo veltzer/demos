@@ -1,0 +1,2 @@
+- add more examples from:
+	http://bonsaiden.github.com/JavaScript-Garden/
