@@ -12,10 +12,10 @@
 			function CreateTable(id,rows,cols) {
 				var tab=$('<table>');
 				tab.addClass('PaginatedTable');
-				for(i=0;i<rows;i++) {
+				for(var i=0;i<rows;i++) {
 					var tr=$('<tr>');
 					tr.addClass('PaginatedRows');
-					for(j=0;j<cols;j++) {
+					for(var j=0;j<cols;j++) {
 						var td=$('<td>');
 						td.addClass('PaginatedTableCells');
 						if(i%2==0) {
