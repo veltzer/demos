@@ -7,6 +7,8 @@
  *
  * the user can override the default value, the increment value, the decrement value
  * and the max value which causes a wrap around.
+ *
+ * 					Mark Veltzer
  */
 
 if(!dojo._hasResource["extend.Roller"]){
@@ -20,7 +22,7 @@ if(!dojo._hasResource["extend.Roller"]){
 		"extend.Roller",
 		[dijit._Widget,dijit._Templated,dijit._Container],
 		{
-templateString:'<div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onClick:_onDec\'>dec</div><div dojoType=\'dijit.form.TextBox\' dojoAttachPoint=\'textbox\'></div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onClick:_onInc\'>inc</div></div>',
+			templateString:'<div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onClick:_onDec\'>dec</div><div dojoType=\'dijit.form.TextBox\' dojoAttachPoint=\'textbox\'></div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onClick:_onInc\'>inc</div></div>',
 			widgetsInTemplate:true,
 			initVal:"5",
 			incVal:"2",
@@ -28,7 +30,8 @@ templateString:'<div><div dojoType=\'dijit.form.Button\' dojoAttachEvent=\'onCli
 			maxVal:"10",
 			arr:[5,6,7,8],
 			startup:function() {
-				//alert("hey, I'm in startup");
+				console.debug("In startup");
+				console.dir(this);
 				this.textbox.attr('value',this.initVal);
 			},
 			_onDec:function() {

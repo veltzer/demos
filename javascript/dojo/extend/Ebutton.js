@@ -8,6 +8,8 @@
  * - The require clause(s).
  * - The use of dojo.declare and the ability to have multiple parents.
  * - The fact the the childs members and methods are passed as a single JS object.
+ *
+ *   				Mark Veltzer
  */
 
 if(!dojo._hasResource["extend.Ebutton"]){
@@ -19,7 +21,7 @@ if(!dojo._hasResource["extend.Ebutton"]){
 		[dijit.form.Button],
 		{
 			onClick: function() {
-				alert("click click");
+				console.debug("click click");
 			}
 		}
 	);
