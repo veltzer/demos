@@ -1,3 +1,5 @@
 - add a demo of the chess in javascript (I have it in my emails somewhere in the interbit folder).
 - add a demo of memory consumption of many DOM elements.
 - add a demo of css with base64 images.
+- add demos of YUI.
+- add demos of require.js.
