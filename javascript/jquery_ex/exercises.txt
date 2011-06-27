@@ -46,9 +46,10 @@ Show the data when request for data from the server succeeds.
 Connect the next and prev methods to "do the right thing" (get more data from the
 server).
 
-Ex4 - based on Ex3 + publish subscribe solution
+Ex4 - based on Ex3 + publish/subscribe solution
 ===============================================
-Connect Ex3 with publish/subscribe in two ways:
+Enhance your table with publish/subscribe capabilities.
+Three publish/subscribe issues:
 - Each time a user clicks on a row in the table make the table publish an appropriate
 	event.
 	Show this works by subscribing to the event and printing the data that was

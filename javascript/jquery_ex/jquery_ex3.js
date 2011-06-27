@@ -8,7 +8,7 @@ function PaginatedTable(options) {
 	if(typeof(options.httpmethod)==='undefined') {
 		throw String("must pass httpmethod");
 	}
-	this.debug_position=options.debug_position || 1;
+	this.debug_position=options.debug_position || 0;
 	this.position=options.position || 0;
 	this.dataurl=options.dataurl;
 	this.httpmethod=options.httpmethod;

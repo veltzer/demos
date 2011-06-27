@@ -1,48 +1,13 @@
-// Here comes the post office implementation...
-function PostOffice() {
-	if(PostOffice.instance) {
-		// ERROR! throw exception...
-	} else {
-		this.subscribers={}
-		PostOffice.instance=this;
-	}
-}
-PostOffice.instance=undefined;
-PostOffice.getInstance=function() {
-	if(PostOffice.instance==undefined) {
-		PostOffice.instance=new PostOffice();
-	}
-	return PostOffice.instance;
-}
-PostOffice.prototype.subscribe=function(evt,obj,method) {
-	if(!this.subscribers[evt]) {
-		this.subscribers[evt]=[];
-	}
-	this.subscribers[evt].push([obj,method]);
-}
-PostOffice.prototype.publish=function(evt,data) {
-	if(this.subscribers[evt]) {
-		for(x in this.subscribers[evt]) {
-			var oam=this.subscribers[evt][x];
-			oam[0][oam[1]](data);
-		}
-	} else {
-		// do nothing... (?!?)
-	}
-}
-
 // here starts the paginated table...
 function PaginatedTable(options) {
-	if(typeof(options.id)==='undefined') {
+	if(id in options) {
 		throw String("must pass id");
 	}
-	if(typeof(options.dataurl)==='undefined') {
+	if(dataurl in options) {
 		throw String("must pass data url");
 	}
-	if(typeof(options.httpmethod)==='undefined') {
-		throw String("must pass httpmethod");
-	}
-	this.debug_position=options.debug_position || 1;
+	this.httpmethod=options.httpmethod || "GET";
+	this.debug_position=options.debug_position || 0;
 	this.position=options.position || 0;
 	this.dataurl=options.dataurl;
 	this.httpmethod=options.httpmethod;
@@ -54,20 +19,15 @@ function PaginatedTable(options) {
 	this.tab=$('<table>');
 	this.tab.addClass('PaginatedTable');
 	this.data=new Array();
-	for(i=0;i<this.rows;i++) {
+	for(var i=0;i<this.rows;i++) {
 		var tr=$('<tr>');
-		tr.attr('number',i);
-		// handle the closure
-		var widget=this;
+		tr.attr('rowNumber',i);
 		tr.click(function() {
-			//alert('row clicked'+i+','+widget.position);
-			//PostOffice.getInstance().publish('/rowClicked',[widget.position+i]);
-			PostOffice.getInstance().publish('/rowClicked',[$(this).attr('number')]);
-			//PostOffice.getInstance().publish('/rowClicked',[$(this).attr('number')+widget.position]);
+			PostOffice.getInstance().publish('/rowClicked',[$(this).attr('rowNumber')]);
 		});
 		tr.addClass('PaginatedRows');
 		this.data[i]=new Array();
-		for(j=0;j<this.cols;j++) {
+		for(var j=0;j<this.cols;j++) {
 			var td=$('<td>');
 			td.addClass('PaginatedTableCells');
 			if(i%2==0) {
@@ -78,6 +38,11 @@ function PaginatedTable(options) {
 			if(this.put_dummy_data) {
 				td.text(i+','+j);
 			}
+			td.attr('rowNumber',i);
+			td.attr('colNumber',j);
+			td.click(function() {
+				PostOffice.getInstance().publish('/colClicked',[$(this).attr('rowNumber'),$(this).attr('colNumber')]);
+			});
 			this.data[i][j]=td;
 			tr.append(td);
 		}
@@ -107,7 +72,7 @@ function PaginatedTable(options) {
 		$(this.id).append(next);
 	}
 	this.fetch();
-	//return this;
+	// lets subscribe to outside 'next' and 'prev' requests...
 	PostOffice.getInstance().subscribe('/next',this,'next');
 	PostOffice.getInstance().subscribe('/prev',this,'prev');
 }
@@ -129,6 +94,7 @@ PaginatedTable.prototype.fetch=function() {
 	// the 'data' that we pass. But in the debugging phase it is better to have that here...
 	// In any case it could be that the server is not deterministic, meanining, that for the same
 	// position in the table it sometimes returns different data...
+	// there is no need for the 'cache' thing if the server is configured properly...
 	$.ajax({
 		url: this.dataurl,
 		context: this,
