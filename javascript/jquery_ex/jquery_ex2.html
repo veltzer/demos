@@ -26,8 +26,8 @@
 					tab.next();
 				});
 				$('#myrandomize').click(function() {
-					for(i=0;i<tab.getRows();i++) {
-						for(j=0;j<tab.getCols();j++) {
+					for(var i=0;i<tab.getRows();i++) {
+						for(var j=0;j<tab.getCols();j++) {
 							tab.setData(i,j,Math.random());
 						}
 					}
