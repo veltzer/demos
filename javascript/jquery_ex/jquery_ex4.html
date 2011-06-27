@@ -35,8 +35,8 @@
 					PostOffice.getInstance().publish('/next',[]);
 				});
 				$('#myrandomize').click(function() {
-					for(i=0;i<tab.getRows();i++) {
-						for(j=0;j<tab.getCols();j++) {
+					for(var i=0;i<tab.getRows();i++) {
+						for(var j=0;j<tab.getCols();j++) {
 							tab.setData(i,j,Math.random());
 						}
 					}
@@ -44,11 +44,23 @@
 				// Listener to test the post office...
 				function Listener() {
 				}
-				Listener.prototype.alert=function(data) {
-					alert('Row number ['+data+'] was clicked...');
+				Listener.prototype.row=function(data) {
+					console.debug('Row click with data ['+data+']');
+				}
+				Listener.prototype.cell=function(data) {
+					console.debug('Cell click with data ['+data+']');
+				}
+				Listener.prototype.prev=function(data) {
+					console.debug('prev is called');
+				}
+				Listener.prototype.next=function(data) {
+					console.debug('next is called');
 				}
 				l=new Listener();
-				PostOffice.getInstance().subscribe('/rowClicked',l,'alert');
+				PostOffice.getInstance().subscribe('/rowClicked',l,'row');
+				PostOffice.getInstance().subscribe('/cellClicked',l,'cell');
+				PostOffice.getInstance().subscribe('/doingPrev',l,'prev');
+				PostOffice.getInstance().subscribe('/doingNext',l,'next');
 			});
 		</script>
 	</head>
