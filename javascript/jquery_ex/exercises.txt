@@ -53,6 +53,9 @@ Connect Ex3 with publish/subscribe in two ways:
 	event.
 	Show this works by subscribing to the event and printing the data that was
 	selected.
+- Make the table publish 'doing_next' and 'doing_prev' events. This will enable outsiders
+	to subscribe to these table events without an explicit handle to the table.
+	Demonstrate the use of such subscriptions.
 - Make the table subscribe to 'next' and 'prev' events so that next and prev could
 	be triggered via 'publish' without an explicit handle to the table.
 	Show this works by publishing 'next' and 'prev' events and showing that
