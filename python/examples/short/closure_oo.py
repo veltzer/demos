@@ -44,9 +44,9 @@ def Person(name,age):
 	return methods
 
 p1=Person("Bilbo",111)
-p1['setName']('Frodo')
+p1['setName']('Sam')
 p1['printMe']()
-p2=Person("Gandalf",513)
+p2=Person("Frodo",33)
 p2['setName']('Sauron')
 p2['printMe']()
 p1['printMe']()
