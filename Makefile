@@ -136,8 +136,8 @@ clean_kernel:
 # I used to do:
 # @git clean -xdf
 # but it is too harsh
-#GIT_CLEAN_FLAGS=-xdf
-GIT_CLEAN_FLAGS=-fXd
+GIT_CLEAN_FLAGS=-xdf
+#GIT_CLEAN_FLAGS=-fXd
 .PHONY: clean
 clean:
 	$(info doing [$@])
