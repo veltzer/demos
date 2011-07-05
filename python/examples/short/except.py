@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 try:
 	raise ValueError("hello")
 except ValueError, e:

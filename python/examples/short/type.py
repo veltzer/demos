@@ -7,6 +7,9 @@ and one which does not. See the more advanced oo examples to explain this
 difference in detail.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 import math
 
 def my_func():

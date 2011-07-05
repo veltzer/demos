@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 enterCallsCounter=0
 exitCallsCounter=0
 

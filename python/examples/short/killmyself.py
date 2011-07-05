@@ -1,7 +1,12 @@
 #!/usr/bin/python
 
-# This is an example of how to use execve in python...
-#				Mark Veltzer
+"""
+	This is an example of how to use execve in python...
+"""
+
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 
 import os
 

@@ -6,6 +6,9 @@ In this case, calling a function many times without knowing the function
 or the arguments that it is supposed to receive.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
 def my_print(x):
 	print x
 

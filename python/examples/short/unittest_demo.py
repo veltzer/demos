@@ -4,6 +4,10 @@
 This example demonstrates the use of the 'unittest' module.
 """
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 import unittest
 
 class myunittest(unittest.TestCase):

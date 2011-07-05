@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+"""
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 import threading
 
 # this function was written with NO consideratiion of threading...
