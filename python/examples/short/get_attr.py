@@ -16,13 +16,16 @@ And more...
 	Mark Veltzer <mark@veltzer.net>
 """
 class A:
+	def __init__(self):
+		self.d={}
 	def __getattr__(self,name):
 		return name[::-1]
 		#def mymethod(self):
 		#	print "in here with name",name
 		#return mymethod
 	def __setattr__(self,name,val):
-		print "ERROR! don't touch this..."
+		#print "ERROR! don't touch this..."
+		getattr(self,"d").__setitem__('\''+name+'\'',val)
 
 
 a=A()
