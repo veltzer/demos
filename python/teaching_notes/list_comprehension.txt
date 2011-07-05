@@ -9,5 +9,9 @@
 
 examples:
 
-[x*x for x in xrange[0,5]]
+[x*x for x in xrange(5)]
 	===>
+		newlist=[]
+		for x in xrange(5):
+			newlist.append(x)
+		return newlist
