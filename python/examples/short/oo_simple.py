@@ -8,6 +8,7 @@ This is a fairly simple basic OO example
 	Mark Veltzer <mark@veltzer.net>
 """
 class Book(object):
+	NumberOfBooks=17
 	""" constructor """
 	def __init__(self,price):
 		self.__price=price

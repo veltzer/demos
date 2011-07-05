@@ -13,5 +13,5 @@ examples:
 	===>
 		newlist=[]
 		for x in xrange(5):
-			newlist.append(x)
+			newlist.append(x*x)
 		return newlist

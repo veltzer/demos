@@ -32,4 +32,6 @@ def reformat(lines):
 # test
 if __name__ == '__main__':
     #print list(reformat(['foo', 'bar', 'baz', '', 'quux', 'quuux']))
-    print ''.join(reformat(open('README.Debian')))
+    #print ''.join(reformat(open('README.Debian')))
+    for p in lines2paragraphs(open('/usr/share/doc/coreutils/README.Debian')):
+	    print 'got paragraph ',p

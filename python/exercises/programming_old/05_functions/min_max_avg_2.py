@@ -16,7 +16,7 @@ def my_max(list):
 
 def my_sum(list):
 	sum=0
-	for x in list[1,]:
+	for x in list:
 		sum+=x
 	return sum 
 
