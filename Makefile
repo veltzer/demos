@@ -152,6 +152,9 @@ clean_test:
 .PHONY: archive_cpp
 archive_cpp:
 	git archive --format=tar --prefix=archive_cpp/ HEAD cpp Makefile scripts | gzip > /tmp/archive_cpp.tar.gz
+.PHONY: archive_ace
+archive_ace:
+	git archive --format=tar --prefix=ace/ HEAD cpp/user_space/ace/examples | gzip > /tmp/ace.tar.gz
 
 .PHONY: git_maintain
 git_maintain:
