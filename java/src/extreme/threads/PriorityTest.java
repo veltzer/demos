@@ -31,11 +31,13 @@ public class PriorityTest {
 					data[i] = 1 + data[i - 1];
 				++numOperations;
 
+				/*
 				try {
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				*/
 			}
 		}
 
@@ -52,7 +54,7 @@ public class PriorityTest {
 		// t2.setDaemon(true);
 
 		t1.setPriority(Thread.MAX_PRIORITY);
-		t2.setPriority(Thread.NORM_PRIORITY);
+		t2.setPriority(Thread.MIN_PRIORITY);
 
 		t1.start();
 		t2.start();
@@ -75,7 +77,7 @@ public class PriorityTest {
 			PriorityTest test = new PriorityTest();
 			test.act();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println("when?");
 	}

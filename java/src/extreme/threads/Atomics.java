@@ -22,6 +22,9 @@ public class Atomics {
 				if(at.compareAndSet(myVal, myVal+1)) {
 					myVal++;
 				}
+				if(myVal%5000==0) {
+					System.out.println("myVal is "+myVal);
+				}
 			}
 		}
 	}

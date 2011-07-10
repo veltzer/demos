@@ -1,5 +1,17 @@
 package extreme.threads;
 
+/**
+ * Is there a way to optimize this solution further ?!?
+ * 
+ * Instead of putting everyone to sleep on one big lock we
+ * can several queues: one for readers and one for writers
+ * and thus create a "reader preferred RWLock" or "Writer preferred
+ * RWLock". We could even add priorities put threads to sleep
+ * on a special lock per priority.
+ * 
+ * @author Mark Veltzer 
+ *
+ */
 
 public class ReaderWriterLock {
 	
@@ -52,7 +64,14 @@ public class ReaderWriterLock {
 	
 	public synchronized void readLeave() {
 		readers--;
+		// this is the naive version
+		/*
 		notifyAll();
+		*/
+		// this is the more performance oriented version
+		if(readers==0) {
+			notify();
+		}
 		print();
 	}
 	
