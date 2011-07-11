@@ -12,18 +12,20 @@ public class Atomics {
 	
 	private static class MyRunnable implements Runnable {
 		private int myVal;
+		private int iter;
 		private AtomicInteger at;
-		public MyRunnable(int initval,AtomicInteger iat) {
-			myVal=initval;
+		public MyRunnable(int iinitval,AtomicInteger iat,int iiter) {
+			myVal=iinitval;
 			at=iat;
+			iter=iiter;
 		}
 		public void run() {
-			while(true) {
+			int i=0;
+			while(i<iter) {
 				if(at.compareAndSet(myVal, myVal+1)) {
-					myVal++;
-				}
-				if(myVal%5000==0) {
-					System.out.println("myVal is "+myVal);
+					System.out.println("thread "+Thread.currentThread().getId()+": myVal is "+myVal);
+					myVal+=2;
+					i++;
 				}
 			}
 		}
@@ -31,9 +33,9 @@ public class Atomics {
 	
 	static public void main(String[] args) {
 		AtomicInteger at=new AtomicInteger(0);
-		Runnable run1=new MyRunnable(0, at);
-		Runnable run2=new MyRunnable(1, at);
-		new Thread(run1);
-		new Thread(run2);
+		Runnable run1=new MyRunnable(0, at, 50000);
+		Runnable run2=new MyRunnable(1, at, 50000);
+		new Thread(run1).start();
+		new Thread(run2).start();
 	}
 }
