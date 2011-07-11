@@ -151,14 +151,21 @@ clean_test:
 # for other languages where the permission stuff is not that important (e.g. php).
 .PHONY: archive_cpp
 archive_cpp:
-	git archive --format=tar --prefix=archive_cpp/ HEAD cpp Makefile scripts | gzip > /tmp/archive_cpp.tar.gz
+	$(info doing [$@])
+	$(Q)git archive --format=tar --prefix=archive_cpp/ HEAD cpp Makefile scripts | gzip > /tmp/archive_cpp.tar.gz
 .PHONY: archive_ace
 archive_ace:
-	git archive --format=tar --prefix=ace/ HEAD cpp/user_space/ace/examples | gzip > /tmp/ace.tar.gz
+	$(info doing [$@])
+	$(Q)git archive --format=tar --prefix=ace/ HEAD cpp/user_space/ace/examples | gzip > /tmp/ace.tar.gz
+.PHONY: archive_extremejava
+archive_extremejava:
+	$(info doing [$@])
+	$(Q)git archive --format=tar --prefix=java_extreme HEAD java/src/extreme | gzip > /tmp/java_extreme.tar.gz
 
 .PHONY: git_maintain
 git_maintain:
-	git gc
+	$(info doing [$@])
+	$(Q)git gc
 
 # kernel directory to build against
 KDIR:=/lib/modules/$(shell uname -r)/build
