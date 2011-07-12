@@ -3,6 +3,8 @@ package extreme.reflection;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class demos the use of a Proxy. It intercepts
@@ -85,7 +87,7 @@ public class PersonProxy {
 	/**
 	 * This next invocation handler synchronized the entire method set of an
 	 * object. Notice that we synchronized on the proxy object and not
-	 * on the object itself altough that is an option too.
+	 * on the object itself although that is an option too.
 	 * 
 	 * @author Mark Veltzer
 	 */
@@ -106,6 +108,9 @@ public class PersonProxy {
 			}
 		}
 	}
+	
+	/**
+	 * This is a method similar to Collections.synchronize
 	
 	/**
 	 * This is a method similar to Collections.synchronize
@@ -156,9 +161,9 @@ public class PersonProxy {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		/* 
-		Class[] interfaces={ IPerson.class };
+		Class<?>[] interfaces={ IPerson.class };
 		Person p=new Person();
+		p.setName("mark");
 		ReadOnlyInvocationHandler pih=new ReadOnlyInvocationHandler(p);
 		Object o=Proxy.newProxyInstance(
 				pih.getClass().getClassLoader(),
@@ -168,14 +173,20 @@ public class PersonProxy {
 		System.out.println("Class is "+o.getClass().getName());
 		// Here comes the magic (this next cast will NOT throw a ClassCastExecption
 		IPerson ip=(IPerson)o;
-		ip.setName("hh");
-		System.out.println("person name is "+p.getName());
-		ip.setAge(45);
-		*/
-		
+		try {
+			ip.setName("hh");
+		} catch(RuntimeException e) {
+			System.out.println("yes, got exception for calling set");
+		}
+		System.out.println("person name is "+ip.getName());
+	
 		/* Demonstration of the synchronization interface */
-		//List<Integer> li=new ArrayList<Integer>();
-		//List<Integer> sli=(List<Integer>)syncIt(li);
-		// now you can do multi threaded work with this list
+		List<Integer> li=new ArrayList<Integer>();
+		li.add(5);
+		li.add(6);
+		@SuppressWarnings("unchecked")
+		List<Integer> sli=(List<Integer>)syncIt(li);
+		// now you can do multi-threaded work with this list
+		System.out.println("the element is "+sli.get(0));
 	}
 }

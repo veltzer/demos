@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 
 public class MethodInvoker {
 	/*
-	 * An inner class for demo. remmember that "static" means it holds no
+	 * An inner class for demo. remember that "static" means it holds no
 	 * reference to the outer class or requires it for construction
 	 */
 	public static class A {
