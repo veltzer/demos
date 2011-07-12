@@ -43,7 +43,7 @@ public class MethodInvoker {
 	/*
 	 * A helper method which relies on the java beans standard and the fact that
 	 * bean properties are lower case. This method will convert bean names
-	 * (lowercase) to the settter method name. So "foo" will give you "setFoo".
+	 * (lower case) to the setter method name. So "Name" will give you "setName".
 	 * Maybe java already has a class which does this? Need to check.
 	 */
 	private static String getSetMethodName(String valName) {
@@ -69,7 +69,7 @@ public class MethodInvoker {
 
 	/*
 	 * This method is much more general and can handle any object type Using
-	 * autoboxing you can even pass primitives. Isn't life grand?
+	 * auto boxing you can even pass primitives. Isn't life grand?
 	 */
 	public static void setObjectValue(Object o, String valName, Object newValue) {
 		try {
@@ -87,7 +87,7 @@ public class MethodInvoker {
 
 		A a = new A();
 		setObjectValue(a, "title", "kuku");
-		// how does this next line work ? Autoboxing anyone ?
+		// how does this next line work ? Auto boxing anyone ?
 		setObjectValue(a, "id", 5);
 		System.out.println("title is "+a.getTitle());
 		System.out.println("id is "+a.getId());

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class demos the use of a Proxy. It intercepts
+ * This class demos the use of a proxy. It intercepts
  * all calls to an interface (IPerson) using an Invocation
  * Handler. 
  * 
@@ -111,11 +111,10 @@ public class PersonProxy {
 	
 	/**
 	 * This is a method similar to Collections.synchronize
-	
-	/**
-	 * This is a method similar to Collections.synchronize
-	 * @param o
-	 * @return
+	 * @param o the object to wrap
+	 * @return the proxy object
+	 * 
+	 * @author Mark Veltzer
 	 */
 	
 	static public Object syncIt(Object o) {
@@ -186,7 +185,7 @@ public class PersonProxy {
 		li.add(6);
 		@SuppressWarnings("unchecked")
 		List<Integer> sli=(List<Integer>)syncIt(li);
-		// now you can do multi-threaded work with this list
+		// now you can do multi threaded work with this list
 		System.out.println("the element is "+sli.get(0));
 	}
 }
