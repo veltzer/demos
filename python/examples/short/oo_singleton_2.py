@@ -22,11 +22,12 @@ class A:
 			print 'in A constructor'
 			self.my_attribute='value'
 
-	def getInstance():
-		if A.instance is None:
-			A.instance=A()
-		return A.instance
-	getInstance=staticmethod(getInstance)
+	#@classmethod
+	def getInstance(cls):
+		if cls.instance is None:
+			cls.instance=cls()
+		return cls.instance
+	getInstance=classmethod(getInstance)
 
 a1=A.getInstance()
 a2=A.getInstance()

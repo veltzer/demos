@@ -4,7 +4,7 @@ int main(int argc,char** argv,char** envp) {
 	PyRun_SimpleString(
 		"print \"Hello, World!\"\n"
 		"import time\n"
-		"time.sleep(60)\n"
+		"time.sleep(6)\n"
 		"print \"Woke up!\"\n"
 	);
 	Py_Finalize();

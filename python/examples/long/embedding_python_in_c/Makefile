@@ -1,8 +1,8 @@
 .PHONY: all
 all: embed
 
-PYTHON_CFLAGS=$(shell python2.6-config --cflags)
-PYTHON_LIBS=$(shell python2.6-config --libs)
+PYTHON_CFLAGS:=$(shell python2.7-config --cflags)
+PYTHON_LIBS:=$(shell python2.7-config --libs)
 
 embed: embed.c
 	gcc -o $@ $< $(PYTHON_CFLAGS) $(PYTHON_LIBS)
@@ -10,3 +10,8 @@ embed: embed.c
 .PHONY: clean
 clean:
 	rm -f embed
+
+.PHONY: debug
+debug:
+	$(info PYTHON_CFLAGS is $(PYTHON_CFLAGS))
+	$(info PYTHON_LIBS is $(PYTHON_LIBS))
