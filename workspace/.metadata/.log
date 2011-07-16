@@ -173,3 +173,6 @@ org.eclipse.ui.PartInitException: Could not create view: org.eclipse.wst.common.
 
 !ENTRY org.eclipse.cdt.core 1 0 2011-07-16 19:28:23.469
 !MESSAGE Indexed 'cpp' (443 sources, 961 headers) in 46.51 sec: 81,029 declarations; 144,573 references; 378 unresolved inclusions; 547 syntax errors; 1,227 unresolved names (0.54%)
+
+!ENTRY org.eclipse.ui 4 4 2011-07-16 19:33:01.351
+!MESSAGE Referenced part does not exist yet: org.eclipse.jdt.ui.PackageExplorer.

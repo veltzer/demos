@@ -1,1 +1,0 @@
-- checkout trace.h and show how to use it.

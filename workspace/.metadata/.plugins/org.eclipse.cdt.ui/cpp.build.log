@@ -1,0 +1,14 @@
+
+**** Build of configuration Default for project cpp ****
+
+make all 
+doing [src/user_space/libs/hellognomemm.exe]
+doing [src/user_space/libs/hellosdl.exe]
+doing [src/user_space/libs/helloc.exe]
+doing [src/user_space/libs/hellomtl.exe]
+doing [src/user_space/libs/hellomysqlpp.exe]
+doing [src/user_space/libs/hellosigc.exe]
+doing [src/user_space/libs/hellowx.exe]
+doing [src/user_space/libs/hellocwd.exe]
+doing [src/user_space/libs/hellogtkmm.exe]
+doing [src/user_space/libs/hello.exe]

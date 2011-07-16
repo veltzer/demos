@@ -1,0 +1,38 @@
+- do example of an OO wrapper for pthreads.
+	in the wrapper each thread will have a name.
+	Add the ability to connect via telnet to this application and see all of
+	it's threads.
+- show how this is solved in ACE and Boost and stdlibc++.
+
+- do the example of measuring thread performance as in the manual entry of
+	pthread_getcpuclockid
+
+- do example of cancelling a thread.
+	pthread_cleanup_pop
+	pthread_cleanup_push
+
+- show an example of doing pthread_once (this is a sort of a singleton pattern).
+
+- do an example of sched_yield(2) (I already have an example of pthread_yield(3)).
+	show the voluntary context switches number going up in /proc.
+
+- do an example of pthread_atfork
+
+- do an example of named semaphore usage:
+	sem_* functions.
+
+- do examples of mutex usage.
+
+- do examples of futex usage.
+
+- do examples that compare futex to mutex run times.
+
+- do example of thread detach.
+
+- do example of thread local storage ala pthread (see man pthread_setspecific).
+
+- show usage of pthread_exit. Actually, show all ways that allow one to exit a thread
+	- pthread_exit
+	- pthread_cancell.
+	- send sigkill to the thread.
+	- more ?!?

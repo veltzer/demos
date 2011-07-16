@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h> // for open(2)
+#include <sys/stat.h> // for open(2)
+#include <fcntl.h> // for open(2)
+#include <stdlib.h>
+#include <unistd.h> // for close(2)
+#include <sys/ioctl.h>
+
+#include "us_helper.hh"
+
+/*
+ *      This demo shows how to get the uptime of the machine...
+ *      This is not very suitable for very delicate and precise timings but still.
+ *
+ *              Mark Veltzer
+ *
+ * EXTRA_LIBS=
+ */
+void uptime(float *time1, float *time2) {
+	// null the pointers
+	*time1 = 0;
+	*time2 = 0;
+	// read the data from the /proc/uptime virtual file...
+	const char         *filename = "/proc/uptime";
+	const unsigned int size = 256;
+	char buf[size];
+	int d, res;
+	sc(d = open(filename, O_RDONLY));
+	sc(res = read(d, buf, size));
+	char *saveptr;
+	char *ptr = strtok_r(buf, " ", &saveptr);
+	*time1 = atof(ptr);
+	ptr = strtok_r(NULL, " ", &saveptr);
+	*time2 = atof(ptr);
+	sc(close(d));
+}
+
+
+int main(int argc, char **argv, char **envp) {
+	float time1, time2;
+
+	uptime(&time1, &time2);
+	printf("time1 is %f\n", time1);
+	printf("time2 is %f\n", time2);
+	return(0);
+}
