@@ -416,3 +416,100 @@ make all
 make: Nothing to be done for `all'.
 
 **** Build Finished ****
+
+**** Build of configuration Default for project cpp ****
+
+make all 
+doing [kernel/drv_list.ko]
+doing [kernel/drv_bootmem.ko]
+doing [kernel/drv_ioctl.ko]
+doing [kernel/drv_param.ko]
+doing [kernel/drv_syscall_hijack.ko]
+doing [kernel/drv_div.ko]
+doing [kernel/drv_min.ko]
+doing [kernel/drv_pipe.ko]
+doing [kernel/drv_bug.ko]
+doing [kernel/drv_readwrite.ko]
+doing [kernel/drv_spin_lock.ko]
+doing [kernel/drv_errno.ko]
+doing [kernel/drv_kmalloc.ko]
+doing [kernel/drv_module_name.ko]
+doing [kernel/drv_rammap.ko]
+doing [kernel/drv_get_user_pages.ko]
+doing [kernel/drv_mmap_simple.ko]
+doing [kernel/drv_null.ko]
+doing [kernel/drv_timing.ko]
+doing [kernel/drv_dma.ko]
+doing [kernel/drv_complete.ko]
+doing [kernel/drv_mmap.ko]
+doing [kernel/drv_open_close_release.ko]
+doing [kernel/drv_request_module.ko]
+doing [kernel/drv_sbd.ko]
+doing [kernel/drv_mmap_to_user.ko]
+doing [kernel/drv_ioctl_close_race.ko]
+doing [kernel/drv_kmem_cache.ko]
+doing [kernel/drv_eventfd.ko]
+doing [kernel/drv_iserr.ko]
+doing [kernel/drv_iomem.ko]
+doing [kernel/drv_get_free_pages.ko]
+
+**** Build Finished ****
+
+**** Build of configuration Default for project cpp ****
+
+make all 
+doing [kernel/drv_list.ko]
+doing [kernel/drv_bootmem.ko]
+doing [kernel/drv_ioctl.ko]
+make: *** [kernel/drv_ioctl.ko] Terminated
+
+**** Build of configuration Default for project cpp ****
+
+Error: Command canceled
+
+**** Build Finished ****
+
+**** Build of configuration Default for project cpp ****
+
+make all 
+doing [kernel/drv_list.ko]
+doing [kernel/drv_bootmem.ko]
+doing [kernel/drv_ioctl.ko]
+doing [kernel/drv_param.ko]
+doing [kernel/drv_syscall_hijack.ko]
+doing [kernel/drv_div.ko]
+doing [kernel/drv_min.ko]
+doing [kernel/drv_pipe.ko]
+doing [kernel/drv_bug.ko]
+doing [kernel/drv_readwrite.ko]
+doing [kernel/drv_spin_lock.ko]
+doing [kernel/drv_errno.ko]
+doing [kernel/drv_kmalloc.ko]
+doing [kernel/drv_module_name.ko]
+doing [kernel/drv_rammap.ko]
+doing [kernel/drv_get_user_pages.ko]
+doing [kernel/drv_mmap_simple.ko]
+doing [kernel/drv_null.ko]
+doing [kernel/drv_timing.ko]
+doing [kernel/drv_dma.ko]
+doing [kernel/drv_complete.ko]
+doing [kernel/drv_mmap.ko]
+doing [kernel/drv_open_close_release.ko]
+doing [kernel/drv_request_module.ko]
+doing [kernel/drv_sbd.ko]
+doing [kernel/drv_mmap_to_user.ko]
+doing [kernel/drv_ioctl_close_race.ko]
+doing [kernel/drv_kmem_cache.ko]
+doing [kernel/drv_eventfd.ko]
+doing [kernel/drv_iserr.ko]
+doing [kernel/drv_iomem.ko]
+doing [kernel/drv_get_free_pages.ko]
+
+**** Build Finished ****
+
+**** Build of configuration Default for project cpp ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
