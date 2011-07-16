@@ -1,0 +1,6 @@
+Things to note in this exercise:
+1. Synchronized blocks in both threads to make sure we make decisions correctly AND
+to keep the underlying data structure intact.
+2. Synchronized keyword used in the Bank singleton pattern that is required since we
+are now threaded and the "if" statement in the getInstance method could do the
+wrong thing.

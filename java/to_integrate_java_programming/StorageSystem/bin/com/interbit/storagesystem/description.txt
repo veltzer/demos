@@ -1,0 +1,44 @@
+Storage System exercise:
+========================
+The idea of the exercise is to create a prototype of a storage
+system where two things could be plugged: the items stored and
+the means of storage.
+
+- Create an abstract class called Item.
+This class will serve as the parent for all items stored in the
+system.
+The class will hold an id(int) which will be set by the
+storage system and will be used by the storage system.
+The class will also declare two methods (probably abstract but
+not necessarily) which will be called "toConsole" and
+"fromConsole" that can either print or read the item from
+the console.
+
+- Create an interface called StorageSystem:
+public interface StorageSystem {
+	void saveItem(Item i);
+	Item getItemById(int id);
+	void deleteItem(int id);
+	void deleteItem(Item i);
+	// This is for iteration purposes
+	void itrInit();
+	Item itrGetCurrent();
+	void itrNext();
+	boolean itrIsOver();
+	
+- Create a class ArrayStorage which implements the StorageSystem
+via a java plain array (Type[] array). Make the array grow
+and shrink according to operations. Provide all the methods
+of the interface (yes - actually make it work...).
+
+- Create a concrete class called Book which will extend the item
+abstract class. The book will have a bookname and author
+properties.
+
+- Create a test class which uses your ArrayStorage class to
+store books. It shows a menu to the user and allows the user to
+1) add item to the storage (use the fromConsole method).
+2) delete item from the storage (the user provides the id).
+3) print the inventory (use the storage system iteration features).
+
+TODO: add a note about how to read a line from the keyboard 
