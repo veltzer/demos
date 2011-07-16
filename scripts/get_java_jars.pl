@@ -17,7 +17,7 @@ if(scalar(@ARGV)!=1) {
 
 my($cmd)=$ARGV[0];
 #my($str)=`cat .classpath | grep kind=\"lib\" | cut -d \\\" -f 4`;
-my(@array)=`cat java/.classpath | grep kind=\\\"lib | cut -d \\\" -f 4`;
+my(@array)=`cat .classpath | grep kind=\\\"lib | cut -d \\\" -f 4`;
 
 for(my($i)=0;$i<@array;$i++) {
 	chop($array[$i]);
@@ -30,7 +30,8 @@ for(my($i)=0;$i<@array;$i++) {
 		$array[$i]="<jar href=\\\"".$name."\\\"/>";
 	}
 	if($cmd eq "classpath") {
-		$array[$i]='java/'.$array[$i];
+		# don't do anything
+		#$array[$i]=$array[$i];
 	}
 }
 
