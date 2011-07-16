@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 /**
  *  Description of the Class
  *
- *@author    <a href="mailto:shai@vprise.com">Shai Almog</a>
+ * @author Mark Veltzer
  */
 public class Star extends Component {
     /**

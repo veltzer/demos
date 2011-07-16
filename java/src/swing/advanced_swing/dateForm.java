@@ -20,7 +20,7 @@ import javax.swing.text.PlainDocument;
 
 /**
  *
- * @author veltzer
+ * @author Mark Veltzer
  */
 public class dateForm extends javax.swing.JFrame {
 

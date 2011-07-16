@@ -1,8 +1,7 @@
 package com.interbit.bank;
 
 /**
- * @author Administrator
- *
+ * @author Mark Veltzer
  */
 public class Account {
 	/**

@@ -12,8 +12,7 @@ package swing.advanced_swing;
  */
 
 /**
- *
- * @author veltzer
+ * @author Mark Veltzer
  */
 public class MainFrame extends javax.swing.JFrame {
 

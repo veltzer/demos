@@ -150,3 +150,8 @@ java_clean: $(ALL_DEPS)
 sloccount:
 	$(info doing [$@])
 	$(Q)sloccount .
+
+.PHONY: check_author
+check_author:
+	$(info doing [$@])
+	$(Q)find . -name "*.java" -exec grep -H @author {} \; | grep -v "Mark Veltzer"

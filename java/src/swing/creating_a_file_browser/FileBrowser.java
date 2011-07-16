@@ -12,7 +12,7 @@ import javax.swing.event.TreeSelectionListener;
 /**
  *  Description of the Class
  *
- *@author    <a href="mailto:shai@vprise.com">Shai Almog</a>
+ * @author Mark Veltzer
  */
 public class FileBrowser extends JSplitPane implements TreeSelectionListener {
     /**
