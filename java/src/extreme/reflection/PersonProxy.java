@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * This class demos the use of a Proxy. It intercepts
+ * This class demos the use of a proxy. It intercepts
  * all calls to an interface (IPerson) using an Invocation
  * Handler. 
  * 
