@@ -22,7 +22,7 @@ Q:=@
 endif # DO_MKDBG
 
 # sources from the git perspective
-GIT_SOURCES:=$(shell ../scripts/git_wrapper.sh ls-files)
+GIT_SOURCES:=$(shell scripts/git_wrapper.sh ls-files)
 ALL:=
 CLEAN:=
 CLEAN_DIRS:=
@@ -30,9 +30,9 @@ CLEAN_DIRS:=
 # java section
 JAVA_SOURCE_DIR:=src
 JAVA_BIN:=bin
-JAVA_SOURCES:=$(shell ../scripts/find_wrapper.sh $(JAVA_SOURCE_DIR) -name "*.java")
+JAVA_SOURCES:=$(shell scripts/find_wrapper.sh $(JAVA_SOURCE_DIR) -name "*.java")
 JAVA_COMPILE_STAMP:=java_compile.stamp
-JAVA_CLASSPATH:=$(shell ../scripts/get_java_jars.pl classpath)
+JAVA_CLASSPATH:=$(shell scripts/get_java_jars.pl classpath)
 ifneq ($(JAVA_SOURCES),)
 ALL:=$(ALL) $(JAVA_COMPILE_STAMP)
 CLEAN_DIRS:=$(CLEAN_DIRS) $(JAVA_BIN)
