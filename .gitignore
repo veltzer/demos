@@ -16,7 +16,6 @@
 *.stamp
 *.out
 java/bin/*
-workspace/*
 
 # kernel stuff...
 *.ko
