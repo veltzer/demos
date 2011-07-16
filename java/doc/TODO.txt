@@ -2,6 +2,8 @@ General:
 ========
 - see that everything works (including resources).
 - add the java programming course examples.
+- add an example showing how long it takes to take locks in java.
+	compare that to atomics.
 
 Swing demos:
 ============
