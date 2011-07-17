@@ -9,15 +9,13 @@ import javax.swing.SwingUtilities;
  *  the API changed slightly in the 3rd version: You must now invoke start() on
  *  the SwingWorker after creating it.
  *
- *@author    <a href="mailto:shai@vprise.com">Shai Almog</a>
+ * @author Mark Veltzer
  */
 public abstract class SwingWorker {
     private Object value;
     /**
      *  Class to maintain reference to current worker thread under separate
      *  synchronization control.
-     *
-     *@author    <a href="mailto:shai@vprise.com">Shai Almog</a>
      */
     private static class ThreadVar {
         private Thread thread;

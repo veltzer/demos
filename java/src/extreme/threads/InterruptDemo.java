@@ -13,18 +13,20 @@ public class InterruptDemo {
 	// This thread runs forever
 	private static class T1 extends Thread {
 
+		private volatile boolean over=false;
 		@Override
 		public void run() {
 			try {
 				float f=1;
 				float result=0;
-				while(true) {
+				while(!over) {
 					// This is to trick the smartass
 					// compiler and his nagging warnings
 					sleep(5);
 					result+=Math.sin(f);
 					f++;
 				}
+				System.out.println("result is "+result);
 			}
 			catch(InterruptedException e) {
 				e.printStackTrace();
