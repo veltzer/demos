@@ -4,6 +4,8 @@
 	Mark Veltzer <mark@veltzer.net>
 """
 class A:
+	def __init__(self):
+		self.myfield=7
 	def my_method(self):
 		print "Hello"
 
