@@ -1,15 +1,15 @@
 .PHONY: all
 all: embed
 
-PYTHON_CFLAGS:=$(shell python2.7-config --cflags)
-PYTHON_LIBS:=$(shell python2.7-config --libs)
+PYTHON_CFLAGS:=$(shell python-config --cflags)
+PYTHON_LIBS:=$(shell python-config --libs)
 
 embed: embed.c
 	gcc -o $@ $< $(PYTHON_CFLAGS) $(PYTHON_LIBS)
 
 .PHONY: clean
 clean:
-	rm -f embed
+	-rm -f embed
 
 .PHONY: debug
 debug:
