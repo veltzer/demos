@@ -1,0 +1,4 @@
+- the application to run is jvisualvm.
+- install plugins for the visualvm application:
+	visual GC
+	Threads Inspector
