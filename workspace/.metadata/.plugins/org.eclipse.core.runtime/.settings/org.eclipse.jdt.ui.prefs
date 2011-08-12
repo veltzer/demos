@@ -1,7 +1,7 @@
-#Sat Jul 16 22:39:06 IDT 2011
+#Mon Aug 08 16:14:14 IDT 2011
 content_assist_proposals_foreground=60,60,60
-spelling_ignore_urls=true
 spelling_locale_initialized=true
+spelling_ignore_urls=true
 spelling_user_dictionary=/home/mark/git/branches/demos/eclipse_dict
 content_assist_disabled_computers=org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000
 spelling_ignore_non_letters=true
@@ -19,10 +19,10 @@ proposalOrderMigrated=true
 spelling_user_dictionary_encoding=
 spelling_ignore_mixed=true
 spelling_ignore_java_strings=true
-content_assist_proposals_background=255,255,255
 org.eclipse.jdt.ui.formatterprofiles.version=12
+content_assist_proposals_background=255,255,255
 org.eclipse.jdt.internal.ui.navigator.layout=2
-content_assist_number_of_computers=21
+content_assist_number_of_computers=16
 spelling_ignore_digits=true
 spelling_ignore_upper=true
 useQuickDiffPrefPage=true
