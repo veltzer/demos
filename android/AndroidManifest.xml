@@ -14,7 +14,10 @@
         </activity>
 		<activity android:name="CalculatorActivity"
                   android:label="Calculator">
-            
+            	<intent-filter>
+						<action android:name="android.intent.action.MAIN" />
+						<category android:name="android.intent.category.LAUNCHER" />
+            		</intent-filter>
         </activity>
 		<activity android:name="AboutActivity"
                   android:label="About">
@@ -31,10 +34,7 @@
         </activity>
         <activity android:name="ListActivity"
                   android:label="ListActivity">
-        			<intent-filter>
-						<action android:name="android.intent.action.MAIN" />
-						<category android:name="android.intent.category.LAUNCHER" />
-            		</intent-filter>
+        			
         </activity>
         <service android:name="ToastService"></service>
     </application>
