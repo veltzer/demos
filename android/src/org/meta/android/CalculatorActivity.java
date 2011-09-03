@@ -64,24 +64,29 @@ public class CalculatorActivity extends Activity {
     	EditText text_a=(EditText)findViewById(R.id.text_a);
     	EditText text_b=(EditText)findViewById(R.id.text_b);
     	EditText text_result=(EditText)findViewById(R.id.text_result);
-    	double d_a=Double.parseDouble(text_a.getText().toString());
-    	double d_b=Double.parseDouble(text_b.getText().toString());    	
-    	double result=0;
-    	switch(current_op) {
-    		case R.id.button_plus:
-    			result=d_a+d_b;
-    			break;
-    		case R.id.button_min:
-    			result=d_a-d_b;
-    			break;
-    		case R.id.button_mul:
-    			result=d_a*d_b;
-    			break;
-    		case R.id.button_div:
-    			result=d_a/d_b;
-    			break;
+    	try {
+    		double d_a=Double.parseDouble(text_a.getText().toString());
+    		double d_b=Double.parseDouble(text_b.getText().toString());    	
+    		double result=0;
+    		switch(current_op) {
+    			case R.id.button_plus:
+    				result=d_a+d_b;
+    				break;
+    			case R.id.button_min:
+    				result=d_a-d_b;
+    				break;
+    			case R.id.button_mul:
+    				result=d_a*d_b;
+    				break;
+    			case R.id.button_div:
+    				result=d_a/d_b;
+    				break;
+    		}
+    		text_result.setText(new Double(result).toString());
     	}
-    	text_result.setText(new Double(result).toString());
+    	catch(RuntimeException e) {
+    		// don't do anything...
+    	}
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
