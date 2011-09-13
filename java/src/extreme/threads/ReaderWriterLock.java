@@ -43,6 +43,18 @@ public class ReaderWriterLock {
 			this.lock = lock;
 		}
 	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		ReaderWriterLock lock=new ReaderWriterLock();
+		for(int i=0;i<100;i++) {
+			ReadWriteThread t=new ReadWriteThread(i%10!=0,lock);
+			t.start();
+		}
+
+	}
+
 	private int readers=0;
 	private int writers=0;
 	private int readersWaiting=0;
@@ -59,7 +71,7 @@ public class ReaderWriterLock {
 		}
 		readersWaiting--;
 		readers++;
-		print();
+		debug();
 	}
 	
 	public synchronized void readLeave() {
@@ -72,7 +84,7 @@ public class ReaderWriterLock {
 		if(readers==0) {
 			notify();
 		}
-		print();
+		debug();
 	}
 	
 	public synchronized void write() {
@@ -86,63 +98,36 @@ public class ReaderWriterLock {
 		}
 		writersWaiting--;
 		writers++;
-		print();
+		debug();
 	}
 	public synchronized void writeLeave() {
 		writers--;
 		notifyAll();
-		print();
+		debug();
 	}
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		ReaderWriterLock lock=new ReaderWriterLock();
-		for(int i=0;i<100;i++) {
-			ReadWriteThread t=new ReadWriteThread(i%10!=0,lock);
-			t.start();
-		}
-
-	}
-
 	public int getReaders() {
 		return readers;
-	}
-
-	public void setReaders(int readers) {
-		this.readers = readers;
 	}
 
 	public int getReadersWaiting() {
 		return readersWaiting;
 	}
 
-	public void setReadersWaiting(int readersWaiting) {
-		this.readersWaiting = readersWaiting;
-	}
-
 	public int getWriters() {
 		return writers;
-	}
-
-	public void setWriters(int writers) {
-		this.writers = writers;
 	}
 
 	public int getWritersWaiting() {
 		return writersWaiting;
 	}
 
-	public void setWritersWaiting(int writersWaiting) {
-		this.writersWaiting = writersWaiting;
-	}
-	
-	public synchronized void print() {
+	// the synchronized is in order to print all the data in
+	// a 'consistent' state...
+	public synchronized void debug() {
 		System.out.println("readers "+readers);
 		System.out.println("readersWaiting "+readersWaiting);
 		System.out.println("writers "+writers);
 		System.out.println("writersWaiting "+writersWaiting);
 
 	}
-
 }
