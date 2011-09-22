@@ -10,29 +10,26 @@ package extreme.threads;
  */
 
 public class InterruptDemo {
-	// This thread runs forever and always consumes CPU
+	// This thread runs forever
 	private static class T1 extends Thread {
 
 		private volatile boolean over=false;
 		@Override
 		public void run() {
 			try {
+				float f=1;
 				float result=0;
 				while(!over) {
-					float f=1;
-					result+=Math.sin(f);
-					f++;
 					// This is to trick the smartass
 					// compiler and his nagging warnings
-					if(over) {
-						sleep(5);
-					}
+					sleep(5);
+					result+=Math.sin(f);
+					f++;
 				}
 				System.out.println("result is "+result);
 			}
 			catch(InterruptedException e) {
-				System.out.println("T1 ending");
-				//e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
 	
@@ -42,14 +39,13 @@ public class InterruptDemo {
 		
 		@Override
 		public void run() {
-			try {
-				while(true) {
+				try {
+			while(true) {
 					sleep(1);
 				}
-			}
-			catch (InterruptedException e) {
-				System.out.println("T2 ending");
-				//e.printStackTrace();
+				catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}

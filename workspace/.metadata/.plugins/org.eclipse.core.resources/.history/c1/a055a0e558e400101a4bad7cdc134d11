@@ -17,16 +17,15 @@ public class InterruptDemo {
 		@Override
 		public void run() {
 			try {
-				float result=0;
-				while(!over) {
+				while(true) {
 					float f=1;
-					result+=Math.sin(f);
-					f++;
+					float result=0;
+					if(!over) {
+					sleep(5);
 					// This is to trick the smartass
 					// compiler and his nagging warnings
-					if(over) {
-						sleep(5);
-					}
+					result+=Math.sin(f);
+					f++;
 				}
 				System.out.println("result is "+result);
 			}

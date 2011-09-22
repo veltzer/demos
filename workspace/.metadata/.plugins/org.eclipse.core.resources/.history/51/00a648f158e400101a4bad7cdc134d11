@@ -18,13 +18,14 @@ public class InterruptDemo {
 		public void run() {
 			try {
 				float result=0;
-				while(!over) {
+				while(true) {
 					float f=1;
+					float result=0;
 					result+=Math.sin(f);
 					f++;
 					// This is to trick the smartass
 					// compiler and his nagging warnings
-					if(over) {
+					if(!over) {
 						sleep(5);
 					}
 				}

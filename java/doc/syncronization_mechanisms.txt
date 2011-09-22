@@ -1,0 +1,17 @@
+
+
+
+	1. don't synchronize.
+
+	2. atomic variables. 
+
+	3. lockless data structure.
+
+	4. spin locks.
+
+	5. RCU + specialized locks.
+		(readers writer locks)
+
+	6. synchronized.
+
+	7. use database for synchronization.

@@ -24,7 +24,7 @@ public class InterruptDemo {
 					f++;
 					// This is to trick the smartass
 					// compiler and his nagging warnings
-					if(over) {
+					if(!over) {
 						sleep(5);
 					}
 				}

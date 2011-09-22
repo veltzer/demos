@@ -7,8 +7,8 @@
 	<section name="InstallationDialogSettings">
 		<item value="688" key="DIALOG_WIDTH"/>
 		<item value="-150" key="DIALOG_Y_ORIGIN"/>
-		<item value="644" key="DIALOG_HEIGHT"/>
 		<item value="-69" key="DIALOG_X_ORIGIN"/>
+		<item value="644" key="DIALOG_HEIGHT"/>
 		<item value="1|DejaVu Sans|8.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.preferences.keysPreferencePage">
