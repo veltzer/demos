@@ -16,6 +16,8 @@
 *.stamp
 *.out
 java/bin/*
+# locks by open office
+.~lock.*
 
 # kernel stuff...
 *.ko
