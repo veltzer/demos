@@ -25,7 +25,7 @@ public class Semaphore {
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 		currentPermits = currentPermits - amount;

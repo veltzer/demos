@@ -8,6 +8,7 @@ import java.nio.channels.FileChannel;
 public class CopyFile {
 	static public void main(String args[]) throws Exception {
 		boolean fast = true;
+		final int size=1024*1024;
 		if (args.length < 2) {
 			System.err.println("Usage: java CopyFile infile outfile");
 			System.exit(1);
@@ -24,9 +25,9 @@ public class CopyFile {
 
 		ByteBuffer buffer;
 		if (fast) {
-			buffer = ByteBuffer.allocateDirect(1024);
+			buffer = ByteBuffer.allocateDirect(size);
 		} else {
-			buffer = ByteBuffer.allocate(1024);
+			buffer = ByteBuffer.allocate(size);
 		}
 
 		boolean done = false;
@@ -35,10 +36,10 @@ public class CopyFile {
 			if (readCount >= 0) {
 				buffer.flip();
 				fcout.write(buffer);
+				buffer.clear();
 			} else {
 				done = true;
 			}
-			buffer.clear();
 		}
 		fin.close();
 		fout.close();
