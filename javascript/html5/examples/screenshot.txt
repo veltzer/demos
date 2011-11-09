@@ -1,0 +1,13 @@
+A couple of approaches:
+1. multi layers, only works on some browsers.
+	(see example).
+2. rendering the elements onto a canvas:
+	http://html2canvas.hertzen.com/screenshots.html
+	https://github.com/niklasvh/html2canvas
+	http://hertzen.com/experiments/jsfeedback
+	google is doing this in google+.
+	problems: not a 100% accurate (will be explained).
+		does not support iframes. (maybe in newer versions?)
+		This does not look very hard to add.
+3. In IE this is possible via an ActiveX control.
+4. Server side solution - there are many.
