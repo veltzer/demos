@@ -1,0 +1,51 @@
+Notes on how to properly create a standalone SWT application:
+=============================================================
+There are three ways in which to create such an application all of
+them involving getting the appropriate SWT jar into your project.
+
+a. the "just add the jar from eclipse approach"
+	1. create a standard java project or use an existing one.
+	2. find the swt jar under your eclipse installation. It
+	should be under $ECLIPSE/plugins and it should have a
+	name like:
+	org.eclipse.swt.gtk.linux.x86_3.3.1.v3346i.jar
+	(with your platform ofcourse).
+	3. add this jar to your project.
+	4. use and be happy.
+
+	* in this approach you do not need to download anything.
+	* you are sure that the SWT version you will use is the
+	right for your platform (is your eclipse is running that
+	is).
+	* you do not get the "latest and greatest" SWT.
+	* you do not get the full SWT integration into eclipse.
+
+b. the "download and add the jar approach"
+	1. go to http://www.eclipse.org/swt/ and download SWT
+	as appropriate for your platform.
+	2. unzip it and find the appropriate jar in it. Since
+	downloaded the version for your platform the jar INSIDE
+	the archive is going to be called "swt.jar" plainly.
+	3. add it to a new java standard project or an existing one.
+	4. use and be happy.
+
+	* this approach requires that you download stuff.
+	* in return you get the option to use the "latest and
+	greatest".
+	* it may not run (as with all "greatest" software).
+	* you do not get the full SWT integration into eclipse.
+
+c. the "full integration with bells and whistles approach"
+	1. go to http://www.eclipse.org/swt/ and download SWT
+	as appropriate for your platform.
+	2. do not unzip it but rather import it as a project
+	directly into your workspace.
+	3. create a new standard java project or use an existing one.
+	4. make your project DEPEND on the existing SWT project.
+	5. use and be happy.
+	
+	* this approach requires that you download stuff.
+	* in return you get the option to use the "latest and
+	greatest".
+	* it may not run (as with all "greatest" software).
+	* you get the full SWT integration into eclipse.
