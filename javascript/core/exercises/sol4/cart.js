@@ -115,7 +115,7 @@ function getPricesViaAjax() {
 			var price=obj[item];
 			pl.addItem(item,price);
 		}
-		pl.addToTbl('tbl');
+		pl.addToTbl('tbody');
 	}
 	xhReq.send(null);
 }

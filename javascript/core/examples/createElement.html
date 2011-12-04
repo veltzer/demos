@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Example of document.createElement</title>
+		<script>
+			function create() {
+				var numElems=Number(document.getElementById("myinput").value);
+				var mydiv=document.getElementById("mydiv")
+				for(var i=0;i<numElems;i++) {
+					var newelement=document.createElement("button");
+					newelement.innerHTML="button "+i
+					mydiv.appendChild(newelement)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input id="myinput"></input>
+		<button onclick="create()">click me to create more buttons!</button>
+		<br/>
+		<div id="mydiv"></div>
+	</body>
+</html>
