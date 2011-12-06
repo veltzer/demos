@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="jar" name="HelloWorld">
+	<target name="initialize">
+		<property file="build.properties"/>
+	</target>
+	<target name="compile" depends="initialize" if="javac.enable">
+		<mkdir dir="${build.dir}"/>
+		<javac
+			includeantruntime="false"
+			srcdir="${src.dir}"
+			destdir="${build.dir}"
+		>
+		</javac>
+	</target>
+	<target name="jar" depends="compile">
+		<mkdir dir="${lib.dir}"/>
+		<jar destfile="${lib.dir}/hello.jar">
+			<fileset dir="${build.dir}">
+				<include name="**/*"/>
+			</fileset>
+		</jar>
+	</target>
+	<target name="clean" depends="initialize">
+		<delete dir="${lib.dir}"/>
+		<delete dir="${build.dir}"/>
+	</target>
+</project>
