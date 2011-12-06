@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<project name="" default="sample" basedir=".">
+  <target name="sample">
+    <foreach list="../module1,../module2">
+    
+    </foreach>
+  </target>
+</project>

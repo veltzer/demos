@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="default" >
+	<target name="init" >
+		<property file="build.properties" />
+	</target>
+
+
+	<target name="default" depends="init, media-condition"/>		
+
+
+	<target name="media-condition" depends="init">
+
+		<typedef name="media-condition"
+			 classname="MediaCondition"
+			 classpath="${lib.dir}/media-condition.jar"/>
+
+		<condition property="is.exists">
+		   <media-condition dir="./src"/>
+		</condition>
+		<echo message="${is.exists}"/>
+		 
+	</target>
+
+</project>

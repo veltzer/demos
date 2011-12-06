@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project name="Environment Variables" default="test" basedir=".">
+
+  <property environment="my_env" />
+  
+  <target name="test">
+	<echo>Current User: ${my_env.USER}</echo>
+	<echo>Ant Home: ${my_env.ANT_HOME}</echo>
+  </target>
+</project>

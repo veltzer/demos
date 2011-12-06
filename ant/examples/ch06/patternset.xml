@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<project name="" default="sample" basedir=".">
+
+  <patternset id="conf">
+    <include name="*.xml"/>
+    <include name="*.properties"/>
+  </patternset>
+
+  <target name="sample">
+    <mkdir dir="${basedir}/tmp" />
+    <copy todir="${basedir}/tmp">
+	<fileset dir="${basedir}">
+          <patternset refid="conf" />
+        </fileset>
+    </copy>
+  </target>
+
+</project>

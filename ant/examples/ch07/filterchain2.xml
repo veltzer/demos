@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<project name="FilterChains" default="sample" basedir=".">
+  <property name="java.src.file" location="${basedir}/Sample.java" />
+  <target name="sample">
+	<loadfile srcfile="${java.src.file}" property="test"> 
+		<filterchain> 
+			<stripjavacomments/> 
+			<striplinebreaks/> 
+		</filterchain> 
+	</loadfile>
+	<echo>${test}</echo>
+  </target>
+</project>

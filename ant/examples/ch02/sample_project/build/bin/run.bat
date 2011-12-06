@@ -1,0 +1,1 @@
+java -jar lib/sampleproject-20040227.jar

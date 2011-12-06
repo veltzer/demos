@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project name="Override Property" default="sample" basedir=".">
+  <target name="sample">
+    <property name="x" value="12"/>
+    <condition property="x" value="6">
+      <equals arg1="666" arg2="666" />
+    </condition>
+    <echo>x is: ${x}</echo> 
+  </target>
+</project>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<project name="FilterChains" default="sample" basedir=".">
+  <target name="sample">
+    <loadfile srcfile="${basedir}/sample.txt" property="test">
+      <filterchain>
+        <filterreader classname="org.apache.tools.ant.filters.HeadFilter">
+          <param name="lines" value="15"/>
+        </filterreader>
+      </filterchain>
+    </loadfile>
+    <echo>${test}</echo>
+  </target>
+</project>

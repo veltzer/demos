@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="default" >
+	<description> - This project displays its details -</description>
+	<target name="init" >
+		<property file="build.properties" />
+	</target>
+
+
+	<target name="default" depends="init, project-details"/>		
+
+	<target name="project-details" depends="init">
+			<taskdef name="project-details"
+                 classname="ProjectDetails"
+                 classpath="${lib.dir}/project-details.jar"/>
+
+			<project-details/>
+		 
+
+	</target>
+
+</project>

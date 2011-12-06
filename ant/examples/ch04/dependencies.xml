@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<project name="Dependencies Sample" default="sample" basedir=".">
+  <target name="hello" depends="goodbye">
+    <echo message="Hello, World"/>
+  </target>
+
+  <target name="goodbye" depends="hello">
+    <echo message="Goodbye, Cruel World"/>
+  </target>
+
+  <target name="sample" depends="hello,goodbye">
+  </target>
+</project>

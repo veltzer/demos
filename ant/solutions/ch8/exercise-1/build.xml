@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="master" name="HelloWorld" >
+
+	<target name="init">
+		<property file="build.properties" />
+		<property name="src.archive.target" value="${lib.dir}"/>
+		<property name="jboss.home" value=""/>
+		<property name="deploy.configuration" value="default"/>  
+		<property name="deploy.configuration.dir" value="${jboss.home}/server/default/conf"/>  
+		<property name="jboss.host" value="localhost"/>  
+		<property name="jboss.port" value="1099"/>  		
+		<property name="jdk.home" value=""/>  
+	</target>
+
+	<target name="master">
+		<delete file="temp.log"/>
+		<parallel>			
+			<ant target="run-server"/>
+			<ant target="default"/>
+			<waitfor maxwait="3" maxwaitunit="minute" checkevery="500">
+				<available file="temp.log"/>
+			</waitfor>
+		</parallel>
+	</target>
+	
+	<target name="run-nightly">
+		<ant target="master"/>
+		<sleep minutes="1"/>
+		<ant target="test"/>
+	</target>
+
+	<target name="default" depends="init, dist-source">		
+		<subant target="default" >
+			<fileset dir=".">
+				<include name="*/build.xml" />
+			</fileset>
+		</subant>
+		<mkdir dir="${lib.dir}"/>
+		<copy todir="${lib.dir}" >
+			<fileset dir="common/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="webmodule/output/lib">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+		<mkdir dir="${deploy.dir}"/>
+		<copy todir="${deploy.dir}" >
+			<fileset dir="webmodule/output/war">
+				<include name="*.war" />
+			</fileset>
+		</copy>	
+
+		<tstamp/>
+		<touch file="temp.log"/>
+
+	</target>
+
+	<target name="dist-source" depends="init">		
+		<subant target="dist-source" >
+			<fileset dir=".">
+				<include name="*/build.xml" />
+			</fileset>
+		</subant>
+	</target>
+
+	<target name="make-lib" depends="init" if="is.lib.present">
+		<mkdir dir="${src.archive.target}"/>
+	</target>
+
+	<target name="compare-src" depends="init">
+		<available file="${src.archive.target}" type="dir" property="lib.present" />						
+		<condition property="is.lib.present">
+			<not>
+				<isset property="lib.present"/>
+			</not>
+		</condition>
+		<antcall target="make-lib"/>
+		<zip destfile="${src.archive.target}/common-src.zip">
+			<fileset dir="./common/src"/>
+		</zip>
+		<zip destfile="${src.archive.target}/webmodule-src.zip">
+			<fileset dir="./webmodule/src"/>
+		</zip>
+	</target>
+
+	<target name="clean" depends="init">
+		<subant target="clean" >
+			<fileset dir=".">
+				<include name="*/build.xml" />
+			</fileset>
+		</subant>
+		<delete dir="${lib.dir}"/>
+		<delete dir="${deploy.dir}"/>		
+	</target>
+
+	<target name="run-server" depends="init" description="Start the JBoss server.">
+		<java dir="${deploy.configuration.dir}" classname="org.jboss.Main" fork="true" spawn="true">
+			<arg line="-c ${deploy.configuration}"/>
+			<jvmarg value="-Xms256m"/>
+			<jvmarg value="-Xmx256m"/>
+			<classpath>
+				<pathelement path="${jboss.home}/bin/run.jar"/>
+				<pathelement path="${jdk.home}/lib/tools.jar"/>
+			</classpath>
+		</java>
+		<waitfor maxwait="5" maxwaitunit="minute" checkevery="10">
+			<http url="http://localhost:8080/"/>
+		</waitfor>
+	</target>
+
+	<target name="stop-server" depends="init" description="Stop the JBoss server.">
+		<java dir="${deploy.configuration.dir}" classname="org.jboss.Shutdown" fork="true">
+			<arg line="-s ${jboss.host}:${jboss.port}"/>
+			<classpath>
+				<pathelement path="${jboss.home}/bin/shutdown.jar"/>
+			</classpath>
+		</java>
+	</target>
+
+  <target name="http-test" if="is.http">
+	<echo>
+		The web application can be accessed.
+	</echo>
+  </target>
+
+  <target name="test">		
+	<condition property="is.http">	
+		<http url="http://localhost:8080/web-module"/>
+	</condition>
+    <ant target="http-test"/>
+  </target>
+</project>

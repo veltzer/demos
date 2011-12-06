@@ -1,0 +1,11 @@
+<project default="default">
+	<!-- Prints out the 'message.to.print' property -->
+	<target name="echo-message">
+		<echo>${message.to.print}</echo>
+	</target>
+	
+	<!-- Default target just prints out the a message -->
+	<target name="default">
+		<echo>Default target of ${ant.file}</echo>
+	</target>
+</project>

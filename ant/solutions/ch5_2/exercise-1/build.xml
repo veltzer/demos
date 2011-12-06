@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="default" name="global" >
+
+	<target name="default" >
+		<ant antfile="build.xml" dir="common"/>
+	</target>
+
+</project>

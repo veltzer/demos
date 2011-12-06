@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="default" name="HelloWorld" >
+
+	<target name="init">
+		<property file="build.properties" />
+	</target>
+
+	<target name="default" depends="init">		
+		<subant target="default" >
+			<fileset dir=".">
+				<include name="*/build.xml" />
+			</fileset>
+		</subant>
+		<mkdir dir="${lib.dir}"/>
+		<copy todir="${lib.dir}" >
+			<fileset dir="common/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="webmodule/output/lib">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+		<mkdir dir="${deploy.dir}"/>
+		<copy todir="${deploy.dir}" >
+			<fileset dir="webmodule/output/war">
+				<include name="*.war" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean" depends="init">
+		<subant target="clean" >
+			<fileset dir=".">
+				<include name="*/build.xml" />
+			</fileset>
+		</subant>
+	
+		<delete dir="${lib.dir}"/>
+		<delete dir="${deploy.dir}"/>		
+	</target>
+</project>

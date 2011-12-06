@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="deploy" name="HelloWorld" >
+
+	<target name="clean" depends="initialize" >
+		<delete dir="${output.dir}" includeemptydirs="true" />
+	</target>
+
+	<target name="initialize" >
+		<property file="build.properties" />
+		<property name="mail-host" value="www.dummy.com"/>
+		<property name="mail-port" value="25"/>
+		<property name="mail-from-address" value="support@dummy.com"/>
+		<property name="mail-to-address" value="support@dummy.com"/>
+		<property name="mail-reply-to-address" value="support@dummy.com"/>
+	</target>
+
+	<target name="compile" depends="initialize" if="javac.enable" >
+		<mkdir dir="${build.dir}"/>
+		<javac srcdir="${src.dir}"
+			   destdir="${build.dir}"
+			   classpath="${jboss.home}/server/default/deploy/jbossweb-tomcat50.sar/servlet-api.jar"
+         	   debug="on" >
+			
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile" unless="jar.disable">
+
+		<mkdir dir="${lib.dir}" />
+		<jar destfile="${lib.dir}/listner.jar">
+			<fileset dir="${build.dir}">
+				<include name="**/*" />
+			</fileset>
+		</jar>
+
+	</target>
+
+	<target name="war" depends="initialize, jar" >
+
+		<mkdir dir="${war.dir}" />
+		<war destfile="${war.dir}/webmodule.war" webxml="${resources.dir}/WEB-INF/web.xml">
+			<fileset dir="${web.dir}" >
+				<include name="**/*" />
+			</fileset>
+			<lib dir="${lib.dir}" >
+				<include name="**/*" />
+			</lib>
+		</war>
+
+		<mail mailhost="${mail-host}" mailport="${mail-port}" subject="Chapter 5 exercise build">
+		  <from address="${mail-from-address}"/>
+		  <replyto address="${mail-reply-to-address}"/>
+		  <to address="${mail-to-address}"/>
+		  <message>BUILD SUCCESSFUL</message>
+		</mail>
+
+	</target>
+
+	<target name="deploy" depends="war" >
+
+		<copy todir="${jboss.home}/server/default/deploy" >
+			<fileset dir="${war.dir}">
+				<include name="*.war"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="javadoc" depends="initialize">
+	 <javadoc
+			   destdir="output/docs/api"
+			   author="true"
+			   version="true"
+			   use="true"
+			   windowtitle="WebModule API">
+
+		<fileset dir="${src.dir}" defaultexcludes="yes">
+		   <include name="**/*.java" />
+		</fileset>
+
+
+		<doctitle><![CDATA[<h1>Test</h1>]]></doctitle>
+		<bottom><![CDATA[<i>Copyright &#169; 2005 Tikal Corp. All Rights Reserved.</i>]]></bottom>
+		<tag name="todo" scope="all" description="To do:" />
+	  </javadoc>
+	</target>
+</project>

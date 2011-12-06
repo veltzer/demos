@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="default" name="master" >
+	<property file="build.properties" />
+
+	<target name="default" >
+
+		<subant target="default" >
+			<fileset dir=".">
+				<include name="*/build.xml" />
+			</fileset>
+		</subant>
+		<mkdir dir="${lib.dir}"/>
+		<copy todir="${lib.dir}" >
+			<fileset dir="common/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="webmodule/output/lib">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+		<mkdir dir="${deploy.dir}"/>
+		<copy todir="${deploy.dir}" >
+			<fileset dir="webmodule/output/war">
+				<include name="*.war" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="dist-source">
+		<mkdir dir="${src.dist.dir}"/>
+		<zip destfile="${src.dist.dir}/common.zip" basedir="common/src">
+			<include name="**/*.java"/>
+		</zip>
+		<zip destfile="${src.dist.dir}/webmodule.zip" basedir="webmodule/src/main">
+			<include name="**/*.java"/>
+		</zip>
+	</target>
+
+</project>

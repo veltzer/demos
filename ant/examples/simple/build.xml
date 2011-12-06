@@ -1,0 +1,5 @@
+<project name="my project" basedir="." default="compile">
+	<target name="compile" description="compile all the sources">
+		<javac srcdir="src"/>
+	</target>
+</project>

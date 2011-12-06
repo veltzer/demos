@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<project name="Properies File" default="sample" basedir=".">
+
+  <property file="${basedir}/build.properties" />
+  
+  <target name="sample">
+	<echo>Configuration directory set to: ${conf.dir}</echo>
+	<echo>Distribution directory set to: ${dist.dir}</echo>
+	<echo>Library directory set to: ${lib.dir}</echo>
+  </target>
+</project>

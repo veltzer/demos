@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="deploy" name="webmodule" >
+
+	<target name="clean" depends="initialize" >
+		<delete dir="${output.dir}" includeemptydirs="true" />
+	</target>
+
+	<target name="initialize" >
+		<property file="build.properties" />
+	</target>
+
+	<target name="compile" depends="initialize" if="javac.enable" >
+		<mkdir dir="${build.dir}"/>
+		<javac srcdir="${src.dir}"
+			   destdir="${build.dir}" 
+			   classpath="c:/bea/weblogic81/server/lib/weblogic.jar"
+         	   debug="on" >
+			
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile" unless="jar.disable">
+
+		<mkdir dir="${lib.dir}" />
+		<jar destfile="${lib.dir}/listner.jar">
+			<fileset dir="${build.dir}">
+				<include name="**/*" />
+			</fileset>
+		</jar>
+
+	</target>
+
+	<target name="war" depends="jar" >
+
+		<mkdir dir="${war.dir}" />
+		<war destfile="${war.dir}/webmodule.war" webxml="${resources.dir}/WEB-INF/web.xml">
+			<fileset dir="${web.dir}" >
+				<include name="**/*" />
+			</fileset>
+			<lib dir="${lib.dir}" >
+				<include name="**/*" />
+			</lib>
+		</war>
+
+	</target>
+
+	<target name="deploy" depends="war" >
+
+		<copy todir="${wls.domain}/applications" >
+			<fileset dir="${war.dir}">
+				<include name="*.war"/>
+			</fileset>
+		</copy>
+	</target>
+	
+</project>

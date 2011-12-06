@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="control flow" default="nested-if" basedir=".">
+
+  <target name="nested-if">
+    <condition property="condition">
+      <available file="fileone"/>
+    </condition>
+    <antcall target="then"/>
+    <antcall target="else"/>
+  </target>
+
+  <target name="then" if="condition">
+    <echo>THEN BODY EXECUTED</echo>
+    <condition property="inner-condition">
+      <available file="filetwo"/>
+    </condition>
+    <antcall target="inner.then"/>
+    <antcall target="inner.else"/>
+  </target>
+
+     <target name="inner.then" if="inner-condition">
+       <echo>INNER THEN BODY EXECUTED</echo>
+     </target>
+
+     <target name="inner.else" unless="inner-condition">
+       <echo>INNER ELSE BODY EXECUTED</echo>
+     </target>
+
+  <target name="else" unless="condition">
+    <echo>ELSE BODY EXECUTED</echo>
+  </target>
+</project>

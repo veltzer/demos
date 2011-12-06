@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="default" >
+
+	<target name="init" >
+		<property file="build.properties" />
+	</target>
+
+
+	<target name="default" depends="init, use-mapper"/>		
+
+	<target name="use-mapper" depends="init">
+			<echo message="${lib.dir}" />
+         <copy todir="${lib.dir}">
+			 <fileset dir="src"/>	
+			<mapper 
+				classname="CustomMapper" 
+				classpath="${lib.dir}/mapper.jar"
+				from="*"
+				to="*"/>			 
+	     </copy>		 
+	</target>
+
+</project>

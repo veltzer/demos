@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="default" >
+	<target name="init" >
+		<property file="build.properties" />
+	</target>
+
+
+	<target name="default" depends="init, jar"/>		
+
+	<target name="compile" depends="init" if="javac.enable" >
+		<mkdir dir="${build.dir}"/>
+		<javac srcdir="${src.dir}"
+			   destdir="${build.dir}"
+         	   debug="on" >
+			
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile" unless="jar.disable">
+
+		<mkdir dir="${lib.dir}" />
+		<jar destfile="${lib.dir}/media-condition.jar">
+			<fileset dir="${build.dir}">
+				<include name="**/*" />
+			</fileset>
+		</jar>
+
+	</target>
+
+	<target name="media-condition" depends="init">
+
+		<typedef name="media-condition"
+			 classname="MediaCondition"
+			 classpath="${lib.dir}/media-condition.jar"/>
+
+		<condition property="is.exists">
+		   <media-condition dir="./src"/>
+		</condition>
+		<echo message="${is.exists}"/>
+		 
+	</target>
+
+	<target name="clean" depends="init">
+		<delete dir="${lib.dir}"/>
+	</target>
+
+</project>
