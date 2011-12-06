@@ -1,5 +1,3 @@
-package ch4;
-
 /**
  * @author ant
  *
