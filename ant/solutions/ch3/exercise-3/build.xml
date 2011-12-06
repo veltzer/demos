@@ -3,10 +3,11 @@
 <project default="hello" name="HelloWorld" >
 	<target name="hello" >
 		<mkdir dir="build"/>
-		<javac srcdir="src"
-			   destdir="build"
-         	   debug="on" >
-			
+		<javac
+			srcdir="src"
+			destdir="build"
+			includeantruntime="false"
+		>
 		</javac>
 		<mkdir dir="lib" />
 		<jar destfile="lib/hello.jar">
