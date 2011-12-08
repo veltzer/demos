@@ -39,6 +39,10 @@
 		function Back(e) {
 			dojo.back.goBack();
 		}
+		function Back2(e) {
+			dojo.back.goBack();
+			dojo.back.goBack();
+		}
 		var states=[];
 		function MyState(p_sum,p_val) {
 			this.p_sum=p_sum;
@@ -82,5 +86,6 @@
 	</div>
 	<div dojoType="dijit.form.Button" onClick="sumNumbers">Add</div>
 	<div dojoType="dijit.form.Button" onClick="Back">Back</div>
+	<div dojoType="dijit.form.Button" onClick="Back2">Back2</div>
 	</body>
 </html>
