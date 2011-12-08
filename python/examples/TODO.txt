@@ -22,3 +22,4 @@
 	- locks.
 	- system(3) wrappers.
 	- fork and exec.
+- do demo of dis.dis for disassembly.
