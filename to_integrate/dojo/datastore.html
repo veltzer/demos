@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html> <head>
+	<title> Dojo: Data Store Example </title>
+	<script type="text/javascript" src="/myapp/dojo/dojo/dojo.js" djConfig="parseOnLoad:true, preventBackButtonFix:false"></script>
+	<style type="text/css">
+		@import "/myapp/dojo/dijit/themes/tundra/tundra.css";
+		@import "/myapp/dojo/dojo/resources/dojo.css";
+	</style>
+	<script type="text/javascript">
+		dojo.require("dijit.form.Button");
+		dojo.require("dijit.form.TextBox");
+		dojo.require("dojo.data.ItemFileReadStore");
+		
+		var startPoint = 0;
+		var store;
+		function initialization()
+		{
+			store = new dojo.data.ItemFileReadStore({url: "items.ajax"});
+			getData();
+		}
+		function getData()
+		{
+			var request = store.fetch({ start: startPoint , count: 3, onComplete: showCurrent})		
+		}
+		dojo.addOnLoad(initialization);
+		
+		function showCurrent(items,request)
+		{
+			if (items.length<3)
+			{
+				alert("no more data");
+				dijit.byId("nextButton").attr('disabled',true);
+				return
+			}
+			if (items.length>=1)
+			{
+				var firstItem = items[0];
+				dijit.byId("dataOne").attr('value',firstItem.name);
+			}
+			if (items.length>=2)
+			{
+				var secondItem = items[1];
+				dijit.byId("dataTwo").attr('value',secondItem.name);
+			}
+			if (items.length>=3)
+			{
+				var thirdItem = items[2];
+				dijit.byId("dataThree").attr('value',thirdItem.name);
+			}
+			if (items.length==3)
+				dijit.byId("nextButton").attr('disabled',false);
+			
+		}
+		function next()
+		{
+			if (startPoint==0)
+				dijit.byId("prevButton").attr('disabled',false);
+			startPoint+=1;
+			getData();
+		}
+		function prev()
+		{
+			startPoint-=1;
+			getData();
+			if (startPoint==0)
+				dijit.byId("prevButton").attr('disabled',true);
+		}
+	</script>
+</head>
+<body class="tundra">
+	<div dojoType="dijit.form.Button" id="prevButton" onClick="prev" disabled="true">	Prev</div>
+	<div dojoType="dijit.form.TextBox" id="dataOne" disabled="true">	</div>
+	<div dojoType="dijit.form.TextBox" id="dataTwo" disabled="true">	</div>
+	<div dojoType="dijit.form.TextBox" id="dataThree" disabled="true">	</div>
+	<div dojoType="dijit.form.Button" id="nextButton" onClick="next" disabled="true">	Next</div>
+</body>
+</html>

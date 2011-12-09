@@ -1,0 +1,11 @@
+{
+	label : 'name',
+	identifier: 'name',
+	items: [
+		{ name: "First Item" },
+		{ name: "Second item" }, 
+		{ name: "Third Item" },
+		{ name: "Forth Item" },
+		{ name: "Fifth Item" }
+	]
+}
