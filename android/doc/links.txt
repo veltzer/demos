@@ -1,0 +1,38 @@
+Android source code and building instructions:
+http://source.android.com/source/
+http://source.android.com/source/initializing.html
+
+Android initialisation:
+http://blog.csdn.net/loughsky/article/details/3293922
+
+Android notes:
+http://elinux.org/Android_Notes#C_Library_.28bionic.29_info
+
+Bionic and pthread locks:
+http://stackoverflow.com/questions/2282949/bionic-andorid-libc-mutex-variants
+
+Bionic:
+http://codingrelic.geekhold.com/2008/11/six-million-dollar-libc.html
+
+Kernel:
+http://mjg59.livejournal.com/100221.html
+http://elinux.org/Android_Kernel_Features
+
+Notes:
+http://elinux.org/Android_Notes#C_Library_.28bionic.29_info
+
+Building the android kernel:
+http://marakana.com/forums/android/examples/111.html
+
+Building an android kernel module:
+http://stackoverflow.com/questions/6282669/how-do-you-create-a-loadable-kernel-module-for-android
+
+ueventd:
+https://yhcting.wordpress.com/tag/ueventd/
+
+Android internals youtube lecture:
+http://www.youtube.com/watch?v=byFTAhXVF7k
+
+Binder:
+http://www.osnews.com/story/13674/Introduction_to_OpenBinder_and_Interview_with_Dianne_Hackborn
+http://www.angryredplanet.com/~hackbod/openbinder/docs/html/index.html

@@ -1,1 +1,1 @@
-This is the place where I put my Android projects and examples.
+Everything android is here (including NDK internals and java)
