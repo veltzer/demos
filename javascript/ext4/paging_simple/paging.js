@@ -8,11 +8,12 @@ Ext.onReady(function(){
 		idProperty: 'id'
 	});
 	var w_store=Ext.create('Ext.data.Store',{
-		pageSize: 50,
+		autoLoad: false,
+		pageSize: 20,
 		model: 'MovieModel',
 		proxy: {
 			type: 'ajax',
-			url: 'paging.json',
+			url: 'paging.php',
 			reader: {
 				type: 'json',
 				root: 'views',
@@ -25,24 +26,26 @@ Ext.onReady(function(){
 		store: w_store,
 		columns:[
 			{
-				text: "Id",
+				text: 'Id',
 				dataIndex: 'id',
-				width: 20,
+				flex: 1,
 				sortable: true,
 			},
 	    		{
-				text: "Name",
+				text: 'Name',
 				dataIndex: 'name',
-				flex: 1,
+				flex: 30,
 				sortable: true
 			},
 		],
-		bbar: Ext.create('Ext.PagingToolbar', {
+	    	dockedItems: [{
+			xtype: 'pagingtoolbar',
 			store: w_store,
+	    		dock: 'bottom',
 			displayInfo: true,
 			displayMsg: 'Displaying movies {0} - {1} of {2}',
-			emptyMsg: "No movies to display",
-		}),
+			emptyMsg: 'No movies to display',
+		}],
 		renderTo: 'movie-grid'
 	});
 	// trigger the data store load, we must do it or no data is displayed
