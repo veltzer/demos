@@ -12,7 +12,8 @@ Answer: exception.
 def my_mistery_function():
 	#global g
 	print g
-	g=17
+	if False:
+		g+=17
 	print g
 
 g=4

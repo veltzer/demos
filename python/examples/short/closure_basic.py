@@ -2,9 +2,7 @@
 
 """
 This is a basic closure example
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

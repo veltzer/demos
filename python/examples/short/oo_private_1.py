@@ -4,8 +4,9 @@
 	Mark Veltzer <mark@veltzer.net>
 """
 class MyClass:
-	pubvar=5
-	__privar=7
+	def __init__(self):
+		self.pubvar=5
+		self.__privar=5
 	def pr(self):
 		print 'printing'
 		print 'pubvar is '+str(self.pubvar)
@@ -39,5 +40,8 @@ print 'from outside its value looks like '+str(b.__privar)
 print 'this is our real var '+str(b._MyClass__privar);
 print 'this means that there is no real security for the __[var] in python'
 print 'lets look at our class'
+b._MyClass__privar=666
+b.pr()
+b.pr()
 print dir(MyClass)
 print dir(MyClass.__module__)

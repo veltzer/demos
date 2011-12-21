@@ -22,7 +22,6 @@ class Book:
 # lets create some books...
 b1=Book(14)
 b2=Book(13)
-
 # lets print the static data in various ways...
 print Book.num
 print b1.getNumBooks() 

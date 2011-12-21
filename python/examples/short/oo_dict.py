@@ -15,3 +15,4 @@ class A:
 a=A(7)
 print dir(a)
 a.printDict()
+print A.__dict__
