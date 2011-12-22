@@ -2,9 +2,7 @@
 
 """
 This is an example of how to build a simple generator
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 def my_reverse(data):

@@ -3,14 +3,12 @@
 """
 This is quite an advanced example of doing meta programming in python.
 This exercise shows how to:
-	- how to add a method to a class
-	- how to add a method to an instance. 
-"""
+	- add a method to a class
+	- add a method to an instance. 
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
-from new import *
+from new import instancemethod 
 import pprint
 
 class Person:
@@ -31,6 +29,9 @@ def secret_agent_print(self):
 	print self.fname+", "+self.name+" "+self.fname
 
 # lets add this method only to the 'b' instance...
+# this line does not work!
+#b.printMe=secret_agent_print
+# this works! turning a function into a method...
 b.printMe=instancemethod(secret_agent_print,b,Person)
 print "Only James is a secret agent..."
 p.printMe()
