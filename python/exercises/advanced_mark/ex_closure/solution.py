@@ -1,37 +1,36 @@
 #!/usr/bin/python
 
-import sys
-
 def Person(name,age):
-	data={}
-	data['name']=name
-	data['age']=age
+	def data():
+		pass
 	def setName(name):
-		data.__setitem__('name',name)
+		data.__dict__['name']=name
 	def getName():
-		return data.__getitem__('name')
+		return data.name
 	def setAge(age):
 		if age<=0:
-			print 'error!!!'
-			sys.exit(1)
-		data.__setitem__('age',age)
+			raise "age error"
+		data.__dict__['age']=age
 	def getAge():
-		return data.__getitem__('age')
+		return data.age
 	def printMe():
-		print 'name is ',data['name']
-		print 'age is ',data['age']
-	methods={}
-	methods['setName']=setName
-	methods['getName']=getName
-	methods['setAge']=setAge
-	methods['getAge']=getAge
-	methods['printMe']=printMe
-	return methods
+		print 'name is ',data.name
+		print 'age is ',data.age
+	data.setName=setName
+	data.getName=getName
+	data.setAge=setAge
+	data.getAge=getAge
+	data.printMe=printMe
+	setName(name)
+	setAge(age)
+	return data
 
+# usage...
 p1=Person('mark',36)
 p2=Person('doron',32)
-p1['printMe']()
-p2['printMe']()
-p1['setName']('foobar')
-p1['printMe']()
-p2['printMe']()
+print p1.name
+p1.printMe()
+p2.printMe()
+p1.setName('foobar')
+p1.setAge(74)
+p1.printMe()
