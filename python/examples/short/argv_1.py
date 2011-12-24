@@ -6,9 +6,7 @@ This means a script that behaves differently according to the manner in which it
 is called. When doing it you can symlink various names to your script and get
 diffrent behaviour. An prime example of this (although not in python) is the busybox
 toolset for embedded linux systems.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

@@ -9,9 +9,7 @@ TODO:
 	- make this program print it's own memory utilisation via OS mechanisms.
 	- show pythons APIs for knowing how much RAM you are wasting.
 	- compare the two and discuss the conslusions.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 import time;

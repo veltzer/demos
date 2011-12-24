@@ -2,9 +2,7 @@
 
 """
 This example explores the None variable and NoneType in python.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 a=None
@@ -29,7 +27,7 @@ else:
 
 # lets build a bool from None and see that it is false
 b=bool(None)
-print "bool(None) is ",b
+print "bool(None) is",b
 
 # lets try to build an int from a None and see that we fail.
 # This is good behaviour since it protects you from accidentaly
@@ -43,14 +41,36 @@ except TypeError as e:
 
 # on the other hand, None is covertible to str (string). Watch out!
 s=str(None)
-print "str(None) has type",type(s),"and has value",s
+print "str(None) has type",type(s),"and has value [%s]" % (s,)
 
-# lets show that IT IS NOT 0 or the empry string or False as far as actual value.
+# lets show that None is not 0 or the empry string or False as far as actual value.
 # We show this by storing all of them as keys in a dictionary.
 # Notice that False and 0 do step one over the other (not nice!).
 h={}
-h[None]="foo"
-h[0]="bar"
-h['']="zoo"
-h[False]="fubar"
+h[None]="value for None"
+h['']="value for ''"
+h[False]="value for False"
+h[0]="value for 0"
 print h
+
+# lets compare None to various things...
+if None==0:
+	print "None==0"
+else:
+	print "None!=0"
+if None==False:
+	print "None==False"
+else:
+	print "None!=False"
+if None==True:
+	print "None==True"
+else:
+	print "None!=True"
+if None=='':
+	print "None==''"
+else:
+	print "None!=''"
+if None=='None':
+	print "None=='None'"
+else:
+	print "None!='None'"

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 """
-This is an example of how to read data from the user.
+This is an example of how to read data from the user on the console.
 
 Notice that:
 - When you get data from 'raw_input' it is always a string.
@@ -9,9 +9,7 @@ Notice that:
 but there is a chance that they will throw an exception.
 - At the end of the string given to 'raw_input' you *do* need a space since
 raw input prints to the screen * exactly * what you give it...
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 text=raw_input("please give me a number: ")

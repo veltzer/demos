@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 """
+This is a simple doctest example.
+
 	Mark Veltzer <mark@veltzer.net>
 """
 def triple(x):

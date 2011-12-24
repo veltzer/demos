@@ -1,10 +1,8 @@
 #!/usr/bin/python
 
 """
-A minimal gtk application demo
-"""
+A minimal gtk application demo.
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 import gtk

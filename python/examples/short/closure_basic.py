@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 """
-This is a basic closure example
+This is a basic closure example.
 
 	Mark Veltzer <mark@veltzer.net>
 """

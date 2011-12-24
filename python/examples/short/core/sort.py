@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
 """
+Example of sorting with python.
+Notice the passing of the comparator and it's triped (1,0,-1) return value.
+
 	Mark Veltzer <mark@veltzer.net>
 """
 def compare(a,b):

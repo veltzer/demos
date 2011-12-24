@@ -2,9 +2,7 @@
 
 """
 A pygtk hello, world application
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 import pygtk

@@ -2,9 +2,7 @@
 
 """
 A notebook pygtk application
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 import pygtk

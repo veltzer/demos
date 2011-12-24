@@ -5,9 +5,7 @@ This example demostrates types in python and the use of the 'type' function.
 You can see that there is a difference between an object inheriting from object
 and one which does not. See the more advanced oo examples to explain this
 difference in detail.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 import math

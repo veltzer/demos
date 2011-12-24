@@ -3,9 +3,7 @@
 """
 This example shows how to get out of a constructor early.
 This is done via 'return None' or simply 'return' (which is the same).
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

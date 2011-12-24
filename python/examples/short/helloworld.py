@@ -2,9 +2,7 @@
 
 """
 A basic hello world program...
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

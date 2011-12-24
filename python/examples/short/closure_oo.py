@@ -15,9 +15,7 @@ dozens of elements we return all method pointers in a dictionary as
 well.
 B This allows the user to call our methods by name instead of by
 position in some returned tuple.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 def Person(name,age):

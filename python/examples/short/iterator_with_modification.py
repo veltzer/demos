@@ -17,9 +17,7 @@ from a dictionary while iterating it.
 What about changing the data structure via the iterator (like in Java) ?
 Not supported since the iterators are not intended to be used directly. See the
 relevant example.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

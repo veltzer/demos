@@ -4,9 +4,7 @@
 This example shows that python is strict about indentation and
 will fail the compilation/running if the code is not strictly
 indented.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

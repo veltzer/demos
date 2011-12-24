@@ -5,9 +5,7 @@ this is an example of building your own iterator
 In this example the object returns itself as the iterator
 (the return value from the __iter__ function). But it could have
 chosen to return another object.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 class Reverse:
@@ -26,7 +24,6 @@ class Reverse:
 """
 And now lets use the iterator...
 """
-
 l=[1,2,3,4,5,6,7]
 for x in Reverse(l):
 	print x

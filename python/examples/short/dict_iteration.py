@@ -3,9 +3,7 @@
 """
 An example exploring the many ways, right and wrong, to iterate
 a dictionary in python.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 h={}

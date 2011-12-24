@@ -4,9 +4,7 @@
 This is an example of how to debug a python application
 just run this application and you will enter debug mode
 as soon as you start the trace...
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 import pdb

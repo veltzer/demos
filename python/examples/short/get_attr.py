@@ -10,9 +10,7 @@ come in and out of scope at runtime. Uses for this could include:
 - ORM solutions.
 - Backwards compatibility solutions.
 And more...
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 class A:

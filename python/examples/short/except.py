@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 """
+Example code for raising an exception, catching it and executing finally code in python.
+
 	Mark Veltzer <mark@veltzer.net>
 """
 

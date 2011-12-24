@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 """
+This is an example of debugging python with pdb.
+
 	Mark Veltzer <mark@veltzer.net>
 """
 import sys
