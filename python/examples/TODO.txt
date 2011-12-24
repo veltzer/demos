@@ -7,6 +7,8 @@
 	from 'object' and not. See the 'type' example for a starting point for this one.
 - do more realistic singleton examples. With multi-thread support,
 	safe from direct construction and real static methods.
+- do a singleton example by overloading the __new__ operator and always
+	returning the same object.
 - do a multi theading example that shows thread ids at the operating system level.
 - do example about finally.
 - do example about __future__ division and //.
