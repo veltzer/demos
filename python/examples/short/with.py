@@ -29,7 +29,7 @@ with MyResource() as r:
 	print r
 assert enterCallsCounter==1
 assert exitCallsCounter==1
-print 'yes, if we got this far it means exit was called'
+print 'yes, if we got this far it means that both enter and exit were called exactly one time'
 
 """ now lets try to throw an exception from the 'with' block and see that exit it called """
 try:

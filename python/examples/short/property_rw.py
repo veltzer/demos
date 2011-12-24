@@ -8,9 +8,7 @@ This is an example of using a property in python.
 which cashes the value of __price but does not do this for
 the magical 'x.price' property.
 - This idea is similar to ideas in languages such as C#.
-"""
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 

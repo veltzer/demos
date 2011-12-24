@@ -10,6 +10,11 @@ a directory of files recursivly.
 """
 import os
 
-for root, dirs, files in os.walk('..'):
+for root, dirs, files in os.walk('.'):
 	#print root, dirs, files
-	print root, dirs
+	#print root, dirs, files
+	for file in files:
+		#print file
+		for num,line in enumerate(open(file)):
+			if line.startswith("import"):
+				print file, num, line 

@@ -18,6 +18,10 @@ for x in h.items():
 	print x
 	print "key is ",x[0]
 	print "val is ",x[1]
+# version two of the same method...
+for (k,v) in h.items():
+	print "key is ",k
+	print "val is ",v
 # this is the same but you only get a key each time
 for x in h:
 	print x

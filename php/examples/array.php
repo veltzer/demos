@@ -27,4 +27,24 @@ echo "<br>this is the attempt to access via case insensitive [".$object->Mark."]
 echo "<br>this is the attempt to access via case insensitive [".$object->VAR."]</br>";
 echo "<br>this is right one [".$object->var."]</br>";
 
+echo "<br>And now with objects...</br>";
+function manip($a) {
+	$a["foo"]="bar";
+}
+var_dump($array);
+manip($array);
+echo "<br>after manip</br>";
+var_dump($array);
+
+echo "<br>And now with objects...</br>";
+function manip_object($o) {
+	#$o->newkey="newval";
+	$o->hi="newhi";
+}
+
+var_dump($object);
+manip_object($object);
+echo "<br>after manip</br>";
+var_dump($object);
+
 ?>

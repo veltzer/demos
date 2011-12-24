@@ -1,5 +1,5 @@
-Reader Write Lock.
-	Write a reader write lock.
+Readers Writer Lock.
+	Write a readers writer lock.
 	Write a python object which will be used by thread authors.
 	It will have the following methods:
 		ReaderEnter
