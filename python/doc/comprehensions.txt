@@ -15,3 +15,10 @@ examples:
 		for x in xrange(5):
 			newlist.append(x*x)
 		return newlist
+
+comprehensions in general:
+(expr code)
+	===>
+	def anonymous():
+		code:
+			yield expr
