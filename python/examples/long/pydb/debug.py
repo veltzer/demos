@@ -1,12 +1,9 @@
 #!/usr/bin/python
 
 """
-This is an example of how to debug a python application
-just run this application and you will enter debug mode
-as soon as you start the trace...
-"""
+This is an example of a simple python application
+that you can use to debug with pydb.
 
-"""
 	Mark Veltzer <mark@veltzer.net>
 """
 
