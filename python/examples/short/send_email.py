@@ -9,7 +9,7 @@ import sys
 def send_email():
 	debug=False
 	config=ConfigParser.ConfigParser()
-	config.read(['scripts/myworld.cfg', os.path.expanduser('~/.myworld.cfg')])
+	config.read(['myworld.cfg']);
 	p_subject=config.get("email","subject")
 	p_from=config.get("email","from")
 	p_to=config.get("email","to").split(',')
