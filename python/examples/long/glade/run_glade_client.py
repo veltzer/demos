@@ -10,10 +10,10 @@ class HellowWorldGTK:
 
 	def __init__(self):
 		#Set the Glade file
-		self.gladefile = "project1.glade"  
+		self.gladefile = "project.glade"  
 	        self.wTree = gtk.glade.XML(self.gladefile) 
 		#Get the Main Window, and connect the "destroy" event
-		self.window = self.wTree.get_widget("MainWindow")
+		self.window = self.wTree.get_widget("window1")
 		if (self.window):
 			self.window.connect("destroy", gtk.main_quit)
 
