@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.wst.server.core.serverTypes">
+         <serverType
+            id="org.meta.rcp.myserver"
+            name="MyServerName"
+            description="MyServer description"
+            supportsRemoteHosts="false"
+            runtime="true"
+            startTimeout="30000"
+            stopTimeout="15000"
+            initialState="stopped"
+            hasConfiguration="true"
+            launchConfigId="org.meta.rcp.myserver.launch.id"
+            runtimeTypeId="org.meta.rcp.myserver.runtime.id"
+            class="org.meta.rcp.myserver.Server"
+            behaviourClass="org.meta.rcp.myserver.ServerBehaviour"
+            launchModes="run, debug, profile"
+            >
+        </serverType>
+   </extension>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+     <launchConfigurationType
+        id="org.meta.rcp.myserver.launch.id"
+        name="LanuchConfigType"
+        delegate="org.meta.rcp.myserver.Launch"
+        modes="run, debug, profile"
+        sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+        sourcePathComputerId="org.eclipse.jst.server.tomcat.core.sourcePathComputer"/>
+    </extension>
+    <extension
+         point="org.eclipse.wst.server.core.runtimeTypes">
+         <runtimeType
+             id="org.meta.rcp.myserver.runtime.id"
+             name="RuntimeName"
+             description="my runtime name description"
+             vendor="myVendor"
+             version="myVersion"
+             class="org.meta.rcp.myserver.Runtime"
+             >
+             <moduleType
+                 types="jst.web"
+                 versions="2.2, 2.3, 2.4, 2.5, 3.0"/>
+         </runtimeType>
+   </extension>
+</plugin>

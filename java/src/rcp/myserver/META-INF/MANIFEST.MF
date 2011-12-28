@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MyServer
+Bundle-SymbolicName: org.meta.rcp.myserver;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.meta.rcp.myserver.Activator
+Bundle-Vendor: This is the provider
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.wst.server.core,
+ org.eclipse.jdt.launching,
+ org.eclipse.debug.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

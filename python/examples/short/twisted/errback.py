@@ -21,5 +21,4 @@ def my_errback(error):
 defr=getPage('http://localhost')
 defr.addCallback(my_callback)
 defr.addErrback(my_errback)
-
 reactor.run()
