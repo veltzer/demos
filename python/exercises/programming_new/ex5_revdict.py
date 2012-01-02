@@ -1,8 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 """
 Excercise: write a function to inverse a dictionary.
-
 Assume that all values are different.
 """
 
@@ -45,6 +44,14 @@ def rev_dict4(d):
     """
     # generator expression (same but no intermediate list)
     return dict((v, k) for (k, v) in d.items())
+
+def rev_dict5(d):
+    """
+    >>> rev_dict5({"a": 2, "b": 3}) == {2: "a", 3: "b"}
+    True
+    """
+    # generator expression (same but no intermediate list)
+    return {v:k for k,v in d.items()}
 
 import doctest
 doctest.testmod()
