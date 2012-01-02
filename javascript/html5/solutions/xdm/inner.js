@@ -23,14 +23,14 @@ function sendMessage() {
 	}
 }
 
-
 function receiveMessage(e) {
-		if (e.origin == "http://dev1.nextgened.com") { 
-			// The data can probably be trusted 
-			// It came from the mainPage
-			serviceMessages = JSON.parse(e.data);
-			addStatus("dev1: " + serviceMessages.message);
-		}
+	alert("in the receiver"+e.origin);
+	if (e.origin == "http://dev1.nextgened.com") { 
+		// The data can probably be trusted 
+		// It came from the mainPage
+		serviceMessages = JSON.parse(e.data);
+		addStatus("dev1: " + serviceMessages.message);
+	}
 }
 
 function setStatus(status) {

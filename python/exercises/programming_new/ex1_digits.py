@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 s = raw_input("Please enter a line of digits: ")
 if not s.isdigit():

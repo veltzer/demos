@@ -6,13 +6,13 @@
 report={}
 
 # lets read all the lines in our own exercise...
-f = open("word_report.py")
-for line in f:
+# NOTE: the 'for' scope will close the file automagically...
+for line in open('word_report.py'):
 	for word in line.split():
-		if report.has_key(word):
-			report[word]+=1
-		else:
-			report[word]=1
-f.close()
+		if not report.has_key(word):
+			report[word]=0
+		report[word]+=1
 # lets print the report...
-print report
+# NOTE: the with statement takes care of closing the file for us...
+with open('/tmp/report','w') as f:
+	f.write(str(report))
