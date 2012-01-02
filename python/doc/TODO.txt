@@ -25,3 +25,4 @@
 	- system(3) wrappers.
 	- fork and exec.
 - do demo of dis.dis for disassembly.
+- show examples of controlling recursion depth via sys.setrecusionlimit.
