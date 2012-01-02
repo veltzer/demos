@@ -5,9 +5,6 @@ Excercise: write a function to inverse a dictionary.
 Assume that all values are different.
 """
 
-# Loop solution:
-# ==============
-
 def rev_dict1(d):
     """
     >>> rev_dict1({"a": 2, "b": 3}) == {2: "a", 3: "b"}
@@ -17,9 +14,6 @@ def rev_dict1(d):
     for (k, v) in d.items():
         rev_d[v] = k
     return rev_d
-
-# Build from reverse items:
-# =========================
 
 def rev_dict2(d):
     """
