@@ -1,24 +1,29 @@
+list comprehensions:
+====================
+	[expr code]
+is the same as:
+	newlist=[]
+	code:
+		newlist.append(expr)
+	return newlist
+example:
+	[x*x for x in xrange(5)]
+is the same as:
+	newlist=[]
+	for x in xrange(5):
+		newlist.append(x*x)
+	return newlist
 
-[expr code] 
-	===>
-
-		newlist=[]
-		code:
-			newlist.append(expr)
-		return newlist
-
-examples:
-
-[x*x for x in xrange(5)]
-	===>
-		newlist=[]
-		for x in xrange(5):
-			newlist.append(x*x)
-		return newlist
-
-comprehensions in general:
-(expr code)
-	===>
+generator comprehensions:
+=========================
+	(expr code)
+is the same as:
 	def anonymous():
 		code:
 			yield expr
+example:
+	(x*x for x in xrange(5))
+is the same as:
+	def anonumous():
+		for x in xrange(5):
+			yield x*x
