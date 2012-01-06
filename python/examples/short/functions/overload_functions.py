@@ -14,13 +14,13 @@ function so that it cannot be used.
 	Mark Veltzer <mark@veltzer.net>
 """
 def foo():
-	print "hello"
+	print("hello")
 
 def foo(a):
-	print "hello",a
+	print("hello",a)
 
 try:
 	foo()
 except TypeError:
-	print "oops, got an error"
+	print("oops, got an error")
 foo("mark")

@@ -21,10 +21,10 @@ relevant example.
 	Mark Veltzer <mark@veltzer.net>
 """
 
-print """
+print("""
 example number 1 - removing elements in the list in the position before
 the place where we are in. Result: Certain elements are never visited.
-"""
+""")
 size=10
 l=range(size)
 elements_visited=set()
@@ -36,15 +36,15 @@ for i,x in enumerate(l):
 		l.pop(0)
 	elements_visited.add(x)
 if len(elements_visited)!=size:
-	print "elements_visited is %d while size is %d" % (len(elements_visited),size)
-	print "This can cause problems for various algorithms"
-print 'elements not visited are',all_elements-elements_visited
-print 'remember that the element removed was 0...'
+	print("elements_visited is %d while size is %d" % (len(elements_visited),size))
+	print("This can cause problems for various algorithms")
+print('elements not visited are',all_elements-elements_visited)
+print('remember that the element removed was 0...')
 
-print """
+print("""
 example number 2 - removing elements in the list in the position before
 the place where we are in but doing it on the last element
-"""
+""")
 size=10
 l=range(size)
 elements_visited=set()
@@ -55,14 +55,14 @@ for i,x in enumerate(l):
 	try:
 		elements_visited.add(l[i])
 	except IndexError as e:
-		print 'yes, got errors when accessing l[i]'
+		print('yes, got errors when accessing l[i]')
 if len(elements_visited)!=size:
-	print "elements_visited is %d while size is %d" % (len(elements_visited),size)
-	print "This can cause problems for various algorithms"
+	print("elements_visited is %d while size is %d" % (len(elements_visited),size))
+	print("This can cause problems for various algorithms")
 
-print """
+print("""
 example number 3 - adding elements before the position that we are in
-"""
+""")
 size=10
 l=range(size)
 elements_visited=set()
@@ -72,15 +72,15 @@ for i,x in enumerate(l):
 		for y in xrange(3):
 			l.insert(0,10+y)
 	if x in elements_visited:
-		print 'yep - we are visiting %d twice...' % (x)
+		print('yep - we are visiting %d twice...' % (x))
 	elements_visited.add(x)
 if len(elements_visited)!=len(l):
-	print "elements_visited is %d while size is %d" % (len(elements_visited),len(l))
-	print "This can cause problems for various algorithms"
+	print("elements_visited is %d while size is %d" % (len(elements_visited),len(l)))
+	print("This can cause problems for various algorithms")
 
-print """
+print("""
 example number 4 - adding elements to a dictionary while iterating it
-"""
+""")
 try:
 	d={"one":"ehad","two":"shnaim","three":"shalosh"}
 	all_elements=set(d.keys())
@@ -92,11 +92,11 @@ try:
 		elements_visited.add(k)
 		i+=1
 except RuntimeError as e:
-	print 'yes, got runtime error when trying to modify the exception:',e
+	print('yes, got runtime error when trying to modify the exception:',e)
 
-print """
+print("""
 example number 5 - removing elements to a dictionary while iterating it
-"""
+""")
 try:
 	d={"one":"ehad","two":"shnaim","three":"shalosh"}
 	all_elements=set(d.keys())
@@ -108,13 +108,13 @@ try:
 		elements_visited.add(k)
 		i+=1
 except RuntimeError as e:
-	print 'yes, got runtime error when trying to modify the exception:',e
+	print('yes, got runtime error when trying to modify the exception:',e)
 
-print """
+print("""
 example number 6 - adding and removing elements in dictionary while iterating it
 thus keeping the size of the dictionary the same.
 Notice that we do not get an exception in this case.
-"""
+""")
 d={"one":"ehad","two":"shnaim","three":"shalosh"}
 all_elements=set(d.keys())
 elements_visited=set()
@@ -129,9 +129,9 @@ for (k,v) in d.iteritems():
 		del d['three']
 	elements_visited.add(k)
 	i+=1
-print 'elements not visited are',all_elements-elements_visited
-print 'elements visited are',elements_visited
-print 'and you can see we have old and new elements visited'
+print('elements not visited are',all_elements-elements_visited)
+print('elements visited are',elements_visited)
+print('and you can see we have old and new elements visited')
 if len(elements_visited)!=len(all_elements):
-	print "elements_visited is %d while size is %d" % (len(elements_visited),len(all_elements))
-	print "This can cause problems for various algorithms"
+	print("elements_visited is %d while size is %d" % (len(elements_visited),len(all_elements)))
+	print("This can cause problems for various algorithms")

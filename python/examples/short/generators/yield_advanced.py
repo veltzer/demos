@@ -18,11 +18,11 @@ what happens with twisted).
 
 def evens():
 	for x in xrange(0,100,2):
-		print 'evens say ',x
+		print('evens say ',x) 
 		yield
 def odds():
 	for x in xrange(10001,10101,2):
-		print 'odds say ',x
+		print('odds say ',x)
 		yield
 
 c1=evens()

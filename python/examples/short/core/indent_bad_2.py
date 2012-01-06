@@ -8,5 +8,5 @@ In this example it will cause a compliation abort with an IndentationError.
 """
 x=6
 if x==5:
-        print "gdbye"
-	 print "hello"
+        print("gdbye")
+	 print("hello")

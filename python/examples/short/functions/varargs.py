@@ -8,7 +8,7 @@ or the arguments that it is supposed to receive.
 	Mark Veltzer <mark@veltzer.net>
 """
 def my_print(x):
-	print x
+	print(x)
 def call_many_times(func,times,*args,**kwargs):
 	for x in xrange(times):
 		func(*args,**kwargs)

@@ -10,7 +10,7 @@ def my_reverse(data):
 		yield data[index]
 
 for char in my_reverse('golf'):
-	print char
+	print(char)
 
 """
 Notice that 'my_reverse' is still recognized as a plain function and not
@@ -20,7 +20,7 @@ Compare this to pythons own 'reversed' generator:
 - it is built in so it's type is type
 - when using it as a generator it's type is 'reversed'.
 """
-print type(my_reverse)
-print type(my_reverse('golf'))
-print type(reversed)
-print type(reversed('golf'))
+print(type(my_reverse))
+print(type(my_reverse('golf')))
+print(type(reversed))
+print(type(reversed('golf')))

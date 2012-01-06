@@ -4,10 +4,10 @@
 # the function returns a list where each element is the application of the
 # relevant unary function on the single argument
 
-def map_like(func_list,arg,*extra,**named_extra):
+def map_like(func_list,*extra,**named_extra):
 	result=[]
 	for func in func_list:
-		result.append(func(arg,*extra,**named_extra))
+		result.append(func(*extra,**named_extra))
 	return result
 
 def add(x,y,correction_factor=7):

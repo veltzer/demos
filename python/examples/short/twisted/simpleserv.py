@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+"""
+A simple twisted server doing echo on two ports.
+
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 from twisted.internet import reactor, protocol
 
 class Echo(protocol.Protocol):

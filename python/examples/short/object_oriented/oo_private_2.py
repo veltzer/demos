@@ -37,7 +37,7 @@ except AttributeError as e:
 # in the object
 print "if you see silmarilion below it means we changed the attribute even though it has _ in front of it"
 b._name='silmarilion'
-b.printMe();
+b.printMe()
 
 # Now lets see what the object really has...
 print dir(b)

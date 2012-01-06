@@ -19,4 +19,4 @@ arr=m.items()
 arr.sort(cmp=compare)
 
 for x in arr:
-	print arr[0]+" "+str(arr[1])
+	print(arr[0]+" "+str(arr[1]))
