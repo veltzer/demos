@@ -16,7 +16,7 @@ code and so the default version should be determined by the
 distribution vendor and not by you. If you want to use a different
 version of python install it (either from the vendor if it's available
 or from binary or source code on your own) and use your own version
-explicitly with the shbang line or envrionment variables, or maybe
+explicitly with the shbang line or envrionment variables,or maybe
 absolute path on the command line.
 
 	Mark Veltzer <mark@veltzer.net>

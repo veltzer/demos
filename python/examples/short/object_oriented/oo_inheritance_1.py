@@ -23,7 +23,7 @@ class A(object):
 		print('A.method_overloaded2')
 	def method_onlya(self):
 		print('A.method_onlya')
-		print("a is ", self.a)
+		print("a is",self.a)
 
 class B(A):
 	def __init__(self,p_b,p_a):
@@ -42,8 +42,8 @@ class B(A):
 		super(self.__class__,self).method_overloaded2()
 	def method_onlyb(self):
 		print('B.method_onlyb')
-		print("a is ", self.a)
-		print("b is ", self.b)
+		print("a is",self.a)
+		print("b is",self.b)
 
 a=A(6)
 print("dir(a) is")

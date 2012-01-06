@@ -35,7 +35,7 @@ print("Total time taken for largeFibonnaciNumber call: %0.3f seconds" % (timeAft
 # add a callback to it to output the number
 
 def printNumber(number):
-	print("The %dth Fibonacci number is %d" % (TARGET, number))
+	print("The %dth Fibonacci number is %d"%(TARGET,number))
 
 print("Adding the callback now.")
 d.addCallback(printNumber)

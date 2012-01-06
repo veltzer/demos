@@ -3,7 +3,7 @@
 """
 This is an example of using a property in python.
 - We store the value in the 'real' attribute '__price'.
-- This attribute is "private" (well, mangled anyway...).
+- This attribute is "private" (well,mangled anyway...).
 - This example also uncovers a bug in the python interpreter
 which cashes the value of __price but does not do this for
 the magical 'x.price' property.

@@ -9,21 +9,21 @@ a=None
 
 # lets output the type of None
 # this type is special and is shared by no other type in the python type system.
-print("type of None is", type(a))
+print("type of None is",type(a))
 
 # lets show that two nones are exactly the same
 # they sort of "point to" the same place as far as the python "is" operator is concerned.
 b=None
 if a==b:
-	print("yes , None==None")
+	print("yes,None==None")
 if a is b:
-	print("yes , None is None")
+	print("yes,None is None")
 
 # lets show that None serves as "False" as far as booleans are concerned.
 if None:
 	pass
 else:
-	print("yes, None is False as far as if statements are concerned")
+	print("yes,None is False as far as if statements are concerned")
 
 # lets build a bool from None and see that it is false
 b=bool(None)
@@ -37,9 +37,9 @@ print("bool(None) is",b)
 try:
 	i=int(None)
 except TypeError as e:
-	print("yes, got exception from convering None to int",e)
+	print("yes,got exception from convering None to int",e)
 
-# on the other hand, None is covertible to str (string). Watch out!
+# on the other hand,None is covertible to str (string). Watch out!
 s=str(None)
 print("str(None) has type",type(s),"and has value [%s]" % (s,))
 

@@ -6,4 +6,4 @@ A basic hello world program...
 	Mark Veltzer <mark@veltzer.net>
 """
 
-print("Hello, World!")
+print("Hello World!")

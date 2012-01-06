@@ -8,7 +8,7 @@ There is a kind of overloading in python using named arguments and
 variable arguments but not of this kind.
 
 Functions also share the same namespace with regular variables. So,
-in this example, defining a variable named 'foo' would override the
+in this example,defining a variable named 'foo' would override the
 function so that it cannot be used.
 
 	Mark Veltzer <mark@veltzer.net>
@@ -22,5 +22,5 @@ def foo(a):
 try:
 	foo()
 except TypeError:
-	print("oops, got an error")
+	print("oops,got an error")
 foo("mark")

@@ -2,7 +2,7 @@
 
 """
 This example shows how to use varargs in python to do useful work.
-In this case, calling a function many times without knowing the function
+In this case,calling a function many times without knowing the function
 or the arguments that it is supposed to receive.
 
 	Mark Veltzer <mark@veltzer.net>

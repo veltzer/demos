@@ -28,7 +28,7 @@ print 'getNumBooks() is ',getNumBooks()
 try:
 	print b1.getNumBooks()
 except AttributeError as e:
-	print 'no, cannot access the static method via the instance'
+	print 'no,cannot access the static method via the instance'
 # access the static member through an instance...
 print b1.num
 print b2.num

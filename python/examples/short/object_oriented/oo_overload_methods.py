@@ -19,13 +19,13 @@ class A:
 try:
 	a=A(5)
 except TypeError:
-	print('oops, got an error')
+	print('oops,got an error')
 	print('the no argument version of the constructor does not exist...')
 # this will pass without an exception...
 a=A()
 try:
 	a.sayHello()
 except TypeError:
-	print('oops, got an error')
+	print('oops,got an error')
 	print('the no argument version of the method \'sayHello\' does not exist...')
 a.sayHello("mark")

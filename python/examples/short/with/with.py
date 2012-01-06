@@ -21,7 +21,7 @@ class MyResource:
 		enterCallsCounter+=1
 		return self
 	""" this method will be called at the end of the "with" block """
-	def __exit__(self, type, value, traceback):
+	def __exit__(self,type,value,traceback):
 		print("doing __exit__")
 		global exitCallsCounter
 		exitCallsCounter+=1
@@ -32,7 +32,7 @@ with MyResource() as r:
 	print(r)
 assert enterCallsCounter==1
 assert exitCallsCounter==1
-print("yes, if we got this far it means that both enter and exit were called exactly one time")
+print("yes,if we got this far it means that both enter and exit were called exactly one time")
 
 """ now lets try to throw an exception from the "with" block and see that exit it called """
 try:
@@ -43,7 +43,7 @@ except Exception:
 	pass
 assert enterCallsCounter==2
 assert exitCallsCounter==2
-print("yes, if we got this far it means that both enter and exit were called exactly one time")
+print("yes,if we got this far it means that both enter and exit were called exactly one time")
 
 """ now lets try to suppress the exception thrown """
 with MyResource(suppress=True) as r:
@@ -51,4 +51,4 @@ with MyResource(suppress=True) as r:
 	raise Exception("foobar")
 assert enterCallsCounter==3
 assert exitCallsCounter==3
-print("yes, if we got this far it means that both enter and exit were called exactly one time")
+print("yes,if we got this far it means that both enter and exit were called exactly one time")

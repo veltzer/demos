@@ -16,5 +16,5 @@ import os
 #exit(114)
 try:
 	exit(115)
-except SystemExit, e:
-	print "hey, I did not exit"
+except SystemExit,e:
+	print("hey,I did not exit")

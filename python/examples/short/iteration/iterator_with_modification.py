@@ -3,9 +3,9 @@
 """
 The purpose of this example is to show what happens when we modify elements
 while iterating. What is the moral of this example? DONT DO IT. Do not modify
-data structures while you are iterating them. Mind you that python, unlike
-other languages like Java, will not protect you in the least from doing these
-types of mistakes. You may get an exception, if you are lucky! So if you
+data structures while you are iterating them. Mind you that python,unlike
+other languages like Java,will not protect you in the least from doing these
+types of mistakes. You may get an exception,if you are lucky! So if you
 go down this path you are responsible for all your wrong doings...
 
 What about dictionary?
@@ -55,7 +55,7 @@ for i,x in enumerate(l):
 	try:
 		elements_visited.add(l[i])
 	except IndexError as e:
-		print('yes, got errors when accessing l[i]')
+		print('yes,got errors when accessing l[i]')
 if len(elements_visited)!=size:
 	print("elements_visited is %d while size is %d" % (len(elements_visited),size))
 	print("This can cause problems for various algorithms")
@@ -92,7 +92,7 @@ try:
 		elements_visited.add(k)
 		i+=1
 except RuntimeError as e:
-	print('yes, got runtime error when trying to modify the exception:',e)
+	print('yes,got runtime error when trying to modify the exception:',e)
 
 print("""
 example number 5 - removing elements to a dictionary while iterating it
@@ -108,7 +108,7 @@ try:
 		elements_visited.add(k)
 		i+=1
 except RuntimeError as e:
-	print('yes, got runtime error when trying to modify the exception:',e)
+	print('yes,got runtime error when trying to modify the exception:',e)
 
 print("""
 example number 6 - adding and removing elements in dictionary while iterating it

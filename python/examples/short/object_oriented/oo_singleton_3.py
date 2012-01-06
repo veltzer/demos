@@ -16,7 +16,7 @@ class A:
 			raise Exception('you called the constructor twice!!')
 		else:
 			# constructor code goes here
-			print 'in A constructor'
+			print('in A constructor')
 			self.my_attribute='value'
 
 	lock=threading.Lock()
@@ -32,8 +32,8 @@ class A:
 a1=A.getInstance()
 a2=A.getInstance()
 if a1 is a2:
-	print "yes, they are the same instance"
-print a1
-print a2
-print dir(a1)
-print dir(a2)
+	print("yes,they are the same instance")
+print(a1)
+print(a2)
+print(dir(a1))
+print(dir(a2))

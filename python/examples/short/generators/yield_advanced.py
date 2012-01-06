@@ -3,7 +3,7 @@
 """
 This is a time sharing example...
 The main code of this example is like an operating system that shares time
-between the two "threads" or "processes". Each one has a state, stack and all.
+between the two "threads" or "processes". Each one has a state,stack and all.
 This is a co-operative system: if one of the processes never calls yield or goes
 into a blocking call then the entire system stalls.
 What is this good for?

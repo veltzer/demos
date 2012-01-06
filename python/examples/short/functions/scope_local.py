@@ -3,7 +3,7 @@
 """
 This example shows that you cannot change the value of a local variable indirectly
 using the locals() or the vars() dictionaries.
-You CAN, however, change the global variables...
+You CAN,however,change the global variables...
 
 Things to notice:
 - inside the function vars and locals look the same.

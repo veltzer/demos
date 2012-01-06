@@ -8,23 +8,22 @@ Echo server program
 import socket
 import sys
 
-HOST = None # Symbolic name meaning all available interfaces
-PORT = 5000 # Arbitrary non-privileged port
-s = None
-for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC,
-	socket.SOCK_STREAM, 0, socket.AI_PASSIVE):
-	af, socktype, proto, canonname, sa = res
+HOST=None # Symbolic name meaning all available interfaces
+PORT=5000 # Arbitrary non-privileged port
+s=None
+for res in socket.getaddrinfo(HOST,PORT,socket.AF_UNSPEC,socket.SOCK_STREAM,0,socket.AI_PASSIVE):
+	af,socktype,proto,canonname,sa=res
 	try:
-		s = socket.socket(af, socktype, proto)
-	except socket.error, msg:
-		s = None
+		s=socket.socket(af,socktype,proto)
+	except socket.error,msg:
+		s=None
 		continue
 	try:
 		s.bind(sa)
 		s.listen(1)
-	except socket.error, msg:
+	except socket.error,msg:
 		s.close()
-		s = None
+		s=None
 		continue
 	break
 	if s is None:
@@ -35,10 +34,10 @@ while True:
 	print('Connected by',addr)
 	while True:
 		try:
-			data = conn.recv(1024)
+			data=conn.recv(1024)
 			if not data:
 				break
 			conn.send(data)
 		except:
-			print "exception happened..."
+			print("exception happened...")
 	conn.close()

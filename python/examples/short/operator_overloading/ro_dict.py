@@ -26,4 +26,4 @@ d.ro=True
 try:
 	d['a']='u'
 except Exception,e:
-	print 'yes, got exception. Dictionary is read only'
+	print 'yes,got exception. Dictionary is read only'

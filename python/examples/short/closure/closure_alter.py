@@ -8,7 +8,7 @@ Here are the ways to do it:
 - We may return a "closure altering" function which then can be
 used to change the closure.
 - We may return a function that returns pointers to the data in
-the closure. If these are data structures (lists, dictionaries
+the closure. If these are data structures (lists,dictionaries
 or sets) then they will be returned by reference and thus we
 will be able to change them from the outside. If these are object
 then they will also be returned by reference and again we could

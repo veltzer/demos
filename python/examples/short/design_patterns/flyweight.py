@@ -2,7 +2,7 @@
 
 """
 An Example of the flyweight pattern in python. The idea is to use the scoping rules of python (instance,
-class, module, global) to make the flyweight feel natural. It seems that in python this pattern is much
+class,module,global) to make the flyweight feel natural. It seems that in python this pattern is much
 more natural than in other languages.
 
 	Mark Veltzer <mark@veltzer.net>

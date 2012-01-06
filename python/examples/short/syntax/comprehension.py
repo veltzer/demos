@@ -23,5 +23,5 @@ print map(lambda t: t[0]*t[1],tup_list)
 
 print { x*2 for x in range(10) }
 print { 2,3,4 }
-print { 2:3, 4:5 }
+print { 2:3,4:5 }
 print { x:x**2 for x in range(10) }

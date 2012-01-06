@@ -6,12 +6,12 @@ A simple twisted server doing echo on two ports.
 	Mark Veltzer <mark@veltzer.net>
 """
 
-from twisted.internet import reactor, protocol
+from twisted.internet import reactor,protocol
 
 class Echo(protocol.Protocol):
     """This is just about the simplest possible protocol"""
-    def dataReceived(self, data):
-        "As soon as any data is received, write it back."
+    def dataReceived(self,data):
+        "As soon as any data is received,write it back."
         self.transport.write(data)
 
 factory = protocol.ServerFactory()

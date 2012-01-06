@@ -27,7 +27,7 @@ class D:
 try:
 	a=A()
 except TypeError:
-	print('oh, no. Cant construct an object. Must pass self')
+	print('oh,no. Cant construct an object. Must pass self')
 b=B()
 c=C()
 d=D()

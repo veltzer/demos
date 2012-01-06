@@ -26,7 +26,7 @@ b.printMe()
 
 # lets define a function that looks like a method of person...
 def secret_agent_print(self):
-	print(self.fname+", "+self.name+" "+self.fname)
+	print(self.fname+",",self.name,self.fname)
 
 # lets add this method only to the 'b' instance...
 # this line does not work!

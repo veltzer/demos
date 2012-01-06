@@ -34,7 +34,7 @@ def send_email():
 	msg=email.mime.text.MIMEText(p_content)
 	msg["Subject"]=p_subject
 	msg["From"]=p_from
-	# Send the message via our own SMTP server, but dont include the # envelope header.
+	# Send the message via our own SMTP server,but dont include the # envelope header.
 	server=smtplib.SMTP(p_smtp_host)
 	if(p_debug):
 		server.set_debuglevel(1)
