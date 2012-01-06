@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+"""
+A more complex example involving deferreds.
+
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 from twisted.internet import defer
 import time
 	    

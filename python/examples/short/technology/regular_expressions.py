@@ -10,4 +10,4 @@ import re # for .compile,.finditer
 c=re.compile('^foobar$')
 
 if c.match('foobar'):
-	print 'yes'
+	print('yes')

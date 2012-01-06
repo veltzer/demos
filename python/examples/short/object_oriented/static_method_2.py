@@ -11,7 +11,7 @@ class Book:
 		self.__price=price
 		Book.num+=1
 	def printit(self):
-		print 'price is',self.__price
+		print('price is',self.__price)
 	def setPrice(self,newprice):
 		self.__price=newprice
 	def getNumBooks(self=None):
@@ -20,10 +20,10 @@ class Book:
 # lets create some books...
 b1=Book(14)
 b2=Book(13)
-# lets print the static data in various ways...
-print Book.num
-print b1.getNumBooks() 
-print Book.getNumBooks(b1)
+# lets output the static data in various ways...
+print(Book.num)
+print(b1.getNumBooks())
+print(Book.getNumBooks(b1))
 # these will throw an exception since you must pass an instance...
-#print Book.getNumBooks()
-#print Book.getNumBooks(None)
+#print(Book.getNumBooks())
+#print(Book.getNumBooks(None))

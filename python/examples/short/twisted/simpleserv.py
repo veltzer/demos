@@ -14,8 +14,8 @@ class Echo(protocol.Protocol):
         "As soon as any data is received,write it back."
         self.transport.write(data)
 
-factory = protocol.ServerFactory()
-factory.protocol = Echo
+factory=protocol.ServerFactory()
+factory.protocol=Echo
 """This runs the protocol on port 8000"""
 reactor.listenTCP(8000,factory)
 """And again on port 8002"""

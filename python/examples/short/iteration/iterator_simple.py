@@ -18,7 +18,7 @@ class Reverse:
 	def next(self):
 		if self.index == 0:
 			raise StopIteration
-		self.index = self.index - 1
+		self.index=self.index - 1
 		return self.data[self.index]
 
 """
@@ -26,4 +26,4 @@ And now lets use the iterator...
 """
 l=[1,2,3,4,5,6,7]
 for x in Reverse(l):
-	print x
+	print(x)

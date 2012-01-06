@@ -43,8 +43,8 @@ def make_funcs(l):
 # alter the list via the mechanisms described above.
 
 # first lets output the initial state
-print("f_max is ",f_max())
-print("f_min is ",f_min())
+print("f_max is",f_max())
+print("f_min is",f_min())
 
 print("""
 lets use the first method mentioned above - lets use the f_set
@@ -52,8 +52,8 @@ function to alter the closure
 """)
 f_set(3,5)
 f_set(2,0)
-print("f_max is ",f_max())
-print("f_min is ",f_min())
+print("f_max is",f_max())
+print("f_min is",f_min())
 
 print("""
 lets use the second method mentioned above - returning the internals
@@ -61,16 +61,16 @@ of the closure using a closure function...
 """)
 f_int()[3]=6
 f_int()[2]=-1
-print("f_max is ",f_max())
-print("f_min is ",f_min())
+print("f_max is",f_max())
+print("f_min is",f_min())
 
 print("""
 lets use the third method mentioned above - the __closure__ property.
 """)
 f_max.__closure__[0].cell_contents[3]=7
 f_max.__closure__[0].cell_contents[2]=-2
-print("f_max is ",f_max())
-print("f_min is ",f_min())
+print("f_max is",f_max())
+print("f_min is",f_min())
 
 # after we do this then the list will be garbage collected...
 f_max=None

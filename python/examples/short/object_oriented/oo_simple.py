@@ -15,7 +15,7 @@ class Book(object):
 	def setPrice(self,newprice):
 		self.__price=newprice
 	def printMe(self):
-		print 'price is',self.__price
+		print('price is',self.__price)
 
 """ Lets show how we use our object... """
 b=Book(50)

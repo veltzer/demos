@@ -19,4 +19,4 @@ for root,dirs,files in os.walk('.'):
 		for num,line in enumerate(open(full)):
 			line=line[:-1]
 			for x in c.finditer(line):
-				print "%s,%s: %s" % (full,num,line)
+				print("%s,%s: %s" % (full,num,line))

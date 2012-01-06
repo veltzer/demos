@@ -30,7 +30,7 @@ b.printMe()
 # Notice that we get an exception not because the attribute is 'private'
 # but rather because such an attribute really DOES NOT exist...
 try:
-	print("price is ",b.__price)
+	print("price is",b.__price)
 except AttributeError as e:
 	print("You see,you cannot directly change the attribute because THERE IS no such attribute")
 # We CAN change the name since attributes that have just one _ in front of them appear AS IS

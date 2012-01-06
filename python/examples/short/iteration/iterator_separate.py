@@ -32,14 +32,14 @@ And now lets use the iterator...
 """
 l=range(7)
 for x in Reverse(l):
-	print x
+	print(x)
 
 """
 notice that Reverse(x) is NOT an iterator,at least by pythons understanding of it.
 Compare to pythons own reversed(x) implementation which does return an iterator...
 """
 r=Reverse(l)
-print type(r)
+print(type(r))
 r2=reversed(l)
-print type(r2)
-print dir(r2)
+print(type(r2))
+print(dir(r2))

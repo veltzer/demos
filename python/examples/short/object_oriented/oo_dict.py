@@ -16,7 +16,7 @@ class A:
 		print('in A constructor')
 		self.a=val
 	def printMe(self):
-		print("a is ",self.a)
+		print("a is",self.a)
 
 a=A(7)
 print("dir(a) follows...")

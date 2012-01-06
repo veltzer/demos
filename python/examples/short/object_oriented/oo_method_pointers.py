@@ -11,9 +11,9 @@ class MyObj():
 		self.curFunc=self.handle_hello
 		self.a=5
 	def handle_hello(self,line):
-		print "hello got line ",line,self.a
+		print("hello got line",line,self.a)
 	def doTheCall(self,line):
-		print "got line ",line
+		print("got line",line)
 		self.curFunc(line)
 
 

@@ -34,7 +34,7 @@ class HelloWorld:
 
 	def __init__(self):
 		# create a new window
-		self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+		self.window=gtk.Window(gtk.WINDOW_TOPLEVEL)
 
 		# When the window is given the "delete_event" signal (this is given
 		# by the window manager,usually by the "close" option,or on the
@@ -52,7 +52,7 @@ class HelloWorld:
 		self.window.set_border_width(10)
 
 		# Creates a new button with the label "Hello World".
-		self.button = gtk.Button("Hello World")
+		self.button=gtk.Button("Hello World")
 
 		# When the button receives the "clicked" signal,it will call the
 		# function hello() passing it None as its argument. The hello()
@@ -81,5 +81,5 @@ class HelloWorld:
 # If the program is run directly or passed as an argument to the python
 # interpreter then create a HelloWorld instance and show it
 if __name__ == "__main__":
-	hello = HelloWorld()
+	hello=HelloWorld()
 	hello.main()

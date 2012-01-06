@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+"""
+An example demonstrating twisteds "callInThread" function.
+
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 from twisted.internet import reactor
 import time
 
@@ -8,9 +14,11 @@ def aSillyBlockingMethod(t,stop):
 	time.sleep(t)
 	print(t,"seconds have passed")
 	# this will not work - we are running in a separate thread...
+	# if stop:
+	#	reactor.stop()
+	# instead we must do:
 	if stop:
 		reactor.callFromThread(reactor.stop)
-		#reactor.stop()
 
 # run method in thread
 reactor.callInThread(aSillyBlockingMethod,10,True)

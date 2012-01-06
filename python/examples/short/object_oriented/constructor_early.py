@@ -17,7 +17,7 @@ class Book:
 	def getPrice(self):
 		return self.__price
 	def printMe(self):
-		print 'printMe: price is',self.__price
+		print('printMe: price is',self.__price)
 
 b=Book(50)
 b.setPrice(60)

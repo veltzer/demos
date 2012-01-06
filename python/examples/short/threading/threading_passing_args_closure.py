@@ -8,7 +8,7 @@ import threading
 
 # this function was written with NO consideratiion of threading...
 def func(data):
-	print data
+	print(data)
 
 # this is a wrapper that creates a function with no argument
 # that runs any other function with arguments

@@ -19,5 +19,5 @@ def system_check_output(cmd,input=None,cwd=None,env=None):
 		raise ValueError('error in executing',cmd)
 	return output
 
-print system_check_output('ls -l | grep .')
-print system_check_output('ll -l | grep .')
+print(system_check_output('ls -l | grep .'))
+print(system_check_output('ll -l | grep .'))

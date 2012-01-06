@@ -23,7 +23,7 @@ import threading
 
 # a small debugging function that prints the thread doing the printing...
 def debug(msg):
-	print threading.currentThread().name,msg
+	print(threading.currentThread().name,msg)
 
 # a wrapper function to call an old signal handler
 def call_old(old_val,signum,frame):

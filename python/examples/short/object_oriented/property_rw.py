@@ -21,21 +21,21 @@ class Book:
 		self.__price=val
 	price=property(getPrice,setPrice)
 	def printViaprop(self):
-		print 'printMe: price is',self.price
+		print('printMe: price is',self.price)
 	def printViadirect(self):
-		print 'printMe: price is',self.__price
+		print('printMe: price is',self.__price)
 	def printViaget(self):
-		print 'printMe: price is',self.getPrice()
+		print('printMe: price is',self.getPrice())
 
-print 'this is the type(Book.price)',type(Book.price)
+print('this is the type(Book.price)',type(Book.price))
 b=Book(50)
-print 'this is dir(instance)',dir(b)
+print('this is dir(instance)',dir(b))
 b.printViaprop()
 b.printViadirect()
 b.printViaget()
-print 'b.price is',b.price
+print('b.price is',b.price)
 b.price=60
 b.printViaprop()
 b.printViadirect()
 b.printViaget()
-print 'b.price is',b.price
+print('b.price is',b.price)

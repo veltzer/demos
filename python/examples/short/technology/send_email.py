@@ -27,7 +27,7 @@ def send_email():
 	p_usetls=bool(config.get("email","usetls"))
 	#p_nonexist=config.get("email","nonexist")
 	if(debug):
-		#print the entire config
+		#output the entire config
 		config.write(sys.stdout)
 		p_debug=True
 	# build the message...
