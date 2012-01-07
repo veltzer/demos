@@ -9,14 +9,19 @@ Very tricky. Take heed.
 <html>
 	<body>
 		<?php
-		function addElements($arr) {
+		function addElementsWrong($arr) {
 			$arr[]="three";
 			$arr[]="four";
+		}
+		function addElementsRight(&$arr) {
+			$arr[]="five";
+			$arr[]="six";
 		}
 		$arr=array();
 		$arr[]="one";
 		$arr[]="two";
-		addElements();
+		addElementsWrong($arr);
+		addElementsRight($arr);
 		var_dump($arr);
 		?>
 	</body>
