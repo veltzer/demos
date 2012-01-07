@@ -1,10 +1,9 @@
+<!--	
+This example shows the case sensitivity of arrays and objects.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
 <?php
-
-/*
-	This example shows the case sensitivity of arrays
-	and objects.
-*/
-
 $array=array();
 $array["mark"]="veltzer";
 $array["hi"]="ho";

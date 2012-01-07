@@ -1,9 +1,9 @@
-<html>
 <!--
-	This is an example of how to call a function by name
+This is an example of how to call a function by name
+
+	Mark Veltzer <mark@veltzer.net>
 -->
-<body>
-	<?php
+<?php
 	function add($a,$b) {
 		return $a+$b;
 	}
@@ -11,6 +11,4 @@
 		echo $c."\n";
 	}
 	call_user_func('printit',call_user_func('add',2,2));
-	?>
-</body>
-</html>
+?>
