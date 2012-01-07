@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 """
-Question: what does this function print ?
+Question: what does this function output ?
 
 Answer: exception.
 
@@ -9,11 +9,11 @@ Answer: exception.
 """
 def my_mistery_function():
 	#global g
-	print g
+	print(g)
 	if False:
 		g+=17
-	print g
+	print(g)
 
 g=4
 my_mistery_function()
-print g
+print(g)

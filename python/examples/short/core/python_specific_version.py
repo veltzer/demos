@@ -3,7 +3,7 @@
 
 """
 This is a script that runs in a python specific version.
-You can also see that via the print that it does.
+You can also see that via the output that it does.
 
 In ubuntu you can install other versions of python this way:
 sudo apt-get install python2.7
@@ -16,10 +16,10 @@ code and so the default version should be determined by the
 distribution vendor and not by you. If you want to use a different
 version of python install it (either from the vendor if it's available
 or from binary or source code on your own) and use your own version
-explicitly with the shbang line or envrionment variables, or maybe
+explicitly with the shbang line or envrionment variables,or maybe
 absolute path on the command line.
 
 	Mark Veltzer <mark@veltzer.net>
 """
 import sys
-print 'python version is',sys.version
+print('python version is',sys.version)

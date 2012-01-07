@@ -10,4 +10,4 @@ import os
 
 (pin,pout)=os.popen2(["ls","-l"])
 for line in pout:
-	print line
+	print(line)

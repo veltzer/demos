@@ -3,7 +3,7 @@
 """
 This is an example of a singleton pattern in python.
 Notice that since we cannot make the constructor private
-we resort to making sure, inside the constructor code,
+we resort to making sure,inside the constructor code,
 that we are not called a second time.
 
 This example is not that pretty in that it does not use a
@@ -11,7 +11,7 @@ This example is not that pretty in that it does not use a
 instance. See the next example for an improvement on this.
 
 This 'getInstance' method is also not protected against multi
-thread access. Again, see next examples for a more realistic
+thread access. Again,see next examples for a more realistic
 solution.
 
 The problem with this example is that you can call the
@@ -29,7 +29,7 @@ class A:
 			raise Exception('you called the constructor twice!!')
 		else:
 			# constructor code goes here
-			print 'in A constructor'
+			print('in A constructor')
 			self.my_attribute='value'
 
 def getInstance():
@@ -40,5 +40,5 @@ def getInstance():
 myA1=getInstance()
 myA2=getInstance()
 if myA1 is myA2:
-	print "yes, they are the same instance"
-print dir(myA1)
+	print("yes,they are the same instance")
+print(dir(myA1))

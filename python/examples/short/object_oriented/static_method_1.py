@@ -12,7 +12,7 @@ class Book:
 		self.__price=price
 		Book.num+=1
 	def printit(self):
-		print 'price is',self.__price
+		print('price is',self.__price)
 	def setPrice(self,newprice):
 		self.__price=newprice
 def getNumBooks():
@@ -23,16 +23,16 @@ b1=Book(14)
 b2=Book(13)
 
 # lets access the static member and the static methods...
-print 'Book.num (direct access) is ',Book.num
-print 'getNumBooks() is ',getNumBooks() 
+print('Book.num (direct access) is ',Book.num)
+print('getNumBooks() is ',getNumBooks())
 try:
-	print b1.getNumBooks()
+	print(b1.getNumBooks())
 except AttributeError as e:
-	print 'no, cannot access the static method via the instance'
+	print('no,cannot access the static method via the instance')
 # access the static member through an instance...
-print b1.num
-print b2.num
+print(b1.num)
+print(b2.num)
 b3=Book(12)
-print b1.num
-print b2.num
-print b3.num
+print(b1.num)
+print(b2.num)
+print(b3.num)

@@ -20,10 +20,10 @@ class RoDict():
 d=RoDict()
 d['a']='b'
 d['c']='d'
-print d['a']
+print(d['a'])
 d['a']='e'
 d.ro=True
 try:
 	d['a']='u'
 except Exception,e:
-	print 'yes, got exception. Dictionary is read only'
+	print('yes,got exception. Dictionary is read only')

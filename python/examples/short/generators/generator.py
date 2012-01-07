@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+"""
+A simple example of a generator.
+
+	Mark Veltzer <mark@veltzer.net>
+"""
+
 #input_list=range(100000)
 def input_list():
 	counter=0
@@ -11,4 +17,4 @@ def input_list():
 result=[]
 for x in input_list():
 	result.append(x**2)
-print result
+print(result)

@@ -38,6 +38,6 @@ l=[
 	my_func,
 	A(6),
 	B(6)
-];
+]
 
-print map(type,l);
+print(map(type,l))

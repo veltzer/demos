@@ -16,4 +16,4 @@ def my_map(f,seq):
 		l.append(f(x))
 	return l
 
-print my_map(lambda x:x*x,range(10))
+print(my_map(lambda x:x*x,range(10)))

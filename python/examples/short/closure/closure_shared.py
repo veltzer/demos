@@ -9,7 +9,7 @@ def create_funcs(l):
 	def append_f(x):
 		l.append(x)
 	def print_f():
-		print l
+		print(l)
 	def sum_f():
 		return sum(l)
 	return (append_f,print_f,sum_f)
@@ -18,7 +18,7 @@ def create_funcs(l):
 # lets start doing stuff with the three functions...
 ap_f(4)
 pr_f()
-print su_f()
+print(su_f())
 ap_f(5)
 pr_f()
-print su_f()
+print(su_f())

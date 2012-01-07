@@ -15,5 +15,5 @@ raw input prints to the screen * exactly * what you give it...
 text=raw_input("please give me a number: ")
 print(type(text))
 val=int(text)
-print 'val is',val
-print 'type(val) is',type(val)
+print('val is',val)
+print('type(val) is',type(val))

@@ -11,7 +11,7 @@ class Book():
 		self.__price=price
 		Book.num+=1
 	def printit(self):
-		print 'price is',self.__price
+		print('price is',self.__price)
 	def setPrice(self,newprice):
 		self.__price=newprice
 	def getNumBooks():
@@ -22,7 +22,7 @@ class Book():
 	getNumBooks2=classmethod(getNumBooks2)
 
 b=Book(15)
-print b.printit, type(b.printit)
-print Book.printit, type(Book.printit)
-print Book.getNumBooks, type(Book.getNumBooks)
-print Book.getNumBooks2, type(Book.getNumBooks2)
+print(b.printit,type(b.printit))
+print(Book.printit,type(Book.printit))
+print(Book.getNumBooks,type(Book.getNumBooks))
+print(Book.getNumBooks2,type(Book.getNumBooks2))

@@ -3,13 +3,13 @@
 """
 This example demonstrates the use of signal.pause().
 If you already know about UNIX signals then this is no great surprise.
-For those of you who do not know about UNIX signals, pause allows you
+For those of you who do not know about UNIX signals,pause allows you
 to do a busy wait without a busy wait. Pause will put your process
 to sleep until any signal arrives. Since number of signals is small
 this means that your process will be asleep most of the time. This
 pattern allow you to react to signals in your 'main' thread since
 the signal handler can change some variable and cause your main
-thread to react, just as in this example. 
+thread to react,just as in this example. 
 
 Another thing to note is that when the signal handler is running it is running
 in the context of the main thead and the threading module reports it as such.
@@ -23,7 +23,7 @@ import threading
 
 # a small debugging function that prints the thread doing the printing...
 def debug(msg):
-	print threading.currentThread().name, msg
+	print(threading.currentThread().name,msg)
 
 # a wrapper function to call an old signal handler
 def call_old(old_val,signum,frame):
@@ -58,7 +58,7 @@ signal.signal(signal.SIGUSR1,myhandler)
 signal.signal(signal.SIGUSR2,myhandler)
 signal.signal(signal.SIGINT,myhandler)
 
-debug("mainthread: program starting, signal me using [kill -s SIGUSR1 %d] or [kill -s SIGUSR2 %d]" % (os.getpid(),os.getpid()))
+debug("mainthread: program starting,signal me using [kill -s SIGUSR1 %d] or [kill -s SIGUSR2 %d]" % (os.getpid(),os.getpid()))
 while True:
 	debug("mainthread: going to pause()")
 	signal.pause()

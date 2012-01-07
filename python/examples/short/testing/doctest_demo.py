@@ -22,5 +22,5 @@ def square(x):
 	return x*x+1
 
 import doctest
-#print dir(doctest)
+#print(dir(doctest))
 doctest.testmod()

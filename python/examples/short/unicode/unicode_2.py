@@ -11,4 +11,4 @@ What you need to do is:
 
 	Mark Veltzer <mark@veltzer.net>
 """
-print u"הי" 
+print(u"הי")
