@@ -1,0 +1,15 @@
+<script>
+	/* This fragment shows how to push elements to an array */
+	var arr=[];
+	arr.push('one');
+	arr.push('two');
+	arr.push('three');
+	document.write('length(arr)='+arr.length+'<br/>');
+	for(x in arr) {
+		document.write(x+" ---> "+arr[x]+'<br/>');
+	}
+	arr.pop(1);
+	for(x in arr) {
+		document.write(x+" ---> "+arr[x]+'<br/>');
+	}
+</script>
