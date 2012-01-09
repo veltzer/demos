@@ -7,7 +7,10 @@ A control that controls the resize of many elements.
 -->
 <html>
 	<head>
+		<script type='text/javascript' src='../jquery/jquery.js'></script>
+		<!--
 		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js'></script>
+		-->
 		<script src='spacer.js'></script>
 	</head>
 	<body>
@@ -17,6 +20,8 @@ A control that controls the resize of many elements.
 			var w_resize=new Spacer('#mydiv',30);
 			w_resize.addElem(new SpacerElem($('<span>').text('one')));
 			w_resize.addElem(new SpacerElem($('<span>').text('two')));
+			w_resize.addElem(new SpacerElem($('<span>').text('a very very very long long three')));
+			w_resize.addElem(new SpacerElem($('<span>').text('a very very very long long three')));
 			w_resize.addElem(new SpacerElem($('<span>').text('a very very very long long three')));
 			w_resize.startResize();
 		</script>

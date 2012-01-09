@@ -1,3 +1,4 @@
+
 function SpacerElem(elid) {
 	this.el=$(elid);
 }
@@ -5,6 +6,7 @@ function SpacerElem(elid) {
 function Spacer(id,margin) {
 	this.total=$(id);
 	this.stopResize=true;
+	this.doDebug=true;
 	this.margin=margin;
 	this.elems=[];
 	// for closure
@@ -12,6 +14,12 @@ function Spacer(id,margin) {
 	$(window).resize(function() {
 		widget.resize();
 	});
+}
+
+Spacer.prototype.debug=function(msg) {
+	if(this.doDebug) {
+		console.log(msg);
+	}
 }
 
 Spacer.prototype.addElem=function(elem) {
@@ -34,16 +42,19 @@ Spacer.prototype.resize=function() {
 		return;
 	}
 	var total_width=this.total.width();
+	this.debug('total_width='+total_width);
 	var sum_width=0;
 	for(var i in this.elems) {
 		var elem=this.elems[i];
 		sum_width+=elem.el.width();
+		this.debug('i '+i+', width '+elem.el.width());
 	}
 	var space=(total_width-sum_width-2*this.margin)/(this.elems.length-1);
 	var runner=this.margin;
 	for(var i in this.elems) {
 		var elem=this.elems[i];
 		elem.el.offset({left:runner});
+		this.debug('i '+i+', width '+elem.el.width());
 		runner+=elem.el.width()+space;
 	}
 }
