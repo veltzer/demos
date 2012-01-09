@@ -1,0 +1,13 @@
+Web tools project
+=================
+This is the sub project in eclipse which handles integration with various web tools
+(mainly JEE containers). Using this project you can write your own web container
+integration.
+
+The cvs server:
+cvs -d :pserver:anonymous@dev.eclipse.org:/cvsroot/webtools co servertools/plugins/org.eclipse.jst.server.tomcat.core
+
+Various links:
+http://dev.eclipse.org/viewcvs/viewvc.cgi/servertools/features/?root=WebTools_Project
+http://eclipse.org/webtools
+http://dev.eclipse.org/viewcvs/viewvc.cgi/servertools/plugins/org.eclipse.jst.server.tomcat.core/?root=WebTools_Project
