@@ -18,13 +18,13 @@
 		<script type='text/javascript'>
 			$(document).ready(function(doc) {
 				$(this).ready(function() {
-					alert('using this');
+					console.log('using this');
 				});
 				// doc is now an alias to $/jQuery...
 				doc(this).ready(function() {
-					alert('using parameter');
+					console.log('using parameter');
 				});
-				alert('global');
+				console.log('global');
 			});
 		</script>
 	</head>

@@ -21,25 +21,25 @@
 		<script type='text/javascript' src='jquery.js'></script>
 		<script type='text/javascript'>
 			$(document).ready(function() {
-				alert('first bounded');
+				console.log('first bounded');
 				$(document).ready(function() {
-					alert('ready - bounded late');
+					console.log('ready - bounded late');
 				});
 				$(document).bind('ready', function() {
-					alert('bind - bounded late');
+					console.log('bind - bounded late');
 				});
 			});
 			$().ready(function() {
-				alert('second bounded');
+				console.log('second bounded');
 				$(document).bind('ready', function() {
-					alert('bind - bounded later');
+					console.log('bind - bounded later');
 				});
 			});
 			$(function() {
-				alert('third bounded');
+				console.log('third bounded');
 			});
 			$(document).bind('ready', function() {
-				alert('bind - bounded early');
+				console.log('bind - bounded early');
 			});
 		</script>
 	</head>

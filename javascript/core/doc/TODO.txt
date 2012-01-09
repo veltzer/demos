@@ -1,2 +1,4 @@
 - add more examples from:
 	http://bonsaiden.github.com/JavaScript-Garden/
+- add a demo of memory consumption of many DOM elements.
+- add a demo of css with base64 images.

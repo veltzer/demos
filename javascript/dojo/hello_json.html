@@ -13,14 +13,13 @@
 		</style>
 		<script>
 			dojo.require("dijit.form.Button");
-			// convert a simple javascript object to a JSON string
+			// convert a simple object to a JSON string
 			function click1() {
 				var obj = { a:"one", b:3, c:true };
 				var data=dojo.toJson(obj);
 				console.log(data, typeof data);
 			}
-			// convert a string (that came from AJAX?!?) to a simple javascript
-			// object...
+			// convert a string (that came from AJAX?!?) to a simple object
 			function click2() {
 				var json='{"a":"one","b":3,"c":true}';
 				var obj=dojo.fromJson(json);
