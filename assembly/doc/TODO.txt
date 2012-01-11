@@ -1,0 +1,4 @@
+document whatever is there.
+do more assembly demos.
+notice that the current program will only be compiled by nasm.
+create a python script that installs dependencies for this package and include gas and nasm within it.
