@@ -15,7 +15,7 @@
 						'jquery_ajax.json',
 						'{key:value}',
 						function(data, textStatus, jqXHR) {
-							alert([data,textStatus,jqXHR,this].join(','));
+							console.log([data,textStatus,jqXHR,this].join(','));
 						}
 					);
 				});

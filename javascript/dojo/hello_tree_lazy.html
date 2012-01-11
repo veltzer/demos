@@ -1,37 +1,36 @@
 <html>
-<head>
-<title>Hello, Lazy Tree!</title>
-<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
-<style type="text/css">
-	@import "dojo/dijit/themes/tundra/tundra.css";
-	@import "dojo/dojo/resources/dojo.css";
-</style>
-<script type="text/javascript" language="Javascript">
-	dojo.require("dijit.tree.ForestStoreModel");
-	dojo.require("dojox.data.QueryReadStore");
-	dojo.require("dijit.Tree");
-	dojo.provide("my.ForestStoreModel");
-	dojo.declare("my.ForestStoreModel", dijit.tree.ForestStoreModel, {
-		getChildren: function(parentItem, complete_cb, error_cb) {
-			var root="/";
-			var mypath
-			if (parentItem.root == true) {
-				mypath = root;
-			}
-			else {
-				mypath = this.store.getValue(parentItem, 'path');
-			}
-			this.store.fetch({ query: {path: mypath+root},
-				onComplete: complete_cb,
-				onError: error_cb
+	<head>
+		<title>Hello, Lazy Tree!</title>
+		<script src="dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style type="text/css">
+			@import "dojo/dijit/themes/tundra/tundra.css";
+			@import "dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.tree.ForestStoreModel");
+			dojo.require("dojox.data.QueryReadStore");
+			dojo.require("dijit.Tree");
+			dojo.provide("my.ForestStoreModel");
+			dojo.declare("my.ForestStoreModel", dijit.tree.ForestStoreModel, {
+				getChildren: function(parentItem, complete_cb, error_cb) {
+					var root="/";
+					var mypath
+					if (parentItem.root == true) {
+						mypath = root;
+					}
+					else {
+						mypath = this.store.getValue(parentItem, 'path');
+					}
+					this.store.fetch({ query: {path: mypath+root},
+						onComplete: complete_cb,
+						onError: error_cb
+					});
+					// Call superclasses' getChildren
+					return this.inherited(arguments);
+				}
 			});
-
-			// Call superclasses' getChildren
-			return this.inherited(arguments);
-		}
-	});
-</script>
-</head>
+		</script>
+	</head>
 	<body class="tundra">
 		<div dojoType="dojox.data.QueryReadStore"
 			url="hello_tree_lazy.php"
