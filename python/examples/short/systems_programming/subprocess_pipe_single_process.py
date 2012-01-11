@@ -7,7 +7,7 @@ This example shows how to call popen and get the return text.
 """
 
 """
-A function that runs a command in a shell,check that it succeeded and returns the output of that command
+A function that runs a command in a shell,checks that it succeeded and returns the output of that command
 in case of success. In case of error it will throw an exception
 """
 import subprocess
@@ -20,4 +20,3 @@ def system_check_output(cmd,input=None,cwd=None,env=None):
 	return output
 
 print(system_check_output('ls -l | grep .'))
-print(system_check_output('ll -l | grep .'))
