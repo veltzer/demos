@@ -1,6 +1,3 @@
-<?php
-?>
-
 <html>
 <!--
 	This is an example of two thing:
