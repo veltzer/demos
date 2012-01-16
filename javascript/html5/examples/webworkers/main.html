@@ -5,10 +5,10 @@
 			$(document).ready(function() {
 				function myonmessage(e) {
 					console.log('got: '+e.data);
-					$('#mydiv').text(e);
+					$('#mydiv').html($('#mydiv').html()+'<br/>'+e.data);
 				}
 				var id=0;
-				function createWorker(id) {
+				function createWorker() {
 					var w=new Worker('background.js');
 					w.onmessage=myonmessage;
 					$('#mybutton').click(function() {
@@ -17,10 +17,10 @@
 						w.postMessage(data);
 					});
 					w.postMessage(id);
+					id++;
 				}
 				$('#create').click(function() {
-					id++;
-					createWorker(id);
+					createWorker();
 				});
 			});
 		</script>
