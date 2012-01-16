@@ -59,4 +59,3 @@ function trigger() {
 	});
 	timer = setTimeout(trigger, 2000);
 }
-

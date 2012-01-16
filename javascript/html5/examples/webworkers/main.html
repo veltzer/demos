@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script src='../../../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				function myonmessage(e) {
+					console.log('got: '+e.data);
+					$('#mydiv').text(e);
+				}
+				var id=0;
+				function createWorker(id) {
+					var w=new Worker('background.js');
+					w.onmessage=myonmessage;
+					$('#mybutton').click(function() {
+						var data=$('#myinput').val();
+						console.log('sending: '+data);
+						w.postMessage(data);
+					});
+					w.postMessage(id);
+				}
+				$('#create').click(function() {
+					id++;
+					createWorker(id);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input id="myinput" type="text" name="your message"></input>
+		<button id="mybutton">Click to send...</button>
+		<button id="create">Click to create another worker</button>
+		<div id="mydiv"/>
+	</body>
+</html>
