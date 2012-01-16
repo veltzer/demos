@@ -8,6 +8,5 @@
 # jmap -> openjdk-6-jdk
 # jhat -> openjdk-6-jdk
 # jconsole -> openjdk-6-jdk
-# netbeans -> netbeans
 
-sudo apt-get install visualvm openjdk-6-jdk netbeans
+sudo apt-get install visualvm openjdk-6-jdk
