@@ -10,15 +10,20 @@ function myonmessage(e) {
 	if(e.data=='exit') {
 		postMessage(id+' dying');
 		// these are the ways the worker may kill itself
-		//close();
-		onmessage=undefined;
+		close();
+		//onmessage=undefined;
 		//delete window.onmessage;
-	} else {
-		postMessage(id+' got '+e.data);
+		return;
 	}
+	if(e.data=='error') {
+		var d=t+u;
+		return;
+	}
+	postMessage(id+' got '+e.data);
 }
-function myonclose(e) {
-	postMessage(id+' onclose');
+function myonclose() {
+	console.log('in here');
+	//postMessage(id+' onclose');
 }
 
 postMessage('anonymous worker starting...');

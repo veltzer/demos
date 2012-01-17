@@ -7,11 +7,16 @@
 					console.log('got: '+e.data);
 					$('#mydiv').html($('#mydiv').html()+'<br/>'+e.data);
 				}
+				function myonerror(e) {
+					console.log('got error: '+e.data);
+					$('#mydiv').html($('#mydiv').html()+'<br/>'+e.data);
+				}
 				// all of the workers
 				var workers=[];
 				function createWorker() {
 					var w=new Worker('background.js');
 					w.onmessage=myonmessage;
+					w.onerror=myonerror;
 					id=workers.length;
 					w.postMessage(id);
 					workers.push(w);

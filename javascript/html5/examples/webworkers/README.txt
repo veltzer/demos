@@ -10,3 +10,9 @@ A thread can die by:
 	bad in javascript since there is no data to be left in unstable
 	state but still there may be calls to the server, half processed
 	jobs etc).
+- if the parent calls 'worker.terminate()' the workers 'close' method will
+	not be called.
+
+References:
+https://developer.mozilla.org/En/Using_web_workers
+https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIWorkerScope

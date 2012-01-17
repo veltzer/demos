@@ -1,3 +1,22 @@
-<script>
-alert("Hello, World!");
-</script>
+<!--
+This example shows that the javascript code is executed while the
+HTML is parsed and rendered.
+
+	Mark Veltzer
+-->
+<html>
+	<head>
+		<script>
+			alert("Hello, World! 1");
+		</script>
+	</head>
+	<script>
+		alert("Hello, World! 2");
+	</script>
+	<body>
+		This is some html content
+	</body>
+	<script>
+		alert("Hello, World! 3");
+	</script>
+</html>
