@@ -19,7 +19,7 @@
 				// all of the workers
 				var workers=[];
 				function createWorker() {
-					var w=new Worker('background.js');
+					var w=new Worker('worker.js');
 					w.onmessage=myonmessage;
 					w.onerror=myonerror;
 					w.onclose=myonclose;

@@ -24,23 +24,20 @@ function myonmessage(e) {
 		var d=t+u;
 		return;
 	}
+	if(e.data=='debug') {
+		postMessage(''+self);
+		postMessage(''+location);
+		for(var id in self) {
+			postMessage(id+': '+self[id]);
+		}
+		return;
+	}
 	postMessage(id+' got '+e.data);
-}
-function myonclose() {
-	postMessage(id+' onclose');
 }
 function myonerror() {
 	postMessage(id+' onerror');
 }
 
 postMessage('anonymous worker starting...');
-/*
-postMessage(self);
-postMessage(location);
-for(var id in self) {
-	postMessage(id+': '+self[id]);
-}
-*/
 self.onmessage=myonmessage;
-self.onclose=myonclose;
 self.onerror=myonerror;
