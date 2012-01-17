@@ -1,6 +1,6 @@
 A couple of approaches:
 1. multi layers, only works on some browsers.
-	(see example).
+	does not work.
 2. rendering the elements onto a canvas:
 	http://html2canvas.hertzen.com/screenshots.html
 	https://github.com/niklasvh/html2canvas

@@ -7,18 +7,41 @@
 					console.log('got: '+e.data);
 					$('#mydiv').html($('#mydiv').html()+'<br/>'+e.data);
 				}
-				var id=0;
+				// all of the workers
+				var workers=[];
 				function createWorker() {
 					var w=new Worker('background.js');
 					w.onmessage=myonmessage;
-					$('#mybutton').click(function() {
-						var data=$('#myinput').val();
-						console.log('sending: '+data);
-						w.postMessage(data);
-					});
+					id=workers.length;
 					w.postMessage(id);
-					id++;
+					workers.push(w);
 				}
+				$('#mysend').click(function() {
+					var data=$('#mymessage').val();
+					var threads=$('#mythreads').val();
+					var ids=threads.split(',');
+					for(seq in ids) {
+						var id=Number(ids[seq]);
+						console.log('sending: '+data+' to '+id);
+						workers[id].postMessage(data);
+					}
+				});
+				$('#myterminate').click(function() {
+					var threads=$('#mythreads').val();
+					var ids=threads.split(',');
+					for(seq in ids) {
+						var id=Number(ids[seq]);
+						console.log('terminating '+id);
+						workers[id].terminate();
+					}
+				});
+				$('#mysendall').click(function() {
+					var data=$('#mymessage').val();
+					for(var id in workers) {
+						console.log('sending: '+data+' to '+id);
+						workers[id].postMessage(data);
+					}
+				});
 				$('#create').click(function() {
 					createWorker();
 				});
@@ -26,9 +49,18 @@
 		</script>
 	</head>
 	<body>
-		<input id="myinput" type="text" name="your message"></input>
-		<button id="mybutton">Click to send...</button>
-		<button id="create">Click to create another worker</button>
+		<input id="mymessage" type="text" value='message'></input>
+		<br/>
+		<input id="mythreads" type="text"></input>
+		<br/>
+		<button id="mysend">Send</button>
+		<br/>
+		<button id="myterminate">Terminate (very bad practice)</button>
+		<br/>
+		<button id="mysendall">Send all</button>
+		<br/>
+		<button id="create">Create another worker</button>
+		<br/>
 		<div id="mydiv"/>
 	</body>
 </html>
