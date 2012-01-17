@@ -1,0 +1,38 @@
+<!--
+This example shows the wrong way to implement classes in javascript.
+This is without using the .prototype magic and hooking the methods to
+the object itself.
+
+The main disadvantage of this approach is that you have to hook all your
+methods to the object, including your parents methods (!).
+
+		Mark Veltzer
+-->
+
+<script>
+	function Person(name,age) {
+		this.name=name;
+		this.age=age;
+		this.getName=Person.getName;
+		this.setName=Person.setName;
+		this.toString=Person.toString;
+	}
+	Person.getName=function() {
+		return this.name;
+	}
+	Person.setName=function(newName) {
+		this.name=newName
+	}
+	Person.toString=function() {
+		return this.name+' '+this.age;
+	}
+
+	var person=new Person('james',27);
+	document.write(person.toString()+'<br/>');
+	person.setName('mark');
+	document.write(person.toString()+'<br/>');
+	document.write('is this object an instance of Person: '+(person instanceof Person)+'<br/>');
+	document.write('is this object an instance of Object: '+(person instanceof Object)+'<br/>');
+	document.write('the constructor of this object: '+person.constructor+'<br/>');
+	document.write('is this objects constructor Person: '+(person.constructor==Person)+'<br/>');
+</script>
