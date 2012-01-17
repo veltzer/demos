@@ -1,0 +1,22 @@
+Shopping cart application: Write a shopping cart application where
+	the list of products and the shopping cart are held as
+	JavaScript client side objects.
+	1. Write an Inventory object which knows about product
+		names, ids, and prices.
+		e.g. "basketball", 546, 34.56$ "baseball", 547, 24.56$
+		The inventory represents EVERYTHING that you
+		have in stock.
+	2. Write a ShoppingCart object which knows about items,
+		and quantities bought.
+		e.g. [546, 2], [547, 2]
+		which neans I'm buying 2 basketballs and two
+		baseballs. It can also calculate total price.
+	3. Write a table which shows everything inside the
+		inventory object. Do the population of the table
+		dynamically on window load.
+	4. Add buttons in the table to add and remove from the
+		shopping cart. Remove sould be disabled if I'm
+		not buying the item.
+	5. Show the shopping dynamically on the screen.
+	6. If there are no items in the inventory I'm not supposed
+		to be able to buy them.

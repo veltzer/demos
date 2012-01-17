@@ -1,4 +1,4 @@
-- Write a 'dojo' like publish/subscribe system.
+- Write a publish/subscribe system.
 
 	A publisher would call: publish(event,[data]);
 	A subscriber would call: subscribe(event,object,method);

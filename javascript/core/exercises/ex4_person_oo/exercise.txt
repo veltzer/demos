@@ -1,0 +1,5 @@
+Turn the Person code that you wrote into a full OO properly
+	written object.
+	Make all methods be shared via a prototype, add toString.
+	Create an Emplyee class which inherits from Person.
+	Demostrate it's use.
