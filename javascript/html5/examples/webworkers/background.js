@@ -7,25 +7,40 @@ function myonmessage(e) {
 		postMessage('worker got id '+e.data);
 		return;
 	}
-	if(e.data=='exit') {
-		postMessage(id+' dying');
-		// these are the ways the worker may kill itself
+	if(e.data=='close') {
+		postMessage(id+' calling close()');
+		// this is the best way for a webworker to finish up
 		close();
-		//onmessage=undefined;
+		return;
+	}
+	if(e.data=='undefine') {
+		postMessage(id+' doing onmessage=undefined');
+		onmessage=undefined;
 		//delete window.onmessage;
 		return;
 	}
 	if(e.data=='error') {
+		throw 'this is an error from worker '+id;
 		var d=t+u;
 		return;
 	}
 	postMessage(id+' got '+e.data);
 }
 function myonclose() {
-	console.log('in here');
-	//postMessage(id+' onclose');
+	postMessage(id+' onclose');
+}
+function myonerror() {
+	postMessage(id+' onerror');
 }
 
 postMessage('anonymous worker starting...');
-onmessage=myonmessage;
-onclose=myonclose;
+/*
+postMessage(self);
+postMessage(location);
+for(var id in self) {
+	postMessage(id+': '+self[id]);
+}
+*/
+self.onmessage=myonmessage;
+self.onclose=myonclose;
+self.onerror=myonerror;

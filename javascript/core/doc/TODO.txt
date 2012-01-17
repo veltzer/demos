@@ -2,3 +2,6 @@
 	http://bonsaiden.github.com/JavaScript-Garden/
 - add a demo of memory consumption of many DOM elements.
 - add a demo of css with base64 images.
+- do a demo of exception hanlding.
+	http://stackoverflow.com/questions/205688/javascript-exception-handling
+- do a demo of the importScripts function.

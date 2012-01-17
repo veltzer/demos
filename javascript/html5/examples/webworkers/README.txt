@@ -12,7 +12,12 @@ A thread can die by:
 	jobs etc).
 - if the parent calls 'worker.terminate()' the workers 'close' method will
 	not be called.
+- 'console.log' is not available in workers.
+- both chorme and firebug have nice interfaces to debug workers.
+- it looks like onclose inside the worker does not work
+- onerror inside the worker does work.
 
 References:
+http://www.w3.org/TR/2009/WD-workers-20090423/
 https://developer.mozilla.org/En/Using_web_workers
 https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIWorkerScope
