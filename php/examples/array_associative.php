@@ -20,10 +20,9 @@ This example shows how to use associative arrays in PHP.
 					echo 'my location is '.$v.'</br>';
 				}
 			}
-			$v=isset($me['location']);
-			echo 'isset[\'location\'] is'.$v.'</br>';
-			$v=isset($me['dontexist']);
-			echo 'isset[\'dontexist\'] is'.$v.'</br>';
+			echo 'array_key_exists([\'location\'] is'.array_key_exists('location',$me).'</br>';
+			echo 'isset($me[\'location\']) is'.isset($me['location']).'</br>';
+			echo 'isset($me[\'dontexist\']) is'.isset($me['dontexist']).'</br>';
 		?>
 	</body>
 </html>
