@@ -23,6 +23,18 @@ An example that shows that an off screen element does not have any size
 				elem3.hide();
 				$('#mydiv').append(elem3);
 				console.log(elem3.height()+','+elem3.width());
+				
+				// attempt 4: same as (3) with a div with content -> SUCCESS 
+				var elem4=$('<div><span>hi there</span></div>');
+				elem4.hide();
+				$('#mydiv').append(elem4);
+				console.log(elem4.height()+','+elem4.width());
+				
+				// attempt 5: same as (4) but append to the body -> SUCCESS 
+				var elem5=$('<div><span>hi there</span></div>');
+				elem5.hide();
+				$(document.body).append(elem5);
+				console.log(elem5.height()+','+elem5.width());
 
 				/*
 				// attempt 4: create, move off screen and append -> TODO
