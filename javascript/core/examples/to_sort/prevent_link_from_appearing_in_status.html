@@ -10,7 +10,7 @@ to know where he/she is going.
 	<head>
 		<script src='../../../toolkits/jquery.js'></script>
 		<style>
-			#try5 {
+			#try5, #try6 {
 				color: -webkit-link;
 				text-decoration: underline;
 				cursor: hand;
@@ -34,6 +34,9 @@ to know where he/she is going.
 				});
 				$('#try5').click(function(e) {
 					window.location='http://www.google.com';
+				});
+				$('#try6').click(function(e) {
+					window.location='mailto:mark.veltzer@gmail.com';
 				});
 			});
 		</script>
@@ -70,5 +73,9 @@ to know where he/she is going.
 		-->
 		<!-- SUCCESS -->
 		<span id='try5'>Go To Google</span>
+
+		<!-- sixth attempt: same as before but for 'mailto:...' links -->
+		<!-- SUCCESS -->
+		<span id='try6'>Mail mark</span>
 	</body>
 </html>
