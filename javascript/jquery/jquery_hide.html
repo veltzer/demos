@@ -1,0 +1,52 @@
+<!--
+An example that shows that an off screen element does not have any size
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				// attempt 1: just create it -> FAIL
+				var elem1=$('<p>hi there</p>');
+				console.log(elem1.height()+','+elem1.width());
+
+				// attempt 2: create and show but dont append -> FAIL
+				var elem2=$('<p>hi there</p>');
+				// this doesn't help
+				elem2.show();
+				console.log(elem2.height()+','+elem2.width());
+				
+				// attempt 3: create hide and append -> SUCCESS 
+				var elem3=$('<p>hi there</p>');
+				elem3.hide();
+				$('#mydiv').append(elem3);
+				console.log(elem3.height()+','+elem3.width());
+				
+				// attempt 4: same as (3) with a div with content -> SUCCESS 
+				var elem4=$('<div><span>hi there</span></div>');
+				elem4.hide();
+				$('#mydiv').append(elem4);
+				console.log(elem4.height()+','+elem4.width());
+				
+				// attempt 5: same as (4) but append to the body -> SUCCESS 
+				var elem5=$('<div><span>hi there</span></div>');
+				elem5.hide();
+				$(document.body).append(elem5);
+				console.log(elem5.height()+','+elem5.width());
+
+				/*
+				// attempt 4: create, move off screen and append -> TODO
+				var elem3=$('<p>hi there</p>');
+				elem3.hide();
+				$('#mydiv').append(elem3);
+				console.log(elem.height()+','+elem.width());
+				*/
+			});
+		</script>
+	</head>
+	<body>
+		<div id="mydiv"></div>
+	</body>
+</html>
