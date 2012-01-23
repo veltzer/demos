@@ -1,0 +1,39 @@
+<!--
+This example shows that closures can access variable one level AND MORE. all up to the global scope.
+
+		Mark Veltzer
+-->
+<script>
+	function stats_collector() {
+		var stats=[];
+		function collect(y) {
+			stats.push(y);
+		}
+		function variance() {
+			function sum() {
+				var sum=0;
+				for(var i=0;i<stats.length;i++) {
+					sum+=stats[i];
+				}
+				return sum;
+			}
+			function sum_square() {
+				var sum=0;
+				for(var i=0;i<stats.length;i++) {
+					sum+=stats[i]*stats[i];
+				}
+				return sum;
+			}
+			return (sum_square()-sum())/stats.length;
+		}
+		return {
+			'collect':collect,
+			'variance':variance,
+		};
+	}
+	var sc=stats_collector();
+	sc.collect(8);
+	document.write(sc.variance()+'<br/>');
+	sc.collect(13);
+	document.write(sc.variance()+'<br/>');
+</script>
