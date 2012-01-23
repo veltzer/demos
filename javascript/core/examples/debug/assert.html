@@ -1,0 +1,22 @@
+<!--
+This example shows how to use the console.assert API
+Notes:
+- you can add as many messages as you like to the assert failure.
+
+References:
+The console API from firebug:
+http://getfirebug.com/wiki/index.php/Console_API
+
+	Mark Veltzer
+-->
+<script>
+	function bar() {
+		// a failed assertion
+		console.assert(2==1,'2 is not 1','another msg','as many messages as you like');
+		console.log('you should not see this');
+	}
+	function foo() {
+		bar();
+	}
+	foo();
+</script>

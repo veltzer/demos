@@ -1,0 +1,25 @@
+<!--
+This example shows how to use the console.trace() function
+Note that you get a stack trace with each console.trace() called
+and that is the reason that this example uses recursion to show that off.
+
+References:
+The console API from firebug:
+http://getfirebug.com/wiki/index.php/Console_API
+
+	Mark Veltzer
+-->
+<script>
+	// a recursive function so that we could have a nice stack trace...
+	function fact(n) {
+		if(n==3) {
+			console.trace();
+		}
+		if(n==1) {
+			return 1;
+		} else {
+			return n*fact(n-1);
+		}
+	}
+	fact(10);
+</script>
