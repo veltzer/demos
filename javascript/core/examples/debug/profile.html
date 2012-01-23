@@ -1,0 +1,22 @@
+<!--
+This example shows how to use the javascript profiler on a piece of code.
+You can, ofcourse, activate the profiler from your browsers UI but this technique
+allows you to focus on the performance of a piece execution code and so not have
+too much over head on the entire system making the numbers better.
+
+	Mark Veltzer
+-->
+<script>
+	function foo(n) {
+		sum=0;
+		for(var i=0;i<n;i++) {
+			sum+=i;
+		}
+		return sum;
+	}
+	console.profile('running it a 100 times');
+	for(var i=0;i<100;i++) {
+		foo(50);
+	}
+	console.profileEnd();
+</script>
