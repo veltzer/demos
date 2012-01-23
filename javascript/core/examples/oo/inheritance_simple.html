@@ -44,6 +44,8 @@ Employee.prototype.getFullName=function() {
 
 // This is the client code
 var e=new Employee('Bilbo',111,200);
+document.write('e instance of Person: '+(e instanceof Person)+'<br/>');
+document.write('e instance of Employee: '+(e instanceof Employee)+'<br/>');
 document.write(e+'<br/>');
 document.write(e.getFullName()+'<br/>');
 </script>
