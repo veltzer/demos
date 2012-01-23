@@ -1,0 +1,29 @@
+<!--
+This is an improvement on the namespace example in that all the functions have
+some shared data.
+
+	Mark Veltzer
+-->
+<script>
+(function() {
+	var shared='this is shared';
+	console.log('this is some code');
+	var MyNamespace={
+		'printOne':function(data) {
+			console.log(shared+' One '+data);
+		},
+		'printTwo':function(data) {
+			console.log(shared+' Two '+data);
+		},
+		'printThree':function(data) {
+			console.log(shared+' Three '+data);
+		},
+	}
+	window.MyNamespace=MyNamespace;
+})();
+// this is the client code
+var data='mydata';
+MyNamespace.printOne(data);
+MyNamespace.printTwo(data);
+MyNamespace.printThree(data);
+</script>

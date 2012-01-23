@@ -1,0 +1,25 @@
+<!--
+This is an example of how to do your own namespaces.
+This is good enough to hide a bunch of functions.
+The disadvantage is that all of these functions do not have shared data.
+
+	Mark Veltzer
+-->
+<script>
+var MyNamespace={
+	'printOne':function(data) {
+		console.log('One '+data);
+	},
+	'printTwo':function(data) {
+		console.log('Two '+data);
+	},
+	'printThree':function(data) {
+		console.log('Three '+data);
+	},
+}
+// this is the user code
+var data='mydata';
+MyNamespace.printOne(data);
+MyNamespace.printTwo(data);
+MyNamespace.printThree(data);
+</script>
