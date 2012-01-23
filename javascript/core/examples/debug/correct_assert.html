@@ -1,0 +1,18 @@
+<!--
+A sample implementation of an assert function.
+(because console.assert is broken in that it does not throw an exception as stated in the documentation).
+
+	Mark Veltzer
+-->
+<script>
+	function assert(val) {
+		if(!val) {
+			for(var i=1;i<arguments.length;i++) {
+				console.error(arguments[i]);
+			}
+			throw 'assertion error';
+		}
+	}
+	assert(1==1,'you will not see this');
+	assert(2+2==5,'its 1984 all over again');
+</script>
