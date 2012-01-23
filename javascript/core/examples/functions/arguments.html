@@ -1,0 +1,40 @@
+<!--
+Showing the arguments built in.
+
+Notes:
+arguments is not extendible as you can see from the attempt to expand or shorten it. 
+
+	Mark Veltzer
+-->
+<script>
+	function add(a,b) {
+		document.write(arguments+'</br>');
+		for(var i in arguments) {
+			document.write(i+': '+arguments[i]+'</br>');
+		}
+		// lets try to add arguments...
+		arguments.length=7;
+		// nope, arguments are still the same...
+		for(var i in arguments) {
+			document.write(i+': '+arguments[i]+'</br>');
+		}
+		// lets try to shorten the arguments array...
+		arguments.length=1;
+		// nope, arguments are still the same...
+		for(var i in arguments) {
+			document.write(i+': '+arguments[i]+'</br>');
+		}
+		// lets try to push another argument
+		try {
+			arguments.push(7);
+		} catch(e) {
+			document.write('yes, got exception '+e+'<br/>');
+		}
+		// changing a and b through the 'arguments' automatic variable...
+		arguments[0]=3;
+		document.write('a is '+a+'</br>');
+		document.write('b is '+b+'</br>');
+		return a+b;
+	}
+	add(2,5);
+</script>

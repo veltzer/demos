@@ -1,0 +1,27 @@
+<!--
+Introduction to the Function.caller attribute.
+
+	Mark Veltzer
+-->
+<script>
+	function hello() {
+		document.write(hello.caller+'</br>');
+		document.write(hello.caller.arguments+'</br>');
+		for(i in hello.caller.arguments) {
+			document.write(i+': '+hello.caller.arguments[i]+'<br/>');
+		}
+		// trying to change the primitive arguments of the caller does not work
+		// (they are immutable)
+		hello.caller.arguments[0]=9;
+		// but non primitive arguments? It's a snap...
+		hello.caller.arguments[1][0]=9;
+	}
+	function zoo(x,y) {
+		document.write('x is '+x+'<br/>');
+		document.write('y[0] is '+y[0]+'<br/>');
+		hello();
+		document.write('x is '+x+'<br/>');
+		document.write('y[0] is '+y[0]+'<br/>');
+	}
+	zoo(7,[8]);
+</script>
