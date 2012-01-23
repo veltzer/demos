@@ -1,6 +1,0 @@
-show more APIs from console.*.
-console.exception.
-console.table.
-console.dir
-console.dirXml
-console.group

@@ -5,3 +5,10 @@
 - do a demo of exception hanlding.
 	http://stackoverflow.com/questions/205688/javascript-exception-handling
 - do a demo of the importScripts function.
+
+show more APIs from console.* under debugging:
+console.exception.
+console.table.
+console.dir
+console.dirXml
+console.group
