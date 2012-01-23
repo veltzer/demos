@@ -1,36 +1,32 @@
 <!--
-This is a classic object in javascript.
-
-References:
-http://joost.zeekat.nl/constructors-considered-mildly-confusing.html
+Example of writing the prototype of the object as one object...
+The disadvantage is in the constructor property which is a magic property of the prototype
+which is not set correctly.
 
 	Mark Veltzer
 -->
 
 <script>
-	// A standard constructor. 'this' is created by javascript and passed empty into your method.
-	// You need to call the parents constructor if you have a parent.
-	// no need to return 'this' as this is the regular behaviour.
-	// if you want to break early then you do need to 'return this'.
 	function Person(name,age) {
 		this.name=name;
 		this.age=age;
 	}
-	//Person.prototype={};
-	Person.prototype.getName=function() {
-		return this.name;
-	}
-	Person.prototype.setName=function(newName) {
-		this.name=newName;
-	}
-	Person.prototype.toString=function() {
-		return this.name+' '+this.age;
+	Person.prototype={
+		'getName':function() {
+			return this.name;
+		},
+		'setName':function(newname) {
+			this.name=newname;
+		},
+		'toString':function() {
+			return this.name+' '+this.age;
+		},
 	}
 
 	var person=new Person('james',27);
-	document.write(person.toString()+'<br/>');
+	document.write(person+'<br/>');
 	person.setName('mark');
-	document.write(person.toString()+'<br/>');
+	document.write(person+'<br/>');
 	document.write('\'prototype\' in person: '+('prototype' in person)+'<br/>');
 	document.write('\'prototype\' in Person: '+('prototype' in Person)+'<br/>');
 	document.write(Person.prototype.constructor+'<br/>');
