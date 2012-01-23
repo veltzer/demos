@@ -8,6 +8,8 @@
 			-7.8e10,
 			0x34,
 			071,
+			Number(7),
+			new Number(5),
 			null,
 			[],
 			{},
@@ -18,11 +20,16 @@
 			jjj,
 			alert,
 			window,
-			document
+			document,
+			/sdfsd/,
+			new RegExp("\w+"),
 		]
 		for(var x in arr) {
-			document.write(arr[x]+","+typeof(arr[x]))
-			document.write('<br/>')
+			try {
+				document.write(x+', '+arr[x]+', '+typeof(arr[x])+', '+arr[x].constructor.name+'<br/>');
+			} catch(e) {
+				document.write(x+', '+arr[x]+', '+typeof(arr[x])+'<br/>');
+			}
 		}
 	</script>
 	<body>
