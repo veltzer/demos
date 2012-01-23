@@ -1,0 +1,22 @@
+<!--
+Accessing a function name from the function. arguments.callee is our own function.
+It has lot of goodies.
+
+	Mark Veltzer
+-->
+<script>
+	function hello() {
+		/*
+		// this code does not help, you cann see the properties of the .callee
+		for(x in arguments.callee) {
+			document.write(x+': '+arguments.callee[x]+'<br/>');
+		}
+		*/
+		document.write(arguments.callee.name+'</br>');
+		document.write(arguments.callee.caller+'</br>');
+	}
+	function zoo() {
+		hello();
+	}
+	zoo();
+</script>
