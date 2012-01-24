@@ -1,4 +1,5 @@
-<!-- this is a solution to the exercise with the added value of
+<!--
+this is a solution to the exercise with the added value of
 correctly substituting the native 'alert' call with our own version.
 
 	Mark Veltzer
@@ -21,17 +22,20 @@ correctly substituting the native 'alert' call with our own version.
 			// function rewriting itself...
 			var tmp=newalert.origalert;
 			newalert=function(message) {
-				console.log('pushing '+message);
 				newalert.a.push(message);
 			}
 			// lets rewrite the real alert too...
 			alert=newalert;
+			// lets save the original alert (we are not really using it in this exercise).
+			newalert.origalert=tmp
 			// there a two options:
 			newalert.a=[message];
-			newalert.origalert=tmp
 			// or
-			//newalert.a=[];
-			//newalert(message);
+			// newalert.a=[];
+			// newalert(message);
+			// or
+			// newalert.a=[];
+			// newalert.a.push(message);
 		}
 	}
 	newalert.cnt=0;
