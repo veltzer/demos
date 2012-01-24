@@ -1,3 +1,5 @@
+DOM (beginners)
+===============
 The idea of this exercise is to play a little bit with the DOM.
 
 Create a page in which two fields of input exist.

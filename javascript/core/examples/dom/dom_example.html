@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script>
+		window.onload=function() {
+			var element=document.getElementById('mydiv');
+			//element.innerHTML='<input type="text"></input>';
+			//element.innerHTML+='<input type="text"></input>';
+			//element.innerHTML+='<input type="text"></input>';
+			//element.innerHTML+='<input type="text"></input>';
+			var e_add=document.createElement('button');
+			var e_add_t=document.createTextNode('+');
+			e_add.appendChild(e_add_t);
+			element.appendChild(e_add);
+			e_add.onclick=function() {
+				var e_add=document.createElement('button');
+				var e_add_t=document.createTextNode('+');
+				e_add.appendChild(e_add_t);
+				element.appendChild(e_add);
+			}
+			console.log(element);
+		}
+		</script>
+	</head>
+	<body>
+		Hello and welcome!
+		<div id='mydiv'>
+		</div>
+		<!--input type="text"></input-->
+	</body>
+</html>
