@@ -1,0 +1,22 @@
+<!--
+This is a bad solution since it contaminates the global namespace
+with 3 strings (counter,msgs,myalert).
+
+	Mark Veltzer
+-->
+<script>
+	var counter=0;
+	var msgs=[];
+	function myalert(msg) {
+		counter++;
+		if(counter>3) {
+			msgs.push(msg);
+		} else {
+			alert(msg);
+		}
+	}
+	for(var i=0;i<10;i++) {
+		myalert('hello '+i);
+	}
+	console.log(msgs);
+</script>
