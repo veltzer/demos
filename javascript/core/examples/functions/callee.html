@@ -1,22 +1,32 @@
 <!--
 Accessing a function name from the function. arguments.callee is our own function.
 It has lot of goodies.
+- You can access the function name (good for debugging).
+- You can access the function caller.
 
 	Mark Veltzer
 -->
 <script>
 	function hello() {
-		/*
-		// this code does not help, you cann see the properties of the .callee
+		// this code could be used to list properties of a function.
+		// you will not see the caller here, just the properties...
 		for(x in arguments.callee) {
 			document.write(x+': '+arguments.callee[x]+'<br/>');
 		}
-		*/
+		for(x in arguments.callee.caller) {
+			document.write(x+': '+arguments.callee.caller[x]+'<br/>');
+		}
+		document.write(arguments.callee+'</br>');
 		document.write(arguments.callee.name+'</br>');
+		document.write(arguments.callee.prophello+'</br>');
 		document.write(arguments.callee.caller+'</br>');
+		document.write(arguments.callee.caller.name+'</br>');
+		document.write(arguments.callee.caller.propzoo+'</br>');
 	}
+	hello.prophello='value for hello';
 	function zoo() {
 		hello();
 	}
+	zoo.propzoo='value for zoo';
 	zoo();
 </script>
