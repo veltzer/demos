@@ -12,8 +12,17 @@ We are doing it on the actual document object.
 		// no write for you
 	}
 	document.write('Where did this go ?');
-	// this line does not work because it is a method and must be called from an object context
-	//oldfunc('This one is through oldfunc');
+	// these two do not work because it is a method and must be called from an object context
+	try {
+		oldfunc('This one is through oldfunc');
+	} catch(e) {
+		console.log('yes, got exception');
+	}
+	try {
+		oldfunc(document,'This one is through oldfunc');
+	} catch(e) {
+		console.log('yes, got exception');
+	}
 	// this one would work:
 	oldfunc.call(document,'hey there<br/>');
 	document.write=oldfunc;
