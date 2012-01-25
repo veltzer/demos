@@ -47,6 +47,16 @@ Inventory.prototype.verifyItemInInventory=function(id) {
 		throw 'no such item with id'+id;
 	}
 }
+Inventory.prototype.load=function(url) {
+	// for closure
+	var object=this;
+	jsonGet('snipplet.json',function(data) {
+		for(id in data) {
+			var ii=data[id];
+			object.addProduct(new InventoryItem(id,ii.name,parseInt(ii.price),parseInt(ii.storage)));
+		}
+	});
+}
 Inventory.prototype.verifyEnoughItems=function(id,amount) {
 	this.verifyItemInInventory(id);
 	var item=this.itemMap[id];
