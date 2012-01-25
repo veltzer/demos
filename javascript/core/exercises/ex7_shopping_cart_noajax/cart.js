@@ -1,215 +1,98 @@
-// A generic toString function
-
-myToString=function() {
-	var s="";
-	for(var key in this) {
-		if(typeof(this[key])!='function') {
-			s+=key+": "+this[key]+"<br/>";
-		}
-	}
-	return s;
+// here comes the cart...
+function Cart() {
+	this.tbid=undefined;
+	this.totalid=undefined;
+	// key: item id, value: amount to buy
+	this.buyMap={};
+	// key: item id, value: element showing the entire row 
+	this.domRowMap={};
+	// key: item id, value: element showing the amount bought
+	this.domAmountMap={};
 }
-
-// A generic init from hash table function
-myInitFromObject=function(o,hash) {
-	for(key in hash) {
-		o[x]=hash[x];
-	}
+Cart.prototype.setTbid=function(tbid) {
+	this.tbid=tbid;
 }
-
-// The Product class
-
-function Product(iid,iname,iprice,iquantity) {
-	this.id=iid;
-	this.name=iname;
-	this.price=iprice;
-	this.quantity=iquantity;
+Cart.prototype.setTotalid=function(totalid) {
+	this.totalid=totalid;
+	this.updateTotal();
 }
-Product.prototype.getId=function() {
-	return this.id;
-}
-Product.prototype.setId=function(iid) {
-	this.id=iid;
-}
-Product.prototype.getName=function() {
-	return this.name;
-}
-Product.prototype.setName=function(iname) {
-	this.name=iname;
-}
-Product.prototype.getPrice=function() {
-	return this.price;
-}
-Product.prototype.setPrice=function(iprice) {
-	this.price=iprice;
-}
-Product.prototype.getPrice=function() {
-	return this.price;
-}
-Product.prototype.setPrice=function(iprice) {
-	this.price=iprice;
-}
-Product.prototype.getQuantity=function() {
-	return this.quantity;
-}
-Product.prototype.setQuantity=function(iquantity) {
-	this.quantity=iquantity;
-}
-Product.prototype.toString=myToString;
-Product.prototype.initFromObject=myInitFromObject;
-
-// The inventory class
-
-function Inventory() {
-	this.storeById={};
-	this.storeByName={};
-	return this;
-}
-Inventory.prototype.add=function(product) {
-	this.storeById[product.getId()]=product;
-	this.storeByName[product.getName()]=product;
-}
-Inventory.prototype.remove=function(product) {
-	delete this.storeById[product.getId()];
-	delete this.storeByName[product.getName()];
-}
-Inventory.prototype.getById=function(key) {
-	return this.storeById[key];
-}
-Inventory.prototype.getByName=function(key) {
-	return this.storeByName[key];
-}
-Inventory.prototype.toString=myToString;
-// This function loads fake data into the inventory
-Inventory.prototype.addFakeData=function(inv) {
-	var p1=new Product(457,"basketball",44.99,5);
-	var p2=new Product(458,"baseball",23.99,2);
-	this.add(p1);
-	this.add(p2);
-}
-// This function fills a given table with the data
-Inventory.prototype.fillTable=function(eid) {
-	var tab=document.getElementById(eid);
-	for(id in this.storeById) {
-		var prod=this.storeById[id];
-		var row=document.createElement('tr');
-		var cell1=document.createElement('td');
-		var cell2=document.createElement('td');
-		var cell3=document.createElement('td');
-		var cell4=document.createElement('td');
-		var cell5=document.createElement('td');
-		var cell6=document.createElement('td');
-		var e_id=document.createTextNode(prod.getId());
-		var e_name=document.createTextNode(prod.getName());
-		var e_price=document.createTextNode(prod.getPrice());
-		var e_quantity=document.createTextNode(prod.getQuantity());
-		var e_add=document.createElement('button');
-		var e_sub=document.createElement('button');
-		var e_add_t=document.createTextNode('+');
-		var e_sub_t=document.createTextNode('-');
-		e_add.appendChild(e_add_t);
-		e_sub.appendChild(e_sub_t);
-		cell1.appendChild(e_id);
-		cell2.appendChild(e_name);
-		cell3.appendChild(e_price);
-		cell4.appendChild(e_quantity);
-		cell5.appendChild(e_add);
-		cell6.appendChild(e_sub);
-		row.appendChild(cell1);
-		row.appendChild(cell2);
-		row.appendChild(cell3);
-		row.appendChild(cell4);
-		row.appendChild(cell5);
-		row.appendChild(cell6);
-		tab.appendChild(row);
-	}
-}
-// This is a singleton pattern to return the current inventory
-Inventory.getInventory=function() {
-	Inventory.inv=new Inventory();
-	Inventory.inv.addFakeData();
-	Inventory.getInventory=function() {
-		return Inventory.inv;
-	}
-	return Inventory.inv;
-}
-
-// The Shopping cart class
-function ShoppingCart() {
-	this.cartById={};
-}
-// This method adds a product to the cart
-// if this is the first time we add the product we just set
-// the quantity to 1. If not then we increase the quantity by 1.
-ShoppingCart.prototype.add=function(pid) {
-	if(pid in this.cartById) {
-		this.cartById[pid]++;
+Cart.prototype.buyItemById=function(id,amount) {
+	var i=Inventory.getInstance();
+	i.verifyEnoughItems(id,amount);
+	if(id in this.buyMap) {
+		// already have item in cart
+		this.buyMap[id]+=amount;
 	} else {
-		this.cartById[pid]=1;
+		// first time buying this item
+		this.buyMap[id]=amount;
+		this.createRow(id);
+	}
+	this.domAmountMap[id].nodeValue=this.buyMap[id];
+	i.changeStorage(id,-amount);
+	this.updateTotal();
+}
+Cart.prototype.verifyBuyingItem=function(id) {
+	if(!(id in this.buyMap)) {
+		throw 'didnt buy item '+id;
 	}
 }
-// This method removes the product from the cart.
-// If this is the last instance of the product then we delete the
-// product from the hash map altogether using the "delete" builtin.
-ShoppingCart.prototype.sub=function(pid) {
-	this.cartById[pid]--;
-	if(this.cartById[pid]==0) {
-		delete this.cartById[pid];
+Cart.prototype.sellItemById=function(id,amount) {
+	var i=Inventory.getInstance();
+	i.verifyItemInInventory(id);
+	this.verifyBuyingItem(id);
+	var amount_in_cart=this.buyMap[id];
+	if(amount_in_cart<amount) {
+		throw 'too many items sold '+amount;
 	}
+	this.buyMap[id]-=amount;
+	this.domAmountMap[id].nodeValue=this.buyMap[id];
+	if(this.buyMap[id]==0) {
+		this.domRowMap[id].parentNode.removeChild(this.domRowMap[id]);
+		delete this.buyMap[id];
+		delete this.domRowMap[id];
+		delete this.domAmountMap[id];
+	}
+	i.changeStorage(id,amount);
+	this.updateTotal();
 }
-// Calculate the price of the shopping cart 
-ShoppingCart.prototype.getPrice=function() {
-	var inv=Inventory.getInventory();
+Cart.prototype.cartPrice=function() {
+	var i=Inventory.getInstance();
 	var sum=0;
-	for(id in this.cartById) {
-		var prod=inv.getById(id);
-		var num=this.cartById[id];
-		sum+=prod.getPrice()*num;
+	for(id in this.buyMap) {
+		sum+=i.getItemById(id).price*this.buyMap[id];
 	}
 	return sum;
 }
-// Calculate the number of items in the shopping cart 
-ShoppingCart.prototype.getNumItems=function() {
-	var sum=0;
-	for(id in this.cartById) {
-		var num=this.cartById[id];
-		sum+=num;
-	}
-	return sum;
+Cart.prototype.createRow=function(id) {
+	var row=document.createElement('tr');
+	var cell1=document.createElement('td');
+	var cell2=document.createElement('td');
+	var cell3=document.createElement('button');
+	cell3.onclick=(function(id) {
+		return function() {
+			Cart.getInstance().sellItemById(id,1);
+		}
+	})(id);
+	var text1=document.createTextNode(id);
+	var text2=document.createTextNode(this.buyMap[id]);
+	var text3=document.createTextNode('-');
+	cell1.appendChild(text1);
+	cell2.appendChild(text2);
+	cell3.appendChild(text3);
+	row.appendChild(cell1);
+	row.appendChild(cell2);
+	row.appendChild(cell3);
+	this.domRowMap[id]=row;
+	this.domAmountMap[id]=text2;
+	var table=document.getElementById(this.tbid);
+	table.appendChild(row);
 }
-// Lets make it so the shopping cart has a toString also...
-ShoppingCart.prototype.toString=myToString;
-// Lets make the shopping cart be able to show itself.
-ShoppingCart.prototype.showYourself=function(eid) {
-	var buf=new Array();
-	buf.push('<table border="1"><tr><th>id</th><th>quantity</th></tr>');
-	for(x in this.cartById) {
-		buf.push('<tr><td>'+x+'</td><td>'+this.cartById[x]+'</td></tr>');
-	}
-	buf.push('</table>');
-	buf.push('<b>number of items: '+this.getNumItems()+'</b>');
-	buf.push('<br/>');
-	buf.push('<b>total price: '+this.getPrice()+'</b>');
-	var e=document.getElementById(eid);
-	e.innerHTML=buf.join('');
+Cart.prototype.updateTotal=function() {
+	var span=document.getElementById(this.totalid);
+	span.innerHTML=this.cartPrice();
 }
-// This is a singleton pattern to return the current shopping cart
-ShoppingCart.getCart=function() {
-	if(!('cart' in ShoppingCart)) {
-		var cart=new ShoppingCart();
-		// some fake data
-		cart.add(457);
-		cart.add(457);
-		cart.add(458);
-		ShoppingCart.cart=cart;
-	}
-	return ShoppingCart.cart;
+// singleton pattern
+Cart.instance=new Cart();
+Cart.getInstance=function() {
+	return Cart.instance;
 }
-
-// The init code
-
-function MyInit() {
-	var inv=Inventory.getInventory().fillTable('tbody');
-	ShoppingCart.getCart().showYourself('mydiv');
-}
-window.onload=MyInit;
