@@ -16,7 +16,7 @@ JavaScript client side objects.
 
 Shopping cart: stage 2
 ======================
-3. Write code that dynamically create a table that shows everything there is inside the inventory object.
+3. Write code that dynamically creates a table that shows everything there is inside the inventory object.
 	Do the population of the table dynamically on window load.
 4. Write code that dynamically creates a table that shows everyting there is inside the shopping cart.
 	Do the population of the table dynamically on window load.
