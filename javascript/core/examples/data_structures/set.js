@@ -1,6 +1,9 @@
 /*
 This is an example of a set implemented in javascript
 
+References:
+http://www.javascriptexamples.org/2011/01/17/how-to-implement-a-set-in-javascript/
+
 	Mark Veltzer
 */
 var Set=function() {
