@@ -1,0 +1,20 @@
+<!--
+This is the most basic example of using window.onload.
+The problem with this approach is you step over any other function that was registered
+via the same window.onload.
+
+	Mark Veltzer
+-->
+<html>
+	<head>
+		<script>
+			function init() {
+				alert("The windows was loaded");
+			}
+			window.onload = init;
+		</script>
+	</head>
+	<body>
+		This is the body
+	</body>
+</html>

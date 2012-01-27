@@ -1,0 +1,24 @@
+<!--
+An example showing the .apply method of functions.
+Remmember: .apply is suitable when you don't know the number of arguments in advance.
+
+	Mark Veltzer
+-->
+<script>
+	function minus(x) {
+		return -x;
+	}
+	function add(x,y) {
+		return x+y;
+	}
+	// This is Herons of Alexandrias formula...
+	function triangle_area(a,b,c) {
+		var s=(a+b+c)/2;
+		return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+	}
+	var funcs=[minus,add,triangle_area];
+	var data=[[5],[56,34],[67,56,59]];
+	for(var func in funcs) {
+		document.write(funcs[func].name+', '+data[func].join(';')+', '+funcs[func].apply(funcs[func],data[func])+'<br/>');
+	}
+</script>

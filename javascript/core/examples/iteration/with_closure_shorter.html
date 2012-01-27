@@ -1,0 +1,13 @@
+<script>
+	var a=[];
+	for(var i=0;i<100;i++) {
+		a.push((function(i){
+			return function() {
+				console.log(i);
+			}
+		})(i));
+	}
+	for(var f in a) {
+		a[f]();
+	}
+</script>

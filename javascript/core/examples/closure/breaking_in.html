@@ -1,0 +1,16 @@
+<!--
+This example shows that closures can access variable one level AND MORE. all up to the global scope.
+
+THIS EXAMPLE IS NOT COMPLETE
+
+		Mark Veltzer
+-->
+<script>
+	function MyFunction() {
+		closure = function() {
+			document.write('my parent is '+arguments.callee.caller.name+'<br/>');
+		}
+		closure();
+	}
+	MyFunction();
+</script>

@@ -1,0 +1,35 @@
+<!--
+This example shows the concept of hiding...
+
+	Mark Veltzer
+-->
+
+<script>
+	// A standard constructor. 'this' is created by javascript and passed empty into your method.
+	// You need to call the parents constructor if you have a parent.
+	// no need to return 'this' as this is the regular behaviour.
+	// if you want to break early then you do need to 'return this'.
+	function Person(name,lastname) {
+		this.name=name;
+		this.lastname=lastname;
+	}
+	Person.prototype.getName=function() {
+		return this.name;
+	}
+	Person.prototype.setName=function(newName) {
+		this.name=newName
+	}
+	Person.prototype.toString=function() {
+		return this.name+' '+this.lastname;
+	}
+
+	var p1=new Person('James','Bond');
+	var p2=new Person('Mark','Veltzer');
+	document.write(p1.toString()+'<br/>');
+	document.write(p2.toString()+'<br/>');
+	p1.toString=function() {
+		return this.lastname+', '+this.name+' '+this.lastname;
+	}
+	document.write(p1.toString()+'<br/>');
+	document.write(p2.toString()+'<br/>');
+</script>

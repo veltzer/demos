@@ -1,0 +1,31 @@
+<!--
+This example shows how to use JS timers from the console.* API.
+Note that the time is in miliseconds in chrome. Not that good.
+The time stamps that you create via 'console.timeStamp' should be available
+in your browsers debugger...
+
+References:
+The console API from firebug:
+http://getfirebug.com/wiki/index.php/Console_API
+
+	Mark Veltzer
+-->
+<script>
+	function foo(n) {
+		sum=0;
+		for(var i=0;i<n;i++) {
+			sum+=i;
+		}
+		return sum;
+	}
+	console.time('timer');
+	for(var i=0;i<100000;i++) {
+		if(i%1000==0) {
+			console.timeStamp();
+			console.markTimeline();
+		}
+		foo(50);
+	}
+	// this call will also write the time elapsed on the timer 'timer' to the console...
+	console.timeEnd('timer');
+</script>

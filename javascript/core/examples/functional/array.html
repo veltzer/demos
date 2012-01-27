@@ -1,0 +1,18 @@
+<!--
+A review of functional features in javascript arrays.
+
+	Mark Veltzer
+
+References:
+https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array
+-->
+<script>
+	var a=['a','b','c'];
+	document.write(a.filter(function(x) { return x >= 'b' })+'<br/>');
+	a.forEach(function(x) { document.write(x+'<br/>'); });
+	document.write(a.every(function(x) { return 'a'<=x && x<='c' })+'<br/>');
+	document.write(a.map(function(x) { return x+'more' })+'<br/>');
+	document.write(a.some(function(x) { return 'a'==x })+'<br/>');
+	document.write(a.reduce(function(x,y) { return y+x; })+'<br/>');
+	document.write(a.reduceRight(function(x,y) { return y+x; })+'<br/>');
+</script>

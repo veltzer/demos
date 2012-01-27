@@ -1,5 +1,7 @@
+A closure based iterator
+========================
 Write a function that creates an iterator that iterates
-	using three values: start, stop, step.
-	Use closures.
-	Demostrate the use.
-	Can you make the iterator restartable ?
+using three values: start, stop, step.
+Use closures.
+Demostrate the use.
+Can you make the iterator restartable ?

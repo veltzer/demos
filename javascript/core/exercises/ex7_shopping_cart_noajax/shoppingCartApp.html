@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script src='ajax.js'></script>
+		<script src='inventory.js'></script>
+		<script src='cart.js'></script>
+		<script src='onload.js'></script>
+	</head>
+	<body>
+		Inventory is:
+		<table border="1">
+			<tbody id='inventory_tbl'>
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>price</th>
+					<th>quantity</th>
+					<th>add</th>
+				</tr>
+			</tbody>
+		</table>
+		Your cart is:
+		<table border="1">
+			<tbody id='cart_tbl'>
+				<tr>
+					<th>id</th>
+					<th>quantity</th>
+					<th>sub</th>
+				</tr>
+			</tbody>
+		</table>
+		<p>You total is: <span id='total_id'/></p>
+		<button id="b_buy">buy it!</button>
+		<button id="b_update">update list from server</button>
+	</body>
+</html>

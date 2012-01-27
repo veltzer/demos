@@ -1,45 +1,40 @@
 <script>
-function Person(name,age) {
-	this.name=name;
-	this.age=age;
-	this.listeners=[];
-}
-Person.prototype.notifyChanges=function() {
-	/*
-	for(x in this.listeners) {
-		console.log(x);
-		//x.notify();
+	function Person(name,age) {
+		this.name=name;
+		this.age=age;
+		this.listeners={};
 	}
-	*/
-	for(var i=0;i<this.listeners.length;i++) {
-		this.listeners[i].notify();
+	Person.prototype.notifyChanges=function(data) {
+		for(var i in this.listeners) {
+			this.listeners[i].notify(data);
+		}
 	}
-}
-Person.prototype.addListener=function(l) {
-	//this.listeners[l]=null;
-	this.listeners.push(l);
-}
-Person.prototype.removeListener=function(l) {
-	//delete this.listeners[l];
-}
-
-Person.prototype.setName=function(name) {
-	this.name=name;
-	this.notifyChanges();
-}
-
-// here comes the listener
-
-function Listener() {
-}
-
-Listener.prototype.notify=function() {
-	alert("Hey, I just got a notice that a person was changed!");
-}
-
-var p=new Person("mark",435);
-var l=new Listener();
-p.addListener(l);
-p.setName("shay");
-
+	Person.prototype.addListener=function(l) {
+		this.listeners[l]=l;
+	}
+	Person.prototype.removeListener=function(l) {
+		delete this.listeners[l];
+	}
+	Person.prototype.setName=function(newname) {
+		this.name=newname;
+		this.notifyChanges(newname);
+	}
+	// here comes the listener
+	function Listener(name) {
+		this.name=name;
+	}
+	Listener.prototype.notify=function(newname) {
+		document.write(this.name+' received event about name change to '+newname+'</br>');
+	}
+	Listener.prototype.toString=function() {
+		return this.name;
+	}
+	var p=new Person('mark',435);
+	var l1=new Listener('first listener');
+	var l2=new Listener('second listener');
+	p.addListener(l1);
+	p.addListener(l2);
+	p.setName('shay');
+	p.removeListener(l1);
+	p.setName('doron');
 </script>

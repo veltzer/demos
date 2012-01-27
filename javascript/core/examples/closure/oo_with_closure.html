@@ -1,0 +1,33 @@
+<!--
+This example shows how to create object oriend with just closures.
+
+	Mark Veltzer
+-->
+<script>
+	function Person(name,lastname) {
+		var getName=function() {
+			return name;
+		}
+		var getLastname=function() {
+			return lastname;
+		}
+		var setName=function(newval) {
+			name=newval;
+		}
+		var setLastname=function(newval) {
+			lastname=newval;
+		}
+		return {
+			'getName':getName,
+			'getLastname':getLastname,
+			'setName':setName,
+			'setLastname':setLastname,
+		};
+	}
+	var p=Person('Mark','Veltzer');
+	document.write(p.getName());
+	document.write('<br/>')
+	p.setName('Doron');
+	document.write(p.getName());
+	document.write('<br/>')
+</script>

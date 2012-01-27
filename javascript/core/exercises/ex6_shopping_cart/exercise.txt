@@ -1,9 +1,0 @@
-Add Ajax to your shopping cart application.
-	a. Get the initial list of product and prices from the Server.
-		do this on document load.
-		the data should be in JSON format.
-		use a JSON parser from json.org to parse the data.
-	b. Add an "update" button that will get a new list of products
-		from the server and update the screen.
-	c. Add a "submit" button which submits your shopping cart
-		to the server via HTTP POST.

@@ -1,0 +1,15 @@
+Write a publish/subscribe system.
+=================================
+This has nothing to do with UI.
+This allows pieces of code in JS to communicate.
+A publisher would call: publish(event,[data]);
+A subscriber would call: subscribe(event,object,method);
+The method 'method' on the object 'object' would be called whenever
+an event is fired. The data would be passed to that method.
+
+-Extra credit:
+==============
+- allow to unsubscribe.
+- do it OO style.
+- wrap in a singleton.
+- allow to subscribe to methods/functions that know nothing about the pubish/subscribe subsystem.

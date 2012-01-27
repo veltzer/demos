@@ -1,0 +1,42 @@
+<!--
+This is a self rewriting solution to the exercise.
+
+	Mark Veltzer
+-->
+<script>
+	function newalert(message) {
+		// check if this is the first time we are called
+		// could also be done using newalert.cnt=0 after
+		// the function declaration.
+		//if(!('cnt' in newalert)) {
+		//	newalert.cnt=0;
+		//}
+		if(newalert.cnt<3) {
+			alert(message);
+			newalert.cnt++;
+		} else {
+			// this is the real magic - replace the
+			// newalert function.
+			newalert=function(message) {
+				newalert.a.push(message);
+			}
+			// now store the message or else we would
+			// miss this message.
+			newalert.a=[message];
+			// or
+			// newalert.a=[];
+			// newalert.a.push(message);
+			// or
+			// newalert.a=[];
+			// newalert(message);
+		}
+	}
+	newalert.cnt=0;
+	for(var i=0;i<10;i++) {
+		newalert('message '+i);
+	}
+	document.write('This is the now installed version of alert<br/>');
+	document.write(newalert);
+	document.write('These are the messages that we missed<br/>');
+	document.write(newalert.a);
+</script>

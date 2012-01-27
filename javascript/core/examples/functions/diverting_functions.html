@@ -1,12 +1,31 @@
+<!--
+An example of diverting javascript functions. In the case the native function document.write.
+Notice that we are inserting our own function as a replacement for the original 'document.write'.
+We are doing it on the actual document object.
+
+	Mark Veltzer
+-->
 <script>
-	document.write('Hello, World!')
-	document.write('<br/>')
+	document.write('Hello, World!<br/>')
 	var oldfunc=document.write
 	document.write=function() {
 		// no write for you
 	}
-	document.write('Where did this go ?')
-	//oldfunc('This one is through oldfunc')
-	document.write=oldfunc
-	document.write('This is the proper write back')
+	document.write('Where did this go ?');
+	// these two do not work because it is a method and must be called from an object context
+	try {
+		oldfunc('This one is through oldfunc');
+	} catch(e) {
+		console.log('yes, got exception');
+	}
+	try {
+		oldfunc(document,'This one is through oldfunc');
+	} catch(e) {
+		console.log('yes, got exception');
+	}
+	// this one would work:
+	oldfunc.call(document,'hey there<br/>');
+	document.write=oldfunc;
+	document.write('This is the proper write back<br/>');
+	document.write(oldfunc+'<br/>');
 </script>
