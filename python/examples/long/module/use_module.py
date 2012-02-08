@@ -4,3 +4,5 @@
 import outer.inner.mod
 
 print "hello from the module user"
+
+outer.inner.mod.printit();
