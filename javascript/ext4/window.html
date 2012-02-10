@@ -1,0 +1,26 @@
+<!--
+This is an example of how to create a window using ExtJs
+
+	Mark Veltzer
+-->
+<html>
+	<head>
+		<title>Hello, Ext4 js example</title>
+		<link rel="stylesheet" type="text/css" href="../toolkits/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+		<script src='../toolkits/ext-4.0.7-gpl/ext-all.js'></script>
+		<script>
+			Ext.onReady(function() {
+				var win = new Ext.Window({
+					id : 'mywin',
+					title  : 'Hello',
+					width  : 300,
+					height : 150,
+					layout : 'fit'
+				});
+				win.show();
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
