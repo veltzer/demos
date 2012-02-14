@@ -2,25 +2,25 @@
 	<head>
 		<script>
 			function init() {
-				var e_a=document.getElementById("a");
-				var e_b=document.getElementById("b");
+				var e_a=document.getElementById('a');
+				var e_b=document.getElementById('b');
 				e_a.value=0;
 				e_b.value=0;
 			}
-			window.onload = init;
+			window.onload=init;
 			function calc() {
-				var e_a=document.getElementById("a");
-				var e_b=document.getElementById("b");
-				var e_result=document.getElementById("result");
+				var e_a=document.getElementById('a');
+				var e_b=document.getElementById('b');
+				var e_result=document.getElementById('result');
 				e_result.value=Number(e_a.value)+Number(e_b.value);
 			}
 		</script>
 	</head>
 	<body>
-		Please enter a value in a and b and then press calculate...
-		<input id="a"></input>
-		<input id="b"></input>
-		<button id="calculate" onclick="calc()">Calculate!</button>
-		<input id="result" readonly="readonly"></input>
+		Please enter a value in a and b and then press calculate...<br/>
+		<input id="a"></input><br/>
+		<input id="b"></input><br/>
+		<button id="calculate" onclick="calc()">Calculate!</button><br/>
+		<input id="result" readonly="readonly"></input><br/>
 	</body>
 </html>
