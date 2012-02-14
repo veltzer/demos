@@ -1,0 +1,20 @@
+<!--
+This is a very simple example demonstrating the fact that objects are assigned
+values via "." or "[]" and accessed in either ways...
+
+	Mark Veltzer
+-->
+<script>
+	var o={};
+	o.foo="value of foo"
+	bar="foo";
+	var o2={
+		foo:bar
+	}
+	var o3={
+		'foo':"value of foo"
+	}
+	document.write('o.foo: '+o.foo+'<br/>');
+	document.write('o2.foo: '+o2.foo+'<br/>');
+	document.write('o3.foo: '+o3.foo+'<br/>');
+</script>
