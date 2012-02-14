@@ -1,20 +1,7 @@
-// here comes the cart...
+// cart object
 function Cart() {
-	this.tbid=undefined;
-	this.totalid=undefined;
 	// key: item id, value: amount to buy
 	this.buyMap={};
-	// key: item id, value: element showing the entire row 
-	this.domRowMap={};
-	// key: item id, value: element showing the amount bought
-	this.domAmountMap={};
-}
-Cart.prototype.setTbid=function(tbid) {
-	this.tbid=tbid;
-}
-Cart.prototype.setTotalid=function(totalid) {
-	this.totalid=totalid;
-	this.updateTotal();
 }
 Cart.prototype.buyItemById=function(id,amount) {
 	var i=Inventory.getInstance();
@@ -25,11 +12,8 @@ Cart.prototype.buyItemById=function(id,amount) {
 	} else {
 		// first time buying this item
 		this.buyMap[id]=amount;
-		this.createRow(id);
 	}
-	this.domAmountMap[id].nodeValue=this.buyMap[id];
 	i.changeStorage(id,-amount);
-	this.updateTotal();
 }
 Cart.prototype.verifyBuyingItem=function(id) {
 	if(!(id in this.buyMap)) {
@@ -45,15 +29,11 @@ Cart.prototype.sellItemById=function(id,amount) {
 		throw 'too many items sold '+amount;
 	}
 	this.buyMap[id]-=amount;
-	this.domAmountMap[id].nodeValue=this.buyMap[id];
+	// if we returned the last items...
 	if(this.buyMap[id]==0) {
-		this.domRowMap[id].parentNode.removeChild(this.domRowMap[id]);
 		delete this.buyMap[id];
-		delete this.domRowMap[id];
-		delete this.domAmountMap[id];
 	}
 	i.changeStorage(id,amount);
-	this.updateTotal();
 }
 Cart.prototype.cartPrice=function() {
 	var i=Inventory.getInstance();
@@ -62,34 +42,6 @@ Cart.prototype.cartPrice=function() {
 		sum+=i.getItemById(id).price*this.buyMap[id];
 	}
 	return sum;
-}
-Cart.prototype.createRow=function(id) {
-	var row=document.createElement('tr');
-	var cell1=document.createElement('td');
-	var cell2=document.createElement('td');
-	var cell3=document.createElement('button');
-	cell3.onclick=(function(id) {
-		return function() {
-			Cart.getInstance().sellItemById(id,1);
-		}
-	})(id);
-	var text1=document.createTextNode(id);
-	var text2=document.createTextNode(this.buyMap[id]);
-	var text3=document.createTextNode('-');
-	cell1.appendChild(text1);
-	cell2.appendChild(text2);
-	cell3.appendChild(text3);
-	row.appendChild(cell1);
-	row.appendChild(cell2);
-	row.appendChild(cell3);
-	this.domRowMap[id]=row;
-	this.domAmountMap[id]=text2;
-	var table=document.getElementById(this.tbid);
-	table.appendChild(row);
-}
-Cart.prototype.updateTotal=function() {
-	var span=document.getElementById(this.totalid);
-	span.innerHTML=this.cartPrice();
 }
 // singleton pattern
 Cart.instance=new Cart();

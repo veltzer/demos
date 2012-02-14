@@ -1,0 +1,33 @@
+Shopping cart: stage 1
+======================
+Shopping cart application: Write a shopping cart application where
+the list of products and the shopping cart are held as
+JavaScript client side objects.
+1. Write an Inventory object which knows about product
+	names, ids, prices and amounts in stock.
+	e.g. "basketball", 546, 34.56$ "baseball", 547, 24.56$
+	The inventory represents EVERYTHING that you
+	have in stock.
+2. Write a ShoppingCart object which knows about items,
+	and quantities bought.
+	e.g. [546, 2], [547, 2]
+	which means I'm buying 2 basketballs and two
+	baseballs. It can also calculate total price.
+
+Shopping cart: stage 2
+======================
+3. Write code that dynamically creates a table that shows everything there is inside the inventory object.
+	Do the population of the table dynamically on window load.
+4. Write code that dynamically creates a table that shows everyting there is inside the shopping cart.
+	Do the population of the table dynamically on window load.
+5. Connect the inventory to the shopping cart:
+	- add buttons that allow to buy stuff from the inventory.
+	- whenever the user buys something it get detracted from the inventory and goes into the
+	shopping cart.
+	- the inventory and shopping cart are updated on the screen.
+6. Connect the shopping cart to the inventory:
+	- add buttons that allow to remove stuff from the shopping cart.
+	- whenever the user returns something it get detracted from the shopping cart and goes into
+	the inventory.
+	- the inventory and shopping cart are updated on the screen.
+7. always show an updated total of the shopping cart on the screen. 
