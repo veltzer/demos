@@ -1,0 +1,25 @@
+<!--
+A singleton pattern in javascript
+-->
+
+<script>
+	// a standard object...
+	function Person(name,age) {
+		this.name=name;
+		this.age=age;
+	}
+	Person.prototype.getName=function() {
+		return this.name;
+	}
+	Person.prototype.setName=function(newName) {
+		this.name=newName;
+	}
+	Person.prototype.toString=function() {
+		return this.name+' '+this.age;
+	}
+	// and now for the singleton pattern...
+	Person.instance=new Person("firstname","lastname")
+	Person.getInstance=function() {
+		return Person.instance;
+	}
+</script>
