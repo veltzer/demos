@@ -1,6 +1,8 @@
 <!--
-Basic solution to the exercise. Notice that binding the click event
-is done via the 'onclick' property of the 'button' element...
+Same solution as the basic solution except binding to events is done
+at window.onload time...
+
+Notice the use of closure in the 'click' event handler...
 
 	Mark Veltzer
 -->
@@ -12,21 +14,20 @@ is done via the 'onclick' property of the 'button' element...
 				var e_b=document.getElementById('b');
 				e_a.value=0;
 				e_b.value=0;
+				var e_button=document.getElementById('calculate');
+				var e_result=document.getElementById('result');
+				e_button.addEventListener('click',function() {
+					e_result.value=Number(e_a.value)+Number(e_b.value);
+				});
 			}
 			window.onload=init;
-			function calc() {
-				var e_a=document.getElementById('a');
-				var e_b=document.getElementById('b');
-				var e_result=document.getElementById('result');
-				e_result.value=Number(e_a.value)+Number(e_b.value);
-			}
 		</script>
 	</head>
 	<body>
 		Please enter a value in a and b and then press calculate...<br/>
 		<input id="a"></input><br/>
 		<input id="b"></input><br/>
-		<button onclick="calc()">Calculate!</button><br/>
+		<button id="calculate">Calculate!</button><br/>
 		<input id="result" readonly="readonly"></input><br/>
 	</body>
 </html>
