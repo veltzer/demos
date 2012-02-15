@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<script>
+			function flip() {
+				var node = document.getElementById("x1")
+				if (node.color == "red") // read
+					node.color = "blue" // write
+				else
+					node.color = "red" // write
+			}
+		</script>
+	</head>
+	<body>
+		<font id="x1" color="red" onclick="flip()">Click me!</font>
+		<font id="x2" color="red" onclick="flip()">Another click me!</font>
+	</body>
+</html>
