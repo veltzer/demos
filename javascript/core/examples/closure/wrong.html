@@ -20,13 +20,27 @@ function exists.
 	}
 	// this is the wrong way (with objects)...
 	function wrong_wrapper2() {
-		obj={}
+		var obj={}
 		var arr=[]
 		for(var i=0;i<5;i++) {
 			obj.value=i
 			arr.push(function() {
 				document.write(obj.value+'<br/>')
 			})
+		}
+		return arr
+	}
+	// this is the wrong way...
+	function wrong_wrapper3() {
+		var arr=[]
+		var obj={}
+		for(var i=0;i<5;i++) {
+			obj.value=i;
+			arr.push(function(o) {
+				return function() {
+					document.write(o.value+'<br/>')
+				}
+			}(obj))
 		}
 		return arr
 	}
@@ -50,8 +64,12 @@ function exists.
 	for(var k=0;k<a2.length;k++) {
 		a2[k]()
 	}
-	var a3=right_wrapper()
+	var a3=wrong_wrapper3()
 	for(var k=0;k<a3.length;k++) {
 		a3[k]()
+	}
+	var a4=right_wrapper()
+	for(var k=0;k<a4.length;k++) {
+		a4[k]()
 	}
 </script>

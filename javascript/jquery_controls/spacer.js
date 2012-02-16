@@ -40,7 +40,8 @@ Spacer.prototype.resize=function() {
 	if(this.stopResize) {
 		return;
 	}
-	var total_width=this.total.width();
+	//var total_width=this.total.width();
+	var total_width=$(window).width();
 	this.debug('total_width='+total_width);
 	var sum_width=0;
 	for(var i in this.elems) {

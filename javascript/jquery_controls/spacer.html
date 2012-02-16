@@ -1,5 +1,5 @@
 <!--
-A control that controls the resize of many elements.
+A control that keeps spaces between controlled elements the same...
 
 				Mark Veltzer
 -->
@@ -12,7 +12,8 @@ A control that controls the resize of many elements.
 		<script src='spacer.js'></script>
 	</head>
 	<body>
-		<div id="mydiv" style="width:100%; height:100px; border: solid;">
+		<div id="mydiv" style="width:100%; height:100px; border: solid; overflow: hidden;">
+		<!--div id="mydiv" style="width:100%; height:100px; border: solid; overflow: hidden;"-->
 		</div>
 		<script>
 			var w_resize=new Spacer('#mydiv',30);
