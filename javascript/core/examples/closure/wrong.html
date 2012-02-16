@@ -1,0 +1,57 @@
+<!--
+This demo shows problem with closures...
+The reason why the wrong version doesn't work is that i is a primitive and therefore
+each closure get a reference to the 'i' variable that exists ONLY ONCE in the wrapper
+function. Therefor, we only 5 printed which is the value of i when the 'wrong_wrapper'
+function exists.
+
+		Mark Veltzer
+-->
+<script>
+	// this is the wrong way...
+	function wrong_wrapper() {
+		var arr=[]
+		for(var i=0;i<5;i++) {
+			arr.push(function() {
+				document.write(i+'<br/>')
+			})
+		}
+		return arr
+	}
+	// this is the wrong way (with objects)...
+	function wrong_wrapper2() {
+		obj={}
+		var arr=[]
+		for(var i=0;i<5;i++) {
+			obj.value=i
+			arr.push(function() {
+				document.write(obj.value+'<br/>')
+			})
+		}
+		return arr
+	}
+	// this is the right way...
+	function right_wrapper() {
+		var arr=[]
+		for(var i=0;i<5;i++) {
+			arr.push(function(j) {
+				return function() {
+					document.write(j+'<br/>')
+				}
+			}(i))
+		}
+		return arr
+	}
+	var a1=wrong_wrapper()
+	for(var k=0;k<a1.length;k++) {
+		a1[k]()
+	}
+	var a2=wrong_wrapper2()
+	for(var k=0;k<a2.length;k++) {
+		a2[k]()
+	}
+	var a3=right_wrapper()
+	for(var k=0;k<a3.length;k++) {
+		a3[k]()
+	}
+</script>
