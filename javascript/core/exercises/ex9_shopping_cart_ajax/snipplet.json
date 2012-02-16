@@ -1,1 +1,17 @@
-../ex7_shopping_cart_noajax/snipplet.json
+{
+	"14": {
+		"name":"Bicycle",
+		"price":"145",
+		"storage":"3"
+	},
+	"15": {
+		"name":"Basketball",
+		"price":"3.99",
+		"storage":"12"
+	},
+	"16": {
+		"name":"Baseball",
+		"price":"1.99",
+		"storage":"10"
+	}
+}

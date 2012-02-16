@@ -1,5 +1,5 @@
-Ajax based shopping cart
-========================
+Shopping cart - stage 3
+=======================
 Add Ajax to your shopping cart application.
 - Get the initial list of product and prices from the Server.
 	do this on document load.
