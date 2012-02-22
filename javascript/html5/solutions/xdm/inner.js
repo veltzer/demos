@@ -24,7 +24,7 @@ function sendMessage() {
 }
 
 function receiveMessage(e) {
-	alert("in the receiver"+e.origin);
+	//alert("in the receiver"+e.origin);
 	if (e.origin == "http://dev1.nextgened.com") { 
 		// The data can probably be trusted 
 		// It came from the mainPage

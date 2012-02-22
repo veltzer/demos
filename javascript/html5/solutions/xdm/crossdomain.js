@@ -19,7 +19,7 @@ function sendMessage() {
 	if (typeof window.postMessage === "undefined") { 
 		alert("XDM is not supported on this browser!");
 	} else {
-		alert('sending message');
+		//alert('sending message');
 		var msg = new Object();
 		msg.messageId = 1234;
 		msg.messageType = "OrderSent";
