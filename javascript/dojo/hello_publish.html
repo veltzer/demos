@@ -19,33 +19,33 @@
 				handle1=dojo.subscribe("/myevent",do_console);
 				var w_sub=dijit.byId("sub1");
 				var w_unsub=dijit.byId("unsub1");
-				w_sub.attr('disabled',true);
-				w_unsub.attr('disabled',false);
+				w_sub.set('disabled',true);
+				w_unsub.set('disabled',false);
 			}
 			function do_unsub1() {
 				dojo.unsubscribe(handle1);
 				var w_sub=dijit.byId("sub1");
 				var w_unsub=dijit.byId("unsub1");
-				w_sub.attr('disabled',false);
-				w_unsub.attr('disabled',true);
+				w_sub.set('disabled',false);
+				w_unsub.set('disabled',true);
 			}
 			function do_sub2() {
 				handle2=dojo.subscribe("/myevent",do_alert);
 				var w_sub=dijit.byId("sub2");
 				var w_unsub=dijit.byId("unsub2");
-				w_sub.attr('disabled',true);
-				w_unsub.attr('disabled',false);
+				w_sub.set('disabled',true);
+				w_unsub.set('disabled',false);
 			}
 			function do_unsub2() {
 				dojo.unsubscribe(handle2);
 				var w_sub=dijit.byId("sub2");
 				var w_unsub=dijit.byId("unsub2");
-				w_sub.attr('disabled',false);
-				w_unsub.attr('disabled',true);
+				w_sub.set('disabled',false);
+				w_unsub.set('disabled',true);
 			}
 			function do_publish() {
 				w_textbox=dijit.byId("textbox");
-				dojo.publish("/myevent",[ w_textbox.attr('value') ]);
+				dojo.publish("/myevent",[ w_textbox.get('value') ]);
 			}
 		</script>
 	</head>
