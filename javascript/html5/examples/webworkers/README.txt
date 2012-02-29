@@ -4,7 +4,7 @@ There are three ways a worker may stay alive:
 - keep timers around.
 
 A thread can die by:
-- no registering 'onmessage' and timers and ending it's code.
+- not registering 'onmessage' and timers and ending it's code.
 - deregistering from both 'onmessage' and timers and ending it's code.
 - calling close() explicitly.
 - the parent calling worker.terminate() (bad practice although not that
