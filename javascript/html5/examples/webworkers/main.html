@@ -4,7 +4,7 @@
 		<script>
 			$(document).ready(function() {
 				function myonmessage(e) {
-					var msg='got: '+e.data;
+					var msg='ui thread got message: '+e.data;
 					console.log(msg);
 					$('#mydiv').html($('#mydiv').html()+'<br/>'+msg);
 				}
@@ -60,13 +60,13 @@
 		</script>
 	</head>
 	<body>
-		<input id="mymessage" type="text" value='message'></input>
+		<input id="mymessage" type="text" value='message text'></input>
 		<br/>
 		<input id="mythreads" type="text"></input>
 		<br/>
 		<button id="mysend">Send</button>
 		<br/>
-		<button id="myterminate">Terminate (very bad practice)</button>
+		<button id="myterminate">Terminate (not very nice)</button>
 		<br/>
 		<button id="mysendall">Send all</button>
 		<br/>

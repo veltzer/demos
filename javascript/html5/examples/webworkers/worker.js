@@ -1,10 +1,15 @@
 var first=true;
 var id=undefined;
+// this next line causes an exception even though chrome has a console tab
+// in it's debugger...
+//console.log('hello');
 function myonmessage(e) {
 	if(first) {
 		first=false;
 		id=e.data;
-		postMessage('worker got id '+e.data);
+		//self.postMessage('hi');
+		//self.postMessage('worker got id '+id);
+		self.postMessage('worker got id '+id);
 		return;
 	}
 	if(e.data=='close') {
@@ -14,7 +19,7 @@ function myonmessage(e) {
 		return;
 	}
 	if(e.data=='undefine') {
-		postMessage(id+' doing onmessage=undefined');
+		postMessage(id+' unregistering onmessage');
 		onmessage=undefined;
 		//delete window.onmessage;
 		return;
@@ -27,17 +32,21 @@ function myonmessage(e) {
 	if(e.data=='debug') {
 		postMessage(''+self);
 		postMessage(''+location);
-		for(var id in self) {
-			postMessage(id+': '+self[id]);
+		for(var k in self) {
+			postMessage(id+': '+self[k]);
 		}
 		return;
 	}
+	// this is for regular messages that don't have a special meaning
 	postMessage(id+' got '+e.data);
 }
 function myonerror() {
 	postMessage(id+' onerror');
 }
-
+function myonclose() {
+	postMessage(id+' onclose');
+}
 postMessage('anonymous worker starting...');
 self.onmessage=myonmessage;
 self.onerror=myonerror;
+self.onclose=myonclose;
