@@ -1,0 +1,13 @@
+Create an Ext like paginated grid component.
+The number of columns DOES NOT MATTER (for now...).
+The grid should show a number of predefined rows (parameters on construction).
+Two buttons should be shown below: next and prev.
+A store is provided to the component on construction.
+When ever the "next" button is pressed the next page out of the store is fetched
+and shown in the table. Similar behaviour on "prev".
+Grey the buttons out when "prev" or "next" is not relevant.
+Receive the number of rows in the store from the store itself.
+Receive the data from the store itself.
+The data can be hard coded as hardcoded json on the server side.
+
+Demonstrate the use of the your new component.
