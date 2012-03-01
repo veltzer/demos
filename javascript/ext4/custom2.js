@@ -2,6 +2,7 @@ Ext.onReady(function() {
 	Ext.define('MyPanel', {
 		extend: 'Ext.Panel',
 		layout: 'fit',
+		my_prop: 7,
 		initComponent: function() {
 			this.callParent(arguments);
 			var b_cancel=Ext.create('Ext.Button',{
