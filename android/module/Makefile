@@ -1,6 +1,6 @@
 # where is the cross compiler?
 CROSS_COMPILE:=~/install/android_platform/android_build/WORKING_DIRECTORY/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
-CROSS_COMPILE:=~/install/android_platform/android-ndk-r7/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/arm-linux-androideabi-
+#CROSS_COMPILE:=~/install/android_platform/android-ndk-r7/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/arm-linux-androideabi-
 # what is the architecture we want to build?
 ARCH:=x86
 ARCH:=arm
