@@ -1,6 +1,6 @@
 # where is the cross compiler?
-CROSS_COMPILE:=~/links/android-ndk-r6/toolchains/x86-4.4.3/prebuilt/linux-x86/bin/i686-android-linux-
-CROSS_COMPILE:=~/links/android_build/WORKING_DIRECTORY/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
+CROSS_COMPILE:=~/install/android_platform/android-ndk-r7/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/arm-linux-androideabi-
+CROSS_COMPILE:=~/install/android_platform/android_build/WORKING_DIRECTORY/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 # what is the architecture we want to build?
 ARCH:=x86
 ARCH:=arm
@@ -19,10 +19,10 @@ $(NAME)-objs:=main.o
 # the ?= means that it will only be set if you have not provided this via the command line.
 # You can override using "make KVER=2.6.35".
 KVER?=$(shell uname -r)
-# fill in the directory of the kernel build system
+# KDIR for regular ubuntu or linux disto kernels...
 KDIR:=/lib/modules/$(KVER)/build
-# for android...
-KDIR:=~/links/android_kernel/android-kernel/
+# KDIR for android...
+KDIR:=~/install/android_platform/android-kernel/
 # fill in the vervosity level you want
 # You can override using "make V=1"
 V?=0
