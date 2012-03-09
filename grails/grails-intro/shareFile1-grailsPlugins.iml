@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="GrailsWeb">
+      <configuration>
+        <webroots>
+          <root url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1/web-app" relative="/" />
+        </webroots>
+        <sourceRoots />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/hibernate-2.0.0.M2">
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/hibernate-2.0.0.M2/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/hibernate-2.0.0.M2/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/hibernate-2.0.0.M2/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/i18n-templates-1.1.0.1">
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/i18n-templates-1.1.0.1/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/i18n-templates-1.1.0.1/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/i18n-templates-1.1.0.1/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/jquery-1.6.1.1/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/resources-1.0.2/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/spring-security-core-1.2/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/svn-1.0.0.M1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/svn-1.0.0.M1/src/groovy" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/svn-1.0.0.M1/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/svn-1.0.0.M1/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/svn-1.0.0.M1/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/tomcat-2.0.0.M2">
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/tomcat-2.0.0.M2/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/tomcat-2.0.0.M2/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/tomcat-2.0.0.M2/web-app/plugins" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.0.0.M2" level="application" />
+    <orderEntry type="module-library" exported="">
+      <library name="Grails User Library (shareFile1-grailsPlugins)">
+        <CLASSES>
+          <root url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/svn-1.0.0.M1/lib" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/xml-apis/xml-apis/jars/xml-apis-1.0.b2.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-web/jars/spring-security-web-3.0.5.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.springframework.security/spring-security-core/jars/spring-security-core-3.0.5.RELEASE.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.tmatesoft.svnkit/svnkit/jars/svnkit-1.3.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/.grails/2.0.0.M2/projects/shareFile1/plugins/svn-1.0.0.M1/lib" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+

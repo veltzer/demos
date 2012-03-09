@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="meni-mobile" name="com.sharefile.model.ShareFileTests" tests="1" time="0.812" timestamp="2011-09-26T07:46:42">
+  <properties />
+  <testcase classname="com.sharefile.model.ShareFileTests" name="testConstraints" time="0.781" />
+  <system-out><![CDATA[--Output from testConstraints--
+]]></system-out>
+  <system-err><![CDATA[--Output from testConstraints--
+]]></system-err>
+</testsuite>
