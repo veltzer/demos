@@ -1,0 +1,2 @@
+puts "x is $x"
+set x 6
