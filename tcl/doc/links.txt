@@ -1,0 +1,5 @@
+Download site for tcl for windows:
+http://www.activestate.com/activetcl/downloads
+
+Tcl/Tk quick start on IBM developer works:
+http://www.ibm.com/developerworks/linux/tutorials/l-tcl/
