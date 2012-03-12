@@ -9,3 +9,13 @@ proc sumall {args} {
 }
 set myresult [sumall 5 6 7 8 9]
 puts "myresult is $myresult"
+set myresult [sumall 5 6 7 8]
+puts "myresult is $myresult"
+set myresult [sumall 5 6 7]
+puts "myresult is $myresult"
+set myresult [sumall 5 6]
+puts "myresult is $myresult"
+set myresult [sumall 5]
+puts "myresult is $myresult"
+set myresult [sumall]
+puts "myresult is $myresult"
