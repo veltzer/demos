@@ -1,5 +1,9 @@
 #!/usr/bin/tclsh
 
+# An example of using 'upvar' to access the callers variables...
+#
+#		Mark Veltzer
+
 proc one {} {
 	set z 5
 	puts "z is $z"
