@@ -1,4 +1,8 @@
 function Validator(id_for_append,name,validator,errorMsg) {
+	// this holds whether I am validated or not.
+	// 0: not validated, 1: validated, -1: don't know
+	this.state=-1;
+	this.listeners={};
 	this.id_for_append=id_for_append;
 	this.name=name;
 	this.validator=validator;
@@ -18,9 +22,25 @@ function Validator(id_for_append,name,validator,errorMsg) {
 }
 
 Validator.prototype.validate=function() {
-	if(this.validator(this.jq_input.val())) {
-		this.jq_err.hide();
-	} else {
-		this.jq_err.show();
+	var result=this.validator(this.jq_input.val());
+	if(result!=this.state) {
+		if(result) {
+			this.jq_err.hide();
+		} else {
+			this.jq_err.show();
+		}
+		this.state=result;
+		this.notifyChanges(result);
+	}
+}
+Validator.prototype.addListener=function(l) {
+	this.listeners[l]=l;
+}
+Validator.prototype.delListener=function(l) {
+	delete this.listeners[l];
+}
+Validator.prototype.notifyChanges=function(data) {
+	for(var x in this.listeners) {
+		this.listeners[x].notify(data);
 	}
 }

@@ -1,0 +1,20 @@
+Create a widget using jquery which is a sophisticated submit button.
+
+The button should be connected by the user to any number of validating
+fields. Use the validating fields implemented in the previous exercise.
+
+The button should listen on validation/invalidation messages from those
+fields. If any field declares that it is invalid then the submittion
+button should disable itself.
+
+Here is how the client would use this new widget:
+
+	var field1=new ValidatingTextField(...)
+	var field2=new ValidatingTextField(...)
+	var submitButton=new SubmitButton(
+		"#mydivid",
+		"text to show on the button"
+	);
+	submitButton.addField(field1);
+	submitButton.addField(field2);
+
