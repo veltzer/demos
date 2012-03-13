@@ -1,3 +1,15 @@
+<!--
+	An example of an observable pattern in Java.
+	The observable object is written with observation in mind.
+	That is why it is called "active".
+
+				Mark Veltzer
+
+	TODO:
+	- this code is UGLY! the "this.listeners[l]=l" pattern is UGLY!
+	Unfortunately I cannot change it since it breaks weirdly (doesn't
+	find the "notify" method. Investigate and report...
+-->
 <script>
 	function Person(name,age) {
 		this.name=name;
