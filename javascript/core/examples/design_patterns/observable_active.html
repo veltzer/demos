@@ -3,29 +3,45 @@
 	The observable object is written with observation in mind.
 	That is why it is called "active".
 
+	A naive implementation of this would use a javascript object
+	as a hash table but that would be wrong since javascript
+	objects store only strings as keys and not any object...
+
 				Mark Veltzer
 
-	TODO:
-	- this code is UGLY! the "this.listeners[l]=l" pattern is UGLY!
-	Unfortunately I cannot change it since it breaks weirdly (doesn't
-	find the "notify" method. Investigate and report...
 -->
 <script>
 	function Person(name,age) {
 		this.name=name;
 		this.age=age;
-		this.listeners={};
+		this.listeners=[];
 	}
 	Person.prototype.notifyChanges=function(data) {
 		for(var i in this.listeners) {
-			this.listeners[i].notify(data);
+			var elem=this.listeners[i];
+			elem.notify(data);
 		}
 	}
 	Person.prototype.addListener=function(l) {
-		this.listeners[l]=l;
+		// check if I have this listener already...
+		for(var i in this.listeners) {
+			var elem=this.listeners[i];
+			if(elem==l) {
+				return;
+			}
+		}
+		// ok, the listener is really new
+		this.listeners.push(l);
 	}
 	Person.prototype.removeListener=function(l) {
-		delete this.listeners[l];
+		// find the listener and remove it
+		for(var i in this.listeners) {
+			var elem=this.listeners[i];
+			if(elem==l) {
+				this.listeners.splice(i,1);
+				return;
+			}
+		}
 	}
 	Person.prototype.setName=function(newname) {
 		this.name=newname;
