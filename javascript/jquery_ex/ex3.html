@@ -5,18 +5,20 @@
 <html>
 	<head>
 		<style>
-			@import "jquery_ex2.css";
+			@import "ex3.css";
 		</style>
 		<script type='text/javascript' src='../toolkits/jquery.js'></script>
-		<script type='text/javascript' src='jquery_ex2.js'></script>
+		<script type='text/javascript' src='ex3.js'></script>
 		<script type='text/javascript'>
 			$(document).ready(function() {
 				$('#mybutton').click(function() {
 					tab=new PaginatedTable({
 						'id':'#mytable',
-						'rows':10,
-						'cols':10,
-						'create_buttons':0
+						'rows':5,
+						'cols':5,
+						'create_buttons':0,
+						'dataurl':'ex3.php',
+						'httpmethod':'GET',
 					});
 				});
 				$('#myprev').click(function() {
@@ -26,8 +28,8 @@
 					tab.next();
 				});
 				$('#myrandomize').click(function() {
-					for(var i=0;i<tab.getRows();i++) {
-						for(var j=0;j<tab.getCols();j++) {
+					for(i=0;i<tab.getRows();i++) {
+						for(j=0;j<tab.getCols();j++) {
 							tab.setData(i,j,Math.random());
 						}
 					}
