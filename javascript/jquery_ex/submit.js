@@ -11,6 +11,10 @@ function Submit(id_for_append,mytext) {
 	});
 }
 Submit.prototype.click=function() {
+	for(var i in this.fields) {
+		var field=this.fields[i];
+		field.animate();
+	}
 	var s="{";
 	for(var i in this.fields) {
 		var field=this.fields[i];
