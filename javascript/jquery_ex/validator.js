@@ -1,10 +1,11 @@
-function Validator(id_for_append,name,validator,errorMsg) {
+function Validator(id_for_append,name,submitName,validator,errorMsg) {
 	// this holds whether I am validated or not.
 	// 0: not validated, 1: validated, -1: don't know
 	this.state=-1;
 	this.listeners=[];
 	this.id_for_append=id_for_append;
 	this.name=name;
+	this.submitName=submitName;
 	this.validator=validator;
 	this.errorMsg=errorMsg;
 	this.jq_span=$('<span/>').text(this.name).addClass('fieldTitle');
@@ -41,4 +42,10 @@ Validator.prototype.notifyChanges=function(data) {
 		var elem=this.listeners[i];
 		elem.notify(data);
 	}
+}
+Validator.prototype.getSubmitName=function() {
+	return this.submitName;
+}
+Validator.prototype.getValue=function() {
+	return this.jq_input.val();
 }
