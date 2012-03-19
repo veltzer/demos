@@ -6,14 +6,15 @@
 	<head>
 		<script src='../toolkits/jquery.js'></script>
 		<style>
-			@import "jquery_validator.css";
+			@import "validator.css";
 		</style>
-		<script src='jquery_validator.js'></script>
-		<script src='jquery_submit.js'></script>
+		<script src='validator.js'></script>
+		<script src='submit.js'></script>
 		<script>
 			$(document).ready(function() {
 				var field1=new Validator(
 					"#mydiv",
+					"name",
 					"name",
 					function(value) {
 						return value.length%2==0;
@@ -22,6 +23,7 @@
 				);
 				var field2=new Validator(
 					"#myotherdiv",
+					"phone",
 					"phone",
 					function(value) {
 						return value.length%3==0;

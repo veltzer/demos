@@ -6,52 +6,48 @@ function PaginatedTable(options) {
 	this.cols=options.cols || 5;
 	this.create_buttons=options.create_buttons || 1;
 	this.id=options.id;
-	this.tab=$('<table>');
-	this.tab.addClass('PaginatedTable');
+	this.tab=$('<table>').addClass('PaginatedTable');
 	this.data=new Array();
-	for(i=0;i<this.rows;i++) {
-		var tr=$('<tr>');
-		tr.addClass('PaginatedRows');
+	for(var i=0;i<this.rows;i++) {
+		var tr=$('<tr>').addClass('PaginatedRows');
 		this.data[i]=new Array();
-		for(j=0;j<this.cols;j++) {
-			var td=$('<td>');
-			td.addClass('PaginatedTableCells');
+		for(var j=0;j<this.cols;j++) {
+			var td=$('<td>').addClass('PaginatedTableCells');
 			if(i%2==0) {
-				td.addClass('PaginatedTableCellsOdd');
-			} else {
 				td.addClass('PaginatedTableCellsEven');
+			} else {
+				td.addClass('PaginatedTableCellsOdd');
 			}
+			// just for debug...
 			td.text(i+','+j);
 			this.data[i][j]=td;
 			tr.append(td);
 		}
 		this.tab.append(tr);
 	}
+	$(this.id).append(this.tab);
 	if(this.create_buttons) {
-		var prev=$('<button>');
-		var next=$('<button>');
-		prev.text('prev');
-		next.text('next');
-		var my_object=this;
+		var prev=$('<button>').text('prev');
+		var next=$('<button>').text('next');
+		var widget=this;
 		prev.click(function() {
-			my_object.prev();
+			widget.prev();
 		});
 		next.click(function() {
-			my_object.next();
+			widget.next();
 		});
+		$(this.id).append(prev);
+		$(this.id).append(next);
 	}
-	$(this.id).append(this.tab);
-	$(this.id).append(prev);
-	$(this.id).append(next);
 	return this;
 }
 PaginatedTable.prototype.prev=function() {
-	// TODO
-	alert('prev');
+	// STILL TODO
+	console.log('prev');
 }
 PaginatedTable.prototype.next=function() {
-	// TODO
-	alert('next');
+	// STILL TODO
+	console.log('next');
 }
 PaginatedTable.prototype.getData=function(x,y) {
 	return this.data[x][y].text();

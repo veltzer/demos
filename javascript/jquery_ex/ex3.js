@@ -8,29 +8,29 @@ function PaginatedTable(options) {
 	if(typeof(options.httpmethod)==='undefined') {
 		throw String("must pass httpmethod");
 	}
-	this.debug_position=options.debug_position || 0;
-	this.position=options.position || 0;
+	// must have features...
+	this.id=options.id;
 	this.dataurl=options.dataurl;
 	this.httpmethod=options.httpmethod;
+	// with defaults (not must have...)
+	this.debug_position=options.debug_position || 0;
+	this.position=options.position || 0;
 	this.rows=options.rows || 5;
 	this.cols=options.cols || 5;
 	this.create_buttons=options.create_buttons || 1;
 	this.put_dummy_data=options.put_dummy_data || 0;
-	this.id=options.id;
-	this.tab=$('<table>');
-	this.tab.addClass('PaginatedTable');
+
+	this.tab=$('<table>').addClass('PaginatedTable');
 	this.data=new Array();
-	for(i=0;i<this.rows;i++) {
-		var tr=$('<tr>');
-		tr.addClass('PaginatedRows');
+	for(var i=0;i<this.rows;i++) {
+		var tr=$('<tr>').addClass('PaginatedRows');
 		this.data[i]=new Array();
-		for(j=0;j<this.cols;j++) {
-			var td=$('<td>');
-			td.addClass('PaginatedTableCells');
+		for(var j=0;j<this.cols;j++) {
+			var td=$('<td>').addClass('PaginatedTableCells');
 			if(i%2==0) {
-				td.addClass('PaginatedTableCellsOdd');
-			} else {
 				td.addClass('PaginatedTableCellsEven');
+			} else {
+				td.addClass('PaginatedTableCellsOdd');
 			}
 			if(this.put_dummy_data) {
 				td.text(i+','+j);
@@ -40,28 +40,24 @@ function PaginatedTable(options) {
 		}
 		this.tab.append(tr);
 	}
+	$(this.id).append(this.tab);
 	if(this.create_buttons) {
-		var prev=$('<button>');
-		var next=$('<button>');
-		prev.text('prev');
-		next.text('next');
-		var my_object=this;
+		var prev=$('<button>').text('prev');
+		var next=$('<button>').text('next');
+		var widget=this;
 		prev.click(function() {
-			my_object.prev();
+			widget.prev();
 		});
 		next.click(function() {
-			my_object.next();
+			widget.next();
 		});
+		$(this.id).append(prev);
+		$(this.id).append(next);
 	}
 	if(this.debug_position) {
 		this.d=$('<div>');
 		$(this.id).append(this.d);
 		this.updatePosition();
-	}
-	$(this.id).append(this.tab);
-	if(this.create_buttons) {
-		$(this.id).append(prev);
-		$(this.id).append(next);
 	}
 	this.fetch();
 	return this;
@@ -108,8 +104,8 @@ PaginatedTable.prototype.prev=function() {
 	if(this.position>=this.rows) {
 		this.position-=this.rows;
 		this.updatePosition();
+		this.fetch();
 	}
-	this.fetch();
 }
 PaginatedTable.prototype.next=function() {
 	this.position+=this.rows;

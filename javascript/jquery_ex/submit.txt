@@ -18,3 +18,20 @@ Here is how the client would use this new widget:
 	submitButton.addField(field1);
 	submitButton.addField(field2);
 
+Second phase of the exercise:
+=============================
+Make the submit button collect the data from the all the fields
+that it is in charge of and send it via Ajax to the server.
+- use the jQuery .ajax function.
+- get the data via some OO API - do NOT access the DOM directly ->
+	let each field do it on its own.
+
+Think: Can you extend this framework to other types of fields as well
+	(not just text fields) ?
+
+Third phase of the exercise:
+============================
+Use jquery animations to make the fields fly out of the right side
+of the screen whenever the user clicks the submit button.
+
+No help is provided about how to do this. Search the web.
