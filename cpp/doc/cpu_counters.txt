@@ -1,2 +1,0 @@
-Some interesting links about performance on Intel and cycles measurements:
-	http://halobates.de/modern-pmus-yokohama.pdf

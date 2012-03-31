@@ -1,3 +1,0 @@
-# this is a dummy makefile to appease the kernel build system
-# don't put anything important here.
-# put everything in the one big makefile above...

@@ -1,2 +1,0 @@
-- do demo with ace that works instead of memory1.
-- do demo with ace about asynchroneous sockets.
