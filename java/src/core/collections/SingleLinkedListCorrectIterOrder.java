@@ -37,17 +37,14 @@ public class SingleLinkedListCorrectIterOrder {
     private int size;
     private SingleLinkedListElem first,last;
     public SingleLinkedListCorrectIterOrder() {
-    	first=null;
-    	last=null;
+    	first=last=null;
     	size=0;
     }
     public void add(Object data) {
         if(last!=null) {
-    	    last.next=new SingleLinkedListElem(data,null);
-    	    last=last.next;
+            last=last.next=new SingleLinkedListElem(data,null);
         } else {
-        	first=new SingleLinkedListElem(data,null);
-        	last=first;
+            last=first=new SingleLinkedListElem(data,null);
         }
     	size++;
     }

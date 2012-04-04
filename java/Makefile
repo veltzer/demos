@@ -155,3 +155,7 @@ sloccount:
 check_author:
 	$(info doing [$@])
 	$(Q)find . -name "*.java" -exec grep -H @author {} \; | grep -v "Mark Veltzer"
+.PHONY: check_ws
+check_ws:
+	$(info doing [$@])
+	$(Q)git grep "  " -- '*.java'

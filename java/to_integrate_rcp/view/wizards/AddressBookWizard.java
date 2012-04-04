@@ -39,14 +39,14 @@ public class AddressBookWizard extends Wizard implements INewWizard {
 	public AddressBookWizard() {
 		super();
 		setNeedsProgressMonitor(true);
-        setWindowTitle("New Address Book File");
+		setWindowTitle("New Address Book File");
 	}
 	
 	/**
 	 * Adding the page to the wizard.
 	 */
 
-    @Override
+	@Override
 	public void addPages() {
 		page = new AddressBookWizardPage(selection);
 		addPage(page);
