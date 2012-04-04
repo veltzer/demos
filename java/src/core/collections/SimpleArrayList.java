@@ -1,12 +1,14 @@
 package core.collections;
 
-/**
- * This is a simple demo of java array list API
- */
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+/**
+ * This is a simple demo of java array list API
+ * @author mark
+ *
+ */
 
 public class SimpleArrayList {
 
