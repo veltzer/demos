@@ -8,10 +8,10 @@ public class Tree<D> {
 		data=idata;
         children=new SingleLinkedListCorrectIterOrderGeneric<Tree<D>>();
 	}
-	public void addSubtree(Tree<D> data) {
+	public void add(Tree<D> data) {
 		children.add(data);
 	}
-    public void addLeaf(D data) {
+    public void add(D data) {
     	children.add(new Tree<D>(data));
     }
     public void print(int depth) {
@@ -25,23 +25,23 @@ public class Tree<D> {
             curtree.print(depth+1);
         }
     }
-	
+    public void print() {
+    	print(0);
+    }
 	static enum Color {
 	    red,
 	    green,
 	    blue,
 	    white,
 	};
-
 	static class DirOrFile {
+		protected String name;
+		protected int id;
+		protected Color color;
 		@Override
 		public String toString() {
 			return name+","+id+','+color;
 		}
-		protected String name;
-		protected int id;
-		protected Color color;
-        
 	};
 	static class Dir extends DirOrFile {
 		public Dir(String iname,int iid, Color icolor) {
@@ -59,16 +59,15 @@ public class Tree<D> {
 			// Check that the color is right
 		}
 	}
-    
 	public static void main(String[] args) {
 		Tree<DirOrFile> t=new Tree<DirOrFile>(new Dir("/",5656,Color.red));
         Tree<DirOrFile> td1=new Tree<DirOrFile>(new Dir("tmp",54656,Color.white));
-		t.addSubtree(td1);
-        td1.addLeaf(new File("soffice",3454,Color.red));
+		t.add(td1);
+        td1.add(new File("soffice",3454,Color.red));
         Tree<DirOrFile> td2=new Tree<DirOrFile>(new Dir("etc",4656,Color.blue));
-		t.addSubtree(td2);
-        td2.addLeaf(new File("passwd",3454,Color.red));
-        td2.addLeaf(new File("hosts",3454,Color.red));
-        t.print(0);
+		t.add(td2);
+        td2.add(new File("passwd",3454,Color.red));
+        td2.add(new File("hosts",3454,Color.red));
+        t.print();
 	}
 }
