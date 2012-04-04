@@ -10,7 +10,7 @@ package core.collections;
  * @author mark
  */
 
-public class SingleLinkedList {
+public class SingleLinkedListCorrectIterOrder {
     static private class SingleLinkedListElem {
     	private Object data;
     	private SingleLinkedListElem next;
@@ -35,13 +35,20 @@ public class SingleLinkedList {
     	}
     }
     private int size;
-    private SingleLinkedListElem first;
-    public SingleLinkedList() {
+    private SingleLinkedListElem first,last;
+    public SingleLinkedListCorrectIterOrder() {
     	first=null;
+    	last=null;
     	size=0;
     }
     public void add(Object data) {
-    	first=new SingleLinkedListElem(data,first);
+        if(last!=null) {
+    	    last.next=new SingleLinkedListElem(data,null);
+    	    last=last.next;
+        } else {
+        	first=new SingleLinkedListElem(data,null);
+        	last=first;
+        }
     	size++;
     }
     public int size() {
@@ -51,12 +58,12 @@ public class SingleLinkedList {
     	return new Iterator(first);
     }
     public static void main(String[] args) {
-    	SingleLinkedList li=new SingleLinkedList();
+    	SingleLinkedListCorrectIterOrder li=new SingleLinkedListCorrectIterOrder();
     	li.add(45);
     	li.add(23);
     	li.add(75);
     	System.out.println("size of the list is "+li.size());
-        SingleLinkedList.Iterator it=li.getIterator();
+        SingleLinkedListCorrectIterOrder.Iterator it=li.getIterator();
         while(it.hasNext()) {
         	Integer i=(Integer)it.next();
         	System.out.println("i is "+i);

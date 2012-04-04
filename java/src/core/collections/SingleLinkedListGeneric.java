@@ -10,53 +10,54 @@ package core.collections;
  * @author mark
  */
 
-public class SingleLinkedList {
-    static private class SingleLinkedListElem {
-    	private Object data;
-    	private SingleLinkedListElem next;
+public class SingleLinkedListGeneric<T> {
+    static private class SingleLinkedListElem<T> {
+    	private T data;
+    	private SingleLinkedListElem<T> next;
     	
-    	private SingleLinkedListElem(Object idata,SingleLinkedListElem inext) {
+    	private SingleLinkedListElem(T idata,SingleLinkedListElem<T> inext) {
     		data=idata;
     		next=inext;
     	}
     }
-    static public class Iterator {
-    	private SingleLinkedListElem curr;
-    	private Iterator(SingleLinkedListElem icurr) {
+    static public class Iterator<T> {
+    	private SingleLinkedListElem<T> curr;
+    	private Iterator(SingleLinkedListElem<T> icurr) {
     		curr=icurr;
     	}
     	boolean hasNext() {
     		return curr!=null;
     	}
-    	Object next() {
-    		Object ret=curr.data;
+    	T next() {
+            T ret=curr.data;
     		curr=curr.next;
     		return ret;
     	}
     }
     private int size;
-    private SingleLinkedListElem first;
-    public SingleLinkedList() {
+    private SingleLinkedListElem<T> first;
+    public SingleLinkedListGeneric() {
     	first=null;
     	size=0;
     }
-    public void add(Object data) {
-    	first=new SingleLinkedListElem(data,first);
+    public void add(T data) {
+    	first=new SingleLinkedListElem<T>(data,first);
     	size++;
     }
     public int size() {
     	return size;
     }
-    public Iterator getIterator() {
-    	return new Iterator(first);
+    public Iterator<T> getIterator() {
+    	return new Iterator<T>(first);
     }
     public static void main(String[] args) {
-    	SingleLinkedList li=new SingleLinkedList();
+    	SingleLinkedListGeneric<Integer> li=
+    			new SingleLinkedListGeneric<Integer>();
     	li.add(45);
     	li.add(23);
     	li.add(75);
     	System.out.println("size of the list is "+li.size());
-        SingleLinkedList.Iterator it=li.getIterator();
+        SingleLinkedListGeneric.Iterator<Integer> it=li.getIterator();
         while(it.hasNext()) {
         	Integer i=(Integer)it.next();
         	System.out.println("i is "+i);
