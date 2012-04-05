@@ -11,6 +11,7 @@ try:
 		passwd='',
 		db='mysql',
 	);
+	print 'conn is',conn
 	with conn:
 		cur=conn.cursor()
 		cur.execute("SELECT VERSION()")
