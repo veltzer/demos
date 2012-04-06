@@ -13,16 +13,20 @@
 #x=(56,23,14)
 #x=[56,23,14]
 # the next one is a one line version to declare and initialize an array
-#x=(56 23 14)
+y=(12 94 54)
 # the element by element way...
-#x[0]=56
-#x[1]=23
-#x[2]=14
+z[0]=56
+z[1]=23
+z[2]=14
 
 # the right way to iterate an array
-for y in ${x[*]}
+for elem in ${y[*]}
 do
-	echo $y
+	echo $elem
 done
-
-echo "size of array is ${#x[*]}"
+echo "size of the array is ${#y[*]}"
+for elem in ${z[*]}
+do
+	echo $elem
+done
+echo "size of the array is ${#z[*]}"
