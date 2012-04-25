@@ -48,7 +48,7 @@ Distributed git
 	Contributing to a project
 	Maintaning a project.
 git tools
-	revising selection
+	revision selection
 	interactive staging
 	stashing
 	rewriting history
