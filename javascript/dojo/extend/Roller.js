@@ -8,7 +8,7 @@
  * the user can override the default value, the increment value, the decrement value
  * and the max value which causes a wrap around.
  *
- * 					Mark Veltzer
+ * Mark Veltzer <mark.veltzer@gmail.com>
  */
 
 if(!dojo._hasResource["extend.Roller"]){

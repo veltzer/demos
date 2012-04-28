@@ -1,3 +1,6 @@
+<!--
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
 <?php
 $directory=$_GET['path'];
 echo "{ label: 'name', identifier: 'path', items: [ ";
