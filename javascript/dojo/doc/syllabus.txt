@@ -1,0 +1,64 @@
+1. Introduction (14)
+	- what is dojo ?
+	- dojo widgets
+	- why use dojo ?
+	- why not use dojo ?
+	- comparison with other toolkits
+2. How does dojo work ? (29)
+	- downloading and installing dojo
+	- hello world analysis
+	- how does dojo work?
+	- documentation
+	* including helloworld, tabs and showcase demo exercises
+3. Programmatic vs. Declerative dojo (13)
+	- what is the declerative style ?
+	- what is the programmatic style ?
+	- hello world in the programmatic style
+	- mixing and matching styles
+	- which style should you choose ?
+	* including programmatic style helloworld exercise
+4. Infrastructure (30)
+	- support for themes
+	- support for require
+	- custom build. 
+	- dojo.addOnLoad.
+	- support for debug.
+	* including an exercise in theming, compression, query and debug.
+5. Event system
+	- introduction to the dojo event system
+	- the declarative way
+	- the programmatic way
+	- comparison
+	* including exercise in dojo event
+6. Widgets (5)
+	- introduction to the dojo widget system
+	- examples of some of the widgets and their properties
+	* including exercise in dojo widgets
+	- dojo.query. - no
+7. xhr
+	- xhr support in dojo
+	- different APIs for different needs
+	* including exercise in dojo xhr
+8. history (7)
+	- history support in dojo
+	* including exercise in dojo history (back support)
+9. data (18)
+	- data support in dojo
+	- rolling your own data
+	* including exercise in dojo data using a predefined data source
+
+Advanced day: Dojo for architects
+10. Widgets - rolling your own widgets (16)
+	[no subtopics yet]
+11. REST - how does Dojo fit in with REST (67)
+	[no subtopics yet]
+12. open ajax - how does Dojo fit in with Open Ajax (22)
+	[no subtopics yet]
+
+Installation requirements:
+1. Apache tomcat version 5 installed on students machines
+	Mind you - tomcat is important and not just a web server since some applets
+	will be supplied as part of the exercises so that students could practice
+	interaction with the server
+2. Javascript aware editor (pspad is one alternative, eclipse is another)
+3. Firefox with firebug installed for debuggin and understanding
