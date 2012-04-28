@@ -1,0 +1,44 @@
+<!--
+-->
+
+<html>
+	<head>
+		<title>I18N</title>
+		<script>
+			var dojoConfig = {
+				has: {
+					"dojo-firebug": true,
+					"dojo-debug-messages": true
+				},
+				parseOnLoad: true,
+				// look for a locale=xx query string param, else default to 'en-us'
+				locale: location.search.match(/locale=([\w\-]+)/) ? RegExp.$1 : "en-us",
+				locale: "zh",
+			};
+		</script>
+		<script src="../toolkits/dojo/dojo/dojo.js"></script>
+		<style>
+			@import "../toolkits/dojo/dijit/themes/tundra/tundra.css";
+			@import "../toolkits/dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			require(["dojo/date/locale", "dijit/Dialog", "dojo/i18n", "dojo/domReady!"], function(locale, Dialog) {
+				var now = new Date()
+				var dialog = new Dialog({
+					id: "dialog",
+					// set a title on the dialog of today's date,
+					// using a localized date format
+					title: "Today: " + locale.format(now, {
+						formatLength:"full",
+						selector:"date"
+					})
+				}).placeAt(dojo.body());
+				dialog.startup();
+				dialog.set("content", "<pre>" + dojo.toJson(dojo.config, true) + "</pre>");
+				dialog.show();
+			});
+		</script>
+	</head>
+	<body class="tundra">
+	</body>
+</html>

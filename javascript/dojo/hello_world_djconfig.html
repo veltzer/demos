@@ -1,0 +1,22 @@
+<!--
+This is the original way of initializing dojo using the djConfig.
+-->
+<html>
+	<head>
+		<title>Hello, World! via djConfig</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style>
+			@import "../toolkits/dojo/dijit/themes/tundra/tundra.css";
+			@import "../toolkits/dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			function click() {
+				alert("wow! it works!");
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" title="click to see an alert" onclick="click">Lets see if this works</div>
+	</body>
+</html>

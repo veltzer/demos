@@ -1,0 +1,49 @@
+<!--
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<html>
+	<head>
+		<title>Hello, Ajax world!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<style type="text/css">
+			@import "../toolkits/dojo/dijit/themes/tundra/tundra.css";
+			@import "../toolkits/dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.form.Textarea");
+			dojo.require("dijit.form.TextBox");
+			function onDataGet(response,ioArgs) {
+				var w_textarea=dijit.byId("textarea");
+				w_textarea.attr('value',response);
+				var w_status=dijit.byId("statustextbox");
+				w_status.attr('value',"HTTP status code: "+ioArgs.xhr.status);
+			}
+			function onError(response, ioArgs) {
+				console.error("HTTP status code: ",ioArgs.xhr.status);
+				var w_status=dijit.byId("statustextbox");
+				w_status.attr('value',"HTTP status code: "+ioArgs.xhr.status);
+				var w_textarea=dijit.byId("textarea");
+				w_textarea.attr('value',"not showing text because of error from server");
+			}
+			function do_get() {
+				var w_textfield=dijit.byId("textbox");
+				var v_url=w_textfield.attr('value');
+				dojo.xhrGet({
+					url: v_url,
+					handleAs: "text",
+					timeout: 5000,
+					load: onDataGet,
+					error: onError,
+				});
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" title="get it from server" onClick="do_get">Get it from server!</div>
+		<div dojoType="dijit.form.TextBox" id="textbox" title="selection"></div>
+		<div dojoType="dijit.form.TextBox" id="statustextbox" title="status" disabled="true">no status yet</div>
+		<div dojoType="dijit.form.Textarea" id="textarea" title="This is the text from the server" style="height: 500px">No text from server yet</div>
+	</body>
+</html>

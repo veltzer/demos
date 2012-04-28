@@ -1,0 +1,22 @@
+<!--
+	An example showing how to print the version of dojo.
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<html>
+	<head>
+		<title>Dojo version example</title>
+		<script src="../toolkits/dojo/dojo/dojo.js"></script>
+		<style>
+			@import "../toolkits/dojo/dijit/themes/tundra/tundra.css";
+			@import "../toolkits/dojo/dojo/resources/dojo.css";
+		</style>
+		<script>
+			dojo.addOnLoad(function() {
+				alert("version of dojo is "+dojo.version);
+			});
+		</script>
+	</head>
+	<body class="tundra">
+	</body>
+</html>
