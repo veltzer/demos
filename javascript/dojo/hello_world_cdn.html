@@ -3,8 +3,9 @@
 	Taken from the the Dojo campus
 
 	A few notes:
-	- notice how we config ParseOnLoad.
-	- notice that we must move require to be used on load instead of immediately.
+	- we parse the document itself when loading to enable the declerative style.
+		(most people like the programmatic style anyway).
+	- notice the use of the 1.7 require style.
 
 	references:
 	http://docs.dojocampus.org/quickstart/cross-domain
@@ -14,14 +15,12 @@
 <html>
 	<head>
 		<title>Hello, CDN!</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5.0/dojo/dojo.xd.js"></script>
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.5.0/dijit/themes/tundra/tundra.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js"></script>
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dijit/themes/tundra/tundra.css" />
 		<script>
-			function loader() {
-				dojo.require("dijit.form.Button");
-			}
-			dojo.config.parseOnLoad = true;
-			dojo.addOnLoad(loader);
+			require(["dijit/form/Button","dojo/parser"],function() {
+				dojo.parser.parse();
+			});
 			function click() {
 				alert("wow! it works!");
 			}
