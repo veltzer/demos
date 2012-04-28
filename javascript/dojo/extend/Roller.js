@@ -16,6 +16,7 @@ if(!dojo._hasResource["extend.Roller"]){
 	dojo.provide("extend.Roller");
 	dojo.require("dijit._Widget");
 	dojo.require("dijit._Templated");
+	dojo.require("dijit._Container");
 	dojo.require("dijit.form.Button");
 	dojo.require("dijit.form.TextBox");
 	dojo.declare(
