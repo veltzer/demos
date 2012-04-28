@@ -1,0 +1,11 @@
+This is the coding style for the dojo examples:
+===============================================
+- description of the example at the begining of the html file like such:
+	<!--
+		This is a
+		multi line
+		comment about the example
+
+		Mark Veltzer <mark.veltzer@gmail.com>
+	-->
+- every example should have a <title> tag so that it appears in the browser nicely.

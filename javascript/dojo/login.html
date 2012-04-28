@@ -1,14 +1,13 @@
 <!--
 	Mark Veltzer <mark.veltzer@gmail.com>
 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>Login page exercise</title>
 		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
-		<style>
-			@import "../toolkits/dojo/dijit/themes/tundra/tundra.css";
-			@import "../toolkits/dojo/dojo/resources/dojo.css";
-		</style>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
 		<script>
 			dojo.require("dijit.form.ValidationTextBox");
 			dojo.require("dijit.form.Button");
@@ -56,8 +55,7 @@
 			promptMessage="Enter your first name"
 			invalidMessage="First name is required"
 			trim="true"
-		>
-		</div>
+		></div>
 		<br/>
 		Last Name<div type="text"
 			id="lastName"
@@ -70,15 +68,14 @@
 			promptMessage="Enter your last name"
 			invalidMessage="Last name is required"
 			trim="true"
-		>
-		</div>
+		></div>
 		<br/>
 		<div dojoType="dojox.form.PasswordValidator" name="pwValidate" pwCheck="pwCheck">
 			<!--
-			Old password<input type="password" pwType="old"/></br>
+			Old password<input type="password" pwType="old"/><br/>
 			-->
-			New password<input type="password" pwType="new"/></br>
-			Verify new password<input type="password" pwType="verify"/></br>
+			New password<input type="password" pwType="new"/><br/>
+			Verify new password<input type="password" pwType="verify"/><br/>
 		</div>
 		<div dojoType="dijit.form.ComboBox" id="im" value="Enter your IM system"></div>
 		<br/>
@@ -93,8 +90,7 @@
 			promptMessage="Enter your IM id"
 			invalidMessage="IM id is required"
 			trim="true"
-		>
-		</div>
+		></div>
 		<br/>
 		<div id='submitid' dojoType="dijit.form.Button" title="click to see an alert" onclick="register" disabled="true">Register to this website</div>
 		</form>

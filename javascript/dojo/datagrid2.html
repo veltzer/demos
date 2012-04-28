@@ -3,51 +3,33 @@
 
 	Mark Veltzer <mark.veltzer@gmail.com>
 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>Hello, DataGrid world!</title>
 		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true, isDebug:false"></script>
-		<style type="text/css">
-			@import "../toolkits/dojo/dijit/themes/tundra/tundra.css";
-			@import "../toolkits/dojo/dojox/grid/resources/Grid.css";
-			@import "../toolkits/dojo/dojox/grid/resources/tundraGrid.css";
-			@import "../toolkits/dojo/dojo/resources/dojo.css";
-		</style>
-		<script>
-			dojo.require("dojox.grid.DataGrid");
-			dojo.require("dojo.data.ItemFileWriteStore");
-			dojo.require("dijit.form.Button");
-			function init() {
-				// load some data
-			}
-			function do_click() {
-				var w=dijit.byId("grid");
-				var store=w.store;
-				for(i=0;i<w.rowCount;i++) {
-					var item=w.getItem(i);
-					var old_price=store.getValue(item,'price');
-					var new_price=old_price*1.15;
-					store.setValue(item,'price',new_price);
-				}
-			}
-			function do_populate() {
-				// create some data
-			}
-			dojo.addOnLoad(init);
-		</script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojox/grid/resources/Grid.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojox/grid/resources/tundraGrid.css"/>
+		<script src="datagrid2.js"></script>
 	</head>
 	<body class="tundra">
 		<div id="mydatastore" dojoType="dojo.data.ItemFileWriteStore" jsId="mystore" url="datagrid2.ajax"></div>
 		<table id="grid" dojoType="dojox.grid.DataGrid" store="mystore">
-			<thead><tr>
-				<th name="product">Product</th>
-				<th name="price">Price</th>
-			</tr></thead>
+			<thead>
+				<tr>
+					<th name="product">Product</th>
+					<th name="price">Price</th>
+				</tr>
+			</thead>
 		</table>
 		<table id="grid2" dojoType="dojox.grid.DataGrid" store="mystore">
-			<thead><tr>
-				<th name="price">Price</th>
-			</tr></thead>
+			<thead>
+				<tr>
+					<th name="price">Price</th>
+				</tr>
+			</thead>
 		</table>
 		<div id="button" dojoType="dijit.form.Button" onClick="do_click">Modify Data</div>
 		<div id="button2" dojoType="dijit.form.Button" onClick="do_populate">Populate</div>

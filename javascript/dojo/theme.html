@@ -1,15 +1,16 @@
 <!--
+	An example of customizing a dojo theme.
+
 	Mark Veltzer <mark.veltzer@gmail.com>
 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
-		<title>Hello, Tabs (in the programmatic style)!</title>
+		<title>Example of customizing the tundra theme</title>
 		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
-		<style>
-			@import "../toolkits/dojo/dijit/themes/soria/soria.css";
-			@import "../toolkits/dojo/dojo/resources/dojo.css";
-			@import "theme1.css";
-		</style>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<link rel="stylesheet" href="theme.css"/>
 		<script>
 			dojo.require("dijit.form.Button");
 			dojo.require("dijit.layout.TabContainer");
@@ -28,11 +29,8 @@
 			}
 		</script>
 	</head>
-	<body class="soria">
-		<div id="tabcontainer" dojoType="dijit.layout.TabContainer" style="width: 400px; height: 200px">
-		</div>
-		<div dojoType="dijit.form.Button" onClick="addTab">
-			Click on me to add a tab!
-		</div>
+	<body class="tundra">
+		<div id="tabcontainer" dojoType="dijit.layout.TabContainer" style="width: 400px; height: 200px"></div>
+		<div dojoType="dijit.form.Button" onClick="addTab">Click on me to add a tab!</div>
 	</body>
 </html>

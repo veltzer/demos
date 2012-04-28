@@ -9,14 +9,13 @@
 
 	Mark Veltzer <mark.veltzer@gmail.com>
 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>Hello, I18N!</title>
 		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true, modulePaths: {'myi18n': '../../../dojo/myi18n'}"></script>
-		<style>
-			@import "../toolkits/dojo/dijit/themes/tundra/tundra.css";
-			@import "../toolkits/dojo/dojo/resources/dojo.css";
-		</style>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
 		<script>
 			dojo.require("dijit.form.Button");
 			dojo.require("dojo.i18n");
@@ -24,7 +23,7 @@
 			dojo.require(["myi18n"], function(i18n){
 				console.log(i18n.invalidMessage);
 			});
-			// this is for dojo < 1.7
+			// this is for dojo less than 1.7
 			dojo.requireLocalization("myi18n","symbols");
 			function click() {
 				var msg=dojo.i18n.getLocalization("myi18n","symbols");
