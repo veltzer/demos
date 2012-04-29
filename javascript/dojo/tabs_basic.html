@@ -1,0 +1,27 @@
+<!--
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, tabs!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.layout.TabContainer");
+			dojo.require("dijit.layout.ContentPane");
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.layout.TabContainer" style="width: 200px; height: 200px;">
+			<div dojoType="dijit.layout.ContentPane" title="title 1">
+				This is some text 1
+			</div>
+			<div dojoType="dijit.layout.ContentPane" title="title 2">
+				This is some text 2
+			</div>
+		</div>
+	</body>
+</html>

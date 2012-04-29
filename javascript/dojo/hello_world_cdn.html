@@ -1,0 +1,34 @@
+<!--
+	This example shows how to use dojo from CDN.
+	Taken from the the Dojo campus
+
+	A few notes:
+	- we parse the document itself when loading to enable the declerative style.
+		(most people like the programmatic style anyway).
+	- notice the use of the 1.7 require style.
+
+	references:
+	http://docs.dojocampus.org/quickstart/cross-domain
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, CDN!</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js"></script>
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dijit/themes/tundra/tundra.css" />
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/resources/dojo.css" />
+		<script>
+			require(["dijit/form/Button","dojo/parser"],function() {
+				dojo.parser.parse();
+			});
+			function click() {
+				alert("wow! it works!");
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" title="click to see an alert" onClick="click">Lets see if this works</div>
+	</body>
+</html>

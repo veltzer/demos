@@ -8,7 +8,7 @@
  * the user can override the default value, the increment value, the decrement value
  * and the max value which causes a wrap around.
  *
- * 					Mark Veltzer
+ * Mark Veltzer <mark.veltzer@gmail.com>
  */
 
 if(!dojo._hasResource["extend.Roller"]){
@@ -16,6 +16,7 @@ if(!dojo._hasResource["extend.Roller"]){
 	dojo.provide("extend.Roller");
 	dojo.require("dijit._Widget");
 	dojo.require("dijit._Templated");
+	dojo.require("dijit._Container");
 	dojo.require("dijit.form.Button");
 	dojo.require("dijit.form.TextBox");
 	dojo.declare(

@@ -1,0 +1,29 @@
+<!--
+	This is a solution to the advanced part of the dojo.back exercise.
+	(the odd number invalidation).
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Solution to the dojo.back exercise</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true,preventBackButtonFix:false"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script src="back2.js"></script>
+	</head>
+	<body class="tundra">
+		<!-- this is a fix for IE -->
+		<script>
+			dojo.back.init();
+		</script>
+		<div id="id_sum" disabled="true" dojoType="dijit.form.NumberTextBox">
+		</div>
+		<div id="id_val" dojoType="dijit.form.NumberTextBox">
+		</div>
+		<div dojoType="dijit.form.Button" onClick="sumNumbers">Add</div>
+		<div dojoType="dijit.form.Button" onClick="Back">Back</div>
+		<div dojoType="dijit.form.Button" onClick="Back2">Back2</div>
+	</body>
+</html>

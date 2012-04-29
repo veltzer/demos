@@ -1,0 +1,47 @@
+<!--
+	This exapmle shows how to create dojo elements using dojo.create and
+	place them using dojo.place.
+
+	references:
+	http://dojocampus.org/content/2010/04/08/skip-the-mark-up-dojo-body-create-and-place/
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, dojo.create!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dojo.dnd.Source");
+			function init() {
+				var header=dojo.create('h2');
+				dojo.place(header,dojo.body());
+				header.innerHTML='Fruit List';
+				var listContainer=dojo.create('div', {'class':'listContainer'});
+				dojo.place(listContainer, dojo.body());
+				var fruitList=dojo.create('ol', {'id':'fruitList'});
+				dojo.place(fruitList,listContainer);
+				fruitList=new dojo.dnd.Source('fruitList');
+				fruitList.insertNodes(false, [
+					"Limes",
+					"Apples",
+					"Lemons",
+					"Oranges",
+					"Pears",
+					"Bananas",
+					"Mangos",
+					"Passion Fruit",
+					"Stawberries",
+					"Lulos"
+				]);
+			}
+			dojo.addOnLoad(init);
+		</script>
+	</head>
+	<body class="tundra">
+		<!-- leave the body empty on purpose -->
+	</body>
+</html>

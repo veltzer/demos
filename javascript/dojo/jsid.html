@@ -1,0 +1,31 @@
+<!--
+	This example demostrates that JsId is just a way to define create a global variable
+	which is a reference to the widget that declares the jsid. The main use of jsid is
+	to avoid the need to link two widgets together in code when both widgets
+	are declerative.
+
+	This variable can be referenced from your code or it could be refereced from another
+	declerative widget.
+	Just remmember to have them declared in the right order and avoid two widgets with
+	the same jsId attribute which will cause them to overwrite one another.
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, JsId!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			function click() {
+				console.debug(myJSId);
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" jsId="myJSId" title="click to see an alert" onclick="click">Lets see if this works</div>
+	</body>
+</html>

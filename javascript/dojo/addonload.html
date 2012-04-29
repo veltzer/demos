@@ -1,0 +1,54 @@
+<!--
+	This example shows how dojo.addOnLoad and Unload work...
+
+	Notes:
+	- addOnLoad functions are called in the order they were registered.
+	- addOnUnload functions are called in the reverse order they were registered
+		(as expected).
+	- same goes for window unloading functions.
+	- beware of making DOM modifications during the unload phase since dojo
+		called these functions between window unload and so changing the
+		data on the page may be premature and unneeded.
+	- differences between browsers will exist as to actually calling the unload function.
+	- if you really want to call a function during the window unload phase then use
+		
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>example of dojo.addOnLoad</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			function do_load1() {
+				alert("Loading 1...");
+			}
+			function do_load2() {
+				alert("Loading 2...");
+			}
+			function do_unload1() {
+				alert("Unloading 1...");
+			}
+			function do_unload2() {
+				alert("Unloading 2...");
+			}
+			function do_winunload1() {
+				alert("Window Unloading 1...");
+			}
+			function do_winunload2() {
+				alert("Window Unloading 2...");
+			}
+			dojo.addOnLoad(do_load1);
+			dojo.addOnLoad(do_load2);
+			dojo.addOnUnload(do_unload1);
+			dojo.addOnUnload(do_unload2);
+			dojo.addOnWindowUnload(do_winunload1);
+			dojo.addOnWindowUnload(do_winunload2);
+		</script>
+	</head>
+	<body class="tundra">
+		This is an unloading and loading demo. Move to another page to see the results...
+	</body>
+</html>

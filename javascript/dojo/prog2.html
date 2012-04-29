@@ -1,0 +1,36 @@
+<!--
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, Tabs (in the programmatic style)!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.layout.TabContainer");
+			dojo.require("dijit.layout.ContentPane");
+			var i=0;
+			function addTab() {
+				i++;
+				var container=dijit.byId("tabcontainer");
+				var mynewtab=new dijit.layout.ContentPane({title: "tab "+i});
+				mynewtab.startup();
+				container.addChild(mynewtab);
+				var elem=document.createElement("div");
+				mynewtab.setContent(elem);
+				var button=new dijit.form.Button({label:"This is button"+i},elem);
+				button.startup();
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div id="tabcontainer" dojoType="dijit.layout.TabContainer" style="width: 400px; height: 200px">
+		</div>
+		<div dojoType="dijit.form.Button" onClick="addTab">
+			Click on me to add a tab!
+		</div>
+	</body>
+</html>

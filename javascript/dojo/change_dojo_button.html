@@ -1,0 +1,27 @@
+<!--
+	This demos changing how a dojo button behaves by
+	default.
+
+	This demo currently DOES NOT WORK. need to check why...
+	
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, Strange Dojo button!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			function init() {
+				dojo.connect(dijit.form.Button,"onClick", function() { alert("This is a strange button indeed!"); } );
+			}
+			dojo.addOnLoad(init);
+		</script>
+	</head>
+	<body class="tundra">
+		<div id="regButton" dojoType="dijit.form.Button" title="standard button">This looks like a regular button!</div>
+	</body>
+</html>

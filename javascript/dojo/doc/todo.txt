@@ -1,0 +1,8 @@
+- check the to_integrate folder and get tidd of it
+	if need be.
+- do slides about dojo debugging
+	isDebug in djConfig.
+- comment all of my examples.
+- check all of the examples.
+- pull the dojo slides into the dojo folder in the project.
+- do chapter on dojo widgets overview.

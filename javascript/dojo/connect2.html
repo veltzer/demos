@@ -1,0 +1,26 @@
+<!--
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, dojo.connect</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			function do_click() {
+				alert("yes!")
+			}
+			function do_connect() {
+				var w=dijit.byId("mybutton")
+				dojo.connect(w,"onClick",do_click)
+			}
+			dojo.addOnLoad(do_connect);
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" id="mybutton" title="Hello, World!">Connect</div>
+	</body>
+</html>

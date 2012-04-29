@@ -1,0 +1,47 @@
+<!--
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, tabs!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.layout.TabContainer");
+			dojo.require("dijit.layout.ContentPane");
+			var i=2;
+			function addPane() {
+				i++;
+				var ncp=new dijit.layout.ContentPane({title:"title "+i});
+				ncp.startup();
+				var tab=dijit.byId("mytab");
+				tab.addChild(ncp);
+				var newdiv=document.createElement('div');
+				ncp.setContent(newdiv);
+				var newbutton=new dijit.form.Button({label: "label "+i},newdiv);
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div id="mytab" dojoType="dijit.layout.TabContainer" style="width: 200px; height: 200px;">
+			<div dojoType="dijit.layout.ContentPane" title="title 1">
+				This is some text 1
+				<div dojoType="dijit.form.Button" title="This is some baloon help" onClick="addPane">
+					Click me to add a content pane
+				</div>
+			</div>
+			<div dojoType="dijit.layout.ContentPane" title="title 2">
+				This is some text 2
+				<div dojoType="dijit.form.Button" title="This is some baloon help" onClick="addPane">
+					Click me to add a content pane
+				</div>
+			</div>
+		</div>
+		<div dojoType="dijit.form.Button" title="This is some baloon help" onClick="addPane">
+			Click me to add a content pane
+		</div>
+	</body>
+</html>

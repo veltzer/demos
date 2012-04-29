@@ -1,0 +1,45 @@
+<!--
+	This example shows how to use a regex.
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, Regular expression!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dijit.form.TextBox");
+			function do_check() {
+				var w_re=dijit.byId("re")
+				var w_text=dijit.byId("text")
+				var v_re=w_re.attr('value')
+				var v_text=w_text.attr('value')
+				var re=new RegExp(v_re)
+				var res=re.test(v_text)
+				var w_result=dijit.byId("result")
+				w_result.attr('value',res)
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		Regexp: <div dojoType="dijit.form.TextBox" id="re">
+			regexp
+		</div>
+		<br/>
+		Text: <div dojoType="dijit.form.TextBox" id="text">
+			text
+		</div>
+		<br/>
+		Result: <div dojoType="dijit.form.TextBox" id="result">
+			result
+		</div>
+		<br/>
+		<div dojoType="dijit.form.Button" onClick="do_check">
+			Check if they match!
+		</div>
+	</body>
+</html>

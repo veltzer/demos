@@ -1,0 +1,21 @@
+<!--
+	This is a solution to the exercise for widget writing.
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, Roller</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true, modulePaths: {'extend': '../../../dojo/extend'}"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("extend.Roller");
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="extend.Roller" initVal="50" incVal="5" decVal="8" maxVal="100"></div>
+		<div dojoType="extend.Roller" initVal="5" incVal="1" decVal="1" maxVal="10"></div>
+	</body>
+</html>

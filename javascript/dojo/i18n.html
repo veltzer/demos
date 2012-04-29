@@ -1,0 +1,38 @@
+<!--
+	This example demonstrates how to use the Dojo i18n APIs.
+	requireLocalization is almost the same as require but gets a locale specific version.
+
+	Notes:
+	- notes the need for the module paths in the djConfig var in order to locate my own module.
+	- fire up firebug to see the loading of the packages.
+	- at development you get all this AJAX going on but in production all the translations would be collapsed by the build tool.
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Hello, I18N!</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true, modulePaths: {'myi18n': '../../../dojo/myi18n'}"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			dojo.require("dijit.form.Button");
+			dojo.require("dojo.i18n");
+			// this is for dojo 1.7
+			dojo.require(["myi18n"], function(i18n){
+				console.log(i18n.invalidMessage);
+			});
+			// this is for dojo less than 1.7
+			dojo.requireLocalization("myi18n","symbols");
+			function click() {
+				var msg=dojo.i18n.getLocalization("myi18n","symbols");
+				console.log(msg);
+				console.log(msg.invalidMessage);
+			}
+		</script>
+	</head>
+	<body class="tundra">
+		<div dojoType="dijit.form.Button" title="click to see an alert" onclick="click">Lets see if this works</div>
+	</body>
+</html>
