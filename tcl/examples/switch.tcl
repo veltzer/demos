@@ -1,4 +1,4 @@
-#!/usr/bin/tclsh8.4
+#!/usr/bin/tclsh
 
 set name "Luke"
 
