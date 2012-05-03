@@ -4,5 +4,9 @@
 #
 #	Mark Veltzer
 
-set io [open "|ls" r]
-puts "io is $io"
+set fileId [open "|ls -l" r]
+#puts "fileId is $fileId"
+while {[gets $fileId line]>=0} {
+	puts "line is $line"
+}
+puts "child is probably dead..."
