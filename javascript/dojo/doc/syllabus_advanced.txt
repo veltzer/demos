@@ -20,3 +20,12 @@ Day 3: advanced topics
 	tools and debugging
 	build and deployment
 	i18n in general and in widget
+
+Emphasis on:
+	dojo.io
+	require, on, 1.7
+	wire
+	i18n
+	dojo.data
+	writing widgets
+	dojo architecture
