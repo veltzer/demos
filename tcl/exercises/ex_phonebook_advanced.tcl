@@ -28,6 +28,7 @@ proc readPhonebook {} {
 			set phonebook($name) $phone
 		}
 		close $fileId
+		puts "Read phonebook.txt succefully.."
 	} else {
 		puts "You do not have a phonebook, proceeding without one..."
 	}
