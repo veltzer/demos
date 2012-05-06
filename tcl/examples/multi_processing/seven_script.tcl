@@ -4,4 +4,5 @@
 #
 #	Mark Veltzer
 
+puts "seven script was here..."
 exit 7

@@ -21,6 +21,6 @@
 #exit
 #return
 #return 7
-#exit 7
+exit 7
 #error "this is the mandatory message" "this is the optional info" 5
-return -code error "this is the error"
+#return -code error "this is the error"
