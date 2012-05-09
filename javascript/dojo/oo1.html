@@ -1,0 +1,28 @@
+<!--
+This is an example of doing object oriented work with dojo.
+
+	Mark Veltzer <mark.veltzer@gmail.com>
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Object Oriented with dojo</title>
+		<script src="../toolkits/dojo/dojo/dojo.js" djConfig="parseOnLoad:true"></script>
+		<link rel="stylesheet" href="../toolkits/dojo/dijit/themes/tundra/tundra.css"/>
+		<link rel="stylesheet" href="../toolkits/dojo/dojo/resources/dojo.css"/>
+		<script>
+			var A=dojo.declare(null,{});
+			var a=new A();
+			// single inheritance
+			var B=dojo.declare(A,{});
+			var b=new B();
+			// lets see if it works...
+			console.log(a instanceof A);
+			console.log(b instanceof A);
+			console.log(a instanceof B);
+			console.log(b instanceof B);
+		</script>
+	</head>
+	<body class="tundra">
+	</body>
+</html>
