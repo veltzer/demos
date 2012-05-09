@@ -31,6 +31,7 @@ if(!dojo._hasResource["extend.Roller"]){
 			maxVal:"10",
 			arr:[5,6,7,8],
 			startup:function() {
+				this.inherited(arguments);
 				console.debug("In startup");
 				console.dir(this);
 				this.textbox.attr('value',this.initVal);
