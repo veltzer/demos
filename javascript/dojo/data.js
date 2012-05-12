@@ -15,7 +15,7 @@ dojo.addOnLoad(initialization);
 
 function showCurrent(items,request) {
 	if(items.length<3) {
-		alert("no more data");
+		//alert("no more data");
 		dijit.byId("nextButton").attr('disabled',true);
 		return;
 	}

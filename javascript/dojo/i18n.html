@@ -20,19 +20,21 @@
 			dojo.require("dijit.form.Button");
 			dojo.require("dojo.i18n");
 			// this is for dojo 1.7
+			/*
 			dojo.require(["myi18n"], function(i18n){
 				console.log(i18n.invalidMessage);
 			});
+			*/
 			// this is for dojo less than 1.7
 			dojo.requireLocalization("myi18n","symbols");
 			function click() {
 				var msg=dojo.i18n.getLocalization("myi18n","symbols");
-				console.log(msg);
+				//console.log(msg);
 				console.log(msg.invalidMessage);
 			}
 		</script>
 	</head>
 	<body class="tundra">
-		<div dojoType="dijit.form.Button" title="click to see an alert" onclick="click">Lets see if this works</div>
+		<div dojoType="dijit.form.Button" title="click and watch the console" onclick="click">click and watch the console</div>
 	</body>
 </html>

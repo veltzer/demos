@@ -13,6 +13,7 @@
     	android:singleLine="true"
     	android:editable="true"
     	android:numeric="decimal"
+    	android:inputType="textNoSuggestions"
     	>
     </EditText>
     <LinearLayout
@@ -74,12 +75,13 @@
     	android:singleLine="true"
     	android:editable="true"
  		android:numeric="decimal"
+ 		android:inputType="textNoSuggestions"
     	>
     </EditText>
 	<Button
 		android:id="@+id/button_equals"
     	android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="0dp"
 		android:text="="
 		android:layout_weight="1"
 		android:onClick="onEqualsClick"
@@ -92,6 +94,7 @@
     	android:layout_height="wrap_content"
     	android:singleLine="true"
     	android:editable="false"
+    	android:inputType="textNoSuggestions"
     	>
     </EditText>
 </LinearLayout>
