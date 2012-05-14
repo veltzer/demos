@@ -1,0 +1,39 @@
+<!--
+An example showing how to use static methods and members in ExtJs OO.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Ext.define statics feature</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				Ext.define('Person',{
+					statics: {
+						numAllocated:0,
+						getNumAllocated:function() {
+							return this.numAllocated;
+						},
+						gimmeAPerson:function() {
+							return new this();
+						}
+					},
+					constructor: function() {
+						Person.numAllocated+=1;
+					},
+				});
+				console.log(Person.numAllocated);
+				var p1=new Person();
+				var p2=Person.gimmeAPerson();
+				console.log(Person.numAllocated);
+				console.log(p2.numAllocated);
+				Person.numAllocated--;
+				console.log(Person.getNumAllocated());
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
