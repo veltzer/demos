@@ -1,0 +1,39 @@
+<!--
+A basic OO example using extjs
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Hello, ExtJs OO</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				Ext.define('Person', {
+					// A property
+					name: 'Unknown',
+					// A constructor
+					constructor: function(name) {
+						if(name) {
+							this.name=name;
+						}
+					},
+					// A method
+					eat: function(foodType) {
+						console.log(this.name+" is eating a " + foodType);
+					}
+				});
+				var aaron = new Person("Aaron");
+				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
+				console.log(aaron);
+				console.log(Person);
+				console.log(aaron instanceof Person);
+				console.log(aaron instanceof Ext.Base);
+				console.log(aaron instanceof Object);
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

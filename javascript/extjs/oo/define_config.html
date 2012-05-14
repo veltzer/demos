@@ -1,0 +1,36 @@
+<!--
+An example showing how to use config type constructors in ExtJs OO.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Ext.define</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				Ext.define('Person', {
+					config: {
+						name: 'Unknown',
+					},
+					constructor: function(config) {
+						this.initConfig(config);
+					},
+					eat: function(foodType) {
+						console.log(this.name+" is eating a " + foodType);
+					}
+				});
+				var aaron = new Person({ name: "Aaron" });
+				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
+				console.log(aaron);
+				console.log(Person);
+				console.log(aaron instanceof Person);
+				console.log(aaron instanceof Ext.Base);
+				console.log(aaron instanceof Object);
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

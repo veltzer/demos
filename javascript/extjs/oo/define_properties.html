@@ -1,0 +1,41 @@
+<!--
+A basic OO example using extjs
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Hello, ExtJs OO</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				var o_val=['hello there'];
+				Ext.define('Foo', {
+					// An object property
+					o: o_val,
+					// A primitive (number) property..
+					p: 7,
+					// A method
+					printMe: function() {
+						console.log("o is " + this.o[0]);
+						console.log("p is " + this.p);
+					}
+				});
+				var F1=new Foo();
+				var F2=new Foo();
+				F1.printMe();
+				F2.printMe();
+				F1.o[0]='new value';
+				F1.p=8;
+				F1.printMe();
+				F2.printMe();
+				F1.o=['brand new value'];
+				F1.printMe();
+				F2.printMe();
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,5 +1,4 @@
 - slides about hello world.
 - intro slides to ExtJs.
 - slides about Ext.dom.Helper
-- start oo slides.
-- get the break down stuff from my mail.
+- start oo slides and examples.
