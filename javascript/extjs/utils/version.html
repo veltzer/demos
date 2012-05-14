@@ -1,0 +1,40 @@
+<!--
+Ext.Version sample
+
+This sample shows how to get the current ExtJs version number, inspect it,
+compare it to some other version number and more.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Ext.Version</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				var version = new Ext.Version('1.0.2beta');
+				console.log("Version is " + version); // Version is 1.0.2beta
+
+				console.log(version.getMajor()); // 1
+				console.log(version.getMinor()); // 0
+				console.log(version.getPatch()); // 2
+				console.log(version.getBuild()); // 0
+				console.log(version.getRelease()); // beta
+
+				console.log(version.isGreaterThan('1.0.1')); // True
+				console.log(version.isGreaterThan('1.0.2alpha')); // True
+				console.log(version.isGreaterThan('1.0.2RC')); // False
+				console.log(version.isGreaterThan('1.0.2')); // False
+				console.log(version.isLessThan('1.0.2')); // True
+
+				console.log(version.match(1.0)); // True
+				console.log(version.match('1.0.2')); // True
+				var version = new Ext.getVersion();
+				console.log("Version is " + version); // Version is 1.0.2beta
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
