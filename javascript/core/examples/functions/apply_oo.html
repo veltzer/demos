@@ -1,0 +1,34 @@
+<!--
+This example shows how to use apply in an object oriented context.
+
+	Mark Veltzer
+-->
+<script>
+	function Person(iname) {
+		this.name=iname;
+	}
+	Person.prototype.getName=function() {
+		return this.name;
+	}
+	Person.prototype.setName=function(iname) {
+		this.name=iname;
+	}
+	Person.prototype.toString=function() {
+		return this.name;
+	}
+	var p=new Person("Mark");
+	console.log(p.getName());
+	// this is a method
+	var m=p.setName;
+	// lets try to activate the method directly...
+	// this one creates an exception...
+	try {
+		p.m("Andrew");
+	} catch(e) {
+		console.log("oh no, got an exception");
+	}
+	// nope, that didn't work.
+	// lets try to use apply...
+	m.apply(p,["Andrew"]);
+	console.log(p.getName());
+</script>
