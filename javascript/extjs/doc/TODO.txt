@@ -1,4 +1,9 @@
 - slides about hello world.
 - intro slides to ExtJs.
 - slides about Ext.dom.Helper
-- start oo slides and examples.
+- OO:
+	extend (example already exists)
+	call parent (example already exists)
+	mixin
+
+Listener and observable patterns in ExtJs.
