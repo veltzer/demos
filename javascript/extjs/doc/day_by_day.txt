@@ -1,0 +1,35 @@
+Day by day breakdown for the course at verint:
+
+Day 1:
+     Java script reminder
+     functions in javascript
+     closures
+     functional programming in javascript
+
+Day 2:
+    OO javascript
+    Javascript performance
+    Javascript debugging
+    Javascript security
+   Javascript and the browser
+
+Day 3:
+    Extjs basics
+=============
+    classes in extjs
+    querying and manipulating the DOM using extjs
+    various utilities (xhr included)
+    the module system
+
+Day4:
+   ExtJs core usage
+=================
+    Widgets and Layout management in extjs.
+    Model view architecture
+
+Day 5:
+   Advanced ExtJs
+==============
+   Writing new widgets
+   Writing new models
+   Application architecture for extjs
