@@ -1,0 +1,26 @@
+<!--
+Ext.supports example
+
+Notes:
+There are many features listed in Ext.supports so we print them all out.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>ExtJs browser detect</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				for(x in Ext.supports) {
+					if(typeof(Ext.supports[x])=='boolean') {
+						console.log(x+": "+Ext.supports[x]);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
