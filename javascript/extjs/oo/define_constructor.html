@@ -1,11 +1,11 @@
 <!--
-A basic OO example using extjs
+This example explores how one defines a constructor using Ext.define.
 
 	Mark Veltzer <mark@veltzer.net>
 -->
 <html>
 	<head>
-		<title>Hello, ExtJs OO</title>
+		<title>Ext.define constructor</title>
 		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
 		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
 		<script>
@@ -15,6 +15,7 @@ A basic OO example using extjs
 					name: 'Unknown',
 					// A constructor
 					constructor: function(name) {
+						console.log("in the constructor");
 						if(name) {
 							this.name=name;
 						}
