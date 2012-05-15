@@ -1,0 +1,20 @@
+<!--
+
+		Mark Veltzer
+-->
+<script>
+	function make_counter() {
+		var val=0;
+		return function() {
+			var tmp=val;
+			val++;
+			return tmp;
+		}
+	}
+	var counter1=make_counter()
+	var counter2=make_counter()
+	document.write(counter1()+'<br/>');
+	document.write(counter1()+'<br/>');
+	document.write(counter2()+'<br/>');
+	document.write(counter2()+'<br/>');
+</script>

@@ -1,5 +1,5 @@
 <?php
-$handle=fopen('/tmp/syslog','r');
+$handle=fopen('/etc/passwd','r');
 if($handle) {
 	while(($buffer=fgets($handle, 4096))!==false) {
 		echo $buffer;
