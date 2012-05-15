@@ -1,34 +1,24 @@
 <!--
-Ext.define requires example
+Ext.define requires example.
 
-- this example was shamelessly stolen from the Ext.ClassManager documentation...:)
+Notes:
+- You must use the Ext.Loader.setConfig({ enabled: true, }); below to allow the dynamic
+loading to work.
+
 
 	Mark Veltzer <mark@veltzer.net>
 -->
 <html>
 	<head>
-		<title>Ext.define extend</title>
+		<title>Ext.define requires example</title>
 		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
 		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
 		<script>
-			Ext.define('Developer', {
-				extend: 'Person',
-				requires: ['Person'],
-				constructor: function(name, isGeek) {
-					console.log("in the Developer constructor for "+name);
-					this.isGeek = isGeek;
-					// Apply a method from the parent class' prototype
-					this.callParent([name]);
-				},
-				code: function(language) {
-					console.log(this.name+" coding in: " + language);
-					this.eat("Bug");
-				}
+			Ext.Loader.setConfig({
+				enabled: true,
 			});
 			Ext.require('Developer',function() {
-				console.log("got developer");
-			});
-			var jacky = new Developer("Jacky", true);
+				var jacky = new Developer("Jacky", true);
 				// the next line will do both:
 				//	console.log("I'm coding in: JavaScript");
 				//	console.log("I'm eating: Bugs");
