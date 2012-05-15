@@ -1,0 +1,42 @@
+<!--
+A basic example showing the use of Ext.require
+
+Note:
+- You must do all of this in the context of Ext.onReady as the
+Ext.require system does not work properly until the ExtJs framework
+is ready.
+- You can pass a single class to Ext.require as first parameter or
+a whole array of classes. If passing a whole array then the function
+will only be executed after ALL the members of the array have been
+loaded. ExtJs actually tries to load independant classes IN PARALLEL
+to speed up the load time from the server. Mind you that after first
+time usage of your application the classes that you require will already
+be in the browsers cache and so this speedup only applies to the very
+first time when you run.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Ext.require basic demo</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			// the function passed on the next line will only be executed
+			// after the Ext.Window is loaded. Mind you, the loading of Ext.Window
+			// triggers the loading of other classes which are need by it...
+			// You can see it all in your debugger...
+			Ext.onReady(function() {
+				Ext.require('Ext.Window',function() {
+					new Ext.Window({
+						title : 'Loaded Dynamically!',
+						width : 200,
+						height: 100,
+					}).show();
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

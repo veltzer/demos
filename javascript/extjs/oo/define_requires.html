@@ -1,0 +1,60 @@
+<!--
+Ext.define requires example
+
+- this example was shamelessly stolen from the Ext.ClassManager documentation...:)
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Ext.define extend</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.define('Developer', {
+				extend: 'Person',
+				requires: ['Person'],
+				constructor: function(name, isGeek) {
+					console.log("in the Developer constructor for "+name);
+					this.isGeek = isGeek;
+					// Apply a method from the parent class' prototype
+					this.callParent([name]);
+				},
+				code: function(language) {
+					console.log(this.name+" coding in: " + language);
+					this.eat("Bug");
+				}
+			});
+			Ext.require('Developer',function() {
+				console.log("got developer");
+			});
+			var jacky = new Developer("Jacky", true);
+				// the next line will do both:
+				//	console.log("I'm coding in: JavaScript");
+				//	console.log("I'm eating: Bugs");
+				jacky.code("JavaScript");
+				var aaron = new Person("aaron");
+				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
+				// lets see if instanceof works right...
+				console.log("jacky instanceof Object is "+
+					String(jacky instanceof Object));
+				console.log("jacky instanceof Ext.Base is "+
+					String(jacky instanceof Ext.Base));
+				console.log("jacky instanceof Person is "+
+					String(jacky instanceof Person));
+				console.log("jacky instanceof Developer is "+
+					String(jacky instanceof Developer));
+				console.log("aaron instanceof Object is "+
+					String(aaron instanceof Object));
+				console.log("aaron instanceof Ext.Base is "+
+					String(aaron instanceof Ext.Base));
+				console.log("aaron instanceof Person is "+
+					String(aaron instanceof Person));
+				console.log("aaron instanceof Developer is "+
+					String(aaron instanceof Developer));
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
