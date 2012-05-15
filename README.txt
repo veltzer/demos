@@ -4,5 +4,5 @@ They are also fairly well documented.
 Some are formulated as exercises and some as examples.
 Operating system is Linux (ofcourse).
 
-		Mark Veltzer, 2011
+		Mark Veltzer, 2011-2012
 		mark.veltzer@gmail.com
