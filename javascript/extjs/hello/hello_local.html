@@ -3,6 +3,8 @@ A basic local hello world example for ExtJs
 local means that the extjs code itself comes from the local server.
 
 Note:
+- the require is not needed since we get 'ext-all-debug.js' which brings
+all the widgets with it.
 - notice we write in the code in the "head" section of the HTML file.
 	That is recommended.
 - We are also showing example of Ext.require, Ext.onReady and Ext.MessageBox.
@@ -30,9 +32,11 @@ Note:
 		<script src="../../toolkits/extjs/ext-all-dev.js.js"></script>
 		-->
 		<script>
+			/*
 			Ext.require([
 				'Ext.window.MessageBox',
 			]);
+			*/
 			Ext.onReady(function() {
 				Ext.MessageBox.alert('Status', 'ExtJs is loaded', function() {
 					console.log("button was clicked");
