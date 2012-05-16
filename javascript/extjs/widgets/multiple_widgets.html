@@ -1,6 +1,12 @@
 <!--
 This example shows creation of multiple widgets...
 
+Notes:
+- please note that this example works both with and without the Ext.require part.
+This is because we bring in ext-all.js and it contains all the widgets we are using.
+If we were using some weird custom build that did not contain all those widgets
+then we would really have to use the require part.
+
 	Mark Veltzer <mark@veltzer.net>
 -->
 <html>
@@ -9,28 +15,33 @@ This example shows creation of multiple widgets...
 		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
 		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
 		<script>
+			function create_widgets() {
+				Ext.create('Ext.Button', {
+					text: 'Click me',
+					renderTo: Ext.getBody(),
+				});
+				Ext.create('Ext.Button', {
+					text: 'Click me',
+					renderTo: Ext.getBody(),
+				});
+				Ext.create('Ext.form.field.Text', {
+					fieldLabel:'Name',  
+					name:'txt-name',  
+					emptyText:'Your name...',
+					id:'id-name',
+					renderTo: Ext.getBody(),
+				});
+			}
 			Ext.onReady(function() {
+				create_widgets();
+				/*
 				Ext.require([
 					'Ext.Button',
 					'Ext.form.field.Text'
 					],
-					function() {
-					Ext.create('Ext.Button', {
-						text: 'Click me',
-						renderTo: Ext.getBody(),
-					});
-					Ext.create('Ext.Button', {
-						text: 'Click me',
-						renderTo: Ext.getBody(),
-					});
-					Ext.create('Ext.form.field.Text', {
-						fieldLabel:'Name',  
-						name:'txt-name',  
-						emptyText:'Your name...',
-						id:'id-name',
-						renderTo: Ext.getBody(),
-					});
-				});
+					create_widgets
+				);
+				*/
 			});
 		</script>
 	</head>
