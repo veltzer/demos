@@ -18,6 +18,7 @@ loading to work.
 			Ext.Loader.setConfig({
 				enabled: true,
 			});
+			Ext.Loader.setPath('MyPkg','MyAltPkg');
 			Ext.require('MyPkg.Developer',function() {
 				var jacky = new MyPkg.Developer("Jacky", true);
 				// the next line will do both:
