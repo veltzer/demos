@@ -1,9 +1,9 @@
-- slides about hello world.
-- intro slides to ExtJs.
-- slides about Ext.dom.Helper
+for first day training:
 - OO:
 	extend (example already exists)
 	call parent (example already exists)
 	mixin
+	loader.
 
-Listener and observable patterns in ExtJs.
+for second day training:
+- slides about Ext.dom.Helper
