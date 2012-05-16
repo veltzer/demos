@@ -1,7 +1,5 @@
-for first day training:
-- OO:
-	mixin
-	loader.
-
 for second day training:
 - slides about Ext.dom.Helper
+- model view and examples.
+- creating widgets.
+- history.
