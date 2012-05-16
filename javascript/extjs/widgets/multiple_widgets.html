@@ -1,0 +1,39 @@
+<!--
+This example shows creation of multiple widgets...
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Multiple widgets demo</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				Ext.require([
+					'Ext.Button',
+					'Ext.form.field.Text'
+					],
+					function() {
+					Ext.create('Ext.Button', {
+						text: 'Click me',
+						renderTo: Ext.getBody(),
+					});
+					Ext.create('Ext.Button', {
+						text: 'Click me',
+						renderTo: Ext.getBody(),
+					});
+					Ext.create('Ext.form.field.Text', {
+						fieldLabel:'Name',  
+						name:'txt-name',  
+						emptyText:'Your name...',
+						id:'id-name',
+						renderTo: Ext.getBody(),
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
