@@ -19,11 +19,17 @@ An example showing how to use config type constructors in ExtJs OO.
 					},
 					eat: function(foodType) {
 						console.log(this.name+" is eating a " + foodType);
-					}
+					},
+					applyName: function(newname) {
+						console.log("name is being changed to "+newname);
+						return newname+newname;
+					},
 				});
 				var aaron=new Person({ name: "Aaron" });
 				aaron.eat("Sandwich");// console.log("I'm eating: Sandwich");
-				console.log(aaron);
+				console.log(aaron.getName());
+				aaron.setName("Mark");
+				console.log(aaron.getName());
 				console.log(Person);
 				console.log(aaron instanceof Person);
 				console.log(aaron instanceof Ext.Base);
