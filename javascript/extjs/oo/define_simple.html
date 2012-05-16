@@ -1,6 +1,14 @@
 <!--
 Ext.define simple example.
 
+Notes:
+- You can pass a package name to Ext.define and it will put your object
+in the right package.
+- 'instanceof' works correctly.
+- Even if you define a class that is package MyPkg the file in which you define
+it does not matter (this file is not called Person or whatever). This is true
+unless you want dynamic loading to work.
+
 	Mark Veltzer <mark@veltzer.net>
 -->
 <html>
@@ -10,7 +18,7 @@ Ext.define simple example.
 		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
 		<script>
 			Ext.onReady(function() {
-				Ext.define('Person', {
+				Ext.define('MyPkg.Person', {
 					// A property
 					name: 'Unknown',
 					// A method
@@ -19,18 +27,18 @@ Ext.define simple example.
 					}
 				});
 				// lets create an instance
-				var aaron=new Person();
+				var aaron=new MyPkg.Person();
 				// lets set an attribute
 				aaron.name='aaron';
 				// lets call a method
 				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
 				// lets see if instanceof works as advertised
-				console.log(aaron instanceof Person);
+				console.log(aaron instanceof MyPkg.Person);
 				console.log(aaron instanceof Ext.Base);
 				console.log(aaron instanceof Object);
 				// lets see the internals...
 				console.log(aaron);
-				console.log(Person);
+				console.log(MyPkg.Person);
 			});
 		</script>
 	</head>

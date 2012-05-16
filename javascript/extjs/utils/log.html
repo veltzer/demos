@@ -1,0 +1,22 @@
+<!--
+A demo showing the use of Ext.log
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Ext.log demo</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				Ext.require('Ext.log', function() {
+					Ext.log('A log message');
+					console.log(Ext.log.out);
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
