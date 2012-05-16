@@ -7,8 +7,12 @@ Note:
 all the widgets with it.
 - notice we write in the code in the "head" section of the HTML file.
 	That is recommended.
-- We are also showing example of Ext.require, Ext.onReady and Ext.MessageBox.
+- we also demo Ext.onReady and Ext.MessageBox.
 - you can choose between different versions of ext-all (see below).
+- Notice that the box that you get is not a real window and rather drawn on the
+main screen. This is to circumvent any browser limitations about pop up boxes.
+- notice that we do not need to Ext.require('Ext.MessageBox') because
+Ext.MessageBox is supplied by the 'ext-all.js' file.
 
 	Mark Veltzer <mark@veltzer.net>
 -->
@@ -32,11 +36,6 @@ all the widgets with it.
 		<script src="../../toolkits/extjs/ext-all-dev.js.js"></script>
 		-->
 		<script>
-			/*
-			Ext.require([
-				'Ext.window.MessageBox',
-			]);
-			*/
 			Ext.onReady(function() {
 				Ext.MessageBox.alert('Status', 'ExtJs is loaded', function() {
 					console.log("button was clicked");
