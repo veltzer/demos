@@ -43,6 +43,13 @@ Cart.prototype.cartPrice=function() {
 	}
 	return sum;
 }
+Cart.prototype.toString=function() {
+	var string_arr=[]
+	for(var id in this.buyMap) {
+		string_arr.push(id+","+this.buyMap[id]);
+	}
+	return string_arr.join('<br/>')+'<br/>';
+}
 // singleton pattern
 Cart.instance=new Cart();
 Cart.getInstance=function() {

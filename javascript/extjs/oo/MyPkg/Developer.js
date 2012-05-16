@@ -1,6 +1,6 @@
-Ext.define('Developer', {
-	extend: 'Person',
-	requires: ['Person'],
+Ext.define('MyPkg.Developer', {
+	extend: 'MyPkg.Person',
+	requires: ['MyPkg.Person'],
 	constructor: function(name, isGeek) {
 		console.log("in the Developer constructor for "+name);
 		this.isGeek = isGeek;

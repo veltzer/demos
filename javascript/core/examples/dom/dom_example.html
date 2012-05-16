@@ -3,19 +3,18 @@
 		<script>
 		window.onload=function() {
 			var element=document.getElementById('mydiv');
-			//element.innerHTML='<input type="text"></input>';
-			//element.innerHTML+='<input type="text"></input>';
-			//element.innerHTML+='<input type="text"></input>';
-			//element.innerHTML+='<input type="text"></input>';
 			var e_add=document.createElement('button');
-			var e_add_t=document.createTextNode('+');
+			var e_add_t=document.createTextNode('create buttons');
 			e_add.appendChild(e_add_t);
 			element.appendChild(e_add);
+			var i=0;
 			e_add.onclick=function() {
 				var e_add=document.createElement('button');
-				var e_add_t=document.createTextNode('+');
+				var e_add_t=document.createTextNode('I am button '+i);
 				e_add.appendChild(e_add_t);
 				element.appendChild(e_add);
+				console.log(i);
+				i++;
 			}
 			console.log(element);
 		}

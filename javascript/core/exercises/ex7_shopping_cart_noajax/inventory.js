@@ -53,7 +53,7 @@ Inventory.prototype.toString=function() {
 	for(var id in this.itemMap) {
 		string_arr.push(this.itemMap[id].toString())
 	}
-	return string_arr.join('<br/>')
+	return string_arr.join('<br/>')+'<br/>';
 }
 // singleton pattern
 Inventory.theInstance=new Inventory();

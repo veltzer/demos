@@ -1,4 +1,4 @@
-Ext.define('Person', {
+Ext.define('MyPkg.Person', {
 	// A property
 	name: 'Unknown',
 	// A constructor

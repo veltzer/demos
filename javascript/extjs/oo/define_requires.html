@@ -18,31 +18,31 @@ loading to work.
 			Ext.Loader.setConfig({
 				enabled: true,
 			});
-			Ext.require('Developer',function() {
-				var jacky = new Developer("Jacky", true);
+			Ext.require('MyPkg.Developer',function() {
+				var jacky = new MyPkg.Developer("Jacky", true);
 				// the next line will do both:
 				//	console.log("I'm coding in: JavaScript");
 				//	console.log("I'm eating: Bugs");
 				jacky.code("JavaScript");
-				var aaron = new Person("aaron");
+				var aaron = new MyPkg.Person("aaron");
 				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
 				// lets see if instanceof works right...
 				console.log("jacky instanceof Object is "+
 					String(jacky instanceof Object));
 				console.log("jacky instanceof Ext.Base is "+
 					String(jacky instanceof Ext.Base));
-				console.log("jacky instanceof Person is "+
-					String(jacky instanceof Person));
-				console.log("jacky instanceof Developer is "+
-					String(jacky instanceof Developer));
+				console.log("jacky instanceof MyPkg.Person is "+
+					String(jacky instanceof MyPkg.Person));
+				console.log("jacky instanceof MyPkg.Developer is "+
+					String(jacky instanceof MyPkg.Developer));
 				console.log("aaron instanceof Object is "+
 					String(aaron instanceof Object));
 				console.log("aaron instanceof Ext.Base is "+
 					String(aaron instanceof Ext.Base));
-				console.log("aaron instanceof Person is "+
-					String(aaron instanceof Person));
-				console.log("aaron instanceof Developer is "+
-					String(aaron instanceof Developer));
+				console.log("aaron instanceof MyPkg.Person is "+
+					String(aaron instanceof MyPkg.Person));
+				console.log("aaron instanceof MyPkg.Developer is "+
+					String(aaron instanceof MyPkg.Developer));
 			});
 		</script>
 	</head>
