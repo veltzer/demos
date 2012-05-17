@@ -1,0 +1,39 @@
+<!--
+A simple grid which also saves it's state using cookies on the client side.
+
+	Mark Veltzer
+-->
+<html>
+	<head>
+		<title>Hello, Grid only</title>
+		<link rel="stylesheet" type="text/css" href="../toolkits/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+		<script src='../toolkits/ext-4.0.7-gpl/ext-all.js'></script>
+		<script>
+			Ext.onReady(function() {
+				Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
+				Ext.create('Ext.grid.Panel', {
+					stateful: true,
+					stateId: 'stateGrid',
+					columns: [
+						{
+							text     : 'Company',
+							flex     : 1,
+							sortable : false,
+							dataIndex: 'company'
+						},
+						{
+							text     : 'Price',
+							flex	: 1,
+							sortable : true,
+							renderer : 'usMoney',
+							dataIndex: 'price'
+						},
+					],
+					renderTo: Ext.getBody(),
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
