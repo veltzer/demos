@@ -1,7 +1,9 @@
 for second day training:
+- make sure we finished the model.
+- finish the store according to the ext documentation.
+- talk about flex in layout management.
 - solve the layout exercise that I gave.
 - slides about panels.
-- do slides about the ext4 data package.
 
 - slides about Ext.dom.Helper
 - model view and examples.
