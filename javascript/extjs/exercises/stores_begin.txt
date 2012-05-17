@@ -23,3 +23,36 @@ Use a standard JSON reader. The format for it's data is along these lines:
         "email": "abe@sencha.com"
     }
 ]
+
+Phase 2:
+========
+- put the states on the "server" side in an unsorted order.
+- What does the combo show?
+- configure your store to do client side sorting.
+	sample:
+		var store = Ext.create('Ext.data.Store', {
+		    model: 'User',
+		    sorters: [
+			{
+			    property : 'age',
+			    direction: 'DESC'
+			},
+		});
+- is the combo sorted? How could you fix this?
+
+Phase 3:
+========
+- make sure you have US state names on your server that begin with at least two letters.
+- now only show states that begin with one of those letters.
+- Use filters applied to the store.
+	sample:
+		var store = Ext.create('Ext.data.Store', {
+			model: 'User',
+			filters: [
+				{
+					property: 'firstName',
+					value   : /Ed/
+				}
+			]
+		});
+- is the combo sorted? How could you fix this?
