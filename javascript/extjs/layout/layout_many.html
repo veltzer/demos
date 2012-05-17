@@ -1,0 +1,66 @@
+<!--
+A sample of having layout managers inside layout managers...
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Nested layout managers sample</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				Ext.create('Ext.container.Viewport', {
+					layout: 'border',
+					items: [{
+						region: 'north',
+						title: 'North Panel',
+						collapsible: true,
+						html: 'This is the north panel',
+						split: true,
+						//autoHeight: true,
+						//border: true,
+						//margins: '0 0 5 0',
+					}, {
+						region: 'west',
+						title: 'West Panel',
+						collapsible: true,
+						width: 150,
+						split: true,
+						// could use a TreePanel or AccordionLayout for navigational items
+					}, {
+						region: 'south',
+						title: 'South Panel',
+						collapsible: true,
+						html: 'Information goes here',
+						split: true,
+						height: 100,
+						minHeight: 100
+					}, {
+						region: 'east',
+						title: 'East Panel',
+						collapsible: true,
+						split: true,
+						width: 150
+					}, {
+						region: 'center',
+						xtype: 'panel',
+						layout: 'hbox',
+						items: [
+							{
+								xtype: 'datefield',
+								fieldLabel: 'date1',
+							},
+							{
+								xtype: 'datefield',
+								fieldLabel: 'date2',
+							},
+						]
+					}]
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
