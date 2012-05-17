@@ -1,4 +1,8 @@
 for second day training:
+- solve the layout exercise that I gave.
+- slides about panels.
+- do slides about the ext4 data package.
+
 - slides about Ext.dom.Helper
 - model view and examples.
 - creating widgets.
