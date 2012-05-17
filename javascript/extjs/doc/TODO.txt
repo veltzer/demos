@@ -1,7 +1,6 @@
 for second day training:
 - finish the store according to the ext documentation.
 	filters.
-	sorters.
 - talk about flex in layout management.
 - solve the layout exercise that I gave.
 
