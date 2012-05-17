@@ -1,0 +1,10 @@
+Layout manager beginner exercise
+================================
+- create a Panel.
+- set it's layout property to 'vbox'.
+- add children to it dynamically.
+- what happens? describe...
+- now change the layout property to 'hbox'
+	(not programatically but at code time).
+- what happens? describe...
+- try out other layout managers...

@@ -7,92 +7,49 @@
 		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
 		<script>
 			Ext.onReady(function() {
-				Ext.QuickTips.init();
-				var viewport=new Ext.Viewport({
-					id:'simplevp',
-					layout:'border',
-					border:false,
-					items:[{
-			region:'north'
-			,height:100
-			,border:false
-			,bodyStyle:'background-color:#f8f8f8;'
-			,title:'North'
-			,collapsible:true
-			,contentEl:'adsense-north'
-		},{
-			 region:'west'
-			,width:200
-			,border:false
-			,autoScroll:true
-			,title:'West'
-			,bodyStyle:'padding:5px;font-size:11px;background-color:#f4f4f4;'
-			,html:'<p>Lorem ipsum has ex eirmod numquam utroque, in vidit erant malorum quo,'
-				  +'ei mea quis mutat mandamus. Laoreet inimicus scripserit ex sit. Te pro modo '
-				  +'appareat sententiae, mel at aliquid cotidieque. Est in erat nostrum, munere '
-				  +'aliquid nec et.  </p> <p> Est no vituperata accommodare. Ius ei inani facilis '
-				  +'euripidis. Eleifend intellegat has et, duo elit deserunt invenire te, eu nullam '
-				  +'oportere euripidis ius. An autem nominavi gubergren cum, mel ex fugit feugait. '
-				  +'Quo at brute euismod, pro cu dicta suavitate eloquentiam. Equidem repudiandae '
-				  +'an duo.  </p> <p> Quod illum quo ea, no choro intellegebat sit. Nec quodsi '
-				  +'urbanitas ad. Sale tamquam constituam qui in. Dolorum ceteros ponderum cu mei, '
-				  +'qui agam dicant munere ex. At est magna lobortis, elit constituto ut has. '
-				  +'Ea eam feugait molestiae adolescens, soluta persecuti nam ut, ad vim sapientem '
-				  +'expetendis. Enim velit oportere cu pro, sea te timeam incorrupte, at pri dicam '
-				  +'persius.  </p> <p> Cum ex quidam propriae, dicat signiferumque vix te. Sea ei '
-				  +'fuisset mediocrem, in mazim bonorum pro. Ne nec dicta novum urbanitas. Id suas '
-				  +'pertinacia disputando eos, modo meliore perfecto has an, an omnes populo putent '
-				  +'eos.  </p> <p> Esse audiam id his, tractatos consetetur cu mei. Id eam novum '
-				  +'audiam adolescens, ea vis ludus vitae, te sed fastidii luptatum dissentias. Ea '
-				  +'euripidis laboramus vix, vix tollit nostrud neglegentur cu. Ex delicata '
-				  +'moderatius vim, agam reformidans ex pro, duo nullam admodum an.  </p> <p> Ei '
-				  +'regione lucilius tincidunt eos. Sit ei aperiam tibique, has no novum tollit '
-				  +'malorum. Ignota iracundia efficiantur in ius, causae equidem constituam eos id. '
-				  +'Vim duis aliquip te. Ex nibh alienum his, sit nostrud appetere quaerendum ea. '
-				  +'An nec assum numquam officiis, an vix elit persecuti persequeris.  </p> <p> '
-				  +'Velit percipit an nam, vix id solet legimus ancillae. Has mutat deleniti ut, '
-				  +'sit cu lucilius deserunt efficiendi. Ut deserunt definiebas eam, sea cu iuvaret '
-				  +'utroque vivendum. Id eam illum libris, ut erant harum soluta eam. His no labitur '
-				  +'indoctum similique.  </p> <p> Mel audiam imperdiet temporibus ut, verear option '
-				  +'ceteros mea ut. Te essent imperdiet ius, porro vitae corpora ius ut. Harum '
-				  +'adolescens sed in, illud altera epicurei nam ad. Minim quidam consulatu sea ne, '
-				  +'ad vis oblique nostrum. Mel an denique temporibus concludaturque, qui omnis '
-				  +'invenire suscipiantur at, fierent voluptatum an vel.  </p> <p> Quo cu zzril '
-				  +'neglegentur. Impetus debitis assueverit nec ex, ut qui tempor mollis persecuti. '
-				  +'Per ne vero adversarium, solet consectetuer sea ut. Est et dolor feugait, quo ea '
-				  +'saperet perfecto, ea nominavi appellantur cum. Cu duo summo ancillae quaestio. '
-				  +'Timeam maiorum id eam, timeam latine consulatu cum an.  </p> <p> An eam consul '
-				  +'tempor interesset. Alii etiam omittantur vim an, ipsum clita semper ne his, '
-				  +'malorum facilis at cum. Eam nusquam epicuri copiosae ne, te sed verterem '
-				  +'consequuntur. Te dolore albucius copiosae his, id his meis voluptua eloquentiam. '
-				  +'Electram dissentiet no qui.  </p>' 
-			,collapsible:true
-			,split:true
-			,collapseMode:'mini'
-		},{
-			 region:'south'
-			,height:100
-			,html:'South'
-			,border:false
-			,title:'South'
-			,collapsible:true
-		},{
-			 region:'east'
-			,width:200
-			,html:'East'
-			,border:false
-			,bodyStyle:'background-color:#f4f4f4;'
-			,title:'East'
-			,collapsible:true
-		},{
-			 region:'center'
-			,html:'Center'
-			,border:false
-			,bodyStyle:'background-color:#f0f0f0;'
-			,title:'Center'
-		}]
-    });
-});
+				Ext.create('Ext.container.Viewport', {
+					layout: 'border',
+					items: [{
+						region: 'north',
+						title: 'North Panel',
+						collapsible: true,
+						html: 'This is the north panel',
+						split: true,
+						//autoHeight: true,
+						//border: true,
+						//margins: '0 0 5 0',
+					}, {
+						region: 'west',
+						title: 'West Panel',
+						collapsible: true,
+						width: 150,
+						split: true,
+						// could use a TreePanel or AccordionLayout for navigational items
+					}, {
+						region: 'south',
+						title: 'South Panel',
+						collapsible: true,
+						html: 'Information goes here',
+						split: true,
+						height: 100,
+						minHeight: 100
+					}, {
+						region: 'east',
+						title: 'East Panel',
+						collapsible: true,
+						split: true,
+						width: 150
+					}, {
+						region: 'center',
+						xtype: 'tabpanel', // TabPanel itself has no title
+						activeTab: 0, // First tab active by default
+						items: {
+							title: 'Default Tab',
+							html: 'The first tab\'s content. Others may be added dynamically',
+						}
+					}]
+				});
+			});
 		</script>
 	</head>
 	<body>
