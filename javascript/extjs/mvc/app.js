@@ -46,9 +46,7 @@ Ext.define('My.view.ContactsGrid', {
     store: 'Contacts',
 
     initComponent: function() {
-        var me = this;
-
-        Ext.applyIf(me, {
+        Ext.applyIf(this, {
             columns: [
                 {
                     xtype: 'gridcolumn',
@@ -62,11 +60,9 @@ Ext.define('My.view.ContactsGrid', {
                 }
             ],
             viewConfig: {
-
             }
         });
-
-        me.callParent(arguments);
+        this.callParent(arguments);
     }
 });
 
@@ -80,9 +76,7 @@ Ext.define('My.view.OrdersGrid', {
     store: 'Orders',
 
     initComponent: function() {
-        var me = this;
-
-        Ext.applyIf(me, {
+        Ext.applyIf(this, {
             columns: [
                 {
                     xtype: 'gridcolumn',
@@ -96,39 +90,34 @@ Ext.define('My.view.OrdersGrid', {
                 }
             ],
             viewConfig: {
-
             }
         });
-
-        me.callParent(arguments);
+        this.callParent(arguments);
     }
 });
 
 Ext.define('My.controller.Contacts', {
     extend: 'Ext.app.Controller',
-
     stores: [
         'Contacts'
         ],
-
     views: [
         'ContactsGrid'
         ],
-
     refs: [
         {
-        ref: 'grid',
-        selector: '',
-        xtype: 'contacts-grid',
-        autoCreate: true}
+		ref: 'grid',
+		selector: '',
+		xtype: 'contacts-grid',
+		autoCreate: true
+	}
     ],
 
     init: function(application) {
         if (this.inited) {
             return;
         }
-        this.inited = true;
-
+        this.inited=true;
         this.control({
             'contacts-grid': {
                 itemdblclick: function() {
@@ -137,7 +126,6 @@ Ext.define('My.controller.Contacts', {
             }
         });
     },
-
     actionIndex: function() {
         this.application.setMainView(this.getGrid());
     }
@@ -145,15 +133,12 @@ Ext.define('My.controller.Contacts', {
 
 Ext.define('My.controller.Orders', {
     extend: 'Ext.app.Controller',
-
     stores: [
         'Orders'
         ],
-
     views: [
         'OrdersGrid'
         ],
-
     refs: [
         {
         ref: 'grid',
@@ -161,7 +146,6 @@ Ext.define('My.controller.Orders', {
         xtype: 'orders-grid',
         autoCreate: true}
     ],
-
     init: function(application) {
         if (this.inited) {
             return;
@@ -214,9 +198,7 @@ Ext.define('My.view.Viewport', {
     },
 
     initComponent: function() {
-        var me = this;
-
-        Ext.applyIf(me, {
+        Ext.applyIf(this, {
             items: [
                 {
                     xtype: 'tabpanel',
@@ -252,8 +234,7 @@ Ext.define('My.view.Viewport', {
                 }
             ]
         });
-
-        me.callParent(arguments);
+        this.callParent(arguments);
     }
 });
 
