@@ -1,0 +1,30 @@
+<!--
+Extending button and handling its event
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Extending button and handling its event</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				// the first name does not matter...
+				Ext.define('MyPkg.Button', {
+					extend: 'Ext.button.Button',
+					handler: function(btn,e,eOpts) {
+						// event handling here
+						console.log(btn, e, eOpts);
+					},
+				});
+				Ext.create('MyPkg.button.Button',{
+					text: 'Test button',
+					renderTo: Ext.getBody(),
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
