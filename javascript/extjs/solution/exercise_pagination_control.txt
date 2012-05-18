@@ -1,0 +1,23 @@
+You will be using the following concepts in this exercise:
+1. hbox.
+2. container.
+3. event handling.
+4. custom event declaration and firing.
+5. event routing.
+6. pagination.
+
+Create a component that looks like this:
+
+	PREV | Val1 | Val2 | Val3 | NEXT
+
+The component will be connected to a store.
+The component will always fetch the data that it needs for display
+(not the entire data). use the store.nextpage
+When ever next is called the next 3 element will be shown.
+When ever prev is called the next 3 element will be shown.
+Enable and disable the 'prev' and 'next' buttons appropriately.
+When ever one of the fields is clicked publicize a 'select' high
+level custom event with the id of the data that was selected.
+
+
+Bonus: If you can wrap all of this up as a new component (Ext.define).
