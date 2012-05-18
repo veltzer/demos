@@ -16,6 +16,9 @@ A demo showing the use of Ext.is
 					//el.slideOut();
 					this.slideOut();
 				});
+				Ext.EventManager.on('myid','mouseover',function() {
+					console.log('mouseover');
+				});
 			});
 		</script>
 	</head>
