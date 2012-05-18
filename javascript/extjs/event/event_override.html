@@ -1,0 +1,32 @@
+<!--
+A demo showing how to override default behaviour of widgets with event listening...
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Override default behaviour of widgets</title>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function() {
+				// the first name does not matter...
+				Ext.define('MyPkg.Button', {
+					override: 'Ext.button.Button',
+					listeners: {
+						click: function(btn,e,eOpts) {
+							// event handling here
+							console.log(btn, e, eOpts);
+						},
+					},
+				});
+				Ext.create('Ext.button.Button',{
+					text: 'Test button',
+					renderTo: Ext.getBody(),
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
