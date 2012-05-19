@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
+		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<script>
+			Ext.onReady(function(){
+
+var ind = 0;
+
+Ext.define(
+	'ExerciseModel',
+	{
+		extend: 'Ext.data.Model',
+		fields : ['id', 'data'],
+		idProperty: 'id'
+	}
+)
+
+var store = Ext.create(
+	'Ext.data.Store',
+	{
+		model: 'ExerciseModel',
+		proxy: {
+			type: 'ajax',
+			url : 'threecombobox2.json',
+			reader: {
+				type: 'json',
+				root: 'users'
+			}
+		},
+		autoLoad: false,
+		pageSize:3
+	}
+)
+
+
+
+
+
+
+function updateText()
+{
+	store.nextPage({callback: function(records){
+		Ext.getCmp('t1').fireEvent('update');
+		Ext.getCmp('t2').fireEvent('update');
+		Ext.getCmp('t3').fireEvent('update');
+		updateButton();
+	}});
+}
+
+function updateButton(){
+	if (ind-3 < 0){
+		Ext.getCmp('prev').setDisabled(true);
+	}
+	else {
+		Ext.getCmp('prev').setDisabled(false);
+	}
+	
+	if (ind+3 > store.getCount()){
+		Ext.getCmp('next').setDisabled(true);
+	}
+	else {
+		Ext.getCmp('next').setDisabled(false);
+	}
+}
+
+				
+var pan = Ext.create('Ext.Panel', {
+    width: 500,
+    height: 100,
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
+    },
+    renderTo: document.body,
+    items: [
+    {
+    	id: 'prev',
+        xtype: 'button',
+        text: 'Prev',
+        flex: 1
+    },{
+    	id: 't1',
+        xtype: 'text',
+        text: '',
+        flex: 1
+    },{
+    	id: 't2',
+        xtype: 'text',
+        text: '',
+        flex: 1
+    },{
+    	id: 't3',
+        xtype: 'text',
+        text: '',
+        flex: 1
+    },{
+    	id: 'next',
+        xtype: 'button',
+        text: 'Next',
+        flex: 1
+    }
+    ]
+});
+
+Ext.getCmp('t1').on('update', function(){
+	if (ind >= store.getCount()){
+		Ext.getCmp('t1').setText('');
+	}
+	else{
+		Ext.getCmp('t1').setText((store.getAt(ind).data.data));
+	}
+})
+Ext.getCmp('t2').on('update', function(){
+	if (ind+1 >= store.getCount()){
+		Ext.getCmp('t2').setText('');
+	}
+	else{
+		Ext.getCmp('t2').setText(store.getAt(ind+1).data.data);
+	}
+})
+Ext.getCmp('t3').on('update', function(){
+	if (ind+2 >= store.getCount()){
+		Ext.getCmp('t3').setText('');
+	}
+	else{
+		Ext.getCmp('t3').setText((store.getAt(ind+2).data.data));
+	}
+})
+
+
+Ext.getCmp('prev').on('click', function(){
+	ind -= 3;
+	if(ind<0)
+	{
+		ind = 0;
+	}
+	
+	updateText();
+})
+Ext.getCmp('next').on('click', function(){
+	ind += 3;
+	if(ind >= store.getCount())
+	{
+		ind -=3;
+	}
+	
+	updateText();
+})
+
+updateText();				
+
+
+			})
+		</script>
+	</head>
+	<body></body>
+</html>
