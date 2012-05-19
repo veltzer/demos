@@ -1,2 +1,0 @@
-http://www.sencha.com/blog/tips-and-tricks-for-ext-js-component-developers
-http://www.sencha.com/learn/legacy/Manual:Component:Extending_Ext_Components

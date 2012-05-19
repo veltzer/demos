@@ -1,8 +1,16 @@
-- start extjs slides.
-	- intro to extjs.
-	- how to download and use extjs
-	- hello world extjs style
-	- ajax
-	- layout managers
-	- models and views in extjs
-- download a book for extjs.
+- stuff that is missing from the extjs slides:
+	- hello world source code and analysis.
+	- ajax with extjs
+	- layout managers: go into each of them.
+		talk about flex.
+	- more technical material in the mvc chapter.
+	- finish the store according to the ext documentation.
+		filters.
+	- the Ext.util.Observable is Ext 3 based.
+		move it to Ext.define instead of Ext.extend
+		and fix it up.
+	- Update the dom helper presentation.
+	- talk about adding 'id' to widgets and finding them via Ext.getCmp('id')
+	- talk about giving internal ids to widgets when writing widgets by using itemId: 'field1'
+		and finding them using this.getComponent('field1')
+	- talk about history (I already have an example almost ready).

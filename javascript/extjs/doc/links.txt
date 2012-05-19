@@ -1,2 +1,6 @@
 documentation:
-http://docs.sencha.com/ext-js/4-0/
+http://docs.sencha.com/ext-js/4-1/
+
+links for developing components:
+http://www.sencha.com/blog/tips-and-tricks-for-ext-js-component-developers
+http://www.sencha.com/learn/legacy/Manual:Component:Extending_Ext_Components
