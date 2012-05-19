@@ -14,3 +14,4 @@
 	- talk about giving internal ids to widgets when writing widgets by using itemId: 'field1'
 		and finding them using this.getComponent('field1')
 	- talk about history (I already have an example almost ready).
+- give order to the slides and create a syllabus from all of this mess!
