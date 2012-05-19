@@ -23,7 +23,7 @@ var w_store=Ext.create('Ext.data.Store',{
 	model: 'MovieModel',
 	proxy: {
 		type: 'ajax',
-		url: 'paging.php',
+		url: 'server_url.jsp',
 		reader: {
 			type: 'json',
 			root: 'views',
