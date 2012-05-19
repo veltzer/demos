@@ -1,0 +1,27 @@
+<!--
+	An example of using the event object that jQuery passes to event handlers...
+
+	Notice that:
+	- the event object is normalized.
+	- it tries to make all event handling work the same (bubbling, preventDefault)
+	in all browsers inspite of differences between them.
+	- one of the main reasons for using jQuery to begin with...
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				$('#jquerylink').click(function(event) {
+					event.preventDefault();
+					$(this).text('you can\'t go there!');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<a id='jquerylink' href='http://jquery.com/'>jQuery</a>
+	</body>
+</html>

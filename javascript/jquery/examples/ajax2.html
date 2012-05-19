@@ -1,0 +1,26 @@
+<!--
+	A simple HTTP GET request using the jQuery Ajax API.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				$('#mybutton').click(function() {
+					$.getJSON(
+						'ajax.json',
+						'{key:value}',
+						function(data, textStatus, jqXHR) {
+							console.log([data,textStatus,jqXHR,this].join(','));
+						}
+					);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id='mybutton'>Push me!</button>
+	</body>
+</html>

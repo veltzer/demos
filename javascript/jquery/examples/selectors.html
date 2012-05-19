@@ -1,0 +1,56 @@
+<!--
+	This is an example of the 'context' attached to jQuery selectors.
+
+	Notice that:
+	- if you pass a second a to the $/jQuery function then that argument is
+	the conext in which the selector will act.
+	- that means that the selector will be restricted to a subtree of the DOM. 
+	- this means that $('selector') == $('selector',document) (as shown below...).
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				$('#mybutton1').click(function() {
+					$('li',$('#list1')).each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
+				});
+				$('#mybutton2').click(function() {
+					$('li',$('#list2')).each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
+				});
+				$('#mybutton').click(function() {
+					$('li').each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
+				});
+				$('#mybuttonmore').click(function() {
+					$('li',document).each(function() {
+						$(this).text($(this).text()+' - foo');
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul id='list1'>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+		</ul>
+		<ul id='list2'>
+			<li>d</li>
+			<li>e</li>
+			<li>f</li>
+		</ul>
+		<button id='mybutton1'>Push me to manipulate list 1!</button>
+		<button id='mybutton2'>Push me to manipulate list 2!</button>
+		<button id='mybutton'>Push me to manipulate them all!</button>
+		<button id='mybuttonmore'>Push me to manipulate them all!</button>
+	</body>
+</html>

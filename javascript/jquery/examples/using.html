@@ -1,0 +1,22 @@
+<!--
+	This example explores the use of jquery before page is fully loaded.
+
+	Conclusions: you can use jQuery before the page is fully loaded.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+	</head>
+	<body>
+		<div id="myid"></div>
+		<script>
+			$('#myid').text('this is some text filled in by jQuery');
+			alert('pause here...');
+		</script>
+		<p>
+		This is some more text
+		</p>
+	</body>
+</html>

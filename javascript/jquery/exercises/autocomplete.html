@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+
+<!--
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<style>
+			@import "autocomplete.css";
+		</style>
+		<script src='complete.js'></script>
+		<script src='autocomplete.js'></script>
+		<script>
+			$(document).ready(function() {
+				new AutoComplete(
+					"#mydiv",
+					"name",
+					"name",
+					[
+						"alabama",
+						"alabamb",
+						"newyork",
+						"arkensas",
+						"washington",
+						"delaware",
+						"illinois",
+					],
+					"there is no match"
+				);
+			});
+		</script>
+	</head>
+	<body>
+		<div id='mydiv'></div>
+	</body>
+</html>

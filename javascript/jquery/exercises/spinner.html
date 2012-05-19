@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+
+<!--
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<style>
+			@import "spinner.css";
+		</style>
+		<script src='spinner.js'></script>
+		<script>
+			$(document).ready(function() {
+				new Spinner(5,'#mydiv');
+				new SpinnerChild(7,'#myotherdiv');
+			});
+		</script>
+	</head>
+	<body>
+		<div id='mydiv'></div>
+		<div id='myotherdiv'></div>
+	</body>
+</html>

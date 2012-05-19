@@ -1,0 +1,31 @@
+<!--
+	An improvement in style over the previous example.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				function handler() {
+					handler.counter=handler.counter+1;
+					$('#myid').text('clicked '+handler.counter);
+				}
+				handler.counter=0;
+				$('#id_bind').click(function() {
+					$('#id_real').bind('click',handler);
+				});
+				$('#id_unbind').click(function() {
+					$('#id_real').unbind('click',handler);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id='myid'>nothing happened yet</div>
+		<button id='id_real'>I am the real button</button>
+		<button id='id_bind'>Push me to bind</button>
+		<button id='id_unbind'>Push me to unbind</button>
+	</body>
+</html>

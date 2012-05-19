@@ -1,0 +1,26 @@
+<!--
+This example tests the .append method of jquery to see if we can append just plain text.
+And yes - jQuery can handle it.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				// appending plain text...
+				$('#mydiv').append('yes!');
+				// appending of any html...
+				var elem_html=$('<p>this is some text</p>');
+				$('#mydiv').append(elem_html);
+				// this is more efficient than the above
+				var elem_jquery=$('<p/>').text('this is more text');
+				$('#mydiv').append(elem_jquery);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="mydiv">This is my text...</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!--
+	This example investigates the $.ready jQuery function.
+
+	Notice that:
+	- document.ready is called BEFORE images are loaded.
+	- this is good if you want to do stuff quickly.
+	- if you want to do image manipulation or intervene after images
+	are loaded you can attach to their load event via $.load.
+	- notice the many ways by which you can bind to the ready function.
+	- the recommended way is the first one: $(document).ready(function).
+	- notice that you can still bind method to 'ready' even if you are
+	within a ready handler.
+	- notice that .bind events get called after regular .ready handlers.
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script>
+			$(document).ready(function() {
+				console.log('first bounded');
+				$(document).ready(function() {
+					console.log('ready - bounded late');
+				});
+				$(document).bind('ready', function() {
+					console.log('bind - bounded late');
+				});
+			});
+			$().ready(function() {
+				console.log('second bounded');
+				$(document).bind('ready', function() {
+					console.log('bind - bounded later');
+				});
+			});
+			$(function() {
+				console.log('third bounded');
+			});
+			$(document).bind('ready', function() {
+				console.log('bind - bounded early');
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
