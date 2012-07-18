@@ -92,7 +92,6 @@ proc exitApplication {} {
 
 readPhonebook
 set stop 0
-#while {!$stop} {
 while {$stop==0} {
 	set selection [showMenu]
 	switch $selection {
