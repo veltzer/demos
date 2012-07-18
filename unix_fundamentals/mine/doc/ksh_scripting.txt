@@ -1,0 +1,28 @@
+Ksh scripting (1.5 days)
+========================
+Basics
+	wildcards
+	I/O redirection
+	history
+	aliases
+Variables
+	variables
+	predefined variables
+	environment variables
+Scripting
+	your first script
+	writing scripts
+	script arguments
+	debugging scripts
+	conditionals
+	interactive commands (read,...)
+	case
+	select
+Scripting (cont)
+	for loop
+	shift
+	while / until loop
+	arithmetic expressions
+	trapping signals
+	the . (dot) command
+	ksh functions

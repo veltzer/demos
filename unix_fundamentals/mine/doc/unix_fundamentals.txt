@@ -1,0 +1,61 @@
+Introduction to UNIX (2 days)
+=============================
+Introduction to UNIX
+	What is UNIX?
+	History
+	passwords
+	Command structure
+	Simple commands
+	Manual pages and other sources of documentation
+The file system
+	File system layout
+	pathnames
+	home directories
+	path related commands
+	file name escaping
+Manipulating files and directories
+	cat, more, head, tail, wc, diff, touch, tee, mkdir, rmdir, mv, cp
+	How information is stored on disk?
+	Inodes
+	Symbolic links
+	Hard links
+UNIX security
+	UNIX accounts
+	/etc/passwd, /etc/shadow
+	File ownership
+	File permissions
+	Manipulating file ownership and file permissions
+	umask
+Korn shell
+	aliases
+	command history
+	command line editing
+	shell variables
+	local shell variables
+	environment variables
+	quoting
+	initilisation files
+C shell
+	local shell variables
+	environment variables
+	PATH
+	aliases
+	command history
+	initilisation files
+Redirection and pipes
+	Standard input, output and error
+	Redirecting, rewriting, appending
+	Multiple redirections
+	Using pipes
+	How pipes work?
+	Merging
+UNIX power tools
+	find, glob regular expressions, grep, cut, sort, uniq, tr, sed, xargs
+Processes
+	process hierarchy
+	process life cycle
+	process ids
+	signaling with kill
+	jobs
+	managing jobs
+	batch processing using the at command
