@@ -1,0 +1,15 @@
+<!--
+Showing that a function also doubles up as a javascript object...
+
+	Mark Veltzer
+-->
+<script>
+	function counter() {
+		return counter.cnt++
+	}
+	counter.cnt=8
+	document.write(counter()+'<br/>')
+	document.write(counter()+'<br/>')
+	document.write(counter()+'<br/>')
+	document.write(counter()+'<br/>')
+</script>
