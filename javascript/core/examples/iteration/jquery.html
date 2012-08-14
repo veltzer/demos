@@ -6,12 +6,12 @@ This is a solution to the iteration problem similar to the jQuery $.each solutio
 <script>
 	// very handy functions...
 	function foreach(arr,f) {
-		for(x in arr) {
+		for(var x in arr) {
 			f(x,arr[x]);
 		}
 	}
 	function forthis(arr,f) {
-		for(x in arr) {
+		for(var x in arr) {
 			f.call(arr[x],x);
 		}
 	}

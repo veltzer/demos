@@ -17,6 +17,7 @@ This example shows how to use apply in an object oriented context.
 		return this.name;
 	}
 	var p=new Person("Mark");
+	var p2=new Person("Doron");
 	console.log(p.getName());
 	// this is a method
 	var m=p.setName;
@@ -31,4 +32,12 @@ This example shows how to use apply in an object oriented context.
 	// lets try to use apply...
 	m.apply(p,["Andrew"]);
 	console.log(p.getName());
+	// lets try to use call...
+	m.call(p,"Danny");
+	console.log(p.getName());
+
+	// now lets try applying the method on another object
+	console.log(p2.getName());
+	m.call(p2,"Ruth");
+	console.log(p2.getName());
 </script>

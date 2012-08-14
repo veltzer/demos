@@ -1,3 +1,4 @@
+/* this is the right variation */
 <script>
 	var a=[];
 	function createPrinter(i) {
@@ -5,18 +6,9 @@
 			console.log(i);
 		}
 	}
-	/* this is the right variation */
 	for(var i=0;i<100;i++) {
 		a.push(createPrinter(i));
 	}
-	/* this is the wrong variation */
-	/*
-	for(var i=0;i<100;i++) {
-		a.push(function() {
-			console.log(i);
-		});
-	}
-	*/
 	for(var f in a) {
 		a[f]();
 	}
