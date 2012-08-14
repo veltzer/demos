@@ -56,6 +56,9 @@ Employee.prototype.getName=function() {
 	// next line will give you infinite recursion...
 	//return 'Employee '+this.getName();
 	return 'Employee '+Person.prototype.getName.call(this);
+	// don't do this at home (UGLY!!!)
+	//this.tmp=Person.prototype.getName
+	//return 'Employee '+this.tmp()
 }
 // here ends code of Employee
 
