@@ -1,5 +1,9 @@
 <script>
 
+/*
+	Flyweight design pattern in JavaScript
+*/
+
 function Person() {
 	Person.prototype.count++;
 }
@@ -31,6 +35,7 @@ Person.prototype.toString=function() {
 // This is the client code
 document.write("number of persons is "+Person.prototype.count+"<br/>");
 var p1=new Person();
+document.write(p1+'<br/>');
 p1.setName('Frodo');
 p1.setAge(33);
 var p2=new Person();

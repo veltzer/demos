@@ -2,7 +2,7 @@
 // Here comes the post office implementation...
 function PostOffice() {
 	if(PostOffice.instance) {
-		// ERROR! throw exception...
+		throw 'already created!'
 	} else {
 		this.subscribers={}
 		PostOffice.instance=this;
@@ -23,25 +23,25 @@ PostOffice.prototype.subscribe=function(evt,obj,method) {
 }
 PostOffice.prototype.publish=function(evt,data) {
 	if(this.subscribers[evt]) {
-		for(x in this.subscribers[evt]) {
+		for(var x in this.subscribers[evt]) {
 			var oam=this.subscribers[evt][x];
-			oam[0][oam[1]](data);
+			var curr_obj=oam[0]
+			var curr_method=oam[1]
+			curr_obj[curr_method](data);
 		}
-	} else {
-		// do nothing... (?!?)
 	}
 }
 
 // Listener to test the post office...
 function Listener(name,age) {
 }
-Listener.prototype.alert=function(data) {
+Listener.prototype.notify=function(data) {
 	alert('this is an alert with data ['+data+']');
 }
 
 //var po=new PostOffice();
 var p=new Listener("mark",435);
-PostOffice.getInstance().subscribe('/event',p,'alert');
+PostOffice.getInstance().subscribe('myeventname',p,'notify');
 // publish the event (no data for now...)
-PostOffice.getInstance().publish('/event',['this is some data']);
+PostOffice.getInstance().publish('myeventname',['this is some data']);
 </script>

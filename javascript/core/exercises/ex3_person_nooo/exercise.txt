@@ -4,7 +4,7 @@ Write an object called person which has the name and age
 properties. Write setters and getters for these attributes.
 Write a method called printSelf which prints the data
 to the document.
-Now make the setters and getters be shared among all instanced
+Now make the setters and getters be shared among all instances
 of person.
 Use "this" and the fact that properties of type function of
 objects behave as method and get the "this" automatic variable.

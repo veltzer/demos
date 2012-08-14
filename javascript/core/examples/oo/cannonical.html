@@ -1,0 +1,36 @@
+<!--
+Clean Javascript OO example...
+
+	Mark Veltzer
+-->
+
+<script>
+	function Person(name,lastname) {
+		this.name=name
+		this.lastname=lastname
+	}
+	Person.prototype.getName=function() {
+		return this.name
+	}
+	Person.prototype.setName=function(newName) {
+		this.name=newName
+	}
+	Person.prototype.getLastname=function() {
+		return this.lastname
+	}
+	Person.prototype.setLastname=function(newName) {
+		this.lastname=newName
+	}
+	Person.prototype.toString=function() {
+		return this.name+' '+this.lastname
+	}
+	// now lets use the object...
+	var p1=new Person('James','Bond')
+	document.write(p1 instanceof Person)
+	document.write('<br/>')
+	document.write(p1.getName())
+	document.write('<br/>')
+	p1.setName("Fubar")
+	document.write(p1.getName())
+	document.write('<br/>')
+</script>

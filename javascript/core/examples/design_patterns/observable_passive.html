@@ -12,7 +12,7 @@
 	}
 	// here comes the listener
 	function MakeItListen(classname) {
-		for(x in classname.prototype) {
+		for(var x in classname.prototype) {
 			var tmp=classname.prototype[x];
 			classname.prototype[x]=function() {
 				tmp(arguments);
