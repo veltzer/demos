@@ -49,11 +49,13 @@ Inventory.prototype.verifyItemInInventory=function(id) {
 }
 Inventory.prototype.load=function(url) {
 	// for closure
-	var object=this;
+	var inventory=this;
 	jsonGet('snipplet.json',function(data) {
 		for(id in data) {
 			var ii=data[id];
-			object.addProduct(new InventoryItem(id,ii.name,parseInt(ii.price),parseInt(ii.storage)));
+			inventory.addProduct(new InventoryItem(id,ii.name,parseInt(ii.price),parseInt(ii.storage)));
+			// uglier!!
+			//Inventory.getInstance().addProduct(new InventoryItem(id,ii.name,parseInt(ii.price),parseInt(ii.storage)));
 		}
 	});
 }
