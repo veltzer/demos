@@ -14,8 +14,8 @@
 			$(document).ready(function() {
 				new AutoComplete(
 					"#mydiv",
-					"name",
-					"name",
+					"state",
+					"state",
 					[
 						"alabama",
 						"alabamb",
@@ -27,10 +27,24 @@
 					],
 					"there is no match"
 				);
+				new AutoComplete(
+					"#mydiv",
+					"name",
+					"name",
+					[
+						"mark",
+						"doron",
+						"shay",
+						"amir",
+						"ruth"
+					],
+					"there is no match"
+				);
 			});
 		</script>
 	</head>
 	<body>
 		<div id='mydiv'></div>
+		<div id='mydiv2'></div>
 	</body>
 </html>

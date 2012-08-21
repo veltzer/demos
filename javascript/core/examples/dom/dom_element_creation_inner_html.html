@@ -14,9 +14,7 @@ A simple example of creating DOM elements and appending them to some other eleme
 				}
 				var mydiv=document.getElementById('mydiv')
 				for(var i=0;i<numElems;i++) {
-					var newelement=document.createElement('button');
-					newelement.innerHTML='button '+(create.cnt+i)
-					mydiv.appendChild(newelement)
+					mydiv.innerHTML=mydiv.innerHTML+'<button>button'+(create.cnt+i)+'</button>';
 				}
 				create.cnt+=numElems
 			}
