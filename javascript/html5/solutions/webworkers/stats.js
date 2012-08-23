@@ -19,33 +19,29 @@ function messageHandler(event) {
 		embeddedMessage = event.data;
 	}
 	
-	updateData( {
+	postMessage( {
 		message : "I have received an event: " + embeddedMessage,
 		timestamp : new Date()
 	});
 }
 
 function errorHandler(event) {
-	updateData( {
+	postMessage( {
 		message : "I have received an error event: " + event.data,
 		timestamp : new Date()
 	});
 }
 
-function updateData(data) {
-	postMessage(data);
-}
-
 function init() {
 	trigger();
-	updateData( {
+	postMessage( {
 		message : "Init",
 		timestamp : new Date()
 	});
 }
 
 function trigger() {
-	updateData( {
+	postMessage( {
 		message : "Data Update",
 		timestamp : new Date(),
 		results: [
