@@ -19,9 +19,16 @@ A control that keeps spaces between controlled elements the same...
 			var w_resize=new Spacer('#mydiv',30);
 			w_resize.addElem(new SpacerElem($('<span>').text('very short')));
 			w_resize.addElem(new SpacerElem($('<span>').text('one')));
-			w_resize.addElem(new SpacerElem($('<span>').text('very very very very very long')));
+			w_resize.addElem(new SpacerElem($('<span>').text('foobar')));
 			w_resize.addElem(new SpacerElem($('<span>').text('this is short')));
 			w_resize.startResize();
+			/*
+
+			var w_res2=new Spacer('#newdiv',2);
+			w_res2.addElem(new SpacerElem($('<span>').text('very short')));
+			w_res2.addElem(new SpacerElem($('<span>').text('one')));
+			w_res2.startResize();
+			*/
 		</script>
 	</body>
 </html>

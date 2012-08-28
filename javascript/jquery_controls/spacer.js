@@ -5,6 +5,7 @@ function SpacerElem(elid) {
 function Spacer(id,margin) {
 	this.total=$(id);
 	this.stopResize=true;
+	//this.stopResize=false;
 	this.doDebug=true;
 	this.margin=margin;
 	this.elems=[];

@@ -1,0 +1,38 @@
+<!--
+Demo of the HorVert layout manager...
+
+				Mark Veltzer
+-->
+<html>
+	<head>
+		<script type='text/javascript' src='../toolkits/jquery.js'></script>
+		<!--
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js'></script>
+		-->
+		<script src='horvert.js'></script>
+	</head>
+	<body>
+		<div id="mydiv" style="width:100%; height:100%; border: solid; overflow: hidden;">
+		</div>
+		<script>
+			var w_horvert=new HorVert('#mydiv',30);
+			w_horvert.addElem(new HorVertElem($('<button>').text('very short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('one')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('dsasdfkjhasdfkjashdflkajsdhfkajsd')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.addElem(new HorVertElem($('<button>').text('this is short')));
+			w_horvert.startResize();
+		</script>
+	</body>
+</html>
