@@ -1,0 +1,19 @@
+jquery-mobile warmup exercise
+=============================
+1. Write a jquery page with an empty list in the content pane.
+2. When the page loads, do ajax, fetch data which will be in a hardcoded
+	server JSON file and fill the list on the page with the data
+	programatically.
+
+Continuation exercise
+=====================
+3. now programmaticaly create a page for each data element that was returned
+	from the server and connect them to the list.
+
+For example, the data could be:
+
+	{
+		"mark":[... , ..., ..., ..., ............. ],
+		"shay: [..., ....This is the extra data... ],
+		"doron: [..................................],
+	}
