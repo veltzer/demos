@@ -7,7 +7,7 @@ report={}
 
 # lets read all the lines in our own exercise...
 # NOTE: the 'for' scope will close the file automagically...
-for line in open('word_report.py'):
+for line in open('word_report_1.py'):
 	for word in line.split():
 		if not report.has_key(word):
 			report[word]=0
@@ -15,4 +15,6 @@ for line in open('word_report.py'):
 # lets print the report...
 # NOTE: the with statement takes care of closing the file for us...
 with open('/tmp/report','w') as f:
-	f.write(str(report))
+	for word,count in report.items():
+		f.write("word {word} appeared {count} times\n".format(word=word,count=count))
+	#f.write(str(report))
