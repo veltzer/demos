@@ -20,14 +20,16 @@ def lines2paragraphs(lines):
 
 import textwrap
 
-def reformat(lines,chars):
+def reformat(lines2paragraphs,chars):
     """Generate lines of reformatted paragraphs.
 
     Paragraph in input and output are separated by empty lines.
     """
-    for para in lines2paragraphs(lines):
+    for para in lines2paragraphs:
         for line in textwrap.wrap(' '.join(para),chars):
-	    print line
-        print
+	    yield line
+        yield ""
 
-reformat(open('/usr/share/doc/coreutils/README.Debian'),72)
+mygen=reformat(lines2paragraphs(open('/usr/share/doc/python/copyright')),50)
+for l in mygen:
+	print l
