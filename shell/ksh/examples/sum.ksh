@@ -1,4 +1,4 @@
-#!/usr/bin/ksh
+#!/usr/bin/ksh -u
 
 function sumall {
 	typeset +a sum=0
