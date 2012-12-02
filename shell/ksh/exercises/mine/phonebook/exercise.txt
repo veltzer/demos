@@ -1,5 +1,5 @@
-Ex1 - phonebook application
-===========================
+phonebook application
+=====================
 The application should present a menu to the user with the following entries:
 1) insert a name. 2) delete a name. 3) search for a name. 4) show current phonebook. 5) show number of entries in current phonebook. 6) update a name. 7) exit.
 
@@ -39,25 +39,3 @@ at the mysql cmdline options to make your life as easy as possilbe).
 Add an option to the phonebook user interface to erase the entire
 book (clear it) and implement that too. Make sure that your phonebook
 can handle lots of records (try it with a million entries).
-
-Ex2 - Pstree in ksh/bash 
-========================
-Create a pstree like program in a ksh/bash.
-It should look like this
-
-$ ./mypstree.bash
-init-+-sshd
-     +-apache-+
-	      +apache
-     +-syslogd
-
-stage1: Call ps to create a temp file with the data you need
-(program cmd line, pid -> process id, ppid -> parent process id )
-
-stage2: Read the information from the file you created into variables
-(arrays) in your program.
-
-stage3: Print the tree, start with process id 1 (init).
-
-stage4: streamline your program. Get ridd of any temporary files and make your
-program as fast as possible. This is the hardest part.
