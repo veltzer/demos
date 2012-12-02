@@ -1,3 +1,3 @@
-#!/bin/ksh -u
+#!/usr/bin/ksh -u
 
 echo $(($1+$2))
