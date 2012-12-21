@@ -32,18 +32,24 @@
 					var threads=$('#mythreads').val();
 					var ids=threads.split(',');
 					for(seq in ids) {
-						var id=Number(ids[seq]);
-						console.log('sending: '+data+' to '+id);
-						workers[id].postMessage(data);
+						var sid=ids[seq];
+						if(/\d+/.test(sid)) {
+							var id=Number(sid);
+							console.log('sending: '+data+' to '+id);
+							workers[id].postMessage(data);
+						}
 					}
 				});
 				$('#myterminate').click(function() {
 					var threads=$('#mythreads').val();
 					var ids=threads.split(',');
 					for(seq in ids) {
-						var id=Number(ids[seq]);
-						console.log('terminating '+id);
-						workers[id].terminate();
+						var sid=ids[seq];
+						if(/\d+/.test(sid)) {
+							var id=Number(sid);
+							console.log('terminating '+id);
+							workers[id].terminate();
+						}
 					}
 				});
 				$('#mysendall').click(function() {
