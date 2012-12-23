@@ -27,7 +27,9 @@ file=open(p_output,'w')
 attr={}
 attr['blocks']=p_input
 attr['list']=['/mako_tests/song1.mk','/mako_tests/song2.mk']
+attr['foo']='bar'
 file.write(template.render(attributes=attr))
+#file.write(template.render(foo="bar"))
 file.close()
 # python 3
 #os.chmod(p_output,0o0444)
