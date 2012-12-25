@@ -8,6 +8,10 @@ other languages like Java,will not protect you in the least from doing these
 types of mistakes. You may get an exception,if you are lucky! So if you
 go down this path you are responsible for all your wrong doings...
 
+If you are not lucky no exception will be thrown and you may:
+- iterate the same element twice.
+- skip certain elements.
+
 What about dictionary?
 Well python gives you a little bit more protection here. The iterator will notice
 that the size of the dictionary has changed and will generate a RuntimeError exception
