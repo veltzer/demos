@@ -15,7 +15,8 @@ And more...
 """
 class A(object):
 	def __init__(self):
-		self.d={}
+		pass
+		#self.d={}
 	def __getattr__(self,name):
 		return name[::-1]
 		#def mymethod(self):
