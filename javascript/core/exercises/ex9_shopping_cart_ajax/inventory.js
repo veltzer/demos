@@ -80,9 +80,9 @@ Inventory.prototype.createRow=function(id) {
 	var inner3=document.createTextNode(item.price);
 	var inner4=document.createTextNode(item.storage);
 	var inner5=document.createElement('button');
-	inner5.onclick=(function(id) {
+	inner5.onclick=(function(myid) {
 		return function() {
-			Cart.getInstance().buyItemById(id,1);
+			Cart.getInstance().buyItemById(myid,1);
 		}
 	})(id);
 	/*

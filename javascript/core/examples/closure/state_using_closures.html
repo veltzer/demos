@@ -4,11 +4,9 @@
 -->
 <script>
 	function make_counter() {
-		var val=0;
+		var val=-1;
 		return function() {
-			var tmp=val;
-			val++;
-			return tmp;
+			return ++val;
 		}
 	}
 	var counter1=make_counter()

@@ -1,0 +1,33 @@
+<!--
+Another type of hiding: prototype morphing...
+
+		Mark Veltzer
+-->
+<script>
+	// third party defined this code...
+	function foo(a,b,c,d,e,f,g) {
+		document.write(a+'<br/>');
+		document.write(b+'<br/>');
+		document.write(c+'<br/>');
+		document.write(d+'<br/>');
+		document.write(e+'<br/>');
+		document.write(f+'<br/>');
+		document.write(g+'<br/>');
+	}
+	/* this is a solution, but an ugly and inflexible one...
+	var my_a=...;
+	var my_c=...;
+	var my_d=...;
+	function short_foo(b,f) {
+		foo(my_a,b,my_c,...)
+	}
+	*/
+	// lets try closures...
+	function make_short_foo(iia,iic,iid,iie,iig) {
+		return function(b,f) {
+			foo(iia,b,iic,iid,iie,f,iig);
+		}
+	}
+	var my_short_foo=make_short_foo('my_a','my_c','my_d','my_e','my_g');
+	my_short_foo('my_val_for_b','my_val_for_f');
+</script>
