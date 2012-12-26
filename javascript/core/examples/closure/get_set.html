@@ -1,0 +1,25 @@
+<!--
+This demo shows the closure feature. The 5 and 13
+is stored within the closure object which is one object per activation of the 'make_adder'
+function.
+
+		Mark Veltzer
+-->
+<script>
+	function make_get_set(o,name,initval) {
+		var val=initval;
+		o["get"+name]=function() {
+			return val;
+		}
+		o["set"+name]=function(ival) {
+			val=ival;
+		}
+	}
+	var o={};
+	make_get_set(o,"Name","mark");
+	make_get_set(o,"Id",33454);
+
+	document.write(o.getName()+'<br/>');
+	o.setName("shay");
+	document.write(o.getName()+'<br/>');
+</script>
