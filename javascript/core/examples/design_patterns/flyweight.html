@@ -1,0 +1,37 @@
+<!--
+A flyweight javascript demo
+
+	Mark Veltzer
+-->
+
+<script>
+	function Button() {
+		// Look Ma! nothing in the constructor...
+	}
+	Button.prototype.getColor=function() {
+		return this.color
+	}
+	Button.prototype.setColor=function(newColor) {
+		this.color=newColor
+	}
+	Button.prototype.getText=function() {
+		return this.text
+	}
+	Button.prototype.setText=function(newText) {
+		this.text=newText
+	}
+	Button.prototype.toString=function() {
+		return this.color+' '+this.text
+	}
+	Button.prototype.color='blue'
+	Button.prototype.text='no text'
+	// now lets use the object...
+	var b1=new Button()
+	document.write(b1+'<br/>')
+	b1.setColor('red')
+	document.write(b1+'<br/>')
+	var b2=new Button()
+	document.write(b2+'<br/>')
+	b2.setText('this is b2')
+	document.write(b2+'<br/>')
+</script>
