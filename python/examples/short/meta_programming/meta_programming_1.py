@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 """
-This example just shows how to do refelection in python and see the class of each object
+This example just shows how to do reflection in python and see the class of each object
 and the list of stuff you can request of it.
 
 	Mark Veltzer <mark@veltzer.net>

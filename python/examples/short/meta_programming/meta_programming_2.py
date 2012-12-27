@@ -8,6 +8,7 @@ This exercise shows how to:
 
 	Mark Veltzer <mark@veltzer.net>
 """
+from __future__ import print_function
 from new import instancemethod 
 import pprint
 
