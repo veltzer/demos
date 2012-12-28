@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-declaration = r'''# note use of raw string when embedding in python code...
+declaration=r'''# note use of raw string when embedding in python code...
 full		:= ws,expr,ws
 number		:= [0-9eE+.-]+
 expr		:= number,'+',number/number,'-',number
@@ -31,5 +31,5 @@ class MyParser(simpleparse.parser.Parser):
 	def buildProcessor(self):
 		return MyProcessorClass()
 
-parser = MyParser( declaration, "full" )
+parser=MyParser( declaration, "full" )
 pprint.pprint(parser.parse(sys.argv[1]))

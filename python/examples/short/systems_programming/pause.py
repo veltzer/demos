@@ -9,7 +9,7 @@ to sleep until any signal arrives. Since number of signals is small
 this means that your process will be asleep most of the time. This
 pattern allow you to react to signals in your 'main' thread since
 the signal handler can change some variable and cause your main
-thread to react,just as in this example. 
+thread to react,just as in this example.
 
 Another thing to note is that when the signal handler is running it is running
 in the context of the main thead and the threading module reports it as such.

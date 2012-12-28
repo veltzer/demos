@@ -1,5 +1,6 @@
 .. -*- rst -*-
-.. See EXERCISES.html which is nicer to read
+.. You can create an HTML file from this file using docutils
+.. which is nicer to read.
 .. (it was generated from this using http://docutils.sf.net)
 
 ===========================================

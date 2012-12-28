@@ -19,7 +19,7 @@ try:
 except:
 	# handle the error better, only non existant file should be glossed over...
 	pass
-mylookup = mako.lookup.TemplateLookup(directories=['.'],input_encoding=input_encoding,output_encoding=output_encoding)
+mylookup=mako.lookup.TemplateLookup(directories=['.'],input_encoding=input_encoding,output_encoding=output_encoding)
 template=mako.template.Template(filename=common,lookup=mylookup,output_encoding=output_encoding,input_encoding=input_encoding)
 file=open(p_output,'w')
 # python 3

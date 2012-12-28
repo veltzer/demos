@@ -2,9 +2,9 @@
 
 # this is a solution to the digits counting exercise...
 
-s = raw_input("Please enter a line of digits: ")
+s=raw_input("Please enter a line of digits: ")
 # lets initialize a 10 element list where all elements are 0
-l = [0]*10
+l=[0]*10
 # iterate all digits in the input...
 for d in s:
 	if ord(d)>=ord('0') and ord(d)<=ord('9'):

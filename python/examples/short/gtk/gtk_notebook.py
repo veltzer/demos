@@ -19,7 +19,7 @@ class NotebookExample:
 		tval=False
 		bval=False
 		if self.show_tabs == False:
-			tval=True 
+			tval=True
 		if self.show_border == False:
 			bval=True
 
@@ -32,7 +32,7 @@ class NotebookExample:
 	def remove_book(self,button,notebook):
 		page=notebook.get_current_page()
 		notebook.remove_page(page)
-		# Need to refresh the widget -- 
+		# Need to refresh the widget --
 		# This forces the widget to redraw itself.
 		notebook.queue_draw_area(0,0,-1,-1)
 
@@ -72,7 +72,7 @@ class NotebookExample:
 
 			label=gtk.Label(bufferl)
 			notebook.append_page(frame,label)
-      
+
 		# Now let's add a page to a specific spot
 		checkbutton=gtk.CheckButton("Check me please!")
 		checkbutton.set_size_request(100,75)
@@ -97,7 +97,7 @@ class NotebookExample:
 
 			label=gtk.Label(bufferl)
 			notebook.prepend_page(frame,label)
-    
+
 		# Set what page to start at (page 4)
 		notebook.set_current_page(3)
 

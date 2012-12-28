@@ -13,9 +13,9 @@ This is similar to python>=2.7 subprocess.check_output
 """
 import subprocess
 def system_check_output(arg):
-	pr=subprocess.Popen(arg,stdout=subprocess.PIPE) 
-	(output,errout)=pr.communicate() 
-	status=pr.returncode 
+	pr=subprocess.Popen(arg,stdout=subprocess.PIPE)
+	(output,errout)=pr.communicate()
+	status=pr.returncode
 	if status:
 		raise ValueError('error in executing',cmd)
 	return output

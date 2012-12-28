@@ -1,5 +1,5 @@
 #!/usr/bin/python
-	
+
 """
 This example shows how you can use sys.argv[0] in order to make a "multi-script".
 This means a script that behaves differently according to the manner in which it
