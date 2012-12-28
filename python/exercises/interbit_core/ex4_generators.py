@@ -2,11 +2,11 @@ import textwrap
 
 def lines2paragraphs(lines):
 	"""Group lines into paragraphs - as lists of lines."""
-	paragraph = []
+	paragraph=[]
 	for line in lines:
 		if not line.strip():
 			yield paragraph
-			paragraph = []
+			paragraph=[]
 		else:
 			paragraph.append(line)
 	# The last paragraph remains

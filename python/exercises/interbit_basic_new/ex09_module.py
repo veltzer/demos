@@ -12,12 +12,12 @@ Bzzz! No 'x' there.
 """
 
 # Initialization
-_word = "secret"
-open_letters = set()
+_word="secret"
+open_letters=set()
 
 def print_known_parts():
 	"""Reveal guessed letters, ? for hidden letters."""
-	res = []
+	res=[]
 	for c in _word:
 		if c in open_letters:
 			res.append(c)

@@ -8,12 +8,12 @@ def with_output_to_out_txt(f):
 	"""
 	@functools.wraps(f)
 	def decorated_f(*args, **kw):
-		old_stdout = sys.stdout
-		new_stdout = sys.stdout = open('out.txt', 'a')
+		old_stdout=sys.stdout
+		new_stdout=sys.stdout=open('out.txt', 'a')
 		try:
 			return f(*args, **kw)
 		finally:
-			sys.stdout = old_stdout
+			sys.stdout=old_stdout
 			new_stdout.close()
 	return decorated_f
 

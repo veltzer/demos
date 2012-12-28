@@ -6,12 +6,12 @@ def redirect_output_to(fname):
 	The file is opened for appending and closed when the block
 	finishes.
 	"""
-	old_stdout = sys.stdout
-	new_stdout = sys.stdout = open(fname, 'a')
+	old_stdout=sys.stdout
+	new_stdout=sys.stdout=open(fname, 'a')
 	try:
 		yield
 	finally:
-		sys.stdout = old_stdout
+		sys.stdout=old_stdout
 		new_stdout.close()
 
 

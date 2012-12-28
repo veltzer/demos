@@ -15,11 +15,11 @@ def parse_makefile(fname):
 
 	Returns a dict {'target': ['dependency1', ...], ...}
 	"""
-	rules = {}
+	rules={}
 	for line in open(fname):
-		target, rest = line.split(':')
-		target = target.strip()
-		rules[target] = rest.split()
+		target, rest=line.split(':')
+		target=target.strip()
+		rules[target]=rest.split()
 	return rules
 
 def build_plan(target, rules):
@@ -33,7 +33,7 @@ def build_plan(target, rules):
 		# (A real make tool would verify that the file exists.)
 		return []
 
-	plan = []
+	plan=[]
 	# Build all dependencies.
 	for dep in rules[target]:
 		plan += build_plan(dep, rules)
@@ -47,5 +47,5 @@ def build_plan(target, rules):
 import doctest
 doctest.testmod()
 
-rules = parse_makefile("make.txt")
+rules=parse_makefile("make.txt")
 print build_plan("all", rules)

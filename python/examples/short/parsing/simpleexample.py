@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-declaration = r'''# note use of raw string when embedding in python code...
+declaration=r'''# note use of raw string when embedding in python code...
 file := [ \t\n]*, section+
 section := '[',identifier,']', ts,'\n', body
 body := statement*
@@ -16,12 +16,12 @@ number := [0-9eE+.-]+
 string := (char/escapedchar)*
 escapedchar := '\134"' / '\134\134'
 '''
-testdata = '''[test1]
+testdata='''[test1]
 	val=23
 	val2="23"
 	wherefore="art thou"
 	; why not
-	log = heavy_wood
+	log=heavy_wood
 
 [test2]
 loose=lips
@@ -30,6 +30,6 @@ loose=lips
 from simpleparse.parser import Parser
 import pprint
 
-parser = Parser( declaration, "file" )
+parser=Parser( declaration, "file" )
 if __name__ =="__main__":
 	pprint.pprint( parser.parse( testdata))

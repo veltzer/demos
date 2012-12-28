@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-places = {
+places={
 	'Shire': {'leave': 'Bree', 'stay': 'DEATH'},
 	'DEATH': {},
 	'Bree': {'with Strider': 'Rivendell', 'alone': 'DEATH'},
@@ -19,7 +19,7 @@ places = {
 
 # Only checking reachability:
 
-reachable = set(['Rivendell'])
+reachable=set(['Rivendell'])
 for i in range(7):
 	for place in list(reachable):
 		reachable.update(places[place].values())
@@ -28,13 +28,13 @@ print 'Mordor' in reachable
 
 # Finding the actual path:
 
-way_to = {'Rivendell': []}
+way_to={'Rivendell': []}
 for i in range(7):
 	for place in way_to.keys():
 		for action, place2 in places[place].items():
 			# If we already knew a way to place2, the new way must be longer.
 			# So only set ways to places that were previously unreachable.
 			if place2 not in way_to:
-				way_to[place2] = way_to[place] + [action]
+				way_to[place2]=way_to[place] + [action]
 
 print way_to['Mordor']

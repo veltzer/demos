@@ -8,8 +8,8 @@ def read_csv(fname):
 	for (date, package, version, description) in csv.reader(open(fname)):
 		yield dict(date=date, package=package, version=version)
 
-db = sqlite3.connect('pypi.sqlite')
-cursor = db.cursor()
+db=sqlite3.connect('pypi.sqlite')
+cursor=db.cursor()
 with db:
 	cursor.execute('DROP TABLE IF EXISTS pypi') # ensure a clean start
 	cursor.execute('CREATE TABLE pypi (date, package, version)')

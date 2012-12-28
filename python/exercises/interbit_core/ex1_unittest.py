@@ -2,10 +2,10 @@ import glob
 import unittest, os, tempfile, shutil
 
 class TestGlob(unittest.TestCase):
-	fnames = ['foo.txt', 'bar.txt', 'baz.py']
+	fnames=['foo.txt', 'bar.txt', 'baz.py']
 	def setUp(self):
 		"""Create some files in a temp dir."""
-		self.dir = tempfile.mkdtemp()
+		self.dir=tempfile.mkdtemp()
 		for fname in self.fnames:
 			open(self.absolute(fname), 'w').close()
 	def absolute(self, fname):

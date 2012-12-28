@@ -1,10 +1,11 @@
-days_in_months = [31,28,31,30,31,30,31,31,30,31,30,31]
-days_in_months_leap_year = [31,29,31,30,31,30,31,31,30,31,30,31]
-months_names = ["January","February","March","April","May","June","July","August","September","October","November","December"]
-name_to_days_num = {}
+#!/usr/bin/python
 
+days_in_months=[31,28,31,30,31,30,31,31,30,31,30,31]
+days_in_months_leap_year=[31,29,31,30,31,30,31,31,30,31,30,31]
+months_names=["January","February","March","April","May","June","July","August","September","October","November","December"]
+name_to_days_num={}
 for i in range(12):
-	name_to_days_num[months_names[i]] = days_in_months[i]
+	name_to_days_num[months_names[i]]=days_in_months[i]
 
 def get_num_of_days_in_month(month_name):
 	if (name_to_days_num.has_key(month_name):
@@ -13,7 +14,7 @@ def get_num_of_days_in_month(month_name):
 		print "No such month"
 def get_following_month(month_name):
 	if (name_to_days_num.has_key(month_name):
-		i = months_names.index(month_name)
+		i=months_names.index(month_name)
 		return months_names[ (i+1) % 12]
 	else:
 		print "No such month"
@@ -35,9 +36,9 @@ class Date:
 			if ( (day < 0) or (day > days_in_months[month-1])):
 				print "Day must be between 1 and ", days_in_months[month-1]
 				return
-		self.day = day
-		self.month = month
-		self.year = year
+		self.day=day
+		self.month=month
+		self.year=year
 
 	def __gt__(self,other):
 		""" Overloading operator > for dates """

@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
-login = raw_input("insert login: ")
-full_name = raw_input("insert full name: ")
-password = raw_input("insert password: ")
+login=raw_input("insert login: ")
+full_name=raw_input("insert full name: ")
+password=raw_input("insert password: ")
 
-if (login == ""):
+if login=="":
 	print "Error: Login must not be empty"
 else:
 	print "login: ", login

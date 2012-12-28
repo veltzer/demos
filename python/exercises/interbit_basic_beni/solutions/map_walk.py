@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-places = {
+places={
 	'Shire': {'leave': 'Bree', 'stay': 'DEATH'},
 	'DEATH': {},
 	'Bree': {'with Strider': 'Rivendell', 'alone': 'DEATH'},
@@ -17,16 +17,16 @@ places = {
 	'the West': {}
 	}
 
-place = 'Shire'
+place='Shire'
 while True:
 	print "You are in: %s. Possible actions:" % place
 	# Print actions with numbers, so user only has to type a number
-	actions = sorted(places[place].keys()) + ['EXIT GAME']
+	actions=sorted(places[place].keys()) + ['EXIT GAME']
 	for i, action in enumerate(actions):
 		print " (%s) %s" % (i, action)
-	choice = raw_input("Your action? ")
+	choice=raw_input("Your action? ")
 	if choice.isdigit() and 0 <= int(choice) < len(actions):
-		action = actions[int(choice)]
+		action=actions[int(choice)]
 		if action == 'EXIT GAME':
 			break
-		place = places[place][action]
+		place=places[place][action]

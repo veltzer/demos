@@ -2,14 +2,14 @@
 
 def right_align_to(lines, width):
 	"""Right-align all lines to given width."""
-	result = []
+	result=[]
 	for line in lines:
 		result.append(line.rjust(width))
 	return result
 
 def max_len(lines):
 	"""Return the length of the longest string."""
-	lengths = []
+	lengths=[]
 	for line in lines:
 		lengths.append(len(line))
 	return max(lengths)

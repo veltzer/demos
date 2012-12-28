@@ -3,7 +3,7 @@
 # Import the module and instantiate a graph object
 from pygraph.classes.graph import graph
 from pygraph.algorithms.searching import depth_first_search
-gr = graph()
+gr=graph()
 # Add nodes
 gr.add_nodes(['X','Y','Z'])
 gr.add_nodes(['A','B','C'])

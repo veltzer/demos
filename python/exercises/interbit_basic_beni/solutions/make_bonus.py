@@ -26,15 +26,15 @@ def parse_makefile(fname):
 	 - rules is a dict {'target': ['dependency1', ...], ...}
 	 - commands is a dict {'target': ['command1', ...], ...}
 	"""
-	rules = {}
-	commands = {}
+	rules={}
+	commands={}
 	for line in open(fname):
 		if not line[0].isspace():
 			# dep line (parse, set `target`)
-			target, rest = line.split(':')
-			target = target.strip()
-			rules[target] = rest.split()
-			commands[target] = []
+			target, rest=line.split(':')
+			target=target.strip()
+			rules[target]=rest.split()
+			commands[target]=[]
 		else:
 			# command line (`target` was set by last dep line)
 			commands[target].append(line.strip())
@@ -70,5 +70,5 @@ def build_one(target, rules, commands):
 import doctest
 doctest.testmod()
 
-rules, commands = parse_makefile("make_bonus.txt")
+rules, commands=parse_makefile("make_bonus.txt")
 build("all", rules, commands)

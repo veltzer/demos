@@ -4,11 +4,11 @@ class Calendar:
 	""" A callender of events, has an entry for every event,
 	which is a mapping from event name to Date object"""
 	def __init__(self):
-		self.events = {}
+		self.events={}
 
 	def add_event(self,name,date):
 		""" Add a new entry to the callender"""
-		self.events[name] = date
+		self.events[name]=date
 
 	def is_event(self,date):
 		""" Check if the given date appears in the callender"""
@@ -21,10 +21,10 @@ class Calendar:
 	def get_all_events_in_month(self,month):
 		""" Return a dictionary with all the events in the given month
 		month is the number of the month """
-		month_events = {}
+		month_events={}
 		for name in self.events.keys():
-			if (self.events[name].month == month):
-				month_events[name] = self.events[name]
+			if (self.events[name].month==month):
+				month_events[name]=self.events[name]
 		return month_events
 
 class Date:

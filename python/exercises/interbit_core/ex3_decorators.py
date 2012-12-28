@@ -9,12 +9,12 @@ def with_output_to(fname):
 	def decorator(f):
 		@functools.wraps(f)
 		def decorated_f(*args, **kw):
-			old_stdout = sys.stdout
-			new_stdout = sys.stdout = open(fname, 'a')
+			old_stdout=sys.stdout
+			new_stdout=sys.stdout=open(fname, 'a')
 			try:
 				return f(*args, **kw)
 			finally:
-				sys.stdout = old_stdout
+				sys.stdout=old_stdout
 				new_stdout.close()
 		return decorated_f
 	return decorator

@@ -3,9 +3,9 @@
 """
 Simple implementation of a hangman game.
 
->>> h1 = Hangman("banana", mistakes_allowed=2)
+>>> h1=Hangman("banana", mistakes_allowed=2)
 ?????? - 2 mistakes allowed
->>> h2 = Hangman("cinnamon")
+>>> h2=Hangman("cinnamon")
 ???????? - 5 mistakes allowed
 >>> h1.guess("a")
 Yes! 'a' appears 3 times:
@@ -45,7 +45,7 @@ class SimpleHangman(object):
 
 	Call .guess() to play:
 
-	>>> h = SimpleHangman("secret")
+	>>> h=SimpleHangman("secret")
 	??????
 	>>> h.guess("e")
 	Yes! 'e' appears 2 times:
@@ -57,14 +57,14 @@ class SimpleHangman(object):
 
 	def __init__(self, word):
 		# Private - don't look here!
-		self._word = word
+		self._word=word
 		# Public
-		self.open_letters = set()
+		self.open_letters=set()
 		print self
 
 	def known_parts(self):
 		"""Reveal guessed letters, ? for hidden letters."""
-		res = []
+		res=[]
 		for c in self._word:
 			if c in self.open_letters:
 				res.append(c)
@@ -98,7 +98,7 @@ class Hangman(SimpleHangman):
 
 	Call .guess() to play:
 
-	>>> h = Hangman("secret", 1)
+	>>> h=Hangman("secret", 1)
 	?????? - 1 mistakes allowed
 	>>> h.guess("e")
 	Yes! 'e' appears 2 times:
@@ -115,7 +115,7 @@ class Hangman(SimpleHangman):
 	"""
 
 	def __init__(self, word, mistakes_allowed=5):
-		self.mistakes_allowed = mistakes_allowed
+		self.mistakes_allowed=mistakes_allowed
 		# SimpleHangman.__init__ prints self, so self.mistakes_allowed
 		# must be defined before we call it.
 		SimpleHangman.__init__(self, word)

@@ -2,12 +2,12 @@
 
 def lines2paragraphs(lines):
 	"""Group lines into paragraphs - as lists of lines."""
-	paragraph = []
+	paragraph=[]
 	for line in lines:
 	line=line.strip()
 		if line=='':
 			yield paragraph
-			paragraph = []
+			paragraph=[]
 		else:
 			paragraph.append(line)
 	# The last paragraph remains

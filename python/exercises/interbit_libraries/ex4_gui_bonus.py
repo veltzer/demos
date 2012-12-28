@@ -16,15 +16,15 @@ class OperatorChoice(gtk.VBox):
 
 	def __init__(self):
 		gtk.VBox.__init__(self)
-		self.radio_funcs = {}
+		self.radio_funcs={}
 
-		radio = None # helps RadioButton grouping below
+		radio=None # helps RadioButton grouping below
 		for (op, func) in zip('+-*/', [operator.add, operator.sub, operator.mul, operator.div]):
-		radio = gtk.RadioButton(radio, op)
+		radio=gtk.RadioButton(radio, op)
 		self.pack_start(radio)
 		if op == '+':
 			radio.set_active(True)
-		self.radio_funcs[radio] = func
+		self.radio_funcs[radio]=func
 
 	def compute(self, arg1, arg2):
 		for (radio, func) in self.radio_funcs.items():
@@ -43,24 +43,24 @@ class OperatorChoice(gtk.VBox):
 
 # Notice how the rest of the app is almost unchanged. Success!
 
-w = gtk.Window()
+w=gtk.Window()
 w.connect("delete_event", lambda *ignored: gtk.main_quit())
 
-hbox = gtk.HBox()
+hbox=gtk.HBox()
 w.add(hbox)
 
-entry1 = gtk.Entry()
-operator = OperatorChoice()
-entry2 = gtk.Entry()
-result = gtk.Label()
+entry1=gtk.Entry()
+operator=OperatorChoice()
+entry2=gtk.Entry()
+result=gtk.Label()
 for widget in [entry1, operator, entry2, gtk.Label("="), result]:
 	hbox.pack_start(widget)
 
 def compute(*ignored):
 	"""Recompute result."""
 	try:
-		arg1 = float(entry1.get_text())
-		arg2 = float(entry2.get_text())
+		arg1=float(entry1.get_text())
+		arg2=float(entry2.get_text())
 		result.set_text(str(operator.compute(arg1, arg2)))
 	except ValueError:
 		result.set_text('<ERROR>')

@@ -10,9 +10,9 @@ def rev_dict1(d):
 	>>> rev_dict1({"a": 2, "b": 3}) == {2: "a", 3: "b"}
 	True
 	"""
-	rev_d = {}
+	rev_d={}
 	for (k, v) in d.items():
-		rev_d[v] = k
+		rev_d[v]=k
 	return rev_d
 
 def rev_dict2(d):
