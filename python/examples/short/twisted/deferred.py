@@ -8,7 +8,7 @@ A more complex example involving deferreds.
 
 from twisted.internet import defer
 import time
-	    
+
 TARGET=10000
 
 def largeFibonnaciNumber():

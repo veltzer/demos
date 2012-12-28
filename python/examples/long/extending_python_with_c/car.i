@@ -6,10 +6,10 @@
 %}
 
 class Car {
-        private:
-                int number;
-        public:
-                void setNumber(int inumber);
-                int getNumber(void);
-                void printSelf(void);
+	private:
+		int number;
+	public:
+		void setNumber(int inumber);
+		int getNumber(void);
+		void printSelf(void);
 };

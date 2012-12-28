@@ -72,7 +72,7 @@ class NotebookExample:
 
 			label=gtk.Label(bufferl)
 			notebook.append_page(frame,label)
-      
+
 		# Now let's add a page to a specific spot
 		checkbutton=gtk.CheckButton("Check me please!")
 		checkbutton.set_size_request(100,75)
@@ -97,7 +97,7 @@ class NotebookExample:
 
 			label=gtk.Label(bufferl)
 			notebook.prepend_page(frame,label)
-    
+
 		# Set what page to start at (page 4)
 		notebook.set_current_page(3)
 

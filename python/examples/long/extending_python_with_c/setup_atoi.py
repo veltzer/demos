@@ -12,9 +12,9 @@ atoi_module = Extension('_atoi',
 )
 
 setup (name = 'atoi',
-	version = '0.1',
-	author      = "SWIG Docs",
-	description = """Simple swig atoi from docs""",
-	ext_modules = [atoi_module],
-	py_modules = ["atoi"],
+	version='0.1',
+	author="SWIG Docs",
+	description="""Simple swig atoi from docs""",
+	ext_modules=[atoi_module],
+	py_modules=["atoi"],
 )
