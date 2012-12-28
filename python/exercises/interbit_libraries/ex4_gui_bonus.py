@@ -13,7 +13,7 @@ import operator
 
 class OperatorChoice(gtk.VBox):
 	"""An operator selection box."""
-	
+
 	def __init__(self):
 		gtk.VBox.__init__(self)
 		self.radio_funcs = {}
@@ -23,9 +23,9 @@ class OperatorChoice(gtk.VBox):
 		radio = gtk.RadioButton(radio, op)
 		self.pack_start(radio)
 		if op == '+':
-			radio.set_active(True)						
+			radio.set_active(True)
 		self.radio_funcs[radio] = func
-	
+
 	def compute(self, arg1, arg2):
 		for (radio, func) in self.radio_funcs.items():
 			if radio.get_active():

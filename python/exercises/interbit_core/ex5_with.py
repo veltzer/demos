@@ -3,9 +3,8 @@ import sys, contextlib
 @contextlib.contextmanager
 def redirect_output_to(fname):
 	"""Context manager to run with stdout redirected to fname.
-
 	The file is opened for appending and closed when the block
-	finishes.	
+	finishes.
 	"""
 	old_stdout = sys.stdout
 	new_stdout = sys.stdout = open(fname, 'a')

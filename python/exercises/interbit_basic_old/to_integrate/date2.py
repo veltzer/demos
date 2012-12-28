@@ -9,4 +9,4 @@ class Date
 		if (type(months) == type(1)):
 			self.months -= months
 		if (type(days) == type(1)):
-			self.days -= days			
+			self.days -= days

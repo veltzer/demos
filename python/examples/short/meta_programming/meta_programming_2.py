@@ -4,12 +4,12 @@
 This is quite an advanced example of doing meta programming in python.
 This exercise shows how to:
 	- add a method to a class
-	- add a method to an instance. 
+	- add a method to an instance.
 
 	Mark Veltzer <mark@veltzer.net>
 """
 from __future__ import print_function
-from new import instancemethod 
+from new import instancemethod
 import pprint
 
 class Person:

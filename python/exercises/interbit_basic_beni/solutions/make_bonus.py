@@ -21,7 +21,7 @@ def parse_makefile(fname):
 			command3
 
 	(any leading whitespace means command.)
-	
+
 	Returns tuple (rules, commands) where:
 	 - rules is a dict {'target': ['dependency1', ...], ...}
 	 - commands is a dict {'target': ['command1', ...], ...}
@@ -38,7 +38,7 @@ def parse_makefile(fname):
 		else:
 			# command line (`target` was set by last dep line)
 			commands[target].append(line.strip())
-			
+
 	return rules, commands
 
 def build(target, rules, commands):
@@ -52,7 +52,7 @@ def build(target, rules, commands):
 		# Nothing needs to be done.
 		# (A real make tool would verify that the file exists.)
 		return
-	
+
 	# Build all dependencies.
 	for dep in rules[target]:
 		build(dep, rules, commands)

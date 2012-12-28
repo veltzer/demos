@@ -2,7 +2,7 @@
 
 """
 Simple implementation of a hangman game.
-	
+
 >>> h1 = Hangman("banana", mistakes_allowed=2)
 ?????? - 2 mistakes allowed
 >>> h2 = Hangman("cinnamon")
@@ -95,7 +95,7 @@ class Hangman(SimpleHangman):
 	Hangman game playable from the interpreter.
 
 	Counts mistakes, detects victory and defeat.
-	
+
 	Call .guess() to play:
 
 	>>> h = Hangman("secret", 1)

@@ -18,7 +18,7 @@ def my_sum(list):
 	sum=0
 	for x in list:
 		sum+=x
-	return sum 
+	return sum
 
 def min_max_avg(list):
 	return my_min(list),my_max(list),float(my_sum(list))/len(list)

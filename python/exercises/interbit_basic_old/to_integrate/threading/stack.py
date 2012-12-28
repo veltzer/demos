@@ -47,4 +47,3 @@ for i in range(3,6):
 	threads[i] = Consumer(stack)
 for thread in threads:
 	thread.start()
-	

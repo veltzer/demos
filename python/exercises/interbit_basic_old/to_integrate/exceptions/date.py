@@ -28,7 +28,7 @@ def get_following_month(month_name):
 def is_leap_year(year):
 	""" Return True if the year is a leap year, False otherwise"""
 	return ((year % 4 == 0) and (year % 1000 != 0))
-		 
+
 class Calendar:
 	""" A callender of events, has an entry for every event,
 	which is a mapping from event name to Date o bject"""
@@ -46,7 +46,6 @@ class Calendar:
 	def get_date(self, name):
 		""" Return the date of the given event name"""
 		return self.events[name]
-	
 	def get_all_events_in_month(self,month):
 		""" Return a dictionary with all the events in the given month
 		month is the number of the month """
@@ -68,7 +67,7 @@ class Date:
 			else:
 			if ( (day < 0) or (day > days_in_months[month-1])):
 				raise DateException, "Day must be between 1 and %d" % days_in_months[month-1]
-		
+
 		self.day = day
 		self.month = month
 		self.year = year

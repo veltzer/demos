@@ -11,22 +11,15 @@ def get_num_of_days_in_month(month_name):
 		return name_to_days_num[months_name]
 	else:
 		print "No such month"
-
-
 def get_following_month(month_name):
 	if (name_to_days_num.has_key(month_name):
 		i = months_names.index(month_name)
 		return months_names[ (i+1) % 12]
 	else:
 		print "No such month"
-
-
 def is_leap_year(year):
 		return ((year % 4 == 0) and (year % 1000 != 0))
-			 
-
 class Date:
-	
 	def __init__(self, day, month, year):
 		if ( (type(day) != type(1)) or (type(month) != type(1)) or (type(year) != type(1))):
 			print "Date must be initialized with numbers"
@@ -42,7 +35,6 @@ class Date:
 			if ( (day < 0) or (day > days_in_months[month-1])):
 				print "Day must be between 1 and ", days_in_months[month-1]
 				return
-		
 		self.day = day
 		self.month = month
 		self.year = year

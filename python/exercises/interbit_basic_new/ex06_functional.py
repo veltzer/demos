@@ -7,7 +7,7 @@ def apply_funcs1(funcs, x):
 	"""Apply a list of unary functions on an argument.
 
 	Return a list of the results.
-	
+
 	>>> apply_funcs1([lambda x:x**2, lambda x:x+1], 3)
 	[9, 4]
 	"""
@@ -23,7 +23,7 @@ def apply_funcs2(funcs, x):
 	"""Apply a list of unary functions on an argument.
 
 	Return a list of the results.
-	
+
 	>>> apply_funcs2([lambda x:x**2, lambda x:x+1], 3)
 	[9, 4]
 	"""
@@ -36,7 +36,7 @@ def apply_funcs3(funcs, x):
 	"""Apply a list of unary functions on an argument.
 
 	Return a list of the results.
-	
+
 	>>> apply_funcs3([lambda x:x**2, lambda x:x+1], 3)
 	[9, 4]
 	"""
@@ -50,7 +50,7 @@ def apply_funcs4(funcs, *args, **kw):
 	"""Apply a list of functions on the same arguments.
 
 	Return a list of the results.
-	
+
 	>>> apply_funcs4([lambda x,y: x+y, lambda x,y: x*y], 3, y=4)
 	[7, 12]
 	"""

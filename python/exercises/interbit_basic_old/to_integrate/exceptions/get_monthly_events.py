@@ -12,7 +12,6 @@ for event in events:
 	event = event.split(" ")
 	name = event[0]
 	date_values = event[1].rstrip().split(".")
-	
 	if ( date_values[0].isdigit() and date_values[1].isdigit() and date_values[2].isdigit()):
 		try:
 			date = Date(int(date_values[0]),int(date_values[1]),int(date_values[2]))

@@ -12,7 +12,7 @@ def parse_makefile(fname):
 	"""Parses a file of lines of the form::
 
 		target: dependency1 dependency2...
-	
+
 	Returns a dict {'target': ['dependency1', ...], ...}
 	"""
 	rules = {}
@@ -41,7 +41,7 @@ def build_plan(target, rules):
 	# And then build the target.
 	# (A real make tool would compare file dates to see if it's needed.)
 	plan.append(target)
-	
+
 	return plan
 
 import doctest

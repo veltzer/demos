@@ -28,14 +28,14 @@ def lasers(fname):
 
 		passage = {' ': (dx, dy), # continue straight
 			'\\': (dy, dx), # flip around dx=dy
-			'/': (-dy, -dx)} # opposite result from \		
+			'/': (-dy, -dx)} # opposite result from \
 		if char in passage:
 			# still going
 			dx, dy = passage[char]
 		else:
 			# hit something
 			return char == 'x'
-		
+
 for fname in ['lasers_hit.txt', 'lasers_miss.txt']:
 	print open(fname).read()
 	print lasers(fname)

@@ -19,7 +19,7 @@ class NotebookExample:
 		tval=False
 		bval=False
 		if self.show_tabs == False:
-			tval=True 
+			tval=True
 		if self.show_border == False:
 			bval=True
 
@@ -32,7 +32,7 @@ class NotebookExample:
 	def remove_book(self,button,notebook):
 		page=notebook.get_current_page()
 		notebook.remove_page(page)
-		# Need to refresh the widget -- 
+		# Need to refresh the widget --
 		# This forces the widget to redraw itself.
 		notebook.queue_draw_area(0,0,-1,-1)
 
