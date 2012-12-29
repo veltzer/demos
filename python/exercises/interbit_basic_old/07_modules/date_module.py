@@ -17,10 +17,10 @@ def get_num_of_days_in_month(month_name):
 def get_following_month(month_name):
 	if (name_to_days_num.has_key(month_name):
 		i=months_names.index(month_name)
-		return months_names[ (i+1) % 12]
+		return months_names[(i+1)%12]
 	else:
 		print "No such month"
 
 
 def is_leap_year(year):
-		return ((year % 4 == 0) and (year % 1000 != 0))
+		return ((year%4==0) and (year%1000!=0))

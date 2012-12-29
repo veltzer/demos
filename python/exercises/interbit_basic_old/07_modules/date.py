@@ -24,4 +24,4 @@ def get_following_month(month_name):
 		print "No such month"
 def is_leap_year(year):
 		""" Return True if the year is a leap year, False otherwise"""
-		return ((year % 4 == 0) and (year % 1000 != 0))
+		return ((year%4==0) and (year%1000!=0))

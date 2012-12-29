@@ -29,16 +29,15 @@ def guess(letter):
 	"""Call this to play."""
 	open_letters.add(letter)
 	if letter in _word:
-		print "Yes! '%s' appears %s times:" % (
-			letter, _word.count(letter))
+		print "Yes! '%s' appears %s times:"%(letter,_word.count(letter))
 	else:
-		print "Bzzz! No '%s' there." % letter
+		print "Bzzz! No '%s' there."%letter
 	print_known_parts()
 
-if __name__ != '__main__':
+if __name__!='__main__':
 	print_known_parts()
 
 # test if run directly, do nothing if imported
-if __name__ == '__main__':
+if __name__=='__main__':
 	import doctest
 	doctest.testmod()

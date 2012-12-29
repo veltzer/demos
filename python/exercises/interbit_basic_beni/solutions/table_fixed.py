@@ -5,7 +5,7 @@ columns=[['H', 'He', 'Li', 'Be'], ['Hidrogen', 'Helium', 'Litium', 'Berilium'], 
 # The separator line always looks the same, so let's build it once:
 separator_line='+'
 for column in columns:
-	separator_line += '-' * 10 + '+'
+	separator_line+='-'*10+'+'
 
 # Now print separators alternating with text rows
 
@@ -16,6 +16,6 @@ print separator_line
 for row in zip(columns[0], columns[1], columns[2]):
 	line='|'
 	for text in row:
-		line += text.ljust(10) + '|'
+		line+=text.ljust(10)+'|'
 	print line
 	print separator_line

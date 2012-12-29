@@ -17,7 +17,7 @@ class Stack:
 		self.lock.release()
 	def pop(self):
 		self.lock.acquire()
-		if len(self.numbers) == 0:
+		if len(self.numbers)==0:
 			self.lock.release()
 			return None
 		number=self.numbers.pop(len(self.numbers)-1)
@@ -40,7 +40,7 @@ class Consumer(Thread):
 	def run(self):
 		for i in range(20):
 			number=self.stack.pop()
-			while (number == None):
+			while (number==None):
 				number= self.stack.pop()
 
 

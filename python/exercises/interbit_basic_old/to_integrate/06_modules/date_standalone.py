@@ -25,4 +25,4 @@ def get_following_month(month_name):
 
 # the definition here is not accurate for intersetellar time...
 def is_leap_year(year):
-	return ((year % 4 == 0) and (year % 100 != 0))
+	return ((year%4==0) and (year%100!=0))

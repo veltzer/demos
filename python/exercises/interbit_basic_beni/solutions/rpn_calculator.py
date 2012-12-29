@@ -6,14 +6,14 @@
 from __future__ import division
 
 # A function for each operation. You'll see below why I do this.
-def add(a, b):
-	return a + b
-def sub(a, b):
-	return a - b
-def mul(a, b):
-	return a * b
-def div(a, b):
-	return a / b
+def add(a,b):
+	return a+b
+def sub(a,b):
+	return a-b
+def mul(a,b):
+	return a*b
+def div(a,b):
+	return a/b
 # (BTW, the `operator` module is packed with function like these.)
 
 # Functions are objects like anything else, we can stick them in a dict!
@@ -34,4 +34,4 @@ def rpn_calc(expression):
 			stack.append(operators[word](a, b))
 		print stack
 
-rpn_calc("2 2 + 5 *")
+rpn_calc(" ".join(["2","2","+","5","*"]))

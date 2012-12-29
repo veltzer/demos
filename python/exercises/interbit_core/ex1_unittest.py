@@ -22,5 +22,5 @@ class TestGlob(unittest.TestCase):
 	def testAbsoluteGlob(self):
 		"""Test globbing with full path."""
 		self.assertGlob(self.absolute('*xt'), map(self.absolute, ['foo.txt', 'bar.txt']))
-if __name__ == '__main__':
+if __name__=='__main__':
 	unittest.main()

@@ -21,12 +21,12 @@ place='Shire'
 while True:
 	print "You are in: %s. Possible actions:" % place
 	# Print actions with numbers, so user only has to type a number
-	actions=sorted(places[place].keys()) + ['EXIT GAME']
+	actions=sorted(places[place].keys())+['EXIT GAME']
 	for i, action in enumerate(actions):
-		print " (%s) %s" % (i, action)
+		print " (%s) %s"%(i,action)
 	choice=raw_input("Your action? ")
-	if choice.isdigit() and 0 <= int(choice) < len(actions):
+	if choice.isdigit() and 0<=int(choice)<len(actions):
 		action=actions[int(choice)]
-		if action == 'EXIT GAME':
+		if action=='EXIT GAME':
 			break
 		place=places[place][action]

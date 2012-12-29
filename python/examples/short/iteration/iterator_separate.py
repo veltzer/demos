@@ -12,9 +12,9 @@ class RevIter:
 		self.data=data
 		self.index=len(data)
 	def next(self):
-		if self.index == 0:
+		if self.index==0:
 			raise StopIteration
-		self.index=self.index - 1
+		self.index=self.index-1
 		return self.data[self.index]
 
 """

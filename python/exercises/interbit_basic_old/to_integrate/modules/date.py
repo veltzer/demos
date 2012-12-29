@@ -16,9 +16,9 @@ def get_following_month(month_name):
 	return the name of the following month"""
 	if (name_to_days_num.has_key(month_name):
 		i=months_names.index(month_name)
-		return months_names[ (i+1) % 12]
+		return months_names[(i+1)%12]
 	else:
 		print "No such month"
 def is_leap_year(year):
 		""" Return True if the year is a leap year, False otherwise"""
-		return ((year % 4 == 0) and (year % 1000 != 0))
+		return ((year%4==0) and (year%1000!=0))

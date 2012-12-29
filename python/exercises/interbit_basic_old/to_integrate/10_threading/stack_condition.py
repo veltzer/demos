@@ -21,7 +21,7 @@ class Stack:
 	def pop(self):
 		self.cv.acquire()
 		iter=0
-		while len(self.data) == 0:
+		while len(self.data)==0:
 			#print "going to deep sleep...", iter, threading.currentThread().number
 			iter+=1
 			if iter>1:
