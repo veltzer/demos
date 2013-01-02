@@ -30,3 +30,21 @@ mysql sakila -t -e "EXPLAIN SELECT * FROM film JOIN actor ON (film.description =
 # using maatkit
 echo "EXPLAIN SELECT * FROM film JOIN film_actor USING (film_id) JOIN actor USING (actor_id)" >> execution.out
 mysql sakila -e "EXPLAIN SELECT * FROM film JOIN film_actor USING (film_id) JOIN actor USING (actor_id)" | mk-visual-explain >> execution.out
+
+# join order (using straight join)
+echo "EXPLAIN SELECT * FROM film JOIN film_actor USING (film_id) JOIN actor USING (actor_id)" >> execution.out
+mysql sakila -t -e "EXPLAIN SELECT * FROM film JOIN film_actor USING (film_id) JOIN actor USING (actor_id)" >> execution.out
+echo "EXPLAIN SELECT STRAIGHT_JOIN * FROM film JOIN film_actor USING (film_id) JOIN actor USING (actor_id)" >> execution.out
+mysql sakila -t -e "EXPLAIN SELECT STRAIGHT_JOIN * FROM film JOIN film_actor USING (film_id) JOIN actor USING (actor_id)" >> execution.out
+
+# ignore index
+echo "EXPLAIN SELECT * FROM film WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
+mysql sakila -t -e "EXPLAIN SELECT * FROM film WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
+echo "EXPLAIN SELECT * FROM film IGNORE INDEX(idx_title) WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
+mysql sakila -t -e "EXPLAIN SELECT * FROM film IGNORE INDEX(idx_title) WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
+
+# use index
+echo "EXPLAIN SELECT * FROM film WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
+mysql sakila -t -e "EXPLAIN SELECT * FROM film WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
+echo "EXPLAIN SELECT * FROM film USE INDEX(idx_fk_language_id) WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
+mysql sakila -t -e "EXPLAIN SELECT * FROM film USE INDEX(idx_fk_language_id) WHERE title LIKE 'WEST%' AND language_id=1" >> execution.out
