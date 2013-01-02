@@ -17,7 +17,7 @@ def redirect_output_to(fname):
 
 # Running this will destroy 'out3.txt' in the current dir!
 
-if __name__ == '__main__':
+if __name__=='__main__':
 	import os
 	# make sure file is empty
 	open('out3.txt', 'w').close()

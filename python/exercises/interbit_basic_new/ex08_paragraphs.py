@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 def lines2paragraphs(lines):
-	"""Group lines into paragraphs - as lists of lines."""
+	"""Group lines into paragraphs as lists of lines."""
 	paragraph=[]
 	for line in lines:
 	line=line.strip()

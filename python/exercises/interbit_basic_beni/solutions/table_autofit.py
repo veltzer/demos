@@ -18,7 +18,7 @@ for column in columns:
 # The separator line always looks the same, so let's build it once:
 separator_line='+'
 for w in widths:
-	separator_line += '-' * w + '+'
+	separator_line+='-'*w+'+'
 
 # Now print separators alternating with text rows
 
@@ -30,7 +30,6 @@ print separator_line
 for row in zip(*columns)
 	line='|'
 	for text, width in zip(row, widths):
-		line += text.ljust(width) + '|'
+		line+=text.ljust(width)+'|'
 	print line
-
 	print separator_line

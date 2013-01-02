@@ -25,7 +25,7 @@ def hello(name):
 
 # Running this will destroy 'out2.txt' in the current dir!
 
-if __name__ == '__main__':
+if __name__=='__main__':
 	import os
 	# make sure file is empty
 	open('out2.txt', 'w').close()

@@ -26,7 +26,7 @@ relevant example.
 """
 
 print("""
-example number 1 - removing elements in the list in the position before
+example number 1: removing elements in the list in the position before
 the place where we are in. Result: Certain elements are never visited.
 """)
 size=10
@@ -46,7 +46,7 @@ print('elements not visited are',all_elements-elements_visited)
 print('remember that the element removed was 0...')
 
 print("""
-example number 2 - removing elements in the list in the position before
+example number 2: removing elements in the list in the position before
 the place where we are in but doing it on the last element
 """)
 size=10
@@ -65,7 +65,7 @@ if len(elements_visited)!=size:
 	print("This can cause problems for various algorithms")
 
 print("""
-example number 3 - adding elements before the position that we are in
+example number 3: adding elements before the position that we are in
 """)
 size=10
 l=range(size)
@@ -76,14 +76,14 @@ for i,x in enumerate(l):
 		for y in xrange(3):
 			l.insert(0,10+y)
 	if x in elements_visited:
-		print('yep - we are visiting %d twice...' % (x))
+		print('yep. we are visiting %d twice...' % (x))
 	elements_visited.add(x)
 if len(elements_visited)!=len(l):
 	print("elements_visited is %d while size is %d" % (len(elements_visited),len(l)))
 	print("This can cause problems for various algorithms")
 
 print("""
-example number 4 - adding elements to a dictionary while iterating it
+example number 4: adding elements to a dictionary while iterating it
 """)
 try:
 	d={"one":"ehad","two":"shnaim","three":"shalosh"}
@@ -99,7 +99,7 @@ except RuntimeError as e:
 	print('yes,got runtime error when trying to modify the exception:',e)
 
 print("""
-example number 5 - removing elements to a dictionary while iterating it
+example number 5: removing elements to a dictionary while iterating it
 """)
 try:
 	d={"one":"ehad","two":"shnaim","three":"shalosh"}
@@ -115,7 +115,7 @@ except RuntimeError as e:
 	print('yes,got runtime error when trying to modify the exception:',e)
 
 print("""
-example number 6 - adding and removing elements in dictionary while iterating it
+example number 6: adding and removing elements in dictionary while iterating it
 thus keeping the size of the dictionary the same.
 Notice that we do not get an exception in this case.
 """)

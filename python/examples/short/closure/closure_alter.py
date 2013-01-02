@@ -47,7 +47,7 @@ print("f_max is",f_max())
 print("f_min is",f_min())
 
 print("""
-lets use the first method mentioned above - lets use the f_set
+lets use the first method mentioned above. lets use the f_set
 function to alter the closure
 """)
 f_set(3,5)
@@ -56,7 +56,7 @@ print("f_max is",f_max())
 print("f_min is",f_min())
 
 print("""
-lets use the second method mentioned above - returning the internals
+lets use the second method mentioned above. returning the internals
 of the closure using a closure function...
 """)
 f_int()[3]=6
@@ -65,7 +65,7 @@ print("f_max is",f_max())
 print("f_min is",f_min())
 
 print("""
-lets use the third method mentioned above - the __closure__ property.
+lets use the third method mentioned above. the __closure__ property.
 """)
 f_max.__closure__[0].cell_contents[3]=7
 f_max.__closure__[0].cell_contents[2]=-2

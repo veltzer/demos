@@ -18,10 +18,10 @@ class Stack:
 		print number, " pushed to stack"
 		self.lock.release()
 	def pop(self):
-		if len(self.data) == 0:
+		if len(self.data)==0:
 			return None
 		self.lock.acquire()
-		if len(self.data) == 0:
+		if len(self.data)==0:
 			self.lock.release()
 			return None
 		number=self.data.pop(len(self.data)-1)
@@ -39,8 +39,8 @@ class ProduceOrConsume(threading.Thread):
 		if self.consume:
 			for i in range(numberOfElems):
 				number=self.stack.pop()
-				while (number == None):
-					number= self.stack.pop()
+				while (number==None):
+					number=self.stack.pop()
 					time.sleep(1.0/(self.number+1))
 		else:
 			for i in range(numberOfElems):

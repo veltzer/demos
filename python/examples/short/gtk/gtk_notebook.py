@@ -18,9 +18,9 @@ class NotebookExample:
 	def tabsborder_book(self,button,notebook):
 		tval=False
 		bval=False
-		if self.show_tabs == False:
+		if self.show_tabs==False:
 			tval=True
-		if self.show_border == False:
+		if self.show_border==False:
 			bval=True
 
 		notebook.set_show_tabs(tval)
@@ -139,6 +139,6 @@ def main():
 	gtk.main()
 	return 0
 
-if __name__ == "__main__":
+if __name__=="__main__":
 	NotebookExample()
 	main()

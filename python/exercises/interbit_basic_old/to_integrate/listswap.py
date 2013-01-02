@@ -4,7 +4,7 @@ size=raw_input("please enter a list size :")
 size=int(size)
 l=range(0,size)
 for number in range(0,size) :
-	num=raw_input ("please enter a number " + str(number) + " :")
+	num=raw_input("please enter a number "+str(number)+" :")
 	num=int(num)
 	l[number]=num
 for number in range(0,size) :

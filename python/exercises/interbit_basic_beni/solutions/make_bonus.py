@@ -3,7 +3,7 @@
 """
 Parse a simple Makefile and execute it.
 Doen't support comments, variables, patterns or anything complex...
-Doesn't check file system - all targets are always built.
+Doesn't check file system. all targets are always built.
 """
 
 import os
@@ -23,8 +23,8 @@ def parse_makefile(fname):
 	(any leading whitespace means command.)
 
 	Returns tuple (rules, commands) where:
-	 - rules is a dict {'target': ['dependency1', ...], ...}
-	 - commands is a dict {'target': ['command1', ...], ...}
+	- rules is a dict {'target': ['dependency1', ...], ...}
+	- commands is a dict {'target': ['command1', ...], ...}
 	"""
 	rules={}
 	commands={}

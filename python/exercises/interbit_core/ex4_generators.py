@@ -24,5 +24,5 @@ def reformat(lines):
 			yield line
 		yield ''
 
-if __name__ == '__main__':
+if __name__=='__main__':
 	print list(reformat(['foo', 'bar', 'baz', '', 'quux', 'quuux']))

@@ -31,10 +31,10 @@ def lasers(fname):
 			'/': (-dy, -dx)} # opposite result from \
 		if char in passage:
 			# still going
-			dx, dy=passage[char]
+			dx,dy=passage[char]
 		else:
 			# hit something
-			return char == 'x'
+			return char=='x'
 
 for fname in ['lasers_hit.txt', 'lasers_miss.txt']:
 	print open(fname).read()
