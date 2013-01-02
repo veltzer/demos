@@ -1,0 +1,2 @@
+All mysql databases (world, sakila) can be downloaded from:
+	http://dev.mysql.com/doc/index-other.html
