@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 # The simplest solution, iterates the keys...
 d1={"Israel":"Jerusalem","France":"Paris","Italy":"Rome","Egypt":"Cairo"}
 d2={}

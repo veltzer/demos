@@ -14,7 +14,13 @@ for line in open('word_report_1.py'):
 		report[word]+=1
 # lets print the report...
 # NOTE: the with statement takes care of closing the file for us...
-with open('/tmp/report','w') as f:
-	for word,count in report.items():
+#with open('/tmp/report.txt','w') as f:
+#	for word,count in report.items():
+#		f.write("word {word} appeared {count} times\n".format(word=word,count=count))
+#	#f.write(str(report))
+
+with open('/tmp/report.txt','w') as f:
+	for word in sorted(report.keys()):
+		count=report[word]
 		f.write("word {word} appeared {count} times\n".format(word=word,count=count))
 	#f.write(str(report))

@@ -9,6 +9,6 @@ for line in f.readlines():
 				report[c] += 1
 			else:
 				report[c]=1
-f=open("report.txt",'wa')
+f=open("report.txt",'w')
 f.write(str(report));
 f.close()
