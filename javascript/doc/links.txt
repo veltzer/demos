@@ -1,2 +1,4 @@
 http://www.p01.org/releases/DEFENDER_of_the_favicon/
 	A game inside the favicon!?!
+Douglas Crockfords private in javascript:
+	http://www.crockford.com/javascript/private.html
