@@ -6,11 +6,12 @@ THIS EXAMPLE IS NOT COMPLETE
 		Mark Veltzer
 -->
 <script>
-	function MyFunction() {
-		closure = function() {
-			document.write('my parent is '+arguments.callee.caller.name+'<br/>');
+	function func() {
+		internal=function() {
+			document.write('i is '+arguments.callee.caller.name+'<br/>');
 		}
-		closure();
+		return internel;
 	}
-	MyFunction();
+	var i=5;
+	var reff=func();
 </script>

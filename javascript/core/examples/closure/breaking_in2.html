@@ -1,0 +1,32 @@
+<!--
+This example shows how to access the closure of a function from outside the function.
+
+THIS EXAMPLE IS NOT COMPLETE
+
+		Mark Veltzer
+-->
+<script>
+	function debug(o) {
+		document.write('debug starts<br/>');
+		for(var x in o) {
+			document.write('x is '+x+'<br/>');
+			document.write('o[x] is '+o[x]+'<br/>');
+		}
+		document.write('debug ends<br/>');
+	}
+	function func() {
+		var i=5;
+		var internal=function() {
+			document.write('i is '+i+'<br/>');
+		}
+		return internal;
+	}
+	var reff=func();
+	document.write('reff is '+reff+'<br/>');
+	debug(reff);
+	document.write('reff.prototype is '+reff.prototype+'<br/>');
+	debug(reff.prototype);
+	document.write('reff.prototype.prototype is '+reff.prototype.prototype+'<br/>');
+	debug(reff.prototype.prototype);
+	console.log(reff);
+</script>
