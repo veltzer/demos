@@ -1,0 +1,32 @@
+<!--
+	Catching movements inside the entire canvas
+
+		Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script src='../../toolkits/raphael.js'></script>
+		<script>
+			$(document).ready(function() {
+				var width=700;
+				var height=700;
+				var paper=Raphael("holder",width,height);
+				var rec=paper.rect(1,1,width-1,height-1);
+				rec.mousemove(function() {
+					console.log(arguments);
+				});
+				rec.mouseover(function() {
+					console.log(arguments);
+				});
+				rec.mouseout(function() {
+					console.log(arguments);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		This is some html content
+		<div id="holder"></div>
+	</body>
+</html>
