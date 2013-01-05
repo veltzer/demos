@@ -1,0 +1,52 @@
+<!--
+	This example explores Front and Back operations
+
+		Mark Veltzer
+-->
+<html>
+	<head>
+		<script src='../../toolkits/jquery.js'></script>
+		<script src='../../toolkits/raphael.js'></script>
+		<script>
+			$(document).ready(function() {
+				var width=300;
+				var height=300;
+				var paper=Raphael("holder",width,height);
+				var rec1=paper.rect(100,100,100,100);
+				rec1.attr({fill:'green'});
+				var rec2=paper.rect(150,150,100,100);
+				rec2.attr({fill:'red'});
+				rec1.click(function() {
+					console.log('click on rec1');
+				});
+				rec2.click(function() {
+					console.log('click on rec2');
+				});
+				$('#rec1_toFront').click(function() {
+					console.log('doing rec1.toFront');
+					rec1.toFront();
+				});
+				$('#rec1_toBack').click(function() {
+					console.log('doing rec1.toBack');
+					rec1.toBack();
+				});
+				$('#rec2_toFront').click(function() {
+					console.log('doing rec2.toFront');
+					rec2.toFront();
+				});
+				$('#rec2_toBack').click(function() {
+					console.log('doing rec2.toBack');
+					rec2.toBack();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		This is an example of the Raphael.js 'toFront' and 'toBack' methods...
+		<div id="holder"></div>
+		<button id="rec1_toFront">rec1.toFront</button>
+		<button id="rec1_toBack">rec1.toBack</button>
+		<button id="rec2_toFront">rec2.toFront</button>
+		<button id="rec2_toBack">rec2.toBack</button>
+	</body>
+</html>

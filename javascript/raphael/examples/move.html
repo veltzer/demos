@@ -16,6 +16,9 @@
 				var rec=paper.rect(0,0,width,height);
 				rec.attr({fill:Raphael.getColor()});
 				rec.attr({opacity:0.0});
+				// create another rectangle
+				var rec2=paper.rect(100,100,100,100);
+				rec2.attr({fill:Raphael.getColor()});
 				//rec.attr({"fill-opacity":0.0});
 				//rec.attr({"stroke-opacity":0.0});
 				//rec.hide();
@@ -28,6 +31,19 @@
 				rec.mouseout(function() {
 					console.log(arguments);
 				});
+				//rec.toFront();
+				rec.toBack();
+				/*
+				rec2.mousemove(function() {
+					console.log(arguments);
+				});
+				rec2.mouseover(function() {
+					console.log(arguments);
+				});
+				rec2.mouseout(function() {
+					console.log(arguments);
+				});
+				*/
 			});
 		</script>
 	</head>
