@@ -1,5 +1,7 @@
 <!--
 	This example explores Front and Back operations
+	This shows that an event to an element only reaches the elements which are at the front.
+	Even if they are transparent...:)
 
 		Mark Veltzer
 -->
@@ -14,8 +16,10 @@
 				var paper=Raphael("holder",width,height);
 				var rec1=paper.rect(100,100,100,100);
 				rec1.attr({fill:'green'});
+				rec1.attr({opacity:0.5});
 				var rec2=paper.rect(150,150,100,100);
 				rec2.attr({fill:'red'});
+				rec2.attr({opacity:0.5});
 				rec1.click(function() {
 					console.log('click on rec1');
 				});
