@@ -1,5 +1,6 @@
 <!--
 	Catching movements inside the entire canvas
+	This example works (with "opacity")
 
 		Mark Veltzer
 -->
@@ -12,7 +13,15 @@
 				var width=700;
 				var height=700;
 				var paper=Raphael("holder",width,height);
-				var rec=paper.rect(1,1,width-1,height-1);
+				var rec=paper.rect(0,0,width,height);
+				rec.attr({fill:Raphael.getColor()});
+				rec.attr({opacity:0.0});
+				// create another rectangle
+				var rec2=paper.rect(100,100,100,100);
+				rec2.attr({fill:Raphael.getColor()});
+				//rec.attr({"fill-opacity":0.0});
+				//rec.attr({"stroke-opacity":0.0});
+				//rec.hide();
 				rec.mousemove(function() {
 					console.log(arguments);
 				});
@@ -22,6 +31,19 @@
 				rec.mouseout(function() {
 					console.log(arguments);
 				});
+				//rec.toFront();
+				rec.toBack();
+				/*
+				rec2.mousemove(function() {
+					console.log(arguments);
+				});
+				rec2.mouseover(function() {
+					console.log(arguments);
+				});
+				rec2.mouseout(function() {
+					console.log(arguments);
+				});
+				*/
 			});
 		</script>
 	</head>
