@@ -1,7 +1,7 @@
 import textwrap
 
 def lines2paragraphs(lines):
-	"""Group lines into paragraphs - as lists of lines."""
+	"""Group lines into paragraphs: as lists of lines."""
 	paragraph=[]
 	for line in lines:
 		if not line.strip():

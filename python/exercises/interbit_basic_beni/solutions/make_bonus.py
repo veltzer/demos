@@ -62,7 +62,7 @@ def build(target, rules, commands):
 
 def build_one(target, rules, commands):
 	"""Execute commands for one target."""
-	print "== Building %s -> %s ==" % (", ".join(rules[target]), target)
+	print "== Building {0} -> {1} ==".format(", ".join(rules[target]), target)
 	for command in commands[target]:
 		print command
 		os.system(command)

@@ -41,7 +41,7 @@ except TypeError as e:
 
 # on the other hand,None is covertible to str (string). Watch out!
 s=str(None)
-print("str(None) has type",type(s),"and has value [%s]" % (s,))
+print("str(None) has type",type(s),"and has value [{0}]".format(s))
 
 # lets show that None is not 0 or the empry string or False as far as actual value.
 # We show this by storing all of them as keys in a dictionary.

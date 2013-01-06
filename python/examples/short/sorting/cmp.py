@@ -30,9 +30,9 @@ mylist=[(1,7),(2,5),(0,0),(3,8),(1,8),(2,8)]
 print sorted(mylist)
 # lets see how reverse works...
 print sorted(mylist, cmp=my_revese)
-# lets see how second tuple co-ordinate sort works... 
+# lets see how second tuple co-ordinate sort works...
 print sorted(mylist, cmp=my_tup_revese)
-# lets see how use the key function 
+# lets see how use the key function
 print sorted(mylist, key=my_first_cor_key)
-# lets see how use the key function 
+# lets see how use the key function
 print sorted(mylist, key=by_y_x)

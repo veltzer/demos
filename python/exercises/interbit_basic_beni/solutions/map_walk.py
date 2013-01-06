@@ -19,7 +19,7 @@ places={
 
 place='Shire'
 while True:
-	print "You are in: %s. Possible actions:" % place
+	print "You are in: {0}. Possible actions:".format(place)
 	# Print actions with numbers, so user only has to type a number
 	actions=sorted(places[place].keys())+['EXIT GAME']
 	for i, action in enumerate(actions):

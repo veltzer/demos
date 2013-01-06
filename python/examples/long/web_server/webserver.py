@@ -43,7 +43,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 			self.handle_esp();
 			return
 		# add a '.' to path to make it a local file path
-		# / -> ./
+		# /->./
 		# /index.html -> ./index.html
 		self.realpath='.'+self.path
 		if(os.path.isfile(self.realpath)):
@@ -56,7 +56,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 				self.handle_static('image/vnd.microsoft.icon');
 				return
 			#unrecognized file suffix
-			self.send_error(500,'Unrecognized file type: %s' % self.path)
+			self.send_error(500,'Unrecognized file type: {0}'.format(self.path))
 			return
 		if(os.path.isdir(self.realpath)):
 			self.handle_dir();
@@ -67,7 +67,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 		try:
 			self.get();
 		except Exception, e:
-			self.send_error(500,'GET Internal server error for resource: %s %s' % (self.path,e))
+			self.send_error(500,'GET Internal server error for resource: {0} {1}'.format(self.path,e))
 	def do_POST(self):
 		try:
 			ctype,pdict=cgi.parse_header(self.headers.getheader('content-type'))
@@ -82,7 +82,7 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 			self.wfile.write(upfilecontent[0]);
 			self.wfile.write('</code></body></html>');
 		except Exception, e:
-			self.send_error(500,'POST Internal server error for resource: %s %s' % (self.path,e))
+			self.send_error(500,'POST Internal server error for resource: {0} {1}'.format(self.path,e))
 
 def main():
 	try:

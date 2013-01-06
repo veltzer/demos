@@ -20,14 +20,14 @@ def get_following_month(month_name):
 	return the name of the following month"""
 	if (name_to_days_num.has_key(month_name)):
 		i=months_names.index(month_name)
-		return months_names[ (i+1) % 12]
+		return months_names[(i+1)%12]
 	else:
 		raise DateException, month_name+" is not a valid month"
 
 
 def is_leap_year(year):
 	""" Return True if the year is a leap year, False otherwise"""
-	return (year%4==0) and ((year % 100!=0) or (year%1000==0))
+	return (year%4==0) and ((year%100!=0) or (year%1000==0))
 class Calendar:
 	""" A callender of events, has an entry for every event,
 		which is a mapping from event name to Date o bject"""
@@ -63,10 +63,10 @@ class Date:
 			raise DateException, "Month must be between 1 and 12"
 		if is_leap_year(year) and (month==2):
 			if (day<0) or (day>29):
-				raise DateException, "Day must be between 1 and %d" % days_in_months[month-1]
+				raise DateException, "Day must be between 1 and {0}".format(days_in_months[month-1])
 		else:
 			if (day<0) or (day>days_in_months[month-1]):
-				raise DateException, "Day must be between 1 and %d" % days_in_months[month-1]
+				raise DateException, "Day must be between 1 and {0}".format(days_in_months[month-1])
 		self.day=day
 		self.month=month
 		self.year=year
@@ -96,11 +96,11 @@ class Date:
 		return not (self==other)
 
 	def __le__(self,other):
-		""" Overloading operator <= for dates """
+		""" Overloading operator<=for dates """
 		return (self<other) or (self==other)
 
 	def __ge__(self,other):
-		""" Overloading operator >= for dates """
+		""" Overloading operator>=for dates """
 		return (self>other) or (self==other)
 
 	def __str__(self):

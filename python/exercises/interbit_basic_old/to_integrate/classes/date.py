@@ -21,7 +21,7 @@ def get_following_month(month_name):
 	return the name of the following month"""
 	if (name_to_days_num.has_key(month_name)):
 		i=months_names.index(month_name)
-		return months_names[ (i+1) % 12]
+		return months_names[(i+1)%12]
 	else:
 		print "No such month"
 
@@ -58,7 +58,7 @@ class Calendar:
 
 class Date:
 	def __init__(self, day, month, year):
-		if ( (type(day) != type(1)) or (type(month) != type(1)) or (type(year) != type(1))):
+		if ( (type(day)!=type(1)) or (type(month)!=type(1)) or (type(year)!=type(1))):
 			print "Date must be initialized with numbers"
 			return
 		if ((month<1) or (month>12)):
@@ -93,13 +93,13 @@ class Date:
 		""" Overloading operator==for dates """
 		return ( (self.year==other.year) and (self.month==other.month) and (self.day==other.day))
 	def __ne__(self,other):
-		""" Overloading operator != for dates """
+		""" Overloading operator!=for dates """
 		return not (self==other)
 	def __le__(self,other):
-		""" Overloading operator <= for dates """
+		""" Overloading operator<=for dates """
 		return (self<other) or (self==other)
 	def __ge__(self,other):
-		""" Overloading operator >= for dates """
+		""" Overloading operator>=for dates """
 		return (self>other) or (self==other)
 	def __str__(self):
-		return str(self.day) + "." + str(self.month) + "." + str(self.year)
+		return str(self.day)+"."+str(self.month)+"."+str(self.year)

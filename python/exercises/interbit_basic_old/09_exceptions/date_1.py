@@ -21,7 +21,7 @@ def get_following_month(month_name):
 	return the name of the following month"""
 	if (name_to_days_num.has_key(month_name)):
 		i=months_names.index(month_name)
-		return months_names[ (i+1) % 12]
+		return months_names[ (i+1)%12]
 	else:
 		raise DateException, "No such month name"
 
@@ -59,16 +59,16 @@ class Calendar:
 
 class Date:
 	def __init__(self, day, month, year):
-		if ( (type(day) != type(1)) or (type(month) != type(1)) or (type(year) != type(1))):
+		if((type(day)!=type(1)) or (type(month)!=type(1)) or (type(year)!=type(1))):
 			raise DateException, "Date must be initialized with numbers"
-		if ((month < 1) or (month>12)):
+		if((month<1) or (month>12)):
 			raise DateException, "Month must be between 1 and 12"
-		if (is_leap_year(year)):
-			if ( (day < 0) or (day>days_in_months_leap_year[month-1])):
-				raise DateException, "Day must be between 1 and %d" % days_in_months[month-1]
+		if(is_leap_year(year)):
+			if((day<0) or (day>days_in_months_leap_year[month-1])):
+				raise DateException, "Day must be between 1 and {0}".format(days_in_months[month-1])
 		else:
-			if ( (day < 0) or (day>days_in_months[month-1])):
-				raise DateException, "Day must be between 1 and %d" % days_in_months[month-1]
+			if((day<0) or (day>days_in_months[month-1])):
+				raise DateException, "Day must be between 1 and {0}".format(days_in_months[month-1])
 
 		self.day=day
 		self.month=month

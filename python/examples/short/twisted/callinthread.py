@@ -13,7 +13,7 @@ def aSillyBlockingMethod(t,stop):
 	print("starting...")
 	time.sleep(t)
 	print(t,"seconds have passed")
-	# this will not work - we are running in a separate thread...
+	# this will not work as we are running in a separate thread...
 	# if stop:
 	#	reactor.stop()
 	# instead we must do:

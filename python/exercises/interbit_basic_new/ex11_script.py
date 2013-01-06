@@ -9,7 +9,7 @@ from ex10_ex11_classes import Hangman
 import sys
 
 args=sys.argv[1:]
-if len(args) != 1:
+if len(args)!=1:
 	print __doc__ # usage message
 	sys.exit(2)
 

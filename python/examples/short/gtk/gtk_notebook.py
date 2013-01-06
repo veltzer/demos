@@ -12,7 +12,7 @@ import gtk
 class NotebookExample:
 	# This method rotates the position of the tabs
 	def rotate_book(self,button,notebook):
-		notebook.set_tab_pos((notebook.get_tab_pos()+1) %4)
+		notebook.set_tab_pos((notebook.get_tab_pos()+1)%4)
 
 	# Add/Remove the page tabs and the borders
 	def tabsborder_book(self,button,notebook):
@@ -58,8 +58,8 @@ class NotebookExample:
 
 		# Let's append a bunch of pages to the notebook
 		for i in range(5):
-			bufferf="Append Frame %d" % (i+1)
-			bufferl="Page %d" % (i+1)
+			bufferf="Append Frame {0}".format(i+1)
+			bufferl="Page {0}"format(i+1)
 
 			frame=gtk.Frame(bufferf)
 			frame.set_border_width(10)
@@ -83,8 +83,8 @@ class NotebookExample:
 
 		# Now finally let's prepend pages to the notebook
 		for i in range(5):
-			bufferf="Prepend Frame %d" % (i+1)
-			bufferl="PPage %d" % (i+1)
+			bufferf="Prepend Frame {0}".format(i+1)
+			bufferl="PPage {0}".format(i+1)
 
 			frame=gtk.Frame(bufferf)
 			frame.set_border_width(10)

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# This magic line fixes 3 / 2 to return 1.5 and not 1.
+# This magic line fixes 3/2 to return 1.5 and not 1.
 # You always want it in any Python program using division.
 # (When you do want 1, use the 3 // 2 operator.)
 from __future__ import division

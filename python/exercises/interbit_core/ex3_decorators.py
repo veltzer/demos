@@ -21,7 +21,7 @@ def with_output_to(fname):
 
 @with_output_to('out2.txt')
 def hello(name):
-	print "Hello, %s!" % (name,)
+	print "Hello, {0}!".format(name)
 
 # Running this will destroy 'out2.txt' in the current dir!
 

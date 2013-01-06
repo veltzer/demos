@@ -40,7 +40,7 @@ for i,x in enumerate(l):
 		l.pop(0)
 	elements_visited.add(x)
 if len(elements_visited)!=size:
-	print("elements_visited is %d while size is %d" % (len(elements_visited),size))
+	print("elements_visited is {0} while size is {1}".format(len(elements_visited),size))
 	print("This can cause problems for various algorithms")
 print('elements not visited are',all_elements-elements_visited)
 print('remember that the element removed was 0...')
@@ -61,7 +61,7 @@ for i,x in enumerate(l):
 	except IndexError as e:
 		print('yes,got errors when accessing l[i]')
 if len(elements_visited)!=size:
-	print("elements_visited is %d while size is %d" % (len(elements_visited),size))
+	print("elements_visited is {0} while size is {1}".format(len(elements_visited),size))
 	print("This can cause problems for various algorithms")
 
 print("""
@@ -76,10 +76,10 @@ for i,x in enumerate(l):
 		for y in xrange(3):
 			l.insert(0,10+y)
 	if x in elements_visited:
-		print('yep. we are visiting %d twice...' % (x))
+		print('yep. we are visiting {0} twice...'.format(x))
 	elements_visited.add(x)
 if len(elements_visited)!=len(l):
-	print("elements_visited is %d while size is %d" % (len(elements_visited),len(l)))
+	print("elements_visited is {0} while size is {1}".format(len(elements_visited),len(l)))
 	print("This can cause problems for various algorithms")
 
 print("""
@@ -137,5 +137,5 @@ print('elements not visited are',all_elements-elements_visited)
 print('elements visited are',elements_visited)
 print('and you can see we have old and new elements visited')
 if len(elements_visited)!=len(all_elements):
-	print("elements_visited is %d while size is %d" % (len(elements_visited),len(all_elements)))
+	print("elements_visited is {0} while size is {1}".format(len(elements_visited),len(all_elements)))
 	print("This can cause problems for various algorithms")

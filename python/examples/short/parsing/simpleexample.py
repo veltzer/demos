@@ -14,7 +14,7 @@ ts := [ \t]*
 char := -[\134"]+
 number := [0-9eE+.-]+
 string := (char/escapedchar)*
-escapedchar := '\134"' / '\134\134'
+escapedchar := '\134"'/'\134\134'
 '''
 testdata='''[test1]
 	val=23

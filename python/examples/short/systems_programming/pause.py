@@ -32,7 +32,7 @@ def call_old(old_val,signum,frame):
 
 # this is my signal handler
 def myhandler(signum,frame):
-	debug("signalhandler: got signal %d" % (signum))
+	debug("signalhandler: got signal {0}".format(signum))
 	if signum==signal.SIGUSR1:
 		# lets call the old signal handler
 		global oldsigusr1
@@ -58,7 +58,7 @@ signal.signal(signal.SIGUSR1,myhandler)
 signal.signal(signal.SIGUSR2,myhandler)
 signal.signal(signal.SIGINT,myhandler)
 
-debug("mainthread: program starting,signal me using [kill -s SIGUSR1 %d] or [kill -s SIGUSR2 %d]" % (os.getpid(),os.getpid()))
+debug("mainthread: program starting,signal me using [kill -s SIGUSR1 {0}] or [kill -s SIGUSR2 {0}]".format(os.getpid()))
 while True:
 	debug("mainthread: going to pause()")
 	signal.pause()

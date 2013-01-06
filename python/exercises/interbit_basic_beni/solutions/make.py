@@ -3,7 +3,7 @@
 """
 Parse a simple Makefile (without commands) and print build plan.
 Doen't support comments, variables, patterns or anything complex...
-Doesn't check file system - all targets are always built.
+Doesn't check file system, all targets are always built.
 """
 
 import os

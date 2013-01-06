@@ -19,11 +19,11 @@ def largeFibonnaciNumber():
 	first=0
 	second=1
 	for i in xrange(TARGET-1):
-		new=first + second
+		new=first+second
 		first=second
 		second=new
 		if i%1000==0:
-			print("Progress: calculating the %dth Fibonnaci number" % i)
+			print("Progress: calculating the {0}th Fibonnaci number".format(i))
 	# give the Deferred the answer to pass to the callbacks:
 	d.callback(second)
 	# return the Deferred with the answer:
@@ -36,7 +36,7 @@ d=largeFibonnaciNumber()
 
 timeAfter=time.time()
 
-print("Total time taken for largeFibonnaciNumber call: %0.3f seconds" % (timeAfter-timeBefore))
+print("Total time taken for largeFibonnaciNumber call: {0:.3f} seconds".format(timeAfter-timeBefore))
 
 # add a callback to it to output the number
 

@@ -25,7 +25,7 @@ if __name__=='__main__':
 	print "This should print nothing:"
 	for name in ["Fred", "Barney"]:
 		with redirect_output_to('out3.txt'):
-			print "Hello, %s!" % (name,)
+			print "Hello, {0}!".format(name)
 	print "The file now contains this:"
 	print open('out3.txt').read()
 	# clean up

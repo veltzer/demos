@@ -9,5 +9,5 @@ for word in open(INPUT_NAME).read().split():
 	word_counts[word] += 1
 f=open(OUTPUT, 'w')
 for word, count in word_counts.items():
-	f.write("%s appears %s times\n" % (word, count))
+	f.write("%s appears %s times\n".format(word,count))
 f.close()

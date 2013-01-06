@@ -20,7 +20,7 @@ def compute(*ignored):
 	try:
 		arg1=float(entry1.get_text())
 		arg2=float(entry2.get_text())
-		result.set_text(str(arg1 + arg2))
+		result.set_text(str(arg1+arg2))
 	except ValueError:
 		result.set_text('<ERROR>')
 entry1.connect('changed', compute)
