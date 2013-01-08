@@ -1,6 +1,7 @@
 <!--
 	Catching movements inside the entire canvas
 	This example works (with "opacity")
+	Notice that if you omit the filling of the rectange the example ceases to work.
 
 		Mark Veltzer
 -->
@@ -14,6 +15,7 @@
 				var height=700;
 				var paper=Raphael("holder",width,height);
 				var rec=paper.rect(0,0,width,height);
+				// this line is essential for the example to work.
 				rec.attr({fill:Raphael.getColor()});
 				rec.attr({opacity:0.0});
 				// create another rectangle

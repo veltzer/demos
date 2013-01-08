@@ -7,4 +7,7 @@ out of the code and put it in some external source (database,config file,...).
 
 	Mark Veltzer <mark@veltzer.net>
 """
+
+from __future__ import print_function
+
 print(u"\u05d4\u05d9")
