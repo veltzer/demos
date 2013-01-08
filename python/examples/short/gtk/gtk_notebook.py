@@ -59,7 +59,7 @@ class NotebookExample:
 		# Let's append a bunch of pages to the notebook
 		for i in range(5):
 			bufferf="Append Frame {0}".format(i+1)
-			bufferl="Page {0}"format(i+1)
+			bufferl="Page {0}".format(i+1)
 
 			frame=gtk.Frame(bufferf)
 			frame.set_border_width(10)
