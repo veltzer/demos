@@ -1,14 +1,16 @@
 <!--
 An example showing the .apply method of functions.
 Remmember: .apply is suitable when you don't know the number of arguments in advance.
+The first argument to apply is passed here as null since it is an object in an object
+oriended context and this example is not in object oriented context.
 
 	Mark Veltzer
 -->
 <script>
-	function minus(x) {
+	function unary_minus(x) {
 		return -x;
 	}
-	function plus(x,y) {
+	function binary_plus(x,y) {
 		return x+y;
 	}
 	// This is Herons of Alexandrias formula...
@@ -16,7 +18,7 @@ Remmember: .apply is suitable when you don't know the number of arguments in adv
 		var s=(a+b+c)/2;
 		return Math.sqrt(s*(s-a)*(s-b)*(s-c));
 	}
-	var funcs=[minus,plus,triangle_area];
+	var funcs=[unary_minus,binary_plus,triangle_area];
 	var datas=[[5],[56,34],[67,56,59]];
 	for(var i in funcs) {
 		var func=funcs[i]
@@ -24,7 +26,7 @@ Remmember: .apply is suitable when you don't know the number of arguments in adv
 		document.write(
 			func.name+', '+
 			data.join(';')+', '+
-			func.apply(func,data)+'<br/>'
+			func.apply(null,data)+'<br/>'
 		);
 	}
 </script>
