@@ -2,3 +2,5 @@ http://www.p01.org/releases/DEFENDER_of_the_favicon/
 	A game inside the favicon!?!
 Douglas Crockfords private in javascript:
 	http://www.crockford.com/javascript/private.html
+John Resig on Partial applications in JavaScript
+	http://ejohn.org/blog/partial-functions-in-javascript/
