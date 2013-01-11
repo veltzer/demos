@@ -6,3 +6,5 @@ John Resig on Partial applications in JavaScript
 	http://ejohn.org/blog/partial-functions-in-javascript/
 the bind function in JavaScript
 	https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind
+Brendan Eich on proxies in JavaScript:
+	http://jsconf.eu/2010/speaker/be_proxy_objects.html

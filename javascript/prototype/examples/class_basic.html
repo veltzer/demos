@@ -1,5 +1,6 @@
 <!--
 	A new, preferred syntax, for defining prototype classes.
+	Notice the $super syntax for calling parent constructor or other methods.
 
 		Mark Veltzer
 -->
@@ -21,13 +22,17 @@
 			// when subclassing, specify the class you want to inherit from
 			var Pirate = Class.create(Person, {
 				// redefine the speak method
+				initialize: function($super, name) {
+					$super(name);
+					this.name='errr '+this.name;
+				},
 				say: function($super, message) {
 					return $super(message) + ', yarr!';
 				}
 			});
 
 			var john=new Pirate('Long John');
-			console.log(john.say('ahoy matey')); // -> "Long John: ahoy matey, yarr!"
+			document.write(john.say('ahoy matey')); // -> "Long John: ahoy matey, yarr!"
 		</script>
 	</head>
 	<body>
