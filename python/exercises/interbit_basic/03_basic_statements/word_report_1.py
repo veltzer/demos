@@ -9,6 +9,7 @@ report={}
 # NOTE: the 'for' scope will close the file automagically...
 for line in open('word_report_1.py'):
 	for word in line.split():
+		# next line is same as: if not word in report
 		if not report.has_key(word):
 			report[word]=0
 		report[word]+=1
