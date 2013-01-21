@@ -3,9 +3,9 @@
       package="org.meta.android"
       android:versionCode="1"
       android:versionName="1.0">
-    <uses-sdk android:minSdkVersion="8" />
+    <uses-sdk android:minSdkVersion="8"  android:targetSdkVersion="17"/>
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:allowBackup="true">
         <activity android:name="HelloWorldActivity"
                   android:label="@string/app_name">
         </activity>
@@ -17,7 +17,7 @@
             	<intent-filter>
 						<action android:name="android.intent.action.MAIN" />
 						<category android:name="android.intent.category.LAUNCHER" />
-            		</intent-filter>
+            	</intent-filter>
         </activity>
 		<activity android:name="AboutActivity"
                   android:label="About">
