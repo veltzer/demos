@@ -1,7 +1,12 @@
 <!--
 Ext.define extend example for single inheritance
+This example was shamelessly stolen from the Ext.ClassManager documentation...:)
 
-- this example was shamelessly stolen from the Ext.ClassManager documentation...:)
+Notes:
+- look at the use of this.callParent with either a programmer defined JavaScript array
+or the 'arguments' automatic variable.
+- you do not have to state the name of the method to call when using 'callParent'. The
+assumption is that the method is the same as the one that you are in.
 
 	Mark Veltzer <mark@veltzer.net>
 -->
@@ -24,30 +29,31 @@ Ext.define extend example for single inheritance
 					},
 					// A method
 					eat: function(foodType) {
-						console.log(this.name+" is eating a " + foodType);
+						console.log(this.name+" is eating "+foodType);
 					}
 				});
-				var aaron = new Person("Aaron");
 				Ext.define('Developer', {
 					extend: 'Person',
-					constructor: function(name, isGeek) {
-						console.log("in the Developer constructor for "+name);
-						this.isGeek = isGeek;
-						// Apply a method from the parent class' prototype
+					constructor: function(name,isGeek) {
+						console.log("in the Developer constructor for "+name+","+isGeek);
 						this.callParent([name]);
+						this.isGeek=isGeek;
+						// Apply a method from the parent class' prototype
 					},
 					code: function(language) {
-						console.log(this.name+" coding in: " + language);
-						this.eat("Bug");
+						console.log(this.name+" coding in: "+language);
+						this.eat("Bugs");
+					},
+					eat: function(foodType) {
+						console.log("Developer is eating...");
+						this.callParent(arguments);
 					}
 				});
-				var jacky = new Developer("Jacky", true);
-				// the next line will do both:
-				//	console.log("I'm coding in: JavaScript");
-				//	console.log("I'm eating: Bugs");
+				var jacky=new Developer("Jacky",true);
 				jacky.code("JavaScript");
-				var aaron = new Person("aaron");
-				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
+				jacky.eat("More Bugs");
+				var aaron=new Person("aaron");
+				aaron.eat("Sandwich");
 				// lets see if instanceof works right...
 				console.log("jacky instanceof Object is "+
 					String(jacky instanceof Object));

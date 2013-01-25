@@ -22,11 +22,11 @@ This example explores how one defines a constructor using Ext.define.
 					},
 					// A method
 					eat: function(foodType) {
-						console.log(this.name+" is eating a " + foodType);
+						console.log(this.name+" is eating a "+foodType);
 					}
 				});
-				var aaron = new Person("Aaron");
-				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
+				var aaron=new Person("Aaron");
+				aaron.eat("Sandwich");
 				console.log(aaron);
 				console.log(Person);
 				console.log(aaron instanceof Person);

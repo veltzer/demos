@@ -9,6 +9,9 @@ in the right package.
 it does not matter (this file is not called Person or whatever). This is true
 unless you want dynamic loading to work.
 
+TODO:
+What happens if you drop the package name?
+
 	Mark Veltzer <mark@veltzer.net>
 -->
 <html>
@@ -23,7 +26,7 @@ unless you want dynamic loading to work.
 					name: 'Unknown',
 					// A method
 					eat: function(foodType) {
-						console.log(this.name+" is eating a " + foodType);
+						console.log(this.name+" is eating a "+foodType);
 					}
 				});
 				// lets create an instance
@@ -31,7 +34,7 @@ unless you want dynamic loading to work.
 				// lets set an attribute
 				aaron.name='aaron';
 				// lets call a method
-				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
+				aaron.eat("Sandwich");
 				// lets see if instanceof works as advertised
 				console.log(aaron instanceof MyPkg.Person);
 				console.log(aaron instanceof Ext.Base);

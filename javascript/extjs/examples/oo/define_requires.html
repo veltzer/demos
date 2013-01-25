@@ -5,6 +5,8 @@ Notes:
 - You must use the Ext.Loader.setConfig({ enabled: true, }); below to allow the dynamic
 loading to work.
 - Note that Person is loaded automagically by the loader.
+- notice the user of Ext.Loader.setPath which enables you to set the path from which
+a certain package will be automagically loaded.
 
 
 	Mark Veltzer <mark@veltzer.net>
@@ -16,14 +18,11 @@ loading to work.
 		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
 		<script>
 			Ext.Loader.setConfig({
-				enabled: true,
+				enabled: true
 			});
 			Ext.Loader.setPath('MyPkg','MyAltPkg');
 			Ext.require('MyPkg.Developer',function() {
 				var jacky = new MyPkg.Developer("Jacky", true);
-				// the next line will do both:
-				//	console.log("I'm coding in: JavaScript");
-				//	console.log("I'm eating: Bugs");
 				jacky.code("JavaScript");
 				var aaron = new MyPkg.Person("aaron");
 				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
