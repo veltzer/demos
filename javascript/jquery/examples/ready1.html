@@ -21,23 +21,23 @@
 			$(document).ready(function() {
 				console.log('first bounded');
 				$(document).ready(function() {
-					console.log('ready - bounded late');
+					console.log('ready-bounded late');
 				});
 				$(document).bind('ready', function() {
-					console.log('bind - bounded late');
+					console.log('bind-bounded late');
 				});
 			});
 			$().ready(function() {
 				console.log('second bounded');
 				$(document).bind('ready', function() {
-					console.log('bind - bounded later');
+					console.log('bind-bounded later');
 				});
 			});
 			$(function() {
 				console.log('third bounded');
 			});
 			$(document).bind('ready', function() {
-				console.log('bind - bounded early');
+				console.log('bind-bounded early');
 			});
 		</script>
 	</head>

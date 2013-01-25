@@ -38,14 +38,14 @@
 					}});
 				}
 				function updateButton(){
-					if (ind-3 < 0){
+					if (ind-3<0){
 						Ext.getCmp('prev').setDisabled(true);
 					}
 					else {
 						Ext.getCmp('prev').setDisabled(false);
 					}
 					
-					if (ind+3 > store.getCount()){
+					if (ind+3>store.getCount()){
 						Ext.getCmp('next').setDisabled(true);
 					}
 					else {

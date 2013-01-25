@@ -29,11 +29,11 @@ height in a browser compatible manner is hard.
 				printDetails($('#myid1'));
 				printDetails($('#myid2'));
 
-				// attempt1: do not append the element - FAILED
+				// attempt1: do not append the element: FAILED
 				var elem1=$('<span/>').text('this is some text');
 				printDetails(elem1);
 
-				// attempt2: append but hide - WORKS
+				// attempt2: append but hide: WORKS
 				var elem2=$('<span/>').text('this is some text');
 				elem2.hide();
 				$('body').append(elem2);

@@ -12,6 +12,11 @@ grep:
 	@-git grep "\"" -- $(SOURCES)
 	@-git grep "DOCTYPE" -- $(SOURCES)
 	@-git grep "  " -- $(SOURCES)
+	@-git grep " + " -- $(SOURCES)
+	@-git grep " = " -- $(SOURCES)
+	@-git grep " - " -- $(SOURCES)
+	@-git grep " > " -- $(SOURCES)
+	@-git grep " < " -- $(SOURCES)
 
 .PHONY: count
 count:

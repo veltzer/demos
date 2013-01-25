@@ -22,20 +22,20 @@ Ext.define override example
 					},
 					// A method
 					eat: function(foodType) {
-						console.log(this.name+' is eating a ' + foodType);
+						console.log(this.name+' is eating a '+foodType);
 					}
 				});
 				Ext.define('Person2', {
 					override: 'Person',
 					eat: function(foodType) {
-						console.log(this.name+' is munching a ' + foodType);
+						console.log(this.name+' is munching a '+foodType);
 					}
 				});
 				// lets use the override...
-				var jacky = new Person('Jacky');
+				var jacky=new Person('Jacky');
 				jacky.eat('JavaScript');
 				/* this will not work, Person2 is NOT defined...
-				var jacky2 = new Person2('Jacky');
+				var jacky2=new Person2('Jacky');
 				jacky2.eat('Candybar');
 				*/
 			});
