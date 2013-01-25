@@ -1,3 +1,5 @@
+/*jsl:import ajax.js*/
+/*jsl:import cart.js*/
 function InventoryItem(id,name,price,storage) {
 	this.id=id;
 	this.name=name;
@@ -10,7 +12,7 @@ InventoryItem.prototype.verifyStorage=function(storage) {
 	if(this.storage<storage) {
 		throw 'havent got enough items';
 	}
-}
+};
 InventoryItem.prototype.changeStorage=function(storage) {
 	if(storage<0) {
 		this.verifyStorage(storage);
@@ -22,7 +24,7 @@ InventoryItem.prototype.changeStorage=function(storage) {
 	} else {
 		this.domBuyButton.disabled=true;
 	}
-}
+};
 
 function Inventory() {
 	this.tbid=undefined;
@@ -31,42 +33,42 @@ function Inventory() {
 }
 Inventory.prototype.setTbid=function(tbid) {
 	this.tbid=tbid;
-}
+};
 Inventory.prototype.addProduct=function(ii) {
 	this.itemMap[ii.id]=ii;
 	this.createRow(ii.id);
-}
+};
 Inventory.prototype.delProductById=function(id) {
 	delete this.itemMap[id];
-}
+};
 Inventory.prototype.getItemById=function(id) {
 	return this.itemMap[id];
-}
+};
 Inventory.prototype.verifyItemInInventory=function(id) {
 	if(!(id in this.itemMap)) {
 		throw 'no such item with id'+id;
 	}
-}
+};
 Inventory.prototype.load=function(url) {
 	// for closure
 	var object=this;
-	jsonGet('snipplet.json',function(data) {
-		for(id in data) {
+	jsonGet(url,function(data) {
+		for(var id in data) {
 			var ii=data[id];
-			object.addProduct(new InventoryItem(id,ii.name,parseInt(ii.price),parseInt(ii.storage)));
+			object.addProduct(new InventoryItem(id,ii.name,parseInt(ii.price,10),parseInt(ii.storage,10)));
 		}
 	});
-}
+};
 Inventory.prototype.verifyEnoughItems=function(id,amount) {
 	this.verifyItemInInventory(id);
 	var item=this.itemMap[id];
 	item.verifyStorage(amount);
-}
+};
 Inventory.prototype.changeStorage=function(id,storage) {
 	this.verifyItemInInventory(id);
 	var item=this.itemMap[id];
 	item.changeStorage(storage);
-}
+};
 Inventory.prototype.createRow=function(id) {
 	var item=this.itemMap[id];
 	var row=document.createElement('tr');
@@ -83,7 +85,7 @@ Inventory.prototype.createRow=function(id) {
 	inner5.onclick=(function(myid) {
 		return function() {
 			Cart.getInstance().buyItemById(myid,1);
-		}
+		};
 	})(id);
 	/*
 	 * This trick will not work...
@@ -107,9 +109,9 @@ Inventory.prototype.createRow=function(id) {
 	table.appendChild(row);
 	item.domStorage=inner4;
 	item.domBuyButton=inner5;
-}
+};
 // and expose it to the world as a singleton...
 Inventory.theInstance=new Inventory();
 Inventory.getInstance=function() {
 	return Inventory.theInstance;
-}
+};

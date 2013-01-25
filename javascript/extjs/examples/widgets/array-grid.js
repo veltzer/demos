@@ -26,7 +26,7 @@ Ext.onReady(function() {
     Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
 
     // sample static data for the store
-    var myData = [
+    var myData=[
         ['3m Co',                               71.72, 0.02,  0.03,  '9/1 12:00am'],
         ['Alcoa Inc',                           29.01, 0.42,  1.47,  '9/1 12:00am'],
         ['Altria Group Inc',                    83.81, 0.28,  0.34,  '9/1 12:00am'],
@@ -85,7 +85,7 @@ Ext.onReady(function() {
     }
 
     // create the data store
-    var store = Ext.create('Ext.data.ArrayStore', {
+    var store=Ext.create('Ext.data.ArrayStore', {
         fields: [
            {name: 'company'},
            {name: 'price',      type: 'float'},
@@ -97,7 +97,7 @@ Ext.onReady(function() {
     });
 
     // create the Grid
-    var grid = Ext.create('Ext.grid.Panel', {
+    var grid=Ext.create('Ext.grid.Panel', {
         store: store,
         stateful: true,
         stateId: 'stateGrid',
@@ -143,21 +143,21 @@ Ext.onReady(function() {
                     icon   : 'delete.gif',  // Use a URL in the icon config
                     tooltip: 'Sell stock',
                     handler: function(grid, rowIndex, colIndex) {
-                        var rec = store.getAt(rowIndex);
+                        var rec=store.getAt(rowIndex);
                         alert("Sell " + rec.get('company'));
                     }
                 }, {
                     getClass: function(v, meta, rec) {          // Or return a class from a function
                         if (rec.get('change') < 0) {
-                            this.items[1].tooltip = 'Hold stock';
+                            this.items[1].tooltip='Hold stock';
                             return 'alert-col';
                         } else {
-                            this.items[1].tooltip = 'Buy stock';
+                            this.items[1].tooltip='Buy stock';
                             return 'buy-col';
                         }
                     },
                     handler: function(grid, rowIndex, colIndex) {
-                        var rec = store.getAt(rowIndex);
+                        var rec=store.getAt(rowIndex);
                         alert((rec.get('change') < 0 ? "Hold " : "Buy ") + rec.get('company'));
                     }
                 }]

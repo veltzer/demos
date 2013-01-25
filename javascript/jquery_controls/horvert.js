@@ -24,22 +24,22 @@ HorVert.prototype.debug=function(msg) {
 	if(this.doDebug) {
 		console.log(msg);
 	}
-}
+};
 
 HorVert.prototype.addElem=function(elem) {
 	this.elems.push(elem);
 	elem.el.appendTo(this.total);
 	this.resize();
-}
+};
 
 HorVert.prototype.stopResize=function() {
 	this.stopResize=true;
-}
+};
 
 HorVert.prototype.startResize=function() {
 	this.stopResize=false;
 	this.resize();
-}
+};
 
 HorVert.prototype.resize=function() {
 	if(this.stopResize) {
@@ -69,4 +69,4 @@ HorVert.prototype.resize=function() {
 			runner_x+=elem.el.width()+this.margin;
 		}
 	}
-}
+};

@@ -1,22 +1,24 @@
-FOLDERS:=jquery core extjs
-SOURCES:=$(shell find $(FOLDERS) -name "*.html")
+FOLDERS_GREP:=jquery core extjs jquery_controls
+FOLDERS_CHECK:=jquery core jquery_controls
+SOURCES_GREP:=$(shell find $(FOLDERS_GREP) -name "*.html" -or -name "*.js")
+SOURCES_CHECK:=$(shell find $(FOLDERS_CHECK) -name "*.html" -or -name "*.js")
 
 .PHONY: check
 check:
-	@~/install/jsl/jsl --conf=support/jsl.conf --quiet --nologo --nosummary --nofilelisting $(SOURCES)
+	@~/install/jsl/jsl --conf=support/jsl.conf --quiet --nologo --nosummary --nofilelisting $(SOURCES_CHECK)
 
 .PHONY: grep
 grep:
-	@-git grep "<br>" -- $(FOLDERS)
-	@-git grep "type=\"text/javascript" -- $(FOLDERS)
-	@-git grep "\"" -- $(SOURCES)
-	@-git grep "DOCTYPE" -- $(SOURCES)
-	@-git grep "  " -- $(SOURCES)
-	@-git grep " + " -- $(SOURCES)
-	@-git grep " = " -- $(SOURCES)
-	@-git grep " - " -- $(SOURCES)
-	@-git grep " > " -- $(SOURCES)
-	@-git grep " < " -- $(SOURCES)
+	@-git grep "<br>" -- $(FOLDERS_GREP)
+	@-git grep "type=\"text/javascript" -- $(FOLDERS_GREP)
+	@-git grep "\"" -- $(SOURCES_GREP)
+	@-git grep "DOCTYPE" -- $(SOURCES_GREP)
+	@-git grep "  " -- $(SOURCES_GREP)
+	@-git grep " + " -- $(SOURCES_GREP)
+	@-git grep " = " -- $(SOURCES_GREP)
+	@-git grep " - " -- $(SOURCES_GREP)
+	@-git grep " > " -- $(SOURCES_GREP)
+	@-git grep " < " -- $(SOURCES_GREP)
 
 .PHONY: count
 count:
@@ -32,4 +34,5 @@ find_weird_files:
 
 .PHONY: debug
 debug:
-	$(info SOURCES is $(SOURCES))
+	$(info SOURCES_GREP is $(SOURCES_GREP))
+	$(info SOURCES_CHECK is $(SOURCES_CHECK))
