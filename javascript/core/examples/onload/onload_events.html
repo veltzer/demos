@@ -29,7 +29,13 @@ Notes:
 			window.addEventListener('load',init);
 			window.addEventListener('load',init);
 			window.addEventListener('load',init2);
+			window.addEventListener('load',function() {
+				console.log('in onload3()');
+			});
 			window.onload=onload2;
+			window.onload=function() {
+				console.log('in init3');
+			};
 		</script>
 	</head>
 	<body>

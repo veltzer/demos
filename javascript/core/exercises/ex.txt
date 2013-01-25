@@ -1,0 +1,29 @@
+1) split a string exercise.
+	Write a function called split(s,c)
+	that accepts a string and a character.
+	The function returns an array of strings
+	which represent the original string split according
+	to the 'c' character.
+
+	For instance:
+	split("fooibarizoo","i")=['foo','bar','zoo']
+
+2) statistics exercise.
+	Receive an array of numbers.
+	return the average, minium and maximum numbers for the array.
+	
+	Think: How can a function in JavaScript return more than one thing?
+
+	For instance:
+	min_max_avg([1,2,3,4,5])={ average: 3, minimum: 1, maximum: 5 }
+
+3) function which gets a function (more advanced).
+	Write a function which gets an array 'a' and a function 'f'.
+	The function returns an array which has the results
+	of running the function 'f' on the elements of the array 'a'.
+
+	For instance:
+	function square_it(x) {
+		return x*x;
+	}
+	mapping([1,2,3,4,5],square_it)=[1,4,9,16,25]
