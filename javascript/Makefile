@@ -9,7 +9,9 @@ check:
 grep:
 	@-git grep "<br>" -- $(FOLDERS)
 	@-git grep "type=\"text/javascript" -- $(FOLDERS)
-	@-git grep "\"" -- $(FOLDERS)
+	@-git grep "\"" -- $(SOURCES)
+	@-git grep "DOCTYPE" -- $(SOURCES)
+	@-git grep "  " -- $(SOURCES)
 
 .PHONY: count
 count:

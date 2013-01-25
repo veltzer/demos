@@ -6,8 +6,8 @@ A demo showing how to use the 'listeners' attribute to register on event handler
 <html>
 	<head>
 		<title>Ext.create and 'listeners' demo</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
 				var myButton=Ext.create('Ext.button.Button',{
@@ -18,7 +18,7 @@ A demo showing how to use the 'listeners' attribute to register on event handler
 							console.log(btn, e, eOpts);
 						},
 					},
-					renderTo: Ext.getBody(),
+					renderTo: Ext.getBody()
 				});
 			});
 		</script>

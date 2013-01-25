@@ -8,7 +8,7 @@ Ext.define('User', {
 	],
 	changeName: function() {
 		var oldName = this.get('name');
-		var newName = oldName + " The Barbarian";
+		var newName = oldName + ' The Barbarian';
 		this.set('name', newName);
 	}
 });
@@ -19,4 +19,4 @@ var user=Ext.create('User', {
 	phone: '555-555-5555'
 });
 user.changeName();
-user.get('name'); //returns "Conan The Barbarian"
+user.get('name'); //returns 'Conan The Barbarian'

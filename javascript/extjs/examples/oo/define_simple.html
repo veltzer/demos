@@ -17,8 +17,8 @@ What happens if you drop the package name?
 <html>
 	<head>
 		<title>Ext.define simple example</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
 				Ext.define('MyPkg.Person', {
@@ -26,7 +26,7 @@ What happens if you drop the package name?
 					name: 'Unknown',
 					// A method
 					eat: function(foodType) {
-						console.log(this.name+" is eating a "+foodType);
+						console.log(this.name+' is eating a '+foodType);
 					}
 				});
 				// lets create an instance
@@ -34,7 +34,7 @@ What happens if you drop the package name?
 				// lets set an attribute
 				aaron.name='aaron';
 				// lets call a method
-				aaron.eat("Sandwich");
+				aaron.eat('Sandwich');
 				// lets see if instanceof works as advertised
 				console.log(aaron instanceof MyPkg.Person);
 				console.log(aaron instanceof Ext.Base);

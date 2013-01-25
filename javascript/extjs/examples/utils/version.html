@@ -9,29 +9,27 @@ compare it to some other version number and more.
 <html>
 	<head>
 		<title>Ext.Version</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
-				var version = new Ext.Version('1.0.2beta');
-				console.log("Version is " + version); // Version is 1.0.2beta
+				var version=new Ext.Version('1.0.2beta');
+				console.log('Version is '+version);
+				console.log(version.getMajor());
+				console.log(version.getMinor());
+				console.log(version.getPatch());
+				console.log(version.getBuild());
+				console.log(version.getRelease());
+				console.log(version.isGreaterThan('1.0.1'));
+				console.log(version.isGreaterThan('1.0.2alpha'));
+				console.log(version.isGreaterThan('1.0.2RC'));
+				console.log(version.isGreaterThan('1.0.2'));
+				console.log(version.isLessThan('1.0.2'));
+				console.log(version.match(1.0));
+				console.log(version.match('1.0.2'));
 
-				console.log(version.getMajor()); // 1
-				console.log(version.getMinor()); // 0
-				console.log(version.getPatch()); // 2
-				console.log(version.getBuild()); // 0
-				console.log(version.getRelease()); // beta
-
-				console.log(version.isGreaterThan('1.0.1')); // True
-				console.log(version.isGreaterThan('1.0.2alpha')); // True
-				console.log(version.isGreaterThan('1.0.2RC')); // False
-				console.log(version.isGreaterThan('1.0.2')); // False
-				console.log(version.isLessThan('1.0.2')); // True
-
-				console.log(version.match(1.0)); // True
-				console.log(version.match('1.0.2')); // True
-				var version = new Ext.getVersion();
-				console.log("Version is " + version); // Version is 1.0.2beta
+				var version=new Ext.getVersion();
+				console.log('Version is '+version);
 			});
 		</script>
 	</head>

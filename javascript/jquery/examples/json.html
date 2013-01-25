@@ -12,14 +12,14 @@
 		<script>
 			$(document).ready(function() {
 				$('#goodjson').click(function() {
-					var obj=$.parseJSON('{"name":"John"}');
+					var obj=$.parseJSON('{name:"John"}');
 					$('#result_name').text(obj.name);
 					$('#result_type').text(typeof(obj));
 				});
 				$('#badjson').click(function() {
 					// there is a bug in the JSON string on purpose...
 					try {
-						$.parseJSON('{"name":"John"');
+						$.parseJSON('{name:"John"');
 					}
 					catch(err) {
 						console.log(err);

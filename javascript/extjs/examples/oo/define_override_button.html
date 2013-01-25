@@ -6,15 +6,15 @@ A demo of creating a button that does something...
 <html>
 	<head>
 		<title>Ext.Button demo</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
 				Ext.define('MyButton', {
 					override: 'Ext.Button',
 					text: 'Click me',
 					handler: function() {
-						console.log("you clicked me");
+						console.log('you clicked me');
 					}
 				});
 				Ext.create('Ext.Button', {
