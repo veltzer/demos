@@ -12,19 +12,19 @@ This example also uses a shared closure.
 	function createSomeProtectedVal(val) {
 		var get=function() {
 			return val;
-		}
+		};
 		var set=function(newval) {
 			// only allow odd values...
 			if(newval%2!=1) {
 				throw 'can only assign odd values';
 			}
 			val=newval;
-		}
+		};
 		// do initial validation
 		set(val);
 		return {
-			'get':get,
-			'set':set,
+			get:get,
+			set:set
 		};
 	}
 	var my_object=createSomeProtectedVal(5);

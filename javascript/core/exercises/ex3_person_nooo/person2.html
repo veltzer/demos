@@ -6,8 +6,8 @@ function createPerson(iname,iage) {
 		getName: function() {
 			return this.name;
 		},
-		setName: function(iname) {
-			this.name=iname;
+		setName: function(iiname) {
+			this.name=iiname;
 		},
 		getFullName: function() {
 			return this.name+" "+this.age;
@@ -20,6 +20,6 @@ function createPerson(iname,iage) {
 var p1=createPerson('Bilbo',111);
 var p2=createPerson('Frodo',33);
 p1.printSelf();
-document.write('<br>');
+document.write('<br/>');
 p2.printSelf();
 </script>

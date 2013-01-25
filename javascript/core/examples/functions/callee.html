@@ -10,11 +10,11 @@ It has lot of goodies.
 	function hello() {
 		// this code could be used to list properties of a function.
 		// you will not see the caller here, just the properties...
-		for(x in arguments.callee) {
+		for(var x in arguments.callee) {
 			document.write(x+': '+arguments.callee[x]+'<br/>');
 		}
-		for(x in arguments.callee.caller) {
-			document.write(x+': '+arguments.callee.caller[x]+'<br/>');
+		for(var x2 in arguments.callee.caller) {
+			document.write(x2+': '+arguments.callee.caller[x2]+'<br/>');
 		}
 		document.write(arguments.callee+'</br>');
 		document.write(arguments.callee.name+'</br>');

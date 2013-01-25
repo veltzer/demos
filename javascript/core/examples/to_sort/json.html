@@ -1,19 +1,23 @@
 <html>
-<script>
-	// this demos executing code with eval
-	var x="for(var i=0;i<10;i++) { document.write(i+'<br>') }"
-	eval(x)
+	<head>
+		<script>
+			/*jsl:ignore*/
+			// this demos executing code with eval
+			var x='for(var i=0;i<10;i++) { document.write(i+\'<br/>\') }';
+			var e1=eval(x);
 
-	// how about a simple varialbe assignment ?
-	eval("var a=13");
-	document.write("a is "+a+"<br>");
+			// how about a simple varialbe assignment ?
+			var e2=eval('var a=13');
+			document.write('a is '+a+'<br/>');
 
-	// a variable assignment from a string of any data? yes!
-	// this is the basis of JSON
-	var someString="[1,2,3]"
-	eval("var b="+someString);
-	document.write("b is "+b+"<br>");
-	document.write("typeof(b) is "+typeof(b)+"<br>");
-	document.write("b.length is "+b.length+"<br>");
-</script>
+			// a variable assignment from a string of any data? yes!
+			// this is the basis of JSON
+			var someString='[1,2,3]';
+			var e3=eval('var b='+someString);
+			document.write('b is '+b+'<br/>');
+			document.write('typeof(b) is '+typeof(b)+'<br/>');
+			document.write('b.length is '+b.length+'<br/>');
+			/*jsl:end*/
+		</script>
+	</head>
 </html>

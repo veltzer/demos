@@ -7,16 +7,16 @@ The disadvantage is that all of these functions do not have shared data.
 -->
 <script>
 	var MyNamespace={
-		'printOne':function(data) {
-			console.log('One '+data);
+		printOne:function(idata) {
+			console.log('One '+idata);
 		},
-		'printTwo':function(data) {
-			console.log('Two '+data);
+		printTwo:function(idata) {
+			console.log('Two '+idata);
 		},
-		'printThree':function(data) {
-			console.log('Three '+data);
-		},
-	}
+		printThree:function(idata) {
+			console.log('Three '+idata);
+		}
+	};
 	// this is the user code
 	var data='mydata';
 	MyNamespace.printOne(data);
@@ -24,14 +24,14 @@ The disadvantage is that all of these functions do not have shared data.
 	MyNamespace.printThree(data);
 	// another way which is very similar...
 	var MyNamespace2={};
-	MyNamespace2.printOne=function(data) {
-		console.log('One '+data);
+	MyNamespace2.printOne=function(idata) {
+		console.log('One '+idata);
 	};
-	MyNamespace2.printTwo=function(data) {
-		console.log('Two '+data);
+	MyNamespace2.printTwo=function(idata) {
+		console.log('Two '+idata);
 	};
-	MyNamespace2.printThree=function(data) {
-		console.log('Three '+data);
+	MyNamespace2.printThree=function(idata) {
+		console.log('Three '+idata);
 	};
 	// this is the user code
 	var data2='mydata2';

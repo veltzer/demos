@@ -1,16 +1,16 @@
 <script>
-g_getName=function() {
+var g_getName=function() {
 	return this.name;
-}
-g_setName=function(iname) {
+};
+var g_setName=function(iname) {
 	this.name=iname;
-}
-g_getFullName=function() {
-	return this.name+" "+this.age;
-}
-g_printSelf=function() {
+};
+var g_getFullName=function() {
+	return this.name+' '+this.age;
+};
+var g_printSelf=function() {
 	document.write(this.getFullName());
-}
+};
 
 function createPerson(iname,iage) {
 	return {
@@ -25,6 +25,6 @@ function createPerson(iname,iage) {
 var p1=createPerson('Bilbo',111);
 var p2=createPerson('Frodo',33);
 p1.printSelf();
-document.write('<br>');
+document.write('<br/>');
 p2.printSelf();
 </script>

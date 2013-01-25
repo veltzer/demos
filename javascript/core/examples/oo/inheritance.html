@@ -17,10 +17,10 @@ TODO:
 	}
 	Base.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	Base.prototype.setName=function(iname) {
 		this.name=iname;
-	}
+	};
 
 	// here ends the base class
 
@@ -70,14 +70,14 @@ TODO:
 	Sub.prototype.getName=function() {
 		// this calls the parents method
 		return Base.prototype.getName.call(this)+' sub';
-	}
+	};
 	// child only methods
 	Sub.prototype.getFname=function() {
 		return this.fname;
-	}
+	};
 	Sub.prototype.setFname=function(ifname) {
 		this.fname=ifname;
-	}
+	};
 
 	// here ends the subclass
 

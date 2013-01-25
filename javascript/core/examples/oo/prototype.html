@@ -3,7 +3,7 @@ function Person(name,lastname) {
 	this.Name=name;
 	this.Lastname=lastname;
 	this.Children=[];
-	for(i=2;i<arguments.length;i++) {
+	for(var i=2;i<arguments.length;i++) {
 		this.addChild(arguments[i]);
 	}
 	Person.counter++;
@@ -11,49 +11,49 @@ function Person(name,lastname) {
 Person.counter=0;
 Person.getCounter=function() {
 	return Person.counter;
-}
+};
 
 function addProperty(obj,propname) {
-	obj["set"+propname]=function(nval) {
+	obj['set'+propname]=function(nval) {
 		this[propname]=nval;	
-	}
-	obj["get"+propname]=function() {
+	};
+	obj['get'+propname]=function() {
 		return this[propname];	
-	}
+	};
 }
-addProperty(Person.prototype,"Name");
-addProperty(Person.prototype,"Lastname");
-addProperty(Person.prototype,"Children");
+addProperty(Person.prototype,'Name');
+addProperty(Person.prototype,'Lastname');
+addProperty(Person.prototype,'Children');
 Person.prototype.toString=function() {
-	return this.Name+" "+this.Lastname;
-}
+	return this.Name+' '+this.Lastname;
+};
 Person.prototype.addChild=function(child) {
 	this.Children[this.Children.length]=child;
-}
+};
 Person.prototype.getChild=function(i) {
 	return this.Children[i];
-}
+};
 Object.prototype.printAllProps=function() {
-	for(x in this) {
+	for(var x in this) {
 		// do not iterate functions
-		if(typeof(this[x])!="function") {
-			document.write(x+", "+this[x]+", "+typeof(this[x])+"<br>");
+		if(typeof(this[x])!='function') {
+			document.write(x+', '+this[x]+', '+typeof(this[x])+'<br/>');
 		}
 	}
-}
+};
 
 // Lets use all the stuff that we defined
 
-var person_child=new Person("jane","jones");
-var person_parent=new Person("james","jones",person_child);
+var person_child=new Person('jane','jones');
+var person_parent=new Person('james','jones',person_child);
 // standard method call
-document.write(person_parent.getName()+"<br>");
+document.write(person_parent.getName()+'<br/>');
 // this works with toString
-document.write(person_parent+"<br>");
+document.write(person_parent+'<br/>');
 // static method call
-document.write(Person.getCounter()+"<br>");
+document.write(Person.getCounter()+'<br/>');
 // call the method from Object
 person_parent.printAllProps();
 // using toString again
-document.write(person_parent.getChild(0)+"<br>");
+document.write(person_parent.getChild(0)+'<br/>');
 </script>

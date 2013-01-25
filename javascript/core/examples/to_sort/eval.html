@@ -1,10 +1,16 @@
-<script>
-// This is a demonstration of eval defining a new function
-// notice that eval happens at run time and so you cannot
-// use the function before the 'eval'.
-//var t=add(5,8);
-var stringfromajax="var add=function(a,b) { return a+b; }"
-eval(stringfromajax);
-document.write(add(5,6)+"<br>");
-document.write(add(8,9)+"<br>");
-</script>
+<html>
+	<head>
+		<script>
+			/*jsl:ignore*/
+			// This is a demonstration of eval defining a new function
+			// notice that eval happens at run time and so you cannot
+			// use the function before the 'eval'.
+			//var t=add(5,8);
+			var stringfromajax='var add=function(a,b) { return a+b; }';
+			var e1=eval(stringfromajax);
+			document.write(add(5,6)+'<br/>');
+			document.write(add(8,9)+'<br/>');
+			/*jsl:end*/
+		</script>
+	</head>
+</html>

@@ -12,15 +12,15 @@ http://getfirebug.com/wiki/index.php/Console_API
 -->
 <script>
 	function foo(n) {
-		sum=0;
+		var sum=0;
 		for(var i=0;i<n;i++) {
 			sum+=i;
 		}
 		return sum;
 	}
 	console.time('timer');
-	for(var i=0;i<100000;i++) {
-		if(i%1000==0) {
+	for(var i2=0;i2<100000;i2++) {
+		if(i2%1000===0) {
 			console.timeStamp();
 			console.markTimeline();
 		}

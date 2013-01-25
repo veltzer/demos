@@ -6,11 +6,11 @@ We are doing it on the actual document object.
 	Mark Veltzer
 -->
 <script>
-	document.write('Hello, World!<br/>')
-	var oldfunc=document.write
+	document.write('Hello, World!<br/>');
+	var oldfunc=document.write;
 	document.write=function() {
 		// no write for you
-	}
+	};
 	document.write('Where did this go ?');
 	// these two do not work because it is a method and must be called from an object context
 	try {

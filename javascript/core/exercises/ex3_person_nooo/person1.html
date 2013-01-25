@@ -1,6 +1,6 @@
 <script>
 var person1={
-	name: "Bilbo",
+	name: 'Bilbo',
 	age: 111,
 	getName: function() {
 		return this.name;
@@ -9,14 +9,14 @@ var person1={
 		this.name=iname;
 	},
 	getFullName: function() {
-		return this.name+" "+this.age;
+		return this.name+' '+this.age;
 	},
 	printSelf: function() {
 		document.write(this.getFullName());
 	}
 };
 var person2={
-	name: "Frodo",
+	name: 'Frodo',
 	age: 33,
 	getName: function() {
 		return this.name;
@@ -25,13 +25,13 @@ var person2={
 		this.name=iname;
 	},
 	getFullName: function() {
-		return this.name+" "+this.age;
+		return this.name+' '+this.age;
 	},
 	printSelf: function() {
 		document.write(this.getFullName());
 	}
 };
 person1.printSelf();
-document.write('<br>');
+document.write('<br/>');
 person2.printSelf();
 </script>

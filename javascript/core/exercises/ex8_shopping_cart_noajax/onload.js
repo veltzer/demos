@@ -1,3 +1,5 @@
+/*jsl:import cart.js*/
+/*jsl:import inventory.js*/
 window.onload=function() {
 	// lets add items to the inventory
 	var i=Inventory.getInstance();
@@ -9,4 +11,4 @@ window.onload=function() {
 	c.setTbid('cart_tbl');
 	c.setTotalid('total_id');
 	i.load('snipplet.json');
-}
+};

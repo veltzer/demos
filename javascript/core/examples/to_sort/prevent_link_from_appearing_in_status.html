@@ -21,21 +21,31 @@ to know where he/she is going.
 				// next line does not work but does not fail for backwards compatibility
 				window.status='hi there';
 				$('#try1').mouseover(function(e) {
+					// for lint
+					console.log(e);
 					return false;
 				});
 				$('#try2').mouseover(function(e) {
 					e.preventDefault();
 				});
 				$('#try3').mouseover(function(e) {
+					// for lint
+					console.log(e);
 					window.status='';
 				});
 				$('#try4').click(function(e) {
+					// for lint
+					console.log(e);
 					e.preventDefault();
 				});
 				$('#try5').click(function(e) {
+					// for lint
+					console.log(e);
 					window.location='http://www.google.com';
 				});
 				$('#try6').click(function(e) {
+					// for lint
+					console.log(e);
 					window.location='mailto:mark.veltzer@gmail.com';
 				});
 			});

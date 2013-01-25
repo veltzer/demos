@@ -6,20 +6,20 @@ function.
 		Mark Veltzer
 -->
 <script>
-	function make_get_set(o,name,initval) {
+	function make_get_set(io,name,initval) {
 		var val=initval;
-		o["get"+name]=function() {
+		io['get'+name]=function() {
 			return val;
-		}
-		o["set"+name]=function(ival) {
+		};
+		io['set'+name]=function(ival) {
 			val=ival;
-		}
+		};
 	}
 	var o={};
-	make_get_set(o,"Name","mark");
-	make_get_set(o,"Id",33454);
+	make_get_set(o,'Name','mark');
+	make_get_set(o,'Id',33454);
 
 	document.write(o.getName()+'<br/>');
-	o.setName("shay");
+	o.setName('shay');
 	document.write(o.getName()+'<br/>');
 </script>

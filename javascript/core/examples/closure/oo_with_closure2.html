@@ -6,24 +6,22 @@ This example shows how to create object oriend with just closures.
 <script>
 	function Person(name,lastname) {
 		return {
-			'getName':function() {
+			getName:function() {
 				return name;
 			},
-			'getLastname':function() {
+			getLastname:function() {
 				return lastname;
 			},
-			'setName':function(newval) {
+			setName:function(newval) {
 				name=newval;
 			},
-			'setLastname':function(newval) {
+			setLastname:function(newval) {
 				lastname=newval;
 			}
 		};
 	}
 	var p=Person('Mark','Veltzer');
-	document.write(p.getName());
-	document.write('<br/>')
+	document.write(p.getName()+'<br/>');
 	p.setName('Doron');
-	document.write(p.getName());
-	document.write('<br/>')
+	document.write(p.getName()+'<br/>');
 </script>

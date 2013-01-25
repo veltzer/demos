@@ -17,9 +17,9 @@ This is a self rewriting solution to the exercise.
 		} else {
 			// this is the real magic - replace the
 			// newalert function.
-			newalert=function(message) {
-				newalert.a.push(message);
-			}
+			newalert=function(msg) {
+				newalert.a.push(msg);
+			};
 			// now store the message or else we would
 			// miss this message.
 			newalert.a=[message];

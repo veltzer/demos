@@ -12,14 +12,14 @@ http://getfirebug.com/wiki/index.php/Console_API
 -->
 <script>
 	function foo(n) {
-		sum=0;
+		var sum=0;
 		for(var i=0;i<n;i++) {
 			sum+=i;
 		}
 		return sum;
 	}
 	console.profile('running it a 100 times');
-	for(var i=0;i<100;i++) {
+	for(var i2=0;i2<100;i2++) {
 		foo(50);
 	}
 	console.profileEnd();

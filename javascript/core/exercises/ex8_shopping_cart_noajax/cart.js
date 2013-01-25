@@ -1,3 +1,4 @@
+/*jsl:import inventory.js*/
 // here comes the cart...
 function Cart() {
 	this.tbid=undefined;
@@ -11,11 +12,11 @@ function Cart() {
 }
 Cart.prototype.setTbid=function(tbid) {
 	this.tbid=tbid;
-}
+};
 Cart.prototype.setTotalid=function(totalid) {
 	this.totalid=totalid;
 	this.updateTotal();
-}
+};
 Cart.prototype.buyItemById=function(id,amount) {
 	var i=Inventory.getInstance();
 	i.verifyEnoughItems(id,amount);
@@ -30,12 +31,12 @@ Cart.prototype.buyItemById=function(id,amount) {
 	this.domAmountMap[id].nodeValue=this.buyMap[id];
 	i.changeStorage(id,-amount);
 	this.updateTotal();
-}
+};
 Cart.prototype.verifyBuyingItem=function(id) {
 	if(!(id in this.buyMap)) {
 		throw 'didnt buy item '+id;
 	}
-}
+};
 Cart.prototype.sellItemById=function(id,amount) {
 	var i=Inventory.getInstance();
 	i.verifyItemInInventory(id);
@@ -46,7 +47,7 @@ Cart.prototype.sellItemById=function(id,amount) {
 	}
 	this.buyMap[id]-=amount;
 	this.domAmountMap[id].nodeValue=this.buyMap[id];
-	if(this.buyMap[id]==0) {
+	if(this.buyMap[id]===0) {
 		this.domRowMap[id].parentNode.removeChild(this.domRowMap[id]);
 		delete this.buyMap[id];
 		delete this.domRowMap[id];
@@ -54,24 +55,24 @@ Cart.prototype.sellItemById=function(id,amount) {
 	}
 	i.changeStorage(id,amount);
 	this.updateTotal();
-}
+};
 Cart.prototype.cartPrice=function() {
 	var i=Inventory.getInstance();
 	var sum=0;
-	for(id in this.buyMap) {
+	for(var id in this.buyMap) {
 		sum+=i.getItemById(id).price*this.buyMap[id];
 	}
 	return sum;
-}
+};
 Cart.prototype.createRow=function(id) {
 	var row=document.createElement('tr');
 	var cell1=document.createElement('td');
 	var cell2=document.createElement('td');
 	var cell3=document.createElement('button');
-	cell3.onclick=(function(id) {
+	cell3.onclick=(function(iid) {
 		return function() {
-			Cart.getInstance().sellItemById(id,1);
-		}
+			Cart.getInstance().sellItemById(iid,1);
+		};
 	})(id);
 	var text1=document.createTextNode(id);
 	var text2=document.createTextNode(this.buyMap[id]);
@@ -86,13 +87,13 @@ Cart.prototype.createRow=function(id) {
 	this.domAmountMap[id]=text2;
 	var table=document.getElementById(this.tbid);
 	table.appendChild(row);
-}
+};
 Cart.prototype.updateTotal=function() {
 	var span=document.getElementById(this.totalid);
 	span.innerHTML=this.cartPrice();
-}
+};
 // singleton pattern
 Cart.instance=new Cart();
 Cart.getInstance=function() {
 	return Cart.instance;
-}
+};

@@ -26,7 +26,7 @@ Another type of hiding: prototype morphing...
 	function make_short_foo(iia,iic,iid,iie,iig) {
 		return function(b,f) {
 			foo(iia,b,iic,iid,iie,f,iig);
-		}
+		};
 	}
 	var my_short_foo=make_short_foo('my_a','my_c','my_d','my_e','my_g');
 	my_short_foo('my_val_for_b','my_val_for_f');

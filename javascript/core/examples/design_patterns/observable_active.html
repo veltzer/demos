@@ -21,7 +21,7 @@
 			var elem=this.listeners[i];
 			elem.notify(data);
 		}
-	}
+	};
 	Person.prototype.addListener=function(l) {
 		// check if I have this listener already...
 		for(var i in this.listeners) {
@@ -32,7 +32,7 @@
 		}
 		// ok, the listener is really new
 		this.listeners.push(l);
-	}
+	};
 	Person.prototype.removeListener=function(l) {
 		// find the listener and remove it
 		for(var i in this.listeners) {
@@ -42,21 +42,21 @@
 				return;
 			}
 		}
-	}
+	};
 	Person.prototype.setName=function(newname) {
 		this.name=newname;
 		this.notifyChanges(newname);
-	}
+	};
 	// here comes the listener
 	function Listener(name) {
 		this.name=name;
 	}
 	Listener.prototype.notify=function(newname) {
 		document.write(this.name+' received event about name change to '+newname+'</br>');
-	}
+	};
 	Listener.prototype.toString=function() {
 		return this.name;
-	}
+	};
 	var p=new Person('mark',435);
 	var l1=new Listener('first listener');
 	var l2=new Listener('second listener');

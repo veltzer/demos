@@ -1,3 +1,4 @@
+/*jsl:import inventory.js*/
 // cart object
 function Cart() {
 	// key: item id, value: amount to buy
@@ -14,12 +15,12 @@ Cart.prototype.buyItemById=function(id,amount) {
 		this.buyMap[id]=amount;
 	}
 	i.changeStorage(id,-amount);
-}
+};
 Cart.prototype.verifyBuyingItem=function(id) {
 	if(!(id in this.buyMap)) {
 		throw 'didnt buy item '+id;
 	}
-}
+};
 Cart.prototype.sellItemById=function(id,amount) {
 	var i=Inventory.getInstance();
 	i.verifyItemInInventory(id);
@@ -30,28 +31,28 @@ Cart.prototype.sellItemById=function(id,amount) {
 	}
 	this.buyMap[id]-=amount;
 	// if we returned the last items...
-	if(this.buyMap[id]==0) {
+	if(this.buyMap[id]===0) {
 		delete this.buyMap[id];
 	}
 	i.changeStorage(id,amount);
-}
+};
 Cart.prototype.cartPrice=function() {
 	var i=Inventory.getInstance();
 	var sum=0;
-	for(id in this.buyMap) {
+	for(var id in this.buyMap) {
 		sum+=i.getItemById(id).price*this.buyMap[id];
 	}
 	return sum;
-}
+};
 Cart.prototype.toString=function() {
-	var string_arr=[]
+	var string_arr=[];
 	for(var id in this.buyMap) {
 		string_arr.push(id+","+this.buyMap[id]);
 	}
 	return string_arr.join('<br/>')+'<br/>';
-}
+};
 // singleton pattern
 Cart.instance=new Cart();
 Cart.getInstance=function() {
 	return Cart.instance;
-}
+};

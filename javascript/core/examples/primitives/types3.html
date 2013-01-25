@@ -1,29 +1,35 @@
 <html>
-	<script>
-		var jjj
-		arr= [
-			"12",
-			1,
-			5.6,
-			-7.8e10,
-			0x34,
-			079,
-			[ 1,2,3 ],
-			{ "mark":"veltzer", "shay":"sarid" },
-			true,
-			false,
-			jjj,
-			null,
-			undefined,
-			window,
-			document,
-			/this is a regexp/,
-			alert
-		]
-		for(var x in arr) {
-			document.write(x+" , "+arr[x]+" , "+typeof(arr[x])+"<br>");
-		}
-	</script>
-	<body>
-	</body>
+	<head>
+		<script>
+			var jjj;
+			var arr=[
+				'12',
+				1,
+				5.6,
+				-7.8e10,
+				0x34,
+				// this creates a compile time error for lints (bad octal)
+				/*jsl:ignore*/
+				//079,
+				072,
+				/*jsl:end*/
+				[ 1,2,3 ],
+				{ mark:'veltzer', shay:'sarid' },
+				true,
+				false,
+				jjj,
+				null,
+				undefined,
+				window,
+				document,
+				/*jsl:ignore*/
+				/this is a regexp/,
+				/*jsl:end*/
+				alert
+			];
+			for(var x in arr) {
+				document.write(x+' , '+arr[x]+' , '+typeof(arr[x])+'<br/>');
+			}
+		</script>
+	</head>
 </html>

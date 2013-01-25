@@ -7,16 +7,16 @@ example all share the same closure since they are returned from a single functio
 <script>
 	function HideValue(init_val,inc_val,dec_val) {
 		return {
-			'inc':function() {
+			inc:function() {
 				init_val+=inc_val;
 			},
-			'dec':function() {
+			dec:function() {
 				init_val-=dec_val;
 			},
-			'get':function() {
+			get:function() {
 				return init_val;
 			}
-		}
+		};
 	}
 	var t=HideValue(5,1,2);
 	document.write(t.get()+'<br/>');

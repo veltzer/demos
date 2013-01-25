@@ -11,22 +11,22 @@ function Person(iname,iage) {
 }
 Person.prototype.getName=function() {
 	return this.name;
-}
+};
 Person.prototype.setName=function(iname) {
 	this.name=iname;
-}
+};
 Person.prototype.getAge=function() {
 	return this.age;
-}
+};
 Person.prototype.setAge=function(iage) {
 	this.age=iage;
-}
+};
 Person.prototype.getFullName=function() {
 	return this.name+" "+this.age;
-}
+};
 Person.prototype.printSelf=function() {
 	document.write(this.getFullName());
-}
+};
 Person.prototype.toString=function() {
 	var s="";
 	for(var key in this) {
@@ -35,22 +35,22 @@ Person.prototype.toString=function() {
 		}
 	}
 	return s;
-}
+};
 // here ends code of person
 
 // here starts code of Employee
 function Employee(iname,iage,isalary) {
-	this.parent_constructor(iname,iage)
-	this.salary=isalary
-}
-Employee.prototype=new Person('dont matter',0)
-Employee.prototype.parent_constructor=Person
-Employee.prototype.getSalary=function() {
-	return this.salary;
-}
-Employee.prototype.setSalary=function(isalary) {
+	this.parent_constructor(iname,iage);
 	this.salary=isalary;
 }
+Employee.prototype=new Person('dont matter',0);
+Employee.prototype.parent_constructor=Person;
+Employee.prototype.getSalary=function() {
+	return this.salary;
+};
+Employee.prototype.setSalary=function(isalary) {
+	this.salary=isalary;
+};
 // override Person.prototype.getName
 Employee.prototype.getName=function() {
 	// next line will give you infinite recursion...
@@ -59,7 +59,7 @@ Employee.prototype.getName=function() {
 	// don't do this at home (UGLY!!!)
 	//this.tmp=Person.prototype.getName
 	//return 'Employee '+this.tmp()
-}
+};
 // here ends code of Employee
 
 // This is the client code

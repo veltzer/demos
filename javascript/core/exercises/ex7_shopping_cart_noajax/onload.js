@@ -1,3 +1,5 @@
+/*jsl:import inventory.js*/
+/*jsl:import cart.js*/
 window.onload=function() {
 	// lets add items to the inventory
 	var i=Inventory.getInstance();
@@ -10,4 +12,4 @@ window.onload=function() {
 	c.buyItemById(15,1);
 	document.write(c);
 	document.write(c.cartPrice());
-}
+};

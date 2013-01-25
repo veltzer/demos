@@ -12,16 +12,16 @@ Person.prototype.name="Bilbo";
 Person.prototype.age=111;
 Person.prototype.getName=function() {
 	return this.name;
-}
+};
 Person.prototype.setName=function(iname) {
 	this.name=iname;
-}
+};
 Person.prototype.getFullName=function() {
 	return this.name+" "+this.age;
-}
+};
 Person.prototype.printSelf=function() {
 	document.write(this.getFullName());
-}
+};
 Person.prototype.toString=function() {
 	var s="";
 	for(var key in this) {
@@ -30,7 +30,7 @@ Person.prototype.toString=function() {
 		}
 	}
 	return s;
-}
+};
 
 // This is the client code
 document.write("number of persons is "+Person.prototype.count+"<br/>");

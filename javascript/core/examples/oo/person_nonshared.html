@@ -1,21 +1,21 @@
 <script>
-var person1={
-	name: "james",
-	age: 27,
-	getName:function() {
-		return this.name;
-	},
-	setName:function(newName) {
-		this.name=newName
-	},
-	getFullDescription:function() {
-		return this.name+" "+this.age;
-	},
+	var person1={
+		name: 'james',
+		age: 27,
+		getName:function() {
+			return this.name;
+		},
+		setName:function(newName) {
+			this.name=newName;
+		},
+		getFullDescription:function() {
+			return this.name+' '+this.age;
+		}
 
-};
-document.write(person1);
-document.write('<br>');
-for(x in person1) {
-	document.write(x+" "+person1[x]+"<br>");
-}
+	};
+	document.write(person1);
+	document.write('<br/>');
+	for(var x in person1) {
+		document.write(x+' '+person1[x]+'<br/>');
+	}
 </script>

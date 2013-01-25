@@ -5,16 +5,16 @@ function Person(iname,iage) {
 }
 Person.prototype.getName=function() {
 	return this.name;
-}
+};
 Person.prototype.setName=function(iname) {
 	this.name=iname;
-}
+};
 Person.prototype.getFullName=function() {
 	return this.name+" "+this.age;
-}
+};
 Person.prototype.printSelf=function() {
 	document.write(this.getFullName());
-}
+};
 Person.prototype.toString=function() {
 	var s="";
 	for(var key in this) {
@@ -23,7 +23,7 @@ Person.prototype.toString=function() {
 		}
 	}
 	return s;
-}
+};
 
 function Employee(iname,iage,isalary) {
 	this.super_Person(iname,iage);
@@ -33,14 +33,14 @@ Employee.prototype=new Person();
 Employee.prototype.super_Person=Person;
 Employee.prototype.getSalary=function() {
 	return this.salary;
-}
+};
 Employee.prototype.setSalary=function(isalary) {
 	this.salary=isalary;
-}
+};
 Employee.prototype.getFullName=function() {
 	this.foo=Person.prototype.getFullName;
 	return this.foo()+" "+this.getSalary();
-}
+};
 
 // This is the client code
 var e=new Employee('Bilbo',111,200);

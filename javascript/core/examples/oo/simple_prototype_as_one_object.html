@@ -13,16 +13,16 @@ which is not set correctly.
 		this.age=age;
 	}
 	Person.prototype={
-		'getName':function() {
+		getName:function() {
 			return this.name;
 		},
-		'setName':function(newname) {
+		setName:function(newname) {
 			this.name=newname;
 		},
-		'toString':function() {
+		toString:function() {
 			return this.name+' '+this.age;
-		},
-	}
+		}
+	};
 
 	var person=new Person('james',27);
 	document.write(person+'<br/>');

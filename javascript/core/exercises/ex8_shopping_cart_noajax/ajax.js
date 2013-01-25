@@ -7,7 +7,7 @@ function jsonGet(url,callback) {
 		if(this.readyState==4 && this.status==200) {
 			callback(JSON.parse(this.response));
 		}
-	}
+	};
 	xhr.open('GET',url,true);
 	xhr.send(null);
 }
