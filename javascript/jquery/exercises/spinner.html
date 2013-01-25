@@ -11,8 +11,10 @@
 		<script src='spinner.js'></script>
 		<script>
 			$(document).ready(function() {
-				new Spinner(5,'#mydiv');
-				new SpinnerChild(7,'#myotherdiv');
+				var w1=new Spinner(5,'#mydiv');
+				var w2=new SpinnerChild(7,'#myotherdiv');
+				// for lint
+				console.log(w1,w2);
 			});
 		</script>
 	</head>

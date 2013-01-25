@@ -11,8 +11,10 @@
 		<script src='button.js'></script>
 		<script>
 			$(document).ready(function() {
-				new Button('text on the button','#mydiv');
-				new Button('text on the other button','#mydiv');
+				var w1=new Button('text on the button','#mydiv');
+				var w2=new Button('text on the other button','#mydiv');
+				// for lint
+				console.log(w1,w2);
 			});
 		</script>
 	</head>

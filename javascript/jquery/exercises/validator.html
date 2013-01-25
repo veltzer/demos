@@ -11,22 +11,24 @@
 		<script src='validator.js'></script>
 		<script>
 			$(document).ready(function() {
-				new Validator(
+				var v1=new Validator(
 					"#mydiv",
 					"name",
 					function(value) {
-						return value.length%2==0;
+						return value.length%2===0;
 					},
 					"this is my error message"
 				);
-				new Validator(
+				var v2=new Validator(
 					"#myotherdiv",
 					"phone",
 					function(value) {
-						return value.length%3==0;
+						return value.length%3===0;
 					},
 					"this is my other error message"
 				);
+				// to keep lint happy
+				console.log(v1,v2);
 			});
 		</script>
 	</head>

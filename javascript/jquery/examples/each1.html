@@ -19,6 +19,8 @@
 			$(document).ready(function() {
 				$('#mybutton').click(function() {
 					$('li').each(function(index,element) {
+						// next line is to avoid warnings about unused variable...
+						console.log(element);
 						// the next line will not work...
 						//this.text(this.text()+' - '+index);
 						$(this).text($(this).text()+' - '+index);

@@ -8,11 +8,10 @@
 		<style>
 			@import "autocomplete.css";
 		</style>
-		<script src='complete.js'></script>
 		<script src='autocomplete.js'></script>
 		<script>
 			$(document).ready(function() {
-				new AutoComplete(
+				var w1=new AutoComplete(
 					"#mydiv",
 					"state",
 					"state",
@@ -23,11 +22,11 @@
 						"arkensas",
 						"washington",
 						"delaware",
-						"illinois",
+						"illinois"
 					],
 					"there is no match"
 				);
-				new AutoComplete(
+				var w2=new AutoComplete(
 					"#mydiv2",
 					"name",
 					"name",
@@ -40,6 +39,8 @@
 					],
 					"there is no match"
 				);
+				// for lint
+				console.log(w1,w2);
 			});
 		</script>
 	</head>
