@@ -19,7 +19,7 @@ Ext.onReady(function(){
 				root: 'views',
 				totalProperty: 'total'
 			},
-		},
+		}
 	});
 	var w_grid=Ext.create('Ext.grid.Panel',{
 		title: 'Movies that I have seen',
@@ -29,7 +29,7 @@ Ext.onReady(function(){
 				text: 'Id',
 				dataIndex: 'id',
 				flex: 1,
-				sortable: true,
+				sortable: true
 			},
 	    		{
 				text: 'Name',
@@ -43,7 +43,7 @@ Ext.onReady(function(){
 			store: w_store,
 	    		dock: 'bottom',
 			displayInfo: true,
-			displayMsg: 'Displaying movies {0} - {1} of {2}',
+			displayMsg: 'Displaying movies {0}-{1} of {2}',
 			emptyMsg: 'No movies to display',
 		}],
 		renderTo: 'movie-grid'
