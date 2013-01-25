@@ -11,10 +11,10 @@ This one saves the old function, if there was one and even calls it.
 				if(init.oldfunc) {
 					init.oldfunc();
 				}
-				alert("The windows was loaded");
+				alert('The windows was loaded');
 			}
 			init.oldfunc=window.onload;
-			window.onload = init;
+			window.onload=init;
 		</script>
 	</head>
 	<body>

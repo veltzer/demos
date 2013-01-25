@@ -9,9 +9,9 @@ This example shows the image in the center of the browser. ALWAYS!!!
 		<script>
 			$(document).ready(function() {
 				var img=new Image();
-				img.src="russo.jpg";
+				img.src='russo.jpg';
 				img.onload=function() {
-					console.log("image is loaded, yessss!");
+					console.log('image is loaded, yessss!');
 					function my_resize() {
 						var w=img.width;
 						var h=img.height;
@@ -19,24 +19,24 @@ This example shows the image in the center of the browser. ALWAYS!!!
 						var wh=$(window).height();
 						var ox=(ww-w)/2;
 						var oy=(wh-h)/2;
-						console.log("data is "
-							+w+","+
-							+h+","+
-							+ww+","+
-							+wh+","+
-							+ox+","+
-							+oy+","
+						console.log('data is '
+							+w+','+
+							+h+','+
+							+ww+','+
+							+wh+','+
+							+ox+','+
+							+oy+','
 						);
 						$(img).offset({left:ox,top:oy});
 						/*
 						$(img).css({
-							"position": "absolute",
-							"clip": "rect(10px, 200px, 200px, 10px)",
+							position: 'absolute',
+							clip: 'rect(10px, 200px, 200px, 10px)',
 						});
 						*/
 					}
 					my_resize();
-					$("body").append(img);
+					$('body').append(img);
 					$(window).resize(function() {
 						my_resize();
 				        });

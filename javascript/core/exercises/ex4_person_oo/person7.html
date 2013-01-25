@@ -16,26 +16,26 @@ Person.prototype.setName=function(iname) {
 	this.name=iname;
 };
 Person.prototype.getFullName=function() {
-	return this.name+" "+this.age;
+	return this.name+' '+this.age;
 };
 Person.prototype.printSelf=function() {
 	document.write(this.getFullName());
 };
 Person.prototype.toString=function() {
-	var s="";
+	var s='';
 	for(var key in this) {
 		if(typeof(this[key])!='function') {
-			s+=key+": "+this[key]+"<br/>";
+			s+=key+': '+this[key]+'<br/>';
 		}
 	}
 	return s;
 };
 
 // This is the client code
-document.write("number of persons is "+Person.getCount()+"<br/>");
+document.write('number of persons is '+Person.getCount()+'<br/>');
 var p1=new Person('Bilbo',111);
 var p2=new Person('Frodo',33);
 document.write(p1+'<br/>'+p2+'<br/>');
-document.write("number of persons is "+Person.getCount()+"<br/>");
-document.write("lets see if we can do this "+p1.count+"<br/>");
+document.write('number of persons is '+Person.getCount()+'<br/>');
+document.write('lets see if we can do this '+p1.count+'<br/>');
 </script>

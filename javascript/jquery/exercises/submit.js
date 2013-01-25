@@ -15,27 +15,27 @@ Submit.prototype.click=function() {
 		var field=this.fields[i];
 		field.animate();
 	}
-	var s="{";
+	var s='{';
 	for(var i2 in this.fields) {
 		var field2=this.fields[i2];
 		//console.log(field.getSubmitName());
 		//console.log(field.getValue());
-		s+=field2.getSubmitName()+":\""+field2.getValue()+"\",";
+		s+=field2.getSubmitName()+':"'+field2.getValue()+'",';
 	}
-	s+="}";
+	s+='}';
 	var data={};
 	data.payload=s;
 	//console.log(s);
 	$.ajax({
-		type:"POST",
-		url:"submit.php",
+		type:'POST',
+		url:'submit.php',
 		dataType:'text',
 		data: data,
 		success:function(mydata,textStatus,XMLHttpRequest) {
-			console.log("success data is ["+mydata+"]",textStatus,XMLHttpRequest);
+			console.log('success data is ['+mydata+']',textStatus,XMLHttpRequest);
 		},
 		error:function(XMLHttpRequest,textStatus,errorThrown) {
-			console.log("error",XMLHttpRequest,textStatus,errorThrown);
+			console.log('error',XMLHttpRequest,textStatus,errorThrown);
 		}
 	});
 };

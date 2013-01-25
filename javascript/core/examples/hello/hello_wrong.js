@@ -6,5 +6,5 @@ This shows that if you call the file.js then most browsers will not render it's 
 -->
 
 <script>
-	alert("Hello, World!");
+	alert('Hello, World!');
 </script>

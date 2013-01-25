@@ -1,13 +1,13 @@
 Building a validator widget using jQuery:
 =========================================
-Your job is to build a "self validating input text box" widget using jQuery.
+Your job is to build a 'self validating input text box' widget using jQuery.
 Clients would use your text field to construct higher level forms.
 A client would use your text field like this:
 
-	var my_textfield=new ValidatingTextField('#mydivid',"name",function(value) {
+	var my_textfield=new ValidatingTextField('#mydivid','name',function(value) {
 			// this function returns true/false according
 			// to whether the value passed to it passes validation
-		}, "error message to be shown in case of error");
+		}, 'error message to be shown in case of error');
 
 Your widget would validate the text *on each keystroke*. If the validating
 function returns false then the error message would be displayed. Otherwise

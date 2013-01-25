@@ -1,9 +1,15 @@
-SOURCES:=$(shell find jquery core -name "*.html")
+FOLDERS:=jquery core extjs
+SOURCES:=$(shell find $(FOLDERS) -name "*.html")
 
 .PHONY: check
 check:
 	@~/install/jsl/jsl --conf=support/jsl.conf --quiet --nologo --nosummary --nofilelisting $(SOURCES)
-	@git grep "<br>" -- examples exercises
+
+.PHONY: grep
+grep:
+	@-git grep "<br>" -- $(FOLDERS)
+	@-git grep "type=\"text/javascript" -- $(FOLDERS)
+	@-git grep "\"" -- $(FOLDERS)
 
 .PHONY: count
 count:

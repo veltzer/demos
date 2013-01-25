@@ -10,8 +10,8 @@ To make it work you have to call 'this.initConfig(config)' (see below...).
 <html>
 	<head>
 		<title>Ext.define config feature</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/ext-all-debug.js'></script>
 		<script>
 			Ext.onReady(function() {
 				Ext.define('Person',{
@@ -22,17 +22,17 @@ To make it work you have to call 'this.initConfig(config)' (see below...).
 						this.initConfig(config);
 					},
 					eat: function(foodType) {
-						console.log(this.name+" is eating a "+foodType);
+						console.log(this.name+' is eating a '+foodType);
 					},
 					applyName: function(newname) {
-						console.log("name is being changed to "+newname);
+						console.log('name is being changed to '+newname);
 						return newname+newname;
 					},
 				});
-				var aaron=new Person({ name: "Aaron" });
-				aaron.eat("Sandwich");
+				var aaron=new Person({ name: 'Aaron' });
+				aaron.eat('Sandwich');
 				console.log(aaron.getName());
-				aaron.setName("Mark");
+				aaron.setName('Mark');
 				console.log(aaron.getName());
 				console.log(Person);
 				console.log(aaron instanceof Person);

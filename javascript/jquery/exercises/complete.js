@@ -32,7 +32,7 @@ function complete(text, list) {
 		}
 	}
 	if(matchlist.length===0) {
-		return "";
+		return '';
 	}
 	var sgcd=matchlist[0];
 	for(var i2 in matchlist) {

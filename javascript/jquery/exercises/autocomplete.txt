@@ -13,11 +13,11 @@ When the user clicks, find a stuitable completion and modify the text
 in the box to fit that completion.
 
 The user will use your widget like this:
-var my_textfield=new AutoCompleteTextField("#mydivid","name",[
-	"alabama",
-	"aidaho",
+var my_textfield=new AutoCompleteTextField('#mydivid','name',[
+	'alabama',
+	'aidaho',
 
-	"washington",
+	'washington',
 ]);
 
 Phase two
@@ -35,7 +35,7 @@ Phase four - nicer UI
 Third implement your widget as a floating div.
 
 The user will use your widget like this:
-var my_textfield=new AutoCompleteTextField("#mydivid","name","complete.php");
+var my_textfield=new AutoCompleteTextField('#mydivid','name','complete.php');
 
 The last parameter is a *server side url* to be used as completion.
 

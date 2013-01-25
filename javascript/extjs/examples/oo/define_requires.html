@@ -14,34 +14,34 @@ a certain package will be automagically loaded.
 <html>
 	<head>
 		<title>Ext.define requires example</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/ext-all-debug.js'></script>
 		<script>
 			Ext.Loader.setConfig({
 				enabled: true
 			});
 			Ext.Loader.setPath('MyPkg','MyAltPkg');
 			Ext.require('MyPkg.Developer',function() {
-				var jacky = new MyPkg.Developer("Jacky", true);
-				jacky.code("JavaScript");
-				var aaron = new MyPkg.Person("aaron");
-				aaron.eat("Sandwich"); // console.log("I'm eating: Sandwich");
+				var jacky=new MyPkg.Developer('Jacky', true);
+				jacky.code('JavaScript');
+				var aaron=new MyPkg.Person('aaron');
+				aaron.eat('Sandwich');
 				// lets see if instanceof works right...
-				console.log("jacky instanceof Object is "+
+				console.log('jacky instanceof Object is '+
 					String(jacky instanceof Object));
-				console.log("jacky instanceof Ext.Base is "+
+				console.log('jacky instanceof Ext.Base is '+
 					String(jacky instanceof Ext.Base));
-				console.log("jacky instanceof MyPkg.Person is "+
+				console.log('jacky instanceof MyPkg.Person is '+
 					String(jacky instanceof MyPkg.Person));
-				console.log("jacky instanceof MyPkg.Developer is "+
+				console.log('jacky instanceof MyPkg.Developer is '+
 					String(jacky instanceof MyPkg.Developer));
-				console.log("aaron instanceof Object is "+
+				console.log('aaron instanceof Object is '+
 					String(aaron instanceof Object));
-				console.log("aaron instanceof Ext.Base is "+
+				console.log('aaron instanceof Ext.Base is '+
 					String(aaron instanceof Ext.Base));
-				console.log("aaron instanceof MyPkg.Person is "+
+				console.log('aaron instanceof MyPkg.Person is '+
 					String(aaron instanceof MyPkg.Person));
-				console.log("aaron instanceof MyPkg.Developer is "+
+				console.log('aaron instanceof MyPkg.Developer is '+
 					String(aaron instanceof MyPkg.Developer));
 			});
 		</script>

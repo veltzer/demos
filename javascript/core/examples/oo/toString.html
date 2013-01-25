@@ -8,8 +8,8 @@
 	<head>
 		<script>
 			Object.prototype.toString=function() {
-				// the next function is similar to an xmlizer but uses "[]" instead of "<>" because
-				// using "<>" would cause the browser to now show the tags...
+				// the next function is similar to an xmlizer but uses '[]' instead of '<>' because
+				// using '<>' would cause the browser to now show the tags...
 				var result='[object]';
 				for(var x in this) {
 					result+='['+x+']'+this[x]+'[/'+x+']';

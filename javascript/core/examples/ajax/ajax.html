@@ -17,7 +17,7 @@ JavaScript APIs.
 				}
 				// IE
 				else if (window.ActiveXObject) {
-					self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+					self.xmlHttpReq = new ActiveXObject('Microsoft.XMLHTTP');
 				}
 				self.xmlHttpReq.open('GET', strURL, true);
 				self.xmlHttpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -29,7 +29,7 @@ JavaScript APIs.
 				self.xmlHttpReq.send(null);
 			}
 			function updatepage(str) {
-				document.getElementById("result").innerHTML = str;
+				document.getElementById('result').innerHTML = str;
 			}
 			function myclick() {
 				xmlhttp('ajax.php');
@@ -37,7 +37,7 @@ JavaScript APIs.
 		</script>
 	</head>
 	<body>
-		<button type="button" onclick='myclick()'>Push me!</button>
-		<div id="result"></div>
+		<button type='button' onclick='myclick()'>Push me!</button>
+		<div id='result'></div>
 	</body>
 </html>

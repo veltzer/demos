@@ -44,7 +44,7 @@
 			};
 
 			//var po=new PostOffice();
-			var p=new Listener("mark",435);
+			var p=new Listener('mark',435);
 			PostOffice.getInstance().subscribe('myeventname',p,'notify');
 			// publish the event (no data for now...)
 			PostOffice.getInstance().publish('myeventname',['this is some data']);

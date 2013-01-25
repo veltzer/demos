@@ -6,21 +6,21 @@ A demo showing the use of Ext.util.History
 <html>
 	<head>
 		<title>Ext.util.History demo</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/ext-all-debug.js'></script>
 		<script>
 			// require the history module
 			Ext.onReady(function() {
 				var current_state=0;
 				var i=current_state;
 				Ext.require(['Ext.util.History'],function() {
-					console.log("after require");
+					console.log('after require');
 					// initialize it
 					Ext.util.History.init();
 					// use the observable pattern
 					Ext.util.History.on('change',function(token) {
 						if(token!=i) {
-							console.log("change in history with token: "+token);
+							console.log('change in history with token: '+token);
 							current_state=token;
 						}
 					});

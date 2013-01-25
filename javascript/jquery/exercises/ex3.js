@@ -1,12 +1,12 @@
 function PaginatedTable(options) {
 	if(typeof(options.id)==='undefined') {
-		throw String("must pass id");
+		throw String('must pass id');
 	}
 	if(typeof(options.dataurl)==='undefined') {
-		throw String("must pass data url");
+		throw String('must pass data url');
 	}
 	if(typeof(options.httpmethod)==='undefined') {
-		throw String("must pass httpmethod");
+		throw String('must pass httpmethod');
 	}
 	// must have features...
 	this.id=options.id;

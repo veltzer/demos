@@ -216,7 +216,7 @@ Ext.define('Ext.ux.GMapPanel', {
                 Ext.MessageBox.alert('Unable to Locate Address', 'Unable to Locate the Address you provided');
             }else{
                 if (accuracy < 7) {
-                    Ext.MessageBox.alert('Address Accuracy', 'The address provided has a low accuracy.<br><br>Level '+accuracy+' Accuracy (8 = Exact Match, 1 = Vague Match)');
+                    Ext.MessageBox.alert('Address Accuracy', 'The address provided has a low accuracy.<br/><br/>Level '+accuracy+' Accuracy (8 = Exact Match, 1 = Vague Match)');
                 }else{
                     point = new GLatLng(place.Point.coordinates[1], place.Point.coordinates[0]);
                     if (typeof this.setCenter.marker === 'object' && typeof point === 'object'){

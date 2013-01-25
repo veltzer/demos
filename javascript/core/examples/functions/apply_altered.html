@@ -28,7 +28,7 @@ passing it all arguments the applying function got, and then some...
 		// to it for instance), so we need to clone it first before trying
 		// to modify it in any way. A good way to clone it is to call
 		// the Array slice method with no arguments. But since arguments
-		// is not a JavaScript array we cannot just do "arguments.slice()"
+		// is not a JavaScript array we cannot just do 'arguments.slice()'
 		// but rather must use the .call of the slice function and pass
 		// the arguments.
 		var more=Array.prototype.slice.call(arguments);

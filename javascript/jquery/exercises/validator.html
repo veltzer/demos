@@ -6,26 +6,26 @@
 	<head>
 		<script src='../../toolkits/jquery.js'></script>
 		<style>
-			@import "validator.css";
+			@import 'validator.css';
 		</style>
 		<script src='validator.js'></script>
 		<script>
 			$(document).ready(function() {
 				var v1=new Validator(
-					"#mydiv",
-					"name",
+					'#mydiv',
+					'name',
 					function(value) {
 						return value.length%2===0;
 					},
-					"this is my error message"
+					'this is my error message'
 				);
 				var v2=new Validator(
-					"#myotherdiv",
-					"phone",
+					'#myotherdiv',
+					'phone',
 					function(value) {
 						return value.length%3===0;
 					},
-					"this is my other error message"
+					'this is my other error message'
 				);
 				// to keep lint happy
 				console.log(v1,v2);

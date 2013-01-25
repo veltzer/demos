@@ -5,7 +5,7 @@ This example shows how to use apply in an object oriented context.
 -->
 <script>
 	var p={
-		name: "default name",
+		name: 'default name',
 		setName:function(iname) {
 			this.name=iname;
 		},
@@ -13,24 +13,24 @@ This example shows how to use apply in an object oriented context.
 			return this.name;
 		}
 	};
-	p.setName("Mark");
+	p.setName('Mark');
 	console.log(p.getName());
 	// this is a method
 	var m=p.setName;
 	try {
-		m("new name");
+		m('new name');
 	} catch(e) {
-		console.log("oh no, got an exception");
+		console.log('oh no, got an exception');
 	}	
 	// lets try to activate the method directly...
 	// this one creates an exception...
 	try {
-		p.m("Andrew");
+		p.m('Andrew');
 	} catch(e) {
-		console.log("oh no, got an exception");
+		console.log('oh no, got an exception');
 	}
 	// nope, that didn't work.
 	// lets try to use apply...
-	m.apply(p,["Andrew"]);
+	m.apply(p,['Andrew']);
 	console.log(p.getName());
 </script>

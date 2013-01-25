@@ -47,7 +47,7 @@ Cart.prototype.cartPrice=function() {
 Cart.prototype.toString=function() {
 	var string_arr=[];
 	for(var id in this.buyMap) {
-		string_arr.push(id+","+this.buyMap[id]);
+		string_arr.push(id+','+this.buyMap[id]);
 	}
 	return string_arr.join('<br/>')+'<br/>';
 };

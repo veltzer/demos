@@ -7,8 +7,8 @@ This example was shamelessly stolen from the Ext.ClassManager documentation.
 <html>
 	<head>
 		<title>Ext.define mixin example</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/ext-all-debug.js'></script>
 		<script>
 			Ext.onReady(function() {
 				Ext.define('Person', {
@@ -16,12 +16,12 @@ This example was shamelessly stolen from the Ext.ClassManager documentation.
 					name: 'Unknown',
 					// A method
 					eat: function(foodType) {
-						console.log(this.name+" is eating a "+foodType);
+						console.log(this.name+' is eating a '+foodType);
 					}
 				});
 				Ext.define('CanPlayGuitar', {
 					playGuitar: function() {
-						console.log("F#...G...D...A");
+						console.log('F#...G...D...A');
 					},
 				});
 				Ext.define('CanComposeSongs', {
@@ -30,7 +30,7 @@ This example was shamelessly stolen from the Ext.ClassManager documentation.
 				});
 				Ext.define('CanSing', {
 					sing: function() {
-						console.log("I'm on the highway to hell...")
+						console.log('I'm on the highway to hell...')
 					},
 				});
 				Ext.define('Musician', {
@@ -48,17 +48,17 @@ This example was shamelessly stolen from the Ext.ClassManager documentation.
 						canSing: 'CanSing'
 					},
 					sing: function() {
-						console.log("Ahem....");
+						console.log('Ahem....');
 						this.mixins.canSing.sing.call(this);
-						console.log("[Playing guitar at the same time...]");
+						console.log('[Playing guitar at the same time...]');
 						this.playGuitar();
 					},
 				});
-				var me = new CoolPerson("Jacky");
-				me.sing(); // console.log("Ahem...");
-				// console.log("I'm on the highway to hell...");
-				// console.log("[Playing guitar at the same time...]");
-				// console.log("F#...G...D...A");
+				var me = new CoolPerson('Jacky');
+				me.sing(); // console.log('Ahem...');
+				// console.log('I'm on the highway to hell...');
+				// console.log('[Playing guitar at the same time...]');
+				// console.log('F#...G...D...A');
 			});
 		</script>
 	</head>

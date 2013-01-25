@@ -1,7 +1,7 @@
 A better alert
 ==============
 Do an example of a debug function which only prints the
-debug message the first 3 times it is called via the "alert"
+debug message the first 3 times it is called via the 'alert'
 function and then stops printing and stores the messages in an array. 
 Use function properties and the call-once design pattern.
 Demostrate the use of your new debug function.
