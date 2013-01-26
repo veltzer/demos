@@ -1,4 +1,4 @@
-FOLDERS_GREP:=jquery core extjs jquery_controls
+FOLDERS_GREP:=jquery core jquery_controls extjs
 FOLDERS_CHECK:=jquery core jquery_controls
 SOURCES_GREP:=$(shell find $(FOLDERS_GREP) -name "*.html" -or -name "*.js")
 SOURCES_CHECK:=$(shell find $(FOLDERS_CHECK) -name "*.html" -or -name "*.js")
