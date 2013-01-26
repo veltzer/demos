@@ -5,7 +5,7 @@ function Cart() {
 	this.totalid=undefined;
 	// key: item id, value: amount to buy
 	this.buyMap={};
-	// key: item id, value: element showing the entire row 
+	// key: item id, value: element showing the entire row
 	this.domRowMap={};
 	// key: item id, value: element showing the amount bought
 	this.domAmountMap={};

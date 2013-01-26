@@ -1,4 +1,4 @@
-var statusMessages = ["Uncached","Idle","Checking","Downloading","Update Ready","Obsolete"]; 
+var statusMessages = ["Uncached","Idle","Checking","Downloading","Update Ready","Obsolete"];
 var needsUploading = false;
 
 var tdEmail;
@@ -27,16 +27,16 @@ function setOnline(online) {
 	if (online) {
 		tdOnline.innerHTML = "Connected to Server";
 //		tdOnline.style = "#00ff00";
-		imgStatusLogo.src = "statusOnline.jpg"; 
+		imgStatusLogo.src = "statusOnline.jpg";
 	} else {
 		tdOnline.innerHTML = "Running in Disconnect Mode";
 //		tdOnline.style = "#ff0000";
-		imgStatusLogo.src = "statusOffline.jpg"; 
+		imgStatusLogo.src = "statusOffline.jpg";
 	}
 	// This will be either statusOnline or fallback to statusOffline depending on status
 }
 
-function getCacheStatusValue(number) { 
+function getCacheStatusValue(number) {
 	return statusMessages[number];
 }
 

@@ -11,7 +11,7 @@ check:
 grep:
 	@-git grep "<br>" -- $(FOLDERS_GREP)
 	@-git grep "type=\"text/javascript" -- $(FOLDERS_GREP)
-	@-git grep "\"" -- $(SOURCES_GREP)
+	@-git grep "\"" -- $(SOURCES_GREP) | grep -v JSON
 	@-git grep "DOCTYPE" -- $(SOURCES_GREP)
 	@-git grep "  " -- $(SOURCES_GREP)
 	@-git grep " + " -- $(SOURCES_GREP)
@@ -19,6 +19,7 @@ grep:
 	@-git grep " - " -- $(SOURCES_GREP)
 	@-git grep " > " -- $(SOURCES_GREP)
 	@-git grep " < " -- $(SOURCES_GREP)
+	@-git grep " $$" -- $(SOURCES_GREP)
 
 .PHONY: count
 count:

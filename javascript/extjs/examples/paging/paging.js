@@ -31,17 +31,17 @@ Ext.onReady(function(){
 				flex: 1,
 				sortable: true
 			},
-	    		{
+			{
 				text: 'Name',
 				dataIndex: 'name',
 				flex: 30,
 				sortable: true
-			},
+			}
 		],
-	    	dockedItems: [{
+		dockedItems: [{
 			xtype: 'pagingtoolbar',
 			store: w_store,
-	    		dock: 'bottom',
+			dock: 'bottom',
 			displayInfo: true,
 			displayMsg: 'Displaying movies {0}-{1} of {2}',
 			emptyMsg: 'No movies to display',

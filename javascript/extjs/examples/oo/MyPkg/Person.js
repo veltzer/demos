@@ -10,6 +10,6 @@ Ext.define('MyPkg.Person', {
 	},
 	// A method
 	eat: function(foodType) {
-		console.log(this.name+' is eating a ' + foodType);
+		console.log(this.name+' is eating a '+foodType);
 	}
 });

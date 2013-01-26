@@ -1,20 +1,22 @@
 /*jsl:import postoffice.js*/
-// here starts the paginated table...
-//
-// TODO:
-// - grey the 'prev' and 'next' buttons according to limits of data.
-// - don't do 'alert' on errors in ajax and instead show the errors in some
-// nice place on the screen or in the console or both.
+/*
+here starts the paginated table...
+
+TODO:
+- grey the 'prev' and 'next' buttons according to limits of data.
+- don't do 'alert' on errors in ajax and instead show the errors in some
+nice place on the screen or in the console or both.
+*/
 function PaginatedTable(options) {
 	/*
 	if('id' in options) {
-		throw String("must pass id");
+		throw String('must pass id');
 	}
 	if('dataurl' in options) {
-		throw String("must pass data url");
+		throw String('must pass data url');
 	}
 	*/
-	this.httpmethod=options.httpmethod || "GET";
+	this.httpmethod=options.httpmethod || 'GET';
 	this.debug_position=options.debug_position || 0;
 	this.position=options.position || 0;
 	this.dataurl=options.dataurl;

@@ -1,4 +1,4 @@
-var store = Ext.create('Ext.data.Store', {
+var store=Ext.create('Ext.data.Store', {
 	autoLoad: true,
 	model: 'User',
 	proxy: {
@@ -28,7 +28,7 @@ thaat the 'User' model was correctly defined...)...
 				{
 					id: 11,
 					total: 13.45,
-					status: 'shipped"
+					status: 'shipped'
 				},
 			]
 		}

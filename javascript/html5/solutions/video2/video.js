@@ -22,14 +22,14 @@ function processSubmit() {
 }
 
 function toggleSound() {
-	if (video.paused) { 
+	if (video.paused) {
 		video.play();
 		btnPressMe.innerHTML = "Pause";
 	} else {
 		video.pause();
 		btnPressMe.innerHTML ="Play";
 	}
-} 
+}
 
 function takeScreenShot() {
 	//context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);

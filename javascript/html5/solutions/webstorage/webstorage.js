@@ -20,7 +20,7 @@ function init() {
 	
 	// Only works with Gears apparently, but doesn't hurt to try
 	if (navigator.geolocation.lastPosition) {
-		updatePosition(navigator.geolocation.lastPosition); 
+		updatePosition(navigator.geolocation.lastPosition);
 	}
 }
 

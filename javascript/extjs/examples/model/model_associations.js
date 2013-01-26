@@ -2,7 +2,7 @@ Ext.define('Post', {
 	extend: 'Ext.data.Model',
 	fields: ['id', 'user_id'],
 	belongsTo: 'User',
-	hasMany  : {model: 'Comment', name: 'comments'}
+	hasMany: {model: 'Comment', name: 'comments'}
 });
 
 Ext.define('Comment', {
@@ -25,7 +25,7 @@ Ext.define('User', {
 	extend: 'Ext.data.Model',
 	fields: ['id'],
 	associations: [
-		{type: 'hasMany', model: 'Post',    name: 'posts'},
+		{type: 'hasMany', model: 'Post', name: 'posts'},
 		{type: 'hasMany', model: 'Comment', name: 'comments'}
 	]
 });

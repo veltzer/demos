@@ -45,7 +45,7 @@ jQuery(document).ready(function() {
 			this.w_label=jQuery('<label>');
 			this.w_label.html(this.options.name);
 			this.w_label.appendTo(this.element);
-			// add the input box 
+			// add the input box
 			this.w_input=jQuery('<input>',attrs);
 			this.w_input.attr('value',this.options.init_text);
 			this.w_input.appendTo(this.element);

@@ -54,14 +54,14 @@ HorVert.prototype.resize=function() {
 	for(var i in this.elems) {
 		var elem=this.elems[i];
 		// if we don't have enough horizontal space...
-		this.debug("elem.el.width is "+elem.el.width());
+		this.debug('elem.el.width is '+elem.el.width());
 		if(runner_x+elem.el.width()>total_width) {
 			// need to go down...
 			runner_x=this.margin;
 			runner_y+=max_vert_size+this.margin;
 			max_vert_size=0;
 		} else {
-			this.debug("putting in "+runner_x+","+runner_y);
+			this.debug('putting in '+runner_x+','+runner_y);
 			elem.el.offset({left:runner_x,top:runner_y});
 			if(max_vert_size<elem.el.height()) {
 				max_vert_size=elem.el.height();

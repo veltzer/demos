@@ -1,6 +1,6 @@
 function PaginatedTable(options) {
 	if(typeof(options.id)==='undefined') {
-		throw String("must pass id");
+		throw String('must pass id');
 	}
 	this.rows=options.rows || 5;
 	this.cols=options.cols || 5;

@@ -42,7 +42,7 @@ function messageHandler(event) {
 	addStatus("Data: " + event.data);
 	if (event.data.message) {
 		addStatus(event.data.message);
-	} 
+	}
 	if (event.data.timestamp) {
 		addStatus("@" + event.data.timestamp);
 	}

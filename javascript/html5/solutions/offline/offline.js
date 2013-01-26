@@ -1,26 +1,26 @@
 function init() {
-	var btnPressMe = document.getElementById("pressMe");
-	var btnStop = document.getElementById("stop");
+	var btnPressMe = document.getElementById('pressMe');
+	var btnStop = document.getElementById('stop');
 	btnPressMe.onclick = processSubmit;
 	btnStop.onclick = stopWatchingLocation;
-	geostatus = document.getElementById("geostatus");
-	map = document.getElementById("map");
-	results = document.getElementById("results");
+	geostatus = document.getElementById('geostatus');
+	map = document.getElementById('map');
+	results = document.getElementById('results');
 	if (window.localStorage) {
 		try {
-			mapData = JSON.parse(window.localStorage.getItem("mapData"));
+			mapData = JSON.parse(window.localStorage.getItem('mapData'));
 		} catch (e) {
 		}
-		if (mapData == "undefined" || mapData == null) {
+		if (mapData == 'undefined' || mapData == null) {
 			mapData = new Array();
-			window.localStorage.setItem("mapData", JSON.stringify(mapData));
+			window.localStorage.setItem('mapData', JSON.stringify(mapData));
 		}
 		displayResultsTable(results);
 	}
 	
 	// Only works with Gears apparently, but doesn't hurt to try
 	if (navigator.geolocation.lastPosition) {
-		updatePosition(navigator.geolocation.lastPosition); 
+		updatePosition(navigator.geolocation.lastPosition);
 	}
 }
 
@@ -37,13 +37,13 @@ var mapData;
 function processSubmit() {
 	/* Enter GeoLocation Code Here */
 	if (!navigator.geolocation) {
-		geostatus.innerHTML = "<span class='error'>Your browser does not support GeoLocation</span>";
+		geostatus.innerHTML = '<span class='error'>Your browser does not support GeoLocation</span>';
 		return false;
 	}
-	geostatus.innerHTML = "GeoLocation Supported... Attempting to find you.";
-	txtLatitude = document.getElementById("latitude");
-	txtLongitude = document.getElementById("longitude");
-	txtAccuracy = document.getElementById("accuracy");
+	geostatus.innerHTML = 'GeoLocation Supported... Attempting to find you.';
+	txtLatitude = document.getElementById('latitude');
+	txtLongitude = document.getElementById('longitude');
+	txtAccuracy = document.getElementById('accuracy');
 	
 	/*
 	navigator.geolocation.getCurrentPosition(updatePosition, errorPosition, optionsPosition);
@@ -54,17 +54,17 @@ function processSubmit() {
 
 function stopWatchingLocation() {
 	navigator.geolocation.clearWatch(watchId);
-	geostatus.innerHTML = "Stoping the GeoLocation Listener";
+	geostatus.innerHTML = 'Stoping the GeoLocation Listener';
 }
 
 function updatePosition(position) {
 	/* Enter Position Update Code here */
-	geostatus.innerHTML = "Position returned";
+	geostatus.innerHTML = 'Position returned';
 	txtLatitude.value  = position.coords.latitude;
 	txtLongitude.value  = position.coords.longitude;
 	txtAccuracy.value  = position.coords.accuracy;
-	map.src = "http://maps.google.com/maps?sll=" + position.coords.latitude + "," + position.coords.longitude;
-	var mapDataLocal = JSON.parse(window.localStorage.getItem("mapData"));
+	map.src = 'http://maps.google.com/maps?sll=' + position.coords.latitude + ',' + position.coords.longitude;
+	var mapDataLocal = JSON.parse(window.localStorage.getItem('mapData'));
 	var mapDataEntry = {
 			timestamp: new Date(),
 			latitude: position.coords.latitude,
@@ -72,7 +72,7 @@ function updatePosition(position) {
 			accuracy: position.coords.accuracy
 		};
 	mapDataLocal.push(mapDataEntry);
-	window.localStorage.setItem("mapData", JSON.stringify(mapDataLocal));
+	window.localStorage.setItem('mapData', JSON.stringify(mapDataLocal));
 	populateResultRow(results.insertRow(1), mapDataEntry);
 }
 
@@ -98,15 +98,15 @@ function populateResultRow(tr, mapDataEntry) {
 
 function errorPosition(error) {
 	/* Enter Position Error Code here */
-	geostatus.innerHTML = "<span class='error'>";
+	geostatus.innerHTML = '<span class='error'>';
 	switch (error.code) {
-		case 0: geostatus.innerHTML += "There was some error - We couldn't find you... "; break;
-		case 1: geostatus.innerHTML += "You need to tell the browser to share your location if you want us to find you... "; break;
-		case 2: geostatus.innerHTML += "We tried, but we couldn't find you... "; break;
-		case 3: geostatus.innerHTML += "It's taking too long to find you... "; break;
+		case 0: geostatus.innerHTML += 'There was some error - We couldn't find you... '; break;
+		case 1: geostatus.innerHTML += 'You need to tell the browser to share your location if you want us to find you... '; break;
+		case 2: geostatus.innerHTML += 'We tried, but we couldn't find you... '; break;
+		case 3: geostatus.innerHTML += 'It's taking too long to find you... '; break;
 	}
 	geostatus.innerHTML += error.message;
-	geostatus.innerHTML += "</span>";
+	geostatus.innerHTML += '</span>';
 }
 
 function optionsPosition() {

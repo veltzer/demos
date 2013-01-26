@@ -20,7 +20,7 @@ Submit.prototype.click=function() {
 		var field2=this.fields[i2];
 		//console.log(field.getSubmitName());
 		//console.log(field.getValue());
-		s+=field2.getSubmitName()+':"'+field2.getValue()+'",';
+		s+=field2.getSubmitName()+':"'+field2.getValue()+'",';//JSON
 	}
 	s+='}';
 	var data={};
