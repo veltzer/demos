@@ -1,8 +1,8 @@
 <!--
 This example shows how to use function.apply in an object oriented context.
-Notice that we need to "disconnect" the method from the object it is operating
+Notice that we need to 'disconnect' the method from the object it is operating
 on in order for this to work.
-We pass the object to be used as "this" as the first argument to .apply.
+We pass the object to be used as 'this' as the first argument to .apply.
 
 	Mark Veltzer
 -->
@@ -12,35 +12,35 @@ We pass the object to be used as "this" as the first argument to .apply.
 	}
 	Person.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	Person.prototype.setName=function(iname) {
 		this.name=iname;
-	}
+	};
 	Person.prototype.toString=function() {
 		return this.name;
-	}
-	var p=new Person("Mark");
-	var p2=new Person("Doron");
+	};
+	var p=new Person('Mark');
+	var p2=new Person('Doron');
 	console.log(p.getName());
 	// this is a method
 	var m=p.setName;
 	// lets try to activate the method directly...
 	// this one creates an exception...
 	try {
-		p.m("Andrew");
+		p.m('Andrew');
 	} catch(e) {
-		console.log("oh no, got an exception");
+		console.log('oh no, got an exception');
 	}
 	// nope, that didn't work.
 	// lets try to use apply...
-	m.apply(p,["Andrew"]);
+	m.apply(p,['Andrew']);
 	console.log(p.getName());
 	// lets try to use call...
-	m.call(p,"Danny");
+	m.call(p,'Danny');
 	console.log(p.getName());
 
 	// now lets try applying the method on another object
 	console.log(p2.getName());
-	m.call(p2,"Ruth");
+	m.call(p2,'Ruth');
 	console.log(p2.getName());
 </script>

@@ -5,10 +5,10 @@ Introduction to the Function.caller attribute.
 -->
 <script>
 	function hello(debug) {
-		if(debug==true) {
+		if(debug===true) {
 			document.write(hello.caller+'</br>');
 			document.write(hello.caller.arguments+'</br>');
-			for(i in hello.caller.arguments) {
+			for(var i in hello.caller.arguments) {
 				document.write(i+': '+hello.caller.arguments[i]+'<br/>');
 			}
 		}

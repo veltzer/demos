@@ -13,11 +13,11 @@ static variable directly. Is this a big disadvantage? Not in JS.
 	Person.count=0;
 	Person.getCount=function() {
 		return Person.count;
-	}
+	};
 	Person.prototype.getName=function() {
 		return this.name;
-	}
-	var person1=new Person("james");
-	var person2=new Person("john");
+	};
+	var person1=new Person('james');
+	var person2=new Person('john');
 	document.write(Person.getCount());
 </script>

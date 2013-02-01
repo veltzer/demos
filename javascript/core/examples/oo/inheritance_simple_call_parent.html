@@ -14,16 +14,16 @@ http://phrogz.net/js/classes/OOPinJS2.html
 	}
 	Person.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	Person.prototype.setName=function(name) {
 		this.name=name;
-	}
+	};
 	Person.prototype.toString=function() {
 		return this.name;
-	}
+	};
 	Person.prototype.oper=function(data) {
 		document.write('parent part done '+this.name+','+data+'<br/>');
-	}
+	};
 	/// here ends the parent ///
 
 	/// here starts the child ///
@@ -35,17 +35,17 @@ http://phrogz.net/js/classes/OOPinJS2.html
 	Employee.prototype.constructor=Employee;
 	Employee.prototype.getSalary=function() {
 		return this.salary;
-	}
+	};
 	Employee.prototype.setSalary=function(salary) {
 		this.salary=salary;
-	}
+	};
 	Employee.prototype.toString=function() {
 		return this.name+' '+this.salary;
-	}
+	};
 	Employee.prototype.oper=function(data) {
 		Person.prototype.oper.call(this,data);
 		document.write('child part done '+this.salary+','+data+'<br/>');
-	}
+	};
 	/// here ends the child ///
 
 	// This is the client code

@@ -7,7 +7,7 @@ as a functional construct
 <script>
 	function iterate(start,step,stop,fn) {
 		for(var i=start;i<stop;i+=step) {
-			fn(i)
+			fn(i);
 		}
 	}
 	iterate(5,2,17,function(i) {
@@ -16,21 +16,25 @@ as a functional construct
 
 	function each(arr,fn) {
 		for(var x in arr) {
-			var curr=arr[x]
-			fn(curr,x)
+			var curr=arr[x];
+			fn(curr,x);
 		}
 	}
-	each([5,6,7],function(elem,pos) { document.write('element is '+elem+'<br/>'); });
+	each([5,6,7],function(elem,pos) {
+		// for lint...
+		console.log(pos);
+		document.write('element is '+elem+'<br/>');
+	});
 
 	function map(arr,fn) {
-		var ret=[]
+		var ret=[];
 		for(var x in arr) {
-			var curr=arr[x]
+			var curr=arr[x];
 			if(fn(curr,x)) {
-				ret.push(curr)
+				ret.push(curr);
 			}
 		}
-		return ret
+		return ret;
 	}
 	document.write(map([1,2,3,4,5,6,7],function(x) { return x%2==1; }));
 </script>

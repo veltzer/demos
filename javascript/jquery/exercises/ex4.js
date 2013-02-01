@@ -1,19 +1,22 @@
-// here starts the paginated table...
-//
-// TODO:
-// - grey the 'prev' and 'next' buttons according to limits of data.
-// - don't do 'alert' on errors in ajax and instead show the errors in some
-// nice place on the screen or in the console or both.
+/*jsl:import postoffice.js*/
+/*
+here starts the paginated table...
+
+TODO:
+- grey the 'prev' and 'next' buttons according to limits of data.
+- don't do 'alert' on errors in ajax and instead show the errors in some
+nice place on the screen or in the console or both.
+*/
 function PaginatedTable(options) {
 	/*
 	if('id' in options) {
-		throw String("must pass id");
+		throw String('must pass id');
 	}
 	if('dataurl' in options) {
-		throw String("must pass data url");
+		throw String('must pass data url');
 	}
 	*/
-	this.httpmethod=options.httpmethod || "GET";
+	this.httpmethod=options.httpmethod || 'GET';
 	this.debug_position=options.debug_position || 0;
 	this.position=options.position || 0;
 	this.dataurl=options.dataurl;
@@ -37,7 +40,7 @@ function PaginatedTable(options) {
 		for(var j=0;j<this.cols;j++) {
 			var td=$('<td>');
 			td.addClass('PaginatedTableCells');
-			if(i%2==0) {
+			if(i%2===0) {
 				td.addClass('PaginatedTableCellsOdd');
 			} else {
 				td.addClass('PaginatedTableCellsEven');
@@ -85,15 +88,17 @@ function PaginatedTable(options) {
 }
 // bring over data via ajax...
 PaginatedTable.prototype.populate=function(data, textStatus, jqXHR) {
+	// for lint...
+	console.log(data,textStatus,jqXHR);
 	for(var i=0;i<this.getRows();i++) {
 		for(var j=0;j<this.getCols();j++) {
 			this.setData(i,j,data.data[i][j]);
 		}
 	}
-}
+};
 PaginatedTable.prototype.error=function(jqXHR, textStatus, errorThrown) {
-	alert('error in ajax request (either server did not respond, url not found, server error or parse error of the return value');
-}
+	alert('error in ajax request (either server did not respond, url not found, server error or parse error of the return value',jqXHR,textStatus,errorThrown);
+};
 PaginatedTable.prototype.fetch=function() {
 	// notice the use of the 'context' property that makes 'this' in the response
 	// function be the PaginatedTable object itself...
@@ -109,19 +114,19 @@ PaginatedTable.prototype.fetch=function() {
 		data: {
 			position: this.position,
 			rows: this.rows,
-			cols: this.cols,
+			cols: this.cols
 		},
 		dataType: 'json',
 		method: this.httpmethod,
 		success: PaginatedTable.prototype.populate,
-		error: PaginatedTable.prototype.error,
+		error: PaginatedTable.prototype.error
 	});
-}
+};
 PaginatedTable.prototype.updatePosition=function() {
 	if(this.debug_position) {
 		this.d.text(this.position);
 	}
-}
+};
 PaginatedTable.prototype.prev=function() {
 	if(this.position>=this.rows) {
 		this.position-=this.rows;
@@ -129,22 +134,22 @@ PaginatedTable.prototype.prev=function() {
 		this.fetch();
 	}
 	PostOffice.getInstance().publish('/doingPrev',[]);
-}
+};
 PaginatedTable.prototype.next=function() {
 	this.position+=this.rows;
 	this.updatePosition();
 	this.fetch();
 	PostOffice.getInstance().publish('/doingNext',[]);
-}
+};
 PaginatedTable.prototype.getData=function(x,y) {
 	return this.data[x][y].text();
-}
+};
 PaginatedTable.prototype.setData=function(x,y,data) {
 	this.data[x][y].text(data);
-}
+};
 PaginatedTable.prototype.getCols=function() {
 	return this.cols;
-}
+};
 PaginatedTable.prototype.getRows=function() {
 	return this.rows;
-}
+};

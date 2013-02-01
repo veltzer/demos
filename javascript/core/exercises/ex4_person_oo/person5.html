@@ -11,28 +11,28 @@ function Person(iname,iage) {
 }
 Person.getName=function() {
 	return this.name;
-}
+};
 Person.setName=function(iname) {
 	this.name=iname;
-}
+};
 Person.getFullName=function() {
-	return this.name+" "+this.age;
-}
+	return this.name+' '+this.age;
+};
 Person.printSelf=function() {
 	document.write(this.getFullName());
-}
+};
 Person.toString=function() {
-	var s="";
+	var s='';
 	for(var key in this) {
 		if(typeof(this[key])!='function') {
-			s+=key+": "+this[key]+"<br/>";
+			s+=key+': '+this[key]+'<br/>';
 		}
 	}
 	return s;
-}
+};
 
 // This is the client code
 var p1=new Person('Bilbo',111);
 var p2=new Person('Frodo',33);
-document.write(p1+'<br>'+p2);
+document.write(p1+'<br/>'+p2);
 </script>

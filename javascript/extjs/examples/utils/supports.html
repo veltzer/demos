@@ -9,13 +9,13 @@ There are many features listed in Ext.supports so we print them all out.
 <html>
 	<head>
 		<title>ExtJs browser detect</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
 				for(x in Ext.supports) {
 					if(typeof(Ext.supports[x])=='boolean') {
-						console.log(x+": "+Ext.supports[x]);
+						console.log(x+': '+Ext.supports[x]);
 					}
 				}
 			});

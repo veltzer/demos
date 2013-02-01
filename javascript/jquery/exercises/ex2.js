@@ -1,6 +1,6 @@
 function PaginatedTable(options) {
 	if(typeof(options.id)==='undefined') {
-		throw String("must pass id");
+		throw String('must pass id');
 	}
 	this.rows=options.rows || 5;
 	this.cols=options.cols || 5;
@@ -13,7 +13,7 @@ function PaginatedTable(options) {
 		this.data[i]=new Array();
 		for(var j=0;j<this.cols;j++) {
 			var td=$('<td>').addClass('PaginatedTableCells');
-			if(i%2==0) {
+			if(i%2===0) {
 				td.addClass('PaginatedTableCellsEven');
 			} else {
 				td.addClass('PaginatedTableCellsOdd');
@@ -44,20 +44,20 @@ function PaginatedTable(options) {
 PaginatedTable.prototype.prev=function() {
 	// STILL TODO
 	console.log('prev');
-}
+};
 PaginatedTable.prototype.next=function() {
 	// STILL TODO
 	console.log('next');
-}
+};
 PaginatedTable.prototype.getData=function(x,y) {
 	return this.data[x][y].text();
-}
+};
 PaginatedTable.prototype.setData=function(x,y,data) {
 	this.data[x][y].text(data);
-}
+};
 PaginatedTable.prototype.getCols=function() {
 	return this.cols;
-}
+};
 PaginatedTable.prototype.getRows=function() {
 	return this.rows;
-}
+};

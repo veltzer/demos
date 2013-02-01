@@ -6,10 +6,10 @@
 	}
 	Person.prototype.setName=function(name) {
 		this.name=name;
-	}
+	};
 	Person.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	// here comes the listener
 	function MakeItListen(classname) {
 		for(var x in classname.prototype) {
@@ -18,7 +18,7 @@
 				var result=tmp(arguments);
 				document.write('something was changed '+arguments[0]+','+x+','+classname+'<br/>');
 				return result;
-			}
+			};
 		}
 	}
 	MakeItListen(Person);

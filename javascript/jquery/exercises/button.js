@@ -8,4 +8,4 @@ function Button(text,id_for_append) {
 Button.prototype.click=function() {
 	// in this parent class we do nothing...
 	// (let the children inherit...)
-}
+};

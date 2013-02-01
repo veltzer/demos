@@ -11,24 +11,24 @@ This example shows that closures can access variable one level AND MORE. all up 
 		}
 		function variance() {
 			function sum() {
-				var sum=0;
+				var mysum=0;
 				for(var i=0;i<stats.length;i++) {
-					sum+=stats[i];
+					mysum+=stats[i];
 				}
-				return sum;
+				return mysum;
 			}
 			function sum_square() {
-				var sum=0;
+				var mysum=0;
 				for(var i=0;i<stats.length;i++) {
-					sum+=stats[i]*stats[i];
+					mysum+=stats[i]*stats[i];
 				}
-				return sum;
+				return mysum;
 			}
 			return (sum_square()-sum())/stats.length;
 		}
 		return {
-			'collect':collect,
-			'variance':variance,
+			collect:collect,
+			variance:variance
 		};
 	}
 	var sc=stats_collector();

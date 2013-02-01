@@ -10,66 +10,66 @@ function exists.
 <script>
 	// this is the wrong way...
 	function wrong_wrapper() {
-		var arr=[]
+		var arr=[];
 		for(var i=0;i<5;i++) {
 			arr.push(function() {
-				document.write(i+'<br/>')
-			})
+				document.write(i+'<br/>');
+			});
 		}
-		return arr
+		return arr;
 	}
 	// this is the wrong way (with objects)...
 	function wrong_wrapper2() {
-		var obj={}
-		var arr=[]
+		var obj={};
+		var arr=[];
 		for(var i=0;i<5;i++) {
-			obj.value=i
+			obj.value=i;
 			arr.push(function() {
-				document.write(obj.value+'<br/>')
-			})
+				document.write(obj.value+'<br/>');
+			});
 		}
-		return arr
+		return arr;
 	}
 	// this is the wrong way...
 	function wrong_wrapper3() {
-		var arr=[]
-		var obj={}
+		var arr=[];
+		var obj={};
 		for(var i=0;i<5;i++) {
 			obj.value=i;
 			arr.push(function(o) {
 				return function() {
-					document.write(o.value+'<br/>')
-				}
-			}(obj))
+					document.write(o.value+'<br/>');
+				};
+			}(obj));
 		}
-		return arr
+		return arr;
 	}
 	// this is the right way...
 	function right_wrapper() {
-		var arr=[]
+		var arr=[];
 		for(var i=0;i<5;i++) {
 			arr.push(function(j) {
 				return function() {
-					document.write(j+'<br/>')
-				}
-			}(i))
+					document.write(j+'<br/>');
+				};
+			}(i));
 		}
-		return arr
+		return arr;
 	}
-	var a1=wrong_wrapper()
-	for(var k=0;k<a1.length;k++) {
-		a1[k]()
+	var a1=wrong_wrapper();
+	for(var k1=0;k1<a1.length;k1++) {
+		a1[k1]();
 	}
-	var a2=wrong_wrapper2()
-	for(var k=0;k<a2.length;k++) {
-		a2[k]()
+	var a2=wrong_wrapper2();
+	for(var k2=0;k2<a2.length;k2++) {
+		a2[k2]();
 	}
-	var a3=wrong_wrapper3()
-	for(var k=0;k<a3.length;k++) {
-		a3[k]()
+	var a3=wrong_wrapper3();
+	for(var k3=0;k3<a3.length;k3++) {
+		a3[k3]();
 	}
-	var a4=right_wrapper()
-	for(var k=0;k<a4.length;k++) {
-		a4[k]()
+	var a4=right_wrapper();
+	for(var k4=0;k4<a4.length;k4++) {
+		a4[k4]();
 	}
 </script>

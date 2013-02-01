@@ -18,14 +18,14 @@
 	}
 	Person.prototype.setName=function(newname) {
 		this.name=newname;
-	}
-	Person.prototype.getName=function(newname) {
+	};
+	Person.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	// end of the Person class
-	var p=new Person("mark","37");
+	var p=new Person('mark','37');
 	document.write(p.getName()+'<br/>');
-	var o={}
+	var o={};
 	o[p]=undefined;
 	// this next loop would produce an error because
 	// the toString is what really gets saved inside

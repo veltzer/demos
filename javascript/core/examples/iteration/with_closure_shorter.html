@@ -1,10 +1,10 @@
 <script>
 	var a=[];
 	for(var i=0;i<100;i++) {
-		a.push((function(i){
+		a.push((function(ii){
 			return function() {
-				console.log(i);
-			}
+				console.log(ii);
+			};
 		})(i));
 	}
 	for(var f in a) {

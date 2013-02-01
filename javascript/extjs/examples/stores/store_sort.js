@@ -1,4 +1,4 @@
-var store = Ext.create('Ext.data.Store', {
+var store=Ext.create('Ext.data.Store', {
 	model: 'User',
 	sorters: [
 		{
@@ -8,6 +8,6 @@ var store = Ext.create('Ext.data.Store', {
 		{
 			property : 'firstName',
 			direction: 'ASC',
-		},
-	],
+		}
+	]
 });

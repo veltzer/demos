@@ -24,7 +24,7 @@ window.FlexPaperViewer = window.$f = function() {
 			expressInstall: "js/expressinstall.swf"
 		},{
 			SwfFile : escape(config.SwfFile),
-			Scale : config.Scale, 
+			Scale : config.Scale,
 			ZoomTransition : config.ZoomTransition,
 			ZoomTime : config.ZoomTime,
 			ZoomInterval : config.ZoomInterval,
@@ -43,7 +43,7 @@ window.FlexPaperViewer = window.$f = function() {
 			NavToolsVisible : config.NavToolsVisible,
 			CursorToolsVisible : config.CursorToolsVisible,
 			SearchToolsVisible : config.SearchToolsVisible,
-			  
+
 			localeChain : config.localeChain
 	});
 };
@@ -51,7 +51,7 @@ window.FlexPaperViewer = window.$f = function() {
 
 
 /**
- * Handles the event of external links getting clicked in the document. 
+ * Handles the event of external links getting clicked in the document.
  *
  * @example onExternalLinkClicked("http://www.google.com")
  *
@@ -121,8 +121,8 @@ function onDocumentPrinted(){
 
 
 
-/** 
- * 
+/**
+ *
  * FlexPaper embedding functionality. Based on FlashEmbed
  *
  */
@@ -131,9 +131,9 @@ function onDocumentPrinted(){
 		
 	var IE = document.all,
 		 URL = 'http://www.adobe.com/go/getflashplayer',
-		 JQUERY = typeof jQuery == 'function', 
+		 JQUERY = typeof jQuery == 'function',
 		 RE = /(\d+)[^\d]+(\d+)[^\d]*(\d*)/,
-		 GLOBAL_OPTS = { 
+		 GLOBAL_OPTS = {
 			// very common opts
 			width: '100%',
 			height: '100%',		
@@ -147,9 +147,9 @@ function onDocumentPrinted(){
 			// flashembed specific options
 			version: [3, 0],
 			onFail: null,
-			expressInstall: null, 
+			expressInstall: null,
 			w3c: false,
-			cachebusting: false  		 		 
+			cachebusting: false
 	};
 	
 	// version 9 bugfix: (http://blog.deconcept.com/2006/07/28/swfobject-143-released/)
@@ -168,13 +168,13 @@ function onDocumentPrinted(){
 					to[key] = from[key];
 				}
 			}
-		} 
+		}
 		return to;
 	}	
 
 	// used by asString method	
 	function map(arr, func) {
-		var newArr = []; 
+		var newArr = [];
 		for (var i in arr) {
 			if (arr.hasOwnProperty(i)) {
 				newArr[i] = func(arr[i]);
@@ -199,7 +199,7 @@ function onDocumentPrinted(){
 			opts = {src: opts};	
 		}
 
-		return new Flash(root, extend(extend({}, GLOBAL_OPTS), opts), conf); 
+		return new Flash(root, extend(extend({}, GLOBAL_OPTS), opts), conf);
 	};	
 	
 	// flashembed "static" API
@@ -211,7 +211,7 @@ function onDocumentPrinted(){
 			var fo, ver;
 			
 			try {
-				ver = navigator.plugins["Shockwave Flash"].description.slice(16); 
+				ver = navigator.plugins["Shockwave Flash"].description.slice(16);
 			} catch(e) {
 				
 				try  {
@@ -221,22 +221,22 @@ function onDocumentPrinted(){
 				} catch(err) {
                 try  {
                     fo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
-                    ver = fo && fo.GetVariable("$version");  
+                    ver = fo && fo.GetVariable("$version");
                 } catch(err2) { } 						
-				} 
+				}
 			}
 			
 			ver = RE.exec(ver);
 			return ver ? [ver[1], ver[3]] : [0, 0];
 		},
 		
-		asString: function(obj) { 
+		asString: function(obj) {
 
 			if (obj === null || obj === undefined) { return null; }
 			var type = typeof obj;
 			if (type == 'object' && obj.push) { type = 'array'; }
 			
-			switch (type){  
+			switch (type){
 				
 				case 'string':
 					obj = obj.replace(new RegExp('(["\\\\])', 'g'), '\\$1');
@@ -248,7 +248,7 @@ function onDocumentPrinted(){
 				case 'array':
 					return '['+ map(obj, function(el) {
 						return f.asString(el);
-					}).join(',') +']'; 
+					}).join(',') +']';
 					
 				case 'function':
 					return '"function()"';
@@ -272,9 +272,9 @@ function onDocumentPrinted(){
 			opts = extend({}, opts);
 			
 			/******* OBJECT tag and it's attributes *******/
-			var html = '<object width="' + opts.width + 
-				'" height="' + opts.height + 
-				'" id="' + opts.id + 
+			var html = '<object width="' + opts.width +
+				'" height="' + opts.height +
+				'" id="' + opts.id +
 				'" name="' + opts.id + '"';
 			
 			if (opts.cachebusting) {
@@ -287,12 +287,12 @@ function onDocumentPrinted(){
 				html += ' classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"';	
 			}
 			
-			html += '>'; 
+			html += '>';
 			
 			/******* nested PARAM tags *******/
 			if (opts.w3c || IE) {
 				html += '<param name="movie" value="' +opts.src+ '" />'; 	
-			} 
+			}
 			
 			// not allowed params
 			opts.width = opts.height = opts.id = opts.w3c = opts.src = null;
@@ -308,9 +308,9 @@ function onDocumentPrinted(){
 			var vars = "";
 			
 			if (conf) {
-				for (var k in conf) { 
+				for (var k in conf) {
 					if (conf[k]) {
-						var val = conf[k]; 
+						var val = conf[k];
 						vars += k +'='+ (/function|object/.test(typeof val) ? f.asString(val) : val) + '&';
 					}
 				}
@@ -329,10 +329,10 @@ function onDocumentPrinted(){
 		
 	});
 	
-	var VERSION = f.getVersion(); 
+	var VERSION = f.getVersion();
 	
-	function Flash(root, opts, conf) {  
-	                                                
+	function Flash(root, opts, conf) {
+
 		// version is ok
 		if (f.isSupported(opts.version)) {
 			root.innerHTML = f.getHTML(opts, conf);
@@ -349,18 +349,18 @@ function onDocumentPrinted(){
 			
 			// fail #2.1 custom content inside container
 			if (!root.innerHTML.replace(/\s/g, '')) {
-				/* root.innerHTML = 
-					"<h2>Flash version " + opts.version + " or greater is required</h2>" + 
-					"<h3>" + 
+				/* root.innerHTML =
+					"<h2>Flash version " + opts.version + " or greater is required</h2>" +
+					"<h3>" +
 						(VERSION[0] > 0 ? "Your version is " + VERSION : "You have no flash plugin installed") +
-					"</h3>" + 
+					"</h3>" +
 					
-					(root.tagName == 'A' ? "<p>Click here to download latest version</p>" : 
+					(root.tagName == 'A' ? "<p>Click here to download latest version</p>" :
 						"<p>Download latest version from <a href='" + URL + "'>here</a></p>");
 				*/
 				var pageHost = ((document.location.protocol == "https:") ? "https://" :	"http://");
 				
-				root.innerHTML = "<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+				root.innerHTML = "<a href='http://www.adobe.com/go/getflashplayer'><img src='"
 										+ pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>";
 											
 				if (root.tagName == 'A') {	
@@ -380,7 +380,7 @@ function onDocumentPrinted(){
 		// http://flowplayer.org/forum/8/18186#post-18593
 		if (IE) {
 			window[opts.id] = document.getElementById(opts.id);
-		} 
+		}
 		
 		// API methods for callback
 		extend(this, {
@@ -396,13 +396,13 @@ function onDocumentPrinted(){
 			
 			getConf: function() {
 				return conf;	
-			}, 
+			},
 			
 			getApi: function() {
 				return root.firstChild;	
 			}
 			
-		}); 
+		});
 	}
 	
 	// setup jquery support
@@ -411,15 +411,15 @@ function onDocumentPrinted(){
 		// tools version number
 		jQuery.tools = jQuery.tools || {version: '1.2.5'};
 		
-		jQuery.tools.flashembed = {  
+		jQuery.tools.flashembed = {
 			conf: GLOBAL_OPTS
 		};	
 		
 		jQuery.fn.flashembed = function(opts, conf) {		
-			return this.each(function() { 
+			return this.each(function() {
 				$(this).data("flashembed", flashembed(this, opts, conf));
 			});
-		}; 
-	} 
+		};
+	}
 	
 })();

@@ -10,16 +10,16 @@ A singleton pattern in javascript
 	}
 	Person.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	Person.prototype.setName=function(newName) {
 		this.name=newName;
-	}
+	};
 	Person.prototype.toString=function() {
 		return this.name+' '+this.age;
-	}
+	};
 	// and now for the singleton pattern...
-	Person.instance=new Person("firstname","lastname")
+	Person.instance=new Person('firstname','lastname');
 	Person.getInstance=function() {
 		return Person.instance;
-	}
+	};
 </script>

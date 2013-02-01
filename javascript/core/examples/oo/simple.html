@@ -19,13 +19,13 @@ http://joost.zeekat.nl/constructors-considered-mildly-confusing.html
 	//Person.prototype={};
 	Person.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	Person.prototype.setName=function(newName) {
 		this.name=newName;
-	}
+	};
 	Person.prototype.toString=function() {
 		return this.name+' '+this.age;
-	}
+	};
 
 	var person=new Person('james',27);
 	document.write(person.toString()+'<br/>');

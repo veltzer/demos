@@ -2,18 +2,18 @@
 	function make_iterator(start,step,stop) {
 		var value=start-step;
 		return {
-			'next':function() {
+			next:function() {
 				value+=step;
 				if(value>stop) {
-					throw 'wow man! too much for me...'
+					throw 'wow man! too much for me...';
 				} else {
 					return value;
 				}
 			},
-			'reset': function() {
+			reset: function() {
 				value=start-step;
-			},
-		}
+			}
+		};
 	}
 	var iter=make_iterator(5,2,17);
 	document.write(iter.next()+'<br/>');

@@ -1,12 +1,10 @@
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-
 <!--
 -->
 <html>
 	<head>
 		<script src='../../toolkits/jquery.js'></script>
 		<style>
-			@import "ex1.css";
+			@import 'ex1.css';
 		</style>
 		<script>
 			function CreateTable(id,rows,cols) {
@@ -18,7 +16,7 @@
 					for(var j=0;j<cols;j++) {
 						var td=$('<td>');
 						td.addClass('PaginatedTableCells');
-						if(i%2==0) {
+						if(i%2===0) {
 							td.addClass('PaginatedTableCellsOdd');
 						} else {
 							td.addClass('PaginatedTableCellsEven');

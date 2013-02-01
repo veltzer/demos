@@ -19,13 +19,13 @@ methods to the object, including your parents methods (!).
 	}
 	Person.getName=function() {
 		return this.name;
-	}
+	};
 	Person.setName=function(newName) {
-		this.name=newName
-	}
+		this.name=newName;
+	};
 	Person.toString=function() {
 		return this.name+' '+this.age;
-	}
+	};
 
 	var person=new Person('james',27);
 	document.write(person.toString()+'<br/>');

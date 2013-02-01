@@ -1,24 +1,23 @@
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-
 <!--
 -->
 <html>
 	<head>
 		<script src='../../toolkits/jquery.js'></script>
 		<style>
-			@import "ex3.css";
+			@import 'ex3.css';
 		</style>
 		<script src='ex3.js'></script>
 		<script>
 			$(document).ready(function() {
+				var tab;
 				$('#mybutton').click(function() {
 					tab=new PaginatedTable({
-						'id':'#mytable',
-						'rows':5,
-						'cols':5,
-						'create_buttons':1,
-						'dataurl':'ex3.php',
-						'httpmethod':'GET',
+						id:'#mytable',
+						rows:5,
+						cols:5,
+						create_buttons:1,
+						dataurl:'ex3.php',
+						httpmethod:'GET'
 					});
 				});
 				$('#myprev').click(function() {
@@ -28,8 +27,8 @@
 					tab.next();
 				});
 				$('#myrandomize').click(function() {
-					for(i=0;i<tab.getRows();i++) {
-						for(j=0;j<tab.getCols();j++) {
+					for(var i=0;i<tab.getRows();i++) {
+						for(var j=0;j<tab.getCols();j++) {
 							tab.setData(i,j,Math.random());
 						}
 					}

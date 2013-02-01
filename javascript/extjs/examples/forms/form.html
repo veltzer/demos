@@ -6,12 +6,12 @@ A validation sample for ExtJs
 <html>
 	<head>
 		<title>ExtJs validation</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
 				Ext.apply(Ext.form.field.VTypes, {
-					IPAddress:  function(v) {
+					IPAddress:function(v) {
 						return /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(v);
 					},
 					IPAddressText: 'Must be a numeric IP address',
@@ -26,26 +26,26 @@ A validation sample for ExtJs
 						xtype: 'textfield',
 						name: 'name',
 						fieldLabel: 'Name',
-						allowBlank: false  // requires a non-empty value
+						allowBlank: false // requires a non-empty value
 					}, {
 						xtype: 'textfield',
 						name: 'email',
 						fieldLabel: 'Email Address',
-						vtype: 'email'  // requires value to be a valid email address format
+						vtype: 'email' // requires value to be a valid email address format
 					}, {
 						xtype: 'textfield',
 						name: 'ip',
 						fieldLabel: 'Your IP Address',
-						vtype: 'IPAddress'  // requires value to be a valid email address format
+						vtype: 'IPAddress' // requires value to be a valid email address format
 					}],
 					//renderTo: 'mypanel'
 				});
-				var states = Ext.create('Ext.data.Store', {
+				var states=Ext.create('Ext.data.Store', {
 					fields: ['abbr', 'name'],
 					data : [
-						{"abbr":"AL", "name":"Alabama"},
-						{"abbr":"AK", "name":"Alaska"},
-						{"abbr":"AZ", "name":"Arizona"}
+						{'abbr':'AL', 'name':'Alabama'},
+						{'abbr':'AK', 'name':'Alaska'},
+						{'abbr':'AZ', 'name':'Arizona'}
 					]
 				});
 				// Create the combo box, attached to the states data store
@@ -69,6 +69,6 @@ A validation sample for ExtJs
 		</script>
 	</head>
 	<body>
-		<div id="mypanel"></div>
+		<div id='mypanel'></div>
 	</body>
 </html>

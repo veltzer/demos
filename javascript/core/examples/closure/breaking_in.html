@@ -7,10 +7,10 @@ THIS EXAMPLE IS NOT COMPLETE
 -->
 <script>
 	function func() {
-		internal=function() {
+		var internal=function() {
 			document.write('i is '+arguments.callee.caller.name+'<br/>');
-		}
-		return internel;
+		};
+		return internal;
 	}
 	var i=5;
 	var reff=func();

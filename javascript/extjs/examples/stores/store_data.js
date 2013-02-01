@@ -2,12 +2,12 @@
 var store_inline=Ext.create('Ext.data.Store', {
 	fields: ['abbr', 'name'],
 	data : [
-		{"abbr":"AL", "name":"Alabama"},
-		{"abbr":"AK", "name":"Alaska"},
-		{"abbr":"AZ", "name":"Arizona"}
+		{'abbr':'AL', 'name':'Alabama'},
+		{'abbr':'AK', 'name':'Alaska'},
+		{'abbr':'AZ', 'name':'Arizona'}
 	]
 });
-// same store with a proxy to fetch the data from the server... 
+// same store with a proxy to fetch the data from the server...
 var w_store=Ext.create('Ext.data.Store',{
 	fields: ['abbr', 'name'],
 	autoLoad: true,
@@ -17,6 +17,6 @@ var w_store=Ext.create('Ext.data.Store',{
 		reader: {
 			type: 'json',
 			root: 'states',
-		},
+		}
 	},
 });

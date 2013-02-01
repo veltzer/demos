@@ -1,14 +1,20 @@
-<script>
-	var obj={ 'name': 'john', 'age': 27 };
-	with(obj) {
-		name='new name';
-		whatisthis='what is this';
-		var tt='uu';
-		obj.newfield='newval';
-	}
-	for(var field in obj) {
-		document.write(field+" is "+obj[field]+"<br>");
-	}
-	document.write(whatisthis+"<br>");
-	document.write(tt+"<br>");
-</script>
+<html>
+	<head>
+		<script>
+			/*jsl:ignore*/
+			var obj={ name: 'john', age: 27 };
+			with(obj) {
+				name='new name';
+				whatisthis='what is this';
+				var tt='uu';
+				obj.newfield='newval';
+			}
+			for(var field in obj) {
+				document.write(field+' is '+obj[field]+'<br/>');
+			}
+			document.write(whatisthis+'<br/>');
+			document.write(tt+'<br/>');
+			/*jsl:end*/
+		</script>
+	</head>
+</html>

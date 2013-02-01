@@ -15,7 +15,7 @@ http://getfirebug.com/wiki/index.php/Console_API
 -->
 <script>
 	console.info('this will not be shown because of the following call to \'console.clear\'');
-	// Damn - next line only works in firefox... (disabled)
+	// Damn: next line only works in firefox... (disabled)
 	try {
 		console.clear();
 	} catch(e) {
@@ -32,16 +32,16 @@ http://getfirebug.com/wiki/index.php/Console_API
 		console.log('i is %d (for now...)',i);
 	}
 	// console.count simply counts how many times it was called for every location
-	for(var i=0;i<10;i++) {
+	for(var i2=0;i2<10;i2++) {
 		console.count('title');
 	}
 	console.count('title');
 	var o={
-		'prop':20,
-		'complex_prop': {
-			'A':2,
-			'B':3,
-		},
-	}
+		prop:20,
+		complex_prop: {
+			A:2,
+			B:3
+		}
+	};
 	console.dir(o);
 </script>

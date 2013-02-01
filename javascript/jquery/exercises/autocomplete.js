@@ -1,3 +1,4 @@
+/*jsl:import complete.js*/
 function AutoComplete(id_for_append,name,submitName,list,errorMsg) {
 	this.id_for_append=id_for_append;
 	this.name=name;
@@ -18,22 +19,21 @@ function AutoComplete(id_for_append,name,submitName,list,errorMsg) {
 		widget.complete();
 	});
 }
-
 AutoComplete.prototype.complete=function() {
 	var val=this.jq_input.val();
 	//console.log('val is '+val);
 	var scomplete=complete(val,this.list);
 	//console.log('scomplete is '+scomplete);
-	if(scomplete=='') {
+	if(scomplete==='') {
 		this.jq_err.show();
 	} else {
 		this.jq_err.hide();
 		this.jq_input.val(scomplete);
 	}
-}
+};
 AutoComplete.prototype.getSubmitName=function() {
 	return this.submitName;
-}
+};
 AutoComplete.prototype.getValue=function() {
 	return this.jq_input.val();
-}
+};

@@ -12,7 +12,7 @@ function init() {
 }
 
 function sendMessage() {
-	if (typeof window.postMessage === "undefined") { 
+	if (typeof window.postMessage === "undefined") {
 		alert("XDM is not supported on this browser!");
 	} else {
 		var msg = new Object();
@@ -25,8 +25,8 @@ function sendMessage() {
 
 function receiveMessage(e) {
 	//alert("in the receiver"+e.origin);
-	if (e.origin == "http://dev1.nextgened.com") { 
-		// The data can probably be trusted 
+	if (e.origin == "http://dev1.nextgened.com") {
+		// The data can probably be trusted
 		// It came from the mainPage
 		serviceMessages = JSON.parse(e.data);
 		addStatus("dev1: " + serviceMessages.message);

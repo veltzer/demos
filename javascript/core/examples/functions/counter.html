@@ -5,11 +5,12 @@ Showing that a function also doubles up as a javascript object...
 -->
 <script>
 	function counter() {
-		return counter.cnt++
+		counter.cnt++;
+		return counter.cnt;
 	}
-	counter.cnt=8
-	document.write(counter()+'<br/>')
-	document.write(counter()+'<br/>')
-	document.write(counter()+'<br/>')
-	document.write(counter()+'<br/>')
+	counter.cnt=8;
+	document.write(counter()+'<br/>');
+	document.write(counter()+'<br/>');
+	document.write(counter()+'<br/>');
+	document.write(counter()+'<br/>');
 </script>

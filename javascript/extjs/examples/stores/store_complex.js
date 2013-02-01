@@ -1,6 +1,6 @@
-var store = Ext.create('Ext.data.Store', {
+var store=Ext.create('Ext.data.Store', {
 	autoLoad: true,
-	model: "User",
+	model: 'User',
 	proxy: {
 		type: 'ajax',
 		url : 'users.json',
@@ -15,20 +15,20 @@ var store = Ext.create('Ext.data.Store', {
 This store will consume data of the following kind (assuming
 thaat the 'User' model was correctly defined...)...
 {
-	"users": [
+	'users': [
 		{
-			"id": 1,
-			"name": "Ed",
-			"orders": [
+			'id': 1,
+			'name': 'Ed',
+			'orders': [
 				{
-					"id": 10,
-					"total": 10.76,
-					"status": "invoiced"
+					id: 10,
+					total: 10.76,
+					status: 'invoiced'
 				},
 				{
-					"id": 11,
-					"total": 13.45,
-					"status": "shipped"
+					id: 11,
+					total: 13.45,
+					status: 'shipped'
 				},
 			]
 		}

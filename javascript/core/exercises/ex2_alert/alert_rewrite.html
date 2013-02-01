@@ -21,13 +21,13 @@ correctly substituting the native 'alert' call with our own version.
 			// not to lose the reference to the original alert because of the
 			// function rewriting itself...
 			var tmp=newalert.origalert;
-			newalert=function(message) {
-				newalert.a.push(message);
-			}
+			newalert=function(msg) {
+				newalert.a.push(msg);
+			};
 			// lets rewrite the real alert too...
 			alert=newalert;
 			// lets save the original alert (we are not really using it in this exercise).
-			newalert.origalert=tmp
+			newalert.origalert=tmp;
 			// there a two options:
 			newalert.a=[message];
 			// or

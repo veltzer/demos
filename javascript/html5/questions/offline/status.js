@@ -1,11 +1,11 @@
-var statusMessages = ["Uncached","Idle","Checking","Downloading","Update Ready","Obsolete"]; 
+var statusMessages = ['Uncached','Idle','Checking','Downloading','Update Ready','Obsolete'];
 var needsUploading = false;
 
 function init() {
-	tdEmail = document.getElementById("tdEmail");
-	tdOnline = document.getElementById("tdOnline");
-	tdCache = document.getElementById("tdCache");
-	tdNeedsUploading = document.getElementById("tdNeedsUploading");
+	tdEmail = document.getElementById('tdEmail');
+	tdOnline = document.getElementById('tdOnline');
+	tdCache = document.getElementById('tdCache');
+	tdNeedsUploading = document.getElementById('tdNeedsUploading');
 }
 
 function setEmailAddress(email) {
@@ -14,15 +14,15 @@ function setEmailAddress(email) {
 
 function setOnline(online) {
 	if (online) {
-		tdOnline.innerHTML = "Connected to Server";
-		tdOnline.style = "#00ff00";
+		tdOnline.innerHTML = 'Connected to Server';
+		tdOnline.style = '#00ff00';
 	} else {
-		tdOnline.innerHTML = "Running in Disconnect Mode";
-		tdOnline.style = "#ff0000";
+		tdOnline.innerHTML = 'Running in Disconnect Mode';
+		tdOnline.style = '#ff0000';
 	}
 }
 
-function getCacheStatusValue(number) { 
+function getCacheStatusValue(number) {
 	return statusMessages[number];
 }
 
@@ -40,11 +40,11 @@ function getCacheStatus() {
 
 function setNeedsUploading(needs) {
 	if (needs) {
-		tdNeedsUploading.innerHTML = "Data needs to be uploaded";
-		tdNeedsUploading.style = "#ff0000";
+		tdNeedsUploading.innerHTML = 'Data needs to be uploaded';
+		tdNeedsUploading.style = '#ff0000';
 	} else {
-		tdNeedsUploading.innerHTML = "Data is flushed";
-		tdNeedsUploading.style = "#00ff00";
+		tdNeedsUploading.innerHTML = 'Data is flushed';
+		tdNeedsUploading.style = '#00ff00';
 	}
 }
 

@@ -6,7 +6,7 @@
 	to the 'c' character.
 
 	For instance:
-	split("fooibarizoo","i")=['foo','bar','zoo']
+	split('fooibarizoo','i')=['foo','bar','zoo']
 
 2) statistics exercise.
 	Receive an array of numbers.

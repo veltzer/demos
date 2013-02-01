@@ -1,12 +1,12 @@
 function PaginatedTable(options) {
 	if(typeof(options.id)==='undefined') {
-		throw String("must pass id");
+		throw String('must pass id');
 	}
 	if(typeof(options.dataurl)==='undefined') {
-		throw String("must pass data url");
+		throw String('must pass data url');
 	}
 	if(typeof(options.httpmethod)==='undefined') {
-		throw String("must pass httpmethod");
+		throw String('must pass httpmethod');
 	}
 	// must have features...
 	this.id=options.id;
@@ -27,7 +27,7 @@ function PaginatedTable(options) {
 		this.data[i]=new Array();
 		for(var j=0;j<this.cols;j++) {
 			var td=$('<td>').addClass('PaginatedTableCells');
-			if(i%2==0) {
+			if(i%2===0) {
 				td.addClass('PaginatedTableCellsEven');
 			} else {
 				td.addClass('PaginatedTableCellsOdd');
@@ -64,15 +64,17 @@ function PaginatedTable(options) {
 }
 // bring over data via ajax...
 PaginatedTable.prototype.populate=function(data, textStatus, jqXHR) {
+	// for lint
+	console.log(data,textStatus,jqXHR);
 	for(var i=0;i<this.getRows();i++) {
 		for(var j=0;j<this.getCols();j++) {
 			this.setData(i,j,data.data[i][j]);
 		}
 	}
-}
+};
 PaginatedTable.prototype.error=function(jqXHR, textStatus, errorThrown) {
-	alert('error in ajax request (either server did not respond, url not found, server error or parse error of the return value');
-}
+	alert('error in ajax request (either server did not respond, url not found, server error or parse error of the return value',jqXHR,textStatus,errorThrown);
+};
 PaginatedTable.prototype.fetch=function() {
 	// notice the use of the 'context' property that makes 'this' in the response
 	// function be the PaginatedTable object itself...
@@ -87,40 +89,40 @@ PaginatedTable.prototype.fetch=function() {
 		data: {
 			position: this.position,
 			rows: this.rows,
-			cols: this.cols,
+			cols: this.cols
 		},
 		dataType: 'json',
 		method: this.httpmethod,
 		success: PaginatedTable.prototype.populate,
-		error: PaginatedTable.prototype.error,
+		error: PaginatedTable.prototype.error
 	});
-}
+};
 PaginatedTable.prototype.updatePosition=function() {
 	if(this.debug_position) {
 		this.d.text(this.position);
 	}
-}
+};
 PaginatedTable.prototype.prev=function() {
 	if(this.position>=this.rows) {
 		this.position-=this.rows;
 		this.updatePosition();
 		this.fetch();
 	}
-}
+};
 PaginatedTable.prototype.next=function() {
 	this.position+=this.rows;
 	this.updatePosition();
 	this.fetch();
-}
+};
 PaginatedTable.prototype.getData=function(x,y) {
 	return this.data[x][y].text();
-}
+};
 PaginatedTable.prototype.setData=function(x,y,data) {
 	this.data[x][y].text(data);
-}
+};
 PaginatedTable.prototype.getCols=function() {
 	return this.cols;
-}
+};
 PaginatedTable.prototype.getRows=function() {
 	return this.rows;
-}
+};

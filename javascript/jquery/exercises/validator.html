@@ -1,32 +1,32 @@
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-
 <!--
 -->
 <html>
 	<head>
 		<script src='../../toolkits/jquery.js'></script>
 		<style>
-			@import "validator.css";
+			@import 'validator.css';
 		</style>
 		<script src='validator.js'></script>
 		<script>
 			$(document).ready(function() {
-				new Validator(
-					"#mydiv",
-					"name",
+				var v1=new Validator(
+					'#mydiv',
+					'name',
 					function(value) {
-						return value.length%2==0;
+						return value.length%2===0;
 					},
-					"this is my error message"
+					'this is my error message'
 				);
-				new Validator(
-					"#myotherdiv",
-					"phone",
+				var v2=new Validator(
+					'#myotherdiv',
+					'phone',
 					function(value) {
-						return value.length%3==0;
+						return value.length%3===0;
 					},
-					"this is my other error message"
+					'this is my other error message'
 				);
+				// to keep lint happy
+				console.log(v1,v2);
 			});
 		</script>
 	</head>

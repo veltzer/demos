@@ -18,8 +18,8 @@ function gcd(t1,t2) {
 			return ret;
 		}
 	}
-	var ret=t1.substring(0,len);
-	return ret;
+	var ret2=t1.substring(0,len);
+	return ret2;
 }
 function complete(text, list) {
 	// lets build a match list...
@@ -31,13 +31,13 @@ function complete(text, list) {
 			matchlist.push(val);
 		}
 	}
-	if(matchlist.length==0) {
-		return "";
+	if(matchlist.length===0) {
+		return '';
 	}
 	var sgcd=matchlist[0];
-	for(var i in matchlist) {
-		var val=matchlist[i];
-		sgcd=gcd(val,sgcd);
+	for(var i2 in matchlist) {
+		var val2=matchlist[i2];
+		sgcd=gcd(val2,sgcd);
 	}
 	return sgcd;
 }

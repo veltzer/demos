@@ -16,20 +16,19 @@ function Spinner(initialValue,id_for_append) {
 	});
 	this.updateValue();
 }
-
 Spinner.prototype.updateValue=function() {
 	this.jq_text.val(this.currentVal);
-}
+};
 // this method is called when the increase is clicked.
 Spinner.prototype.onIncrease=function() {
 	this.currentVal+=1;
 	this.updateValue();
-}
+};
 // this method is called when the decrease is clicked.
 Spinner.prototype.onDecrease=function() {
 	this.currentVal-=1;
 	this.updateValue();
-}
+};
 
 ////////////////////////////////////////
 // Here starts the SpinnerChild class //
@@ -44,9 +43,9 @@ SpinnerChild.prototype=new Spinner(5,'#blabla');
 SpinnerChild.prototype.onIncrease=function() {
 	this.currentVal+=1;
 	Spinner.prototype.onIncrease.apply(this);
-}
+};
 // this method is called when the decrease is clicked.
 SpinnerChild.prototype.onDecrease=function() {
 	this.currentVal-=1;
 	Spinner.prototype.onDecrease.apply(this);
-}
+};

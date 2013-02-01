@@ -4,29 +4,33 @@ An example of auto complete...
 	Mark Veltzer
 -->
 <script>
-function min(a,b) {
-	if(a<b) {
-		return a;
-	} else {
-		return b;
-	}
-}
-function gcd(t1,t2) {
-	var len=min(t1.length,t2.length);
-	for(var i=0;i<len;i++) {
-		if(substr(t1,0,i)!=substr(t2,0,i)) {
-			return substr(t1,0,i-1);
+	function min(a,b) {
+		if(a<b) {
+			return a;
+		} else {
+			return b;
 		}
 	}
-	return substr(t1,0,len);
-}
-function complete(text, list) {
-	var match=text;
-	var mlen=text.length;
-	for(var i in list) {
-		var val=list[i];
-		if(substr(val,0,mlen)==text) {
+	function gcd(t1,t2) {
+		var len=min(t1.length,t2.length);
+		for(var i=0;i<len;i++) {
+			if(substr(t1,0,i)!=substr(t2,0,i)) {
+				return substr(t1,0,i-1);
+			}
 		}
+		return substr(t1,0,len);
 	}
-}
+	function complete(text, list) {
+		// for lint...
+		console.log(text,list);
+		/*
+		var match=text;
+		var mlen=text.length;
+		for(var i in list) {
+			var val=list[i];
+			if(substr(val,0,mlen)==text) {
+			}
+		}
+		*/
+	}
 </script>

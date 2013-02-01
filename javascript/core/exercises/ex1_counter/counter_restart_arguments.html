@@ -4,22 +4,23 @@
 		return function() {
 			if(arguments.length>0) {
 				value=start-step;
+				return undefined;
 			} else {
 				value+=step;
 				if(value>stop) {
-					throw 'wow man! too much for me...'
+					throw 'wow man! too much for me...';
 				} else {
 					return value;
 				}
 			}
-		}
+		};
 	}
 	var iter=make_iterator(5,2,17);
 	document.write(iter()+'<br/>');
 	document.write(iter()+'<br/>');
 	document.write(iter()+'<br/>');
 	document.write(iter()+'<br/>');
-	iter(null)
+	iter(null);
 	document.write(iter()+'<br/>');
 	document.write(iter()+'<br/>');
 	document.write(iter()+'<br/>');

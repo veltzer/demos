@@ -16,7 +16,7 @@ function init() {
 }
 
 function sendMessage() {
-	if (typeof window.postMessage === "undefined") { 
+	if (typeof window.postMessage === "undefined") {
 		alert("XDM is not supported on this browser!");
 	} else {
 		//alert('sending message');
@@ -30,8 +30,8 @@ function sendMessage() {
 
 
 function receiveMessage(e) {
-	if (e.origin == "http://dev2.nextgened.com") { 
-		// The data can probably be trusted 
+	if (e.origin == "http://dev2.nextgened.com") {
+		// The data can probably be trusted
 		// It came from the inner frame as an acknowledgement
 //		A JSON.parse with a type reviver:
 //		serviceMessages = JSON.parse(e.data, function (key, value) {
@@ -46,7 +46,7 @@ function receiveMessage(e) {
 //		});
 		serviceMessages = JSON.parse(e.data);
 		addMessage("dev2: " + serviceMessages.message);
-	} 
+	}
 }
 
 function setStatus(status) {

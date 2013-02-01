@@ -23,7 +23,6 @@ function Validator(id_for_append,name,submitName,validator,errorMsg) {
 	});
 	this.validate();
 }
-
 Validator.prototype.validate=function() {
 	var result=this.validator(this.jq_input.val());
 	if(result!=this.state) {
@@ -35,29 +34,29 @@ Validator.prototype.validate=function() {
 		this.state=result;
 		this.notifyChanges(result);
 	}
-}
+};
 Validator.prototype.addListener=function(l) {
 	this.listeners.push(l);
-}
+};
 Validator.prototype.notifyChanges=function(data) {
 	for(var i in this.listeners) {
 		var elem=this.listeners[i];
 		elem.notify(data);
 	}
-}
+};
 Validator.prototype.getSubmitName=function() {
 	return this.submitName;
-}
+};
 Validator.prototype.getValue=function() {
 	return this.jq_input.val();
-}
+};
 Validator.prototype.animate=function() {
 	this.div.css({
-		'position':'absolute',
-		//'left': this.div.(),
+		position:'absolute'
+		//'left': this.div.()
 	});
 	this.div.animate(
-		{ "left":"+=1000px" },
-		"slow"
+		{ left:'+=1000px' },
+		'slow'
 	);
-}
+};

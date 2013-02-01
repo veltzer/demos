@@ -1,0 +1,54 @@
+<!--
+A basic local hello world example for ExtJs
+local means that the extjs code itself comes from the local server.
+
+Note:
+- the require is not needed since we get 'ext-all-debug.js' which brings
+all the widgets with it.
+- notice we write in the code in the 'head' section of the HTML file.
+	That is recommended.
+- we also demo Ext.onReady and Ext.MessageBox.
+- you can choose between different versions of ext-all (see below).
+- Notice that the box that you get is not a real window and rather drawn on the
+main screen. This is to circumvent any browser limitations about pop up boxes.
+- notice that we do not need to Ext.require('Ext.MessageBox') because
+Ext.MessageBox is supplied by the 'ext-all.js' file.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<title>Hello, Local</title>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<!--
+			This one is mine and is immune from lint errors
+		-->
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
+		<!--
+		This one is for standard development. Allows you to drill down in debuggers
+		into the ExtJs code and seeing it like a human being and not compressed the way
+		production usually is...
+		-->
+		<!--
+		<script src='../../../toolkits/extjs/ext-all-debug.js'></script>
+		-->
+		<!--
+		For production (much smaller):
+		<script src='../../../toolkits/extjs/ext-all.js'></script>
+		For debugging but without comments:
+		<script src='../../../toolkits/extjs/ext-all-debug-w-comments.js'></script>
+		For joining the ExtJs developers (like debug but with joining the ExtJs namespace):
+		This is the biggest file
+		<script src='../../../toolkits/extjs/ext-all-dev.js.js'></script>
+		-->
+		<script>
+			Ext.onReady(function() {
+				Ext.MessageBox.alert('Status', 'ExtJs is loaded', function() {
+					console.log('button was clicked');
+				});
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

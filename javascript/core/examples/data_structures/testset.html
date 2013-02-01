@@ -1,30 +1,34 @@
-<script>
-function importScript(url,func){
-	var tag = document.createElement("script");
-	tag.type="text/javascript";
-	tag.src = url;
-	document.documentElement.appendChild(tag);
-	tag.onload=func;
-}
-importScript("set.js",function() {
-	var s = new Set("a","b","c");
-	document.write(s+'</br/>');
-	s.add("foo");
-	document.write(s+'<br/>');
-	s.add(10);
-	document.write(s+'<br/>');
-	 
-	document.write(("foo" in s.items)+'<br/>');
-	document.write((10 in s.items)+'<br/>');
-	document.write(("bar" in s.items)+'<br/>');
-	s.remove("foo");
-	document.write(s+'<br/>');
-	document.write(("foo" in s.items)+'<br/>');
+<html>
+	<head>
+		<script>
+			function importScript(url,func){
+				var tag=document.createElement('script');
+				tag.type='text/javascript';
+				tag.src=url;
+				document.documentElement.appendChild(tag);
+				tag.onload=func;
+			}
+			importScript('set.js',function() {
+				var s=new Set('a','b','c');
+				document.write(s+'</br/>');
+				s.add('foo');
+				document.write(s+'<br/>');
+				s.add(10);
+				document.write(s+'<br/>');
 
-	var a=[];
-	for(var item in s.items) {
-		a.push(item);
-	}
-	document.write(a.join(','));
-});
-</script>
+				document.write(('foo' in s.items)+'<br/>');
+				document.write((10 in s.items)+'<br/>');
+				document.write(('bar' in s.items)+'<br/>');
+				s.remove('foo');
+				document.write(s+'<br/>');
+				document.write(('foo' in s.items)+'<br/>');
+
+				var a=[];
+				for(var item in s.items) {
+					a.push(item);
+				}
+				document.write(a.join(','));
+			});
+		</script>
+	</head>
+</html>

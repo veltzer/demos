@@ -21,9 +21,9 @@ This is a solution to the iteration problem similar to the jQuery $.each solutio
 		}
 	}
 	// now lets use them...
-	a=['hello','world'];
+	var a=['hello','world'];
 	foreach(a,function(i,e) {
-		console.log(e);
+		console.log(i,e);
 	});
 	forthis(a,function() {
 		console.log(this.toString());

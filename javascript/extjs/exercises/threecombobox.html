@@ -1,8 +1,8 @@
 <html>
 	<head>
 		<title>Solution to the three combo exercise</title>
-		<link rel="stylesheet" href="../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
 				Ext.define('User', {
@@ -31,8 +31,8 @@
 					extend: 'Ext.container.Container',
 						initComponent: function() {
 							this.callParent(arguments);
-							this.prevButton = this.items.items[0];
-							this.nextButton = this.items.items[4];
+							this.prevButton=this.items.items[0];
+							this.nextButton=this.items.items[4];
 							this.store.load({scope:this, callback: this.dataLoaded});
 						},
 					layout: {
@@ -48,7 +48,7 @@
 						} else {
 							this.prevButton.setDisabled(false);
 						}
-						if (this.boxIndex >= this.store.getTotalCount() - 2) {
+						if (this.boxIndex >= this.store.getTotalCount()-2) {
 							this.nextButton.setDisabled(true);
 						} else {
 							this.nextButton.setDisabled(false);
@@ -56,9 +56,9 @@
 					},
 					buttonClicked: function(moveForward) {
 						if (moveForward) {
-							this.boxIndex = this.boxIndex + 3;
+							this.boxIndex=this.boxIndex+3;
 						} else {
-							this.boxIndex = this.boxIndex - 3;
+							this.boxIndex=this.boxIndex-3;
 						}
 						this.disableButtonCheck();
 						this.getDataForSelection(moveForward);
@@ -66,28 +66,28 @@
 					getDataForSelection: function(moveForward) {
 						var range;
 						if (moveForward) {
-							range = this.store.nextPage({scope:this, callback: this.dataLoaded});
+							range=this.store.nextPage({scope:this, callback: this.dataLoaded});
 						} else {
-							range = this.store.previousPage({scope:this, callback: this.dataLoaded});
+							range=this.store.previousPage({scope:this, callback: this.dataLoaded});
 						}
 					},
 					dataLoaded: function() {
-						var range = this.store.getRange(this.boxIndex - 1, this.boxIndex + 1);
+						var range=this.store.getRange(this.boxIndex-1, this.boxIndex+1);
 						if (range) {
-							if (range.length > 0) {
+							if (range.length>0) {
 								this.getComponent('field1').setValue(range[0]['data']['name']);
 							} else {
-								this.getComponent('field1').setValue("");
+								this.getComponent('field1').setValue('');
 							}
-							if (range.length > 1) {
+							if (range.length>1) {
 								this.getComponent('field2').setValue(range[1]['data']['name']);
 							} else {
-								this.getComponent('field2').setValue("");
+								this.getComponent('field2').setValue('');
 							}
-							if (range.length > 2) {
+							if (range.length>2) {
 								this.getComponent('field3').setValue(range[2]['data']['name']);
 							} else {
-								this.getComponent('field3').setValue("");
+								this.getComponent('field3').setValue('');
 							}
 						}
 					},
@@ -99,11 +99,11 @@
 							disabled: true,
 							handler: function() {
 								this.ownerCt.buttonClicked(false);
-								// this.up('MyContainer').boxIndex=this.up('MyContainer').boxIndex - 3;
-								// this.boxIndex = this.boxIndex - 3;
+								// this.up('MyContainer').boxIndex=this.up('MyContainer').boxIndex-3;
+								// this.boxIndex=this.boxIndex-3;
 								// this.disableButtonCheck();
 								// this.getDataForSelection();
-								// console.log("box index: " + this.boxIndex);
+								// console.log('box index: '+this.boxIndex);
 							},
 						},
 						{
@@ -137,7 +137,7 @@
 			Ext.getCmp('viewWindow').add(comboBox1);
 			//Ext.getCmp('viewWindow').add(comboBox2);
 			//click event gets passed to container
-			//which then publicizes a "select" high level custom event
+			//which then publicizes a 'select' high level custom event
 			// show how to get those events...
 		});
 		</script>

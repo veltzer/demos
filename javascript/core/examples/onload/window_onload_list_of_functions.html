@@ -7,23 +7,23 @@ functions
 <html>
 	<head>
 		<script>
-			init={
+			var init={
 				init:function() {
 					for(var i=0;i<init.list.length;i++) {
 						if(init.list[i]) {
 							init.list[i]();
 						}
-}
+					}
 				},
 				list:[window.onload],
 				addonload: function(func) {
 					init.list[init.list.length]=func;
-				},
+				}
 			};
-			window.onload = init.init;
+			window.onload=init.init;
 		</script>
 		<script>
-			init.addonload(function() { alert("yo") });
+			init.addonload(function() { alert('yo'); });
 		</script>
 	</head>
 	<body>

@@ -2,9 +2,9 @@
 var states=Ext.create('Ext.data.Store', {
 	fields: ['abbr', 'name'],
 	data : [
-		{"abbr":"AL", "name":"Alabama"},
-		{"abbr":"AK", "name":"Alaska"},
-		{"abbr":"AZ", "name":"Arizona"}
+		{'abbr':'AL', 'name':'Alabama'},
+		{'abbr':'AK', 'name':'Alaska'},
+		{'abbr':'AZ', 'name':'Arizona'}
 	]
 });
 // this is a model (defined seperately...)

@@ -12,24 +12,24 @@ then we would really have to use the require part.
 <html>
 	<head>
 		<title>Multiple widgets demo</title>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			function create_widgets() {
 				Ext.create('Ext.Button', {
 					text: 'Click me',
-					renderTo: Ext.getBody(),
+					renderTo: Ext.getBody()
 				});
 				Ext.create('Ext.Button', {
 					text: 'Click me',
-					renderTo: Ext.getBody(),
+					renderTo: Ext.getBody()
 				});
 				Ext.create('Ext.form.field.Text', {
-					fieldLabel:'Name',  
-					name:'txt-name',  
+					fieldLabel:'Name',
+					name:'txt-name',
 					emptyText:'Your name...',
 					id:'id-name',
-					renderTo: Ext.getBody(),
+					renderTo: Ext.getBody()
 				});
 			}
 			Ext.onReady(function() {

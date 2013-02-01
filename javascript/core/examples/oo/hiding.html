@@ -15,13 +15,13 @@ This example shows the concept of hiding...
 	}
 	Person.prototype.getName=function() {
 		return this.name;
-	}
+	};
 	Person.prototype.setName=function(newName) {
-		this.name=newName
-	}
+		this.name=newName;
+	};
 	Person.prototype.toString=function() {
 		return this.name+' '+this.lastname;
-	}
+	};
 
 	var p1=new Person('James','Bond');
 	var p2=new Person('Mark','Veltzer');
@@ -29,7 +29,7 @@ This example shows the concept of hiding...
 	document.write(p2.toString()+'<br/>');
 	p1.toString=function() {
 		return this.lastname+', '+this.name+' '+this.lastname;
-	}
+	};
 	document.write(p1.toString()+'<br/>');
 	document.write(p2.toString()+'<br/>');
 </script>

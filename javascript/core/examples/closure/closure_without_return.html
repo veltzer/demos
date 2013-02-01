@@ -10,10 +10,10 @@ functions to some global variable.
 	function make_adder(x) {
 		adders[x]=function(y) {
 			return y+x;
-		}
+		};
 	}
-	make_adder(5)
-	make_adder(13)
+	make_adder(5);
+	make_adder(13);
 	document.write(adders[5](7)+'<br/>');
 	document.write(adders[5](9)+'<br/>');
 	document.write(adders[13](11)+'<br/>');

@@ -5,17 +5,17 @@ Example of using closures to hide data in a function to be used as a callback
 		Mark Veltzer
 -->
 <script>
-	var ar=[]
+	var ar=[];
 	for(var i=0;i<100;i++) {
-		var myfunction=function(x) {
+		var myfunction=function(ix) {
 			return function() {
-				document.write(x+'<br/>');
-			}
+				document.write(ix+'<br/>');
+			};
 		}(i);
 		ar.push(myfunction);
 	}
 	// third party code (you don't control this)
-	for(x in ar) {
+	for(var x in ar) {
 		// functions called with no parameters
 		ar[x]();
 	}

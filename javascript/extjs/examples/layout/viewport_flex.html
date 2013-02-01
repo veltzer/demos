@@ -2,15 +2,15 @@
 -->
 <html>
 	<head>
-		<text>Ext.Viewport sample</text>
-		<link rel="stylesheet" href="../../../toolkits/extjs/resources/css/ext-all.css"/>
-		<script src="../../../toolkits/extjs/ext-all-debug.js"></script>
+		<title>Ext.Viewport sample</title>
+		<link rel='stylesheet' href='../../../toolkits/extjs/resources/css/ext-all.css'/>
+		<script src='../../../toolkits/extjs/myext-all.js'></script>
 		<script>
 			Ext.onReady(function() {
 				Ext.create('Ext.container.Viewport', {
 					layout: {
 						type: 'vbox',
-						align: 'stretch',
+						align: 'stretch'
 					},
 					items: [
 					{
@@ -18,19 +18,19 @@
 						flex: 1,
 						layout: {
 							type: 'hbox',
-							align: 'stretch',
+							align: 'stretch'
 						},
 						items: [
 							{
 								xtype: 'button',
 								flex: 1,
-								text: 'b1',
+								text: 'b1'
 							},
 							{
 								xtype: 'button',
 								flex: 2,
-								text: 'b2',
-							},
+								text: 'b2'
+							}
 						],
 					},
 					{
