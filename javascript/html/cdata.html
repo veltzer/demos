@@ -1,23 +1,18 @@
 <!--
-This is an example of cdata in an html document
+This is an example of cdata in an html document.
 As you can see from viewing this page in a web browser, the CDATA
 section is not shown.
-As you can also see textarea tags are verbatim in the output.
+If you want to verbatim quote complicated strings you should have
+a look at the 'textarea' examples...
 
 	Mark Veltzer
 -->
 <html>
 	<body>
+		<div>this is before text</div>
 		<div>
-			<!CDATA[this is some text]]>
+			<!CDATA[this is some text with some stuff in it]]>
 		</div>
-		<div>
-			this is some text
-		</div>
-		<div>
-			<textarea>
-				this is some text <h1>foobar</h1>
-			</textarea>
-		</div>
+		<div>this is after text</div>
 	</body>
 </html>

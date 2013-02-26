@@ -1,17 +1,25 @@
 <!--
 This example demostrates that the fact that we set the visibility of the outer div to
 invisibly does NOT effect the inner div...
+Note however, that the outer div does take place on the screen, it's just that it's
+content is not shown...
 
 		Mark Veltzer
 -->
 <html>
 	<body>
-		<h1>this is some text</h1>
+		<h1>this is before text</h1>
 		<div style="visibility: hidden;">
-			This is the outer div
+			This is the outer div<br/>
+			This is the outer div<br/>
+			This is the outer div<br/>
+			This is the outer div<br/>
+			This is the outer div<br/>
+			This is the outer div<br/>
 			<div style="visibility: visible;">
 				This is the inner div
 			</div>
 		</div>
+		<h1>this is after text</h1>
 	</body>
 </html>
