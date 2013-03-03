@@ -1,0 +1,10 @@
+1. Write the Sorter interface.
+2. Write the Item class.
+3. Write 2 comparators: by name and by price.
+4. Write the implementation of the Sorter: SorterImpl.
+5. Configure *** everything *** from beans.xml:
+	The 2 comparators
+	The list of items
+	The sorter.
+6. Write Main to generate the bean, call the sort method
+	and print the result.

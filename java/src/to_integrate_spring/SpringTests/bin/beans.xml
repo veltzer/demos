@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<bean id="log" class="spring.Log4jFactoryBean">
+		<property name="logName" value="appLog"></property>
+	</bean>
+
+	<bean class="spring.LogInjectingBeanPostProcessor">
+		<property name="log" ref="log"/>
+	</bean>
+	
+	<bean id="myBean" class="spring.MyBean" >
+		<property name="x" value="${importantNumber}" />
+		<property name="d" ref="x2" />
+		<property name="stuff">
+			<list>
+				<value>first</value>
+				<ref bean="second" />
+				<bean class="java.lang.String">
+					<constructor-arg>
+						<value>third</value>
+					</constructor-arg>
+				</bean>
+			</list>
+		</property>
+		<property name="c" value="java.util.Date"></property>
+	</bean>
+	
+	<context:property-placeholder location="config.properties"/>
+	
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="config.properties"/>
+	</bean>
+	
+	<bean id="month" class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+		<property name="targetBeanName" value="myBean"></property>
+		<property name="propertyPath" value="d.month"></property>
+	</bean>
+
+	<bean id="second" class="java.lang.String">
+		<constructor-arg>
+			<value>second</value>
+		</constructor-arg>
+	</bean>
+	<bean id="x2" class="java.util.Date" scope="prototype" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<bean id="rnfb" class="spring.RandomNumberFactoryBean" />
+
+
+	<bean id="mifb"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="x2" />
+		<property name="targetMethod" value="getYear" />
+	</bean>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<context:annotation-config/>
+
+
+
+
+
+	<bean id="myBean2" class="spring.MyBean" p:x="4" p:d-ref="x2">
+	</bean>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<bean id="factoryBean" class="spring.TestFactoryBean" />
+
+	<util:property-path id="x1" path="x2.month" />
+
+
+
+
+
+
+		<aop:aspectj-autoproxy proxy-target-class="true"/>
+		<bean id="usageTrackingAspect" class="spring.aop.UsageTrackingAspect"/>
+
+	<!-- 
+		<bean id="loggingAspect" class="spring.aop.LoggingAspect"/>
+		<bean id="exceptionAspect" class="spring.aop.ExceptionAspect"/>
+		
+		<bean id="aspectInstantiationTest" class="spring.aop.AspectInstansiationTest" scope="prototype"/>
+	-->
+
+</beans>
+
+
+
+
+
+
+
+

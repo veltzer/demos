@@ -1,0 +1,7 @@
+1. Create new eclipse project.
+2. Add spring.jar spring-core.jar log4j.jar to your project.
+3. Create a java bean to be used.
+4. Create a main class that creates a spring bean factory.
+5. Use your bean from the main class.
+6. Configure your beans via a new file that you create: beans.xml.
+7. Run the application and enjoy!!!

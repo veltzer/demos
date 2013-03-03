@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+		"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="benchmark" class="benchmark.BenchmarkInterceptor" />
+	<bean id="summable" class="introducers.SummableMixin" singleton="false" />
+
+	<bean id="ListHolder" abstract="true" class="domain.ListHolderImpl"
+		init-method="init">
+		<property name="numOfElements">
+			<value>1000000</value>
+		</property>
+	</bean>
+	<bean id="ListHolderArray" parent="ListHolder">
+		<property name="list">
+			<bean class="java.util.ArrayList" />
+		</property>
+	</bean>
+	<bean id="ListHolderLinkedList" parent="ListHolder">
+		<property name="list">
+			<bean class="java.util.LinkedList" />
+		</property>
+	</bean>
+
+	<bean id="authoproxier"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>ListHolder*</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>summable</value>
+				<value>benchmark</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/dist/spring-src.zip"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/dist/spring.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/dist/spring-aspects.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/dist/spring-mock.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/lib/jakarta-commons/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/lib/cglib/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/lib/aspectj/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/lib/aspectj/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/lib/asm/asm-util-2.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/lib/asm/asm-2.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Java/spring-framework-2.0.6/lib/asm/asm-commons-2.2.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
