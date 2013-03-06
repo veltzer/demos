@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/dist/spring-sources.jar"/>
+	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/dist/spring.jar" sourcepath="C:/work/bin/spring-framework-2.5.5/dist/spring-sources.jar"/>
+	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/cglib/cglib-nodep-2.1_3.jar" sourcepath="C:/work/src/cglib-src-2.1_3.jar"/>
+	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/aspectj/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/aspectj/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/jakarta-commons/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/log4j/log4j-1.2.15.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
