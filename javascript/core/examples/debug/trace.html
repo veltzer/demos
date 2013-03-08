@@ -1,27 +1,31 @@
 <!--
-This example shows how to use the console.trace() function
-This function dumps a stack trace for you.
-That is the reason that this example uses recursion to show that off.
-The function does not print any messages it gets and simply disregards
+	This example shows how to use the console.trace() function
+	This function dumps a stack trace for you.
+	That is the reason that this example uses recursion to show that off.
+	The function does not print any messages it gets and simply disregards
 	them. If you want that kind of behaviour, implement it yourself...
 
-References:
-The console API from firebug:
-http://getfirebug.com/wiki/index.php/Console_API
+	References:
+	The console API from firebug:
+	http://getfirebug.com/wiki/index.php/Console_API
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	// a recursive function so that we could have a nice stack trace...
-	function fact(n) {
-		if(n==3) {
-			console.trace('this is a message','another message');
-		}
-		if(n==1) {
-			return 1;
-		} else {
-			return n*fact(n-1);
-		}
-	}
-	fact(10);
-</script>
+<html>
+	<head>
+		<script>
+			// a recursive function so that we could have a nice stack trace...
+			function fact(n) {
+				if(n==3) {
+					console.trace('this is a message','another message');
+				}
+				if(n==1) {
+					return 1;
+				} else {
+					return n*fact(n-1);
+				}
+			}
+			fact(10);
+		</script>
+	</head>
+</html>

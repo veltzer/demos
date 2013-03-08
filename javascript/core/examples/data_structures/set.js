@@ -1,10 +1,10 @@
 /*
-This is an example of a set implemented in javascript
+	This is an example of a set implemented in javascript
 
-References:
-http://www.javascriptexamples.org/2011/01/17/how-to-implement-a-set-in-javascript/
+	References:
+	http://www.javascriptexamples.org/2011/01/17/how-to-implement-a-set-in-javascript/
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 */
 var Set=function() {
 	this.items={};
