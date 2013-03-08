@@ -1,21 +1,25 @@
 <!--
-This is an example of closure used to save state between invocations of a function.
-This is akin to Object Oriented programming.
+	This is an example of closure used to save state between invocations of a function.
+	This is akin to Object Oriented programming.
 
-		Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function make_counter() {
-		var val=-1;
-		return function() {
-			val++;
-			return val;
-		};
-	}
-	var counter1=make_counter();
-	var counter2=make_counter();
-	document.write(counter1()+'<br/>');
-	document.write(counter1()+'<br/>');
-	document.write(counter2()+'<br/>');
-	document.write(counter2()+'<br/>');
-</script>
+<html>
+	<head>
+		<script>
+			function make_counter() {
+				var val=-1;
+				return function() {
+					val++;
+					return val;
+				};
+			}
+			var counter1=make_counter();
+			var counter2=make_counter();
+			document.write(counter1()+'<br/>');
+			document.write(counter1()+'<br/>');
+			document.write(counter2()+'<br/>');
+			document.write(counter2()+'<br/>');
+		</script>
+	</head>
+</html>

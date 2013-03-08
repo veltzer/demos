@@ -1,17 +1,21 @@
 <!--
-This example shows that closures can access variable one level AND MORE. all up to the global scope.
+	This example shows that closures can access variable one level AND MORE. all up to the global scope.
 
-THIS EXAMPLE IS NOT COMPLETE
+	THIS EXAMPLE IS NOT COMPLETE
 
-		Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function func() {
-		var internal=function() {
-			document.write('i is '+arguments.callee.caller.name+'<br/>');
-		};
-		return internal;
-	}
-	var i=5;
-	var reff=func();
-</script>
+<html>
+	<head>
+		<script>
+			function func() {
+				var internal=function() {
+					document.write('i is '+arguments.callee.caller.name+'<br/>');
+				};
+				return internal;
+			}
+			var i=5;
+			var reff=func();
+		</script>
+	</head>
+</html>

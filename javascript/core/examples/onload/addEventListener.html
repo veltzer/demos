@@ -1,0 +1,16 @@
+<!--
+	This is a simple demo of registering a load function using
+	'window.addEventListener' which is better than using 'window.onload'.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			function init() {
+				console.log('in init()');
+			}
+			window.addEventListener('load',init);
+		</script>
+	</head>
+</html>

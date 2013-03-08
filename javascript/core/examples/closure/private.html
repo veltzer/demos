@@ -1,44 +1,48 @@
 <!--
-This example shows that closures can be used to create true private fields in JS
-that can only be accessed using accessor functions that could, for example, perform
-all kinds of validations on the value.
-Since the private value is stored in the closure, and since there is no formal
-way to access the closure then these are real private variales.
-This example also uses a shared closure.
+	This example shows that closures can be used to create true private fields in JS
+	that can only be accessed using accessor functions that could, for example, perform
+	all kinds of validations on the value.
+	Since the private value is stored in the closure, and since there is no formal
+	way to access the closure then these are real private variales.
+	This example also uses a shared closure.
 
-			Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function createSomeProtectedVal(val) {
-		var get=function() {
-			return val;
-		};
-		var set=function(newval) {
-			// only allow odd values...
-			if(newval%2!=1) {
-				throw 'can only assign odd values';
+<html>
+	<head>
+		<script>
+			function createSomeProtectedVal(val) {
+				var get=function() {
+					return val;
+				};
+				var set=function(newval) {
+					// only allow odd values...
+					if(newval%2!=1) {
+						throw 'can only assign odd values';
+					}
+					val=newval;
+				};
+				// do initial validation
+				set(val);
+				return {
+					get:get,
+					set:set
+				};
 			}
-			val=newval;
-		};
-		// do initial validation
-		set(val);
-		return {
-			get:get,
-			set:set
-		};
-	}
-	var my_object=createSomeProtectedVal(5);
-	document.write(my_object.get()+'<br/>');
-	my_object.set(7);
-	document.write(my_object.get()+'<br/>');
-	try {
-		my_object.set(8);
-	} catch(e) {
-		document.write('yes, I got an exception<br/>');
-	}
-	try {
-		var my_object_2=createSomeProtectedVal(4);
-	} catch(e) {
-		document.write('yes, I got an exception<br/>');
-	}
-</script>
+			var my_object=createSomeProtectedVal(5);
+			document.write(my_object.get()+'<br/>');
+			my_object.set(7);
+			document.write(my_object.get()+'<br/>');
+			try {
+				my_object.set(8);
+			} catch(e) {
+				document.write('yes, I got an exception<br/>');
+			}
+			try {
+				var my_object_2=createSomeProtectedVal(4);
+			} catch(e) {
+				document.write('yes, I got an exception<br/>');
+			}
+		</script>
+	</head>
+</html>

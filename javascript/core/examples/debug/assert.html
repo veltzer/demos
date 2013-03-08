@@ -1,26 +1,30 @@
 <!--
-This example shows how to use the console.assert API
-Notes:
-- you can add as many messages as you like to the assert failure.
-- you do get a stack trace when the assertion fails (this you could do at any point
-	using 'console.trace').
-- in contrast to what the documentation about this API says, this function DOES NOT throw
-	an exception and execution continues after it.
+	This example shows how to use the console.assert API
+	Notes:
+	- you can add as many messages as you like to the assert failure.
+	- you do get a stack trace when the assertion fails (this you could do at any point
+		using 'console.trace').
+	- in contrast to what the documentation about this API says, this function DOES NOT throw
+		an exception and execution continues after it.
 
-References:
-The console API from firebug:
-http://getfirebug.com/wiki/index.php/Console_API
+	References:
+	The console API from firebug:
+	http://getfirebug.com/wiki/index.php/Console_API
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function bar() {
-		// a failed assertion
-		console.assert(2==1,'2 is not 1','another msg','as many messages as you like');
-		console.log('this should not be reached but unfortunately it does get reached, opposed to what the console API states');
-	}
-	function foo() {
-		bar();
-	}
-	foo();
-</script>
+<html>
+	<head>
+		<script>
+			function bar() {
+				// a failed assertion
+				console.assert(2==1,'2 is not 1','another msg','as many messages as you like');
+				console.log('this should not be reached but unfortunately it does get reached, opposed to what the console API states');
+			}
+			function foo() {
+				bar();
+			}
+			foo();
+		</script>
+	</head>
+</html>

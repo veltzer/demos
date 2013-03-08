@@ -1,12 +1,16 @@
 <!--
-This examples explores how to redirect the console function to the console.
+	This examples explores how to redirect the console function to the console.
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	alert('This one is still a regular \'alert\'');
-	alert=function(m) {
-		console.log(m);
-	};
-	alert('where did this go?!? -> to the console of course...');
-</script>
+<html>
+	<head>
+		<script>
+			alert('This one is still a regular \'alert\'');
+			alert=function(m) {
+				console.log(m);
+			};
+			alert('where did this go?!? -> to the console of course...');
+		</script>
+	</head>
+</html>

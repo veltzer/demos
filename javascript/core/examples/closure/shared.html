@@ -1,27 +1,31 @@
 <!--
-This example demonstrates a shared closure. The three functions returned in the next
-example all share the same closure since they are returned from a single function.
+	This example demonstrates a shared closure. The three functions returned in the next
+	example all share the same closure since they are returned from a single function.
 
-		Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function HideValue(init_val,inc_val,dec_val) {
-		return {
-			inc:function() {
-				init_val+=inc_val;
-			},
-			dec:function() {
-				init_val-=dec_val;
-			},
-			get:function() {
-				return init_val;
+<html>
+	<head>
+		<script>
+			function HideValue(init_val,inc_val,dec_val) {
+				return {
+					inc:function() {
+						init_val+=inc_val;
+					},
+					dec:function() {
+						init_val-=dec_val;
+					},
+					get:function() {
+						return init_val;
+					}
+				};
 			}
-		};
-	}
-	var t=HideValue(5,1,2);
-	document.write(t.get()+'<br/>');
-	t.inc();
-	document.write(t.get()+'<br/>');
-	t.dec();
-	document.write(t.get()+'<br/>');
-</script>
+			var t=HideValue(5,1,2);
+			document.write(t.get()+'<br/>');
+			t.inc();
+			document.write(t.get()+'<br/>');
+			t.dec();
+			document.write(t.get()+'<br/>');
+		</script>
+	</head>
+</html>

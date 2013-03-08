@@ -1,20 +1,24 @@
 <!--
-This demo shows the closure feature. The 5 and 13
-is stored within the closure object which is one object per activation of the 'make_adder'
-function.
+	This demo shows the closure feature. The 5 and 13
+	is stored within the closure object which is one object per activation of the 'make_adder'
+	function.
 
-		Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function make_adder(x) {
-		return function(y) {
-			return y+x;
-		};
-	}
-	var func5=make_adder(5);
-	var func13=make_adder(13);
-	document.write(func5(7)+'<br/>');
-	document.write(func5(9)+'<br/>');
-	document.write(func13(11)+'<br/>');
-	document.write(func13(102)+'<br/>');
-</script>
+<html>
+	<head>
+		<script>
+			function make_adder(x) {
+				return function(y) {
+					return y+x;
+				};
+			}
+			var func5=make_adder(5);
+			var func13=make_adder(13);
+			document.write(func5(7)+'<br/>');
+			document.write(func5(9)+'<br/>');
+			document.write(func13(11)+'<br/>');
+			document.write(func13(102)+'<br/>');
+		</script>
+	</head>
+</html>

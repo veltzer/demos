@@ -1,0 +1,41 @@
+<!--
+	This is an example of making the browser "keep" the user
+	on the page when you want him to.
+
+	Why is this so ugly?
+	- firefox before 4 could show what ever string you returned from the function
+	bound to the 'onbeforeunload' event. Firefox 4 and onward refuses this.
+	- that what this hack is for.
+	- I haven't tested this on other (chrome, chromium, IE, opera) browsers...
+
+	Resources:
+	http://stackoverflow.com/questions/5398772/firefox-4-onbeforeunload-custom-message
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			window.onbeforeunload=function() {
+				if(/Firefox[\/\s](\d+)/.test(navigator.userAgent) && new Number(RegExp.$1) >= 4) {
+					if(confirm("Are you Sure do you want to leave this wonderful demo?")) {
+						history.go();
+					} else {
+						window.setTimeout(function() {
+							window.stop();
+						}, 1);
+					}
+				} else {
+					return "Are you Sure do you want to leave this wonderful demo?";
+				}
+			}
+			/*
+			window.onbeforeunload = function() {
+				console.log("what?!?")
+				return true
+				return confirm("You're leaving the site.");
+			};
+			*/
+		</script>
+	</head>
+</html>

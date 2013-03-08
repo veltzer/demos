@@ -1,22 +1,26 @@
 <!--
-Example of using closures to hide data in a function to be used as a callback
-(used a lot in javascript).
+	Example of using closures to hide data in a function to be used as a callback
+	(used a lot in javascript).
 
-		Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	var ar=[];
-	for(var i=0;i<100;i++) {
-		var myfunction=function(ix) {
-			return function() {
-				document.write(ix+'<br/>');
-			};
-		}(i);
-		ar.push(myfunction);
-	}
-	// third party code (you don't control this)
-	for(var x in ar) {
-		// functions called with no parameters
-		ar[x]();
-	}
-</script>
+<html>
+	<head>
+		<script>
+			var ar=[];
+			for(var i=0;i<100;i++) {
+				var myfunction=function(ix) {
+					return function() {
+						document.write(ix+'<br/>');
+					};
+				}(i);
+				ar.push(myfunction);
+			}
+			// third party code (you don't control this)
+			for(var x in ar) {
+				// functions called with no parameters
+				ar[x]();
+			}
+		</script>
+	</head>
+</html>
