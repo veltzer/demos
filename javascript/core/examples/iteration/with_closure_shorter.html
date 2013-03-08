@@ -1,13 +1,22 @@
-<script>
-	var a=[];
-	for(var i=0;i<100;i++) {
-		a.push((function(ii){
-			return function() {
-				console.log(ii);
-			};
-		})(i));
-	}
-	for(var f in a) {
-		a[f]();
-	}
-</script>
+<!--
+	A way to store all those function pointers...
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			var a=[];
+			for(var i=0;i<100;i++) {
+				a.push((function(ii){
+					return function() {
+						console.log(ii);
+					};
+				})(i));
+			}
+			for(var f in a) {
+				a[f]();
+			}
+		</script>
+	</head>
+</html>

@@ -1,32 +1,36 @@
 <!--
-An example showing the .apply method of functions.
-Remmember: .apply is suitable when you don't know the number of arguments in advance.
-The first argument to apply is passed here as null since it is an object in an object
-oriended context and this example is not in object oriented context.
+	An example showing the .apply method of functions.
+	Remmember: .apply is suitable when you don't know the number of arguments in advance.
+	The first argument to apply is passed here as null since it is an object in an object
+	oriended context and this example is not in object oriented context.
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function unary_minus(x) {
-		return -x;
-	}
-	function binary_plus(x,y) {
-		return x+y;
-	}
-	// This is Herons of Alexandrias formula...
-	function triangle_area(a,b,c) {
-		var s=(a+b+c)/2;
-		return Math.sqrt(s*(s-a)*(s-b)*(s-c));
-	}
-	var funcs=[unary_minus,binary_plus,triangle_area];
-	var datas=[[5],[56,34],[67,56,59]];
-	for(var i in funcs) {
-		var func=funcs[i];
-		var data=datas[i];
-		document.write(
-			func.name+', '+
-			data.join(';')+', '+
-			func.apply(null,data)+'<br/>'
-		);
-	}
-</script>
+<html>
+	<head>
+		<script>
+			function unary_minus(x) {
+				return -x;
+			}
+			function binary_plus(x,y) {
+				return x+y;
+			}
+			// This is Herons of Alexandrias formula...
+			function triangle_area(a,b,c) {
+				var s=(a+b+c)/2;
+				return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+			}
+			var funcs=[unary_minus,binary_plus,triangle_area];
+			var datas=[[5],[56,34],[67,56,59]];
+			for(var i in funcs) {
+				var func=funcs[i];
+				var data=datas[i];
+				document.write(
+					func.name+', '+
+					data.join(';')+', '+
+					func.apply(null,data)+'<br/>'
+				);
+			}
+		</script>
+	</head>
+</html>

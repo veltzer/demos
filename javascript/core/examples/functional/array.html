@@ -1,22 +1,26 @@
 <!--
-A review of functional features in javascript arrays.
+	A review of functional features in javascript arrays.
 
-References:
-https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array
+	References:
+	https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	var a=['a','b','c'];
-	document.write(a.filter(function(x) { return x >= 'b'; })+'<br/>');
-	a.forEach(function(x) { document.write(x+'<br/>'); });
-	document.write(a.every(function(x) { return 'a'<=x && x<='c'; })+'<br/>');
-	document.write(a.map(function(x) { return x+'more'; })+'<br/>');
-	document.write(a.some(function(x) { return 'a'==x; })+'<br/>');
-	document.write(a.reduce(function(x,y) { return y+x; })+'<br/>');
-	document.write(a.reduceRight(function(x,y) { return y+x; })+'<br/>');
-	function logArrayElements(element, index, arr) {
-		document.write('a['+index+']='+element+', '+arr+'<br/>');
-	}
-	[2, 5, 9].forEach(logArrayElements);
-</script>
+<html>
+	<head>
+		<script>
+			var a=['a','b','c'];
+			document.write(a.filter(function(x) { return x >= 'b'; })+'<br/>');
+			a.forEach(function(x) { document.write(x+'<br/>'); });
+			document.write(a.every(function(x) { return 'a'<=x && x<='c'; })+'<br/>');
+			document.write(a.map(function(x) { return x+'more'; })+'<br/>');
+			document.write(a.some(function(x) { return 'a'==x; })+'<br/>');
+			document.write(a.reduce(function(x,y) { return y+x; })+'<br/>');
+			document.write(a.reduceRight(function(x,y) { return y+x; })+'<br/>');
+			function logArrayElements(element, index, arr) {
+				document.write('a['+index+']='+element+', '+arr+'<br/>');
+			}
+			[2, 5, 9].forEach(logArrayElements);
+		</script>
+	</head>
+</html>

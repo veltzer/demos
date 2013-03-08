@@ -1,29 +1,33 @@
 <!--
-This is an improvement on the namespace example in that all the functions have
-some shared data.
+	This is an improvement on the namespace example in that all the functions have
+	some shared data.
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-(function() {
-	var shared='this is shared';
-	console.log('this is some code');
-	var MyNamespace={
-		printOne:function(idata) {
-			console.log(shared+' One '+idata);
-		},
-		printTwo:function(idata) {
-			console.log(shared+' Two '+idata);
-		},
-		printThree:function(idata) {
-			console.log(shared+' Three '+idata);
-		}
-	};
-	window.MyNamespace=MyNamespace;
-})();
-// this is the client code
-var data='mydata';
-window.MyNamespace.printOne(data);
-window.MyNamespace.printTwo(data);
-window.MyNamespace.printThree(data);
-</script>
+<html>
+	<head>
+		<script>
+			(function() {
+				var shared='this is shared';
+				console.log('this is some code');
+				var MyNamespace={
+					printOne:function(idata) {
+						console.log(shared+' One '+idata);
+					},
+					printTwo:function(idata) {
+						console.log(shared+' Two '+idata);
+					},
+					printThree:function(idata) {
+						console.log(shared+' Three '+idata);
+					}
+				};
+				window.MyNamespace=MyNamespace;
+			})();
+			// this is the client code
+			var data='mydata';
+			window.MyNamespace.printOne(data);
+			window.MyNamespace.printTwo(data);
+			window.MyNamespace.printThree(data);
+		</script>
+	</head>
+</html>

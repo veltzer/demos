@@ -1,12 +1,14 @@
 /*jsl:ignore*/
 /*
-This shows that if you call the file.js then most browsers will not render it's content correctly
+	This shows that if you call the file.js then most browsers will not render it's content correctly
 
-		Mark Veltzer
-
+	Mark Veltzer <mark@veltzer.net>
 */
-
-<script>
-	alert('Hello, World!');
-</script>
+<html>
+	<head>
+		<script>
+			alert('Hello, World!');
+		</script>
+	</head>
+</html>
 /*jsl:end*/

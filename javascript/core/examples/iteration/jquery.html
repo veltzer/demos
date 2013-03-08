@@ -1,34 +1,38 @@
 <!--
-This is a solution to the iteration problem similar to the jQuery $.each solution.
+	This is a solution to the iteration problem similar to the jQuery $.each solution.
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	// very handy functions...
-	function foreach(arr,f) {
-		for(var x in arr) {
-			f(x,arr[x]);
-		}
-	}
-	function forthis(arr,f) {
-		for(var x in arr) {
-			f.call(arr[x],x);
-		}
-	}
-	function forloop(from,to,step,f) {
-		for(var i=from;i<to;i+=step) {
-			f(i);
-		}
-	}
-	// now lets use them...
-	var a=['hello','world'];
-	foreach(a,function(i,e) {
-		console.log(i,e);
-	});
-	forthis(a,function() {
-		console.log(this.toString());
-	});
-	forloop(0,5,1,function(i) {
-		console.log(i);
-	});
-</script>
+<html>
+	<head>
+		<script>
+			// very handy functions...
+			function foreach(arr,f) {
+				for(var x in arr) {
+					f(x,arr[x]);
+				}
+			}
+			function forthis(arr,f) {
+				for(var x in arr) {
+					f.call(arr[x],x);
+				}
+			}
+			function forloop(from,to,step,f) {
+				for(var i=from;i<to;i+=step) {
+					f(i);
+				}
+			}
+			// now lets use them...
+			var a=['hello','world'];
+			foreach(a,function(i,e) {
+				console.log(i,e);
+			});
+			forthis(a,function() {
+				console.log(this.toString());
+			});
+			forloop(0,5,1,function(i) {
+				console.log(i);
+			});
+		</script>
+	</head>
+</html>

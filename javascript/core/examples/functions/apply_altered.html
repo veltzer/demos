@@ -1,43 +1,47 @@
 <!--
-This example shows how to use function.apply to run a function,
-passing it all arguments the applying function got, and then some...
+	This example shows how to use function.apply to run a function,
+	passing it all arguments the applying function got, and then some...
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function plus(x,y,z) {
-		return x+y+z;
-	}
-	// a function which passes all args to the other
-	function run_plus_args() {
-		return plus.apply(null,arguments);
-	}
-	// a function which applies another function but fills in some of the arguments...
-	function run_plus(x,y) {
-		return plus(x,y,7);
-	}
-	// same but with '.apply'
-	function run_plus_apply(x,y) {
-		return plus.apply(null,[x,y,7]);
-	}
-	// same but with 'arguments'
-	function run_plus_apply_args(x,y) {
-		// for lint...
-		console.log(x,y);
-		// arguments is not a regular JavaScript array (you cannot push
-		// to it for instance), so we need to clone it first before trying
-		// to modify it in any way. A good way to clone it is to call
-		// the Array slice method with no arguments. But since arguments
-		// is not a JavaScript array we cannot just do 'arguments.slice()'
-		// but rather must use the .call of the slice function and pass
-		// the arguments.
-		var more=Array.prototype.slice.call(arguments);
-		more.push(7);
-		return plus.apply(null,more);
-	}
-	document.write('plus.apply(null,[5,6,7]) seems to be '+plus.apply(null,[5,6,7])+'<br/>');
-	document.write('run_plus_args(5,6,7) seems to be '+run_plus_args(5,6,7)+'<br/>');
-	document.write('run_plus(5,6) seems to be '+run_plus(5,6)+'<br/>');
-	document.write('run_plus_apply(5,6) seems to be '+run_plus_apply(5,6)+'<br/>');
-	document.write('run_plus_apply_args(5,6) seems to be '+run_plus_apply_args(5,6)+'<br/>');
-</script>
+<html>
+	<head>
+		<script>
+			function plus(x,y,z) {
+				return x+y+z;
+			}
+			// a function which passes all args to the other
+			function run_plus_args() {
+				return plus.apply(null,arguments);
+			}
+			// a function which applies another function but fills in some of the arguments...
+			function run_plus(x,y) {
+				return plus(x,y,7);
+			}
+			// same but with '.apply'
+			function run_plus_apply(x,y) {
+				return plus.apply(null,[x,y,7]);
+			}
+			// same but with 'arguments'
+			function run_plus_apply_args(x,y) {
+				// for lint...
+				console.log(x,y);
+				// arguments is not a regular JavaScript array (you cannot push
+				// to it for instance), so we need to clone it first before trying
+				// to modify it in any way. A good way to clone it is to call
+				// the Array slice method with no arguments. But since arguments
+				// is not a JavaScript array we cannot just do 'arguments.slice()'
+				// but rather must use the .call of the slice function and pass
+				// the arguments.
+				var more=Array.prototype.slice.call(arguments);
+				more.push(7);
+				return plus.apply(null,more);
+			}
+			document.write('plus.apply(null,[5,6,7]) seems to be '+plus.apply(null,[5,6,7])+'<br/>');
+			document.write('run_plus_args(5,6,7) seems to be '+run_plus_args(5,6,7)+'<br/>');
+			document.write('run_plus(5,6) seems to be '+run_plus(5,6)+'<br/>');
+			document.write('run_plus_apply(5,6) seems to be '+run_plus_apply(5,6)+'<br/>');
+			document.write('run_plus_apply_args(5,6) seems to be '+run_plus_apply_args(5,6)+'<br/>');
+		</script>
+	</head>
+</html>

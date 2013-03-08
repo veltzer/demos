@@ -1,23 +1,32 @@
-<script>
-	/*jsl:ignore*/
-	var i=7;
-	document.write(i);
-	document.write('<br/>');
-	function do_something() {
-		document.write(i);
-		document.write('<br/>');
-		i=9;
-		document.write(i);
-		document.write('<br/>');
-		var i;
-		document.write(i);
-		document.write('<br/>');
-		i=i+1;
-		document.write(i);
-		document.write('<br/>');
-	}
-	do_something();
-	document.write(i);
-	document.write('<br/>');
-	/*jsl:end*/
-</script>
+<!--
+	Exploration of global and local variable interaction in JavaScript.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			/*jsl:ignore*/
+			var i=7;
+			document.write(i);
+			document.write('<br/>');
+			function do_something() {
+				document.write(i);
+				document.write('<br/>');
+				i=9;
+				document.write(i);
+				document.write('<br/>');
+				var i;
+				document.write(i);
+				document.write('<br/>');
+				i=i+1;
+				document.write(i);
+				document.write('<br/>');
+			}
+			do_something();
+			document.write(i);
+			document.write('<br/>');
+			/*jsl:end*/
+		</script>
+	</head>
+</html>

@@ -1,15 +1,24 @@
-<script>
-	var StaticClass=function() {
-		throw 'Do not call this, this is a static class';
-	};
-	StaticClass.doThis=function() {
-		document.write('This');
-		document.write('<br/>');
-	};
-	StaticClass.doThat=function() {
-		document.write('That');
-		document.write('<br/>');
-	};
-	StaticClass.doThis();
-	StaticClass.doThat();
-</script>
+<!--
+	A JavaScript class with only static methods.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			var StaticClass=function() {
+				throw 'Do not call this, this is a static class';
+			};
+			StaticClass.doThis=function() {
+				document.write('This');
+				document.write('<br/>');
+			};
+			StaticClass.doThat=function() {
+				document.write('That');
+				document.write('<br/>');
+			};
+			StaticClass.doThis();
+			StaticClass.doThat();
+		</script>
+	</head>
+</html>

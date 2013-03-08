@@ -1,29 +1,33 @@
 <!--
+	This is an example of method borrowing from object to object.
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
+<html>
+	<head>
+		<script>
+			var p={
+				name:'Mark',
+				surname:'Veltzer',
+				getName:function() {
+					return this.name+','+this.surname;
+				},
+				toString:function() {
+					return this.getName();
+				}
 
-<script>
-	var p={
-		name:'Mark',
-		surname:'Veltzer',
-		getName:function() {
-			return this.name+','+this.surname;
-		},
-		toString:function() {
-			return this.getName();
-		}
-
-	};
-	var p2={
-		name:'Shay',
-		surname:'Sarid'
-	};
-	document.write(p);
-	document.write('<br/>');
-	var m=p.getName;
-	p2.myGetName=m;
-	document.write(p2.myGetName());
-	delete p['getName'];
-	document.write();
-</script>
+			};
+			var p2={
+				name:'Shay',
+				surname:'Sarid'
+			};
+			document.write(p);
+			document.write('<br/>');
+			var m=p.getName;
+			p2.myGetName=m;
+			document.write(p2.myGetName());
+			delete p['getName'];
+			document.write();
+		</script>
+	</head>
+</html>

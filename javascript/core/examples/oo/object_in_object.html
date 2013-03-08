@@ -7,30 +7,33 @@
 	objects. Avoid using the key part extensivly to get out
 	of trouble.
 
-				Mark Veltzer
-
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	// start of the Person class
-	function Person(name,age) {
-		this.name=name;
-		this.age=age;
-	}
-	Person.prototype.setName=function(newname) {
-		this.name=newname;
-	};
-	Person.prototype.getName=function() {
-		return this.name;
-	};
-	// end of the Person class
-	var p=new Person('mark','37');
-	document.write(p.getName()+'<br/>');
-	var o={};
-	o[p]=undefined;
-	// this next loop would produce an error because
-	// the toString is what really gets saved inside
-	// the class
-	for(var i in o) {
-		document.write(i.getName()+'<br/>');
-	}
-</script>
+<html>
+	<head>
+		<script>
+			// start of the Person class
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+			}
+			Person.prototype.setName=function(newname) {
+				this.name=newname;
+			};
+			Person.prototype.getName=function() {
+				return this.name;
+			};
+			// end of the Person class
+			var p=new Person('mark','37');
+			document.write(p.getName()+'<br/>');
+			var o={};
+			o[p]=undefined;
+			// this next loop would produce an error because
+			// the toString is what really gets saved inside
+			// the class
+			for(var i in o) {
+				document.write(i.getName()+'<br/>');
+			}
+		</script>
+	</head>
+</html>

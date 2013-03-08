@@ -1,98 +1,103 @@
 <!--
-The various ways to do inheritance in javascript.
+	The various ways to do inheritance in javascript.
 
-See a discussion of various issues at:
-http://www.crockford.com/javascript/inheritance.html
-http://phrogz.net/js/classes/OOPinJS2.html
+	See a discussion of various issues at:
+	http://www.crockford.com/javascript/inheritance.html
+	http://phrogz.net/js/classes/OOPinJS2.html
 
-TODO:
-- show how to do inheritance without creating the superfluous parent instance.
+	TODO:
+	- show how to do inheritance without creating the superfluous parent instance.
 
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	// here starts the parent class
-	function Base(iname) {
-		// we have no parent so there is no need to call the parents constructor
-		this.name=iname;
-	}
-	Base.prototype.getName=function() {
-		return this.name;
-	};
-	Base.prototype.setName=function(iname) {
-		this.name=iname;
-	};
+<html>
+	<head>
+		<script>
+			// here starts the parent class
+			function Base(iname) {
+				// we have no parent so there is no need to call the parents constructor
+				this.name=iname;
+			}
+			Base.prototype.getName=function() {
+				return this.name;
+			};
+			Base.prototype.setName=function(iname) {
+				this.name=iname;
+			};
 
-	// here ends the base class
+			// here ends the base class
 
-	function Sub(iname,ifname) {
-		// this calls the parents constructor
-		Base.call(this,iname);
-		// now lets set our own data
-		this.fname=ifname;
-	}
+			function Sub(iname,ifname) {
+				// this calls the parents constructor
+				Base.call(this,iname);
+				// now lets set our own data
+				this.fname=ifname;
+			}
 
-	// this sets up all the parents methods
-	// note that this must be done ONLY AFTER the constrcutor has been declared...
+			// this sets up all the parents methods
+			// note that this must be done ONLY AFTER the constrcutor has been declared...
 
-	// VERSION 1
-	// most common version. works ok but requires an instance of the parent class
-	// (weird). 'instanceof' and '.construcotr' work well.
-	Sub.prototype=new Base();
-	Sub.prototype.constructor=Sub;
+			// VERSION 1
+			// most common version. works ok but requires an instance of the parent class
+			// (weird). 'instanceof' and '.construcotr' work well.
+			Sub.prototype=new Base();
+			Sub.prototype.constructor=Sub;
 
-	// VERSION 2
-	// lets copy from parent. breaks the 'instanceof' operator.
-	/*
-	var b=new Base();
-	for(var key in b) {
-		Sub.prototype[key]=b[key];
-	}
-	*/
+			// VERSION 2
+			// lets copy from parent. breaks the 'instanceof' operator.
+			/*
+			var b=new Base();
+			for(var key in b) {
+				Sub.prototype[key]=b[key];
+			}
+			*/
 
-	// VERSION 3
-	// this one causes infinite recursion
-	//Sub.prototype=Base.prototype;
+			// VERSION 3
+			// this one causes infinite recursion
+			//Sub.prototype=Base.prototype;
 
-	// VERSION 4
-	// this one fucks up both the '.constructor' property and the instanceof operator
-	//Sub.prototype=Base;
+			// VERSION 4
+			// this one fucks up both the '.constructor' property and the instanceof operator
+			//Sub.prototype=Base;
 
-	// VERSION 5
-	// this one almost works well without constructing an object but breaks
-	// the 'instanceof' operator
-	//Sub.prototype.prototype=Base.prototype;
+			// VERSION 5
+			// this one almost works well without constructing an object but breaks
+			// the 'instanceof' operator
+			//Sub.prototype.prototype=Base.prototype;
 
-	// VERSION 6
-	// still breaks 'instanceof'
-	//Sub.prototype.prototype=new Base();
+			// VERSION 6
+			// still breaks 'instanceof'
+			//Sub.prototype.prototype=new Base();
 
-	// this overrides the parents method
-	Sub.prototype.getName=function() {
-		// this calls the parents method
-		return Base.prototype.getName.call(this)+' sub';
-	};
-	// child only methods
-	Sub.prototype.getFname=function() {
-		return this.fname;
-	};
-	Sub.prototype.setFname=function(ifname) {
-		this.fname=ifname;
-	};
+			// this overrides the parents method
+			Sub.prototype.getName=function() {
+				// this calls the parents method
+				return Base.prototype.getName.call(this)+' sub';
+			};
+			// child only methods
+			Sub.prototype.getFname=function() {
+				return this.fname;
+			};
+			Sub.prototype.setFname=function(ifname) {
+				this.fname=ifname;
+			};
 
-	// here ends the subclass
+			// here ends the subclass
 
-	// here is some code to demo it...
+			// here is some code to demo it...
 
-	var base=new Base('base name');
-	var sub=new Sub('sub name','more data');
-	document.write('base.getName(): '+base.getName()+'<br/>');
-	document.write('sub.getName(): '+sub.getName()+'<br/>');
-	document.write('sub.getFname(): '+sub.getFname()+'<br/>');
-	document.write('sub instanceof Sub: '+(sub instanceof Sub)+'<br/>');
-	document.write('sub instanceof Base: '+(sub instanceof Base)+'<br/>');
-	document.write('base instanceof Sub: '+(base instanceof Sub)+'<br/>');
-	document.write('base instanceof Base: '+(base instanceof Base)+'<br/>');
-	// this is confusing, do not use the constructor attribute
-	document.write('sub.constructor: '+sub.constructor+'<br/>');
-	document.write('base.constructor: '+base.constructor+'<br/>');
-</script>
+			var base=new Base('base name');
+			var sub=new Sub('sub name','more data');
+			document.write('base.getName(): '+base.getName()+'<br/>');
+			document.write('sub.getName(): '+sub.getName()+'<br/>');
+			document.write('sub.getFname(): '+sub.getFname()+'<br/>');
+			document.write('sub instanceof Sub: '+(sub instanceof Sub)+'<br/>');
+			document.write('sub instanceof Base: '+(sub instanceof Base)+'<br/>');
+			document.write('base instanceof Sub: '+(base instanceof Sub)+'<br/>');
+			document.write('base instanceof Base: '+(base instanceof Base)+'<br/>');
+			// this is confusing, do not use the constructor attribute
+			document.write('sub.constructor: '+sub.constructor+'<br/>');
+			document.write('base.constructor: '+base.constructor+'<br/>');
+		</script>
+	</head>
+</html>

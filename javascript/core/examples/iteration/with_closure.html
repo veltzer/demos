@@ -1,15 +1,24 @@
-/* this is the right variation */
-<script>
-	var a=[];
-	function createPrinter(ii) {
-		return function() {
-			console.log(ii);
-		};
-	}
-	for(var i=0;i<100;i++) {
-		a.push(createPrinter(i));
-	}
-	for(var f in a) {
-		a[f]();
-	}
-</script>
+<!--
+	this is the right variation. we create a new activation record with the value
+	of i.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			var a=[];
+			function createPrinter(ii) {
+				return function() {
+					console.log(ii);
+				};
+			}
+			for(var i=0;i<100;i++) {
+				a.push(createPrinter(i));
+			}
+			for(var f in a) {
+				a[f]();
+			}
+		</script>
+	</head>
+</html>

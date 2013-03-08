@@ -1,10 +1,12 @@
 <!--
-But if you call the file .php it may render it...:)
+	But if you call the file .php it may render it...:)
 
-		Mark Veltzer
-
+	Mark Veltzer <mark@veltzer.net>
 -->
-
-<script>
-	document.write('Hello, from a php url');
-</script>
+<html>
+	<head>
+		<script>
+			document.write('Hello, from a php url');
+		</script>
+	</head>
+</html>

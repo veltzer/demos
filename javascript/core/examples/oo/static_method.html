@@ -1,23 +1,27 @@
 <!--
-A simple example of a static variable protected by a static method.
-The disadvatage of this approach is that everyone can access our
-static variable directly. Is this a big disadvantage? Not in JS.
+	A simple example of a static variable protected by a static method.
+	The disadvatage of this approach is that everyone can access our
+	static variable directly. Is this a big disadvantage? Not in JS.
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function Person(name) {
-		this.name=name;
-		Person.count++;
-	}
-	Person.count=0;
-	Person.getCount=function() {
-		return Person.count;
-	};
-	Person.prototype.getName=function() {
-		return this.name;
-	};
-	var person1=new Person('james');
-	var person2=new Person('john');
-	document.write(Person.getCount());
-</script>
+<html>
+	<head>
+		<script>
+			function Person(name) {
+				this.name=name;
+				Person.count++;
+			}
+			Person.count=0;
+			Person.getCount=function() {
+				return Person.count;
+			};
+			Person.prototype.getName=function() {
+				return this.name;
+			};
+			var person1=new Person('james');
+			var person2=new Person('john');
+			document.write(Person.getCount());
+		</script>
+	</head>
+</html>

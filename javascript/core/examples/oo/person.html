@@ -1,42 +1,51 @@
-<script>
-var global_getName=function() {
-	return this.name;
-};
-var global_setName=function(newName) {
-	this.name=newName;
-};
-var global_getFullDescription=function() {
-	return this.name+' '+this.age;
-};
+<!--
+	A JavaScript object trying hard not to write the method again each time...:)
 
-var person1={
-	name: 'james',
-	age: 27,
-	getName: global_getName,
-	setName: global_setName,
-	toString: global_getFullDescription
-};
-var person2={
-	name: 'ralph',
-	age: 23,
-	getName: global_getName,
-	setName: global_setName,
-	toString: global_getFullDescription
-};
-function createPerson(iname,iage) {
-	var tmp={
-		name: iname,
-		age: iage,
-		getName: global_getName,
-		setName: global_setName,
-		toString: global_getFullDescription
-	};
-	return tmp;
-}
-document.write(person1);
-document.write('<br/>');
-document.write(person2);
-for(var x in person1) {
-	document.write(x+' '+person1[x]+'<br/>');
-}
-</script>
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			var global_getName=function() {
+				return this.name;
+			};
+			var global_setName=function(newName) {
+				this.name=newName;
+			};
+			var global_getFullDescription=function() {
+				return this.name+' '+this.age;
+			};
+
+			var person1={
+				name: 'james',
+				age: 27,
+				getName: global_getName,
+				setName: global_setName,
+				toString: global_getFullDescription
+			};
+			var person2={
+				name: 'ralph',
+				age: 23,
+				getName: global_getName,
+				setName: global_setName,
+				toString: global_getFullDescription
+			};
+			function createPerson(iname,iage) {
+				var tmp={
+					name: iname,
+					age: iage,
+					getName: global_getName,
+					setName: global_setName,
+					toString: global_getFullDescription
+				};
+				return tmp;
+			}
+			document.write(person1);
+			document.write('<br/>');
+			document.write(person2);
+			for(var x in person1) {
+				document.write(x+' '+person1[x]+'<br/>');
+			}
+		</script>
+	</head>
+</html>

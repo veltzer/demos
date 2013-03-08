@@ -1,17 +1,21 @@
 <!--
-Showing that a function also doubles up as a javascript object...
+	Showing that a function also doubles up as a javascript object...
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
-<script>
-	function hello() {
-		document.write('hello<br/>');
-	}
-	hello();
-	hello();
-	hello();
-	hello.seven=7;
-	hello['five']=5;
-	document.write(hello.seven);
-	document.write(hello.five);
-</script>
+<html>
+	<head>
+		<script>
+			function hello() {
+				document.write('hello<br/>');
+			}
+			hello();
+			hello();
+			hello();
+			hello.seven=7;
+			hello['five']=5;
+			document.write(hello.seven);
+			document.write(hello.five);
+		</script>
+	</head>
+</html>

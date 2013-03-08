@@ -1,29 +1,38 @@
-<script>
-var add_one_stupid_var='stupid_val';
-for(var x in window) {
-	document.write(x);
-	document.write(' ');
-	document.write(window[x]);
-	document.write('<br/>');
-}
-document.write('=============================');
-document.write('<br/>');
-for(var x2 in window.location) {
-	document.write(x2);
-	document.write(' ');
-	document.write(window.location[x2]);
-	document.write('<br/>');
-}
+<!--
+	The JavaScript 'window' global object.
 
-window.location.replace=function() {
-	document.write('wow wow');
-	document.write('<br/>');
-};
-for(var x3 in window.location) {
-	document.write(x3);
-	document.write(' ');
-	document.write(window.location[x3]);
-	document.write('<br/>');
-}
-//window.location='http://www.microsoft.com';
-</script>
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			var add_one_stupid_var='stupid_val';
+			for(var x in window) {
+				document.write(x);
+				document.write(' ');
+				document.write(window[x]);
+				document.write('<br/>');
+			}
+			document.write('=============================');
+			document.write('<br/>');
+			for(var x2 in window.location) {
+				document.write(x2);
+				document.write(' ');
+				document.write(window.location[x2]);
+				document.write('<br/>');
+			}
+
+			window.location.replace=function() {
+				document.write('wow wow');
+				document.write('<br/>');
+			};
+			for(var x3 in window.location) {
+				document.write(x3);
+				document.write(' ');
+				document.write(window.location[x3]);
+				document.write('<br/>');
+			}
+			//window.location='http://www.microsoft.com';
+		</script>
+	</head>
+</html>

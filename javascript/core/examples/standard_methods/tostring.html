@@ -1,10 +1,19 @@
-<script>
-	var p={ foo: 'bar' };
-	document.write(p);
-	document.write('<br/>');
-	p.toString=function() {
-		return this.foo;
-	};
-	document.write(p);
-	document.write('<br/>');
-</script>
+<!--
+	The JavaScript 'toString' method.
+
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			var p={ foo: 'bar' };
+			document.write(p);
+			document.write('<br/>');
+			p.toString=function() {
+				return this.foo;
+			};
+			document.write(p);
+			document.write('<br/>');
+		</script>
+	</head>
+</html>

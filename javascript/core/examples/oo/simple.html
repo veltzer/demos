@@ -1,41 +1,44 @@
 <!--
-This is a classic object in javascript.
+	This is a classic object in javascript.
 
-References:
-http://joost.zeekat.nl/constructors-considered-mildly-confusing.html
+	References:
+	http://joost.zeekat.nl/constructors-considered-mildly-confusing.html
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
+<html>
+	<head>
+		<script>
+			// A standard constructor. 'this' is created by javascript and passed empty into your method.
+			// You need to call the parents constructor if you have a parent.
+			// no need to return 'this' as this is the regular behaviour.
+			// if you want to break early then you do need to 'return this'.
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+			}
+			//Person.prototype={};
+			Person.prototype.getName=function() {
+				return this.name;
+			};
+			Person.prototype.setName=function(newName) {
+				this.name=newName;
+			};
+			Person.prototype.toString=function() {
+				return this.name+' '+this.age;
+			};
 
-<script>
-	// A standard constructor. 'this' is created by javascript and passed empty into your method.
-	// You need to call the parents constructor if you have a parent.
-	// no need to return 'this' as this is the regular behaviour.
-	// if you want to break early then you do need to 'return this'.
-	function Person(name,age) {
-		this.name=name;
-		this.age=age;
-	}
-	//Person.prototype={};
-	Person.prototype.getName=function() {
-		return this.name;
-	};
-	Person.prototype.setName=function(newName) {
-		this.name=newName;
-	};
-	Person.prototype.toString=function() {
-		return this.name+' '+this.age;
-	};
-
-	var person=new Person('james',27);
-	document.write(person.toString()+'<br/>');
-	person.setName('mark');
-	document.write(person.toString()+'<br/>');
-	document.write('\'prototype\' in person: '+('prototype' in person)+'<br/>');
-	document.write('\'prototype\' in Person: '+('prototype' in Person)+'<br/>');
-	document.write(Person.prototype.constructor+'<br/>');
-	document.write('is this object an instance of Person: '+(person instanceof Person)+'<br/>');
-	document.write('is this object an instance of Object: '+(person instanceof Object)+'<br/>');
-	document.write('the constructor of this object: '+person.constructor+'<br/>');
-	document.write('is this objects constructor Person: '+(person.constructor==Person)+'<br/>');
-</script>
+			var person=new Person('james',27);
+			document.write(person.toString()+'<br/>');
+			person.setName('mark');
+			document.write(person.toString()+'<br/>');
+			document.write('\'prototype\' in person: '+('prototype' in person)+'<br/>');
+			document.write('\'prototype\' in Person: '+('prototype' in Person)+'<br/>');
+			document.write(Person.prototype.constructor+'<br/>');
+			document.write('is this object an instance of Person: '+(person instanceof Person)+'<br/>');
+			document.write('is this object an instance of Object: '+(person instanceof Object)+'<br/>');
+			document.write('the constructor of this object: '+person.constructor+'<br/>');
+			document.write('is this objects constructor Person: '+(person.constructor==Person)+'<br/>');
+		</script>
+	</head>
+</html>

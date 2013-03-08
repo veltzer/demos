@@ -1,38 +1,41 @@
 <!--
-Example of writing the prototype of the object as one object...
-The disadvantage is in the constructor property which is a magic property of the prototype
-We will show this later.
-which is not set correctly.
+	Example of writing the prototype of the object as one object...
+	The disadvantage is in the constructor property which is a magic property of the prototype
+	We will show this later.
+	which is not set correctly.
 
-	Mark Veltzer
+	Mark Veltzer <mark@veltzer.net>
 -->
+<html>
+	<head>
+		<script>
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+			}
+			Person.prototype={
+				getName:function() {
+					return this.name;
+				},
+				setName:function(newname) {
+					this.name=newname;
+				},
+				toString:function() {
+					return this.name+' '+this.age;
+				}
+			};
 
-<script>
-	function Person(name,age) {
-		this.name=name;
-		this.age=age;
-	}
-	Person.prototype={
-		getName:function() {
-			return this.name;
-		},
-		setName:function(newname) {
-			this.name=newname;
-		},
-		toString:function() {
-			return this.name+' '+this.age;
-		}
-	};
-
-	var person=new Person('james',27);
-	document.write(person+'<br/>');
-	person.setName('mark');
-	document.write(person+'<br/>');
-	document.write('\'prototype\' in person: '+('prototype' in person)+'<br/>');
-	document.write('\'prototype\' in Person: '+('prototype' in Person)+'<br/>');
-	document.write(Person.prototype.constructor+'<br/>');
-	document.write('is this object an instance of Person: '+(person instanceof Person)+'<br/>');
-	document.write('is this object an instance of Object: '+(person instanceof Object)+'<br/>');
-	document.write('the constructor of this object: '+person.constructor+'<br/>');
-	document.write('is this objects constructor Person: '+(person.constructor==Person)+'<br/>');
-</script>
+			var person=new Person('james',27);
+			document.write(person+'<br/>');
+			person.setName('mark');
+			document.write(person+'<br/>');
+			document.write('\'prototype\' in person: '+('prototype' in person)+'<br/>');
+			document.write('\'prototype\' in Person: '+('prototype' in Person)+'<br/>');
+			document.write(Person.prototype.constructor+'<br/>');
+			document.write('is this object an instance of Person: '+(person instanceof Person)+'<br/>');
+			document.write('is this object an instance of Object: '+(person instanceof Object)+'<br/>');
+			document.write('the constructor of this object: '+person.constructor+'<br/>');
+			document.write('is this objects constructor Person: '+(person.constructor==Person)+'<br/>');
+		</script>
+	</head>
+</html>

@@ -1,16 +1,25 @@
-<script>
-	function Person(iname,ilastname) {
-		this.name=iname;
-		this.lastname=ilastname;
-		this.getFullName=function () {
-				return this.name+' '+this.lastname;
-		};
-		return this;
-	}
-	var mark=new Person('Mark','Veltzer');
-	document.write(mark);
-	document.write('<br/>');
-	var avi=new Person('Avi','Telyas');
-	document.write(avi.getFullName());
+<!--
+	A very basic JavaScript object.
 
-</script>
+	Mark Veltzer <mark@veltzer.net>
+-->
+<html>
+	<head>
+		<script>
+			function Person(iname,ilastname) {
+				this.name=iname;
+				this.lastname=ilastname;
+				this.getFullName=function () {
+						return this.name+' '+this.lastname;
+				};
+				return this;
+			}
+			var mark=new Person('Mark','Veltzer');
+			document.write(mark);
+			document.write('<br/>');
+			var avi=new Person('Avi','Telyas');
+			document.write(avi.getFullName());
+
+		</script>
+	</head>
+</html>
