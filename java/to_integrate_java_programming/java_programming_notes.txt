@@ -1,4 +1,2 @@
 1. Exercise about inner classes. is missing. Make one up.
 2. Big exercise (abstract and interfaces) is attached (StorageSystems).
-3. Explain the reason for exception handling in the slides (less error
-	handling code).
