@@ -1,4 +1,4 @@
-package org.meta.spring.demo.main;
+package spring.demo.main;
 
 public class SecondWorker implements IWorker {
 

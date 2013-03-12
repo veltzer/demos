@@ -1,4 +1,4 @@
-package org.meta.spring.demo.main;
+package spring.demo.main;
 
 public class MyConfig implements IMyConfig {
 	private String config;

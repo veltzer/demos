@@ -19,6 +19,7 @@ public class Split
 	 * @param args
 	 * @throws IOException
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException 
 	{		
 		FileInputStream fileInStream=new FileInputStream(args[0]);
