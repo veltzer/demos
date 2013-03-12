@@ -1,4 +1,4 @@
-package spring.demo.main;
+package spring.manyfactories;
 
 public interface IMyConfig {
 	String getConfig();

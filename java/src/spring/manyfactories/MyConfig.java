@@ -1,4 +1,4 @@
-package spring.demo.main;
+package spring.manyfactories;
 
 public class MyConfig implements IMyConfig {
 	private String config;

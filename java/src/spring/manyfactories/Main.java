@@ -1,4 +1,4 @@
-package spring.demo.main;
+package spring.manyfactories;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
