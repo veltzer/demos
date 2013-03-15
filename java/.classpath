@@ -13,7 +13,7 @@
 	<classpathentry kind="lib" path="lib/spring-aspects-3.2.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-beans-3.2.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-build-src-3.2.1.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-context-3.2.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-3.2.1.RELEASE.jar" sourcepath="/home/mark/.m2/repository/org/springframework/spring-context/3.2.1.RELEASE/spring-context-3.2.1.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/spring-context-support-3.2.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-core-3.2.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-expression-3.2.1.RELEASE.jar"/>

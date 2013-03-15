@@ -1,14 +1,15 @@
 package spring.manyfactories;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		BeanFactory factory = new ClassPathXmlApplicationContext("beans.xml");
+		ApplicationContext factory = new ClassPathXmlApplicationContext("beans.xml",Main.class);
 	    IMyConfig test = (IMyConfig) factory.getBean("myconfig");
-	    BeanFactory realFactory = new ClassPathXmlApplicationContext(test.getConfig());
+	    ApplicationContext realFactory = new ClassPathXmlApplicationContext(test.getConfig(),Main.class);
 	    Main.f=realFactory;
 	    
 	    // here is some application code
@@ -16,8 +17,8 @@ public class Main {
 	    IWorker worker=(IWorker)myFactory.getBean("myworker");
 	    worker.doWork();
 	}
-	static private BeanFactory f=null;
-	static public synchronized BeanFactory getInstance() {
+	static private ApplicationContext f=null;
+	static public synchronized ApplicationContext getInstance() {
 		return f;
 	}
 }
