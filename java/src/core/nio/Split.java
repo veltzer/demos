@@ -30,5 +30,8 @@ public class Split
 		FileChannel fileOut1=fileOutputStream1.getChannel();
 		FileChannel fileOut2=fileOutputStream2.getChannel();
 		FileSplitter.split(fileIn,size,fileOut1,fileOut2);
+		fileInStream.close();
+		fileOutputStream1.close();
+		fileOutputStream2.close();
 	}
 }
