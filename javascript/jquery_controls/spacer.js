@@ -1,11 +1,11 @@
+
 function SpacerElem(elid) {
 	this.el=$(elid);
 }
 function Spacer(id,margin) {
 	this.total=$(id);
 	this.stopResize=true;
-	//this.stopResize=false;
-	this.doDebug=true;
+	this.doDebug=false;
 	this.margin=margin;
 	this.elems=[];
 	// for closure
@@ -36,6 +36,7 @@ Spacer.prototype.resize=function() {
 		return;
 	}
 	//var total_width=this.total.width();
+	// FIXME: I do not really need to use the window for the entire size
 	var total_width=$(window).width();
 	this.debug('total_width='+total_width);
 	var sum_width=0;
