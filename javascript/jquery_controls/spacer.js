@@ -10,6 +10,9 @@ function Spacer(id,margin) {
 	this.elems=[];
 	// for closure
 	var widget=this;
+	// registering on a single DOM element for resize does not work.
+	// instead we register on the entire window.
+	//this.total.resize(function() {
 	$(window).resize(function() {
 		widget.resize();
 	});
@@ -35,9 +38,10 @@ Spacer.prototype.resize=function() {
 	if(this.stopResize) {
 		return;
 	}
-	//var total_width=this.total.width();
-	// FIXME: I do not really need to use the window for the entire size
-	var total_width=$(window).width();
+	// the next line is wrong. We need our own containers size and
+	// not the entire window...
+	//var total_width=$(window).width();
+	var total_width=this.total.width();
 	this.debug('total_width='+total_width);
 	var sum_width=0;
 	for(var i in this.elems) {
