@@ -1,0 +1,13 @@
+if you install eclipse-juno here is how to "Scala enable" it:
+	URL for nightly builds is:
+	http://scala-ide.org/download/nightly.html
+	URL for the update site is:
+	http://download.scala-ide.org/nightly-scala-ide-juno-210x
+	You need the nightly builds for Eclipse Juno (4.2)...
+	You will also need more heap size from Eclipse for Scala.
+	You can find info here:
+	http://wiki.eclipse.org/FAQ_How_do_I_increase_the_heap_size_available_to_Eclipse%3F
+	My scrtip (eclipse_scala.sh) already passed a parameter for making the heap size larger to eclipse.
+
+another option is to download a scala pre-made eclipse IDE from typesafe.com:
+http://www.typesafe.com/stack/downloads/scala-ide
