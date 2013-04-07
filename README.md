@@ -1,7 +1,7 @@
 Hello and Welcome to Demos
 ==========================
 What is Demos ?
-------------------
+---------------
 This project contains many samples that I've collected over the years.
 The samples are for many progarmming languages and many technologies.
 They are also fairly well documented.

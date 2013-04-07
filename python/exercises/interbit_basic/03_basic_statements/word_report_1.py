@@ -29,7 +29,12 @@ with open('/tmp/report.txt','w') as f:
 """
 
 # this is a nice sorted report...
+#with open('/tmp/report.txt','w') as f:
+#	for word,count in report.items():
+#		f.write("word {word} appeared {count} times\n".format(word=word,count=count))
+#	#f.write(str(report))
+
 with open('/tmp/report.txt','w') as f:
 	for word in sorted(report.keys()):
 		count=report[word]
-		f.write("word {word} appeared {count} times\n".format(word=word,count=count))
+			f.write("word {word} appeared {count} times\n".format(word=word,count=count))
