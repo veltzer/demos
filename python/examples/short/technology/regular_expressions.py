@@ -7,7 +7,12 @@ This is a sample for using regular expressions in python
 """
 import re # for .compile,.finditer
 
-c=re.compile('^foobar$')
+c=re.compile('^foobar (\d+)$')
 
-if c.match('foobar'):
-	print('yes')
+# lets get the match object
+m=c.match('foobar 17')
+if m:
+	print('m.group() is ',m.group())
+	print('m.group(1) is ',m.group(1))
+else:
+	print('no match')
