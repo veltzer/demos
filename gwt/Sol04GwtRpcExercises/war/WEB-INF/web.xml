@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <!-- If the URL gives a directory but not a filename,
+       try GwtRpcExercises.html. If this file is not found,
+       the result is server-specific (e.g., a  
+       directory listing or a 404 error).  
+  -->
+  <welcome-file-list>
+    <welcome-file>GwtRpcExercises.html</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Use the URL http://hostname/appname/gwtrpc/data-service
+       for the RemoteServiceServlet that provides the 
+       DataService implementation. The "gwtrpc" part of the URL
+       is generated automatically by GWT: the project name
+       in all lowercase. The "data-service" part matches
+       the @RemoteServiceRelativePath annotation in the
+       DataService interface. -->
+  <servlet>
+    <servlet-name>
+      Servlet that Provides DataService
+    </servlet-name>
+    <servlet-class>
+      coreservlets.server.DataServiceImpl
+    </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>
+      Servlet that Provides DataService
+    </servlet-name>
+    <url-pattern>/gwtrpcexercises/data-service</url-pattern>
+  </servlet-mapping>
+
+</web-app>
