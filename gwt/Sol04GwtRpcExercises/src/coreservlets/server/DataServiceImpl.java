@@ -4,6 +4,7 @@ import com.google.gwt.user.server.rpc.*;
 import java.util.*;
 import coreservlets.client.*;
 
+@SuppressWarnings("serial")
 public class DataServiceImpl extends RemoteServiceServlet 
                              implements DataService {
   public Date getDate() {

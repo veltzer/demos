@@ -1,6 +1,7 @@
 package coreservlets.client;
 import java.io.*;
 
+@SuppressWarnings("serial")
 public class Customer implements Serializable {
   private String customerID, firstName, lastName;
   private double balance;

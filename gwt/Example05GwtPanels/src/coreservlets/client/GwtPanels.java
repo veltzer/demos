@@ -131,7 +131,8 @@ public class GwtPanels implements EntryPoint {
     RootPanel.get("grid").add(grid);
   }
   
-  private void addHorizontalSplitPanel() {
+  @SuppressWarnings("deprecation")
+private void addHorizontalSplitPanel() {
     HorizontalSplitPanel hsPanel = 
       new HorizontalSplitPanel();
     hsPanel.setSize("475px", "300px");
@@ -152,8 +153,9 @@ public class GwtPanels implements EntryPoint {
     return(text);
   }
   
-  private void addVerticalSplitPanel() {
-    VerticalSplitPanel vsPanel = 
+@SuppressWarnings("deprecation")
+private void addVerticalSplitPanel() {
+	VerticalSplitPanel vsPanel = 
       new VerticalSplitPanel();
     vsPanel.setSize("475px", "300px");
     vsPanel.setSplitPosition("30%");

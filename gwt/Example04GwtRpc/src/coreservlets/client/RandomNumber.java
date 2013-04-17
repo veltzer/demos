@@ -2,6 +2,7 @@ package coreservlets.client;
 
 import java.io.*;
 
+@SuppressWarnings("serial")
 public class RandomNumber implements Serializable {
   private double range = 0;
   private double value;
