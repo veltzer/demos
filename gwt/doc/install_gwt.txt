@@ -1,0 +1,3 @@
+- get a fresh copy of eclipse (newest).
+- add http://dl.google.com/eclipse/plugin/4.2 as update site.
+- install the entire google plugin for eclipse (with everything).
