@@ -1,1 +1,4 @@
 */war/WEB-INF/lib/*.jar
+*/gwt-unitCache/*
+*/.gwt/.gwt-log
+*/war/WEB-INF/deploy/*
