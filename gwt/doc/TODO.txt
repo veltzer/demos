@@ -1,0 +1,1 @@
+- add script to remove the gwt cache.
