@@ -1,0 +1,9 @@
+- JSNI:
+	Download highcharts.js
+	put it in your war/scripts folder.
+	import it from your .html.
+	write a GWT app with a single button.
+	Whenever that button is pressed, a new graph is created.
+	Read the highcharts documentation about how to do a simple graph.
+	Data for the graph is to be supplied from the "Java" layer to
+		the JavaScript layer...
