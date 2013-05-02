@@ -1,0 +1,20 @@
+Build an HTML table on the screen.
+have a list of customers on the server.
+Show 10 customers at a time.
+Show buttons for next/prev.
+
+
+		id firstname lastname balance
+
+		.. ..         ...... .....
+
+
+
+
+		{prev}   you are seeing customers 11-20 out of 453       {next}
+
+You will need two services on the server:
+int getNumOfCustomers()
+Customer[] getCustomers(int from, int to)
+
+enable/disable the next/prev buttons as needed.

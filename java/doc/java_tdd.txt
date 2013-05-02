@@ -1,0 +1,103 @@
+logging frameworks
+==================
+log4j
+	http://logging.apache.org/log4j/1.2/
+
+code style checkers
+===================
+checkstyle
+	http://checkstyle.sourceforge.net/
+PMD
+	http://pmd.sourceforge.net/
+
+testing frameworks
+==================
+junit
+	http://junit.org/
+junitee
+	http://www.junitee.org/
+cactus
+	http://jakarta.apache.org/cactus/
+GroboUtils
+	http://groboutils.sourceforge.net/
+xmlunit
+	http://xmlunit.sourceforge.net/
+testng
+	http://testng.org/doc/index.html
+
+database testing frameworks
+===========================
+dbunit
+	http://www.dbunit.org/
+
+dependency injection frameworks
+===============================
+spring
+	http://www.springsource.org/
+google-guice
+	https://code.google.com/p/google-guice/
+
+ui testing frameworks
+=====================
+selenium
+	http://docs.seleniumhq.org/
+
+high level (behaviour) testing
+==============================
+cucumber
+	http://cukes.info/
+jbehave
+	http://jbehave.org/
+jdate
+	http://jdave.org/
+
+build systems with test integration
+===================================
+ant
+	http://ant.apache.org/
+maven
+	http://maven.apache.org/
+
+continuous integration tools
+============================
+hudson-ci
+	http://hudson-ci.org/
+jenkins-ci
+	http://jenkins-ci.org/
+cruisecontrol
+	http://cruisecontrol.sourceforge.net/
+teamcity
+	http://www.jetbrains.com/teamcity/
+pulse
+	http://zutubi.com/
+
+Mock object frameworks
+======================
+jmock
+	http://jmock.org/
+mockito
+	https://code.google.com/p/mockito/
+powermock
+	https://code.google.com/p/powermock/
+easymock
+	http://www.easymock.org/
+jmockit
+	https://code.google.com/p/jmockit/
+unitils
+	http://www.unitils.org/summary.html
+
+* table comparing them: https://code.google.com/p/jmockit/wiki/MockingToolkitComparisonMatrix
+
+combination frameworks
+======================
+jukito
+	https://code.google.com/p/jukito/
+
+aspect oriented frameworks
+==========================
+jboss aop
+	http://docs.jboss.com/aop/1.3/aspect-framework/reference/en/html_single/
+AspectJ
+	http://eclipse.org/aspectj/
+spring
+	http://www.springsource.org/
