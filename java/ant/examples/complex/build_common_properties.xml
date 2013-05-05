@@ -44,14 +44,14 @@
 		<durl>${ws.db.url}</durl>
 		<dcurl>${ws.db.curl}</dcurl>
 		<user>wellnet</user>
-		<pass>b3w3lln3t</pass>
+		<pass>XXXXXXX</pass>
 		<admin_user>root</admin_user>
 		<admin_pass></admin_pass>
 	</db>
 	<runtime>
 		<url>http://localhost:8080/manager</url>
 		<username>wellnet</username>
-		<password>b3w3lln3t</password>
+		<password>XXXXXXX</password>
 		<webapps_home>/var/lib/tomcat5.5/</webapps_home>
 		<catalina_home>/usr/share/tomcat5.5/</catalina_home>
 		<bootstrap>${ws.runtime.catalina_home}/bin/bootstrap.jar</bootstrap>
