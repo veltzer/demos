@@ -15,7 +15,6 @@
 *.class
 *.stamp
 *.out
-java/bin/*
 # locks by open office
 .~lock.*
 
