@@ -1,4 +1,6 @@
-import java.rmi.*;
+package programming.samples.rmi;
+
+import java.rmi.Naming;
 public class BankClient {
     public static void main(String[] args){
 	try{

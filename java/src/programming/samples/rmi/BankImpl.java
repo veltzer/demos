@@ -1,9 +1,14 @@
-import java.rmi.*;
-import java.rmi.server.*;
-import java.util.*;
+package programming.samples.rmi;
 
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.Map;
+
+@SuppressWarnings("serial")
 public class BankImpl extends UnicastRemoteObject implements Bank {
-    private Map accounts = new HashMap();
+    private Map<String, Account> accounts = new HashMap<String, Account>();
 
     public BankImpl() throws RemoteException{
     }
@@ -14,13 +19,13 @@ public class BankImpl extends UnicastRemoteObject implements Bank {
         return accId;
     }
     public synchronized Account find(String accId){
-        return (Account) accounts.get(accId);
+        return accounts.get(accId);
     }
 
 
 
     public synchronized boolean deposit(String accId, double amount){
-        Account acc=(Account)accounts.get(accId);
+        Account acc=accounts.get(accId);
         if (acc==null)
 		   return false;   // no such account
         acc.deposit(amount);

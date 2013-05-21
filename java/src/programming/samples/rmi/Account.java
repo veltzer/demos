@@ -1,3 +1,6 @@
+package programming.samples.rmi;
+
+@SuppressWarnings("serial")
 public class Account implements java.io.Serializable {
     private String accId;
     private String user;
