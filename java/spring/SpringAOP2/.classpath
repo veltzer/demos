@@ -2,8 +2,5 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="var" path="SPRING_JAR"/>
-	<classpathentry kind="lib" path="C:/Java/spring-framework-1.2.8/lib/jakarta-commons/commons-logging.jar"/>
-	<classpathentry kind="lib" path="C:/Java/spring-framework-1.2.8/lib/cglib/cglib-nodep-2.1_3.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

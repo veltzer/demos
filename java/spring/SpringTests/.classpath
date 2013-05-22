@@ -2,25 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/dist/spring-sources.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/dist/spring.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/jakarta-commons/commons-logging.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/dist/weaving/spring-aspects.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/aspectj/aspectjrt.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/aspectj/aspectjweaver.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/cglib/cglib-nodep-2.1_3.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/quartz/quartz-all-1.6.1-RC1.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/jakarta-commons/commons-collections.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/dist/modules/spring-test.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/jmock-2.5.0/objenesis-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/jmock-2.5.0/hamcrest-core-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/jmock-2.5.0/hamcrest-library-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/jmock-2.5.0/jmock-2.5.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/jmock-2.5.0/jmock-junit3-2.5.0.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SpringJDBC"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/log4j/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-javaconfig-1.0.0.m3/dist/spring-javaconfig-1.0.0.m3.jar" sourcepath="C:/work/bin/spring-javaconfig-1.0.0.m3/dist/spring-javaconfig-1.0.0.m3-sources.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/lib/junit/junit-4.4.jar"/>
-	<classpathentry kind="lib" path="C:/work/bin/spring-framework-2.5.5/dist/weaving/spring-agent.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
