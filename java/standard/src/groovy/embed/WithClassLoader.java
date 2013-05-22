@@ -20,6 +20,13 @@ public class WithClassLoader {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		finally {
+			try {
+				loader.close();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
 		// let's call some method on an instance
 		GroovyObject groovyObject;
 		try {

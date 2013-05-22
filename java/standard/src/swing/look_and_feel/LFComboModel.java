@@ -7,7 +7,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.event.ListDataListener;
 
-public class LFComboModel implements ComboBoxModel {
+public class LFComboModel implements ComboBoxModel<UIManager.LookAndFeelInfo> {
     private UIManager.LookAndFeelInfo[] lfData = UIManager.getInstalledLookAndFeels();
 
 
@@ -16,7 +16,7 @@ public class LFComboModel implements ComboBoxModel {
     }
 
 
-    public Object getElementAt(int index) {
+    public UIManager.LookAndFeelInfo getElementAt(int index) {
         return (lfData[index]);
     }
 
@@ -56,7 +56,7 @@ public class LFComboModel implements ComboBoxModel {
         LFComboModel comboModel = new LFComboModel();
         JFrame frm = new JFrame();
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frm.getContentPane().add("Center", new JComboBox(comboModel));
+        frm.getContentPane().add("Center", new JComboBox<UIManager.LookAndFeelInfo>(comboModel));
         frm.pack();
         frm.setVisible(true);
     }

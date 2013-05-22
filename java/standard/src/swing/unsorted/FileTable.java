@@ -44,7 +44,7 @@ public class FileTable {
 				model.setDirectory(new File(fld.getText()));
 			}
 		});
-		final JComboBox combo = new JComboBox(UIManager.getInstalledLookAndFeels());
+		final JComboBox<String> combo = new JComboBox<String>();
 		combo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

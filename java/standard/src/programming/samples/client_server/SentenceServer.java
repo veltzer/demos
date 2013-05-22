@@ -15,7 +15,8 @@ public class SentenceServer{
 	public static void main(String[] args) throws Exception{
 		ServerSocket serverSocket=new ServerSocket(9999);
 		System.out.println("Server started up on " + InetAddress.getLocalHost() + " port 9999");
-		while (true){
+		boolean run=true;
+		while (run){
 			Socket socket= serverSocket.accept();
 			InputStream in=socket.getInputStream();
 			OutputStream out=socket.getOutputStream();
@@ -27,6 +28,7 @@ public class SentenceServer{
 			writer.flush();
 			socket.close();
 		}
+		serverSocket.close();
 	}
 
 	private static String makeReply(String sentence){

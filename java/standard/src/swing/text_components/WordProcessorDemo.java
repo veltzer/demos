@@ -9,7 +9,6 @@ import java.io.File;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ComboBoxModel;
-import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -18,6 +17,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
 import javax.swing.ListCellRenderer;
@@ -56,9 +56,9 @@ public class WordProcessorDemo extends JPanel {
         toolbar.add(action);
         
         toolbar.addSeparator();
-        toolbar.add(new JComboBox(new FontSizeCombo()));
+        toolbar.add(new JComboBox<Integer>(new FontSizeCombo()));
         toolbar.addSeparator();
-        JComboBox combo = new JComboBox(new FontCombo());
+        JComboBox<String> combo = new JComboBox<String>(new FontCombo());
         combo.setRenderer(new FamilyRenderer());
         toolbar.add(combo);
     }
@@ -98,7 +98,7 @@ public class WordProcessorDemo extends JPanel {
         pane.setCharacterAttributes(attr, replace);
     }
 
-    public class FontSizeCombo implements ComboBoxModel {
+    public class FontSizeCombo implements ComboBoxModel<Integer> {
         private Integer[] fontSizes = new Integer[] { 
             new Integer(8), new Integer(9), new Integer(10), new Integer(11), 
             new Integer(12), new Integer(13), new Integer(14), new Integer(16), 
@@ -108,7 +108,7 @@ public class WordProcessorDemo extends JPanel {
         public void addListDataListener(javax.swing.event.ListDataListener listDataListener) {
         }
         
-        public Object getElementAt(int param) {
+        public Integer getElementAt(int param) {
             return fontSizes[param];
         }
         
@@ -131,7 +131,7 @@ public class WordProcessorDemo extends JPanel {
         }
     }
 
-    public class FontCombo implements ComboBoxModel {
+    public class FontCombo implements ComboBoxModel<String> {
         private String[] familyNames;
         private String selection;
 
@@ -142,7 +142,7 @@ public class WordProcessorDemo extends JPanel {
         public void addListDataListener(javax.swing.event.ListDataListener listDataListener) {
         }
         
-        public Object getElementAt(int param) {
+        public String getElementAt(int param) {
             return familyNames[param];
         }
         
@@ -165,18 +165,17 @@ public class WordProcessorDemo extends JPanel {
         }
     }
     
-    class FamilyRenderer extends DefaultListCellRenderer implements ListCellRenderer {
+    class FamilyRenderer implements ListCellRenderer<String> {
         
-        /**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-		public Component getListCellRendererComponent(JList jList, Object obj, int param, boolean param3, boolean param4) {
-            Component c = super.getListCellRendererComponent(jList, obj, param, param3, param4);
-            c.setFont(new Font((String)obj, Font.PLAIN, 10));
+        @Override
+		public Component getListCellRendererComponent(
+				JList<? extends String> list, String value, int index,
+				boolean isSelected, boolean cellHasFocus) {
+			//Component c = super.getListCellRendererComponent(list,value);
+        	Component c=new JTextArea();
+            c.setFont(new Font(value, Font.PLAIN, 10));
             return c;
-        }
+		}
         
     }
     

@@ -27,5 +27,12 @@ public class WithInterface {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		finally {
+			try {
+				gcl.close();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
 	}
 }

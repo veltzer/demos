@@ -45,7 +45,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 
 	private JCheckBox onTop;
 
-	private JComboBox layerList;
+	private JComboBox<String> layerList;
 
 	// Action commands
 	private static String ON_TOP_COMMAND = "ontop";
@@ -136,7 +136,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 		onTop.setActionCommand(ON_TOP_COMMAND);
 		onTop.addActionListener(this);
 
-		layerList = new JComboBox(layerStrings);
+		layerList = new JComboBox<String>(layerStrings);
 		layerList.setSelectedIndex(2); // cyan layer
 		layerList.setActionCommand(LAYER_COMMAND);
 		layerList.addActionListener(this);
