@@ -1,8 +1,9 @@
 package com.example.addressbook.view.views;
 
-import model.*;
+import org.eclipse.jface.viewers.Viewer;
 
-import org.eclipse.jface.viewers.*;
+import com.example.addressbook.view.views.model.Person;
+
 
 public class AddressBookSorter2 extends AddressBookSorter1 {
     public int compare(Viewer viewer, Object obj1, Object obj2) {

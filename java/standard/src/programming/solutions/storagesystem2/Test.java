@@ -26,9 +26,7 @@ public class Test {
 			String input=br.readLine();
 			return Integer.parseInt(input);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return 0;
+			throw new RuntimeException(e);
 		}
 	}
 	public void doAddItem() {

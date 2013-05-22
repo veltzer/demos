@@ -1,14 +1,22 @@
 package com.example.addressbook.view.views;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
 
-import org.eclipse.core.resources.*;
-import org.eclipse.core.runtime.*;
+import org.eclipse.core.runtime.IPath;
 
-import com.example.addressbook.view.*;
+import com.example.addressbook.view.ViewPlugin;
+import com.example.addressbook.view.views.model.AddressBook;
+import com.example.addressbook.view.views.model.Company;
+import com.example.addressbook.view.views.model.Person;
 
-import model.*;
 
 public class AddressBookManager {
     private static AddressBook instance;
@@ -31,9 +39,9 @@ public class AddressBookManager {
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(new FileWriter(output));
-            List friends = instance.getFriends();
-            for (Iterator iter = friends.iterator(); iter.hasNext();) {
-                Person friend = (Person) iter.next();
+            List<Person> friends = instance.getFriends();
+            for (Iterator<Person> iter = friends.iterator(); iter.hasNext();) {
+                Person friend = iter.next();
                 writer.print("FRIEND\t");
                 writer.print(friend.getFirstName());
                 writer.print('\t');
@@ -41,9 +49,9 @@ public class AddressBookManager {
                 writer.print('\t');
                 writer.println(friend.getNumber());
             }
-            List companies = instance.getCompanies();
-            for (Iterator iter = companies.iterator(); iter.hasNext();) {
-                Company company = (Company) iter.next();
+            List<Company> companies = instance.getCompanies();
+            for (Iterator<Company> iter = companies.iterator(); iter.hasNext();) {
+                Company company = iter.next();
                 writer.print("COMPANY\t");
                 writer.print(company.getName());
                 writer.print('\t');
@@ -125,7 +133,7 @@ public class AddressBookManager {
         IPath stateFilePath = stateLocation.append("addressBook.txt");
         return stateFilePath.toFile();
     }
-    
+    /*
     private static void populateInstance() {
         instance.addFriend(new Person("John", "Doe", "1234"));
         instance.addFriend(new Person("Xavier", "Anon", "2345"));
@@ -139,4 +147,5 @@ public class AddressBookManager {
         Employee e1a = new Employee("Chocolate", "Moose", "4", e1);
         Employee e1b = new Employee("Swedish", "Meetballs", "5", e1);
     }
+*/
 }

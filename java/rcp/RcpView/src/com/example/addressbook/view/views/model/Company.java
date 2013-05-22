@@ -1,4 +1,4 @@
-package model;
+package com.example.addressbook.view.views.model;
 
 public class Company {
     private String name;

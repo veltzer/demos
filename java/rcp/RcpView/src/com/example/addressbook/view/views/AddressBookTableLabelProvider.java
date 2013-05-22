@@ -1,12 +1,14 @@
 package com.example.addressbook.view.views;
 
+import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.swt.graphics.Image;
 
-import model.*;
+import com.example.addressbook.view.ViewPlugin;
+import com.example.addressbook.view.views.model.Company;
+import com.example.addressbook.view.views.model.Person;
 
-import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.graphics.*;
 
-import com.example.addressbook.view.*;
 
 public class AddressBookTableLabelProvider implements ITableLabelProvider {
     public static final int NAME_COLUMN = 0;

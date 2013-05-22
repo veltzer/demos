@@ -1,7 +1,6 @@
 package org.meta.rcp.myserver;
 
 import java.io.File;
-import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -52,7 +51,7 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
         ExecutionArguments execArgs = new ExecutionArguments(vmArgs, pgmArgs);
 
         // VM-specific attributes
-        Map<?,?> vmAttributesMap = getVMSpecificAttributesMap(configuration);
+        //Map<?,?> vmAttributesMap = getVMSpecificAttributesMap(configuration);
         
          // Classpath
         //String[] classpath = getClasspath(configuration);
@@ -70,7 +69,7 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
         runConfig.setVMArguments(execArgs.getVMArgumentsArray());
         runConfig.setWorkingDirectory(workingDirName);
         runConfig.setEnvironment(envp);
-        runConfig.setVMSpecificAttributesMap(vmAttributesMap);
+        //runConfig.setVMSpecificAttributesMap(vmAttributesMap);
 
         // Bootpath
         String[] bootpath = getBootpath(configuration);

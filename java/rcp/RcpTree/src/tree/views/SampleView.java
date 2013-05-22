@@ -77,7 +77,6 @@ public class SampleView extends ViewPart {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public Object getAdapter(Class adapter) {
-			// TODO Auto-generated method stub
 			return null;
 		}
 	}

@@ -3,7 +3,6 @@ package com.example.addressbook.view.views;
 
 import java.util.regex.*;
 
-import model.*;
 
 import org.eclipse.swt.widgets.*;
 import org.eclipse.ui.actions.*;
@@ -17,6 +16,8 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 
 import com.example.addressbook.view.*;
+import com.example.addressbook.view.views.model.Company;
+import com.example.addressbook.view.views.model.Person;
 
 
 /**

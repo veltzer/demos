@@ -287,7 +287,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
      * Therefore this method adds a correction value that seems to work
      * well with the vast majority of desktop systems.<p>
      * 
-     * TODO: revise the computation of vertical base units, as soon as 
+     * TODO: Revise the computation of vertical base units, as soon as 
      * there are more information about the original computation 
      * in Microsoft environments.
      * 

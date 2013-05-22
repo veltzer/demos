@@ -1,4 +1,4 @@
-package model;
+package com.example.addressbook.view.views.model;
 
 import java.util.*;
 
@@ -10,14 +10,14 @@ public class Employee extends Person {
             manager.addManaged(this);
     }
 
-    private List managed = new ArrayList();
+    private List<Employee> managed = new ArrayList<Employee>();
     private Employee manager = null;
     
     public void addManaged(Employee e) {
         managed.add(e);
     }
     
-    public List getManaged() {
+    public List<Employee> getManaged() {
         return managed;
     }
     

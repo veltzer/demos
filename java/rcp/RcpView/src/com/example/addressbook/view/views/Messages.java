@@ -12,11 +12,10 @@ public class Messages {
     }
 
     public static String getString(String key) {
-        // TODO Auto-generated method stub
         try {
             return RESOURCE_BUNDLE.getString(key);
         } catch (MissingResourceException e) {
-            return '!' + key + '!';
+            throw new RuntimeException(e);
         }
     }
 }

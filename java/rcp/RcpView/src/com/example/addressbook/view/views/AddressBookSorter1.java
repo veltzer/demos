@@ -1,8 +1,10 @@
 package com.example.addressbook.view.views;
 
-import model.*;
+import org.eclipse.jface.viewers.ViewerSorter;
 
-import org.eclipse.jface.viewers.*;
+import com.example.addressbook.view.views.model.Company;
+import com.example.addressbook.view.views.model.Person;
+
 
 public class AddressBookSorter1 extends ViewerSorter {
     public int category(Object obj) {

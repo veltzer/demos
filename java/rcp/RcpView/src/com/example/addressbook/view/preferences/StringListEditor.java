@@ -49,7 +49,7 @@ public class StringListEditor extends ListEditor {
     @Override
     protected String[] parseString(String stringList) {
         StringTokenizer tokenizer = new StringTokenizer(stringList, "\0");
-        List list = new ArrayList();
+        List<String> list = new ArrayList<String>();
         while (tokenizer.hasMoreTokens()) {
             list.add(tokenizer.nextToken());
         }

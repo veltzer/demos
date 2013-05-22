@@ -1,9 +1,12 @@
 package com.example.addressbook.view.views;
 
-import model.*;
+import org.eclipse.jface.viewers.ICellModifier;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.widgets.TableItem;
 
-import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.widgets.*;
+import com.example.addressbook.view.views.model.Company;
+import com.example.addressbook.view.views.model.Person;
+
 
 public class AddressBookCellModifier implements ICellModifier {
     private TableViewer viewer;

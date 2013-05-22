@@ -1,15 +1,17 @@
 package com.example.addressbook.view.views;
 
-import model.*;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 
-import org.eclipse.jface.viewers.*;
+import com.example.addressbook.view.views.model.Company;
+import com.example.addressbook.view.views.model.Person;
+
 
 public class AddressBookViewerFilter extends ViewerFilter {
     private boolean showFriends;
     private boolean showCompanies;
     
     public AddressBookViewerFilter(boolean companies, boolean friends) {
-        // TODO Auto-generated constructor stub
         showCompanies = companies;
         showFriends = friends;
     }

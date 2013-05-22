@@ -7,6 +7,7 @@ package exercise;
  * @author  rank
  * @version 
  */
+@SuppressWarnings("serial")
 public class TableHelper implements java.io.Serializable {
 
     /** Holds value of property html. */

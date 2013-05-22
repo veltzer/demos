@@ -1,15 +1,15 @@
-package model;
+package com.example.addressbook.view.views.model;
 import java.util.*;
 
 public class AddressBook {
-    private List friends = new ArrayList();
-    private List companies = new ArrayList();
+    private List<Person> friends = new ArrayList<Person>();
+    private List<Company> companies = new ArrayList<Company>();
 
-    public List getFriends() {
+    public List<Person> getFriends() {
         return friends;
     }
     
-    public List getCompanies() {
+    public List<Company> getCompanies() {
         return companies;
     }
     
