@@ -2,6 +2,7 @@
 
 package exercise;
 
+import java.io.Serializable;
 import java.sql.*;
 import java.util.*;
 
@@ -10,37 +11,35 @@ import java.util.*;
  * @author  rank
  * @version
  */
-public class ItemDAO implements java.io.Serializable {
-    private static final String URL = "jdbc:odbc:CartServlet";
+@SuppressWarnings("serial")
+public class ItemDAO implements Serializable {
+    protected static final String URL = "jdbc:odbc:CartServlet";
     static {
         try{
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
         } catch (ClassNotFoundException e) {}
     }
     
-    public Map findAllItems() throws SQLException {
-        HashMap items = new HashMap();
-        
+    public Map<String,Item> findAllItems() throws SQLException {
         /**
          * Enter your code here
          */
-        
-        return items;
+        return null;
     }
     
     
-    private Connection openConnection() throws SQLException {
+    protected Connection openConnection() throws SQLException {
         /**
          * Enter your code here
          */
+    	return null;
     }
     
-    private Item fillItem(ResultSet rs) throws SQLException {
-        Item item = new Item();
+    protected Item fillItem(ResultSet rs) throws SQLException {
         /**
          * Enter your code here
          */
-        return item;
+        return null;
     }
     
 }

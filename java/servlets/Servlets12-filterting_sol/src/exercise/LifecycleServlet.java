@@ -9,6 +9,7 @@ import java.io.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class LifecycleServlet extends GenericServlet {
     
 	public LifecycleServlet() {

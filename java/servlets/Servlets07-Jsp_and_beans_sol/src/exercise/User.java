@@ -1,11 +1,14 @@
 package exercise;
 
+import java.io.Serializable;
+
 /**
  *
  * @author  rank
  * @version 
  */
-public class User implements java.io.Serializable {
+@SuppressWarnings("serial")
+public class User implements Serializable {
 
     /** Holds value of property fname. */
     private String fname;

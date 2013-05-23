@@ -14,6 +14,7 @@ import java.sql.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class DbCartServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,11 +36,12 @@ public class DbCartServlet extends HttpServlet {
         out.println("</html>");
     }
 
-    private Map getItemsList() throws ServletException {
+    private Map<String,Item> getItemsList() throws ServletException {
         try {
             /**
              * Enter your code here
              */
+        	throw new SQLException();
         } catch (SQLException e) {
             throw new ServletException(e);
         }
@@ -47,15 +49,16 @@ public class DbCartServlet extends HttpServlet {
 
     private void addItemToCart(HttpServletRequest request) throws ServletException {
         HttpSession session = request.getSession();
-        List cart = (List) session.getAttribute("cart");
+        @SuppressWarnings("unchecked")
+		List<Item> cart = (List<Item>) session.getAttribute("cart");
         if (cart==null) {
-            cart = new ArrayList();
+            cart = new ArrayList<Item>();
             session.setAttribute("cart",cart);
         }
         String itemId = request.getParameter("itemid");
         if (itemId!=null) {
-            Map items = getItemsList();
-            Item item = (Item) items.get(itemId);
+            Map<String,Item> items = getItemsList();
+            Item item = items.get(itemId);
             if (item!=null) {
                 cart.add(item);
             }
@@ -66,16 +69,17 @@ public class DbCartServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
 
-        List cart = (List) session.getAttribute("cart");
+        @SuppressWarnings("unchecked")
+		List<Item> cart = (List<Item>) session.getAttribute("cart");
         out.println("Items currently in your cart:<br>");
         double total=0;
         if (cart.isEmpty()) {
             out.println("Cart is empty.");
         } else {
-            Iterator it = cart.iterator();
+            Iterator<Item> it = cart.iterator();
 
             while(it.hasNext()) {
-                Item item = (Item) it.next();
+                Item item = it.next();
                 out.println(item.getName()+" - "+NumberFormat.getCurrencyInstance(Locale.US).format(item.getPrice())+"<br>");
                 total+=item.getPrice();
             }
@@ -88,8 +92,8 @@ public class DbCartServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         out.println("<h4>Items for sale:</h4>");
-        Map items = getItemsList();
-        Iterator it = items.values().iterator();
+        Map<String,Item> items = getItemsList();
+        Iterator<Item> it = items.values().iterator();
         while(it.hasNext()) {
             Item item = (Item) it.next();
             out.println(item.getItemId()+" "+item.getName()+" - "+NumberFormat.getCurrencyInstance(Locale.US).format(item.getPrice()));
