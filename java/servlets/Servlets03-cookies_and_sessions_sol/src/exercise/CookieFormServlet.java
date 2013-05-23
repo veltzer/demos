@@ -11,6 +11,7 @@ import java.io.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class CookieFormServlet extends HttpServlet {
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

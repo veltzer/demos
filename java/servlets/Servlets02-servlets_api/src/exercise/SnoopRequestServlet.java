@@ -11,6 +11,7 @@ import java.io.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class SnoopRequestServlet extends HttpServlet {
     
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

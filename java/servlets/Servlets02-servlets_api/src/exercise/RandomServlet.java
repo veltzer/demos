@@ -9,6 +9,7 @@ import java.io.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class RandomServlet extends HttpServlet {
     
     private int max;
@@ -42,14 +43,15 @@ public class RandomServlet extends HttpServlet {
     }
     
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+        //PrintWriter out = response.getWriter();
         /**
          * Enter your code here
          */
     }
-    
+    /*
     private int createRandomNum() {
         int num= (int)Math.ceil(Math.random()*max);
         return num;
     }
+    */
 }

@@ -9,12 +9,13 @@ import java.io.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class RandomServlet extends HttpServlet {
     
     private int max;
     
     public void init() throws ServletException {
-        String maxNum = config.getInitParameter("maxNum");
+        String maxNum = getServletConfig().getInitParameter("maxNum");
         try {
             max=Integer.parseInt(maxNum);
         } catch (NumberFormatException e) {

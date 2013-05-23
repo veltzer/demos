@@ -13,12 +13,13 @@ import java.text.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class CartServlet extends HttpServlet {
 
     public void init() throws ServletException {
 
         // create the items list;
-        Map itemList = new TreeMap();
+        Map<String,Item> itemList = new TreeMap<String,Item>();
         itemList.put("1",new Item("1","Monitor",250));
         itemList.put("2",new Item("2","Hard disk",79.90));
         itemList.put("3",new Item("3","Mouse",19.90));
@@ -74,10 +75,11 @@ public class CartServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         out.println("<h4>Items for sale:</h4>");
-        Map items = (Map) getServletContext().getAttribute("items");
-        Iterator it = items.values().iterator();
+        @SuppressWarnings("unchecked")
+		Map<String,Item> items = (Map<String,Item>) getServletContext().getAttribute("items");
+        Iterator<Item> it = items.values().iterator();
         while(it.hasNext()) {
-            Item item = (Item) it.next();
+            Item item = it.next();
             out.println(item.getItemId()+" "+item.getName()+" - "+NumberFormat.getCurrencyInstance().format(item.getPrice()));
             out.println("<a href='"+response.encodeURL(request.getRequestURI()+"?itemid="+item.getItemId())+"'>Buy now!</a><br>");
         }
