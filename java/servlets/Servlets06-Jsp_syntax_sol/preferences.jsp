@@ -1,4 +1,5 @@
 <%@page contentType="text/html"%>
+<%@page import="java.lang.String"%>
 <%!
     String[] colors = {"","white","black","blue","red","yellow","green","purple"};
 %>

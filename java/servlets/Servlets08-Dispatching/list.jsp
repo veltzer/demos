@@ -6,10 +6,10 @@
 <body>
 <table border=1>
 <%
-    Iterator it =items.values().iterator();
+    Iterator<Item> it =items.values().iterator();
 
     while (it.hasNext()) {
-        Item item = (Item) it.next();
+        Item item = it.next();
 %>
     <tr>
     <td><%= item.getItemId()%></td><td><%=item.getName()%></td><td><%=NumberFormat.getCurrencyInstance(Locale.US).format(item.getPrice()) %></td></tr>

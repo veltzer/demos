@@ -1,14 +1,17 @@
-<%@page import="java.util.*,java.text.*,exercise.Item"%>
+<%@page import="exercise.Item"%>
+<%@page import="java.util.Map" %>
+<%@page import="java.util.Iterator" %>
+
 <jsp:useBean id="items" type="java.util.Map" scope="application" />
 
 <html>
 <head><title>Items view</title></head>
 <body>
 <%
-    Iterator it =items.values().iterator();
+    Iterator<Item> it =items.values().iterator();
 
     while (it.hasNext()) {
-        Item item = (Item) it.next();
+        Item item = it.next();
 %>
     <TABLE border=1 width='150'>
     <TR><TD>

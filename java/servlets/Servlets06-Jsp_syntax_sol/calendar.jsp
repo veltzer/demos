@@ -1,5 +1,5 @@
 <%@page contentType="text/html"%>
-<%@page import="java.util.*"%>
+<%@page import="java.util.Calendar"%>
 
 <html>
 <head><title>Calendar </title></head>

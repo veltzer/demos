@@ -10,15 +10,16 @@ import java.util.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class ControllerServlet extends HttpServlet {
 
-    private static final String CATALOG_PAGE = "/list.jsp";
-    private static final String ITEM_PAGE = "/item.jsp";
+    protected static final String CATALOG_PAGE = "/list.jsp";
+    protected static final String ITEM_PAGE = "/item.jsp";
 
     public void init() throws ServletException {
 
         // create the items list;
-        Map itemList = new TreeMap();
+        Map<String,Item> itemList = new TreeMap<String,Item>();
         itemList.put("1",new Item("1","Monitor",250));
         itemList.put("2",new Item("2","Hard disk",79.90));
         itemList.put("3",new Item("3","Mouse",19.90));
