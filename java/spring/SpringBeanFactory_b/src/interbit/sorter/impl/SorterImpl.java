@@ -30,10 +30,10 @@ public abstract class SorterImpl implements Sorter {
 		return Collections.unmodifiableList(items);
 	}
 
-/*	public void addItem(Item item) {
+	public void addItem(Item item) {
 		items.add(item);
 	}
-	*/
+
 	public void setItemCount(int itemCount)
 	{
 		this.itemCount = itemCount;
@@ -41,10 +41,8 @@ public abstract class SorterImpl implements Sorter {
 	
 	public abstract ItemFactory getItemFactory();
 
-	public void init()
-	{
-		for (int i = 0; i < itemCount; i++)
-		{
+	public void init() {
+		for (int i = 0; i < itemCount; i++) {
 			items.add(getItemFactory().createItem());
 		}
 	}

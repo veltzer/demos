@@ -1,17 +1,14 @@
 package test;
 
-import java.util.List;
-
 import interbit.sorter.Item;
 import interbit.sorter.Sorted;
 import interbit.sorter.Sorter;
 
+import java.util.List;
+
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
 
 public class Main {
 
@@ -34,6 +31,7 @@ public class Main {
 			//System.out.println(item);
 		}
 		System.out.println(y);
+		((AbstractApplicationContext) bf).close();
 		
 	}
 
