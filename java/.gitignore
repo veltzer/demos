@@ -1,0 +1,6 @@
+projects/*/bin
+projects/*/WEB-INF/classes
+*.class
+java.hprof.txt
+maven/mvn-app
+ant/*.jar
