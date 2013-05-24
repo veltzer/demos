@@ -2,7 +2,8 @@ package interbit.sorter;
 
 import java.io.Serializable;
 
-public class Item implements Serializable{
+@SuppressWarnings("serial")
+public class Item implements Serializable {
 	private String name;
 	private double price;
 	

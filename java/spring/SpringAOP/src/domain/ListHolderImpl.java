@@ -6,12 +6,14 @@ public class ListHolderImpl implements ListHolder{
 
 	private List<Integer> list;
 	private int numOfElements;
-	private long sum = 0;
 	public void iterate() {
+		/*
+		int sum=0;
 		for (Integer i : list)
 		{
 			sum += i;
 		}
+		*/
 		
 	}
 	

@@ -4,10 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
@@ -23,7 +19,7 @@ implements
 		getJdbcTemplate().update("insert into BOOKS values(?,?,?)", params);
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Book> showBooks() {
 		return getJdbcTemplate().query("SELECT * from BOOKS", new RowMapper() {
 			public Object mapRow(ResultSet rs, int num) throws SQLException {
@@ -36,7 +32,7 @@ implements
 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Book> showBooksBellow(double price) {
 		Object[] params = new Object[1];
 		params[0] = price;
@@ -63,7 +59,7 @@ implements
 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Customer> showCustomers() {
 		return getJdbcTemplate().query("SELECT * from CUSTOMERS",
 				new RowMapper() {
@@ -78,7 +74,7 @@ implements
 				});
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Customer> showCustomersByName(String name) {
 		return getJdbcTemplate().query(
 				"SELECT * from CUSTOMERS where name = ?",

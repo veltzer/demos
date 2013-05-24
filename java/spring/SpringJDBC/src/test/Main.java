@@ -1,17 +1,12 @@
 package test;
 
-import java.util.List;
-
 import interbit.bookstore.Book;
+import interbit.bookstore.BookStoreAdminDAO;
 import interbit.bookstore.Customer;
 
-import interbit.bookstore.BookStoreAdminDAO;
-
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
 import org.springframework.dao.DataIntegrityViolationException;
 
 public class Main {
@@ -60,6 +55,7 @@ public class Main {
 		
 		aBook.setPrice(1900);
 		bsa.updateBook(aBook);
+		((AbstractApplicationContext) bf).close();
 
 	}
 

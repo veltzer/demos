@@ -7,8 +7,8 @@ import interbit.sorter.Sorter;
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.jms.core.JmsTemplate;
 
 public class Main {
 
@@ -32,6 +32,7 @@ public class Main {
 		}
 		System.out.println(y);
 		Thread.sleep(210000);
+		((AbstractApplicationContext) bf).close();
 	}
 
 }

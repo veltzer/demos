@@ -1,19 +1,19 @@
 package interbit.sorter.impl;
 
-import org.springframework.beans.factory.FactoryBean;
-
 import interbit.sorter.Item;
 import interbit.sorter.ItemFactory;
 
-public class ItemFactoryImpl implements FactoryBean, ItemFactory{
+import org.springframework.beans.factory.FactoryBean;
+
+public class ItemFactoryImpl implements FactoryBean<Item>, ItemFactory{
 
 	private int counter = 0;
 
-	public Object getObject() throws Exception {
+	public Item getObject() throws Exception {
 		return createItem();
 	}
 
-	public Class getObjectType() {
+	public Class<Item> getObjectType() {
 		return Item.class;
 	}
 

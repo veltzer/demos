@@ -6,7 +6,7 @@ import sorter.Item;
 import sorter.ItemFactory;
 
 
-public class ItemFactoryImpl implements FactoryBean, ItemFactory{
+public class ItemFactoryImpl implements FactoryBean<Object>, ItemFactory{
 
 	private int counter = 0;
 
@@ -14,7 +14,7 @@ public class ItemFactoryImpl implements FactoryBean, ItemFactory{
 		return createItem();
 	}
 
-	public Class getObjectType() {
+	public Class<Item> getObjectType() {
 		return Item.class;
 	}
 

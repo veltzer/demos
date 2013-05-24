@@ -4,9 +4,9 @@ import introducers.Summable;
 
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import domain.ListHolder;
 
@@ -16,21 +16,21 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Resource res = new FileSystemResource("beans.xml");
-		ConfigurableBeanFactory bf = new XmlBeanFactory(res);
-		BeanPostProcessor advisor = (BeanPostProcessor) bf
+		ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+		BeanPostProcessor advisor = (BeanPostProcessor) context
 				.getBean("authoproxier");
-		bf.addBeanPostProcessor(advisor);
-		ListHolder lh = (ListHolder) bf.getBean("ListHolderArray");
+		((ConfigurableBeanFactory) context).addBeanPostProcessor(advisor);
+		ListHolder lh = (ListHolder) context.getBean("ListHolderArray");
 		lh.iterate();
 		System.out.println(((Summable) lh).getSum());
-		lh = (ListHolder) bf.getBean("ListHolderLinkedList");
+		lh = (ListHolder) context.getBean("ListHolderLinkedList");
 		lh.iterate();
 		lh.iterate();
 		lh.iterate();
 		lh.iterate();
 		System.out.println(((Summable) lh).getSum());
 		System.out.println(((Summable) lh).getSum());
+		((AbstractApplicationContext) context).close();
 	}
 
 }

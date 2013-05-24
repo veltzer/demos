@@ -1,10 +1,10 @@
 package introducers;
 
-
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 
-public class SummableIntroducer extends DelegatingIntroductionInterceptor  implements Summable{
+@SuppressWarnings("serial")
+public class SummableIntroducer extends DelegatingIntroductionInterceptor  implements Summable {
 	private long count = 0;
 	public long getSum() {
 		return count;
@@ -15,8 +15,4 @@ public class SummableIntroducer extends DelegatingIntroductionInterceptor  imple
 			count++;
 		return super.invoke(inv);
 	}
-	
-
-	
-
 }

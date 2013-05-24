@@ -4,6 +4,7 @@ package test;
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import sorter.Item;
@@ -30,12 +31,13 @@ public class Main {
 		{
 			double currentPrice=item.getPrice();
 			if(previous>currentPrice) {
+				((AbstractApplicationContext) bf).close();
 				throw new RuntimeException("Oops, sorter is bad");
 			}
 			sum+= item.getPrice();
 		}
 		System.out.println("sum of all prices is "+sum);
-		
+		((AbstractApplicationContext) bf).close();
 	}
 
 }
