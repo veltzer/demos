@@ -1,6 +1,7 @@
 package interbit.views;
 
-import java.util.Iterator;
+import interbit.bookstore.Book;
+
 import java.util.List;
 import java.util.Map;
 
@@ -15,10 +16,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
+@SuppressWarnings("deprecation")
 public class ShowBooksXML extends AbstractXsltView {
 
 	@Override
-	protected Source createXsltSource(Map model, String rootName,
+	protected Source createXsltSource(@SuppressWarnings("rawtypes") Map model, String rootName,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
@@ -26,6 +28,7 @@ public class ShowBooksXML extends AbstractXsltView {
 				.newDocumentBuilder().newDocument();
 		Element root = document.createElement(rootName);
 		
+		@SuppressWarnings("unchecked")
 		List<Book> books = (List<Book>) model.get("books");
 
 		for (Book b: books) {
