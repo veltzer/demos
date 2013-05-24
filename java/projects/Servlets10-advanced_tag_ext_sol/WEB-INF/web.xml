@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by Ran Kornfeld (InterBit Training & Consulting) -->
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<taglib>
+		<taglib-uri>/course/exercise.tld</taglib-uri>
+		<taglib-location>exercise.tld</taglib-location>
+	</taglib>
+</web-app>
