@@ -1,27 +1,19 @@
 package interbit.bookstore;
 
-import java.sql.SQLException;
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-import org.springframework.transaction.PlatformTransactionManager;
 
 
-public class BookStoreDAOHibernateImpl 
-	extends HibernateDaoSupport implements BookStoreAdminDAO{
+public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements BookStoreAdminDAO {
 	
 
 	public void addNewBook(Book book) {
 		getHibernateTemplate().persist(book);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Book> showBooks() {
 		return getHibernateTemplate().loadAll(Book.class);
 	}

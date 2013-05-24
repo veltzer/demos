@@ -5,6 +5,7 @@ import interbit.bookstore.BookStoreAdminDAO;
 import interbit.bookstore.Customer;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.dao.DataIntegrityViolationException;
 
@@ -54,6 +55,7 @@ public class Main {
 
 		aBook.setPrice(1900);
 		bsa.updateBook(aBook);
+		((AbstractApplicationContext) bf).close();
 	}
 
 }
