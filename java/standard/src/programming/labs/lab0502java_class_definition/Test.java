@@ -1,6 +1,9 @@
+package programming.labs.lab0502java_class_definition;
+
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		Bank bank1=Bank.getBank();
 		
 		bank1.addCustomer(new Customer("Yossi","111",41,new Account(4000)));
@@ -11,5 +14,6 @@ public class Test {
 		System.out.println("Customer1 name:"+bank2.getCustomer(0).getName());
 		System.out.println("Customer2 name:"+bank2.getCustomer(1).getName());
 		System.out.println("Customer3 name:"+bank2.getCustomer(2).getName());
+		*/
 	}
 }

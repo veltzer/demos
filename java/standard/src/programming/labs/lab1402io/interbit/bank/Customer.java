@@ -1,12 +1,13 @@
-package interbit.bank;
+package programming.labs.lab1402io.interbit.bank;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
 	private String name;
 	private String id;
 	private int age;
-	private List accounts;
+	private List<Account> accounts;
 	
 	
 	public Customer(){
@@ -17,14 +18,14 @@ public class Customer {
 		setName(name);
 		setId(id);
 		setAge(age);
-		accounts=new ArrayList();
+		accounts=new ArrayList<Account>();
 	}
 	
 	public Customer(String name,String id,int age,CheckingAccount account){
 		setName(name);
 		setId(id);
 		setAge(age);
-		accounts=new ArrayList();
+		accounts=new ArrayList<Account>();
 		addAccount(account);
 	}
 	

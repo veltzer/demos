@@ -6,7 +6,8 @@ import interbit.sorter.Sorted;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 
-public class SortedIntroducer extends DelegatingIntroductionInterceptor  implements Sorted{
+@SuppressWarnings("serial")
+public class SortedIntroducer extends DelegatingIntroductionInterceptor  implements Sorted {
 	private boolean sorted = false;
 	
 	@Override

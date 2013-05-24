@@ -1,3 +1,5 @@
+package programming.labs.lab0701inheritance;
+
 public class Customer {
 	private String name;
 	private String id;

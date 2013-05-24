@@ -1,12 +1,15 @@
-package programming.labs.lab0701inheritance_sol;
+package programming.labs.lab0702inheritance;
 public class Account {
-	private String id;
-	private double balance;
+	protected String id;
+	protected double balance;
 	private static int nextId=1001;
 	private double COMMITION=0.05;
 	
-	
+	public Account() {
+		this(0);
+	}
 	public Account(double balance){
+		super();
 		id=""+nextId++;
 		setBalance(balance);
 	}
@@ -31,13 +34,13 @@ public class Account {
 		if(amount*(1+COMMITION)<=balance){
 			balance-=amount*(1+COMMITION);
 			return amount;
-		}else
+		} else {
+			System.err.println("Cannot withdraw");
 			return 0.0;
+		}
 	}
 
 	public String toString(){
-		return "Account id:"+id+" balance:"+balance;
+		return "Account - id:"+id+" balance:"+balance+"\n";
 	}
-		
-	
 }

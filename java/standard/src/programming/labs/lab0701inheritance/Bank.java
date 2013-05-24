@@ -1,3 +1,5 @@
+package programming.labs.lab0701inheritance;
+
 public class Bank {
 	private static Bank bank;
 	private Customer[] customers;

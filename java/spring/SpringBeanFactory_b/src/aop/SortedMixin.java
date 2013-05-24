@@ -4,6 +4,7 @@ import interbit.sorter.Sorted;
 
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
 
+@SuppressWarnings("serial")
 public class SortedMixin extends DefaultIntroductionAdvisor {
 
     public SortedMixin() {

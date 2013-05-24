@@ -8,7 +8,7 @@ import interbit.sorter.Item;
 import interbit.sorter.ItemFactory;
 import interbit.sorter.Sorter;
 
-public abstract class SorterImpl implements Sorter{
+public abstract class SorterImpl implements Sorter {
 
 	private int itemCount;
 	private List<Item> items;

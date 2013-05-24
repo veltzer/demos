@@ -1,14 +1,15 @@
-package interbit.bank;
+package programming.labs.lab1402io.interbit.bank;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Bank implements Business{
 	private static Bank bank;
-	private List customers;	
+	private List<Customer> customers;	
 	private static boolean isExist;
 		
 	private Bank(){
-		customers=new LinkedList();
+		customers=new LinkedList<Customer>();
 	}
 	
 	public static Business getBank(){

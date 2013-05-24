@@ -1,7 +1,9 @@
-import interbit.bank.*;
+package programming.labs.lab0701inheritance;
+
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		Bank bank=Bank.getBank();
 		bank.addCustomer(new Customer("Sharon","1234",21,new Account(5000)));
 		bank.addCustomer(new Customer("Anat","1235",21,new BusinessAccount(5000)));
@@ -15,5 +17,6 @@ public class Test {
 		bank.getCustomer(1).getAccount().withdraw(5000);
 		System.out.println("Customer1 balnce:"+bank.getCustomer(0).getAccount().getBalance());
 		System.out.println("Customer2 balnce:"+bank.getCustomer(1).getAccount().getBalance());
+		*/
 	}
 }

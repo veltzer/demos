@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1402io.interbit.bank;
 
 public class BusinessAccount extends Account {
 	public double AMOUNT_PROTECTION=10000;

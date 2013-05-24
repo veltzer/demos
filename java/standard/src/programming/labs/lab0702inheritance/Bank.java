@@ -1,4 +1,4 @@
-package programming.labs.lab0702inheritance_sol;
+package programming.labs.lab0702inheritance;
 
 public class Bank {
 	// this is the single instance that will store the bank

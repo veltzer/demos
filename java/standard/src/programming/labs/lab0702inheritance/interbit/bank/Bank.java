@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab0702inheritance.interbit.bank;
 public class Bank {
 	private static Bank bank;
 	private Customer[] customers;

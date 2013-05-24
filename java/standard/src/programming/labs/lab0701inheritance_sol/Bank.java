@@ -1,4 +1,4 @@
-package programming.solutions.sol0701inheritance;
+package programming.labs.lab0701inheritance_sol;
 public class Bank {
 	private static Bank bank;
 	private Customer[] customers;

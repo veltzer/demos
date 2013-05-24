@@ -13,7 +13,7 @@ public class SortPointcut implements Pointcut{
 	public ClassFilter getClassFilter() {
 		return new ClassFilter()
 		{
-			public boolean matches(Class arg0) {
+			public boolean matches(Class<?> arg0) {
 				return true;
 			};
 		};
@@ -23,7 +23,7 @@ public class SortPointcut implements Pointcut{
 		return new StaticMethodMatcher()
 		{
 			
-			public boolean matches(Method arg0, Class arg1) {
+			public boolean matches(Method arg0, Class<?> arg1) {
 				if (arg0.getName().equals("sort"))
 					return true;
 				return false;

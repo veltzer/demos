@@ -1,4 +1,4 @@
-package programming.solutions.sol0702inheritance;
+package programming.labs.lab0702inheritance_sol;
 public class Account {
 	protected String id;
 	protected double balance;

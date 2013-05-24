@@ -1,6 +1,7 @@
 package interbit.bank;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Bank implements Business{
 	private static Bank bank;

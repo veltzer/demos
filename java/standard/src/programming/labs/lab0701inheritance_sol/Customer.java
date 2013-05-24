@@ -1,4 +1,4 @@
-package programming.solutions.sol0701inheritance;
+package programming.labs.lab0701inheritance_sol;
 public class Customer {
 	private String name;
 	private String id;

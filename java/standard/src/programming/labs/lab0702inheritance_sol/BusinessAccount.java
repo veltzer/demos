@@ -1,4 +1,4 @@
-package programming.solutions.sol0702inheritance;
+package programming.labs.lab0702inheritance_sol;
 
 public class BusinessAccount extends Account {
 	private final static double AMOUNT_PROTECTION=10000;

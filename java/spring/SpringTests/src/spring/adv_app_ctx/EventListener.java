@@ -8,7 +8,6 @@ public class EventListener implements ApplicationListener<SomethingHappened> {
 
 	@Override
 	public void onApplicationEvent(SomethingHappened event) {
-		// TODO Auto-generated method stub
 		System.out.println("I found out... something happened to " + event.getSource());
 	}
 }

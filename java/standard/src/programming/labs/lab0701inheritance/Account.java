@@ -1,3 +1,5 @@
+package programming.labs.lab0701inheritance;
+
 public class Account {
 	private String id;
 	private double balance;

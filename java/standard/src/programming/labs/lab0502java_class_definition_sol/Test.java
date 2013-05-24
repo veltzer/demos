@@ -1,4 +1,4 @@
-package programming.solutions.sol0502_java_class_definition;
+package programming.labs.lab0502java_class_definition_sol;
 
 public class Test {
 
