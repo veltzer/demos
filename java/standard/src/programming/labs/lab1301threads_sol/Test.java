@@ -1,4 +1,4 @@
-package programming.solutions.sol1301threads;
+package programming.labs.lab1301threads_sol;
 
 public class Test {
 

@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1201collections.interbit.bank;
 public class Customer {
 	private String name;
 	private String id;

@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1201collections.interbit.bank;
 
 public abstract class Account {
 	private String id;

@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1201collections.interbit.bank;
 
 public interface Business {
 	void addCustomer(Customer customer);
