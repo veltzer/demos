@@ -2,11 +2,8 @@ package spring.javaconfig;
 
 import java.util.Date;
 
-import org.springframework.config.java.annotation.Bean;
-import org.springframework.config.java.annotation.Configuration;
-import org.springframework.config.java.annotation.ExternalValue;
-import org.springframework.config.java.annotation.ResourceBundles;
-import org.springframework.config.java.util.DefaultScopes;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import spring.MyBean;
 

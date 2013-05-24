@@ -1,9 +1,7 @@
 package spring.testing.db;
 
+import java.awt.print.Book;
 import java.util.List;
-
-import interbit.bookstore.Book;
-import interbit.bookstore.BookStoreAdminDAO;
 
 import org.springframework.test.AbstractTransactionalDataSourceSpringContextTests;
 

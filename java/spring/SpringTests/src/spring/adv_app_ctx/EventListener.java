@@ -1,8 +1,6 @@
 package spring.adv_app_ctx;
 
 import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.ApplicationListener;
 
 import spring.adv_app_ctx.EventGenerator.SomethingHappened;
