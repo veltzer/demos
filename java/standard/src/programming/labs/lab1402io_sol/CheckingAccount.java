@@ -1,4 +1,4 @@
-package programming.solutions.sol1402io;
+package programming.labs.lab1402io_sol;
 
 public class CheckingAccount extends Account {
 

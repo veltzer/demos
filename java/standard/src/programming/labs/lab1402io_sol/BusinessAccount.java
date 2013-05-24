@@ -1,4 +1,4 @@
-package programming.solutions.sol1402io;
+package programming.labs.lab1402io_sol;
 
 public class BusinessAccount extends Account {
 	private static final long serialVersionUID = 1L;
