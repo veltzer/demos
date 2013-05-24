@@ -1,8 +1,12 @@
 
 package exercise;
 
-import javax.servlet.*;
-import java.io.*;
+import java.io.IOException;
+
+import javax.servlet.GenericServlet;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 /**
  *
