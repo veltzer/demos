@@ -8,6 +8,7 @@ import interbit.bookstore.BookStoreAdminDAO;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
+@SuppressWarnings("deprecation")
 public class AddBookController extends SimpleFormController {
 	private BookStoreAdminDAO dao;
 

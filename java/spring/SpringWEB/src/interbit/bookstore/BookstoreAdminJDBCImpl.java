@@ -11,8 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
-		BookStoreAdminDAO {
+public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements BookStoreAdminDAO {
 
 	public void addNewBook(Book book) {
 		Object[] params = new Object[3];

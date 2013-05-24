@@ -1,9 +1,7 @@
 package interbit.bookstore;
 
 import java.util.List;
-
-
-
+import org.springframework.security.access.annotation.Secured;
 
 public interface BookStoreAdminDAO {
 	@Secured("ROLE_ADMIN")
