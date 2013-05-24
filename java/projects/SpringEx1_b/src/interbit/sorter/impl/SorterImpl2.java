@@ -11,7 +11,7 @@ import interbit.sorter.ItemFactory;
 import interbit.sorter.Sorter;
 
 @Configurable
-public abstract class SorterImpl implements Sorter, SorterImplMBean{
+public abstract class SorterImpl2 implements Sorter, SorterImplMBean {
 
 	private int itemCount;
 	private List<Item> items;
