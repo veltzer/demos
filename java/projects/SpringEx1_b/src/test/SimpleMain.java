@@ -1,14 +1,13 @@
 package test;
 
 import interbit.sorter.Item;
-import interbit.sorter.Sorted;
 import interbit.sorter.Sorter;
 
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.jms.core.JmsTemplate;
 
 public class SimpleMain {
 
@@ -31,7 +30,7 @@ public class SimpleMain {
 			//System.out.println(item);
 		}
 		System.out.println("item count: " + sortedItems.size() + ", total price " +y);
-
+		((AbstractApplicationContext) bf).close();
 	}
 
 }

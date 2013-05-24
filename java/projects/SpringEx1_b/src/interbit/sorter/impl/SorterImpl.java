@@ -1,18 +1,12 @@
 package interbit.sorter.impl;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.jmx.export.annotation.ManagedAttribute;
-import org.springframework.jmx.export.annotation.ManagedOperation;
-import org.springframework.jmx.export.annotation.ManagedResource;
-
 import interbit.sorter.Item;
 import interbit.sorter.ItemFactory;
 import interbit.sorter.Sorter;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public abstract class SorterImpl implements Sorter {
 

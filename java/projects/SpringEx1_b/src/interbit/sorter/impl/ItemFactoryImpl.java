@@ -5,7 +5,7 @@ import org.springframework.beans.factory.FactoryBean;
 import interbit.sorter.Item;
 import interbit.sorter.ItemFactory;
 
-public class ItemFactoryImpl implements ItemFactory, FactoryBean {
+public class ItemFactoryImpl implements ItemFactory, FactoryBean<Object> {
 
 	private int counter = 0;
 
@@ -19,7 +19,7 @@ public class ItemFactoryImpl implements ItemFactory, FactoryBean {
 	}
 
 	@Override
-	public Class getObjectType() {
+	public Class<Item> getObjectType() {
 		return Item.class;
 	}
 
