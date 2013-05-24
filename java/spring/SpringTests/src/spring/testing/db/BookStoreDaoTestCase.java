@@ -7,6 +7,7 @@ import interbit.bookstore.BookStoreAdminDAO;
 
 import org.springframework.test.AbstractTransactionalDataSourceSpringContextTests;
 
+@SuppressWarnings("deprecation")
 public class BookStoreDaoTestCase extends AbstractTransactionalDataSourceSpringContextTests {
 	private BookStoreAdminDAO bookStoreAdminDAO;
 	

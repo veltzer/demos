@@ -1,6 +1,7 @@
 package spring.scheduling;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Scheduling {
@@ -8,5 +9,6 @@ public class Scheduling {
 		BeanFactory bf = new ClassPathXmlApplicationContext("spring/scheduling/beans.xml");
 
 		Thread.sleep(20000);
+		((AbstractApplicationContext) bf).close();
 	}
 }

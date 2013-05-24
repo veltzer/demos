@@ -34,8 +34,7 @@ public class TestSubjectJunit4Test {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void checkNumberWithZero() {
-		int value = 0;
-		value = testSubject.checkNumber(0);
+		testSubject.checkNumber(0);
 	}
 
 	// ---------

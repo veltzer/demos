@@ -2,6 +2,7 @@ package spring.testing;
 
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
+@SuppressWarnings("deprecation")
 public class TestSubjectTestCase extends AbstractDependencyInjectionSpringContextTests {
 	private TestSubject testSubject;
 	
