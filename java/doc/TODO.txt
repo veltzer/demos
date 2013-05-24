@@ -1,12 +1,19 @@
-General:
+Build system:
+=============
+- add checkstyle support and set my own style.
+- seperate the java to it's own project (javaapi).
+- add ant to build the entire project.
+- add code formatter to format all of my code to a single style.
+- get ridd of the jars in '/lib' and use the ones from the OS
+	to reduce the size of this project.
+
+Extreme:
 ========
-- see that everything works (including resources).
-- add the java programming course examples.
 - add an example showing how long it takes to take locks in java.
 	compare that to atomics.
 
-Swing demos:
-============
+Swing:
+======
 - how do dialogs work (with thread ids).
 	Show how does dialog.show() works (and how does it continue as if
 	on the same thread).
