@@ -6,6 +6,8 @@ Build system:
 - add code formatter to format all of my code to a single style.
 - get ridd of the jars in '/lib' and use the ones from the OS
 	to reduce the size of this project.
+	If I'm not happy with that then use maven to bring the jars
+	to ~/.m2.
 
 Extreme:
 ========
