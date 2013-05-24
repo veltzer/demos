@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 
-public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements BookStoreAdminDAO{
+public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements BookStoreAdminDAO {
 	
 
 	public void addNewBook(Book book) {

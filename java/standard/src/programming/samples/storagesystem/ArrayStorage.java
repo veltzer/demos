@@ -1,4 +1,4 @@
-package programming.solutions.storagesystem;
+package programming.samples.storagesystem;
 
 public class ArrayStorage implements StorageSystem {
 	private Item[] array;

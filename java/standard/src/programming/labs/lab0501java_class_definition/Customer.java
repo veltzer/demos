@@ -1,3 +1,5 @@
+package programming.labs.lab0501java_class_definition;
+
 public class Customer {
 	private String name;
 	private String id;

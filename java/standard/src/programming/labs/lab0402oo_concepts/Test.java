@@ -1,6 +1,9 @@
+package programming.labs.lab0402oo_concepts;
+
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		Customer customer1=new Customer();
 		Customer customer2=new Customer("Vera","is-112",60);
 		Customer customer3=new Customer("Yossi","is-112",60,new Account("8565/44",35000));
@@ -14,5 +17,6 @@ public class Test {
 												" balance:"+customer2.getAccount().getBalance());
 		System.out.println("Customer3 name:"+customer3.getName()+" id:"+customer3.getAccount().getId()+
 												" balance:"+customer3.getAccount().getBalance());
+		*/
 	}
 }

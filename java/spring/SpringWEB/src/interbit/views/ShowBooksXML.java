@@ -16,14 +16,13 @@ public class ShowBooksXML implements View {
 	public String getContentType() {
 		return "text/xml";
 	}
-
-	public void render(Map model, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		List<Book> books = (List)model.get("books");
+	@Override
+	public void render(Map<String,?> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		@SuppressWarnings("unchecked")
+		List<Book> books = (List<Book>)model.get("books");
 		PrintWriter writer = response.getWriter();
-		writer.print("<dsdsfdsfsdfdsds>");
-		
-
+		for(Book b: books) {
+			writer.print(b);
+		}
 	}
-
 }

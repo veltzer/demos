@@ -1,3 +1,5 @@
+package programming.labs.lab0402oo_concepts;
+
 public class Customer {
 	private String name;
 	private String id;

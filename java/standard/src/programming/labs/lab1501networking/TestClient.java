@@ -1,4 +1,4 @@
-package client;
+package programming.labs.lab1501networking;
 
 import java.awt.event.*;
 
@@ -19,7 +19,7 @@ public class TestClient implements ActionListener{
 		
 
 	public static void main(String[] args) {
-		TestClient test=new TestClient();
+		/* TestClient test=new TestClient(); */
 		
 	}
 }

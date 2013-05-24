@@ -9,14 +9,14 @@ public class JavaConfigMain {
 	public static void main(String[] args) {
 		ApplicationContext ctx1 = new JavaConfigApplicationContext(BeansConfiguration.class);
 		MyBean myBean = (MyBean)ctx1.getBean("myBean");
-		System.out.println(myBean.getD().getMonth());
+		System.out.println(myBean.getD().getTime());
 		System.out.println(myBean.getX());
 
 		//-------------
 		
 		ApplicationContext ctx2 = new ClassPathXmlApplicationContext("spring/javaconfig/beans.xml");
 		MyBean myBean2 = (MyBean)ctx2.getBean("myBean");
-		System.out.println(myBean2.getD().getMonth());
+		System.out.println(myBean2.getD().getTime());
 		System.out.println(myBean.getX());
 	}
 }

@@ -1,6 +1,9 @@
+package programming.labs.lab0401oo_concepts;
+
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		Customer customer1=new Customer();
 		Customer customer2=new Customer("Ben","is=222",25);
 		
@@ -14,5 +17,6 @@ public class Test {
 		System.out.println("New names\n*********");
 		System.out.println("Customer 1: "+customer1.getName());
 		System.out.println("Customer 2: "+customer2.getName());
+		*/
 	}
 }

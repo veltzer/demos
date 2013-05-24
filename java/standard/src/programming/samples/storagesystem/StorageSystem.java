@@ -1,4 +1,4 @@
-package programming.solutions.storagesystem;
+package programming.samples.storagesystem;
 
 public interface StorageSystem {
 	void saveItem(Item i);

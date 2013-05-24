@@ -1,4 +1,4 @@
-package programming.solutions.sol0401oo_concepts;
+package programming.labs.lab0401oo_concepts_sol;
 
 public class Customer {
 	private String name;

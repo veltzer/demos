@@ -1,10 +1,11 @@
-package client;
+package programming.labs.lab1501networking;
 
 import java.awt.BorderLayout;
 
 import javax.swing.*;
 import java.awt.event.*;
 
+@SuppressWarnings("serial")
 public class ChatClientFrame extends JFrame {
 	private JTextArea txtArea;
 	private JTextField txtField;
@@ -31,7 +32,7 @@ public class ChatClientFrame extends JFrame {
 			}
 		});
 		setSize(400,300);
-		show();
+		//show(true);
 	}
 	
 	void addMessage(String message){

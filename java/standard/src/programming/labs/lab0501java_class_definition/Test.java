@@ -1,6 +1,9 @@
+package programming.labs.lab0501java_class_definition;
+
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		Customer customer1=new Customer();
 		Customer customer2=new Customer();
 		
@@ -11,5 +14,6 @@ public class Test {
 								" type:"+customer1.getAccount().getTypeOfAccount());
 		System.out.println("Customer2 id:"+customer2.getAccount().getId()+
 										" type:"+customer2.getAccount().getTypeOfAccount());
+		*/
 	}
 }

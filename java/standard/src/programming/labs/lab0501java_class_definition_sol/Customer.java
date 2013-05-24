@@ -1,4 +1,4 @@
-package programming.solutions.sol0501_java_class_definition;
+package programming.labs.lab0501java_class_definition_sol;
 
 public class Customer {
 	private String name;

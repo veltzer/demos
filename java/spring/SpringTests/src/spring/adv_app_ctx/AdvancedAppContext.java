@@ -1,6 +1,7 @@
 package spring.adv_app_ctx;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AdvancedAppContext {
@@ -17,5 +18,6 @@ public class AdvancedAppContext {
 //
 //		((ResourceUsingService) bf.getBean("resourceUsingService")).doSomething();
 //		
+		((AbstractApplicationContext) bf).close();
 	}
 }

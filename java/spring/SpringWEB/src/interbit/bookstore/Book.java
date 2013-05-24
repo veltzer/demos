@@ -2,11 +2,8 @@ package interbit.bookstore;
 
 import java.io.Serializable;
 
-import org.hibernate.annotations.Entity;
-
 @SuppressWarnings("serial")
-@Entity 
-public class Book implements Serializable{
+public class Book implements Serializable {
 	
 	private String title;
 	private String author;

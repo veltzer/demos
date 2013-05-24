@@ -1,9 +1,7 @@
 package interbit.webservices;
 
-import interbit.bookstore.Book;
 import interbit.bookstore.BookStoreAdminDAO;
 
-import org.codehaus.xfire.test.Echo;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 public class XfireWsTest extends AbstractDependencyInjectionSpringContextTests {

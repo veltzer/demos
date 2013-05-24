@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.FactoryBean;
 
-public class TestFactoryBean implements FactoryBean {
+public class TestFactoryBean implements FactoryBean<Object> {
 	private Date d = new Date();
 	
 	@Override
@@ -14,7 +14,7 @@ public class TestFactoryBean implements FactoryBean {
 	}
 
 	@Override
-	public Class getObjectType() {
+	public Class<Date> getObjectType() {
 		return Date.class;
 	}
 

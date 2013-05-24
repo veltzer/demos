@@ -1,3 +1,5 @@
+package programming.labs.lab0302syntax;
+
 public class BasicJavaSyntax2 {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package programming.solutions.storagesystem;
+package programming.samples.storagesystem;
 
 import java.io.BufferedReader;
 import java.io.IOException;

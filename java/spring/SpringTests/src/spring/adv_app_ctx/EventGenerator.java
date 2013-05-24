@@ -19,6 +19,7 @@ public class EventGenerator implements ApplicationEventPublisherAware {
 	}
 	
 	
+	@SuppressWarnings("serial")
 	public static class SomethingHappened extends ApplicationEvent {
 		public SomethingHappened(Object source) {
 			super(source);

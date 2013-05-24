@@ -1,4 +1,4 @@
-package programming.solutions.sol1601jdbc;
+package programming.labs.lab1601jdbc_sol;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

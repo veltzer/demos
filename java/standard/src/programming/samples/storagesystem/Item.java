@@ -1,4 +1,4 @@
-package programming.solutions.storagesystem;
+package programming.samples.storagesystem;
 
 public abstract class Item {
 	private int id;

@@ -1,4 +1,4 @@
-package programming.solutions.sol0302syntax;
+package programming.labs.lab0302syntax_sol;
 
 public class BasicJavaSyntax2 {
 

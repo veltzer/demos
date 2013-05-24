@@ -1,14 +1,12 @@
 package test;
 
 import interbit.bookstore.Book;
-
 import interbit.bookstore.BookStoreAdminDAO;
 
+import java.io.PrintStream;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataIntegrityViolationException;
 
 public class Main {
@@ -17,9 +15,8 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Resource res = new FileSystemResource("beans.xml");
-		BeanFactory bf = new XmlBeanFactory(res);
-		BookStoreAdminDAO bsa = (BookStoreAdminDAO)bf.getBean("BookstoreAdmin");
+		ApplicationContext c=new ClassPathXmlApplicationContext("beans.xml");
+		BookStoreAdminDAO bsa = (BookStoreAdminDAO)c.getBean("BookstoreAdmin");
 		Book aBook = new Book("title5", "Shimi", 5);
 		try
 		{
@@ -38,7 +35,7 @@ public class Main {
 		{
 			System.out.println(b);
 		}
-
+		((PrintStream) c).close();
 	}
 
 }

@@ -2,7 +2,6 @@ package interbit.bookstore;
 
 import java.util.List;
 
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 
@@ -18,6 +17,7 @@ public class BookStoreDAO extends HibernateDaoSupport implements BookStoreAdminD
 		return getHibernateTemplate().loadAll(Book.class);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Book> showBooksBellow(double price) {
 		return getHibernateTemplate().find("from Book as b where b.price < "+ price);
 	}

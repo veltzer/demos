@@ -1,3 +1,5 @@
+package programming.labs.lab0501java_class_definition;
+
 public class Account {
 	private String id;
 	private double balance;

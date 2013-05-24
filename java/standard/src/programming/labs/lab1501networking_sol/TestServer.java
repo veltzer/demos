@@ -1,4 +1,4 @@
-package programming.solutions.sol1501networking;
+package programming.labs.lab1501networking_sol;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
