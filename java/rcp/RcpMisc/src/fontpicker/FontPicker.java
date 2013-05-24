@@ -6,7 +6,7 @@
  */
 package fontpicker;
 
-import org.eclipse.swt.*;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -204,7 +204,7 @@ public class FontPicker {
 					return;
 				}
 				try {
-					int n = Integer.parseInt(e.text);
+					Integer.parseInt(e.text);
 				}
 				catch (Exception ex) {
 					e.doit = false;
