@@ -1,6 +1,7 @@
 package com.example.addressbook.view.views;
 
-import java.util.*;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 public class Messages {
     private static final String BUNDLE_NAME = "com.example.addressbook.view.views.messages"; //$NON-NLS-1$

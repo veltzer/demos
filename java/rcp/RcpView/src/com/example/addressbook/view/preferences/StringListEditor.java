@@ -1,11 +1,13 @@
 package com.example.addressbook.view.preferences;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
-import org.eclipse.jface.dialogs.*;
-import org.eclipse.jface.preference.*;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.jface.dialogs.IInputValidator;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.preference.ListEditor;
+import org.eclipse.swt.widgets.Composite;
 
 public class StringListEditor extends ListEditor {
     public StringListEditor(String name, String labelText, Composite parent) {

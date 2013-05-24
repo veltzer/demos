@@ -1,6 +1,7 @@
 package com.example.addressbook.view.views.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employee extends Person {
     public Employee(String firstName, String lastName, String number, Employee manager) {

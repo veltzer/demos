@@ -1,6 +1,8 @@
 package com.example.addressbook.view.views;
 
-import org.eclipse.jface.viewers.*;
+import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerSorter;
 
 public class AddressBookSorter extends ViewerSorter {
     private int mode;

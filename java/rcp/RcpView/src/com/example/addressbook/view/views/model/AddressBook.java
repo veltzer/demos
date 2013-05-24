@@ -1,5 +1,6 @@
 package com.example.addressbook.view.views.model;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddressBook {
     private List<Person> friends = new ArrayList<Person>();

@@ -1,11 +1,11 @@
 package com.example.addressbook.view;
 
-import org.eclipse.swt.graphics.*;
-import org.eclipse.ui.plugin.*;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import com.example.addressbook.view.views.*;
+import com.example.addressbook.view.views.AddressBookManager;
 
 /**
  * The main plugin class to be used in the desktop.
