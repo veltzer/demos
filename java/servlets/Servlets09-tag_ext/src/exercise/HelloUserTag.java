@@ -2,21 +2,21 @@ package exercise;
 
 
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import java.io.*;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 /**
  *
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class HelloUserTag extends TagSupport {
     
     /** Holds value of property username. */
-    private String user;
+    protected String user;
     
     /** Holds value of property loops. */
-    private int loops=1;
+    protected int loops=1;
     
     /**
      * Enter your code here

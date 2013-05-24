@@ -1,14 +1,18 @@
 package exercise;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import java.io.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 /**
  *
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class TableTag extends TagSupport {
     
     /** Holds value of property tableName. */

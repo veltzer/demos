@@ -10,6 +10,7 @@ import java.io.*;
  * @author  rank
  * @version 
  */
+@SuppressWarnings("serial")
 public class HelloWorldTag extends TagSupport {
     
     public int doStartTag() throws JspException {

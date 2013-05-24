@@ -10,6 +10,7 @@ import java.io.*;
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class UpperFilterTag extends BodyTagSupport {
     
     public int doEndTag() throws JspException {

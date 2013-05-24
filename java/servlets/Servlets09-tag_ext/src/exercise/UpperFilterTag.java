@@ -2,14 +2,13 @@ package exercise;
 
 
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import java.io.*;
+import javax.servlet.jsp.tagext.BodyTagSupport;
 /**
  *
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class UpperFilterTag extends BodyTagSupport {
     
     /**

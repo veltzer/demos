@@ -1,14 +1,16 @@
 package exercise;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import java.io.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 /**
  *
  * @author  rank
  * @version
  */
+@SuppressWarnings("serial")
 public class DbConnectionTag extends TagSupport {
     
     /** Holds value of property driver. */
