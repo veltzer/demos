@@ -1,4 +1,4 @@
-package programming.solutions.sol1201collections;
+package programming.labs.lab1201collections_sol;
 
 import java.util.LinkedList;
 import java.util.List;

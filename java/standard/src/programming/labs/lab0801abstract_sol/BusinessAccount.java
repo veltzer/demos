@@ -1,4 +1,4 @@
-package programming.solutions.sol0801abstract;
+package programming.labs.lab0801abstract_sol;
 
 public class BusinessAccount extends Account {
 	public double AMOUNT_PROTECTION = 10000;

@@ -1,4 +1,4 @@
-package programming.solutions.sol0801abstract;
+package programming.labs.lab0801abstract_sol;
 public class Customer {
 	private String name;
 	private String id;

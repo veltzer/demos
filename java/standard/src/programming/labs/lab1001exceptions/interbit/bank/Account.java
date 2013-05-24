@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1001exceptions.interbit.bank;
 
 public abstract class Account {
 	private String id;

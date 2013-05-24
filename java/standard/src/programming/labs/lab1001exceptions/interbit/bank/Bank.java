@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1001exceptions.interbit.bank;
 public class Bank implements Business{
 	private static Bank bank;
 	private Customer[] customers;

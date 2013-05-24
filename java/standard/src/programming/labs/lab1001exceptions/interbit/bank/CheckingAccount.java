@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1001exceptions.interbit.bank;
 public class CheckingAccount extends Account{
 	
 	private double COMMITION=0.05;

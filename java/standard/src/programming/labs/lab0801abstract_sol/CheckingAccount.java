@@ -1,4 +1,4 @@
-package programming.solutions.sol0801abstract;
+package programming.labs.lab0801abstract_sol;
 public class CheckingAccount extends Account{
 	
 	private double COMMITION=0.05;

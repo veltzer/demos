@@ -1,4 +1,4 @@
-package interbit.bank;
+package programming.labs.lab1001exceptions.interbit.bank;
 public class Customer {
 	private String name;
 	private String id;

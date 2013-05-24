@@ -1,5 +1,6 @@
-package programming.solutions.sol1001exceptions;
-public class Bank implements Business{
+package programming.labs.lab1001exceptions_sol;
+
+public class Bank implements Business {
 	private static Bank bank;
 	private Customer[] customers;
 	private int index;

@@ -1,4 +1,4 @@
-package programming.solutions.sol1001exceptions;
+package programming.labs.lab1001exceptions_sol;
 public class Customer {
 	private String name;
 	private String id;

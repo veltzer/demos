@@ -1,4 +1,4 @@
-package programming.solutions.sol1401io;
+package programming.labs.lab1401io_sol;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

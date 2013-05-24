@@ -1,6 +1,9 @@
+package programming.labs.lab0801abstract;
+
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		Business business=Bank.getBank();
 		
 		business.addCustomer(new Customer("Ben","1234",40));
@@ -15,5 +18,6 @@ public class Test {
 				
 			System.out.println("Account1 balance:"+business.getCustomer(0).getAccount(i).getBalance());
 		}
+		*/
 	}
 }
