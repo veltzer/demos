@@ -3,7 +3,6 @@ package swing.layouts;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.HeadlessException;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -13,31 +12,24 @@ import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
 public class LayoutQuiz3 extends JFrame {
-	public LayoutQuiz3() throws HeadlessException {
+	public LayoutQuiz3() {
 		super("LayoutQuiz3");
 	}
 
 	private void init() {
 		Container c = getContentPane();
-
-		{
-			Box box = new Box(BoxLayout.X_AXIS);
-			box.add(new JButton("top-left"));
-			box.add(Box.createGlue());
-			box.add(new JButton("top-right"));
-			box.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
-
-			c.add(box, BorderLayout.NORTH);
-		}
-		{
-			Box box = new Box(BoxLayout.X_AXIS);
-			box.add(new JButton("bottom-left"));
-			box.add(Box.createGlue());
-			box.add(new JButton("bottom-right"));
-			box.setBorder(BorderFactory.createTitledBorder("bottom"));
-
-			c.add(box, BorderLayout.SOUTH);
-		}
+		Box box1 = new Box(BoxLayout.X_AXIS);
+		box1.add(new JButton("top-left"));
+		box1.add(Box.createGlue());
+		box1.add(new JButton("top-right"));
+		box1.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
+		c.add(box1, BorderLayout.NORTH);
+		Box box2 = new Box(BoxLayout.X_AXIS);
+		box2.add(new JButton("bottom-left"));
+		box2.add(Box.createGlue());
+		box2.add(new JButton("bottom-right"));
+		box2.setBorder(BorderFactory.createTitledBorder("bottom"));
+		c.add(box2, BorderLayout.SOUTH);
 		setSize(400, 400);
 	}
 

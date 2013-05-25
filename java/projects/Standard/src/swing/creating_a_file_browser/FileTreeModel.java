@@ -23,24 +23,24 @@ public class FileTreeModel implements TreeModel, FileFilter {
 	/**
 	 * Description of the Field
 	 */
-	private final static String ROOT = "";
+	private static final String ROOT = "";
 
 	/**
 	 * Description of the Method
 	 * @param parent Description of the Parameter
 	 */
-	private void updateFiles(Object parent) {
+	private void updateFiles(Object iparent) {
 		// updates the cached fields for the performance
 		// of the tree
-		if (this.parent == parent) {
+		if (parent == iparent) {
 			return;
 		}
-		if (parent == ROOT) {
+		if (iparent == ROOT) {
 			files = File.listRoots();
 		} else {
-			files = ((File) parent).listFiles(this);
+			files = ((File) iparent).listFiles(this);
 		}
-		this.parent = parent;
+		parent = iparent;
 	}
 
 	/**
@@ -49,8 +49,8 @@ public class FileTreeModel implements TreeModel, FileFilter {
 	 * @param index Description of the Parameter
 	 * @return The child value
 	 */
-	public Object getChild(Object parent, int index) {
-		updateFiles(parent);
+	public Object getChild(Object iparent, int index) {
+		updateFiles(iparent);
 		return (files[index]);
 	}
 
@@ -59,8 +59,8 @@ public class FileTreeModel implements TreeModel, FileFilter {
 	 * @param parent Description of the Parameter
 	 * @return The childCount value
 	 */
-	public int getChildCount(Object parent) {
-		updateFiles(parent);
+	public int getChildCount(Object iparent) {
+		updateFiles(iparent);
 		return (files.length);
 	}
 
@@ -70,8 +70,8 @@ public class FileTreeModel implements TreeModel, FileFilter {
 	 * @param child Description of the Parameter
 	 * @return The indexOfChild value
 	 */
-	public int getIndexOfChild(Object parent, Object child) {
-		updateFiles(parent);
+	public int getIndexOfChild(Object iparent, Object child) {
+		updateFiles(iparent);
 		for (int iter = 0; iter < files.length; iter++) {
 			if (files[iter].equals(child)) {
 				return (iter);
@@ -93,10 +93,10 @@ public class FileTreeModel implements TreeModel, FileFilter {
 	 * @param parent Description of the Parameter
 	 * @return The leaf value
 	 */
-	public boolean isLeaf(Object parent) {
-		updateFiles(parent);
-		if (parent instanceof File) {
-			return !((File) parent).isDirectory();
+	public boolean isLeaf(Object iparent) {
+		updateFiles(iparent);
+		if (iparent instanceof File) {
+			return !((File) iparent).isDirectory();
 		}
 		return false;
 	}

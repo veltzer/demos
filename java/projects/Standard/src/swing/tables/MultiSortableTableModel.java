@@ -54,12 +54,12 @@ public class MultiSortableTableModel extends ProxyTableModel {
 		getModel().setValueAt(aValue, translate(rowIndex), columnIndex);
 	}
 
-	public void sort(int[] columns, boolean[] ascending) {
+	public void sort(int[] icolumns, boolean[] iascending) {
 		ArrayList<Comparator<Object>> comparators = new ArrayList<Comparator<Object>>(
-				columns.length);
-		for (int compIter = 0; compIter < columns.length; compIter++) {
+				icolumns.length);
+		for (int compIter = 0; compIter < icolumns.length; compIter++) {
 			if (Number.class
-					.isAssignableFrom(getColumnClass(columns[compIter]))) {
+					.isAssignableFrom(getColumnClass(icolumns[compIter]))) {
 				comparators.add(new Comparator<Object>() {
 					public int compare(Object o1, Object o2) {
 						return (((Number) o1).intValue() - ((Number) o2)
@@ -71,8 +71,8 @@ public class MultiSortableTableModel extends ProxyTableModel {
 			}
 		}
 
-		this.columns = columns;
-		this.ascending = ascending;
+		columns = icolumns;
+		ascending = iascending;
 		int rowCount = getRowCount();
 		List<Integer> rows = new ArrayList<Integer>(rowCount);
 		for (int iter = 0; iter < rowCount; iter++) {
@@ -113,11 +113,11 @@ public class MultiSortableTableModel extends ProxyTableModel {
 		private int[] columns;
 		private boolean[] ascending;
 
-		public TableComparator(ArrayList<Comparator<Object>> comparators,
-				int[] columns, boolean[] ascending) {
-			this.comparators = comparators;
-			this.columns = columns;
-			this.ascending = ascending;
+		public TableComparator(ArrayList<Comparator<Object>> icomparators,
+				int[] icolumns, boolean[] iascending) {
+			comparators = icomparators;
+			columns = icolumns;
+			ascending = iascending;
 		}
 
 		private Object getRowData(Object row, int offset) {

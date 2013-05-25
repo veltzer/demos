@@ -16,9 +16,10 @@ public class OppositePanel extends JPanel {
 
 	@Override
 	public Component add(Component comp) {
-		if (getComponentCount() >= 2)
+		if (getComponentCount() >= 2) {
 			throw new RuntimeException(
 					"Cannot hold more than two components in OppositePanel2");
+		}
 		return super.add(comp);
 	}
 

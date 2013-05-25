@@ -3,7 +3,6 @@ package swing.layouts;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.FlowLayout;
-import java.awt.HeadlessException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -15,7 +14,7 @@ import swing.graphics2d.RollingPolygon;
 
 @SuppressWarnings("serial")
 public class LayoutQuiz1 extends JFrame {
-	public LayoutQuiz1() throws HeadlessException {
+	public LayoutQuiz1() {
 		super("LayoutQuiz1");
 	}
 

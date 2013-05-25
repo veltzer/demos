@@ -14,13 +14,13 @@ public class FileSizeRenderer extends DefaultTableCellRenderer {
 	/**
 	 * Description of the Field
 	 */
-	private final static String[] SUFFIX = {
+	private static final String[] SUFFIX = {
 			"b", "kb", "mb", "gb", "tb", "pb"
 	};
 	/**
 	 * Description of the Field
 	 */
-	private final static long[] SIZES = {
+	private static final long[] SIZES = {
 			1024, 1024 * 1024, 1024 * 1024 * 1024, 1024 * 1024 * 1024 * 1024,
 			1024 * 1024 * 1024 * 1024 * 1024,
 			1024 * 1024 * 1024 * 1024 * 1024 * 1024

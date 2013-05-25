@@ -6,10 +6,10 @@ import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
 public class FileTableModel extends AbstractTableModel {
-	private final static String[] COLUMN_NAMES = {
+	private static final String[] COLUMN_NAMES = {
 			"Type", "Name", "Size"
 	};
-	private final static Class<?>[] COLUMN_CLASS = {
+	private static final Class<?>[] COLUMN_CLASS = {
 			File.class, String.class, Long.class
 	};
 	private File[] files = new File[0];

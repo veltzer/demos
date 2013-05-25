@@ -12,16 +12,13 @@ import javax.swing.JFrame;
 /**
  * @author Mark Veltzer
  */
-public class LayoutDemo {
+public final class LayoutDemo {
 	private JFrame mainFrame;
 
-	public LayoutDemo() {
+	private LayoutDemo() {
 		mainFrame = new JFrame("Layout demo");
 	}
 
-	/**
-	 * 
-	 */
 	private void init() {
 
 		JButton button0 = new JButton("button 0");

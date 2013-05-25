@@ -22,8 +22,8 @@ public class StretchLayout implements LayoutManager {
 		this(TOP_ALIGNMENT);
 	}
 
-	public StretchLayout(int alignment) {
-		this.alignment = alignment;
+	public StretchLayout(int ialignment) {
+		alignment = ialignment;
 	}
 
 	public void addLayoutComponent(String name, Component comp) {
@@ -39,8 +39,9 @@ public class StretchLayout implements LayoutManager {
 			for (int i = 0; i < parent.getComponentCount(); ++i) {
 				Component c = parent.getComponent(i);
 				yPos -= c.getPreferredSize().height;
-				if (i > 0)
+				if (i > 0) {
 					yPos -= SPACING;
+				}
 			}
 		}
 		for (int i = 0; i < parent.getComponentCount(); ++i) {
@@ -56,8 +57,9 @@ public class StretchLayout implements LayoutManager {
 		for (int i = 0; i < parent.getComponentCount(); ++i) {
 			Component c = parent.getComponent(i);
 			result.width = Math.max(result.width, c.getMinimumSize().width);
-			if (i > 0)
+			if (i > 0) {
 				result.height += c.getMinimumSize().height + SPACING;
+			}
 		}
 		return result;
 	}
@@ -67,8 +69,9 @@ public class StretchLayout implements LayoutManager {
 		for (int i = 0; i < parent.getComponentCount(); ++i) {
 			Component c = parent.getComponent(i);
 			result.width = Math.max(result.width, c.getPreferredSize().width);
-			if (i > 0)
+			if (i > 0) {
 				result.height += c.getPreferredSize().height + SPACING;
+			}
 		}
 		return result;
 	}

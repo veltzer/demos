@@ -2,7 +2,6 @@ package swing.layouts;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.HeadlessException;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -13,7 +12,7 @@ import javax.swing.border.BevelBorder;
 
 @SuppressWarnings("serial")
 public class LayoutQuiz4 extends JFrame {
-	public LayoutQuiz4() throws HeadlessException {
+	public LayoutQuiz4() {
 		super("LayoutQuiz4");
 	}
 

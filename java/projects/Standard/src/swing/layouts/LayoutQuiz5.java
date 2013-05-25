@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.HeadlessException;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -17,7 +16,7 @@ import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class LayoutQuiz5 extends JFrame {
-	public LayoutQuiz5() throws HeadlessException {
+	public LayoutQuiz5() {
 		super("LayoutQuiz5");
 	}
 

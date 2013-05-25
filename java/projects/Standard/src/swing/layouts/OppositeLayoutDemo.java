@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class OppositeLayoutDemo {
+public abstract class OppositeLayoutDemo {
 	/**
 	 * @param args
 	 */

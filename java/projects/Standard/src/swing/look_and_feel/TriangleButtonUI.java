@@ -22,7 +22,7 @@ public class TriangleButtonUI extends MetalButtonUI {
 	private static Rectangle iconRect = new Rectangle();
 	private static Rectangle textRect = new Rectangle();
 	private static Rectangle viewRect = new Rectangle();
-	private final static TriangleButtonUI triangleButtonUI = new TriangleButtonUI();
+	private static final TriangleButtonUI triangleButtonUI = new TriangleButtonUI();
 
 	public static ComponentUI createUI(JComponent c) {
 		return triangleButtonUI;
