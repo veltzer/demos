@@ -43,7 +43,7 @@
     <echo>+                  Executing Compilation                +</echo>
     <echo>+ ===================================================== +</echo>
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src.main}" destdir="${build.main}"/>
+    <javac srcdir="${src.main}" destdir="${build.main}" includeantruntime="false"/>
 
   </target>
 
@@ -55,12 +55,15 @@
     <property name="sampleproject.jar.name"     value="sampleproject-${DSTAMP}.jar" />
     <property name="sampleproject.jar.location" value="${dist.lib}/${sampleproject.jar.name}" />
     <!-- Copy resources, bins and confs to build directory -->
+    <!--
     <copy todir="${build.conf}" >
         <fileset dir="${src.conf}">
             <include name="*.properties" />
         </fileset>
     </copy>
+	-->
 
+	<!--
     <copy todir="${build.bin}">
         <filterchain>
             <replacetokens>
@@ -73,12 +76,15 @@
     	      <include name="*.sh" />
     	</fileset>
     </copy>
+	-->
 
+	<!--
     <copy todir="${build.resources}" >
     	<fileset dir="${src.resources}">
     	      <include name="**/*" />
     	</fileset>
     </copy>
+	-->
     
     <!-- Create the distribution directory -->
     <mkdir dir="${dist.lib}"/>

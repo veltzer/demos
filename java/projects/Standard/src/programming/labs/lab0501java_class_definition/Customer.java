@@ -40,21 +40,22 @@ public class Customer {
 		return account;
 	}
 
-	public void setAge(int age) {
-		if (age > 0 && age < 120)
-			this.age = age;
+	public void setAge(int iage) {
+		if (iage > 0 && iage < 120) {
+			age = iage;
+		}
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setAccount(Account iaccount) {
+		account = iaccount;
 	}
 
 }

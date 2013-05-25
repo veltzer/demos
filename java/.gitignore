@@ -1,6 +1,9 @@
-projects/*/bin
-projects/*/WEB-INF/classes
+/projects/*/bin
+/projects/*/WEB-INF/classes
 *.class
+build
+dist
 java.hprof.txt
-maven/mvn-app
+/maven/mvn-app
 ant/*.jar
+*.stamp

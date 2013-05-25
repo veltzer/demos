@@ -1,16 +1,23 @@
 package com.somecompany.sampleproject;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.Icon;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.Container;
+
 import java.util.Properties;
-import java.net.URL;
 
 /**
  * This class is only used to demonstrate the capabilities of Jakarta Ant
  * capabilities.
- * @author zvika
+ * @author Mark Veltzer <mark@veltzer.net>
  */
-public class HelloAnt {
+public abstract class HelloAnt {
 	/**
 	 * prints out a welcome message
 	 */

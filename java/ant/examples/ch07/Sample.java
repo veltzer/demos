@@ -1,5 +1,4 @@
-public class Sample
-{
+public abstract class Sample {
 	// this is a line comment!
 	/**
 	 *	The main method just print a silly little message
