@@ -154,7 +154,11 @@ public final class Sizes {
 	 * @return the given Inches as pixels
 	 */
 	public static int inchAsPixel(double in, Component component) {
-		return in == 0d ? 0 : getUnitConverter().inchAsPixel(in, component);
+		if (in == 0d) {
+			return 0;
+		} else {
+			return getUnitConverter().inchAsPixel(in, component);
+		}
 	}
 
 	/**
@@ -261,14 +265,16 @@ public final class Sizes {
 		 * @return the corresponding ComponentSize or null if none matches
 		 */
 		static ComponentSize valueOf(String str) {
-			if (str.equals("m") || str.equals("min"))
+			if (str.equals("m") || str.equals("min")) {
 				return MINIMUM;
-			if (str.equals("p") || str.equals("pref"))
+			}
+			if (str.equals("p") || str.equals("pref")) {
 				return PREFERRED;
-			if (str.equals("d") || str.equals("default"))
+			}
+			if (str.equals("d") || str.equals("default")) {
 				return DEFAULT;
-			else
-				return null;
+			}
+			return null;
 		}
 
 		/**

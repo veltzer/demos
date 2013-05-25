@@ -51,16 +51,22 @@ public class TriangleEtchedBorder extends EtchedBorder {
 		g.translate(x, y);
 		width = c.getWidth();
 		height = c.getHeight();
-		g.setColor(etchType == LOWERED ? getShadowColor(c)
-				: getHighlightColor(c));
+		if (etchType == LOWERED) {
+			g.setColor(g.getShadowColor(c));
+		} else {
+			g.setColor(g.getHighlightColor(c));
+		}
 		g.drawPolygon(new int[] {
 				0, width - 1, width / 2 - 1
 		}, new int[] {
 				height - 2, height - 2, 0
 		}, 3);
 
-		g.setColor(etchType == LOWERED ? getHighlightColor(c)
-				: getShadowColor(c));
+		if (etchType == LOWERED) {
+			g.setColor(g.getHighlightColor(c));
+		} else {
+			g.setColor(g.getShadowColor(c));
+		}
 		g.drawLine(2, height - 3, width / 2, 1);
 		g.drawLine(1, height - 1, width, height - 1);
 		g.drawLine(width, height - 1, width / 2 + 1, 1);

@@ -8,8 +8,8 @@ import javax.swing.Action;
 public class ActionGroup implements Action {
 	private Action[] actions;
 
-	public ActionGroup(Action[] actions) {
-		this.actions = actions;
+	public ActionGroup(Action[] iactions) {
+		actions = iactions;
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener listener) {

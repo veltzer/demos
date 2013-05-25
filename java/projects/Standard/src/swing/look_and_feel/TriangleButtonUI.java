@@ -22,10 +22,10 @@ public class TriangleButtonUI extends MetalButtonUI {
 	private static Rectangle iconRect = new Rectangle();
 	private static Rectangle textRect = new Rectangle();
 	private static Rectangle viewRect = new Rectangle();
-	private static final TriangleButtonUI triangleButtonUI = new TriangleButtonUI();
+	private static final TriangleButtonUI TRIANGLEBUTTONUI = new TriangleButtonUI();
 
 	public static ComponentUI createUI(JComponent c) {
-		return triangleButtonUI;
+		return TRIANGLEBUTTONUI;
 	}
 
 	public Dimension getMaximumSize(JComponent c) {
@@ -73,17 +73,23 @@ public class TriangleButtonUI extends MetalButtonUI {
 		viewRect.width = b.getWidth() - (i.right + viewRect.x);
 		viewRect.height = b.getHeight() - (i.bottom + viewRect.y);
 
-		textRect.x = textRect.y = textRect.width = textRect.height = 0;
-		iconRect.x = iconRect.y = iconRect.width = iconRect.height = 0;
+		textRect.x = 0;
+		textRect.y = 0;
+		textRect.width = 0;
+		textRect.height = 0;
+		iconRect.x = 0;
+		iconRect.y = 0;
+		iconRect.width = 0;
+		iconRect.height = 0;
 
 		Font f = c.getFont();
 		g.setFont(f);
 
 		int gap;
 		if (b.getText() == null) {
-			gap=0;
+			gap = 0;
 		} else {
-			gap=b.getIconTextGap();
+			gap = b.getIconTextGap();
 		}
 		String text = SwingUtilities.layoutCompoundLabel(c, fm, b.getText(),
 				b.getIcon(), b.getVerticalAlignment(),
@@ -126,9 +132,9 @@ public class TriangleButtonUI extends MetalButtonUI {
 			Dimension size = b.getSize();
 			g.setColor(getSelectColor());
 			g.fillPolygon(new int[] {
-					0, size.width - 1, size.width / 2 - 1
+				0, size.width - 1, size.width / 2 - 1
 			}, new int[] {
-					size.height - 2, size.height - 2, 0
+				size.height - 2, size.height - 2, 0
 			}, 3);
 		}
 	}

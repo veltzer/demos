@@ -58,16 +58,16 @@ public class DvdCatalog extends JFrame implements Runnable {
 
 	private DvdModel tableModel;
 
-	static private final Icon DVD_ICON = new ImageIcon(
+	private static final Icon DVD_ICON = new ImageIcon(
 			DvdCatalog.class.getResource("/dvd.gif"));
-	static private final Icon CD_ICON = new ImageIcon(
+	private static final Icon CD_ICON = new ImageIcon(
 			DvdCatalog.class.getResource("/cd.gif"));
-	static private final Icon MINI_DISC = new ImageIcon(
+	private static final Icon MINI_DISC = new ImageIcon(
 			DvdCatalog.class.getResource("/minicd.gif"));
-	static private final Icon[] ICONS = new Icon[] {
+	private static final Icon[] ICONS = new Icon[] {
 			DVD_ICON, CD_ICON, MINI_DISC
 	};
-	static private final File CD_DATA_FILE = new File("dvd_collection.xml");
+	private static final File CD_DATA_FILE = new File("dvd_collection.xml");
 
 	private static final String[] LF_COMPONENTS = new String[] {
 			"Button", "Label", "Table", "TextField", "ScrollPane", "ComboBox",
@@ -210,23 +210,23 @@ public class DvdCatalog extends JFrame implements Runnable {
 		}
 	}
 
+	private static final transient String[] COLUMN_NAMES = {
+			"Title", "By", "Featuring", "Year", "Keywords", "Media"
+	};
+	private static final transient Class<?>[] COLUMN_CLASSES = {
+			String.class, String.class, String.class, String.class,
+			String.class, Integer.class
+	};
 	public static class DvdModel extends AbstractTableModel implements
 			TableModel, Serializable, ExceptionListener {
-		private final transient String[] COLUMN_NAMES = {
-				"Title", "By", "Featuring", "Year", "Keywords", "Media"
-		};
-		private final transient Class<?>[] COLUMN_CLASSES = {
-				String.class, String.class, String.class, String.class,
-				String.class, Integer.class
-		};
 		private List<Object[]> tableData = new ArrayList<Object[]>();
 
 		public List<Object[]> getTableData() {
 			return (tableData);
 		}
 
-		public void setTableData(List<Object[]> tableData) {
-			this.tableData = tableData;
+		public void setTableData(List<Object[]> itableData) {
+			tableData = itableData;
 		}
 
 		public void add(String title, String by, String featuring, String year,

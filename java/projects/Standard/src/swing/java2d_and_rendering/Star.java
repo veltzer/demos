@@ -20,13 +20,13 @@ public class Star extends Component {
 	/**
 	 * Description of the Field
 	 */
-	private final static int[] X_POINTS = {
+	private static final int[] X_POINTS = {
 			55, 67, 109, 73, 83, 55, 27, 37, 1, 43
 	};
 	/**
 	 * Description of the Field
 	 */
-	private final static int[] Y_POINTS = {
+	private static final int[] Y_POINTS = {
 			0, 36, 36, 54, 96, 72, 96, 54, 36, 36
 	};
 

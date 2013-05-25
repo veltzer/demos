@@ -13,8 +13,8 @@ public class RemoveAction extends AbstractAction implements
 		ListSelectionListener {
 	private JTable table;
 
-	public RemoveAction(JTable table) {
-		this.table = table;
+	public RemoveAction(JTable itable) {
+		table = itable;
 		table.getSelectionModel().addListSelectionListener(this);
 		setEnabled(false);
 		putValue(NAME, "Remove");

@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 
-public class DesktopPaneDemo {
+public final class DesktopPaneDemo {
 	private JDesktopPane pane = new JDesktopPane();
 
-	public DesktopPaneDemo() {
+	private DesktopPaneDemo() {
 		JInternalFrame frame1 = new JInternalFrame("Frame1");
 		JInternalFrame frame2 = new JInternalFrame("Frame2", true, true, true,
 				true);

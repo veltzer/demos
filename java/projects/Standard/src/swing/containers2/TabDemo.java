@@ -6,10 +6,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
 
-public class TabDemo {
+public final class TabDemo {
 	private JTabbedPane pane = new JTabbedPane();
 
-	public TabDemo() {
+	private TabDemo() {
 		JTable table = new JTable(new Object[][] {
 				{
 						"Amy", "Fowler"

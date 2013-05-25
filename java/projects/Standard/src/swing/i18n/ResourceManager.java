@@ -8,7 +8,7 @@ import java.util.WeakHashMap;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class ResourceManager {
+public final class ResourceManager {
 	private static ResourceManager instance = new ResourceManager();
 	private Map<String, Icon> icons = new WeakHashMap<String, Icon>();
 	private ResourceBundle bundle;
