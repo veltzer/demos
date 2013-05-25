@@ -940,7 +940,6 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * An ordinal-based serializable typesafe enumeration for component
 	 * alignment types as used by the {@link FormLayout}.
 	 */
-	@SuppressWarnings("serial")
 	public static final class Alignment implements Serializable {
 		private static final int HORIZONTAL = 0;
 		private static final int VERTICAL = 1;

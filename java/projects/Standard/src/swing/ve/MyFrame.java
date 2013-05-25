@@ -14,13 +14,13 @@ import javax.swing.border.EtchedBorder;
 
 @SuppressWarnings("serial")
 public class MyFrame extends JFrame {
+	private JEditorPane jEditorPanenull;
 	private JPanel jContentPane;
 	private JPanel centralPanel;
 	private JPanel bottomPanel;
 	private JButton playButton;
 	private JButton pauseButton;
 	private JButton stopButton;
-	private JEditorPane jEditorPanenull;
 	private JScrollPane jScrollPane;
 
 	/**
@@ -116,10 +116,10 @@ public class MyFrame extends JFrame {
 	 * @return javax.swing.JEditorPane
 	 */
 	private JEditorPane getJEditorPane() {
-		if (jEditorPane == null) {
-			jEditorPane = new JEditorPane();
+		if (jEditorPanenull == null) {
+			jEditorPanenull = new JEditorPane();
 		}
-		return jEditorPane;
+		return jEditorPanenull;
 	}
 
 	/**

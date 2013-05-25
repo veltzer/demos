@@ -6,9 +6,9 @@ public class ZebraColorModel implements TableColorModel {
 
 	public Color getBgColor(Object value, int row, int col) {
 		if (row % 2 == 0) {
-			return Color.Yellow;
+			return Color.YELLOW;
 		} else {
-			return Color.White;
+			return Color.WHITE;
 		}
 	}
 

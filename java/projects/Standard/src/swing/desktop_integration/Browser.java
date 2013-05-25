@@ -25,7 +25,6 @@ import org.jdesktop.jdic.browser.WebBrowserListener;
 
 @SuppressWarnings("serial")
 public class Browser extends JPanel {
-	@SuppressWarnings("serial")
 	class ForwardAction extends AbstractAction {
 		public ForwardAction() {
 			putValue(NAME, "Forward");
@@ -37,7 +36,6 @@ public class Browser extends JPanel {
 			webBrowser.forward();
 		}
 	}
-	@SuppressWarnings("serial")
 	class BackAction extends AbstractAction {
 		public BackAction() {
 			putValue(NAME, "Back");
@@ -49,7 +47,6 @@ public class Browser extends JPanel {
 			webBrowser.back();
 		}
 	}
-	@SuppressWarnings("serial")
 	class BrowseAction extends AbstractAction {
 		public BrowseAction() {
 			putValue(SHORT_DESCRIPTION, "Load the given URL");

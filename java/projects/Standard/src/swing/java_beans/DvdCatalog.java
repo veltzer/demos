@@ -170,7 +170,6 @@ public class DvdCatalog extends JFrame implements Runnable {
 		return (box);
 	}
 
-	@SuppressWarnings("serial")
 	static class IconRenderer extends DefaultTableCellRenderer {
 		public Component getTableCellRendererComponent(JTable table,
 				Object value, boolean isSelected, boolean hasFocus, int row,
@@ -182,7 +181,6 @@ public class DvdCatalog extends JFrame implements Runnable {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	public static class DvdModel extends AbstractTableModel implements
 			TableModel, Serializable, ExceptionListener {
 		private final transient String[] COLUMN_NAMES = { "Title", "By",
@@ -269,7 +267,6 @@ public class DvdCatalog extends JFrame implements Runnable {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class RemoveAction extends AbstractAction implements ListSelectionListener {
 		public RemoveAction() {
 			putValue(NAME, "Remove");

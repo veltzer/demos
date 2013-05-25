@@ -34,7 +34,6 @@ public class ActionMapDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
 	class ActionMapEditor extends AbstractAction {
 		public ActionMapEditor() {
 			putValue(NAME, "Action Edit");
@@ -49,7 +48,6 @@ public class ActionMapDemo extends JPanel {
 			dlg.setVisible(true);
 		}
 	}
-	@SuppressWarnings("serial")
 	class ActionMapModel extends AbstractTableModel {
 		private final String[] COLUMNS = { "Key", "Action" };
 		private InputMap input;

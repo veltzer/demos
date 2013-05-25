@@ -23,7 +23,6 @@ import javax.swing.table.TableCellRenderer;
 
 @SuppressWarnings("serial")
 public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
-	@SuppressWarnings("serial")
 	private final JCheckBox BOOLEAN_RENDERER = new JCheckBox() {
 		public void paint(Graphics graphics) {
 			super.paint(graphics);

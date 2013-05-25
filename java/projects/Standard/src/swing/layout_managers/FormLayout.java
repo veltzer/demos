@@ -1388,7 +1388,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * An abstract implementation of the <code>Measure</code> interface that
 	 * caches component sizes.
 	 */
-	@SuppressWarnings("serial")
 	private static abstract class CachingMeasure implements Measure,
 			Serializable {
 		/**
@@ -1404,7 +1403,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	}
 
 	// Measures a component by computing its minimum width.
-	@SuppressWarnings("serial")
 	private static class MinimumWidthMeasure extends CachingMeasure {
 		private MinimumWidthMeasure(ComponentSizeCache cache) {
 			super(cache);
@@ -1416,7 +1414,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	}
 
 	// Measures a component by computing its minimum height.
-	@SuppressWarnings("serial")
 	private static class MinimumHeightMeasure extends CachingMeasure {
 		private MinimumHeightMeasure(ComponentSizeCache cache) {
 			super(cache);
@@ -1428,7 +1425,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	}
 
 	// Measures a component by computing its preferred width.
-	@SuppressWarnings("serial")
 	private static class PreferredWidthMeasure extends CachingMeasure {
 		private PreferredWidthMeasure(ComponentSizeCache cache) {
 			super(cache);
@@ -1440,7 +1436,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	}
 
 	// Measures a component by computing its preferred height.
-	@SuppressWarnings("serial")
 	private static class PreferredHeightMeasure extends CachingMeasure {
 		private PreferredHeightMeasure(ComponentSizeCache cache) {
 			super(cache);
@@ -1457,7 +1452,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * A cache for component minimum and preferred sizes. Used to reduce the
 	 * requests to determine a component's size.
 	 */
-	@SuppressWarnings("serial")
 	private static class ComponentSizeCache implements Serializable {
 		/** Maps components to their minimum sizes. */
 		private final Map<Component, Dimension> minimumSizes;

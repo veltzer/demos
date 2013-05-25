@@ -71,7 +71,6 @@ public class WordProcessorDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
 	class InsertImage extends AbstractAction {
 		public InsertImage() {
 			putValue(NAME, "Image");
@@ -178,7 +177,6 @@ public class WordProcessorDemo extends JPanel {
 
 	}
 
-	@SuppressWarnings("serial")
 	class TextPane extends JTextPane {
 		public void setCharacterAttributes(AttributeSet attr, boolean replace) {
 			int p0 = pane.getSelectionStart();

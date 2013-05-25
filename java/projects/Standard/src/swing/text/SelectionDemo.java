@@ -31,7 +31,6 @@ public class SelectionDemo extends JPanel {
 
 		add(textArea, BorderLayout.CENTER);
 
-		@SuppressWarnings("serial")
 		selectLineAction = new AbstractAction() {
 
 			public void actionPerformed(ActionEvent e) {

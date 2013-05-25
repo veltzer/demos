@@ -287,7 +287,6 @@ public final class ConstantSize implements Size, Serializable {
 	 * An ordinal-based serializable typesafe enumeration for units as used in
 	 * instances of {@link ConstantSize}.
 	 */
-	@SuppressWarnings("serial")
 	public static final class Unit implements Serializable {
 		private final transient String name;
 		private final transient String abbreviation;

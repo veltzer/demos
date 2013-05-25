@@ -81,7 +81,6 @@ class UndoAction extends AbstractAction {
 		return record;
 	}
 
-	@SuppressWarnings("serial")
 	class RecordAction extends AbstractAction {
 		RecordAction() {
 			super("Record", new ImageIcon(
@@ -99,7 +98,6 @@ class UndoAction extends AbstractAction {
 		return stop;
 	}
 
-	@SuppressWarnings("serial")
 	class StopAction extends AbstractAction {
 		StopAction() {
 			super("Stop", new ImageIcon(
@@ -117,7 +115,6 @@ class UndoAction extends AbstractAction {
 		return play;
 	}
 
-	@SuppressWarnings("serial")
 	class PlayAction extends AbstractAction {
 		PlayAction() {
 			super("Play", new ImageIcon(
@@ -137,7 +134,6 @@ class UndoAction extends AbstractAction {
 		return store;
 	}
 
-	@SuppressWarnings("serial")
 	class StoreAction extends AbstractAction implements ExceptionListener {
 		StoreAction() {
 			super("Store", new ImageIcon(
@@ -169,7 +165,6 @@ class UndoAction extends AbstractAction {
 		return load;
 	}
 
-	@SuppressWarnings("serial")
 	class LoadAction extends AbstractAction {
 		LoadAction() {
 			super("Load", new ImageIcon(

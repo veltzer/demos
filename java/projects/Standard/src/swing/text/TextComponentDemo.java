@@ -124,7 +124,6 @@ public class TextComponentDemo extends JFrame {
 	}
 
 	// This listens for and reports caret movements.
-	@SuppressWarnings("serial")
 	protected class CaretListenerLabel extends JLabel implements CaretListener {
 		public CaretListenerLabel(String label) {
 			super(label);
@@ -342,7 +341,6 @@ public class TextComponentDemo extends JFrame {
 		return (Action) (actions.get(name));
 	}
 
-	@SuppressWarnings("serial")
 	class UndoAction extends AbstractAction {
 		public UndoAction() {
 			super("Undo");
@@ -371,7 +369,6 @@ public class TextComponentDemo extends JFrame {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class RedoAction extends AbstractAction {
 		public RedoAction() {
 			super("Redo");

@@ -17,7 +17,6 @@ public class LoadingIndicatorDemo extends JPanel {
 		File directory = new File(".");
 		m.setDirectory(directory);
 		JTable table = new JTable(m);
-		@SuppressWarnings("serial")
 		table.setDefaultRenderer(Icon.class, new DefaultTableCellRenderer() {
 			public Component getTableCellRendererComponent(JTable table,
 					Object value, boolean isSelected, boolean hasFocus,

@@ -11,7 +11,6 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 
-@SuppressWarnings("serial")
 public class ByteBufferWrapper implements Externalizable {
 	private ByteBuffer buffer;
 

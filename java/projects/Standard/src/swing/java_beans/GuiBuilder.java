@@ -82,7 +82,6 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		add("Center", content);
 		tree.setRootVisible(true);
 		tree.addTreeSelectionListener(treeModel);
-		@SuppressWarnings("serial")
 		tree.setCellRenderer(new DefaultTreeCellRenderer() {
 			public Component getTreeCellRendererComponent(JTree tree,
 					Object value, boolean selected, boolean expanded,
@@ -119,7 +118,6 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		if (propertySheet == null) {
 			propertySheet = new JTable(propertyModel);
 
-			@SuppressWarnings("serial")
 			propertySheet.setDefaultEditor(Object.class, new DefaultCellEditor(
 					new JTextField()) {
 				private PropertyEditor editor;
@@ -183,7 +181,6 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 	}
 
 	private JToolBar createWidgetBar() {
-		@SuppressWarnings("serial")
 		JToolBar toolbar = new JToolBar() {
 			public JButton createActionComponent(Action a) {
 				JButton b = super.createActionComponent(a);
@@ -252,7 +249,6 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		exception.printStackTrace();
 	}
 
-	@SuppressWarnings("serial")
 	class SelectBeanAction extends AbstractAction {
 		private BeanInfo info;
 		private Class<?> beanClass;
@@ -296,7 +292,6 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	static class ActionTransferHandler extends TransferHandler {
 		public ActionTransferHandler() {
 			super();
@@ -367,7 +362,6 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class PropertyModel extends AbstractTableModel {
 		private final Class<?>[] COLUMNS = new Class[] { String.class,
 				Object.class };

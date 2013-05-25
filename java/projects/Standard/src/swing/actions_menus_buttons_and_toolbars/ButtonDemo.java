@@ -22,14 +22,12 @@ public class ButtonDemo extends JPanel {
 	private JMenuBar menuBar = new JMenuBar();
 	private JToolBar toolbar = new JToolBar();
 
-	@SuppressWarnings("serial")
 	private AbstractAction action1 = new AbstractAction() {
 		public void actionPerformed(ActionEvent ev) {
 			setEnabled(false);
 			putValue(NAME, "OK now what?");
 		}
 	};
-	@SuppressWarnings("serial")
 	private AbstractAction action2 = new AbstractAction() {
 		public void actionPerformed(ActionEvent ev) {
 			JOptionPane.showMessageDialog(((JComponent) ev.getSource()),

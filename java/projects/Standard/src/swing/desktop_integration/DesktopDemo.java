@@ -22,7 +22,6 @@ import org.jdesktop.jdic.desktop.Message;
 public class DesktopDemo extends JPanel {
 	private JFileChooser chooser = new JFileChooser();
 
-	@SuppressWarnings("serial")
 	abstract class DesktopAction extends AbstractAction implements
 			PropertyChangeListener {
 		public DesktopAction() {
@@ -50,7 +49,6 @@ public class DesktopDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class EditAction extends DesktopAction {
 		public EditAction() {
 			putValue(NAME, "Edit");
@@ -65,7 +63,6 @@ public class DesktopDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class PrintAction extends DesktopAction {
 		public PrintAction() {
 			putValue(NAME, "Print");
@@ -79,7 +76,6 @@ public class DesktopDemo extends JPanel {
 			Desktop.print(chooser.getSelectedFile());
 		}
 	}
-	@SuppressWarnings("serial")
 	class BrowseAction extends DesktopAction {
 		public BrowseAction() {
 			putValue(NAME, "Browse");
@@ -89,7 +85,6 @@ public class DesktopDemo extends JPanel {
 			Desktop.browse(chooser.getSelectedFile().toURI().toURL());
 		}
 	}
-	@SuppressWarnings("serial")
 	class OpenAction extends DesktopAction {
 		public OpenAction() {
 			putValue(NAME, "Open");
@@ -99,7 +94,6 @@ public class DesktopDemo extends JPanel {
 			Desktop.open(chooser.getSelectedFile());
 		}
 	}
-	@SuppressWarnings("serial")
 	class MailAction extends DesktopAction {
 		public MailAction() {
 			putValue(NAME, "Mail");

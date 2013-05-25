@@ -127,7 +127,6 @@ public class VTable extends JTable {
 		return -1;
 	}
 
-	@SuppressWarnings("serial")
 	class HeaderRenderer extends DefaultTableCellRenderer {
 		public Component getTableCellRendererComponent(JTable table,
 				Object value, boolean isSelected, boolean hasFocus, int row,
@@ -196,7 +195,6 @@ public class VTable extends JTable {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class HideAction extends AbstractAction {
 		private int column;
 
@@ -220,7 +218,6 @@ public class VTable extends JTable {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class ShowAction extends AbstractAction {
 		private int column;
 

@@ -25,7 +25,6 @@ public class RollingPolygonApp extends JFrame {
 		super("Rollin polygon demo");
 	}
 
-	@SuppressWarnings("serial")
 	private void init() {
 		rollingPolygon = new RollingPolygon();
 		rollingPolygon.init();

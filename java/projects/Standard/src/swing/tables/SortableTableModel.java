@@ -13,6 +13,7 @@ import javax.swing.table.TableModel;
 
 @SuppressWarnings("serial")
 public class SortableTableModel extends ProxyTableModel {
+	private int[] sortedOffsets;
 	private int column;
 	private Comparator<Object> comparator;
 	private boolean ascending;

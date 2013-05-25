@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class MnemonicDemo extends JPanel {
 	public MnemonicDemo() {
-		@SuppressWarnings("serial")
 		Action a = new AbstractAction() {
 			public void actionPerformed(ActionEvent ev) {
 				JOptionPane.showMessageDialog(MnemonicDemo.this, "Button Pressed",

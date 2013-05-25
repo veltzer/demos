@@ -15,7 +15,6 @@ public class dateForm extends javax.swing.JFrame {
 	public dateForm() {
 		initComponents();
 
-		@SuppressWarnings("serial")
 		PlainDocument p = new PlainDocument() {
 			Pattern p = Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
 

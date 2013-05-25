@@ -26,7 +26,6 @@ public class GlassPaneDemo extends JFrame {
 
 	private MyGlassPane myGlassPane;
 
-	@SuppressWarnings("serial")
 	private class MyGlassPane extends JPanel {
 		@Override
 		protected void paintComponent(Graphics g) {

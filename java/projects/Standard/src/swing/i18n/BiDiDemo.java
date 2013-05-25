@@ -34,7 +34,6 @@ public class BiDiDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
 	class FlipOrientation extends AbstractAction {
 		public FlipOrientation() {
 			putValue(NAME, "Flip");

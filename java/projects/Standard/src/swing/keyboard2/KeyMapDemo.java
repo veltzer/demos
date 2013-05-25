@@ -101,7 +101,6 @@ public class KeyMapDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
 	static class InsertMeAction extends TextAction {
 		/**
 		 * Creates this object with the appropriate identifier.

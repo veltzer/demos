@@ -33,7 +33,6 @@ public class TimerDemo extends JPanel {
 		super(new BorderLayout());
 	}
 
-	@SuppressWarnings("serial")
 	private void init() {
 		Box textBox = new Box(BoxLayout.Y_AXIS);
 

@@ -19,7 +19,6 @@ import javax.swing.TransferHandler;
 
 @SuppressWarnings("serial")
 public class CopyAndPasteDemo extends JPanel {
-	@SuppressWarnings("serial")
 	static abstract class TransferableAction extends AbstractAction implements
 			PropertyChangeListener {
 		private JComponent current;
@@ -68,7 +67,6 @@ public class CopyAndPasteDemo extends JPanel {
 			setEnabled((current != null) && enableAction(current));
 		}
 	}
-	@SuppressWarnings("serial")
 	static class CopyAction extends TransferableAction {
 		public CopyAction() {
 			putValue(NAME, "Copy");
@@ -81,7 +79,6 @@ public class CopyAndPasteDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	static class CutAction extends TransferableAction {
 		public CutAction() {
 			putValue(NAME, "Cut");
@@ -94,7 +91,6 @@ public class CopyAndPasteDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	static class PasteAction extends TransferableAction {
 		public PasteAction() {
 			putValue(NAME, "Paste");

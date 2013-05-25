@@ -36,7 +36,6 @@ public class UndoDemo extends JPanel {
 	private Point startingPoint;
 	private Point currentPoint;
 
-	@SuppressWarnings("serial")
 	public static class PersistentEllipse extends Ellipse2D.Float {
 		public PersistentEllipse(float x, float y, float width, float height) {
 			super(x, y, width, height);
@@ -82,7 +81,6 @@ public class UndoDemo extends JPanel {
 		return d;
 	}
 
-	@SuppressWarnings("serial")
 	public static class Drawable extends AbstractUndoableEdit implements
 			Serializable {
 		private Color color;
@@ -141,7 +139,6 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class ToggleFillModeAction extends AbstractAction {
 		ToggleFillModeAction() {
 			super("Fill");
@@ -152,7 +149,6 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class SelectColorAction extends AbstractAction {
 		SelectColorAction() {
 			super("Color");
@@ -165,7 +161,6 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class DrawRectModeAction extends AbstractAction {
 		DrawRectModeAction() {
 			super("Rectangle");
@@ -176,7 +171,6 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
-	@SuppressWarnings("serial")
 	class DrawCircleModeAction extends AbstractAction {
 		DrawCircleModeAction() {
 			super("Circle");
