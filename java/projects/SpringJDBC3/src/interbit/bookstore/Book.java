@@ -12,10 +12,10 @@ public class Book implements Serializable {
 	private String author;
 	private double price;
 
-	public Book(String title, String author, double price) {
-		this.title = title;
-		this.author = author;
-		this.price = price;
+	public Book(String ititle, String iauthor, double iprice) {
+		title = ititle;
+		author = iauthor;
+		price = iprice;
 	}
 
 	public Book() {
@@ -51,8 +51,8 @@ public class Book implements Serializable {
 		return price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(double iprice) {
+		price = iprice;
 	}
 
 	public String toString() {

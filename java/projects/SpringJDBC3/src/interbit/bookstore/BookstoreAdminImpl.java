@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -37,8 +36,8 @@ public class BookstoreAdminImpl implements BookStoreAdminDAO, BeanFactoryAware {
 
 	}
 
-	public void setBeanFactory(BeanFactory bf) throws BeansException {
-		this.bf = bf;
+	public void setBeanFactory(BeanFactory ibf) {
+		bf = ibf;
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

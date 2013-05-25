@@ -6,11 +6,10 @@ import javax.swing.JTable;
 
 public class FileSizeTableCellRenderer extends ColorAwareTableCellRenderer {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private static String[] suffixes = { "B", "K", "M", "G" };
+	private static String[] suffixes = {
+		"B", "K", "M", "G"
+	};
 
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value,

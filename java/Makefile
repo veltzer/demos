@@ -1,25 +1,49 @@
+##############
+# parameters #
+##############
+# do you want to show the commands executed ?
+# Since we are using ?= for assignment it means that you can just
+# set this from the command line and avoid changing the makefile...
+DO_MKDBG?=0
+
+#####################
+# end of parameters #
+#####################
+
 JAVA_SOURCES:=$(shell find . -name "*.java")
 JAVA_STAMP:=$(addsuffix .stamp,$(basename $(JAVA_SOURCES)))
+CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar)
+CLASSPATH_CS:=$(CLASSPATH):$(HOME)/install/checkstyle-5.6/checkstyle-5.6-all.jar
+MAINCLASS:=com.puppycrawl.tools.checkstyle.Main
 ALL:=$(JAVA_STAMP)
+
+# silent stuff
+ifeq ($(DO_MKDBG),1)
+Q:=
+# we are not silent in this branch
+else # DO_MKDBG
+Q:=@
+#.SILENT:
+endif # DO_MKDBG
 
 .PHONY: all
 all: $(ALL)
 
 .PHONY: check_imports
 check_imports:
-	@./scripts/ok_wrapper.pl git grep import | grep \\*
+	@scripts/ok_wrapper.pl git grep import | grep \\*
 
 .PHONY: check_ws_eol
 check_ws_eol:
-	@./scripts/ok_wrapper.pl git grep " $$" -- "*.java"
+	@scripts/ok_wrapper.pl git grep " $$" -- "*.java"
 
 .PHONY: check_tab_eol
 check_tab_eol:
-	@./scripts/ok_wrapper.pl git grep -l "\s$$" -- "*.java"
+	@scripts/ok_wrapper.pl git grep -l "\s$$" -- "*.java"
 
 .PHONY: check_dbl_ws
 check_dbl_ws:
-	@./scripts/ok_wrapper.pl git grep "  " -- "*.java"
+	@scripts/ok_wrapper.pl git grep "  " -- "*.java"
 
 .PHONY: checkstyle
 checkstyle:
@@ -34,13 +58,15 @@ format_eclipse:
 debug:
 	$(info JAVA_SOURCES is $(JAVA_SOURCES))
 	$(info JAVA_STAMP is $(JAVA_STAMP))
+	$(info CLASSPATH is $(CLASSPATH))
+	$(info HOME is $(HOME))
 
 # rules
 
 $(JAVA_STAMP): %.stamp: %.java
 	$(info doing [$@])
-	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml $<
-	@touch $@
+	$(Q)java -cp $(CLASSPATH_CS) $(MAINCLASS) -c support/checkstyle_config.xml $<
+	$(Q)touch $@
 
 # code measurements
 

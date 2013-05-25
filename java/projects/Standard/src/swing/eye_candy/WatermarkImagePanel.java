@@ -14,22 +14,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class WatermarkImagePanel extends JPanel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Image image;
 	private float alpha;
 
-	public WatermarkImagePanel(URL image, float alpha) {
-		this.alpha = alpha;
+	public WatermarkImagePanel(URL iimage, float ialpha) {
+		alpha = ialpha;
 		setOpaque(true);
-		this.image = getToolkit().getImage(image);
+		image = getToolkit().getImage(iimage);
 		MediaTracker trak = new MediaTracker(this);
-		trak.addImage(this.image, 1);
+		trak.addImage(image, 1);
 		try {
 			trak.waitForAll();
-		} catch (InterruptedException ignor) {
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
 		}
 	}
 

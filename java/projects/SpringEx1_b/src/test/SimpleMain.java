@@ -9,7 +9,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-public class SimpleMain {
+public abstract class SimpleMain {
 
 	/**
 	 * @param args

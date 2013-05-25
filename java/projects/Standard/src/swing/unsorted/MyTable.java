@@ -4,9 +4,6 @@ import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
 public class MyTable extends JTable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private TableColorModel colorModel;
 
@@ -21,7 +18,7 @@ public class MyTable extends JTable {
 		return colorModel;
 	}
 
-	public void setTableColorModel(TableColorModel colorModel) {
-		this.colorModel = colorModel;
+	public void setTableColorModel(TableColorModel icolorModel) {
+		colorModel = icolorModel;
 	}
 }

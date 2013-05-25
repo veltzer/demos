@@ -21,8 +21,8 @@ public abstract class SorterImpl2 implements Sorter, SorterImplMBean {
 		this.items = unsorted;
 	}
 
-	public void setComparator(Comparator<Item> comparator) {
-		this.comparator = comparator;
+	public void setComparator(Comparator<Item> icomparator) {
+		comparator = icomparator;
 	}
 
 	public void sort() {
@@ -36,8 +36,8 @@ public abstract class SorterImpl2 implements Sorter, SorterImplMBean {
 	/*
 	 * public void addItem(Item item) { items.add(item); }
 	 */
-	public void setItemCount(int itemCount) {
-		this.itemCount = itemCount;
+	public void setItemCount(int iitemCount) {
+		itemCount = iitemCount;
 	}
 
 	public abstract ItemFactory getItemFactory();

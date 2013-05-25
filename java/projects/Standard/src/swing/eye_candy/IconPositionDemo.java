@@ -7,9 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class IconPositionDemo extends JPanel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public IconPositionDemo() {

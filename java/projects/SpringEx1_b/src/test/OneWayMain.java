@@ -10,7 +10,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-public class OneWayMain {
+public abstract class OneWayMain {
 
 	/**
 	 * @param args

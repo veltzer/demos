@@ -9,9 +9,6 @@ import javax.swing.JPanel;
 
 public class GrayTintDemo extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public GrayTintDemo() {

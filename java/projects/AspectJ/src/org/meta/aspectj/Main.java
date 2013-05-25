@@ -1,6 +1,6 @@
 package org.meta.aspectj;
 
-public class Main {
+public abstract class Main {
 
 	/**
 	 * @param args

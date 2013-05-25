@@ -9,9 +9,6 @@ import javax.swing.table.TableCellRenderer;
 public class ColorAwareTableCellRenderer extends DefaultTableCellRenderer
 		implements TableCellRenderer {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public Component getTableCellRendererComponent(JTable table, Object value,
@@ -23,14 +20,14 @@ public class ColorAwareTableCellRenderer extends DefaultTableCellRenderer
 		MyTable myTable = (MyTable) table;
 
 		if (isSelected) {
-			this.setBackground(myTable.getTableColorModel().getSelectedBgColor(
+			setBackground(myTable.getTableColorModel().getSelectedBgColor(
 					value, row, column));
-			this.setForeground(myTable.getTableColorModel().getSelectedFgColor(
+			setForeground(myTable.getTableColorModel().getSelectedFgColor(
 					value, row, column));
 		} else {
-			this.setBackground(myTable.getTableColorModel().getBgColor(value,
+			setBackground(myTable.getTableColorModel().getBgColor(value,
 					row, column));
-			this.setForeground(myTable.getTableColorModel().getFgColor(value,
+			setForeground(myTable.getTableColorModel().getFgColor(value,
 					row, column));
 		}
 		return this;

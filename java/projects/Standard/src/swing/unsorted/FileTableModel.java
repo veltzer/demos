@@ -6,9 +6,6 @@ import javax.swing.table.AbstractTableModel;
 
 public class FileTableModel extends AbstractTableModel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private File[] fileList = new File[0];
 
@@ -30,26 +27,29 @@ public class FileTableModel extends AbstractTableModel {
 
 	public Object getValueAt(int row, int col) {
 		// System.out.println("getValueAt(" + row + "," + col +")");
-		if (col == 0)
+		if (col == 0) {
 			return fileList[row].getName();
-		else
+		} else {
 			return fileList[row].length();
+		}
 	}
 
 	@Override
 	public String getColumnName(int col) {
 		// System.out.println("getColumnName(" + col + ")");
-		if (col == 0)
+		if (col == 0) {
 			return "Name";
-		else
+		} else {
 			return "Size";
+		}
 	}
 
 	public Class<?> getColumnClass(int col) {
-		if (col == 0)
+		if (col == 0) {
 			return String.class;
-		else
+		} else {
 			return Long.class;
+		}
 	}
 
 	@Override

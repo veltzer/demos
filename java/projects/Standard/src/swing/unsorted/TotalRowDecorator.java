@@ -10,15 +10,12 @@ import javax.swing.table.TableModel;
 
 public class TotalRowDecorator extends TableModelDecorator {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int colToSum;
 
 	public TotalRowDecorator(TableModel model, int col) {
 		super(model);
-		this.colToSum = col;
+		colToSum = col;
 	}
 
 	public int getRowCount() {

@@ -8,9 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
 public class BorderDemo extends JPanel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public BorderDemo() {

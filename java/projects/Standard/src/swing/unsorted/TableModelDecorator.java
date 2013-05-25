@@ -5,15 +5,12 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
 public class TableModelDecorator extends AbstractTableModel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private TableModel model;
 
-	public TableModelDecorator(TableModel model) {
+	public TableModelDecorator(TableModel imodel) {
 		super();
-		this.model = model;
+		model = imodel;
 	}
 
 	public void addTableModelListener(TableModelListener arg0) {
