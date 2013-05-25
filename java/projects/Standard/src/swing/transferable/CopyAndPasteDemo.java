@@ -19,13 +19,13 @@ import javax.swing.TransferHandler;
 
 public class CopyAndPasteDemo extends JPanel {
     /**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
 	static abstract class TransferableAction extends AbstractAction implements PropertyChangeListener {
         /**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 		private JComponent current;
@@ -35,26 +35,26 @@ public class CopyAndPasteDemo extends JPanel {
         }
 
         private void exportToClipboard(int type) {
-            current.getTransferHandler().exportToClipboard(current, 
+            current.getTransferHandler().exportToClipboard(current,
                 current.getToolkit().getSystemClipboard(), type);
         }
-        
+
         protected void cut() {
             exportToClipboard(TransferHandler.MOVE);
-        } 
-        
+        }
+
         protected void copy() {
             exportToClipboard(TransferHandler.COPY);
         }
-        
+
         protected void paste() {
             current.getTransferHandler().importData(current, current.getToolkit().getSystemClipboard().getContents(null));
         }
-                        
+
         protected boolean enableAction(JComponent cmp) {
             return true;
         }
-        
+
         public void propertyChange(PropertyChangeEvent evt) {
             Component cmp = KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner();
             if(cmp instanceof JComponent) {
@@ -70,7 +70,7 @@ public class CopyAndPasteDemo extends JPanel {
 
     static class CopyAction extends TransferableAction {
         /**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -78,15 +78,15 @@ public class CopyAndPasteDemo extends JPanel {
             putValue(NAME, "Copy");
             putValue(SMALL_ICON, new ImageIcon(getClass().getResource("/Copy24.gif")));
         }
-        
+
         public void actionPerformed(ActionEvent ev) {
             copy();
         }
     }
-    
+
     static class CutAction extends TransferableAction {
         /**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -94,7 +94,7 @@ public class CopyAndPasteDemo extends JPanel {
             putValue(NAME, "Cut");
             putValue(SMALL_ICON, new ImageIcon(getClass().getResource("/Cut24.gif")));
         }
-        
+
         public void actionPerformed(ActionEvent ev) {
             cut();
         }
@@ -102,7 +102,7 @@ public class CopyAndPasteDemo extends JPanel {
 
     static class PasteAction extends TransferableAction {
         /**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 
@@ -110,18 +110,18 @@ public class CopyAndPasteDemo extends JPanel {
             putValue(NAME, "Paste");
             putValue(SMALL_ICON, new ImageIcon(getClass().getResource("/Paste24.gif")));
         }
-        
+
         protected boolean enableAction(JComponent cmp) {
             Transferable t = cmp.getToolkit().getSystemClipboard().getContents(null);
             return (t != null) &&
                 (cmp.getTransferHandler().canImport(cmp, t.getTransferDataFlavors()) );
         }
-        
+
         public void actionPerformed(ActionEvent ev) {
             paste();
         }
     }
-    
+
     public CopyAndPasteDemo() {
         JFileChooser chooser = new JFileChooser();
         chooser.setControlButtonsAreShown(false);
@@ -129,7 +129,7 @@ public class CopyAndPasteDemo extends JPanel {
         add(chooser);
         add(new JTextField("Try to copy and paste from/to here"));
     }
-    
+
     private static JToolBar createToolBar() {
         JToolBar bar = new JToolBar();
         bar.add(new CutAction());

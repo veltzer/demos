@@ -45,13 +45,13 @@ public class DvdCatalog extends JFrame implements Runnable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextComponent title;
-    private JTextComponent by;
-    private JTextComponent year;
-    private JTextComponent featuring;
-    private JTextComponent keywords;
-    private JToggleButton dvd;
-    private JToggleButton cd;
-    private JTable table;
+	private JTextComponent by;
+	private JTextComponent year;
+	private JTextComponent featuring;
+	private JTextComponent keywords;
+	private JToggleButton dvd;
+	private JToggleButton cd;
+	private JTable table;
 
     private DvdModel tableModel;
 
@@ -181,8 +181,7 @@ public class DvdCatalog extends JFrame implements Runnable {
 		 */
 		private static final long serialVersionUID = 1L;
 
-		public java.awt.Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-                boolean hasFocus, int row, int column) {
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
             super.getTableCellRendererComponent(table, "", isSelected,
                     hasFocus, row, column);
             setIcon(ICONS[((Number) value).intValue()]);

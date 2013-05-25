@@ -39,7 +39,7 @@ public class GradientBorder implements Border {
         return true;
     }
             
-    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+    public void paintBorder(final Component c, Graphics g, int x, int y, int width, int height) {
         Graphics2D g2d = (Graphics2D) g;
         GradientPaint paint;
         Paint oldPaint = g2d.getPaint();

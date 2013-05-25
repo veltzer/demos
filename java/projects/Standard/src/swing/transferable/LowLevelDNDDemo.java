@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public class LowLevelDNDDemo extends JPanel {
     /**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private static final DataFlavor[] FLAVORS = new DataFlavor[] {
@@ -38,7 +38,7 @@ public class LowLevelDNDDemo extends JPanel {
             return FLAVORS;
         }
         public boolean isDataFlavorSupported(DataFlavor flavor) {
-            for(int iter = 0 ; iter < FLAVORS.length ; iter++) {
+            for(int iter = 0; iter < FLAVORS.length; iter++) {
                 if(FLAVORS[iter].equals(flavor)) {
                     return true;
                 }
@@ -49,8 +49,8 @@ public class LowLevelDNDDemo extends JPanel {
 
     public LowLevelDNDDemo() {
         setName("This is the name of the component");
-        source.createDefaultDragGestureRecognizer(this, 
-            DnDConstants.ACTION_COPY | DnDConstants.ACTION_MOVE, 
+        source.createDefaultDragGestureRecognizer(this,
+            DnDConstants.ACTION_COPY | DnDConstants.ACTION_MOVE,
             new DragGestureListener() {
                 public void dragGestureRecognized(DragGestureEvent dge) {
                     Cursor cursor;
@@ -62,7 +62,7 @@ public class LowLevelDNDDemo extends JPanel {
                     dge.startDrag(cursor, transferable);
                 }
             });
-            
+
         new DropTarget(this, DnDConstants.ACTION_COPY | DnDConstants.ACTION_MOVE, new DropTargetListener() {
             public void dragEnter(DropTargetDragEvent dtde) {
                 int action = dtde.getDropAction();
@@ -80,7 +80,7 @@ public class LowLevelDNDDemo extends JPanel {
                     dtde.acceptDrop(action);
                 }
                 String flavors = dtde.getCurrentDataFlavorsAsList().toString();
-                dtde.dropComplete(true); 
+                dtde.dropComplete(true);
                 System.out.println("Drop flavors: " + flavors);
             }
             public void dropActionChanged(DropTargetDragEvent dtde) {

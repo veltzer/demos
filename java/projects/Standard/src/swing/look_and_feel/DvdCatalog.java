@@ -60,11 +60,11 @@ public class DvdCatalog extends JFrame implements Runnable {
 
     private DvdModel tableModel;
 
-    private final static Icon DVD_ICON = new ImageIcon(DvdCatalog.class.getResource("/dvd.gif"));
-    private final static Icon CD_ICON = new ImageIcon(DvdCatalog.class.getResource("/cd.gif"));
-    private final static Icon MINI_DISC = new ImageIcon(DvdCatalog.class.getResource("/minicd.gif"));
-    private final static Icon[] ICONS = new Icon[]{DVD_ICON, CD_ICON, MINI_DISC};
-    private final static File CD_DATA_FILE = new File("dvd_collection.xml");
+    static private final Icon DVD_ICON = new ImageIcon(DvdCatalog.class.getResource("/dvd.gif"));
+    static private final Icon CD_ICON = new ImageIcon(DvdCatalog.class.getResource("/cd.gif"));
+    static private final Icon MINI_DISC = new ImageIcon(DvdCatalog.class.getResource("/minicd.gif"));
+    static private final Icon[] ICONS = new Icon[]{DVD_ICON, CD_ICON, MINI_DISC};
+    static private final File CD_DATA_FILE = new File("dvd_collection.xml");
 
     private static final String[] LF_COMPONENTS = new String[] {
             "Button", "Label", "Table", "TextField", "ScrollPane",
