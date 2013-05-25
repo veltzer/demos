@@ -19,66 +19,66 @@ public class ImageBorder implements Border {
 	private Icon left;
 	private Icon right;
 
-	public ImageBorder(Icon topLeftCorner, Icon topRightCorner,
-			Icon bottomLeftCorner, Icon bottomRightCorner, Icon top,
-			Icon bottom, Icon left, Icon right) {
-		if (topLeftCorner == null) {
-			topLeftCorner = new NullIcon();
+	public ImageBorder(Icon itopLeftCorner, Icon itopRightCorner,
+			Icon ibottomLeftCorner, Icon ibottomRightCorner, Icon itop,
+			Icon ibottom, Icon ileft, Icon iright) {
+		if (itopLeftCorner == null) {
+			itopLeftCorner = new NullIcon();
 		}
 
-		if (topRightCorner == null) {
-			topRightCorner = new NullIcon();
+		if (itopRightCorner == null) {
+			itopRightCorner = new NullIcon();
 		}
 
-		if (bottomLeftCorner == null) {
-			bottomLeftCorner = new NullIcon();
+		if (ibottomLeftCorner == null) {
+			ibottomLeftCorner = new NullIcon();
 		}
 
-		if (bottomRightCorner == null) {
-			bottomRightCorner = new NullIcon();
+		if (ibottomRightCorner == null) {
+			ibottomRightCorner = new NullIcon();
 		}
 
-		if (left == null) {
-			left = new NullIcon();
+		if (ileft == null) {
+			ileft = new NullIcon();
 		}
 
-		if (right == null) {
-			right = new NullIcon();
+		if (iright == null) {
+			iright = new NullIcon();
 		}
 
-		if (top == null) {
-			top = new NullIcon();
+		if (itop == null) {
+			itop = new NullIcon();
 		}
 
-		if (bottom == null) {
-			bottom = new NullIcon();
+		if (ibottom == null) {
+			ibottom = new NullIcon();
 		}
-		this.topLeftCorner = topLeftCorner;
-		this.topRightCorner = topRightCorner;
-		this.bottomLeftCorner = bottomLeftCorner;
-		this.bottomRightCorner = bottomRightCorner;
-		this.left = left;
-		this.right = right;
-		this.top = top;
-		this.bottom = bottom;
+		topLeftCorner = itopLeftCorner;
+		topRightCorner = itopRightCorner;
+		bottomLeftCorner = ibottomLeftCorner;
+		bottomRightCorner = ibottomRightCorner;
+		left = ileft;
+		right = iright;
+		top = itop;
+		bottom = ibottom;
 	}
 
-	public ImageBorder(URL topLeftCorner, URL topRightCorner,
-			URL bottomLeftCorner, URL bottomRightCorner, URL top, URL bottom,
-			URL left, URL right) {
-		this(createIcon(topLeftCorner), createIcon(topRightCorner),
-				createIcon(bottomLeftCorner), createIcon(bottomRightCorner),
-				createIcon(top), createIcon(bottom), createIcon(left),
-				createIcon(right));
+	public ImageBorder(URL itopLeftCorner, URL itopRightCorner,
+			URL ibottomLeftCorner, URL ibottomRightCorner, URL itop, URL ibottom,
+			URL ileft, URL iright) {
+		this(createIcon(itopLeftCorner), createIcon(itopRightCorner),
+				createIcon(ibottomLeftCorner), createIcon(ibottomRightCorner),
+				createIcon(itop), createIcon(ibottom), createIcon(ileft),
+				createIcon(iright));
 	}
 
-	public ImageBorder(String topLeftCorner, String topRightCorner,
-			String bottomLeftCorner, String bottomRightCorner, String top,
-			String bottom, String left, String right) {
-		this(createIcon(topLeftCorner), createIcon(topRightCorner),
-				createIcon(bottomLeftCorner), createIcon(bottomRightCorner),
-				createIcon(top), createIcon(bottom), createIcon(left),
-				createIcon(right));
+	public ImageBorder(String itopLeftCorner, String itopRightCorner,
+			String ibottomLeftCorner, String ibottomRightCorner, String itop,
+			String ibottom, String ileft, String iright) {
+		this(createIcon(itopLeftCorner), createIcon(itopRightCorner),
+				createIcon(ibottomLeftCorner), createIcon(ibottomRightCorner),
+				createIcon(itop), createIcon(ibottom), createIcon(ileft),
+				createIcon(iright));
 	}
 
 	private static Icon createIcon(String icon) {
@@ -121,10 +121,10 @@ public class ImageBorder implements Border {
 					y,
 					width - topLeftCorner.getIconWidth()
 							- topRightCorner.getIconWidth(),
-					this.top.getIconHeight());
-			int widthInc = this.top.getIconWidth();
-			for (int top = 0; top < width; top += widthInc) {
-				this.top.paintIcon(c, clipped, top, 0);
+					top.getIconHeight());
+			int widthInc = top.getIconWidth();
+			for (int itop = 0; itop < width; itop += widthInc) {
+				top.paintIcon(c, clipped, itop, 0);
 			}
 		}
 
@@ -135,32 +135,32 @@ public class ImageBorder implements Border {
 					width - bottomLeftCorner.getIconWidth()
 							- bottomRightCorner.getIconWidth(),
 					bottom.getIconHeight());
-			int widthInc = this.bottom.getIconWidth();
-			for (int bottom = 0; bottom < width; bottom += widthInc) {
-				this.bottom.paintIcon(c, clipped, bottom, 0);
+			int widthInc = bottom.getIconWidth();
+			for (int ibottom = 0; ibottom < width; ibottom += widthInc) {
+				bottom.paintIcon(c, clipped, ibottom, 0);
 			}
 		}
 
 		if (!(left instanceof NullIcon)) {
 			Graphics clipped = g.create(x, y + topLeftCorner.getIconHeight(),
-					this.left.getIconWidth(),
+					left.getIconWidth(),
 					y + height - bottomLeftCorner.getIconHeight()
 							- topLeftCorner.getIconHeight());
-			int heightInc = this.left.getIconHeight();
-			for (int left = 0; left < height; left += heightInc) {
-				this.left.paintIcon(c, clipped, 0, left);
+			int heightInc = left.getIconHeight();
+			for (int ileft = 0; ileft < height; ileft += heightInc) {
+				left.paintIcon(c, clipped, 0, ileft);
 			}
 		}
 
 		if (!(right instanceof NullIcon)) {
-			Graphics clipped = g.create(x + width - this.right.getIconWidth(),
+			Graphics clipped = g.create(x + width - right.getIconWidth(),
 					y + topRightCorner.getIconHeight(),
-					this.right.getIconWidth(),
+					right.getIconWidth(),
 					y + height - bottomRightCorner.getIconHeight()
 							- topRightCorner.getIconHeight());
-			int heightInc = this.right.getIconHeight();
-			for (int right = 0; right < height; right += heightInc) {
-				this.right.paintIcon(c, clipped, 0, right);
+			int heightInc = right.getIconHeight();
+			for (int iright = 0; iright < height; iright += heightInc) {
+				right.paintIcon(c, clipped, 0, iright);
 			}
 		}
 	}

@@ -19,17 +19,17 @@ public class GradientBorder implements Border {
 	private Color destinationColor;
 	private Color textColor;
 
-	public GradientBorder(String title) {
-		this(title, SystemColor.activeCaption, SystemColor.window,
+	public GradientBorder(String ititle) {
+		this(ititle, SystemColor.activeCaption, SystemColor.window,
 				SystemColor.activeCaptionText);
 	}
 
-	public GradientBorder(String title, Color sourceColor,
-			Color destinationColor, Color textColor) {
-		this.title = title;
-		this.sourceColor = sourceColor;
-		this.destinationColor = destinationColor;
-		this.textColor = textColor;
+	public GradientBorder(String ititle, Color isourceColor,
+			Color idestinationColor, Color itextColor) {
+		title = ititle;
+		sourceColor = isourceColor;
+		destinationColor = idestinationColor;
+		textColor = itextColor;
 	}
 
 	public Insets getBorderInsets(Component c) {

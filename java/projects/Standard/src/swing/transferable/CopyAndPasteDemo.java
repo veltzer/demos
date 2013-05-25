@@ -19,7 +19,7 @@ import javax.swing.TransferHandler;
 
 @SuppressWarnings("serial")
 public class CopyAndPasteDemo extends JPanel {
-	static abstract class TransferableAction extends AbstractAction implements
+	abstract static class TransferableAction extends AbstractAction implements
 			PropertyChangeListener {
 		private JComponent current;
 

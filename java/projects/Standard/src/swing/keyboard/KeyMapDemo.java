@@ -15,7 +15,7 @@ import javax.swing.text.TextAction;
 public class KeyMapDemo extends JPanel {
 	private JTextField field = new JTextField("Try writing in lower case...");
 	private static Keymap keymap;
-	private final static JTextComponent.KeyBinding[] UPCASE_BINDINGS = {
+	private static final JTextComponent.KeyBinding[] UPCASE_BINDINGS = {
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('a'),
 					"insert-me A"),
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('b'),
@@ -69,20 +69,21 @@ public class KeyMapDemo extends JPanel {
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('z'),
 					"insert-me Z"), };
 
-	private final static Action[] UPCASE_ACTIONS = { new InsertMeAction("A"),
-			new InsertMeAction("B"), new InsertMeAction("C"),
-			new InsertMeAction("D"), new InsertMeAction("E"),
-			new InsertMeAction("F"), new InsertMeAction("G"),
-			new InsertMeAction("H"), new InsertMeAction("I"),
-			new InsertMeAction("J"), new InsertMeAction("K"),
-			new InsertMeAction("L"), new InsertMeAction("M"),
-			new InsertMeAction("N"), new InsertMeAction("O"),
-			new InsertMeAction("P"), new InsertMeAction("Q"),
-			new InsertMeAction("R"), new InsertMeAction("S"),
-			new InsertMeAction("T"), new InsertMeAction("U"),
-			new InsertMeAction("V"), new InsertMeAction("W"),
-			new InsertMeAction("X"), new InsertMeAction("Y"),
-			new InsertMeAction("Z"), };
+	private static final Action[] UPCASE_ACTIONS = {
+			new InsertMeAction("A"), new InsertMeAction("B"),
+			new InsertMeAction("C"), new InsertMeAction("D"),
+			new InsertMeAction("E"), new InsertMeAction("F"),
+			new InsertMeAction("G"), new InsertMeAction("H"),
+			new InsertMeAction("I"), new InsertMeAction("J"),
+			new InsertMeAction("K"), new InsertMeAction("L"),
+			new InsertMeAction("M"), new InsertMeAction("N"),
+			new InsertMeAction("O"), new InsertMeAction("P"),
+			new InsertMeAction("Q"), new InsertMeAction("R"),
+			new InsertMeAction("S"), new InsertMeAction("T"),
+			new InsertMeAction("U"), new InsertMeAction("V"),
+			new InsertMeAction("W"), new InsertMeAction("X"),
+			new InsertMeAction("Y"), new InsertMeAction("Z"),
+	};
 
 	public KeyMapDemo() {
 		keymap = JTextComponent.addKeymap("Upcase", field.getKeymap());
@@ -108,9 +109,9 @@ public class KeyMapDemo extends JPanel {
 		 * Creates this object with the appropriate identifier.
 		 * @param s Description of the Parameter
 		 */
-		public InsertMeAction(String s) {
-			super("insert-me " + s);
-			this.s = s;
+		public InsertMeAction(String is) {
+			super("insert-me " + is);
+			s = is;
 		}
 
 		/**

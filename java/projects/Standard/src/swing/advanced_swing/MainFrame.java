@@ -1,16 +1,5 @@
 package swing.advanced_swing;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * MainFrame.java
- *
- * Created on Jul 18, 2010, 3:05:06 PM
- */
-
 /**
  * @author Mark Veltzer
  */
@@ -101,12 +90,12 @@ public class MainFrame extends javax.swing.JFrame {
 								.addGap(83, 83, 83)));
 
 		pack();
-	}// </editor-fold>//GEN-END:initComponents
+	} // </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new MainFrame().setVisible(true);

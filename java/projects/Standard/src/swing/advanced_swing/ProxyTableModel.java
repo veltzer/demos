@@ -8,8 +8,8 @@ import javax.swing.table.TableModel;
 public abstract class ProxyTableModel extends AbstractTableModel {
 	private TableModel model;
 
-	public ProxyTableModel(TableModel model) {
-		this.model = model;
+	public ProxyTableModel(TableModel imodel) {
+		model = imodel;
 	}
 
 	public TableModel getModel() {

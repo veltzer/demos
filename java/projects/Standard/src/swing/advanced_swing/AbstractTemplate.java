@@ -22,7 +22,9 @@ public abstract class AbstractTemplate implements Template {
 	}
 
 	public void setAction(String location, Action action) {
-		setComponents(location, new JComponent[] { new JButton(action) });
+		setComponents(location, new JComponent[] {
+			new JButton(action)
+		});
 	}
 
 	protected AbstractButton createButton(Action action) {

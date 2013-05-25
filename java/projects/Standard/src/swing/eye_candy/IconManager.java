@@ -6,7 +6,7 @@ import java.util.WeakHashMap;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-public class IconManager {
+public final class IconManager {
 	private static IconManager instance = new IconManager();
 	private Map<String, Icon> icons = new WeakHashMap<String, Icon>();
 

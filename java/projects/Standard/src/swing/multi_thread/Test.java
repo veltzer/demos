@@ -10,8 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-public class Test {
-	private JButton b_start, b_pause, b_continue, b_stop;
+public final class Test {
+	private JButton bStart, bPause, bContinue, bStop;
 
 	/**
 	 * @param args
@@ -20,7 +20,7 @@ public class Test {
 		new Test();
 	}
 
-	public Test() {
+	private Test() {
 		JProgressBar pr = new JProgressBar();
 		JFrame frm = new JFrame();
 		frm.setLayout(new BorderLayout());
@@ -30,24 +30,24 @@ public class Test {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		frm.getContentPane().add(BorderLayout.CENTER, panel);
 		frm.pack();
-		b_start = new JButton("start");
-		b_pause = new JButton("pause");
-		b_pause.setEnabled(false);
-		b_continue = new JButton("continue");
-		b_continue.setEnabled(false);
-		b_stop = new JButton("stop");
-		b_stop.setEnabled(false);
+		bStart = new JButton("start");
+		bPause = new JButton("pause");
+		bPause.setEnabled(false);
+		bContinue = new JButton("continue");
+		bContinue.setEnabled(false);
+		bStop = new JButton("stop");
+		bStop.setEnabled(false);
 
 		final IProcessControl control = new SwingProcessControl(pr);
 
-		b_start.addActionListener(new ActionListener() {
+		bStart.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				b_start.setEnabled(false);
-				b_pause.setEnabled(true);
-				b_continue.setEnabled(false);
-				b_stop.setEnabled(true);
+				bStart.setEnabled(false);
+				bPause.setEnabled(true);
+				bContinue.setEnabled(false);
+				bStop.setEnabled(true);
 				control.start();
 				Thread t = new Thread(new Runnable() {
 
@@ -61,46 +61,46 @@ public class Test {
 			}
 		});
 
-		b_pause.addActionListener(new ActionListener() {
+		bPause.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				b_start.setEnabled(false);
-				b_pause.setEnabled(false);
-				b_continue.setEnabled(true);
-				b_stop.setEnabled(false);
+				bStart.setEnabled(false);
+				bPause.setEnabled(false);
+				bContinue.setEnabled(true);
+				bStop.setEnabled(false);
 				control.pause();
 			}
 		});
 
-		b_continue.addActionListener(new ActionListener() {
+		bContinue.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				b_start.setEnabled(false);
-				b_pause.setEnabled(true);
-				b_continue.setEnabled(false);
-				b_stop.setEnabled(true);
+				bStart.setEnabled(false);
+				bPause.setEnabled(true);
+				bContinue.setEnabled(false);
+				bStop.setEnabled(true);
 				control.cont();
 			}
 		});
 
-		b_stop.addActionListener(new ActionListener() {
+		bStop.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				b_start.setEnabled(true);
-				b_pause.setEnabled(false);
-				b_continue.setEnabled(false);
-				b_stop.setEnabled(false);
+				bStart.setEnabled(true);
+				bPause.setEnabled(false);
+				bContinue.setEnabled(false);
+				bStop.setEnabled(false);
 				control.stop();
 			}
 		});
 
-		panel.add(b_start);
-		panel.add(b_pause);
-		panel.add(b_continue);
-		panel.add(b_stop);
+		panel.add(bStart);
+		panel.add(bPause);
+		panel.add(bContinue);
+		panel.add(bStop);
 
 		frm.setVisible(true);
 	}

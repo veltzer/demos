@@ -36,14 +36,14 @@ public class BrowserDemo extends JPanel {
 		pane.addHyperlinkListener(new HyperlinkListener() {
 			public void hyperlinkUpdate(HyperlinkEvent e) {
 				if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
-					JEditorPane pane = (JEditorPane) e.getSource();
+					JEditorPane ipane = (JEditorPane) e.getSource();
 					if (e instanceof HTMLFrameHyperlinkEvent) {
 						HTMLFrameHyperlinkEvent evt = (HTMLFrameHyperlinkEvent) e;
 						HTMLDocument doc = (HTMLDocument) pane.getDocument();
 						doc.processHTMLFrameHyperlinkEvent(evt);
 					} else {
 						try {
-							pane.setPage(e.getURL());
+							ipane.setPage(e.getURL());
 						} catch (Throwable t) {
 							t.printStackTrace();
 						}

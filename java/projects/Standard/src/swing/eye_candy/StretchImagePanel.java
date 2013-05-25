@@ -15,14 +15,15 @@ import javax.swing.JTextField;
 public class StretchImagePanel extends JPanel {
 	private Image image;
 
-	public StretchImagePanel(URL image) {
+	public StretchImagePanel(URL iimage) {
 		setOpaque(true);
-		this.image = getToolkit().getImage(image);
+		image = getToolkit().getImage(iimage);
 		MediaTracker trak = new MediaTracker(this);
 		trak.addImage(this.image, 1);
 		try {
 			trak.waitForAll();
-		} catch (InterruptedException ignor) {
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
 		}
 	}
 

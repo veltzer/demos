@@ -64,10 +64,10 @@ import javax.swing.tree.TreePath;
 
 @SuppressWarnings("serial")
 public class GuiBuilder extends JPanel implements ExceptionListener {
-	private final static Class<?>[] SUPPORTED_WIDGETS = new Class[] {
+	private static final Class<?>[] SUPPORTED_WIDGETS = new Class[] {
 			JButton.class, JRadioButton.class, JToggleButton.class,
 			JTextField.class, JTextArea.class };
-	private final static File DATA_FILE = new File("gui_layout.xml");
+	private static final File DATA_FILE = new File("gui_layout.xml");
 	private ComponentTreeModel treeModel = new ComponentTreeModel();
 	private JTree tree = new JTree(treeModel);
 	private JPanel content = new JPanel(null);
@@ -83,10 +83,10 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		tree.setRootVisible(true);
 		tree.addTreeSelectionListener(treeModel);
 		tree.setCellRenderer(new DefaultTreeCellRenderer() {
-			public Component getTreeCellRendererComponent(JTree tree,
+			public Component getTreeCellRendererComponent(JTree itree,
 					Object value, boolean selected, boolean expanded,
 					boolean leaf, int row, boolean hasFocus) {
-				Component cmp = super.getTreeCellRendererComponent(tree, value,
+				Component cmp = super.getTreeCellRendererComponent(itree, value,
 						selected, expanded, leaf, row, hasFocus);
 				try {
 					BeanInfo info = Introspector.getBeanInfo(value.getClass());
@@ -253,9 +253,9 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		private BeanInfo info;
 		private Class<?> beanClass;
 
-		public SelectBeanAction(Class<?> beanClass) {
+		public SelectBeanAction(Class<?> ibeanClass) {
 			try {
-				this.beanClass = beanClass;
+				beanClass = ibeanClass;
 				info = Introspector.getBeanInfo(beanClass);
 				putValue(NAME, info.getBeanDescriptor().getDisplayName());
 				Image img = info.getIcon(BeanInfo.ICON_COLOR_32x32);
@@ -312,7 +312,9 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 
 		public void fireTreeStructureChanged() {
 			TreeModelEvent e = new TreeModelEvent(this,
-					new Object[] { getRoot() });
+				new Object[] {
+					getRoot()
+				});
 			TreeModelListener[] array = new TreeModelListener[listeners.size()];
 			listeners.toArray(array);
 			for (int iter = 0; iter < array.length; iter++) {
@@ -362,18 +364,21 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 	}
 
+	private static final Class<?>[] COLUMNS = new Class[] {
+		String.class, Object.class
+	};
+	private static final String[] NAMES = new String[] {
+		"Property", "Value"
+	};
 	class PropertyModel extends AbstractTableModel {
-		private final Class<?>[] COLUMNS = new Class[] { String.class,
-				Object.class };
-		private final String[] NAMES = new String[] { "Property", "Value" };
 
 		private JComponent current;
 		private BeanInfo info;
 		private PropertyDescriptor[] descriptors;
 
-		public void setComponent(JComponent current) {
+		public void setComponent(JComponent icurrent) {
 			try {
-				this.current = current;
+				current = icurrent;
 				info = Introspector.getBeanInfo(current.getClass());
 				descriptors = info.getPropertyDescriptors();
 				fireTableDataChanged();
@@ -422,7 +427,9 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 			try {
 				Method w = descriptors[rowIndex].getWriteMethod();
 				if (w != null) {
-					w.invoke(current, new Object[] { aValue });
+					w.invoke(current, new Object[] {
+						aValue
+					});
 				} else {
 					info.getBeanDescriptor().setValue(
 							descriptors[rowIndex].getName(), aValue);

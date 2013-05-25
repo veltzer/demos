@@ -10,9 +10,9 @@ public class FilterTableModel extends ProxyTableModel {
 		this(model, null);
 	}
 
-	public FilterTableModel(TableModel model, int[] rows) {
+	public FilterTableModel(TableModel model, int[] irows) {
 		super(model);
-		this.rows = rows;
+		rows = irows;
 	}
 
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
@@ -47,8 +47,8 @@ public class FilterTableModel extends ProxyTableModel {
 		}
 	}
 
-	public void updateRows(int[] rows) {
-		this.rows = rows;
+	public void updateRows(int[] irows) {
+		rows = irows;
 		fireTableDataChanged();
 	}
 

@@ -48,8 +48,9 @@ public class HangMan extends JFrame {
 		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if (e.getModifiers() != 0)
+				if (e.getModifiers() != 0) {
 					return;
+				}
 				handleKeyTyped(e.getKeyChar());
 			}
 		});
@@ -88,12 +89,12 @@ public class HangMan extends JFrame {
 
 	private void handleKeyTyped(char c) {
 		c = Character.toLowerCase(c);
-		if (c < 'a')
+		if (c < 'a' || c > 'z') {
 			return;
-		if (c > 'z')
+		}
+		if (hangManLogic.characterIsGuessed(c)) {
 			return;
-		if (hangManLogic.characterIsGuessed(c))
-			return;
+		}
 		if (hangManLogic.guessCharacter(c)) {
 			// success!
 			wordCanvas.repaint();

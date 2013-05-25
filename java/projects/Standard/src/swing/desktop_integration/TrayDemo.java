@@ -11,8 +11,8 @@ import javax.swing.JPopupMenu;
 import org.jdesktop.jdic.tray.SystemTray;
 import org.jdesktop.jdic.tray.TrayIcon;
 
-public class TrayDemo {
-	TrayDemo() {
+public final class TrayDemo {
+	private TrayDemo() {
 		SystemTray tray = SystemTray.getDefaultSystemTray();
 		JPopupMenu menu = new JPopupMenu("Hi Menu");
 		JMenuItem menuItem = new JMenuItem("Option", KeyEvent.VK_T);

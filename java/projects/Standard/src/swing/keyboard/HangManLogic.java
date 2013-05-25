@@ -14,8 +14,8 @@ public class HangManLogic {
 
 	}
 
-	public final void setWord(String word) {
-		this.word = word;
+	public final void setWord(String iword) {
+		word = iword;
 		guessedCharacters = new HashSet<Character>();
 		// What's missing here?
 	}
@@ -47,8 +47,9 @@ public class HangManLogic {
 
 		for (int i = 0; i < characters.length; ++i) {
 			char c = characters[i];
-			if (!guessedCharacters.contains(new Character(c)))
+			if (!guessedCharacters.contains(new Character(c))) {
 				return false;
+			}
 		}
 		return true;
 	}

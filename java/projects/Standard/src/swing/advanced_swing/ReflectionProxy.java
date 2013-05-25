@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 public class ReflectionProxy implements InvocationHandler {
 	private Object obj;
 
-	public ReflectionProxy(Object obj) {
-		this.obj = obj;
+	public ReflectionProxy(Object iobj) {
+		obj = iobj;
 	}
 
 	public Object invoke(Object proxy, Method method, Object[] args)

@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 public class WordCanvas extends JPanel {
 	private HangManLogic hangManLogic;
 
-	public WordCanvas(HangManLogic hangManLogic) {
-		this.hangManLogic = hangManLogic;
+	public WordCanvas(HangManLogic ihangManLogic) {
+		hangManLogic = ihangManLogic;
 		setBackground(Color.WHITE);
 	}
 

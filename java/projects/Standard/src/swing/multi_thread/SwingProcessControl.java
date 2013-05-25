@@ -6,9 +6,9 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 
 public class SwingProcessControl implements IProcessControl {
-	JProgressBar pr;
-	boolean stopped;
-	Semaphore sem;
+	private JProgressBar pr;
+	private boolean stopped;
+	private Semaphore sem;
 
 	public SwingProcessControl(JProgressBar ipr) {
 		pr = ipr;

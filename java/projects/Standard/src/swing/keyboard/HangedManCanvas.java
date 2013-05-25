@@ -21,8 +21,8 @@ public class HangedManCanvas extends JPanel {
 		return errorLevel;
 	}
 
-	public void setErrorLevel(int errorLevel) {
-		this.errorLevel = errorLevel;
+	public void setErrorLevel(int ierrorLevel) {
+		errorLevel = ierrorLevel;
 		repaint();
 	}
 
@@ -37,25 +37,32 @@ public class HangedManCanvas extends JPanel {
 				RenderingHints.VALUE_ANTIALIAS_ON);
 
 		int unit = Math.min(getWidth(), getHeight()) / 10;
-		if (errorLevel > 0)
+		if (errorLevel > 0) {
 			g2.drawLine(unit, unit, unit, unit * 9);
-		if (errorLevel > 1)
+		}
+		if (errorLevel > 1) {
 			g2.drawLine(unit, unit, unit * 5, unit);
-		if (errorLevel > 2)
+		}
+		if (errorLevel > 2) {
 			g2.drawLine(unit * 5, unit, unit * 5, unit * 2);
-		if (errorLevel > 3)
+		}
+		if (errorLevel > 3) {
 			g.drawOval(unit * 4, unit * 2, unit * 2, unit * 2);
-		if (errorLevel > 4)
+		}
+		if (errorLevel > 4) {
 			g2.drawLine(unit * 5, unit * 4, unit * 4, unit * 5);
-		if (errorLevel > 5)
+		}
+		if (errorLevel > 5) {
 			g2.drawLine(unit * 5, unit * 4, unit * 6, unit * 5);
-		if (errorLevel > 6)
+		}
+		if (errorLevel > 6) {
 			g2.drawLine(unit * 5, unit * 4, unit * 5, unit * 6);
-		if (errorLevel > 7)
+		}
+		if (errorLevel > 7) {
 			g2.drawLine(unit * 5, unit * 6, unit * 4, unit * 7);
-		if (errorLevel > 8)
+		}
+		if (errorLevel > 8) {
 			g2.drawLine(unit * 5, unit * 6, unit * 6, unit * 7);
-
+		}
 	}
-
 }

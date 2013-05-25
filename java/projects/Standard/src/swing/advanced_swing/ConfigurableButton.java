@@ -23,10 +23,10 @@ public class ConfigurableButton extends JButton {
 	}
 
 	class MultiPropertyChangeListener implements PropertyChangeListener {
-		PropertyChangeListener parent;
+		private PropertyChangeListener parent;
 
-		public MultiPropertyChangeListener(PropertyChangeListener parent) {
-			this.parent = parent;
+		public MultiPropertyChangeListener(PropertyChangeListener iparent) {
+			parent = iparent;
 		}
 
 		public void propertyChange(PropertyChangeEvent e) {

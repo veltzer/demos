@@ -10,13 +10,13 @@ import javax.swing.text.PlainDocument;
  * @author Mark Veltzer
  */
 @SuppressWarnings("serial")
-public class dateForm extends javax.swing.JFrame {
+public class DateForm extends javax.swing.JFrame {
 	/** Creates new form dateForm */
-	public dateForm() {
+	public DateForm() {
 		initComponents();
 
 		PlainDocument p = new PlainDocument() {
-			Pattern p = Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
+			private Pattern p = Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
 
 			private boolean check(String proposed) {
 				if (p.matcher(proposed).find()) {
@@ -110,15 +110,15 @@ public class dateForm extends javax.swing.JFrame {
 								.addContainerGap(202, Short.MAX_VALUE)));
 
 		pack();
-	}// </editor-fold>//GEN-END:initComponents
+	} // </editor-fold>//GEN-END:initComponents
 
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new dateForm().setVisible(true);
+				new DateForm().setVisible(true);
 			}
 		});
 	}

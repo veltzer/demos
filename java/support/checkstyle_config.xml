@@ -119,7 +119,9 @@
         <module name="LineLength"/>
 	-->
         <module name="MethodLength"/>
+	<!--
         <module name="ParameterNumber"/>
+	-->
 
 
         <!-- Checks for whitespace                               -->

@@ -18,16 +18,18 @@ public class InvokeLaterDemo extends JPanel {
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				// all events occur on the swing thread
-				new Thread() {
+				Thread t = new Thread() {
 					public void run() {
 						// our own special thread
 						try {
 							sleep(3000);
-						} catch (InterruptedException err) {
+						} catch (InterruptedException e) {
+							throw new RuntimeException(e);
 						}
 						SwingUtilities.invokeLater(new UpdateButton());
 					}
-				}.start();
+				};
+				t.start();
 			}
 		});
 	}

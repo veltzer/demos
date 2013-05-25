@@ -10,8 +10,8 @@ public class RightNavigationTemplate extends AbstractTemplate {
 	private JComponent navigation;
 	private Template nested;
 
-	public RightNavigationTemplate(Template nested) {
-		this.nested = nested;
+	public RightNavigationTemplate(Template inested) {
+		nested = inested;
 		JComponent panel = getView();
 		panel.setLayout(new BorderLayout());
 		navigation = new Box(BoxLayout.Y_AXIS);

@@ -59,10 +59,11 @@ public class ActionsDemo extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				playButton.setEnabled(!playButton.isEnabled());
-				if (playButton.isEnabled())
+				if (playButton.isEnabled()) {
 					message.setText("Paused");
-				else
+				} else {
 					message.setText("Playing");
+				}
 			}
 		});
 

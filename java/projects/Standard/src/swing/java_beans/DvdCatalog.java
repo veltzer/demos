@@ -54,15 +54,16 @@ public class DvdCatalog extends JFrame implements Runnable {
 
 	private DvdModel tableModel;
 
-	private final static Icon DVD_ICON = new ImageIcon(
+	private static final Icon DVD_ICON = new ImageIcon(
 			DvdCatalog.class.getResource("/dvd.gif"));
-	private final static Icon CD_ICON = new ImageIcon(
+	private static final Icon CD_ICON = new ImageIcon(
 			DvdCatalog.class.getResource("/cd.gif"));
-	private final static Icon MINI_DISC = new ImageIcon(
+	private static final Icon MINI_DISC = new ImageIcon(
 			DvdCatalog.class.getResource("/minicd.gif"));
-	private final static Icon[] ICONS = new Icon[] { DVD_ICON, CD_ICON,
-			MINI_DISC };
-	private final static File CD_DATA_FILE = new File("dvd_collection.xml");
+	private static final Icon[] ICONS = new Icon[] {
+		DVD_ICON, CD_ICON, MINI_DISC
+	};
+	private static final File CD_DATA_FILE = new File("dvd_collection.xml");
 
 	public DvdCatalog() throws IOException {
 		super("DVD/CD Catalog");
@@ -183,33 +184,37 @@ public class DvdCatalog extends JFrame implements Runnable {
 
 	public static class DvdModel extends AbstractTableModel implements
 			TableModel, Serializable, ExceptionListener {
-		private final transient String[] COLUMN_NAMES = { "Title", "By",
-				"Featuring", "Year", "Keywords", "Media" };
-		private final transient Class<?>[] COLUMN_CLASSES = { String.class,
-				String.class, String.class, String.class, String.class,
-				Integer.class };
+		static final transient String[] COLUMN_NAMES = {
+			"Title", "By", "Featuring", "Year", "Keywords", "Media"
+		};
+		static final transient Class<?>[] COLUMN_CLASSES = {
+			String.class, String.class, String.class, String.class, String.class, Integer.class
+		};
 		private List<Object[]> tableData = new ArrayList<Object[]>();
 
 		public List<Object[]> getTableData() {
 			return (tableData);
 		}
 
-		public void setTableData(List<Object[]> tableData) {
-			this.tableData = tableData;
+		public void setTableData(List<Object[]> itableData) {
+			tableData = itableData;
 		}
 
 		public void add(String title, String by, String featuring, String year,
 				String keywords, boolean isDvd, boolean isCd) {
 			if (isDvd) {
-				tableData.add(new Object[] { title, by, featuring, year,
-						keywords, new Integer(0) });
+				tableData.add(new Object[] {
+					title, by, featuring, year, keywords, new Integer(0)
+				});
 			} else {
 				if (isCd) {
-					tableData.add(new Object[] { title, by, featuring, year,
-							keywords, new Integer(1) });
+					tableData.add(new Object[] {
+						title, by, featuring, year, keywords, new Integer(1)
+					});
 				} else {
-					tableData.add(new Object[] { title, by, featuring, year,
-							keywords, new Integer(2) });
+					tableData.add(new Object[] {
+						title, by, featuring, year, keywords, new Integer(2)
+					});
 				}
 			}
 			fireTableRowsInserted(tableData.size() - 1, tableData.size() - 1);
