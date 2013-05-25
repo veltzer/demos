@@ -10,7 +10,6 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class TableTag extends TagSupport {

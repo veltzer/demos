@@ -1,7 +1,7 @@
 package exercise;
 
 /**
- * @author rank
+ * @author Mark Veltzer <mark.veltzer@gmail.com>
  * @version
  */
 @SuppressWarnings("serial")

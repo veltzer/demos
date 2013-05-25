@@ -6,8 +6,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
- * @author rank
- * @version
+ * @author Mark Veltzer <mark.veltzer@gmail.com>
  */
 @SuppressWarnings("serial")
 public class RowTag extends TagSupport {

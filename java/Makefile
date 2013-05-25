@@ -49,6 +49,14 @@ check_tab_eol:
 check_dbl_ws:
 	@scripts/ok_wrapper.pl git grep "  " -- "*.java"
 
+.PHONY: check_author
+check_author:
+	@scripts/ok_wrapper.pl git grep "@author" -- "*.java" | grep -v "Mark Veltzer"
+
+.PHONY: check_version
+check_version:
+	@scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
+
 .PHONY: checkstyle
 checkstyle:
 #	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml -r projects/Standard/src

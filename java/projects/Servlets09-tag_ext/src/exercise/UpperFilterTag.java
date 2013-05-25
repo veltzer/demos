@@ -3,7 +3,7 @@ package exercise;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 /**
- * @author rank
+ * @author Mark Veltzer <mark.veltzer@gmail.com>
  * @version
  */
 @SuppressWarnings("serial")

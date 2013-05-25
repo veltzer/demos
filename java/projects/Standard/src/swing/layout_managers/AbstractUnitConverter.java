@@ -7,11 +7,7 @@ import java.awt.Toolkit;
 /**
  * An abstract implementation of the {@link UnitConverter} interface that
  * minimizes the effort required to convert font-dependent sizes to pixels.
- * @author Karsten Lentzsch
- * @version $Revision: 1.6 $
- * @see DefaultUnitConverter
- * @see swing.layout_managers.jgoodies.forms.layout.Size
- * @see swing.layout_managers.jgoodies.forms.layout.Sizes
+ * @author Mark Veltzer <mark.veltzer@gmail.com>
  */
 abstract public class AbstractUnitConverter implements UnitConverter {
 

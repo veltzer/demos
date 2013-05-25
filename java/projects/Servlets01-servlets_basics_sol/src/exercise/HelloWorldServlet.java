@@ -9,7 +9,6 @@ import javax.servlet.ServletResponse;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class HelloWorldServlet extends GenericServlet {

@@ -1,9 +1,9 @@
 Build system:
 =============
-- add checkstyle support and set my own style.
+- add a script to suppress the verbose info coming out of
+	the checkstyle.
 - seperate the java to it's own project (javaapi).
 - add ant to build the entire project.
-- add code formatter to format all of my code to a single style.
 - get ridd of the jars in '/lib' and use the ones from the OS
 	to reduce the size of this project.
 	If I'm not happy with that then use maven to bring the jars
@@ -12,6 +12,7 @@ Build system:
 code:
 =====
 - remove interbit references from the code.
+- make sure that the author is just me.
 
 Extreme:
 ========

@@ -8,7 +8,6 @@ import java.util.Map;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class ItemDAO implements Serializable {

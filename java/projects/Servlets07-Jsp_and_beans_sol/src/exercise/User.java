@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class User implements Serializable {
