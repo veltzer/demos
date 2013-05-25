@@ -91,24 +91,24 @@ public class UndoDemo extends JPanel {
 			return color;
 		}
 
-		public void setColor(Color color) {
-			this.color = color;
+		public void setColor(Color icolor) {
+			color = icolor;
 		}
 
 		public Shape getShape() {
 			return shape;
 		}
 
-		public void setShape(Shape shape) {
-			this.shape = shape;
+		public void setShape(Shape ishape) {
+			shape = ishape;
 		}
 
 		public boolean isFilled() {
 			return filled;
 		}
 
-		public void setFilled(boolean filled) {
-			this.filled = filled;
+		public void setFilled(boolean ifilled) {
+			filled = ifilled;
 		}
 
 		public String getPresentationName() {
@@ -212,13 +212,13 @@ public class UndoDemo extends JPanel {
 		toolbar.add(RedoAction.getInstance());
 		toolbar.add(new JToggleButton(new ToggleFillModeAction()));
 		toolbar.add(new SelectColorAction());
-		JToggleButton rectMode = new JToggleButton(new DrawRectModeAction());
-		rectMode.setSelected(true);
-		toolbar.add(rectMode);
+		JToggleButton rectModeB = new JToggleButton(new DrawRectModeAction());
+		rectModeB.setSelected(true);
+		toolbar.add(rectModeB);
 		JToggleButton circleMode = new JToggleButton(new DrawCircleModeAction());
 		toolbar.add(circleMode);
 		ButtonGroup group = new ButtonGroup();
-		group.add(rectMode);
+		group.add(rectModeB);
 		group.add(circleMode);
 
 		toolbar.addSeparator();

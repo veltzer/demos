@@ -1,7 +1,6 @@
 package swing.graphics2d;
 
 import java.awt.BorderLayout;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -21,7 +20,7 @@ public class RollingPolygonApp extends JFrame {
 	private AbstractAction playAction;
 	private AbstractAction stopAction;
 
-	public RollingPolygonApp() throws HeadlessException {
+	public RollingPolygonApp() {
 		super("Rollin polygon demo");
 	}
 

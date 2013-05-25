@@ -72,10 +72,10 @@ public class RollingPolygon extends JPanel {
 	}
 
 	public void init() {
-		int xPoints[] = {
+		int[] xPoints = {
 				-50, 50, 50, -50
 		};
-		int yPoints[] = {
+		int[] yPoints = {
 				-50, -50, 50, 50
 		};
 
@@ -129,8 +129,8 @@ public class RollingPolygon extends JPanel {
 		return isRunning;
 	}
 
-	public void setRunning(boolean isRunning) {
-		this.isRunning = isRunning;
+	public void setRunning(boolean iisRunning) {
+		isRunning = iisRunning;
 	}
 
 	/**

@@ -23,7 +23,7 @@ import javax.swing.undo.UndoManager;
 import javax.swing.undo.UndoableEdit;
 
 @SuppressWarnings("serial")
-class UndoAction extends AbstractAction {
+final class UndoAction extends AbstractAction {
 	private List<UndoableEdit> script = new ArrayList<UndoableEdit>();
 	private RecordAction record = new RecordAction();
 	private StopAction stop = new StopAction();
@@ -32,7 +32,7 @@ class UndoAction extends AbstractAction {
 	private LoadAction load = new LoadAction();
 	private boolean recording = false;
 
-	private static UndoAction INSTANCE = new UndoAction();
+	private static final UndoAction INSTANCE = new UndoAction();
 	private UndoManager manager = new UndoManager();
 
 	private UndoAction() {

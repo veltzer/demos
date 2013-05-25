@@ -58,10 +58,10 @@ public class Graphics2dDemo extends JPanel {
 	}
 
 	private void paintShapes(Graphics2D g2) {
-		int xPoints[] = {
+		int[] xPoints = {
 				55, 67, 109, 73, 83, 55, 27, 37, 1, 43
 		};
-		int yPoints[] = {
+		int[] yPoints = {
 				0, 36, 36, 54, 96, 72, 96, 54, 36, 36
 		};
 
