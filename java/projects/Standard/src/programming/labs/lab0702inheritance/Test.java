@@ -1,6 +1,6 @@
 package programming.labs.lab0702inheritance;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		/*

@@ -2,23 +2,8 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import org.apache.tools.ant.Task;
-/*
- * Created on 03/03/2005
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 
-/**
- * @author arik
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 public class ProjectDetails extends Task {
-
-
-	
 	public void execute() {
 		this.log("name: " + this.getProject().getName());
 		this.log("description: " + this.getProject().getDescription());
@@ -29,7 +14,7 @@ public class ProjectDetails extends Task {
 			if (task!=null && !task.trim().equals("")) {
 				this.log( " - " + task + " task");
 			}
-		}		
+		}
 		this.log("base dir: " + this.getProject().getBaseDir());
-	}	
+	}
 }

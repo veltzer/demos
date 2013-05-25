@@ -20,9 +20,6 @@ import javax.swing.text.DateFormatter;
 
 public class DateFormatterDemo extends JPanel
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JFormattedTextField dateField;
@@ -31,13 +28,11 @@ public class DateFormatterDemo extends JPanel
 
 	private JButton submitButton;
 
-	public DateFormatterDemo()
-	{
+	public DateFormatterDemo() {
 		super(new BorderLayout());
 	}
 
-	private void init()
-	{
+	private void init() {
 		Box textBox = new Box(BoxLayout.Y_AXIS);
 		textBox.add(new JLabel("Please enter date: MM/dd/yyyy hh:mm"));
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm");
@@ -93,8 +88,7 @@ public class DateFormatterDemo extends JPanel
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		DateFormatterDemo demo = new DateFormatterDemo();
 		demo.init();
 
@@ -105,5 +99,4 @@ public class DateFormatterDemo extends JPanel
 		frame.setSize(400, 200);
 		frame.setVisible(true);
 	}
-
 }

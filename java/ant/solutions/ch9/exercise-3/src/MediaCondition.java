@@ -33,12 +33,12 @@ public class MediaCondition implements Condition  {
 	        DirectoryScanner ds = new DirectoryScanner();
 	        ds.setBasedir(dir);
 	        String[] includes = new String[4];
-	        includes[0] = "*.gif";	        
+	        includes[0] = "*.gif";
 	        includes[1] = "*.jpg";
 	        includes[2] = "*.jpeg";
 	        includes[3] = "*.png";
 	        ds.setIncludes(includes);
-	        
+
 	        try {
 	        	ds.scan();
 	        	

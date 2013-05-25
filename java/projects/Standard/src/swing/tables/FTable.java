@@ -8,7 +8,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableModel;
 public class FTable extends JSplitPane {
     /**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private JScrollPane frozenPane;
@@ -52,5 +52,5 @@ public class FTable extends JSplitPane {
             }
         });
         frozenTable.setSelectionModel(notFrozenTable.getSelectionModel());
-    }    
+    }
 }

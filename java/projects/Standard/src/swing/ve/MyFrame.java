@@ -34,9 +34,9 @@ public class MyFrame extends JFrame
 	private JScrollPane jScrollPane = null;
 
 	/**
-	 * This method initializes centralPanel	
-	 * 	
-	 * @return javax.swing.JPanel	
+	 * This method initializes centralPanel
+	 *
+	 * @return javax.swing.JPanel
 	 */
 	private JPanel getCentralPanel()
 	{
@@ -50,9 +50,9 @@ public class MyFrame extends JFrame
 	}
 
 	/**
-	 * This method initializes bottomPanel	
-	 * 	
-	 * @return javax.swing.JPanel	
+	 * This method initializes bottomPanel
+	 *
+	 * @return javax.swing.JPanel
 	 */
 	private JPanel getBottomPanel()
 	{
@@ -69,9 +69,9 @@ public class MyFrame extends JFrame
 	}
 
 	/**
-	 * This method initializes playButton	
-	 * 	
-	 * @return javax.swing.JButton	
+	 * This method initializes playButton
+	 *
+	 * @return javax.swing.JButton
 	 */
 	private JButton getPlayButton()
 	{
@@ -79,9 +79,9 @@ public class MyFrame extends JFrame
 		{
 			playButton = new JButton();
 			playButton.setText("Play");
-			playButton.addMouseListener(new java.awt.event.MouseAdapter() {   
+			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				@Override
-				public void mouseExited(java.awt.event.MouseEvent e) {    
+				public void mouseExited(java.awt.event.MouseEvent e) {
 					playButton.setText("Play");
 				}
 				@Override
@@ -101,9 +101,9 @@ public class MyFrame extends JFrame
 	}
 
 	/**
-	 * This method initializes pauseButton	
-	 * 	
-	 * @return javax.swing.JButton	
+	 * This method initializes pauseButton
+	 *
+	 * @return javax.swing.JButton
 	 */
 	private JButton getPauseButton()
 	{
@@ -122,9 +122,9 @@ public class MyFrame extends JFrame
 	}
 
 	/**
-	 * This method initializes stopButton	
-	 * 	
-	 * @return javax.swing.JButton	
+	 * This method initializes stopButton
+	 *
+	 * @return javax.swing.JButton
 	 */
 	private JButton getStopButton()
 	{
@@ -137,9 +137,9 @@ public class MyFrame extends JFrame
 	}
 
 	/**
-	 * This method initializes jEditorPane	
-	 * 	
-	 * @return javax.swing.JEditorPane	
+	 * This method initializes jEditorPane
+	 *
+	 * @return javax.swing.JEditorPane
 	 */
 	private JEditorPane getJEditorPane()
 	{
@@ -151,9 +151,9 @@ public class MyFrame extends JFrame
 	}
 
 	/**
-	 * This method initializes jScrollPane	
-	 * 	
-	 * @return javax.swing.JScrollPane	
+	 * This method initializes jScrollPane
+	 *
+	 * @return javax.swing.JScrollPane
 	 */
 	private JScrollPane getJScrollPane()
 	{
@@ -191,7 +191,7 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes this
-	 * 
+	 *
 	 * @return void
 	 */
 	private void initialize()
@@ -203,7 +203,7 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes jContentPane
-	 * 
+	 *
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJContentPane()

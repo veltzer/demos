@@ -76,7 +76,7 @@ public class SampleView extends ViewPart {
 	class TreeObject implements IAdaptable {
 		private String name;
 		private TreeParent parent;
-		
+
 		public TreeObject(String name) {
 			this.name = name;
 		}
@@ -98,7 +98,7 @@ public class SampleView extends ViewPart {
 			return null;
 		}
 	}
-	
+
 	class TreeParent extends TreeObject {
 		private ArrayList<TreeObject> children;
 		public TreeParent(String name) {
@@ -166,15 +166,15 @@ public class SampleView extends ViewPart {
 			p1.addChild(to1);
 			p1.addChild(to2);
 			p1.addChild(to3);
-			
+
 			TreeObject to4 = new TreeObject("Leaf 4");
 			TreeParent p2 = new TreeParent("Parent 2");
 			p2.addChild(to4);
-			
+
 			TreeParent root = new TreeParent("Root");
 			root.addChild(p1);
 			root.addChild(p2);
-			
+
 			invisibleRoot = new TreeParent("");
 			invisibleRoot.addChild(root);
 		}
@@ -253,7 +253,7 @@ public class SampleView extends ViewPart {
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
-	
+
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
 		manager.add(action2);
@@ -271,7 +271,7 @@ public class SampleView extends ViewPart {
 		action1.setToolTipText("Action 1 tooltip");
 		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-		
+
 		action2 = new Action() {
 			public void run() {
 				showMessage("Action 2 executed");

@@ -61,23 +61,23 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
     private Text workPhone;
     private Text fax;
     private Text mobile;
-    
+
     // Widgets for the Source page:
     private TextEditor sourceEditor;
 
     // Pages indexes:
-    int contactPageIndex; 
-    int sourcePageIndex; 
+    int contactPageIndex;
+    int sourcePageIndex;
 
     // Status
     boolean wasModified;
-    
+
     void createContactPage() {
-        FormToolkit toolkit = new FormToolkit(getContainer().getDisplay()); 
-        
+        FormToolkit toolkit = new FormToolkit(getContainer().getDisplay());
+
         contactForm = toolkit.createForm(getContainer());
         toolkit.paintBordersFor(contactForm.getBody());
-        
+
         contactForm.setText("Contact Details");
         GridLayout layout = new GridLayout(2, true);
         contactForm.getBody().setLayout(layout);
@@ -85,7 +85,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         // Build the Name section:
         Section section = toolkit.createSection(contactForm.getBody(), SWT.DEFAULT);
         section.setText("Name");
-        
+
         GridData gd = new GridData();
         gd.verticalAlignment = SWT.TOP;
         section.setLayoutData(gd);
@@ -106,12 +106,12 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         lastName.setLayoutData(gd);
 
         section.setClient(sectionClient);
-        
+
         // Build the Internet section:
         section = toolkit.createSection(contactForm.getBody(), SWT.DEFAULT);
         section.setText("Internet");
         section.setDescription("How to contact this person, the modern way.");
-        
+
         gd = new GridData();
         gd.verticalAlignment = SWT.TOP;
         section.setLayoutData(gd);
@@ -148,7 +148,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         gd.grabExcessHorizontalSpace = true;
         imName.setLayoutData(gd);
         imName.setEnabled(false);
-        
+
         section.setClient(sectionClient);
 
         IPreferenceStore store = ViewPlugin.getDefault().getPreferenceStore();
@@ -157,7 +157,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
             section = toolkit.createSection(contactForm.getBody(), SWT.DEFAULT);
             section.setText("Phones");
             section.setDescription("How to contact this person, the old-fashioned way.");
-            
+
             gd = new GridData();
             gd.verticalAlignment = SWT.TOP;
             section.setLayoutData(gd);
@@ -182,7 +182,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
             toolkit.createLabel(sectionClient, "Mobile:");
             mobile = toolkit.createText(sectionClient, "");
             mobile.setLayoutData(gd);
-            
+
             section.setClient(sectionClient);
         }
 
@@ -190,7 +190,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
 
         section = toolkit.createSection(contactForm.getBody(), SWT.DEFAULT);
         section.setText("Options");
-        
+
         gd = new GridData();
         gd.verticalAlignment = SWT.TOP;
         section.setLayoutData(gd);
@@ -199,21 +199,21 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         toolkit.paintBordersFor(sectionClient);
         sectionLayout = new GridLayout();
         sectionClient.setLayout(sectionLayout);
-        
+
         Hyperlink link = toolkit.createHyperlink(sectionClient, "View source", SWT.WRAP);
         link.addHyperlinkListener(new HyperlinkAdapter() {
             public void linkActivated(HyperlinkEvent e) {
                 setActivePage(sourcePageIndex);
             }
         });
-        
+
         link = toolkit.createHyperlink(sectionClient, "Save changes", SWT.WRAP);
         link.addHyperlinkListener(new HyperlinkAdapter() {
             public void linkActivated(HyperlinkEvent e) {
                 doSave(null);
             }
         });
-        
+
         section.setClient(sectionClient);
 
         contactPageIndex = addPage(contactForm);
@@ -228,7 +228,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
                 }
             }
         };
-        
+
         firstName.addModifyListener(modifyListener);
         lastName.addModifyListener(modifyListener);
         email.addModifyListener(modifyListener);
@@ -262,7 +262,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         updateContactFromSource();
         wasModified = false;
     }
-    
+
     public void doSave(IProgressMonitor monitor) {
         if (getActivePage() == contactPageIndex) {
             updateSourceFromContact();
@@ -286,7 +286,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         ResourcesPlugin.getWorkspace().addResourceChangeListener(this, IResourceChangeEvent.POST_CHANGE);
         refreshPartName();
     }
-    
+
     public boolean isSaveAsAllowed() {
         return true;
     }
@@ -298,7 +298,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         else if (newPageIndex == contactPageIndex) {
             updateContactFromSource();
         }
-        
+
         super.pageChange(newPageIndex);
     }
 
@@ -315,7 +315,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
             source += fax.getText() + "\n";
             source += mobile.getText() + "\n";
         }
-        
+
         getDocumentSource().set(source);
     }
 
@@ -339,15 +339,15 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
             // Assuming the rest of the data is missing...
         }
     }
-    
+
     private IDocument getDocumentSource() {
         return sourceEditor.getDocumentProvider().getDocument(sourceEditor.getEditorInput());
     }
-    
+
     public boolean isDirty() {
         return wasModified || super.isDirty();
     }
-    
+
     public void refreshPartName() {
         setPartName(getEditorInput().getName());
         setTitleToolTip(getEditorInput().getToolTipText());
@@ -363,7 +363,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
                 getSite().getPage().closeEditor(this, false);
             }
         }
-        
+
         for (int i = 0; i < delta.getAffectedChildren().length; i++) {
             checkDelta(delta.getAffectedChildren()[i]);
         }
@@ -373,11 +373,11 @@ public class AddressBookEditor extends MultiPageEditorPart implements IResourceC
         if (getEditorInput() instanceof FileEditorInput) {
             return ((FileEditorInput)getEditorInput()).getFile();
         }
-        
+
         // We're not editing an open file
         return null;
     }
-    
+
     @Override
     public void dispose() {
         ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);

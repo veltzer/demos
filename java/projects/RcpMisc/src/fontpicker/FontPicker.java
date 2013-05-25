@@ -43,13 +43,13 @@ public class FontPicker {
 	Text fontSize;
 	Label fontShow;
 	Font font;
-	
+
 	public void run() {
 		Display display = new Display();
 		final Shell shell = new Shell(display);
 		shell.setText("Font Selection");
 		shell.setSize(400, 500);
-		
+
 		GridLayout gl = new GridLayout();
 		gl.numColumns = 4;
 		shell.setLayout(gl);
@@ -73,12 +73,12 @@ public class FontPicker {
 		fontShowBox.setLayout(new FillLayout());
 		fontShow = new Label(fontShowBox, SWT.CENTER);
 		fontShow.setText("AaBbYyZz");
-		
+
 		refresh();
-		
+
 		shell.pack();
 		shell.open();
-		
+
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
@@ -88,24 +88,21 @@ public class FontPicker {
 		font.dispose();
 		display.dispose();
 	}
-	
+
 	public void refresh() {
 		if (font != null) {
 			font.dispose();
 		}
-		
+
 		try {
-			font = new Font(null, 
-					        fontName.getText(), 
-							Integer.parseInt(fontSize.getText()), 
-							((Integer)(fontStyle.getData())).intValue());
+			font = new Font(null, fontName.getText(), Integer.parseInt(fontSize.getText()), ((Integer)(fontStyle.getData())).intValue());
 			fontShow.setFont(font);
 		}
 		catch (Exception e) {
 			// ...
 		}
 	}
-	
+
 	private void createFontNameColumn(Shell shell) {
 		final Composite fontNameCol = new Composite(shell, SWT.NO_FOCUS);
 		FillLayout fl1 = new FillLayout(SWT.VERTICAL);
@@ -114,11 +111,11 @@ public class FontPicker {
 		GridData gd1 = new GridData();
 		gd1.verticalAlignment = SWT.TOP;
 		fontNameCol.setLayoutData(gd1);
-		
+
 		class FontNameButton {
 			Button btn;
 			final String font;
-			
+
 			FontNameButton(String aFont) {
 				font = aFont;
 				btn = new Button(fontNameCol, SWT.PUSH | SWT.LEFT);
@@ -131,7 +128,7 @@ public class FontPicker {
 				});
 			}
 		}
-		
+
 		Label lbl = new Label(fontNameCol, SWT.LEFT);
 		lbl.setText("Font");
 
@@ -142,7 +139,7 @@ public class FontPicker {
 		new FontNameButton("Times New Roman");
 		new FontNameButton("Courier New");
 	}
-	
+
 	private void createFontStyleColumn(Shell shell) {
 		final Composite fontStyleCol = new Composite(shell, SWT.NO_FOCUS);
 		FillLayout fl2 = new FillLayout(SWT.VERTICAL);
@@ -156,7 +153,7 @@ public class FontPicker {
 			Button btn;
 			final String styleName;
 			final int style;
-			
+
 			FontStyleButton(String aName, int aStyle, boolean selected) {
 				styleName = aName;
 				style = aStyle;
@@ -172,7 +169,7 @@ public class FontPicker {
 				btn.setSelection(selected);
 			}
 		}
-		
+
 		Label lbl = new Label(fontStyleCol, SWT.LEFT);
 		lbl.setText("Font style");
 
@@ -185,7 +182,7 @@ public class FontPicker {
 		new FontStyleButton("Italic", SWT.ITALIC, false);
 		new FontStyleButton("Bold Italic", SWT.BOLD | SWT.ITALIC, false);
 	}
-	
+
 	private void createFontSizeColumn(Shell shell) {
 		final Composite fontSizeCol = new Composite(shell, SWT.NO_FOCUS);
 		FillLayout fl3 = new FillLayout(SWT.VERTICAL);
@@ -220,7 +217,7 @@ public class FontPicker {
 			}
 		});
 	}
-	
+
 	private void createButtonsColumn(final Shell shell) {
 		final Composite buttonsCol = new Composite(shell, SWT.NO_FOCUS);
 		FillLayout fl4 = new FillLayout(SWT.VERTICAL);
@@ -237,7 +234,7 @@ public class FontPicker {
 				shell.dispose();
 			}
 		};
-		
+
 		Button ok = new Button(buttonsCol, SWT.PUSH | SWT.CENTER);
 		ok.setText("OK");
 		ok.addSelectionListener(closeAdapter);

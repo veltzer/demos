@@ -22,8 +22,8 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-        trace("launch in mode "+mode);   
-        
+        trace("launch in mode "+mode);
+
         IServer server = ServerUtil.getServer(configuration);
         if (server == null) {
                 trace("Launch configuration could not find server");
@@ -37,12 +37,12 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
                 server.publish(IServer.PUBLISH_INCREMENTAL, monitor);
 
         String mainTypeName = "myclass";
-        
+
         IVMInstall vm = verifyVMInstall(configuration);
         IVMRunner runner = vm.getVMRunner(mode);
         if (runner == null)
                 runner = vm.getVMRunner(ILaunchManager.RUN_MODE);
-        
+
      // Program & VM args
         String pgmArgs = getProgramArguments(configuration);
         String vmArgs = getVMArguments(configuration);
@@ -52,7 +52,7 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 
         // VM-specific attributes
         //Map<?,?> vmAttributesMap = getVMSpecificAttributesMap(configuration);
-        
+
          // Classpath
         //String[] classpath = getClasspath(configuration);
         String[] classpath={ "/home/mark/tmp" };
@@ -63,7 +63,7 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
         if (workingDir != null)
                 workingDirName = workingDir.getAbsolutePath();
 
-        
+
         VMRunnerConfiguration runConfig = new VMRunnerConfiguration(mainTypeName, classpath);
         runConfig.setProgramArguments(execArgs.getProgramArgumentsArray());
         runConfig.setVMArguments(execArgs.getVMArgumentsArray());
