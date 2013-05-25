@@ -41,3 +41,14 @@ $(JAVA_STAMP): %.stamp: %.java
 	$(info doing [$@])
 	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml $<
 	@touch $@
+
+# code measurements
+
+.PHONY: sloccount
+sloccount:
+	$(info doing [$@])
+	@sloccount .
+.PHONY: count_files
+count_files:
+	$(info doing [$@])
+	@echo number of Java files: `find . -name "*.java" | wc -l`
