@@ -39,7 +39,8 @@ public class Item implements java.io.Serializable {
 	/**
 	 * Setter for property name.
 	 * 
-	 * @param name New value of property name.
+	 * @param name
+	 *            New value of property name.
 	 */
 	public void setName(String name) {
 		this.name = name;
