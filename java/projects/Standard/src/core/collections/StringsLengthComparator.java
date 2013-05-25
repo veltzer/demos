@@ -5,9 +5,7 @@ import java.util.Comparator;
 /**
  * A commarator for two strings. The lengths of the strings is the primary
  * comparison parameter, their natural comparison is the secondary parameter.
- * 
  * @author Mark Veltzer
- * 
  */
 public class StringsLengthComparator implements Comparator<String> {
 

@@ -6,7 +6,6 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
- * 
  * @author rank
  * @version
  */
@@ -32,7 +31,6 @@ public class RowTag extends TagSupport {
 
 	/**
 	 * Getter for property colName.
-	 * 
 	 * @return Value of property colName.
 	 */
 	public String getColName() {
@@ -41,9 +39,7 @@ public class RowTag extends TagSupport {
 
 	/**
 	 * Setter for property colName.
-	 * 
-	 * @param colName
-	 *            New value of property colName.
+	 * @param colName New value of property colName.
 	 */
 	public void setColName(String colName) {
 		this.colName = colName;

@@ -15,9 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * FormattedTextFieldDemo.java is a 1.4 example that requires no other files.
- * 
- * It implements a mortgage calculator that uses four JFormattedTextFields.
+ * FormattedTextFieldDemo.java is a 1.4 example that requires no other files. It
+ * implements a mortgage calculator that uses four JFormattedTextFields.
  */
 public class FormattedTextFieldDemo extends JPanel implements
 		PropertyChangeListener {

@@ -3,7 +3,6 @@ package exercise;
 import java.io.Serializable;
 
 /**
- * 
  * @author rank
  * @version
  */
@@ -28,7 +27,6 @@ public class User implements Serializable {
 
 	/**
 	 * Getter for property fname.
-	 * 
 	 * @return Value of property fname.
 	 */
 	public String getFname() {
@@ -37,9 +35,7 @@ public class User implements Serializable {
 
 	/**
 	 * Setter for property fname.
-	 * 
-	 * @param fname
-	 *            New value of property fname.
+	 * @param fname New value of property fname.
 	 */
 	public void setFname(String fname) throws Exception {
 		this.fname = fname;
@@ -47,7 +43,6 @@ public class User implements Serializable {
 
 	/**
 	 * Getter for property lname.
-	 * 
 	 * @return Value of property lname.
 	 */
 	public String getLname() {
@@ -56,9 +51,7 @@ public class User implements Serializable {
 
 	/**
 	 * Setter for property lname.
-	 * 
-	 * @param lname
-	 *            New value of property lname.
+	 * @param lname New value of property lname.
 	 */
 	public void setLname(String lname) {
 		this.lname = lname;
@@ -66,7 +59,6 @@ public class User implements Serializable {
 
 	/**
 	 * Getter for property id.
-	 * 
 	 * @return Value of property id.
 	 */
 	public String getId() {
@@ -75,9 +67,7 @@ public class User implements Serializable {
 
 	/**
 	 * Setter for property id.
-	 * 
-	 * @param id
-	 *            New value of property id.
+	 * @param id New value of property id.
 	 */
 	public void setId(String id) {
 		this.id = id;
@@ -85,7 +75,6 @@ public class User implements Serializable {
 
 	/**
 	 * Getter for property email.
-	 * 
 	 * @return Value of property email.
 	 */
 	public String getEmail() {
@@ -94,9 +83,7 @@ public class User implements Serializable {
 
 	/**
 	 * Setter for property email.
-	 * 
-	 * @param email
-	 *            New value of property email.
+	 * @param email New value of property email.
 	 */
 	public void setEmail(String email) {
 		this.email = email;

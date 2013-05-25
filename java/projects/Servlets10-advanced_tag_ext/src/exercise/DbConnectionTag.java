@@ -7,7 +7,6 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
- * 
  * @author rank
  * @version
  */
@@ -42,7 +41,6 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Getter for property driver.
-	 * 
 	 * @return Value of property driver.
 	 */
 	public String getDriver() {
@@ -51,9 +49,7 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Setter for property driver.
-	 * 
-	 * @param driver
-	 *            New value of property driver.
+	 * @param driver New value of property driver.
 	 */
 	public void setDriver(String driver) {
 		this.driver = driver;
@@ -61,7 +57,6 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Getter for property url.
-	 * 
 	 * @return Value of property url.
 	 */
 	public String getUrl() {
@@ -70,9 +65,7 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Setter for property url.
-	 * 
-	 * @param url
-	 *            New value of property url.
+	 * @param url New value of property url.
 	 */
 	public void setUrl(String url) {
 		this.url = url;
@@ -80,7 +73,6 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Getter for property user.
-	 * 
 	 * @return Value of property user.
 	 */
 	public String getUser() {
@@ -89,9 +81,7 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Setter for property user.
-	 * 
-	 * @param user
-	 *            New value of property user.
+	 * @param user New value of property user.
 	 */
 	public void setUser(String user) {
 		this.user = user;
@@ -99,7 +89,6 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Getter for property password.
-	 * 
 	 * @return Value of property password.
 	 */
 	public String getPassword() {
@@ -108,9 +97,7 @@ public class DbConnectionTag extends TagSupport {
 
 	/**
 	 * Setter for property password.
-	 * 
-	 * @param password
-	 *            New value of property password.
+	 * @param password New value of property password.
 	 */
 	public void setPassword(String password) {
 		this.password = password;

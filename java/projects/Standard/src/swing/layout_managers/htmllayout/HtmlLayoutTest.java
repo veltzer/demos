@@ -10,7 +10,6 @@ import java.io.RandomAccessFile;
  * Reads in files containing table-html and creates a window for each layed out
  * according to the html. Buttons are created in the place of each component.
  * Used for testing table-html and layout behavior.
- * 
  * @see htmllayout.HtmlLayout
  * @author Paul Buchheit
  */

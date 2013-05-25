@@ -5,9 +5,7 @@ package core.threads;
  * parameters: the data array size, the threads' sleeping time, and the threads'
  * priorities, can become a simple benchmark to see how thread priorities work.
  * This is highly system and JRE dependent.
- * 
  * @author Mark Veltzer
- * 
  */
 public class PriorityTest {
 	/**

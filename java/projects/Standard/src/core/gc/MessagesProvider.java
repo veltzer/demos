@@ -7,7 +7,6 @@ import java.util.List;
 /**
  * Demonstrate the WeakReference. A provided allows for listeners registration,
  * but only holds weak references for those listeners.
- * 
  * @author Mark Veltzer
  */
 public class MessagesProvider {
@@ -49,7 +48,6 @@ public class MessagesProvider {
 	/**
 	 * Add a new listener. The listener itself is not registered, but rather a
 	 * WeakReference holding the listener.
-	 * 
 	 * @param listener
 	 */
 	public void addListener(MessagesListener listener) {
@@ -59,7 +57,6 @@ public class MessagesProvider {
 	/**
 	 * Iterate the listeners, and notify each one of them. A listener may not
 	 * neccessarily exist anymore: the WeakReference is consulted first.
-	 * 
 	 * @param message
 	 */
 	private void notifyListeners(String message) {

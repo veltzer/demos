@@ -7,9 +7,7 @@ import java.util.List;
  * This small application is used for profiling demonstrations. It creates a
  * large list of random int numbers 0..99, then calculates a reversed list of
  * Math.log(n) for each n in the original list.
- * 
  * @author Mark Veltzer
- * 
  */
 public class ProfileTest1 {
 	private List<Integer> numbers;

@@ -39,7 +39,6 @@ public class MultiPageEditorContributor extends
 
 	/**
 	 * Returns the action registed with the given text editor.
-	 * 
 	 * @return IAction or null if editor is null.
 	 */
 	protected IAction getAction(ITextEditor editor, String actionID) {

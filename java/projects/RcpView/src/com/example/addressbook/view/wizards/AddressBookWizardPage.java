@@ -36,7 +36,6 @@ public class AddressBookWizardPage extends WizardPage {
 
 	/**
 	 * Constructor for SampleNewWizardPage.
-	 * 
 	 * @param pageName
 	 */
 	public AddressBookWizardPage(ISelection selection) {

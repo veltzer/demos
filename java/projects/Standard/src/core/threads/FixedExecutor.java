@@ -9,9 +9,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * A very simple implementation of a fixed executor: an executor which has a
  * fixed number of threads, which all attempt at getting their hands on the next
  * runnable job to execute.
- * 
  * @author Mark Veltzer
- * 
  */
 public class FixedExecutor {
 	/**

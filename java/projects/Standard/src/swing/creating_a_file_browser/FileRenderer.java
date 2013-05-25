@@ -8,7 +8,6 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
  * Description of the Class
- * 
  * @author Mark Veltzer
  */
 public class FileRenderer extends DefaultTreeCellRenderer {
@@ -19,21 +18,13 @@ public class FileRenderer extends DefaultTreeCellRenderer {
 
 	/**
 	 * Gets the treeCellRendererComponent attribute of the FileRenderer object
-	 * 
-	 * @param tree
-	 *            Description of the Parameter
-	 * @param value
-	 *            Description of the Parameter
-	 * @param selected
-	 *            Description of the Parameter
-	 * @param expanded
-	 *            Description of the Parameter
-	 * @param leaf
-	 *            Description of the Parameter
-	 * @param row
-	 *            Description of the Parameter
-	 * @param hasFocus
-	 *            Description of the Parameter
+	 * @param tree Description of the Parameter
+	 * @param value Description of the Parameter
+	 * @param selected Description of the Parameter
+	 * @param expanded Description of the Parameter
+	 * @param leaf Description of the Parameter
+	 * @param row Description of the Parameter
+	 * @param hasFocus Description of the Parameter
 	 * @return The treeCellRendererComponent value
 	 */
 	public Component getTreeCellRendererComponent(JTree tree, Object value,

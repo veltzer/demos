@@ -7,10 +7,8 @@ import java.util.LinkedList;
 /**
  * Demonstration of the SoftReference wrapper. This class implements a pool of
  * objets, which are softly linked. Not all objects in the pool may actually
- * exist.
- * 
- * Notice that this class does not handle synchronization. Maybe it should.
- * 
+ * exist. Notice that this class does not handle synchronization. Maybe it
+ * should.
  * @author Mark Veltzer
  */
 public class SoftPool {
@@ -30,7 +28,6 @@ public class SoftPool {
 	/**
 	 * Add an object to the pool. The method will add a soft reference for that
 	 * object.
-	 * 
 	 * @param pooledObject
 	 */
 	public void addPooledObject(PooledObject pooledObject) {
@@ -55,7 +52,6 @@ public class SoftPool {
 
 	/**
 	 * How many objects are there, really?
-	 * 
 	 * @return number of real objects in the pool
 	 */
 	public int getAvailableSize() {

@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 
 /**
  * Description of the Class
- * 
  * @author Mark Veltzer
  */
 public class HelloAliasing extends Component {
@@ -22,9 +21,7 @@ public class HelloAliasing extends Component {
 
 	/**
 	 * The main program for the HelloJava2D class
-	 * 
-	 * @param argv
-	 *            The command line arguments
+	 * @param argv The command line arguments
 	 */
 	public static void main(String[] argv) {
 		JFrame frm = new JFrame();
@@ -36,9 +33,7 @@ public class HelloAliasing extends Component {
 
 	/**
 	 * Description of the Method
-	 * 
-	 * @param g
-	 *            Description of the Parameter
+	 * @param g Description of the Parameter
 	 */
 	public void paint(Graphics g) {
 		Font f = new Font("SansSerif", Font.PLAIN, 50);

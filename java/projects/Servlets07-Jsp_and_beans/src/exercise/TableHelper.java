@@ -1,7 +1,6 @@
 package exercise;
 
 /**
- * 
  * @author rank
  * @version
  */
@@ -21,7 +20,6 @@ public class TableHelper implements java.io.Serializable {
 
 	/**
 	 * Getter for property html.
-	 * 
 	 * @return Value of property html.
 	 */
 	public String getHtml() {
@@ -44,7 +42,6 @@ public class TableHelper implements java.io.Serializable {
 
 	/**
 	 * Getter for property bgcolor.
-	 * 
 	 * @return Value of property bgcolor.
 	 */
 	public String getBgcolor() {
@@ -53,9 +50,7 @@ public class TableHelper implements java.io.Serializable {
 
 	/**
 	 * Setter for property bgcolor.
-	 * 
-	 * @param bgcolor
-	 *            New value of property bgcolor.
+	 * @param bgcolor New value of property bgcolor.
 	 */
 	public void setBgcolor(String bgcolor) {
 		this.bgcolor = bgcolor;

@@ -17,10 +17,6 @@ import javax.swing.KeyStroke;
 
 import swing.graphics2d.RollingPolygon;
 
-/*
- * InternalFrameDemo.java is a 1.4 application that requires:
- *   MyInternalFrame.java
- */
 public class InternalFrameDemo extends JFrame implements ActionListener {
 	/**
 	 * 

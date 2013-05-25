@@ -41,9 +41,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 				/*
 				 * List<Book> l =
 				 * (List<Book>)session.createQuery("from Book").list(); for
-				 * (Book object : l) {
-				 * 
-				 * }
+				 * (Book object : l) { }
 				 */
 
 				return null;

@@ -8,7 +8,7 @@ import org.apache.bsf.BSFManager;
 public class BSF {
 	@SuppressWarnings("unchecked")
 	public static void main(String args[]) {
-		String myScript = "println('Hello World')\n  return [1, 2, 3]";
+		String myScript = "println('Hello World')\nreturn [1, 2, 3]";
 		BSFManager manager = new BSFManager();
 		List<Integer> answer;
 		try {

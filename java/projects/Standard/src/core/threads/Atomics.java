@@ -4,7 +4,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * A demonstration of how to use atomic variables.
- * 
  * @author Mark Veltzer
  */
 

@@ -88,7 +88,6 @@ public class RollingPolygonApp extends JFrame {
 	/**
 	 * This method is not actuall used. It shows the direct way of creating
 	 * toolbar buttons, without utilizing actions.
-	 * 
 	 * @param imageName
 	 * @param toolTipText
 	 * @param altText

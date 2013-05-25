@@ -5,7 +5,6 @@ import java.util.StringTokenizer;
 
 /**
  * TableLayoutConstraints binds components to their constraints.
- * 
  * @version 1.2 3/15/04
  * @author Daniel E. Barbalace
  */
@@ -37,13 +36,11 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 
 	/**
 	 * Constructs an TableLayoutConstraints from a string.
-	 * 
-	 * @param constraints
-	 *            indicates TableLayoutConstraints's position and justification
-	 *            as a string in the form "row, column" or "row, column,
-	 *            horizontal justification, vertical justification" or "row 1,
-	 *            column 1, row 2, column 2". It is also acceptable to delimit
-	 *            the paramters with spaces instead of commas.
+	 * @param constraints indicates TableLayoutConstraints's position and
+	 * justification as a string in the form "row, column" or "row,
+	 * column, horizontal justification, vertical justification" or "row
+	 * 1, column 1, row 2, column 2". It is also acceptable to delimit
+	 * the paramters with spaces instead of commas.
 	 */
 
 	public TableLayoutConstraints(String constraints) {
@@ -134,9 +131,9 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 		} catch (RuntimeException error) {
 			throw new IllegalArgumentException(
 					"Expected constraints in one of the following formats:\n"
-							+ "  col1, row1\n  col1, row1, col2, row2\n"
-							+ "  col1, row1, hAlign, vAlign\n"
-							+ "  col1, row1, col2, row2, hAlign, vAlign\n"
+							+ " col1, row1\n col1, row1, col2, row2\n"
+							+ " col1, row1, hAlign, vAlign\n"
+							+ " col1, row1, col2, row2, hAlign, vAlign\n"
 							+ "Constraints provided '" + constraints + "'");
 		}
 
@@ -151,19 +148,12 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 
 	/**
 	 * Constructs an TableLayoutConstraints a set of constraints.
-	 * 
-	 * @param col1
-	 *            column where upper-left cornor of the component is placed
-	 * @param row1
-	 *            row where upper-left cornor of the component is placed
-	 * @param col2
-	 *            column where lower-right cornor of the component is placed
-	 * @param row2
-	 *            row where lower-right cornor of the component is placed
-	 * @param hAlign
-	 *            horizontal justification of a component in a single cell
-	 * @param vAlign
-	 *            vertical justification of a component in a single cell
+	 * @param col1 column where upper-left cornor of the component is placed
+	 * @param row1 row where upper-left cornor of the component is placed
+	 * @param col2 column where lower-right cornor of the component is placed
+	 * @param row2 row where lower-right cornor of the component is placed
+	 * @param hAlign horizontal justification of a component in a single cell
+	 * @param vAlign vertical justification of a component in a single cell
 	 */
 
 	public TableLayoutConstraints(int col1, int row1, int col2, int row2,
@@ -187,9 +177,8 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 
 	/**
 	 * Gets a string representation of this TableLayoutConstraints.
-	 * 
-	 * @return a string in the form "row 1, column 1, row 2, column 2,
-	 *         horizontal justification, vertical justification"
+	 * @return a string in the form "row 1, column 1, row 2, column 2, horizontal
+	 * justification, vertical justification"
 	 */
 
 	public String toString() {

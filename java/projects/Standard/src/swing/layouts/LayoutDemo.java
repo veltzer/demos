@@ -61,7 +61,6 @@ public class LayoutDemo {
 		mainFrame.addWindowListener(new WindowAdapter() {
 			/*
 			 * (non-Javadoc)
-			 * 
 			 * @see
 			 * java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent
 			 * )

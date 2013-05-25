@@ -4,7 +4,7 @@ public class Account {
 	private String id;
 	private double balance;
 	private static int nextId = 1001;
-	private double COMMITION = 0.05;
+	private static final double COMMITION = 0.05;
 
 	public Account(double balance) {
 		id = "" + nextId++;

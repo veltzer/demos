@@ -1,33 +1,3 @@
-/*
- * Copyright (c) 2002-2004 JGoodies Karsten Lentzsch. All Rights Reserved.
- *
- * Redistribution and use in source and binary forms, with or without 
- * modification, are permitted provided that the following conditions are met:
- * 
- *  o Redistributions of source code must retain the above copyright notice, 
- *    this list of conditions and the following disclaimer. 
- *     
- *  o Redistributions in binary form must reproduce the above copyright notice, 
- *    this list of conditions and the following disclaimer in the documentation 
- *    and/or other materials provided with the distribution. 
- *     
- *  o Neither the name of JGoodies Karsten Lentzsch nor the names of 
- *    its contributors may be used to endorse or promote products derived 
- *    from this software without specific prior written permission. 
- *     
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
- */
-
 package swing.layout_managers;
 
 import java.awt.Component;
@@ -37,10 +7,8 @@ import java.awt.Toolkit;
 /**
  * An abstract implementation of the {@link UnitConverter} interface that
  * minimizes the effort required to convert font-dependent sizes to pixels.
- * 
  * @author Karsten Lentzsch
  * @version $Revision: 1.6 $
- * 
  * @see DefaultUnitConverter
  * @see swing.layout_managers.jgoodies.forms.layout.Size
  * @see swing.layout_managers.jgoodies.forms.layout.Sizes
@@ -54,11 +22,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Converts Inches and returns pixels using the specified resolution.
-	 * 
-	 * @param in
-	 *            the Inches
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param in the Inches
+	 * @param component the component that provides the graphics object
 	 * @return the given Inches as pixels
 	 */
 	public int inchAsPixel(double in, Component component) {
@@ -68,11 +33,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Converts Millimeters and returns pixels using the resolution of the given
 	 * component's graphics object.
-	 * 
-	 * @param mm
-	 *            Millimeters
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param mm Millimeters
+	 * @param component the component that provides the graphics object
 	 * @return the given Millimeters as pixels
 	 */
 	public int millimeterAsPixel(double mm, Component component) {
@@ -82,11 +44,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Converts Centimeters and returns pixels using the resolution of the given
 	 * component's graphics object.
-	 * 
-	 * @param cm
-	 *            Centimeters
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param cm Centimeters
+	 * @param component the component that provides the graphics object
 	 * @return the given Centimeters as pixels
 	 */
 	public int centimeterAsPixel(double cm, Component component) {
@@ -96,11 +55,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Converts DTP Points and returns pixels using the resolution of the given
 	 * component's graphics object.
-	 * 
-	 * @param pt
-	 *            DTP Points
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param pt DTP Points
+	 * @param component the component that provides the graphics object
 	 * @return the given Points as pixels
 	 */
 	public int pointAsPixel(int pt, Component component) {
@@ -110,11 +66,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Converts horizontal dialog units and returns pixels. Honors the
 	 * resolution, dialog font size, platform, and l&amp;f.
-	 * 
-	 * @param dluX
-	 *            the horizontal dialog units
-	 * @param c
-	 *            a Component that provides the font and graphics
+	 * @param dluX the horizontal dialog units
+	 * @param c a Component that provides the font and graphics
 	 * @return the given horizontal dialog units as pixels
 	 */
 	public int dialogUnitXAsPixel(int dluX, Component c) {
@@ -124,11 +77,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Converts vertical dialog units and returns pixels. Honors the resolution,
 	 * dialog font size, platform, and l&amp;f.
-	 * 
-	 * @param dluY
-	 *            the vertical dialog units
-	 * @param c
-	 *            a Component that provides the font and graphics
+	 * @param dluY the vertical dialog units
+	 * @param c a Component that provides the font and graphics
 	 * @return the given vertical dialog units as pixels
 	 */
 	public int dialogUnitYAsPixel(int dluY, Component c) {
@@ -140,9 +90,7 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Gets and returns the horizontal dialog base units. Implementations are
 	 * encouraged to cache previously computed dialog base units.
-	 * 
-	 * @param component
-	 *            a Component that provides the font and graphics
+	 * @param component a Component that provides the font and graphics
 	 * @return the horizontal dialog base units
 	 */
 	abstract protected double getDialogBaseUnitsX(Component component);
@@ -150,9 +98,7 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Gets and returns the vertical dialog base units. Implementations are
 	 * encouraged to cache previously computed dialog base units.
-	 * 
-	 * @param component
-	 *            a Component that provides the font and graphics
+	 * @param component a Component that provides the font and graphics
 	 * @return the vertical dialog base units
 	 */
 	abstract protected double getDialogBaseUnitsY(Component component);
@@ -161,11 +107,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Converts Inches and returns pixels using the specified resolution.
-	 * 
-	 * @param in
-	 *            the Inches
-	 * @param dpi
-	 *            the resolution
+	 * @param in the Inches
+	 * @param dpi the resolution
 	 * @return the given Inches as pixels
 	 */
 	protected final int inchAsPixel(double in, int dpi) {
@@ -174,11 +117,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Converts Millimeters and returns pixels using the specified resolution.
-	 * 
-	 * @param mm
-	 *            Millimeters
-	 * @param dpi
-	 *            the resolution
+	 * @param mm Millimeters
+	 * @param dpi the resolution
 	 * @return the given Millimeters as pixels
 	 */
 	protected final int millimeterAsPixel(double mm, int dpi) {
@@ -187,11 +127,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Converts Centimeters and returns pixels using the specified resolution.
-	 * 
-	 * @param cm
-	 *            Centimeters
-	 * @param dpi
-	 *            the resolution
+	 * @param cm Centimeters
+	 * @param dpi the resolution
 	 * @return the given Centimeters as pixels
 	 */
 	protected final int centimeterAsPixel(double cm, int dpi) {
@@ -200,11 +137,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Converts DTP Points and returns pixels using the specified resolution.
-	 * 
-	 * @param pt
-	 *            DTP Points
-	 * @param dpi
-	 *            the resolution in dpi
+	 * @param pt DTP Points
+	 * @param dpi the resolution in dpi
 	 * @return the given Points as pixels
 	 */
 	protected final int pointAsPixel(int pt, int dpi) {
@@ -213,11 +147,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Converts horizontal dialog units and returns pixels.
-	 * 
-	 * @param dluX
-	 *            the horizontal dialog units
-	 * @param dialogBaseUnitsX
-	 *            the horizontal dialog base units
+	 * @param dluX the horizontal dialog units
+	 * @param dialogBaseUnitsX the horizontal dialog base units
 	 * @return the given dialog base units as pixels
 	 */
 	protected int dialogUnitXAsPixel(int dluX, double dialogBaseUnitsX) {
@@ -226,11 +157,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Converts vertical dialog units and returns pixels.
-	 * 
-	 * @param dluY
-	 *            the vertical dialog units
-	 * @param dialogBaseUnitsY
-	 *            the vertical dialog base units
+	 * @param dluY the vertical dialog units
+	 * @param dialogBaseUnitsY the vertical dialog base units
 	 * @return the given dialog base units as pixels
 	 */
 	protected int dialogUnitYAsPixel(int dluY, double dialogBaseUnitsY) {
@@ -243,11 +171,8 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	 * Computes and returns the average character width of the specified test
 	 * string using the given FontMetrics. The test string shall represent an
 	 * "average" text.
-	 * 
-	 * @param metrics
-	 *            used to compute the test string's width
-	 * @param testString
-	 *            the string that shall represent an "average" text
+	 * @param metrics used to compute the test string's width
+	 * @param testString the string that shall represent an "average" text
 	 * @return the test string's average character width.
 	 */
 	protected double computeAverageCharWidth(FontMetrics metrics,
@@ -262,9 +187,7 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	/**
 	 * Returns the components screen resolution or the default screen resolution
 	 * if the component is null or has no toolkit assigned yet.
-	 * 
-	 * @param c
-	 *            the component to ask for a toolkit
+	 * @param c the component to ask for a toolkit
 	 * @return the component's screen resolution
 	 */
 	protected int getScreenResolution(Component c) {
@@ -280,7 +203,6 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 
 	/**
 	 * Computes and returns the default resolution.
-	 * 
 	 * @return the default screen resolution
 	 */
 	protected int getDefaultScreenResolution() {

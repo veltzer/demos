@@ -15,7 +15,6 @@ import java.net.URL;
  * Reads the file specified by the "htmlURL" param and, when the "Test filname"
  * button is pressed, opens a window layed out by that table-html, just as with
  * HtmlLayoutTest.
- * 
  * @see htmllayout.HtmlLayout
  * @see htmllayout.HtmlLayoutTest
  * @author Paul Buchheit
@@ -40,11 +39,10 @@ public class HtmlLayoutTestApplet extends Applet {
 
 				/******
 				 * replaced for JDK 1.0 browsers BufferedReader br = new
-				 * BufferedReader( new InputStreamReader());
-				 * 
-				 * StringBuffer sb = new StringBuffer(); String s; while((s =
-				 * br.readLine()) != null) { sb.append(s); sb.append("\n"); }
-				 * html = sb.toString();
+				 * BufferedReader( new InputStreamReader()); StringBuffer sb =
+				 * new StringBuffer(); String s; while((s = br.readLine()) !=
+				 * null) { sb.append(s); sb.append("\n"); } html =
+				 * sb.toString();
 				 ******/
 				// instead
 				InputStream is = url.openStream();

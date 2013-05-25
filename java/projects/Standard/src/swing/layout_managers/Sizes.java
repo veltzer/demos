@@ -1,33 +1,3 @@
-/*
- * Copyright (c) 2002-2004 JGoodies Karsten Lentzsch. All Rights Reserved.
- *
- * Redistribution and use in source and binary forms, with or without 
- * modification, are permitted provided that the following conditions are met:
- * 
- *  o Redistributions of source code must retain the above copyright notice, 
- *    this list of conditions and the following disclaimer. 
- *     
- *  o Redistributions in binary form must reproduce the above copyright notice, 
- *    this list of conditions and the following disclaimer in the documentation 
- *    and/or other materials provided with the distribution. 
- *     
- *  o Neither the name of JGoodies Karsten Lentzsch nor the names of 
- *    its contributors may be used to endorse or promote products derived 
- *    from this software without specific prior written permission. 
- *     
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
- */
-
 package swing.layout_managers;
 
 import java.awt.Component;
@@ -42,10 +12,8 @@ import java.util.List;
  * is delegated to an implementation of {@link UnitConverter}. The conversion
  * methods require the layout container as parameter to read its current font
  * and resolution.
- * 
  * @author Karsten Lentzsch
  * @version $Revision: 1.10 $
- * 
  * @see Size
  * @see UnitConverter
  * @see DefaultUnitConverter
@@ -123,11 +91,8 @@ public final class Sizes {
 	/**
 	 * Creates and returns an instance of <code>ConstantSize</code> from the
 	 * given encoded size and unit description.
-	 * 
-	 * @param encodedValueAndUnit
-	 *            value and unit in string representation
-	 * @param horizontal
-	 *            true for horizontal, false for vertical
+	 * @param encodedValueAndUnit value and unit in string representation
+	 * @param horizontal true for horizontal, false for vertical
 	 * @return a <code>ConstantSize</code> for the given value and unit
 	 */
 	public static ConstantSize constant(String encodedValueAndUnit,
@@ -138,9 +103,7 @@ public final class Sizes {
 	/**
 	 * Returns an instance of <code>Size</code> for the specified value in
 	 * horizontal dialog units.
-	 * 
-	 * @param value
-	 *            size value in horizontal dialog units
+	 * @param value size value in horizontal dialog units
 	 * @return the associated <code>ConstantSize</code>
 	 */
 	public static ConstantSize dluX(int value) {
@@ -150,9 +113,7 @@ public final class Sizes {
 	/**
 	 * Returns an instance of <code>Size</code> for the specified value in
 	 * vertical dialog units.
-	 * 
-	 * @param value
-	 *            size value in vertical dialog units
+	 * @param value size value in vertical dialog units
 	 * @return the associated <code>ConstantSize</code>
 	 */
 	public static ConstantSize dluY(int value) {
@@ -162,9 +123,7 @@ public final class Sizes {
 	/**
 	 * Creates and returns an instance of <code>Size</code> for the specified
 	 * pixel value.
-	 * 
-	 * @param value
-	 *            value in pixel
+	 * @param value value in pixel
 	 * @return the associated <code>ConstantSize</code>
 	 */
 	public static ConstantSize pixel(int value) {
@@ -174,16 +133,11 @@ public final class Sizes {
 	/**
 	 * Creates and returns a <code>BoundedSize</code> for the given basis using
 	 * the specified lower and upper bounds.
-	 * 
-	 * @param basis
-	 *            the base size
-	 * @param lowerBound
-	 *            the lower bound size
-	 * @param upperBound
-	 *            the upper bound size
+	 * @param basis the base size
+	 * @param lowerBound the lower bound size
+	 * @param upperBound the upper bound size
 	 * @return a <code>BoundedSize</code> for the given basis and bounds
-	 * @throws NullPointerException
-	 *             if basis is null
+	 * @throws NullPointerException if basis is null
 	 */
 	public static Size bounded(Size basis, Size lowerBound, Size upperBound) {
 		return new BoundedSize(basis, lowerBound, upperBound);
@@ -193,11 +147,8 @@ public final class Sizes {
 
 	/**
 	 * Converts Inches and returns pixels using the specified resolution.
-	 * 
-	 * @param in
-	 *            the Inches
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param in the Inches
+	 * @param component the component that provides the graphics object
 	 * @return the given Inches as pixels
 	 */
 	public static int inchAsPixel(double in, Component component) {
@@ -207,11 +158,8 @@ public final class Sizes {
 	/**
 	 * Converts Millimeters and returns pixels using the resolution of the given
 	 * component's graphics object.
-	 * 
-	 * @param mm
-	 *            Millimeters
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param mm Millimeters
+	 * @param component the component that provides the graphics object
 	 * @return the given Millimeters as pixels
 	 */
 	public static int millimeterAsPixel(double mm, Component component) {
@@ -222,11 +170,8 @@ public final class Sizes {
 	/**
 	 * Converts Centimeters and returns pixels using the resolution of the given
 	 * component's graphics object.
-	 * 
-	 * @param cm
-	 *            Centimeters
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param cm Centimeters
+	 * @param component the component that provides the graphics object
 	 * @return the given Centimeters as pixels
 	 */
 	public static int centimeterAsPixel(double cm, Component component) {
@@ -237,11 +182,8 @@ public final class Sizes {
 	/**
 	 * Converts DTP Points and returns pixels using the resolution of the given
 	 * component's graphics object.
-	 * 
-	 * @param pt
-	 *            DTP Points
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param pt DTP Points
+	 * @param component the component that provides the graphics object
 	 * @return the given Points as pixels
 	 */
 	public static int pointAsPixel(int pt, Component component) {
@@ -251,11 +193,8 @@ public final class Sizes {
 	/**
 	 * Converts horizontal dialog units and returns pixels. Honors the
 	 * resolution, dialog font size, platform, and l&amp;f.
-	 * 
-	 * @param dluX
-	 *            the horizontal dialog units
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param dluX the horizontal dialog units
+	 * @param component the component that provides the graphics object
 	 * @return the given horizontal dialog units as pixels
 	 */
 	public static int dialogUnitXAsPixel(int dluX, Component component) {
@@ -266,11 +205,8 @@ public final class Sizes {
 	/**
 	 * Converts vertical dialog units and returns pixels. Honors the resolution,
 	 * dialog font size, platform, and l&amp;f.
-	 * 
-	 * @param dluY
-	 *            the vertical dialog units
-	 * @param component
-	 *            the component that provides the graphics object
+	 * @param dluY the vertical dialog units
+	 * @param component the component that provides the graphics object
 	 * @return the given vertical dialog units as pixels
 	 */
 	public static int dialogUnitYAsPixel(int dluY, Component component) {
@@ -283,7 +219,6 @@ public final class Sizes {
 	/**
 	 * Returns the current {@link UnitConverter}. If it has not been initialized
 	 * before it will get an instance of {@link DefaultUnitConverter}.
-	 * 
 	 * @return the current <code>UnitConverter</code>
 	 */
 	public static UnitConverter getUnitConverter() {
@@ -296,9 +231,7 @@ public final class Sizes {
 	/**
 	 * Sets a new {@link UnitConverter} that will be used to convert
 	 * font-dependent sizes to pixel sizes.
-	 * 
-	 * @param newUnitConverter
-	 *            the unit converter to be set
+	 * @param newUnitConverter the unit converter to be set
 	 */
 	public static void setUnitConverter(UnitConverter newUnitConverter) {
 		unitConverter = newUnitConverter;
@@ -327,9 +260,7 @@ public final class Sizes {
 		/**
 		 * Returns an instance of <code>ComponentSize</code> that corresponds to
 		 * the specified string.
-		 * 
-		 * @param str
-		 *            the encoded component size
+		 * @param str the encoded component size
 		 * @return the corresponding ComponentSize or null if none matches
 		 */
 		static ComponentSize valueOf(String str) {
@@ -348,17 +279,11 @@ public final class Sizes {
 		 * this form spec and the specified measure.
 		 * <p>
 		 * Invoked by FormLayout to determine the size of one of my elements
-		 * 
-		 * @param container
-		 *            the layout container
-		 * @param components
-		 *            the list of components to measure
-		 * @param minMeasure
-		 *            the measure used to determine the minimum size
-		 * @param prefMeasure
-		 *            the measure used to determine the preferred size
-		 * @param defaultMeasure
-		 *            the measure used to determine the default size
+		 * @param container the layout container
+		 * @param components the list of components to measure
+		 * @param minMeasure the measure used to determine the minimum size
+		 * @param prefMeasure the measure used to determine the preferred size
+		 * @param defaultMeasure the measure used to determine the default size
 		 * @return the maximum size in pixels for the given list of components
 		 */
 		public int maximumSize(Container container, List<Component> components,

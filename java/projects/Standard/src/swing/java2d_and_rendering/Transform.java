@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 
 /**
  * Description of the Class
- * 
  * @author Mark Veltzer
  */
 public class Transform extends Component {
@@ -23,9 +22,7 @@ public class Transform extends Component {
 
 	/**
 	 * The main program for the Star class
-	 * 
-	 * @param argv
-	 *            The command line arguments
+	 * @param argv The command line arguments
 	 */
 	public static void main(String[] argv) {
 		JFrame frm = new JFrame();
@@ -37,9 +34,7 @@ public class Transform extends Component {
 
 	/**
 	 * Description of the Method
-	 * 
-	 * @param g
-	 *            Description of the Parameter
+	 * @param g Description of the Parameter
 	 */
 	public void paint(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;

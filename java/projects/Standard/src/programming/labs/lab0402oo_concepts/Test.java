@@ -7,9 +7,7 @@ public class Test {
 		 * Customer customer1=new Customer(); Customer customer2=new
 		 * Customer("Vera","is-112",60); Customer customer3=new
 		 * Customer("Yossi","is-112",60,new Account("8565/44",35000));
-		 * 
 		 * customer2.setAccount(customer3.getAccount());
-		 * 
 		 * System.out.println("Accounts\n********");
 		 * System.out.println("Customer1 name:"
 		 * +customer1.getName()+" id:"+customer1.getAccount().getId()+

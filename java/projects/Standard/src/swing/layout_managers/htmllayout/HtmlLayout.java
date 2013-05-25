@@ -14,12 +14,12 @@ import java.util.Hashtable;
  * 
  * <pre>
  * &lt;table rows=2 cols=2&gt;
- *  &lt;tr&gt;
- *   &lt;td&gt; A label
- *   &lt;td component=someName&gt;
- *  &lt;tr&gt;
- *   &lt;td component=anotherName vert=max&gt;
- *   &lt;td component="some other name" horz=max&gt;
+ * &lt;tr&gt;
+ * &lt;td&gt; A label
+ * &lt;td component=someName&gt;
+ * &lt;tr&gt;
+ * &lt;td component=anotherName vert=max&gt;
+ * &lt;td component="some other name" horz=max&gt;
  * </pre>
  * 
  * <H1>Tags and their options</H1> <H2>Table</H2>
@@ -28,10 +28,8 @@ import java.util.Hashtable;
  * <BR>
  * <LI>horz= LEFT | RIGHT | CENTER | FIT | (MAX) <BR>
  * Specifies how the table fills the available width
- * 
  * <LI>vert= TOP | BOTTOM | CENTER | FIT | (MAX) <BR>
  * Specifies how the table fills the available height
- * 
  * <LI>rows=y ; y = rowCount (req)
  * <LI>cols=y ; y = colCount (req)
  * <LI>hgap=y ; y = horizontal gap between components
@@ -39,14 +37,12 @@ import java.util.Hashtable;
  * <LI>hpad=y ; y = horizontal padding (components made wider)
  * <LI>vpad=y ; y = vertical padding (components made taller)
  * </UL>
- * 
  * <H2>TR</H2>
  * <UL>
  * <LI>Contains TD <BR>
  * <BR>
  * <LI>vgap=y ; y = gap between this row and the row above
  * </UL>
- * 
  * <H2>TD</H2>
  * <UL>
  * <LI>Contains text (creates a label) or TABLE but only if no component is
@@ -57,10 +53,8 @@ import java.util.Hashtable;
  * <LI>rowspan=y
  * <LI>horz= (LEFT) | RIGHT | CENTER | FIT | MAX <BR>
  * Specifies how the component fills the available cell width
- * 
  * <LI>vert= TOP | BOTTOM | (CENTER) | FIT | MAX <BR>
  * Specifies how the component fills the available cell height
- * 
  * <LI>hgap=y ; y = horizontal gap between components
  * <LI>vgap=y ; y = vertical gap between components
  * <LI>hpad=y ; y = horizontal padding
@@ -68,7 +62,6 @@ import java.util.Hashtable;
  * <LI>component="componentName" ; this is the name that must be used when add
  * is called, as in add(comp, "componentName")
  * </UL>
- * 
  * @author Paul Buchheit
  */
 public class HtmlLayout implements LayoutManager {
@@ -97,11 +90,9 @@ public class HtmlLayout implements LayoutManager {
 
 	/**
 	 * Creates an HtmlLayout with the specified "HTML" string.
-	 * 
-	 * @param html
-	 *            The "HTML" which specifies the layout, if this is not valid
-	 *            table-html a BadTableHtmlException will be thrown. Html can be
-	 *            tested ahead of time using HtmlLayoutTest.
+	 * @param html The "HTML" which specifies the layout, if this is not valid
+	 * table-html a BadTableHtmlException will be thrown. Html can be
+	 * tested ahead of time using HtmlLayoutTest.
 	 * @see htmllayout.BadTableHtmlException
 	 * @see htmllayout.HtmlLayoutTest
 	 */

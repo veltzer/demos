@@ -8,7 +8,6 @@ import java.net.URL;
 /**
  * This class is only used to demonstrate the capabilities of Jakarta Ant
  * capabilities.
- * 
  * @author zvika
  */
 public class HelloAnt {

@@ -9,9 +9,7 @@ package core.threads;
  * is not fair in the sense that many threads wanting little resources will
  * probably get them and thus starve a single thread which wants lots of
  * resources. An improvement could be a first come first serve fix.
- * 
  * @author Mark Veltzer
- * 
  */
 public class Semaphore {
 	private int currentPermits;

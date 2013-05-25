@@ -5,15 +5,12 @@ import javax.swing.JLabel;
 
 /**
  * Description of the Class
- * 
  * @author Mark Veltzer
  */
 public class HelloWorld {
 	/**
 	 * The main program for the HelloWorld class
-	 * 
-	 * @param argv
-	 *            The command line arguments
+	 * @param argv The command line arguments
 	 */
 	public static void main(String[] argv) {
 		JFrame frm = new JFrame("Hello World");

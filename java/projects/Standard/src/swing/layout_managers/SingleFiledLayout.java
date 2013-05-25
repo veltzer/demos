@@ -9,7 +9,6 @@ import java.awt.Insets;
  * SingleFiledLayout lays out components singled filed. This layout manager is
  * like FlowLayout except that all components are placed in a single row or
  * column.
- * 
  * @version 1.1 4/4/02
  * @author Daniel E. Barbalace
  */
@@ -73,10 +72,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	/**
 	 * Constructs an instance of SingleFiledLayout using the default gap and
 	 * LEFT or TOP justification.
-	 * 
-	 * @param orientation
-	 *            ROW or COLUMN -- should the components be aligned in a row or
-	 *            column
+	 * @param orientation ROW or COLUMN -- should the components be aligned in a
+	 * row or column
 	 */
 
 	public SingleFiledLayout(int orientation) {
@@ -85,15 +82,11 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 
 	/**
 	 * Constructs an instance of SingleFiledLayout.
-	 * 
-	 * @param orientation
-	 *            ROW or COLUMN -- should the components be aligned in a row or
-	 *            column
-	 * @param justification
-	 *            LEFT, TOP, CENTER, FULL, BOTTOM, RIGHT -- how should
-	 *            components of different sizes be aligned
-	 * @param gap
-	 *            space between components in pixels
+	 * @param orientation ROW or COLUMN -- should the components be aligned in a
+	 * row or column
+	 * @param justification LEFT, TOP, CENTER, FULL, BOTTOM, RIGHT -- how should
+	 * components of different sizes be aligned
+	 * @param gap space between components in pixels
 	 */
 
 	public SingleFiledLayout(int orientation, int justification, int gap) {
@@ -121,13 +114,10 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	/**
 	 * To lay out the specified container using this layout. This method
 	 * repositions the components in the specified target container.
-	 * 
 	 * <p>
 	 * User code should not have to call this method directly.
 	 * </p>
-	 * 
-	 * @param container
-	 *            container being served by this layout manager
+	 * @param container container being served by this layout manager
 	 */
 
 	public void layoutContainer(Container container) {
@@ -219,10 +209,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	 * layout. The preferred size is the smallest size that, if used for the
 	 * container's size, will ensure that no component is truncated when the
 	 * component is it's preferred size.
-	 * 
-	 * @param container
-	 *            container being served by this layout manager
-	 * 
+	 * @param container container being served by this layout manager
 	 * @return a dimension indicating the container's preferred size
 	 */
 
@@ -277,10 +264,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	 * The minimum size is the smallest size that, if used for the container's
 	 * size, will ensure that no component is truncated. The minimum size is the
 	 * preferred size.
-	 * 
-	 * @param container
-	 *            container being served by this layout manager
-	 * 
+	 * @param container container being served by this layout manager
 	 * @return a dimension indicating the container's minimum size
 	 */
 
@@ -332,11 +316,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 
 	/**
 	 * Adds the specified component with the specified name to the layout.
-	 * 
-	 * @param name
-	 *            dummy parameter
-	 * @param component
-	 *            component to add
+	 * @param name dummy parameter
+	 * @param component component to add
 	 */
 
 	public void addLayoutComponent(String name, Component component) {
@@ -344,9 +325,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 
 	/**
 	 * Removes the specified component with the specified name from the layout.
-	 * 
-	 * @param component
-	 *            component being removed
+	 * @param component component being removed
 	 */
 
 	public void removeLayoutComponent(Component component) {

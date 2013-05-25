@@ -4,7 +4,6 @@ package core.threads;
  * This demos that thread.interrupt is only effective when the thread being
  * interrupted is actually in sleep, wait or in a blocking IO call (read/write).
  * It is a signal delivered by the OS.
- * 
  * @author Mark Veltzer
  */
 

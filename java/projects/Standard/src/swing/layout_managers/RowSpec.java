@@ -1,33 +1,3 @@
-/*
- * Copyright (c) 2002-2004 JGoodies Karsten Lentzsch. All Rights Reserved.
- *
- * Redistribution and use in source and binary forms, with or without 
- * modification, are permitted provided that the following conditions are met:
- * 
- *  o Redistributions of source code must retain the above copyright notice, 
- *    this list of conditions and the following disclaimer. 
- *     
- *  o Redistributions in binary form must reproduce the above copyright notice, 
- *    this list of conditions and the following disclaimer in the documentation 
- *    and/or other materials provided with the distribution. 
- *     
- *  o Neither the name of JGoodies Karsten Lentzsch nor the names of 
- *    its contributors may be used to endorse or promote products derived 
- *    from this software without specific prior written permission. 
- *     
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
- */
-
 package swing.layout_managers;
 
 import java.util.StringTokenizer;
@@ -36,7 +6,6 @@ import java.util.StringTokenizer;
  * Specifies rows in in {@link FormLayout} by their default orientation, start
  * size and resizing behavior.
  * <p>
- * 
  * <strong>Examples:</strong><br>
  * The following examples specify a centered row with a size of 14&nbsp;dlu that
  * won't grow.
@@ -50,13 +19,10 @@ import java.util.StringTokenizer;
  * new RowSpec(&quot;center:14dlu:0&quot;);
  * </pre>
  * <p>
- * 
  * The {@link com.jgoodies.forms.factories.FormFactory} provides predefined
  * frequently used <code>RowSpec</code> instances.
- * 
  * @author Karsten Lentzsch
  * @version $Revision: 1.5 $
- * 
  * @see com.jgoodies.forms.factories.FormFactory
  */
 
@@ -102,13 +68,9 @@ public final class RowSpec extends FormSpec {
 	 * <p>
 	 * The resize weight must be a non-negative double; you can use
 	 * <code>NO_FILL</code> as a convenience value for no resize.
-	 * 
-	 * @param defaultAlignment
-	 *            the row's default alignment
-	 * @param size
-	 *            the row's size as value with unit
-	 * @param resizeWeight
-	 *            the row's resize weight
+	 * @param defaultAlignment the row's default alignment
+	 * @param size the row's size as value with unit
+	 * @param resizeWeight the row's resize weight
 	 */
 	public RowSpec(DefaultAlignment defaultAlignment, Size size,
 			double resizeWeight) {
@@ -118,11 +80,9 @@ public final class RowSpec extends FormSpec {
 	/**
 	 * Constructs a <code>RowSpec</code> for the given size using the default
 	 * alignment, and no resizing.
-	 * 
-	 * @param size
-	 *            constant size, component size, or bounded size
-	 * @throws IllegalArgumentException
-	 *             if the pixel size is invalid or the resize weight is negative
+	 * @param size constant size, component size, or bounded size
+	 * @throws IllegalArgumentException if the pixel size is invalid or the
+	 * resize weight is negative
 	 */
 	public RowSpec(Size size) {
 		super(DEFAULT, size, NO_GROW);
@@ -131,9 +91,7 @@ public final class RowSpec extends FormSpec {
 	/**
 	 * Constructs a <code>RowSpec</code> from the specified encoded description.
 	 * The description will be parsed to set initial values.
-	 * 
-	 * @param encodedDescription
-	 *            the encoded description
+	 * @param encodedDescription the encoded description
 	 */
 	public RowSpec(String encodedDescription) {
 		super(DEFAULT, encodedDescription);
@@ -145,7 +103,6 @@ public final class RowSpec extends FormSpec {
 	 * Returns if this is a horizontal specification (vs. vertical). Used to
 	 * distinct between horizontal and vertical dialog units, which have
 	 * different conversion factors.
-	 * 
 	 * @return true for horizontal, false for vertical
 	 */
 	protected final boolean isHorizontal() {
@@ -157,13 +114,10 @@ public final class RowSpec extends FormSpec {
 	/**
 	 * Parses and splits encoded row specifications and returns an array of
 	 * <code>RowSpec</code> objects.
-	 * 
-	 * @param encodedRowSpecs
-	 *            comma separated encoded row specifications
+	 * @param encodedRowSpecs comma separated encoded row specifications
 	 * @return an array of decoded row specifications
-	 * @throws NullPointerException
-	 *             if the encoded row specifications string is <code>null</code>
-	 * 
+	 * @throws NullPointerException if the encoded row specifications string is
+	 * <code>null</code>
 	 * @see RowSpec#RowSpec(String)
 	 */
 	public static RowSpec[] decodeSpecs(String encodedRowSpecs) {

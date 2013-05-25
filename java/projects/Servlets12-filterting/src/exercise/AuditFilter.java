@@ -23,7 +23,7 @@ public class AuditFilter implements Filter {
 		HttpServletRequest httpReq = (HttpServletRequest) req;
 
 		System.out.println(new Date() + " URL:" + httpReq.getRequestURI()
-				+ "  Remote addr:" + httpReq.getRemoteAddr());
+				+ " Remote addr:" + httpReq.getRemoteAddr());
 
 		chain.doFilter(req, res);
 	}

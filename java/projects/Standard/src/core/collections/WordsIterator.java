@@ -9,7 +9,6 @@ import java.util.TreeSet;
 /**
  * A demonstration for the use of the collection framework. This class
  * implements the Iterator interface.
- * 
  * @author Mark Veltzer
  */
 
@@ -21,7 +20,6 @@ public class WordsIterator implements Iterator<String> {
 	/**
 	 * Create the iterator using the given String. The iterator will break the
 	 * string into words.
-	 * 
 	 * @param input
 	 */
 	public WordsIterator(String input) {
@@ -31,7 +29,6 @@ public class WordsIterator implements Iterator<String> {
 	}
 
 	/**
-	 * 
 	 * @see java.util.Iterator#hasNext()
 	 */
 	public boolean hasNext() {
@@ -39,7 +36,6 @@ public class WordsIterator implements Iterator<String> {
 	}
 
 	/**
-	 * 
 	 * @see java.util.Iterator#next()
 	 */
 	public String next() {

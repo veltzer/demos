@@ -118,9 +118,7 @@ public class KeyMapDemo extends JPanel {
 
 		/**
 		 * Creates this object with the appropriate identifier.
-		 * 
-		 * @param s
-		 *            Description of the Parameter
+		 * @param s Description of the Parameter
 		 */
 		public InsertMeAction(String s) {
 			super("insert-me " + s);
@@ -129,9 +127,7 @@ public class KeyMapDemo extends JPanel {
 
 		/**
 		 * The operation to perform when this action is triggered.
-		 * 
-		 * @param e
-		 *            the action event
+		 * @param e the action event
 		 */
 		public void actionPerformed(ActionEvent e) {
 			JTextComponent target = getTextComponent(e);

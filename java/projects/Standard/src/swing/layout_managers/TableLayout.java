@@ -1,37 +1,3 @@
-/*
- * ====================================================================
- *
- * The Clearthought Software License, Version 1.0
- *
- * Copyright (c) 2001 Daniel Barbalace.  All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * 2. The original software may not be altered.  However, the classes
- *    provided may be subclasses as long as the subclasses are not
- *    packaged in the info.clearthought package or any subpackage of
- *    info.clearthought.
- *
- * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR, AFFILATED BUSINESSES,
- * OR ANYONE ELSE BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
- * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
- * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
- * ====================================================================
- */
-
 package swing.layout_managers;
 
 import java.awt.Component;
@@ -49,18 +15,15 @@ import java.util.ListIterator;
  * size. A row or column can be given an absolute size in pixels, a percentage
  * of the available space, or it can grow and shrink to fill the remaining space
  * after other rows and columns have been resized.
- * 
  * <p>
  * Using spreadsheet terminology, a cell is the intersection of a row and
  * column. Cells have finite, non-negative sizes measured in pixels. The
  * dimensions of a cell depend solely upon the dimensions of its row and column.
  * </p>
- * 
  * <p>
  * A component occupies a rectangular group of one or more cells. The component
  * can be aligned in four ways within that cell.
  * </p>
- * 
  * <p>
  * A component can be stretched horizontally to fit the cell set (full
  * justification), or it can be placed in the center of the cell. The component
@@ -70,56 +33,55 @@ import java.util.ListIterator;
  * <pre>
  * public static void main (String args[])
  * {
- *     // Create a frame
- *     Frame frame = new Frame("Example of TableLayout");
- *     frame.setBounds (100, 100, 300, 300);
+ * // Create a frame
+ * Frame frame = new Frame("Example of TableLayout");
+ * frame.setBounds (100, 100, 300, 300);
  * <spc>
- *     // Create a TableLayout for the frame
- *     double border = 10;
- *     double size[][] =
- *         {{border, 0.10, 20, TableLayout.FILL, 20, 0.20, border},  // Columns
- *          {border, 0.20, 20, TableLayout.FILL, 20, 0.20, border}}; // Rows
+ * // Create a TableLayout for the frame
+ * double border = 10;
+ * double size[][] =
+ * {{border, 0.10, 20, TableLayout.FILL, 20, 0.20, border}, // Columns
+ * {border, 0.20, 20, TableLayout.FILL, 20, 0.20, border}}; // Rows
  * <spc>
- *     frame.setLayout (new TableLayout(size));
+ * frame.setLayout (new TableLayout(size));
  * <spc>
- *     // Create some buttons
- *     String label[] = {"Top", "Bottom", "Left", "Right", "Center", "Overlap"};
- *     Button button[] = new Button[label.length];
+ * // Create some buttons
+ * String label[] = {"Top", "Bottom", "Left", "Right", "Center", "Overlap"};
+ * Button button[] = new Button[label.length];
  * <spc>
- *     for (int i = 0; i < label.length; i++)
- *         button[i] = new Button(label[i]);
+ * for (int i = 0; i < label.length; i++)
+ * button[i] = new Button(label[i]);
  * <spc>
- *     // Add buttons
- *     frame.add (button[0], "1, 1, 5, 1"); // Top
- *     frame.add (button[1], "1, 5, 5, 5"); // Bottom
- *     frame.add (button[2], "1, 3      "); // Left
- *     frame.add (button[3], "5, 3      "); // Right
- *     frame.add (button[4], "3, 3, c, c"); // Center
- *     frame.add (button[5], "3, 3, 3, 5"); // Overlap
+ * // Add buttons
+ * frame.add (button[0], "1, 1, 5, 1"); // Top
+ * frame.add (button[1], "1, 5, 5, 5"); // Bottom
+ * frame.add (button[2], "1, 3"); // Left
+ * frame.add (button[3], "5, 3"); // Right
+ * frame.add (button[4], "3, 3, c, c"); // Center
+ * frame.add (button[5], "3, 3, 3, 5"); // Overlap
  * <spc>
- *     // Allow user to close the window to terminate the program
- *     frame.addWindowListener
- *         (new WindowListener()
- *             {
- *                 public void windowClosing (WindowEvent e)
- *                 {
- *                     System.exit (0);
- *                 }
+ * // Allow user to close the window to terminate the program
+ * frame.addWindowListener
+ * (new WindowListener()
+ * {
+ * public void windowClosing (WindowEvent e)
+ * {
+ * System.exit (0);
+ * }
  * <spc>
- *                 public void windowOpened (WindowEvent e) {}
- *                 public void windowClosed (WindowEvent e) {}
- *                 public void windowIconified (WindowEvent e) {}
- *                 public void windowDeiconified (WindowEvent e) {}
- *                 public void windowActivated (WindowEvent e) {}
- *                 public void windowDeactivated (WindowEvent e) {}
- *             }
- *         );
+ * public void windowOpened (WindowEvent e) {}
+ * public void windowClosed (WindowEvent e) {}
+ * public void windowIconified (WindowEvent e) {}
+ * public void windowDeiconified (WindowEvent e) {}
+ * public void windowActivated (WindowEvent e) {}
+ * public void windowDeactivated (WindowEvent e) {}
+ * }
+ * );
  * <spc>
- *     // Show frame
- *     frame.show();
+ * // Show frame
+ * frame.show();
  * }
  * </pre>
- * 
  * @version 3.2 5/9/04
  * @author Daniel E. Barbalace
  */
@@ -212,12 +174,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Constructs an instance of TableLayout.
-	 * 
-	 * @param size
-	 *            widths of columns and heights of rows in the format, {{col0,
-	 *            col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this
-	 *            parameter is invalid, the TableLayout will have exactly one
-	 *            row and one column.
+	 * @param size widths of columns and heights of rows in the format, {{col0,
+	 * col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this
+	 * parameter is invalid, the TableLayout will have exactly one row
+	 * and one column.
 	 */
 
 	public TableLayout(double[][] size) {
@@ -233,12 +193,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Constructs an instance of TableLayout.
-	 * 
-	 * @param col
-	 *            widths of columns in the format, {{col0, col1, col2, ...,
-	 *            colN}
-	 * @param row
-	 *            heights of rows in the format, {{row0, row1, row2, ..., rowN}
+	 * @param col widths of columns in the format, {{col0, col1, col2, ..., colN}
+	 * @param row heights of rows in the format, {{row0, row1, row2, ..., rowN}
 	 */
 
 	public TableLayout(double[] col, double[] row) {
@@ -247,12 +203,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Initializes the TableLayout for all constructors.
-	 * 
-	 * @param col
-	 *            widths of columns in the format, {{col0, col1, col2, ...,
-	 *            colN}
-	 * @param row
-	 *            heights of rows in the format, {{row0, row1, row2, ..., rowN}
+	 * @param col widths of columns in the format, {{col0, col1, col2, ..., colN}
+	 * @param row heights of rows in the format, {{row0, row1, row2, ..., rowN}
 	 */
 
 	protected void init(double[] col, double[] row) {
@@ -299,13 +251,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the constraints of a given component.
-	 * 
-	 * @param component
-	 *            desired component
-	 * 
+	 * @param component desired component
 	 * @return If the given component is found, the constraints associated with
-	 *         that component. If the given component is null or is not found,
-	 *         null is returned.
+	 * that component. If the given component is null or is not found,
+	 * null is returned.
 	 */
 
 	public TableLayoutConstraints getConstraints(Component component) {
@@ -325,15 +274,11 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Sets the constraints of a given component.
-	 * 
-	 * @param component
-	 *            desired component. This parameter cannot be null.
-	 * @param constraint
-	 *            new set of constraints. This parameter cannot be null.
-	 * 
+	 * @param component desired component. This parameter cannot be null.
+	 * @param constraint new set of constraints. This parameter cannot be null.
 	 * @return If the given component is found, the constraints associated with
-	 *         that component. If the given component is null or is not found,
-	 *         null is returned.
+	 * that component. If the given component is null or is not found,
+	 * null is returned.
 	 */
 
 	public void setConstraints(Component component,
@@ -375,10 +320,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
-	 * 
-	 * @param column
-	 *            widths of each of the columns
-	 * 
+	 * @param column widths of each of the columns
 	 * @see #getColumn
 	 */
 
@@ -389,14 +331,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Adjusts the number and sizes of rows in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
-	 * layout. This can be done with the following code:
-	 * 
-	 * <code>
-	 *     layout.layoutContainer(container);
-	 *     container.repaint();
-	 * </code>
-	 * 
-	 * or
+	 * layout. This can be done with the following code: <code>
+	 * layout.layoutContainer(container);
+	 * container.repaint();
+	 * </code> or
 	 * 
 	 * <pre>
 	 * window.pack()
@@ -404,10 +342,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
-	 * 
-	 * @param row
-	 *            heights of each of the rows. This parameter cannot be null.
-	 * 
+	 * @param row heights of each of the rows. This parameter cannot be null.
 	 * @see #getRow
 	 */
 
@@ -417,11 +352,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Sets the sizes of rows or columns for the methods setRow or setColumn.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param size
-	 *            new cr size
+	 * @param z indicates row or column
+	 * @param size new cr size
 	 */
 
 	protected void setCr(int z, double size[]) {
@@ -444,28 +376,18 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Adjusts the width of a single column in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
-	 * layout. This can be done with the following code:
-	 * 
-	 * <code>
-	 *     layout.layoutContainer(container);
-	 *     container.repaint();
-	 * </code>
-	 * 
-	 * or
-	 * 
+	 * layout. This can be done with the following code: <code>
+	 * layout.layoutContainer(container);
+	 * container.repaint();
+	 * </code> or
 	 * <pre>
 	 * window.pack()
 	 * </pre>
-	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
-	 * 
-	 * @param i
-	 *            zero-based index of column to set. If this parameter is not
-	 *            valid, an ArrayOutOfBoundsException will be thrown.
-	 * @param size
-	 *            width of the column. This parameter cannot be null.
-	 * 
+	 * @param i zero-based index of column to set. If this parameter is not
+	 * valid, an ArrayOutOfBoundsException will be thrown.
+	 * @param size width of the column. This parameter cannot be null.
 	 * @see #getColumn
 	 */
 
@@ -476,28 +398,18 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Adjusts the height of a single row in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
-	 * layout. This can be done with the following code:
-	 * 
-	 * <code>
-	 *     layout.layoutContainer(container);
-	 *     container.repaint();
-	 * </code>
-	 * 
-	 * or
-	 * 
+	 * layout. This can be done with the following code: <code>
+	 * layout.layoutContainer(container);
+	 * container.repaint();
+	 * </code> or
 	 * <pre>
 	 * window.pack()
 	 * </pre>
-	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
-	 * 
-	 * @param i
-	 *            zero-based index of row to set. If this parameter is not
-	 *            valid, an ArrayOutOfBoundsException will be thrown.
-	 * @param size
-	 *            height of the row. This parameter cannot be null.
-	 * 
+	 * @param i zero-based index of row to set. If this parameter is not valid,
+	 * an ArrayOutOfBoundsException will be thrown.
+	 * @param size height of the row. This parameter cannot be null.
 	 * @see #getRow
 	 */
 
@@ -507,13 +419,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Sets the sizes of rows or columns for the methods setRow or setColumn.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param i
-	 *            indicates which cr to resize
-	 * @param size
-	 *            new cr size
+	 * @param z indicates row or column
+	 * @param i indicates which cr to resize
+	 * @param size new cr size
 	 */
 
 	protected void setCr(int z, int i, double size) {
@@ -532,9 +440,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the sizes of columns in this layout.
-	 * 
 	 * @return widths of each of the columns
-	 * 
 	 * @see #setColumn
 	 */
 
@@ -548,9 +454,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the height of a single row in this layout.
-	 * 
 	 * @return height of the requested row
-	 * 
 	 * @see #setRow
 	 */
 
@@ -564,13 +468,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the width of a single column in this layout.
-	 * 
-	 * @param i
-	 *            zero-based index of row to get. If this parameter is not
-	 *            valid, an ArrayOutOfBoundsException will be thrown.
-	 * 
+	 * @param i zero-based index of row to get. If this parameter is not valid,
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @return width of the requested column
-	 * 
 	 * @see #setRow
 	 */
 
@@ -580,13 +480,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the sizes of a row in this layout.
-	 * 
-	 * @param i
-	 *            zero-based index of row to get. If this parameter is not
-	 *            valid, an ArrayOutOfBoundsException will be thrown.
-	 * 
+	 * @param i zero-based index of row to get. If this parameter is not valid,
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @return height of each of the requested row
-	 * 
 	 * @see #setRow
 	 */
 
@@ -596,7 +492,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the number of columns in this layout.
-	 * 
 	 * @return the number of columns
 	 */
 
@@ -606,7 +501,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the number of rows in this layout.
-	 * 
 	 * @return the number of rows
 	 */
 
@@ -616,7 +510,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the horizontal gap between colunns.
-	 * 
 	 * @return the horizontal gap in pixels
 	 */
 
@@ -626,7 +519,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Gets the vertical gap between rows.
-	 * 
 	 * @return the vertical gap in pixels
 	 */
 
@@ -636,9 +528,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Sets the horizontal gap between colunns.
-	 * 
-	 * @param hGap
-	 *            the horizontal gap in pixels
+	 * @param hGap the horizontal gap in pixels
 	 */
 
 	public void setHGap(int hGap) {
@@ -651,9 +541,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Sets the vertical gap between rows.
-	 * 
-	 * @param vGap
-	 *            the horizontal gap in pixels
+	 * @param vGap the horizontal gap in pixels
 	 */
 
 	public void setVGap(int vGap) {
@@ -672,12 +560,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Inserts a column in this layout. All components to the right of the
 	 * insertion point are moved right one column. The container will need to be
 	 * laid out after this method returns. See <code>setColumn</code>.
-	 * 
-	 * @param i
-	 *            zero-based index at which to insert the column
-	 * @param size
-	 *            size of the column to be inserted
-	 * 
+	 * @param i zero-based index at which to insert the column
+	 * @param size size of the column to be inserted
 	 * @see #setColumn
 	 * @see #deleteColumn
 	 */
@@ -690,12 +574,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Inserts a row in this layout. All components below the insertion point
 	 * are moved down one row. The container will need to be laid out after this
 	 * method returns. See <code>setRow</code>.
-	 * 
-	 * @param i
-	 *            zero-based index at which to insert the row
-	 * @param size
-	 *            size of the row to be inserted
-	 * 
+	 * @param i zero-based index at which to insert the row
+	 * @param size size of the row to be inserted
 	 * @see #setRow
 	 * @see #deleteRow
 	 */
@@ -706,20 +586,16 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Inserts a cr for the methods insertRow or insertColumn.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param i
-	 *            zero-based index at which to insert the cr
-	 * @param size
-	 *            size of cr being inserted
+	 * @param z indicates row or column
+	 * @param i zero-based index at which to insert the cr
+	 * @param size size of cr being inserted
 	 */
 
 	public void insertCr(int z, int i, double size) {
 		// Make sure position is valid
 		if ((i < 0) || (i > crSpec[z].length))
-			throw new IllegalArgumentException("Parameter i is invalid.  i = "
-					+ i + ".  Valid range is [0, " + crSpec[z].length + "].");
+			throw new IllegalArgumentException("Parameter i is invalid. i = "
+					+ i + ". Valid range is [0, " + crSpec[z].length + "].");
 
 		// Make sure row size is valid
 		if ((size < 0.0) && (size != FILL) && (size != PREFERRED)
@@ -762,10 +638,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Deletes a column in this layout. All components to the right of the
 	 * deletion point are moved left one column. The container will need to be
 	 * laid out after this method returns. See <code>setColumn</code>.
-	 * 
-	 * @param i
-	 *            zero-based index of column to delete
-	 * 
+	 * @param i zero-based index of column to delete
 	 * @see #setColumn
 	 * @see #deleteColumn
 	 */
@@ -779,10 +652,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * moved up one row. The container will need to be laid out after this
 	 * method returns. See <code>setRow</code>. There must be at least two rows
 	 * in order to delete a row.
-	 * 
-	 * @param i
-	 *            zero-based index of row to delete
-	 * 
+	 * @param i zero-based index of row to delete
 	 * @see #setRow
 	 * @see #deleteRow
 	 */
@@ -793,18 +663,15 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Deletes a cr for the methods deleteRow or deleteColumn.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param i
-	 *            zero-based index of cr to delete
+	 * @param z indicates row or column
+	 * @param i zero-based index of cr to delete
 	 */
 
 	protected void deleteCr(int z, int i) {
 		// Make sure position is valid
 		if ((i < 0) || (i >= crSpec[z].length))
-			throw new IllegalArgumentException("Parameter i is invalid.  i = "
-					+ i + ".  Valid range is [0, " + (crSpec[z].length - 1)
+			throw new IllegalArgumentException("Parameter i is invalid. i = "
+					+ i + ". Valid range is [0, " + (crSpec[z].length - 1)
 					+ "].");
 
 		// Copy rows
@@ -843,9 +710,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Converts this TableLayout to a string.
-	 * 
 	 * @return a string representing the columns and row sizes in the form
-	 *         "{{col0, col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}}"
+	 * "{{col0, col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}}"
 	 */
 
 	public String toString() {
@@ -877,10 +743,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * constraints. An invalid constraint is one that references a non-existing
 	 * row or column. For example, on a table with five rows, row -1 and row 5
 	 * are both invalid. Valid rows are 0 through 4, inclusively.
-	 * 
 	 * @return a list of TableLayout.Entry instances refering to the invalid
-	 *         constraints and corresponding components
-	 * 
+	 * constraints and corresponding components
 	 * @see #getOverlappingEntry
 	 */
 
@@ -909,9 +773,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Gets a list of overlapping components and their constraints. Two
 	 * components overlap if they cover at least one common cell.
-	 * 
 	 * @return a list of zero or more TableLayout.Entry instances
-	 * 
 	 * @see #getInvalidEntry
 	 */
 
@@ -956,9 +818,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * relative sizes specified in <code>crSpec[R]</code> and
 	 * <code>crSpec[C]</code> and the size of the container. The result is
 	 * stored in <code>crSize[R]</code> and <code>crSize[C]</code>.
-	 * 
-	 * @param container
-	 *            container using this TableLayout
+	 * @param container container using this TableLayout
 	 */
 
 	protected void calculateSize(Container container) {
@@ -1013,14 +873,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Assigns absolute sizes.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param availableSize
-	 *            amount of space available in the container
-	 * 
+	 * @param z indicates row or column
+	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after absolute crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignAbsoluteSize(int z, int availableSize) {
@@ -1037,14 +893,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Assigns relative sizes.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param availableSize
-	 *            amount of space available in the container
-	 * 
+	 * @param z indicates row or column
+	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after relative crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignRelativeSize(int z, int availableSize) {
@@ -1063,14 +915,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Assigns FILL sizes.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param availableSize
-	 *            amount of space available in the container
-	 * 
+	 * @param z indicates row or column
+	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after fill crs have been assigned
-	 *         sizes
+	 * sizes
 	 */
 
 	protected void assignFillSize(int z, int availableSize) {
@@ -1114,9 +962,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Calculates the offset of each cr.
-	 * 
-	 * @param z
-	 *            indicates row or column
+	 * @param z indicates row or column
 	 */
 
 	protected void calculateOffset(int z, Insets inset) {
@@ -1137,16 +983,11 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * vice versa. The end result is that any component contained wholly or
 	 * partly in a column/row of minimum/preferred width will get at least its
 	 * minimum/preferred width, respectively.
-	 * 
-	 * @param z
-	 *            indicates row or column
-	 * @param availableSize
-	 *            amount of space available in the container
-	 * @param typeOfSize
-	 *            indicates preferred or minimum
-	 * 
+	 * @param z indicates row or column
+	 * @param availableSize amount of space available in the container
+	 * @param typeOfSize indicates preferred or minimum
 	 * @return the amount of space available after absolute crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignPrefMinSize(int z, int availableSize, double typeOfSize) {
@@ -1250,13 +1091,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * To lay out the specified container using this layout. This method
 	 * reshapes the components in the specified target container in order to
 	 * satisfy the constraints of all components.
-	 * 
 	 * <p>
 	 * User code should not have to call this method directly.
 	 * </p>
-	 * 
-	 * @param container
-	 *            container being served by this layout manager
+	 * @param container container being served by this layout manager
 	 */
 
 	public void layoutContainer(Container container) {
@@ -1342,12 +1180,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Gets the container's component orientation. If a JDK that does not
 	 * support component orientation is being used, then null is returned.
-	 * 
-	 * @param container
-	 *            Container whose orientation is being queried
-	 * 
+	 * @param container Container whose orientation is being queried
 	 * @return the container's orientation or null if no orientation is
-	 *         supported
+	 * supported
 	 */
 
 	protected ComponentOrientation getComponentOrientation(Container container) {
@@ -1379,17 +1214,13 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Calculates the vertical/horizontal offset and size of a component.
-	 * 
-	 * @param entry
-	 *            entry containing component and contraints
-	 * @param preferredSize
-	 *            previously calculated preferred width/height of component
-	 * @param isColumn
-	 *            if true, this method is being called to calculate the
-	 *            offset/size of a column. if false,... of a row.
-	 * 
+	 * @param entry entry containing component and contraints
+	 * @param preferredSize previously calculated preferred width/height of
+	 * component
+	 * @param isColumn if true, this method is being called to calculate the
+	 * offset/size of a column. if false,... of a row.
 	 * @return an array, a, of two integers such that a[0] is the offset and
-	 *         a[1] is the size
+	 * a[1] is the size
 	 */
 
 	protected int[] calculateSizeAndOffset(Entry entry, int preferredSize,
@@ -1472,10 +1303,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * cannot both be accommodated. Since in general components rather be larger
 	 * than their preferred size instead of smaller, component B's request will
 	 * be fulfilled. The preferred size of the container would be 200 pixels.
-	 * 
-	 * @param container
-	 *            container being served by this layout manager
-	 * 
+	 * @param container container being served by this layout manager
 	 * @return a dimension indicating the container's preferred size
 	 */
 
@@ -1494,10 +1322,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * both be accommodated. Since in general components rather be larger than
 	 * their minimum size instead of smaller, component B's request will be
 	 * fulfilled. The minimum size of the container would be 200 pixels.
-	 * 
-	 * @param container
-	 *            container being served by this layout manager
-	 * 
+	 * @param container container being served by this layout manager
 	 * @return a dimension indicating the container's minimum size
 	 */
 
@@ -1508,12 +1333,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Calculates the preferred or minimum size for the methods
 	 * preferredLayoutSize and minimumLayoutSize.
-	 * 
-	 * @param container
-	 *            container whose size is being calculated
-	 * @param typeOfSize
-	 *            indicates preferred or minimum
-	 * 
+	 * @param container container whose size is being calculated
+	 * @param typeOfSize indicates preferred or minimum
 	 * @return a dimension indicating the container's preferred or minimum size
 	 */
 
@@ -1550,16 +1371,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * is passed the preferred/minimum sizes of the components so that the
 	 * potentially expensive methods getPreferredSize()/getMinimumSize() are not
 	 * called twice for the same component.
-	 * 
-	 * @param container
-	 *            container whose size is being calculated
-	 * @param typeOfSize
-	 *            indicates preferred or minimum
-	 * @param entryList
-	 *            list of Entry objects
-	 * @param prefMinSize
-	 *            list of preferred or minimum sizes
-	 * 
+	 * @param container container whose size is being calculated
+	 * @param typeOfSize indicates preferred or minimum
+	 * @param entryList list of Entry objects
+	 * @param prefMinSize list of preferred or minimum sizes
 	 * @return a dimension indicating the container's preferred or minimum size
 	 */
 
@@ -1700,11 +1515,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Adds the specified component with the specified name to the layout.
-	 * 
-	 * @param name
-	 *            indicates entry's position and anchor
-	 * @param component
-	 *            component to add
+	 * @param name indicates entry's position and anchor
+	 * @param component component to add
 	 */
 
 	public void addLayoutComponent(String name, Component component) {
@@ -1717,11 +1529,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Adds the specified component with the specified name to the layout.
-	 * 
-	 * @param component
-	 *            component to add
-	 * @param constraint
-	 *            indicates entry's position and alignment
+	 * @param component component to add
+	 * @param constraint indicates entry's position and alignment
 	 */
 
 	public void addLayoutComponent(Component component, Object constraint) {
@@ -1751,9 +1560,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Removes the specified component from the layout.
-	 * 
-	 * @param component
-	 *            component being removed
+	 * @param component component being removed
 	 */
 
 	public void removeLayoutComponent(Component component) {
@@ -1774,13 +1581,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Returns the maximum dimensions for this layout given the components in
 	 * the specified target container.
-	 * 
-	 * @param target
-	 *            the component which needs to be laid out
-	 * 
+	 * @param target the component which needs to be laid out
 	 * @return unconditionally, a Dimension of Integer.MAX_VALUE by
-	 *         Integer.MAX_VALUE since TableLayout does not limit the maximum
-	 *         size of a container
+	 * Integer.MAX_VALUE since TableLayout does not limit the maximum
+	 * size of a container
 	 */
 
 	public Dimension maximumLayoutSize(Container target) {
@@ -1793,7 +1597,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * be a number between 0 and 1 where 0 represents alignment along the
 	 * origin, 1 is aligned the furthest away from the origin, 0.5 is centered,
 	 * etc.
-	 * 
 	 * @return unconditionally, 0.5
 	 */
 
@@ -1807,7 +1610,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * be a number between 0 and 1 where 0 represents alignment along the
 	 * origin, 1 is aligned the furthest away from the origin, 0.5 is centered,
 	 * etc.
-	 * 
 	 * @return unconditionally, 0.5
 	 */
 
@@ -1844,11 +1646,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		/**
 		 * Constructs an Entry that binds a component to a set of constraints.
-		 * 
-		 * @param component
-		 *            component being bound
-		 * @param constraint
-		 *            constraints being applied
+		 * @param component component being bound
+		 * @param constraint constraints being applied
 		 */
 
 		public Entry(Component component, TableLayoutConstraints constraint) {
@@ -1872,9 +1671,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		/**
 		 * Gets the string representation of this Entry.
-		 * 
 		 * @return a string in the form
-		 *         "(col1, row1, col2, row2, vAlign, hAlign) component"
+		 * "(col1, row1, col2, row2, vAlign, hAlign) component"
 		 */
 
 		public String toString() {

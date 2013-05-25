@@ -1,7 +1,6 @@
 package exercise;
 
 /**
- * 
  * @author rank
  * @version
  */
@@ -29,7 +28,6 @@ public class Item implements java.io.Serializable {
 
 	/**
 	 * Getter for property name.
-	 * 
 	 * @return Value of property name.
 	 */
 	public String getName() {
@@ -38,9 +36,7 @@ public class Item implements java.io.Serializable {
 
 	/**
 	 * Setter for property name.
-	 * 
-	 * @param name
-	 *            New value of property name.
+	 * @param name New value of property name.
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -48,7 +44,6 @@ public class Item implements java.io.Serializable {
 
 	/**
 	 * Getter for property price.
-	 * 
 	 * @return Value of property price.
 	 */
 	public double getPrice() {
@@ -57,9 +52,7 @@ public class Item implements java.io.Serializable {
 
 	/**
 	 * Setter for property price.
-	 * 
-	 * @param price
-	 *            New value of property price.
+	 * @param price New value of property price.
 	 */
 	public void setPrice(double price) {
 		this.price = price;
@@ -67,7 +60,6 @@ public class Item implements java.io.Serializable {
 
 	/**
 	 * Getter for property itemId.
-	 * 
 	 * @return Value of property itemId.
 	 */
 	public String getItemId() {
@@ -76,9 +68,7 @@ public class Item implements java.io.Serializable {
 
 	/**
 	 * Setter for property itemId.
-	 * 
-	 * @param itemId
-	 *            New value of property itemId.
+	 * @param itemId New value of property itemId.
 	 */
 	public void setItemId(String itemId) {
 		this.itemId = itemId;

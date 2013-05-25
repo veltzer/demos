@@ -5,7 +5,6 @@ package core.threads;
  * does not mean that System.exit should never be called - only that it should
  * be called with extreme care, and probably in less occasions that it is
  * currently being used in...
- * 
  * @author Mark Veltzer
  */
 

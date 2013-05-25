@@ -5,13 +5,11 @@ import javax.servlet.ServletContextListener;
 
 /**
  * @author ant (this is the change)
- * 
  */
 public class WelcomeContextListener implements ServletContextListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.
 	 * ServletContextEvent)
 	 */
@@ -21,7 +19,6 @@ public class WelcomeContextListener implements ServletContextListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see
 	 * javax.servlet.ServletContextListener#contextInitialized(javax.servlet
 	 * .ServletContextEvent)

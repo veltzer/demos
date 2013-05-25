@@ -12,7 +12,6 @@ import javax.swing.event.TreeSelectionListener;
 
 /**
  * Description of the Class
- * 
  * @author Mark Veltzer
  */
 public class FileBrowser extends JSplitPane implements TreeSelectionListener {
@@ -44,9 +43,7 @@ public class FileBrowser extends JSplitPane implements TreeSelectionListener {
 
 	/**
 	 * Description of the Method
-	 * 
-	 * @param ev
-	 *            Description of the Parameter
+	 * @param ev Description of the Parameter
 	 */
 	public void valueChanged(TreeSelectionEvent ev) {
 		if (ev.getPath() != null) {
@@ -57,9 +54,7 @@ public class FileBrowser extends JSplitPane implements TreeSelectionListener {
 
 	/**
 	 * The main program for the FileBrowser class
-	 * 
-	 * @param argv
-	 *            The command line arguments
+	 * @param argv The command line arguments
 	 */
 	public static void main(String[] argv) {
 		JFrame frm = new JFrame();

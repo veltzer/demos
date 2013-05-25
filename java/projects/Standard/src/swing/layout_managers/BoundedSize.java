@@ -8,10 +8,8 @@ import java.util.List;
 /**
  * Describes sizes that provide lower and upper bounds as used by the JGoodies
  * {@link swing.layout_managers.jgoodies.forms.layout.FormLayout}.
- * 
  * @author Karsten Lentzsch
  * @version $Revision: 1.8 $
- * 
  * @see Sizes
  * @see ConstantSize
  * @see Sizes.ComponentSize
@@ -44,15 +42,10 @@ final class BoundedSize implements Size, Serializable {
 	/**
 	 * Constructs a <code>BoundedSize</code> for the given basis using the
 	 * specified lower and upper bounds.
-	 * 
-	 * @param basis
-	 *            the base size
-	 * @param lowerBound
-	 *            the lower bound size
-	 * @param upperBound
-	 *            the upper bound size
-	 * @throws NullPointerException
-	 *             if the basis is null
+	 * @param basis the base size
+	 * @param lowerBound the lower bound size
+	 * @param upperBound the upper bound size
+	 * @throws NullPointerException if the basis is null
 	 */
 	BoundedSize(Size basis, Size lowerBound, Size upperBound) {
 		if (basis == null)
@@ -69,23 +62,16 @@ final class BoundedSize implements Size, Serializable {
 	 * Returns this size as pixel size. Neither requires the component list nor
 	 * the specified measures. Honors the lower and upper bound.
 	 * <p>
-	 * 
 	 * Invoked by <code>FormSpec</code> to determine the size of a column or
 	 * row.
-	 * 
-	 * @param container
-	 *            the layout container
-	 * @param components
-	 *            the list of components to measure
-	 * @param minMeasure
-	 *            the measure used to determine the minimum size
-	 * @param prefMeasure
-	 *            the measure used to determine the preferred size
-	 * @param defaultMeasure
-	 *            the measure used to determine the default size
+	 * @param container the layout container
+	 * @param components the list of components to measure
+	 * @param minMeasure the measure used to determine the minimum size
+	 * @param prefMeasure the measure used to determine the preferred size
+	 * @param defaultMeasure the measure used to determine the default size
 	 * @return the maximum size in pixels
 	 * @see FormSpec#maximumSize(Container, List, FormLayout.Measure,
-	 *      FormLayout.Measure, FormLayout.Measure)
+	 * FormLayout.Measure, FormLayout.Measure)
 	 */
 	public int maximumSize(Container container, List<Component> components,
 			FormLayout.Measure minMeasure, FormLayout.Measure prefMeasure,
@@ -107,11 +93,9 @@ final class BoundedSize implements Size, Serializable {
 
 	/**
 	 * Indicates whether some other BoundedSize is "equal to" this one.
-	 * 
-	 * @param object
-	 *            the object with which to compare
+	 * @param object the object with which to compare
 	 * @return <code>true</code> if this object is the same as the object
-	 *         argument, <code>false</code> otherwise.
+	 * argument, <code>false</code> otherwise.
 	 * @see Object#hashCode()
 	 * @see java.util.Hashtable
 	 */
@@ -132,7 +116,6 @@ final class BoundedSize implements Size, Serializable {
 	 * Returns a hash code value for the object. This method is supported for
 	 * the benefit of hashtables such as those provided by
 	 * <code>java.util.Hashtable</code>.
-	 * 
 	 * @return a hash code value for this object.
 	 * @see Object#equals(Object)
 	 * @see java.util.Hashtable
@@ -150,10 +133,8 @@ final class BoundedSize implements Size, Serializable {
 
 	/**
 	 * Returns a string representation of this size object.
-	 * 
 	 * <strong>Note:</strong> The string representation may change at any time.
 	 * It is strongly recommended to not use this string for parsing purposes.
-	 * 
 	 * @return a string representation of the constant size
 	 */
 	public String toString() {

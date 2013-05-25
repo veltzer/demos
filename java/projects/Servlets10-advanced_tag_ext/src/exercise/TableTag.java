@@ -9,7 +9,6 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /**
- * 
  * @author rank
  * @version
  */
@@ -60,7 +59,6 @@ public class TableTag extends TagSupport {
 
 	/**
 	 * Getter for property tableName.
-	 * 
 	 * @return Value of property tableName.
 	 */
 	public String getTableName() {
@@ -69,9 +67,7 @@ public class TableTag extends TagSupport {
 
 	/**
 	 * Setter for property tableName.
-	 * 
-	 * @param tableName
-	 *            New value of property tableName.
+	 * @param tableName New value of property tableName.
 	 */
 	public void setTableName(String tableName) {
 		this.tableName = tableName;

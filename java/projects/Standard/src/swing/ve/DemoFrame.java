@@ -45,7 +45,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jContentPane
-	 * 
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJContentPane() {
@@ -60,7 +59,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jPanel
-	 * 
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJPanel() {
@@ -77,7 +75,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jButton
-	 * 
 	 * @return javax.swing.JButton
 	 */
 	private JButton getJButton() {
@@ -95,7 +92,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes renameButton
-	 * 
 	 * @return javax.swing.JButton
 	 */
 	private JButton getRenameButton() {
@@ -119,7 +115,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jSplitPane
-	 * 
 	 * @return javax.swing.JSplitPane
 	 */
 	private JSplitPane getJSplitPane() {
@@ -135,7 +130,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jTree
-	 * 
 	 * @return javax.swing.JTree
 	 */
 	private JTree getJTree() {
@@ -147,7 +141,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jScrollPane
-	 * 
 	 * @return javax.swing.JScrollPane
 	 */
 	private JScrollPane getJScrollPane() {
@@ -160,7 +153,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jPanel1
-	 * 
 	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJPanel1() {
@@ -179,7 +171,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jJMenuBar
-	 * 
 	 * @return javax.swing.JMenuBar
 	 */
 	private JMenuBar getJJMenuBar() {
@@ -192,7 +183,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jMenu
-	 * 
 	 * @return javax.swing.JMenu
 	 */
 	private JMenu getJMenu() {
@@ -206,7 +196,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jMenuItem
-	 * 
 	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getJMenuItem() {
@@ -241,7 +230,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes this
-	 * 
 	 * @return void
 	 */
 	private void initialize() {

@@ -17,7 +17,6 @@ public class BasicAspect {
 	 * "&& !within(org.meta.aspectj.aspects..*)") public void
 	 * beforePrintlnCall(JoinPoint jp) {
 	 * System.out.println("About to make call to print Hello World "+jp); }
-	 * 
 	 * @After("call(void java.io.PrintStream.println(String)) " +
 	 * "&& !within(org.meta.aspectj.aspects..*)") public void
 	 * afterPrintlnCall(JoinPoint jp) {
@@ -26,7 +25,6 @@ public class BasicAspect {
 	/*
 	 * @Before("call(* *.*(..)) && !within(org.meta.aspectj.aspects..*)") public
 	 * void beforeAdd(JoinPoint jp) { System.out.println("before jp is "+jp); }
-	 * 
 	 * @After("call(* *.*(..)) && !within(org.meta.aspectj.aspects..*)") public
 	 * void afterAdd(JoinPoint jp) { System.out.println("after jp is "+jp); }
 	 */

@@ -18,7 +18,6 @@ import javax.swing.text.PlainDocument;
  */
 
 /**
- * 
  * @author Mark Veltzer
  */
 public class dateForm extends javax.swing.JFrame {
@@ -133,8 +132,7 @@ public class dateForm extends javax.swing.JFrame {
 	}// </editor-fold>//GEN-END:initComponents
 
 	/**
-	 * @param args
-	 *            the command line arguments
+	 * @param args the command line arguments
 	 */
 	public static void main(String args[]) {
 		java.awt.EventQueue.invokeLater(new Runnable() {

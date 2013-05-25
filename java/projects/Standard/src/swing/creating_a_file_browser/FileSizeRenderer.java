@@ -7,7 +7,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  * Description of the Class
- * 
  * @author Mark Veltzer
  */
 public class FileSizeRenderer extends DefaultTableCellRenderer {
@@ -30,19 +29,12 @@ public class FileSizeRenderer extends DefaultTableCellRenderer {
 	/**
 	 * Gets the tableCellRendererComponent attribute of the FileSizeRenderer
 	 * object
-	 * 
-	 * @param table
-	 *            Description of the Parameter
-	 * @param value
-	 *            Description of the Parameter
-	 * @param selected
-	 *            Description of the Parameter
-	 * @param hasFocus
-	 *            Description of the Parameter
-	 * @param row
-	 *            Description of the Parameter
-	 * @param column
-	 *            Description of the Parameter
+	 * @param table Description of the Parameter
+	 * @param value Description of the Parameter
+	 * @param selected Description of the Parameter
+	 * @param hasFocus Description of the Parameter
+	 * @param row Description of the Parameter
+	 * @param column Description of the Parameter
 	 * @return The tableCellRendererComponent value
 	 */
 	public Component getTableCellRendererComponent(JTable table, Object value,

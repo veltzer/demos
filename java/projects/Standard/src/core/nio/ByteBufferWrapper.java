@@ -28,7 +28,6 @@ public class ByteBufferWrapper implements Externalizable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
 	 */
 	public void readExternal(ObjectInput in) throws IOException,
@@ -59,7 +58,6 @@ public class ByteBufferWrapper implements Externalizable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
 	 */
 	public void writeExternal(ObjectOutput out) throws IOException {
@@ -96,7 +94,6 @@ public class ByteBufferWrapper implements Externalizable {
 
 	/**
 	 * Get the underlying buffer
-	 * 
 	 * @return
 	 */
 	public ByteBuffer getBuffer() {

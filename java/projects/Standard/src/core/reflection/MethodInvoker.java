@@ -31,8 +31,7 @@ public class MethodInvoker {
 		}
 
 		/**
-		 * @param id
-		 *            The id to set.
+		 * @param id The id to set.
 		 */
 		public void setId(Integer id) {
 			this.id = id;
