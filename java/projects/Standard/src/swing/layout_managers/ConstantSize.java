@@ -90,8 +90,10 @@ public final class ConstantSize implements Size, Serializable {
 	 * An array of all enumeration values used to canonicalize deserialized
 	 * units.
 	 */
-	private static final Unit[] VALUES = { PIXEL, POINT, DIALOG_UNITS_X,
-			DIALOG_UNITS_Y, MILLIMETER, CENTIMETER, INCH };
+	private static final Unit[] VALUES = {
+			PIXEL, POINT, DIALOG_UNITS_X, DIALOG_UNITS_Y, MILLIMETER,
+			CENTIMETER, INCH
+	};
 
 	// Fields ***************************************************************
 
@@ -129,7 +131,7 @@ public final class ConstantSize implements Size, Serializable {
 	 * @param horizontal true for horizontal, false for vertical
 	 * @return a constant size for the given encoding and unit description
 	 * @throws IllegalArgumentException if the unit requires integer but the
-	 * value is not an integer
+	 *         value is not an integer
 	 */
 	static ConstantSize valueOf(String encodedValueAndUnit, boolean horizontal) {
 		String split[] = ConstantSize.splitValueAndUnit(encodedValueAndUnit);
@@ -218,7 +220,7 @@ public final class ConstantSize implements Size, Serializable {
 	 * Indicates whether some other ConstantSize is "equal to" this one.
 	 * @param o the Object with which to compare
 	 * @return <code>true</code> if this object is the same as the obj argument;
-	 * <code>false</code> otherwise.
+	 *         <code>false</code> otherwise.
 	 * @see java.lang.Object#hashCode()
 	 * @see java.util.Hashtable
 	 */

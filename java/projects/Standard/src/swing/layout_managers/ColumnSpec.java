@@ -84,7 +84,7 @@ public final class ColumnSpec extends FormSpec {
 	 * alignment, and no resizing.
 	 * @param size constant size, component size, or bounded size
 	 * @throws IllegalArgumentException if the pixel size is invalid or the
-	 * resize weight is negative
+	 *         resize weight is negative
 	 */
 	public ColumnSpec(Size size) {
 		super(DEFAULT, size, NO_GROW);
@@ -119,7 +119,7 @@ public final class ColumnSpec extends FormSpec {
 	 * @param encodedColumnSpecs comma separated encoded column specifications
 	 * @return an array of decoded column specifications
 	 * @throws NullPointerException if the encoded column specifications string
-	 * is <code>null</code>
+	 *         is <code>null</code>
 	 * @see ColumnSpec#ColumnSpec(String)
 	 */
 	public static ColumnSpec[] decodeSpecs(String encodedColumnSpecs) {

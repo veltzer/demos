@@ -11,7 +11,9 @@ public class ScriptEngine {
 
 	public static void main(String args[]) {
 
-		String[] roots = new String[] { "src/groovy/embed" };
+		String[] roots = new String[] {
+			"src/groovy/embed"
+		};
 		GroovyScriptEngine gse;
 		try {
 			gse = new GroovyScriptEngine(roots);

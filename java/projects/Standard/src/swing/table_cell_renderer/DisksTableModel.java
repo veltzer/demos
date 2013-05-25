@@ -4,9 +4,12 @@ import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
 public class DisksTableModel extends AbstractTableModel {
-	private final static String[] COLUMN_NAMES = { "Name", "Size", "Used" };
-	private final static Class<?>[] COLUMN_CLASS = { String.class, Long.class,
-			Long.class };
+	private final static String[] COLUMN_NAMES = {
+			"Name", "Size", "Used"
+	};
+	private final static Class<?>[] COLUMN_CLASS = {
+			String.class, Long.class, Long.class
+	};
 
 	public int getColumnCount() {
 		return (COLUMN_NAMES.length);

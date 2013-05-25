@@ -67,6 +67,7 @@ public class CopyAndPasteDemo extends JPanel {
 			setEnabled((current != null) && enableAction(current));
 		}
 	}
+
 	static class CopyAction extends TransferableAction {
 		public CopyAction() {
 			putValue(NAME, "Copy");

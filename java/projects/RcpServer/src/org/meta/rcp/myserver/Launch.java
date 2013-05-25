@@ -56,7 +56,9 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 
 		// Classpath
 		// String[] classpath = getClasspath(configuration);
-		String[] classpath = { "/home/mark/tmp" };
+		String[] classpath = {
+			"/home/mark/tmp"
+		};
 
 		// Create VM config
 		File workingDir = verifyWorkingDirectory(configuration);

@@ -75,8 +75,9 @@ public class HtmlLayout implements LayoutManager {
 	static final int LEFT = 0, RIGHT = 1, CENTER = 2, FIT = 3, MAX = 4,
 			TOP = 5, BOTTOM = 6;
 
-	static final String ALIGNNAMES[] = { "LEFT", "RIGHT", "CENTER", "FIT",
-			"MAX", "TOP", "BOTTOM" };
+	static final String ALIGNNAMES[] = {
+			"LEFT", "RIGHT", "CENTER", "FIT", "MAX", "TOP", "BOTTOM"
+	};
 
 	/* these tables are shared by the layout and all nested layouts */
 	Hashtable<String, Cell> nameToCell;
@@ -91,8 +92,8 @@ public class HtmlLayout implements LayoutManager {
 	/**
 	 * Creates an HtmlLayout with the specified "HTML" string.
 	 * @param html The "HTML" which specifies the layout, if this is not valid
-	 * table-html a BadTableHtmlException will be thrown. Html can be
-	 * tested ahead of time using HtmlLayoutTest.
+	 *        table-html a BadTableHtmlException will be thrown. Html can be
+	 *        tested ahead of time using HtmlLayoutTest.
 	 * @see htmllayout.BadTableHtmlException
 	 * @see htmllayout.HtmlLayoutTest
 	 */

@@ -12,10 +12,19 @@ import javax.swing.JTable;
 public class ActionSelection extends JPanel {
 	public ActionSelection() {
 		super(new BorderLayout());
-		JTable table = new JTable(new Object[][] { { "Amy", "Fowler" },
-				{ "James", "Gosling" }, { "Jeff", "Dinkins" },
-				{ "Steve", "Wilson" } },
-				new Object[] { "Given Name", "Surname" });
+		JTable table = new JTable(new Object[][] {
+				{
+						"Amy", "Fowler"
+				}, {
+						"James", "Gosling"
+				}, {
+						"Jeff", "Dinkins"
+				}, {
+						"Steve", "Wilson"
+				}
+		}, new Object[] {
+				"Given Name", "Surname"
+		});
 		add("Center", new JScrollPane(table));
 		add("South", new JButton(new RemoveAction(table)));
 	}

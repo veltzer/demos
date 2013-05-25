@@ -113,7 +113,8 @@ public class AddressBookBrowser extends ViewPart {
 			}
 		});
 
-		viewer.setColumnProperties(new String[] { "name", "number" }); //$NON-NLS-1$ //$NON-NLS-2$
+		viewer.setColumnProperties(new String[] {
+				"name", "number"}); //$NON-NLS-1$ //$NON-NLS-2$
 		viewer.setUseHashlookup(true);
 
 		CellEditor[] editors = new CellEditor[2];

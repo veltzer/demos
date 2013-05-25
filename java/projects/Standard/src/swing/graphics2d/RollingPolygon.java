@@ -72,8 +72,12 @@ public class RollingPolygon extends JPanel {
 	}
 
 	public void init() {
-		int xPoints[] = { -50, 50, 50, -50 };
-		int yPoints[] = { -50, -50, 50, 50 };
+		int xPoints[] = {
+				-50, 50, 50, -50
+		};
+		int yPoints[] = {
+				-50, -50, 50, 50
+		};
 
 		polygon = new Polygon(xPoints, yPoints, xPoints.length);
 

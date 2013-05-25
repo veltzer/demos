@@ -66,7 +66,8 @@ import javax.swing.tree.TreePath;
 public class GuiBuilder extends JPanel implements ExceptionListener {
 	private static final Class<?>[] SUPPORTED_WIDGETS = new Class[] {
 			JButton.class, JRadioButton.class, JToggleButton.class,
-			JTextField.class, JTextArea.class };
+			JTextField.class, JTextArea.class
+	};
 	private static final File DATA_FILE = new File("gui_layout.xml");
 	private ComponentTreeModel treeModel = new ComponentTreeModel();
 	private JTree tree = new JTree(treeModel);
@@ -86,8 +87,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 			public Component getTreeCellRendererComponent(JTree itree,
 					Object value, boolean selected, boolean expanded,
 					boolean leaf, int row, boolean hasFocus) {
-				Component cmp = super.getTreeCellRendererComponent(itree, value,
-						selected, expanded, leaf, row, hasFocus);
+				Component cmp = super.getTreeCellRendererComponent(itree,
+						value, selected, expanded, leaf, row, hasFocus);
 				try {
 					BeanInfo info = Introspector.getBeanInfo(value.getClass());
 					setText(info.getBeanDescriptor().getDisplayName());
@@ -311,10 +312,9 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 
 		public void fireTreeStructureChanged() {
-			TreeModelEvent e = new TreeModelEvent(this,
-				new Object[] {
-					getRoot()
-				});
+			TreeModelEvent e = new TreeModelEvent(this, new Object[] {
+				getRoot()
+			});
 			TreeModelListener[] array = new TreeModelListener[listeners.size()];
 			listeners.toArray(array);
 			for (int iter = 0; iter < array.length; iter++) {
@@ -365,11 +365,12 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 	}
 
 	private static final Class<?>[] COLUMNS = new Class[] {
-		String.class, Object.class
+			String.class, Object.class
 	};
 	private static final String[] NAMES = new String[] {
-		"Property", "Value"
+			"Property", "Value"
 	};
+
 	class PropertyModel extends AbstractTableModel {
 
 		private JComponent current;

@@ -34,8 +34,10 @@ class TableParser {
 		finishTable();
 	}
 
-	final static String values[] = { "HORZ", "VERT", "ROWS", "COLS", "HGAP",
-			"VGAP", "HPAD", "VPAD", "COLSPAN", "ROWSPAN", "COMPONENT" };
+	final static String values[] = {
+			"HORZ", "VERT", "ROWS", "COLS", "HGAP", "VGAP", "HPAD", "VPAD",
+			"COLSPAN", "ROWSPAN", "COMPONENT"
+	};
 
 	int lookup(String poss[], String value) {
 		for (int i = 0; i < poss.length; i++) {

@@ -17,8 +17,9 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GlassPaneDemo extends JFrame {
-	private JButton[] buttons = { new JButton("First"), new JButton("Second"),
-			new JButton("Third") };
+	private JButton[] buttons = {
+			new JButton("First"), new JButton("Second"), new JButton("Third")
+	};
 
 	private Point point;
 

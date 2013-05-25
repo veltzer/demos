@@ -68,7 +68,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	 * Constructs an instance of SingleFiledLayout using the default gap and
 	 * LEFT or TOP justification.
 	 * @param orientation ROW or COLUMN -- should the components be aligned in a
-	 * row or column
+	 *        row or column
 	 */
 
 	public SingleFiledLayout(int orientation) {
@@ -78,9 +78,9 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	/**
 	 * Constructs an instance of SingleFiledLayout.
 	 * @param orientation ROW or COLUMN -- should the components be aligned in a
-	 * row or column
+	 *        row or column
 	 * @param justification LEFT, TOP, CENTER, FULL, BOTTOM, RIGHT -- how should
-	 * components of different sizes be aligned
+	 *        components of different sizes be aligned
 	 * @param gap space between components in pixels
 	 */
 

@@ -14,7 +14,9 @@ public class HiddenColumnDemo extends JPanel {
 		FileTableModel m = new FileTableModel();
 		File directory = new File(".");
 		m.setDirectory(directory);
-		TableModel model = new HiddenColumnsProxy(m, new int[] { 0, 1 });
+		TableModel model = new HiddenColumnsProxy(m, new int[] {
+				0, 1
+		});
 		add(new JScrollPane(new JTable(model)));
 	}
 

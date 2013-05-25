@@ -68,22 +68,24 @@ public class KeyMapDemo extends JPanel {
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('y'),
 					"insert-me Y"),
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('z'),
-					"insert-me Z"), };
+					"insert-me Z"),
+	};
 
-	private final static Action[] UPCASE_ACTIONS = { new InsertMeAction("A"),
-			new InsertMeAction("B"), new InsertMeAction("C"),
-			new InsertMeAction("D"), new InsertMeAction("E"),
-			new InsertMeAction("F"), new InsertMeAction("G"),
-			new InsertMeAction("H"), new InsertMeAction("I"),
-			new InsertMeAction("J"), new InsertMeAction("K"),
-			new InsertMeAction("L"), new InsertMeAction("M"),
-			new InsertMeAction("N"), new InsertMeAction("O"),
-			new InsertMeAction("P"), new InsertMeAction("Q"),
-			new InsertMeAction("R"), new InsertMeAction("S"),
-			new InsertMeAction("T"), new InsertMeAction("U"),
-			new InsertMeAction("V"), new InsertMeAction("W"),
-			new InsertMeAction("X"), new InsertMeAction("Y"),
-			new InsertMeAction("Z"), };
+	private final static Action[] UPCASE_ACTIONS = {
+			new InsertMeAction("A"), new InsertMeAction("B"),
+			new InsertMeAction("C"), new InsertMeAction("D"),
+			new InsertMeAction("E"), new InsertMeAction("F"),
+			new InsertMeAction("G"), new InsertMeAction("H"),
+			new InsertMeAction("I"), new InsertMeAction("J"),
+			new InsertMeAction("K"), new InsertMeAction("L"),
+			new InsertMeAction("M"), new InsertMeAction("N"),
+			new InsertMeAction("O"), new InsertMeAction("P"),
+			new InsertMeAction("Q"), new InsertMeAction("R"),
+			new InsertMeAction("S"), new InsertMeAction("T"),
+			new InsertMeAction("U"), new InsertMeAction("V"),
+			new InsertMeAction("W"), new InsertMeAction("X"),
+			new InsertMeAction("Y"), new InsertMeAction("Z"),
+	};
 
 	public KeyMapDemo() {
 		keymap = JTextComponent.addKeymap("Upcase", field.getKeymap());

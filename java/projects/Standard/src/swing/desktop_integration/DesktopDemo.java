@@ -76,6 +76,7 @@ public class DesktopDemo extends JPanel {
 			Desktop.print(chooser.getSelectedFile());
 		}
 	}
+
 	class BrowseAction extends DesktopAction {
 		public BrowseAction() {
 			putValue(NAME, "Browse");
@@ -85,6 +86,7 @@ public class DesktopDemo extends JPanel {
 			Desktop.browse(chooser.getSelectedFile().toURI().toURL());
 		}
 	}
+
 	class OpenAction extends DesktopAction {
 		public OpenAction() {
 			putValue(NAME, "Open");
@@ -94,6 +96,7 @@ public class DesktopDemo extends JPanel {
 			Desktop.open(chooser.getSelectedFile());
 		}
 	}
+
 	class MailAction extends DesktopAction {
 		public MailAction() {
 			putValue(NAME, "Mail");

@@ -22,7 +22,9 @@ public class BookstoreAdminImpl implements BookStoreAdminDAO, BeanFactoryAware {
 		jt.update("insert into BOOKS values(?,?,?)", params);
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public List<Book> showBooks() {
 		JdbcTemplate jt = (JdbcTemplate) bf.getBean("jt");
 		return jt.query("SELECT * from BOOKS", new RowMapper() {
@@ -40,7 +42,9 @@ public class BookstoreAdminImpl implements BookStoreAdminDAO, BeanFactoryAware {
 		bf = ibf;
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public List<Book> showBooksBellow(double price) {
 		JdbcTemplate jt = (JdbcTemplate) bf.getBean("jt");
 		Object[] params = new Object[1];

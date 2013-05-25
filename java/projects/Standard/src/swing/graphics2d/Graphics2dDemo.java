@@ -58,8 +58,12 @@ public class Graphics2dDemo extends JPanel {
 	}
 
 	private void paintShapes(Graphics2D g2) {
-		int xPoints[] = { 55, 67, 109, 73, 83, 55, 27, 37, 1, 43 };
-		int yPoints[] = { 0, 36, 36, 54, 96, 72, 96, 54, 36, 36 };
+		int xPoints[] = {
+				55, 67, 109, 73, 83, 55, 27, 37, 1, 43
+		};
+		int yPoints[] = {
+				0, 36, 36, 54, 96, 72, 96, 54, 36, 36
+		};
 
 		Shape polygon = new Polygon(xPoints, yPoints, xPoints.length);
 		for (int i = 0; i < 20; ++i) {

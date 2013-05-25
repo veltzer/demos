@@ -19,10 +19,12 @@ public final class TemplateNestingDemo {
 		});
 		template.setComponents("buttons", new JComponent[] {
 				new JButton("Button 1"), new JButton("Button 2"),
-				new JButton("Button 3") });
+				new JButton("Button 3")
+		});
 		template.setComponents("navigation", new JComponent[] {
 				new JButton("Home"), new JButton("Next"),
-				new JButton("Previous") });
+				new JButton("Previous")
+		});
 	}
 
 	public static void main(String[] argv) {

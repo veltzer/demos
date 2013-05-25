@@ -71,7 +71,9 @@ public final class Sizes {
 	 * An array of all enumeration values used to canonicalize deserialized
 	 * component sizes.
 	 */
-	private static final ComponentSize[] VALUES = { MINIMUM, PREFERRED, DEFAULT };
+	private static final ComponentSize[] VALUES = {
+			MINIMUM, PREFERRED, DEFAULT
+	};
 
 	// Singleton State *******************************************************
 

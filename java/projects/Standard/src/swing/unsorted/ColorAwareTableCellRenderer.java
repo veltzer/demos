@@ -23,10 +23,10 @@ public class ColorAwareTableCellRenderer extends DefaultTableCellRenderer
 			setForeground(myTable.getTableColorModel().getSelectedFgColor(
 					value, row, column));
 		} else {
-			setBackground(myTable.getTableColorModel().getBgColor(value,
-					row, column));
-			setForeground(myTable.getTableColorModel().getFgColor(value,
-					row, column));
+			setBackground(myTable.getTableColorModel().getBgColor(value, row,
+					column));
+			setForeground(myTable.getTableColorModel().getFgColor(value, row,
+					column));
 		}
 		return this;
 	}

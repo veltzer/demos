@@ -281,12 +281,14 @@ public class TextComponentDemo extends JFrame {
 	}
 
 	protected void initDocument() {
-		String initString[] = { "Use the mouse to place the caret.",
+		String initString[] = {
+				"Use the mouse to place the caret.",
 				"Use the edit menu to cut, copy, paste, and select text.",
 				"Also to undo and redo changes.",
 				"Use the style menu to change the style of the text.",
 				"Use these emacs key bindings to move the caret:",
-				"ctrl-f, ctrl-b, ctrl-n, ctrl-p." };
+				"ctrl-f, ctrl-b, ctrl-n, ctrl-p."
+		};
 
 		SimpleAttributeSet[] attrs = initAttributes(initString.length);
 

@@ -15,8 +15,9 @@ public class MnemonicDemo extends JPanel {
 	public MnemonicDemo() {
 		Action a = new AbstractAction() {
 			public void actionPerformed(ActionEvent ev) {
-				JOptionPane.showMessageDialog(MnemonicDemo.this, "Button Pressed",
-					"Mnemonic", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane
+						.showMessageDialog(MnemonicDemo.this, "Button Pressed",
+								"Mnemonic", JOptionPane.PLAIN_MESSAGE);
 			}
 		};
 		a.putValue(Action.NAME, "Mnemonic");

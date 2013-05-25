@@ -18,7 +18,9 @@ public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 		getJdbcTemplate().update("insert into BOOKS values(?,?,?)", params);
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public List<Book> showBooks() {
 		return getJdbcTemplate().query("SELECT * from BOOKS", new RowMapper() {
 			public Object mapRow(ResultSet rs, int num) throws SQLException {
@@ -31,7 +33,9 @@ public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public List<Book> showBooksBellow(double price) {
 		Object[] params = new Object[1];
 		params[0] = price;
@@ -58,7 +62,9 @@ public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public List<Customer> showCustomers() {
 		return getJdbcTemplate().query("SELECT * from CUSTOMERS",
 				new RowMapper() {
@@ -73,11 +79,14 @@ public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 				});
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public List<Customer> showCustomersByName(String name) {
 		return getJdbcTemplate().query(
-				"SELECT * from CUSTOMERS where name = ?",
-				new Object[] { name }, new RowMapper() {
+				"SELECT * from CUSTOMERS where name = ?", new Object[] {
+					name
+				}, new RowMapper() {
 					public Object mapRow(ResultSet rs, int num)
 							throws SQLException {
 						String id = rs.getString("ID");
@@ -93,8 +102,10 @@ public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 		System.out.println("Updating Book");
 		getJdbcTemplate()
 				.update("update Books set title = ?, author = ?, price = ? where title = ?",
-						new Object[] { book.getTitle(), book.getAuthor(),
-								book.getPrice(), book.getTitle() });
+						new Object[] {
+								book.getTitle(), book.getAuthor(),
+								book.getPrice(), book.getTitle()
+						});
 
 	}
 

@@ -30,7 +30,9 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({
+			"unchecked", "rawtypes"
+	})
 	public List<Customer> showCustomers() {
 		// return getHibernateTemplate().find("from Customer");
 		return getHibernateTemplate().executeFind(new HibernateCallback() {

@@ -4,14 +4,19 @@ import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
 public class BusinessTableModel extends AbstractTableModel {
-	private final static String[] COLUMN_NAMES = { "Deal", "In Progress",
-			"Net Worth" };
-	private Object[] deals = new Object[] { "First", "Another Deal",
-			"Yet Another", "And last one" };
-	private Object[] inProgress = new Object[] { Boolean.TRUE, Boolean.TRUE,
-			Boolean.TRUE, Boolean.FALSE };
-	private Object[] worth = new Object[] { new Currency(300000),
-			new Currency(125000), new Currency(77777), new Currency(9999777) };
+	private final static String[] COLUMN_NAMES = {
+			"Deal", "In Progress", "Net Worth"
+	};
+	private Object[] deals = new Object[] {
+			"First", "Another Deal", "Yet Another", "And last one"
+	};
+	private Object[] inProgress = new Object[] {
+			Boolean.TRUE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE
+	};
+	private Object[] worth = new Object[] {
+			new Currency(300000), new Currency(125000), new Currency(77777),
+			new Currency(9999777)
+	};
 
 	public int getColumnCount() {
 		return (COLUMN_NAMES.length);

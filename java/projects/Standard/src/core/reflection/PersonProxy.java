@@ -120,7 +120,9 @@ public class PersonProxy {
 	 */
 
 	static public Object syncIt(Object o) {
-		Class<?>[] interfaces = { o.getClass() };
+		Class<?>[] interfaces = {
+			o.getClass()
+		};
 		SynchronizedInvocationHandler sih = new SynchronizedInvocationHandler(o);
 		Object proxy = Proxy.newProxyInstance(o.getClass().getClassLoader(),
 				interfaces, sih);
@@ -156,7 +158,9 @@ public class PersonProxy {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Class<?>[] interfaces = { IPerson.class };
+		Class<?>[] interfaces = {
+			IPerson.class
+		};
 		Person p = new Person();
 		p.setName("mark");
 		ReadOnlyInvocationHandler pih = new ReadOnlyInvocationHandler(p);

@@ -26,7 +26,8 @@ public class SyntaxHighlightDemo extends JPanel {
 			Pattern.compile("\\bprivate\\b"), Pattern.compile("\\btry\\b"),
 			Pattern.compile("\\bcatch\\b"), Pattern.compile("\\bclass\\b"),
 			Pattern.compile("\\bint\\b"), Pattern.compile("\\blong\\b"),
-			Pattern.compile("\\bshort\\b"), Pattern.compile("\\bbyte\\b") };
+			Pattern.compile("\\bshort\\b"), Pattern.compile("\\bbyte\\b")
+	};
 	private Pattern numbers = Pattern.compile("\\d");
 	private Pattern strings = Pattern.compile("\".*\"");
 	private MutableAttributeSet keywordAttr = new SimpleAttributeSet();

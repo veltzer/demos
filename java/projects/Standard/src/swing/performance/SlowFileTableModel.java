@@ -10,10 +10,12 @@ import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
 public class SlowFileTableModel extends AbstractTableModel {
-	private final static String[] COLUMN_NAMES = { "Type", "Name", "Size",
-			"Content" };
-	private final static Class<?>[] COLUMN_CLASS = { File.class, String.class,
-			Long.class, Icon.class };
+	private final static String[] COLUMN_NAMES = {
+			"Type", "Name", "Size", "Content"
+	};
+	private final static Class<?>[] COLUMN_CLASS = {
+			File.class, String.class, Long.class, Icon.class
+	};
 	private static final Icon LOADING = new ImageIcon("loading.gif");
 	private static final Icon NONE = new ImageIcon("none.gif");
 	private Icon[] icons = new Icon[0];

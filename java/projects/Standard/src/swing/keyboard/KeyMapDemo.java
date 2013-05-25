@@ -67,7 +67,8 @@ public class KeyMapDemo extends JPanel {
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('y'),
 					"insert-me Y"),
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('z'),
-					"insert-me Z"), };
+					"insert-me Z"),
+	};
 
 	private static final Action[] UPCASE_ACTIONS = {
 			new InsertMeAction("A"), new InsertMeAction("B"),

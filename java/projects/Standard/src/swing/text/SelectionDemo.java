@@ -17,7 +17,7 @@ import javax.swing.text.BadLocationException;
 public class SelectionDemo extends JPanel {
 	private JTextArea textArea;
 	private Action selectLineAction;
-	
+
 	public SelectionDemo() {
 
 	}

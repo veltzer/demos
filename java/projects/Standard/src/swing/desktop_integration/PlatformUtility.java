@@ -93,8 +93,9 @@ public class PlatformUtility {
 		try {
 			ResourceBundle bundle = ResourceBundle.getBundle(PLATFORM_NAME
 					+ name);
-			return new MultiResourceBundle(new ResourceBundle[] { bundle,
-					ResourceBundle.getBundle(name) });
+			return new MultiResourceBundle(new ResourceBundle[] {
+					bundle, ResourceBundle.getBundle(name)
+			});
 		} catch (MissingResourceException err) {
 			return ResourceBundle.getBundle(name);
 		}
@@ -104,8 +105,9 @@ public class PlatformUtility {
 		try {
 			ResourceBundle bundle = ResourceBundle.getBundle(PLATFORM_NAME
 					+ name, locale);
-			return new MultiResourceBundle(new ResourceBundle[] { bundle,
-					ResourceBundle.getBundle(name, locale) });
+			return new MultiResourceBundle(new ResourceBundle[] {
+					bundle, ResourceBundle.getBundle(name, locale)
+			});
 		} catch (MissingResourceException err) {
 			return ResourceBundle.getBundle(name);
 		}
@@ -198,8 +200,9 @@ public class PlatformUtility {
 			if (MAC) {
 				Class<?> interfaceClass = Class.forName(intefaceName);
 				Object f = Proxy.newProxyInstance(getClass().getClassLoader(),
-						new Class[] { interfaceClass },
-						new InvocationHandler() {
+						new Class[] {
+							interfaceClass
+						}, new InvocationHandler() {
 							public Object invoke(Object proxy, Method method,
 									Object[] args) {
 								listener.actionPerformed(null);
@@ -208,9 +211,12 @@ public class PlatformUtility {
 						});
 				Class<?> util = Class
 						.forName("com.apple.mrj.MRJApplicationUtils");
-				Method m = util.getMethod(methodName,
-						new Class[] { interfaceClass });
-				m.invoke(null, new Object[] { f });
+				Method m = util.getMethod(methodName, new Class[] {
+					interfaceClass
+				});
+				m.invoke(null, new Object[] {
+					f
+				});
 			}
 		} catch (Exception err) {
 			err.printStackTrace();

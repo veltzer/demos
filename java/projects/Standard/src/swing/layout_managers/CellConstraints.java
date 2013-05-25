@@ -100,8 +100,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * An array of all enumeration values used to canonicalize deserialized
 	 * alignments.
 	 */
-	private static final Alignment[] VALUES = { DEFAULT, FILL, LEFT, RIGHT,
-			CENTER, TOP, BOTTOM };
+	private static final Alignment[] VALUES = {
+			DEFAULT, FILL, LEFT, RIGHT, CENTER, TOP, BOTTOM
+	};
 
 	/**
 	 * A reusable <code>Insets</code> object to reduce object instantiation.
@@ -252,9 +253,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @param vAlign the component's vertical alignment
 	 * @param insets the component's display area <code>Insets</code>
 	 * @throws IndexOutOfBoundsException if the grid origin or extent is
-	 * negative
+	 *         negative
 	 * @throws NullPointerException if the horizontal or vertical alignment is
-	 * null
+	 *         null
 	 * @throws IllegalArgumentException if an alignment orientation is invalid
 	 */
 	public CellConstraints(int gridX, int gridY, int gridWidth, int gridHeight,
@@ -529,7 +530,7 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * </pre>
 	 * @param encodedConstraints represents horizontal and vertical alignment
 	 * @throws IllegalArgumentException if the encoded constraints do not follow
-	 * the constraint syntax
+	 *         the constraint syntax
 	 */
 	private void initFromConstraints(String encodedConstraints) {
 		StringTokenizer tokenizer = new StringTokenizer(encodedConstraints,
@@ -643,7 +644,7 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @param colCount number of columns in the grid
 	 * @param rowCount number of rows in the grid
 	 * @throws IndexOutOfBoundsException if the display area described by this
-	 * constraints object is not inside the grid
+	 *         constraints object is not inside the grid
 	 */
 	public void ensureValidGridBounds(int colCount, int rowCount) {
 		if (gridX <= 0) {

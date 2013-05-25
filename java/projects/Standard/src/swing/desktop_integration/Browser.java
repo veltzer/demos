@@ -32,10 +32,12 @@ public class Browser extends JPanel {
 					new ImageIcon(getClass().getResource("/Forward.png")));
 			setEnabled(false);
 		}
+
 		public void actionPerformed(ActionEvent ev) {
 			webBrowser.forward();
 		}
 	}
+
 	class BackAction extends AbstractAction {
 		public BackAction() {
 			putValue(NAME, "Back");
@@ -43,16 +45,19 @@ public class Browser extends JPanel {
 					new ImageIcon(getClass().getResource("/Back.png")));
 			setEnabled(false);
 		}
+
 		public void actionPerformed(ActionEvent ev) {
 			webBrowser.back();
 		}
 	}
+
 	class BrowseAction extends AbstractAction {
 		public BrowseAction() {
 			putValue(SHORT_DESCRIPTION, "Load the given URL");
 			putValue(NAME, "GO");
 			putValue(SMALL_ICON, BROWSE_ICON);
 		}
+
 		public void actionPerformed(ActionEvent ev) {
 			loadURL();
 		}

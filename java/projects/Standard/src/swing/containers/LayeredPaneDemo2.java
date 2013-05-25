@@ -17,9 +17,10 @@ import javax.swing.JLayeredPane;
 public class LayeredPaneDemo2 extends JFrame {
 	private JLayeredPane layeredPane;
 	private int level;
-	private Color[] colors = { Color.GREEN, Color.RED, Color.BLUE, Color.GRAY,
-			Color.DARK_GRAY, Color.YELLOW, Color.CYAN, Color.MAGENTA,
-			Color.WHITE };
+	private Color[] colors = {
+			Color.GREEN, Color.RED, Color.BLUE, Color.GRAY, Color.DARK_GRAY,
+			Color.YELLOW, Color.CYAN, Color.MAGENTA, Color.WHITE
+	};
 
 	private class Shuffler implements Runnable {
 

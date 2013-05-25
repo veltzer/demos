@@ -7,7 +7,7 @@ import javax.swing.JTable;
 @SuppressWarnings("serial")
 public class FileSizeTableCellRenderer extends ColorAwareTableCellRenderer {
 	private static String[] suffixes = {
-		"B", "K", "M", "G"
+			"B", "K", "M", "G"
 	};
 
 	@Override

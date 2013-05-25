@@ -97,8 +97,12 @@ public class VTable extends JTable {
 						VTable.this.ascending = ascending;
 					}
 				} else {
-					columns = new int[] { column };
-					ascending = new boolean[] { true };
+					columns = new int[] {
+						column
+					};
+					ascending = new boolean[] {
+						true
+					};
 				}
 				sortModel.sort(columns, ascending);
 			}
@@ -175,11 +179,17 @@ public class VTable extends JTable {
 
 		public void paintIcon(Component c, java.awt.Graphics g, int x, int y) {
 			Polygon p;
-			int[] xarray = new int[] { 0, size, size / 2 };
+			int[] xarray = new int[] {
+					0, size, size / 2
+			};
 			if (ascending[position]) {
-				p = new Polygon(xarray, new int[] { 1, 1, size }, 3);
+				p = new Polygon(xarray, new int[] {
+						1, 1, size
+				}, 3);
 			} else {
-				p = new Polygon(xarray, new int[] { size, size, 1 }, 3);
+				p = new Polygon(xarray, new int[] {
+						size, size, 1
+				}, 3);
 			}
 			Color color = FILL_COLOR;
 			Color outline = Color.BLACK;

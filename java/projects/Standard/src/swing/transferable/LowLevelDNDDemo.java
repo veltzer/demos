@@ -21,7 +21,8 @@ public class LowLevelDNDDemo extends JPanel {
 	private static final DataFlavor[] FLAVORS = new DataFlavor[] {
 			DataFlavor.stringFlavor,
 			new DataFlavor("application/vnd-vPrise-LowLevelDNDDemo",
-					"DnD demo flavor") };
+					"DnD demo flavor")
+	};
 	private DragSource source = DragSource.getDefaultDragSource();
 	private Transferable transferable = new Transferable() {
 		public Object getTransferData(DataFlavor flavor) {

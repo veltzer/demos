@@ -92,10 +92,10 @@ public class WordProcessorDemo extends JPanel {
 
 	public class FontSizeCombo implements ComboBoxModel<Integer> {
 		private Integer[] fontSizes = new Integer[] {
-			new Integer(8), new Integer(9), new Integer(10),
-			new Integer(11), new Integer(12), new Integer(13),
-			new Integer(14), new Integer(16), new Integer(18),
-			new Integer(20), new Integer(22), new Integer(24)
+				new Integer(8), new Integer(9), new Integer(10),
+				new Integer(11), new Integer(12), new Integer(13),
+				new Integer(14), new Integer(16), new Integer(18),
+				new Integer(20), new Integer(22), new Integer(24)
 		};
 		private Integer selection;
 

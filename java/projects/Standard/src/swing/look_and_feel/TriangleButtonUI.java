@@ -119,8 +119,11 @@ public class TriangleButtonUI extends MetalButtonUI {
 		if (b.isContentAreaFilled()) {
 			Dimension size = b.getSize();
 			g.setColor(getSelectColor());
-			g.fillPolygon(new int[] { 0, size.width - 1, size.width / 2 - 1 },
-					new int[] { size.height - 2, size.height - 2, 0 }, 3);
+			g.fillPolygon(new int[] {
+					0, size.width - 1, size.width / 2 - 1
+			}, new int[] {
+					size.height - 2, size.height - 2, 0
+			}, 3);
 		}
 	}
 

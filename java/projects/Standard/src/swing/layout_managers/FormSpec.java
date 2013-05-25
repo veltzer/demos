@@ -56,8 +56,10 @@ public abstract class FormSpec implements Serializable {
 	 * An array of all enumeration values used to canonicalize deserialized
 	 * default alignments.
 	 */
-	private static final DefaultAlignment[] VALUES = { LEFT_ALIGN, RIGHT_ALIGN,
-			TOP_ALIGN, BOTTOM_ALIGN, CENTER_ALIGN, FILL_ALIGN };
+	private static final DefaultAlignment[] VALUES = {
+			LEFT_ALIGN, RIGHT_ALIGN, TOP_ALIGN, BOTTOM_ALIGN, CENTER_ALIGN,
+			FILL_ALIGN
+	};
 
 	// Resizing Weights *****************************************************
 
@@ -164,7 +166,7 @@ public abstract class FormSpec implements Serializable {
 	 * encoded description must be in lower case.
 	 * @param encodedDescription the FormSpec in an encoded format
 	 * @throws IllegalArgumentException if the string is empty, has no size, or
-	 * is otherwise invalid
+	 *         is otherwise invalid
 	 */
 	private void parseAndInitValues(String encodedDescription) {
 		StringTokenizer tokenizer = new StringTokenizer(encodedDescription, ":");
@@ -265,7 +267,7 @@ public abstract class FormSpec implements Serializable {
 	 * @param token the encoded resize weight
 	 * @return the decoded resize weight
 	 * @throws IllegalArgumentException if the string description is an invalid
-	 * string representation
+	 *         string representation
 	 */
 	private double decodeResize(String token) {
 		if (token.equals("g") || token.equals("grow")) {

@@ -135,7 +135,9 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 		toolkit.createLabel(sectionClient, "IM Client:");
 		imClient = new CCombo(sectionClient, SWT.READ_ONLY | SWT.FLAT);
 		toolkit.adapt(imClient, false, false);
-		imClient.setItems(new String[] { "None", "ICQ", "AIM", "MSN" });
+		imClient.setItems(new String[] {
+				"None", "ICQ", "AIM", "MSN"
+		});
 		imClient.setText("None"); // Default
 		imClient.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {

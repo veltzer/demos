@@ -12,9 +12,10 @@ import javax.swing.JLayeredPane;
 public class LayeredLabels extends JLayeredPane {
 	private int maxLevel;
 
-	private Color[] colors = { Color.GREEN, Color.RED, Color.BLUE, Color.GRAY,
-			Color.DARK_GRAY, Color.YELLOW, Color.CYAN, Color.MAGENTA,
-			Color.WHITE };
+	private Color[] colors = {
+			Color.GREEN, Color.RED, Color.BLUE, Color.GRAY, Color.DARK_GRAY,
+			Color.YELLOW, Color.CYAN, Color.MAGENTA, Color.WHITE
+	};
 
 	private JLabel[] labels;
 

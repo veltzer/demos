@@ -64,16 +64,18 @@ public class DvdCatalog extends JFrame implements Runnable {
 			DvdCatalog.class.getResource("/cd.gif"));
 	static private final Icon MINI_DISC = new ImageIcon(
 			DvdCatalog.class.getResource("/minicd.gif"));
-	static private final Icon[] ICONS = new Icon[] { DVD_ICON, CD_ICON,
-			MINI_DISC };
+	static private final Icon[] ICONS = new Icon[] {
+			DVD_ICON, CD_ICON, MINI_DISC
+	};
 	static private final File CD_DATA_FILE = new File("dvd_collection.xml");
 
-	private static final String[] LF_COMPONENTS = new String[] { "Button",
-			"Label", "Table", "TextField", "ScrollPane", "ComboBox",
+	private static final String[] LF_COMPONENTS = new String[] {
+			"Button", "Label", "Table", "TextField", "ScrollPane", "ComboBox",
 			"CheckBox", "TitledBorder", "RadioButton", "ToolTip", "TextPane",
 			"TextArea", "Tree", "List", "MenuBar", "Menu", "MenuItem",
 			"TableHeader", "TabbedPane", "PasswordField", "FormattedTextField",
-			"ToggleButton" };
+			"ToggleButton"
+	};
 
 	public DvdCatalog() throws IOException {
 		super("DVD/CD Catalog");
@@ -210,11 +212,13 @@ public class DvdCatalog extends JFrame implements Runnable {
 
 	public static class DvdModel extends AbstractTableModel implements
 			TableModel, Serializable, ExceptionListener {
-		private final transient String[] COLUMN_NAMES = { "Title", "By",
-				"Featuring", "Year", "Keywords", "Media" };
-		private final transient Class<?>[] COLUMN_CLASSES = { String.class,
+		private final transient String[] COLUMN_NAMES = {
+				"Title", "By", "Featuring", "Year", "Keywords", "Media"
+		};
+		private final transient Class<?>[] COLUMN_CLASSES = {
 				String.class, String.class, String.class, String.class,
-				Integer.class };
+				String.class, Integer.class
+		};
 		private List<Object[]> tableData = new ArrayList<Object[]>();
 
 		public List<Object[]> getTableData() {
@@ -228,15 +232,20 @@ public class DvdCatalog extends JFrame implements Runnable {
 		public void add(String title, String by, String featuring, String year,
 				String keywords, boolean isDvd, boolean isCd) {
 			if (isDvd) {
-				tableData.add(new Object[] { title, by, featuring, year,
-						keywords, new Integer(0) });
+				tableData.add(new Object[] {
+						title, by, featuring, year, keywords, new Integer(0)
+				});
 			} else {
 				if (isCd) {
-					tableData.add(new Object[] { title, by, featuring, year,
-							keywords, new Integer(1) });
+					tableData.add(new Object[] {
+							title, by, featuring, year, keywords,
+							new Integer(1)
+					});
 				} else {
-					tableData.add(new Object[] { title, by, featuring, year,
-							keywords, new Integer(2) });
+					tableData.add(new Object[] {
+							title, by, featuring, year, keywords,
+							new Integer(2)
+					});
 				}
 			}
 			fireTableRowsInserted(tableData.size() - 1, tableData.size() - 1);

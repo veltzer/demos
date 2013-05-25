@@ -11,7 +11,9 @@ public class PooledObject {
 
 	public PooledObject() {
 		super();
-		data = new double[] { 1.41, 3.14, 2.71 };
+		data = new double[] {
+				1.41, 3.14, 2.71
+		};
 	}
 
 	public int getId() {

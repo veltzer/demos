@@ -64,8 +64,8 @@ public class ImageBorder implements Border {
 	}
 
 	public ImageBorder(URL itopLeftCorner, URL itopRightCorner,
-			URL ibottomLeftCorner, URL ibottomRightCorner, URL itop, URL ibottom,
-			URL ileft, URL iright) {
+			URL ibottomLeftCorner, URL ibottomRightCorner, URL itop,
+			URL ibottom, URL ileft, URL iright) {
 		this(createIcon(itopLeftCorner), createIcon(itopRightCorner),
 				createIcon(ibottomLeftCorner), createIcon(ibottomRightCorner),
 				createIcon(itop), createIcon(ibottom), createIcon(ileft),
@@ -153,11 +153,10 @@ public class ImageBorder implements Border {
 		}
 
 		if (!(right instanceof NullIcon)) {
-			Graphics clipped = g.create(x + width - right.getIconWidth(),
-					y + topRightCorner.getIconHeight(),
-					right.getIconWidth(),
-					y + height - bottomRightCorner.getIconHeight()
-							- topRightCorner.getIconHeight());
+			Graphics clipped = g.create(x + width - right.getIconWidth(), y
+					+ topRightCorner.getIconHeight(), right.getIconWidth(), y
+					+ height - bottomRightCorner.getIconHeight()
+					- topRightCorner.getIconHeight());
 			int heightInc = right.getIconHeight();
 			for (int iright = 0; iright < height; iright += heightInc) {
 				right.paintIcon(c, clipped, 0, iright);

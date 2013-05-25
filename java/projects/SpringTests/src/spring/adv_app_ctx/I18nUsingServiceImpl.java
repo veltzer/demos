@@ -20,8 +20,9 @@ public class I18nUsingServiceImpl implements MessageSourceAware,
 	 * @see spring.adv_app_ctx.I18nUsingService#doSomething()
 	 */
 	public void doSomething() {
-		System.out.println(messageSource.getMessage("msg1",
-				new Object[] { "Ido" }, locale));
+		System.out.println(messageSource.getMessage("msg1", new Object[] {
+			"Ido"
+		}, locale));
 	}
 
 	public void setLocale(Locale locale) {

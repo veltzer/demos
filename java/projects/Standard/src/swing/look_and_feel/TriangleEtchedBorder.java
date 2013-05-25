@@ -53,8 +53,11 @@ public class TriangleEtchedBorder extends EtchedBorder {
 		height = c.getHeight();
 		g.setColor(etchType == LOWERED ? getShadowColor(c)
 				: getHighlightColor(c));
-		g.drawPolygon(new int[] { 0, width - 1, width / 2 - 1 }, new int[] {
-				height - 2, height - 2, 0 }, 3);
+		g.drawPolygon(new int[] {
+				0, width - 1, width / 2 - 1
+		}, new int[] {
+				height - 2, height - 2, 0
+		}, 3);
 
 		g.setColor(etchType == LOWERED ? getHighlightColor(c)
 				: getShadowColor(c));

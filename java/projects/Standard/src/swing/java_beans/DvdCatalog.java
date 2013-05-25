@@ -61,7 +61,7 @@ public class DvdCatalog extends JFrame implements Runnable {
 	private static final Icon MINI_DISC = new ImageIcon(
 			DvdCatalog.class.getResource("/minicd.gif"));
 	private static final Icon[] ICONS = new Icon[] {
-		DVD_ICON, CD_ICON, MINI_DISC
+			DVD_ICON, CD_ICON, MINI_DISC
 	};
 	private static final File CD_DATA_FILE = new File("dvd_collection.xml");
 
@@ -185,10 +185,11 @@ public class DvdCatalog extends JFrame implements Runnable {
 	public static class DvdModel extends AbstractTableModel implements
 			TableModel, Serializable, ExceptionListener {
 		static final transient String[] COLUMN_NAMES = {
-			"Title", "By", "Featuring", "Year", "Keywords", "Media"
+				"Title", "By", "Featuring", "Year", "Keywords", "Media"
 		};
 		static final transient Class<?>[] COLUMN_CLASSES = {
-			String.class, String.class, String.class, String.class, String.class, Integer.class
+				String.class, String.class, String.class, String.class,
+				String.class, Integer.class
 		};
 		private List<Object[]> tableData = new ArrayList<Object[]>();
 
@@ -204,16 +205,18 @@ public class DvdCatalog extends JFrame implements Runnable {
 				String keywords, boolean isDvd, boolean isCd) {
 			if (isDvd) {
 				tableData.add(new Object[] {
-					title, by, featuring, year, keywords, new Integer(0)
+						title, by, featuring, year, keywords, new Integer(0)
 				});
 			} else {
 				if (isCd) {
 					tableData.add(new Object[] {
-						title, by, featuring, year, keywords, new Integer(1)
+							title, by, featuring, year, keywords,
+							new Integer(1)
 					});
 				} else {
 					tableData.add(new Object[] {
-						title, by, featuring, year, keywords, new Integer(2)
+							title, by, featuring, year, keywords,
+							new Integer(2)
 					});
 				}
 			}

@@ -48,8 +48,11 @@ public class ActionMapDemo extends JPanel {
 			dlg.setVisible(true);
 		}
 	}
+
 	class ActionMapModel extends AbstractTableModel {
-		private final String[] COLUMNS = { "Key", "Action" };
+		private final String[] COLUMNS = {
+				"Key", "Action"
+		};
 		private InputMap input;
 		private KeyStroke[] keys;
 

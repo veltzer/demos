@@ -15,8 +15,7 @@ public class ReflectionProxyDemo extends JPanel {
 		FileTableModel m = new FileTableModel();
 		m.setDirectory(new File("."));
 		TableModel model = (TableModel) Proxy.newProxyInstance(
-				TableModel.class.getClassLoader(),
-				new Class[] {
+				TableModel.class.getClassLoader(), new Class[] {
 					TableModel.class
 				}, new ReflectionProxy(m));
 		add(new JScrollPane(new JTable(model)));

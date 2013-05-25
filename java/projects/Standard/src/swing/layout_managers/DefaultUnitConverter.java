@@ -192,7 +192,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * Lazily computes and answer the global dialog base units. Should be
 	 * re-computed if the l&amp;f, platform, or screen changes.
 	 * @return a cached DialogBaseUnits object used globally if no container is
-	 * available
+	 *         available
 	 */
 	private DialogBaseUnits getGlobalDialogBaseUnits() {
 		if (cachedGlobalDialogBaseUnits == null) {
@@ -260,7 +260,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * <p>
 	 * Should be re-computed if the l&amp;f, platform, or screen changes.
 	 * @return a DialogBaseUnits object used globally if no container is
-	 * available
+	 *         available
 	 */
 	private DialogBaseUnits computeGlobalDialogBaseUnits() {
 		logInfo("Computing global dialog base units...");
@@ -351,9 +351,9 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @param propertyName one of the property names listed above
 	 * @param listener the PropertyChangeListener to be added
 	 * @see #removePropertyChangeListener(java.lang.String,
-	 * java.beans.PropertyChangeListener)
+	 *      java.beans.PropertyChangeListener)
 	 * @see #addPropertyChangeListener(java.lang.String,
-	 * java.beans.PropertyChangeListener)
+	 *      java.beans.PropertyChangeListener)
 	 */
 	public final synchronized void addPropertyChangeListener(
 			String propertyName, PropertyChangeListener listener) {
@@ -369,7 +369,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @param propertyName a valid property name
 	 * @param listener the PropertyChangeListener to be removed
 	 * @see #addPropertyChangeListener(java.lang.String,
-	 * java.beans.PropertyChangeListener)
+	 *      java.beans.PropertyChangeListener)
 	 * @see #removePropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
 	public final synchronized void removePropertyChangeListener(

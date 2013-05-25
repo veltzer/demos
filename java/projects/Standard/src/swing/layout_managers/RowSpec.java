@@ -78,7 +78,7 @@ public final class RowSpec extends FormSpec {
 	 * alignment, and no resizing.
 	 * @param size constant size, component size, or bounded size
 	 * @throws IllegalArgumentException if the pixel size is invalid or the
-	 * resize weight is negative
+	 *         resize weight is negative
 	 */
 	public RowSpec(Size size) {
 		super(DEFAULT, size, NO_GROW);
@@ -113,7 +113,7 @@ public final class RowSpec extends FormSpec {
 	 * @param encodedRowSpecs comma separated encoded row specifications
 	 * @return an array of decoded row specifications
 	 * @throws NullPointerException if the encoded row specifications string is
-	 * <code>null</code>
+	 *         <code>null</code>
 	 * @see RowSpec#RowSpec(String)
 	 */
 	public static RowSpec[] decodeSpecs(String encodedRowSpecs) {

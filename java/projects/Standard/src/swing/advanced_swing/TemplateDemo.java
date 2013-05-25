@@ -18,7 +18,8 @@ public final class TemplateDemo {
 			new JTable(m)
 		});
 		template.setComponents("buttons", new JComponent[] {
-			new JButton("Button 1"), new JButton("Button 2"), new JButton("Button 3")
+				new JButton("Button 1"), new JButton("Button 2"),
+				new JButton("Button 3")
 		});
 	}
 

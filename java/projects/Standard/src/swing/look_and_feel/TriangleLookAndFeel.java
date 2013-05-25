@@ -24,7 +24,9 @@ public class TriangleLookAndFeel extends MetalLookAndFeel {
 	protected void initClassDefaults(UIDefaults table) {
 		super.initClassDefaults(table);
 
-		Object[] uiDefaults = { "ButtonUI", "TriangleButtonUI", };
+		Object[] uiDefaults = {
+				"ButtonUI", "TriangleButtonUI",
+		};
 
 		table.putDefaults(uiDefaults);
 	}

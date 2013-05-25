@@ -28,11 +28,13 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class LayeredPaneDemo extends JPanel implements ActionListener,
 		MouseMotionListener {
-	private String[] layerStrings = { "Yellow (0)", "Magenta (1)", "Cyan (2)",
-			"Red (3)", "Green (4)" };
+	private String[] layerStrings = {
+			"Yellow (0)", "Magenta (1)", "Cyan (2)", "Red (3)", "Green (4)"
+	};
 
-	private Color[] layerColors = { Color.yellow, Color.magenta, Color.cyan,
-			Color.red, Color.green };
+	private Color[] layerColors = {
+			Color.yellow, Color.magenta, Color.cyan, Color.red, Color.green
+	};
 
 	private JLayeredPane layeredPane;
 
