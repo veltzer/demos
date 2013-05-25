@@ -7,21 +7,21 @@ public class Currency {
 	private Locale type;
 	private BigDecimal value;
 
-	public Currency(double value) {
-		this(Locale.US, value);
+	public Currency(Locale itype, BigDecimal ivalue) {
+		type = itype;
+		value = ivalue;
 	}
 
-	public Currency(BigDecimal value) {
-		this(Locale.US, value);
+	public Currency(Locale itype, double ivalue) {
+		this(itype, new BigDecimal(ivalue));
 	}
 
-	public Currency(Locale type, double value) {
-		this(type, new BigDecimal(value));
+	public Currency(double ivalue) {
+		this(Locale.US, ivalue);
 	}
 
-	public Currency(Locale type, BigDecimal value) {
-		this.type = type;
-		this.value = value;
+	public Currency(BigDecimal ivalue) {
+		this(Locale.US, ivalue);
 	}
 
 	public Locale getType() {

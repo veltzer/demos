@@ -4,7 +4,7 @@ import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
 public class BusinessTableModel extends AbstractTableModel {
-	private final static String[] COLUMN_NAMES = {
+	private static final String[] COLUMN_NAMES = {
 			"Deal", "In Progress", "Net Worth"
 	};
 	private Object[] deals = new Object[] {

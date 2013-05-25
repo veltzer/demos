@@ -27,7 +27,7 @@ import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.RootPaneContainer;
 
-public class PlatformUtility {
+public final class PlatformUtility {
 	private static final PlatformUtility INSTANCE = new PlatformUtility();
 	private static final String OS_NAME = System.getProperty("os.name")
 			.toUpperCase();
@@ -39,7 +39,7 @@ public class PlatformUtility {
 	private static final boolean OS2 = OS_NAME.indexOf("OS/2") > -1;
 	private static final String PLATFORM_NAME = initOSName();
 
-	private static final String initOSName() {
+	private static String initOSName() {
 		if (WINDOWS) {
 			return "Windows";
 		}
@@ -117,8 +117,8 @@ public class PlatformUtility {
 		private ResourceBundle[] bundles;
 		private Collection<String> keys = new ArrayList<String>();
 
-		MultiResourceBundle(ResourceBundle[] bundles) {
-			this.bundles = bundles;
+		MultiResourceBundle(ResourceBundle[] ibundles) {
+			bundles = ibundles;
 			for (int iter = 0; iter < bundles.length; iter++) {
 				Enumeration<String> e = bundles[iter].getKeys();
 				while (e.hasMoreElements()) {
@@ -141,7 +141,8 @@ public class PlatformUtility {
 					if (o != null) {
 						return o;
 					}
-				} catch (Exception err) {
+				} catch (Exception e) {
+					throw new RuntimeException(e);
 				}
 			}
 			return null;

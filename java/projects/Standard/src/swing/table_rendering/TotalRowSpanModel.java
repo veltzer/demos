@@ -5,8 +5,8 @@ import javax.swing.table.TableModel;
 public class TotalRowSpanModel implements SpanModel {
 	private TableModel model;
 
-	public TotalRowSpanModel(TableModel model) {
-		this.model = model;
+	public TotalRowSpanModel(TableModel imodel) {
+		model = imodel;
 	}
 
 	public boolean spanBottom(int row, int column) {

@@ -21,9 +21,9 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-/* 
+/*
  * LayeredPaneDemo.java is a 1.4 application that requires
- * images/dukeWaveRed.gif. 
+ * images/dukeWaveRed.gif.
  */
 @SuppressWarnings("serial")
 public class LayeredPaneDemo extends JPanel implements ActionListener,
@@ -45,9 +45,9 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 	private JComboBox<String> layerList;
 
 	// Action commands
-	private static String ON_TOP_COMMAND = "ontop";
+	private static final String ON_TOP_COMMAND = "ontop";
 
-	private static String LAYER_COMMAND = "layer";
+	private static final String LAYER_COMMAND = "layer";
 
 	// Adjustments to put Duke's toe at the cursor's tip.
 	private static final int XFUDGE = 40;
@@ -150,13 +150,18 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 		String cmd = e.getActionCommand();
 
 		if (ON_TOP_COMMAND.equals(cmd)) {
-			if (onTop.isSelected())
+			if (onTop.isSelected()) {
 				layeredPane.moveToFront(dukeLabel);
-			else
+			} else {
 				layeredPane.moveToBack(dukeLabel);
-
+			}
 		} else if (LAYER_COMMAND.equals(cmd)) {
-			int position = onTop.isSelected() ? 0 : 1;
+			int position;
+			if (onTop.isSelection()) {
+				position = 0;
+			} else {
+				position = 1;
+			}
 			layeredPane.setLayer(dukeLabel, layerList.getSelectedIndex(),
 					position);
 		}

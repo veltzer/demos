@@ -9,8 +9,8 @@ public class FinanceColorModel extends DefaultTableColorModel {
 			.brighter();
 	private TableModel model;
 
-	public FinanceColorModel(TableModel model) {
-		this.model = model;
+	public FinanceColorModel(TableModel imodel) {
+		model = imodel;
 	}
 
 	public Color getBackground(int row, int column) {

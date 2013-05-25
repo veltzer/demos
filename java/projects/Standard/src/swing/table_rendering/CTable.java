@@ -30,8 +30,8 @@ public class CTable extends JTable {
 		setIntercellSpacing(new java.awt.Dimension(0, 0));
 	}
 
-	public void setTableColorModel(TableColorModel colors) {
-		this.colors = colors;
+	public void setTableColorModel(TableColorModel icolors) {
+		colors = icolors;
 	}
 
 	public TableColorModel getTableColorModel() {
@@ -42,15 +42,15 @@ public class CTable extends JTable {
 		return align;
 	}
 
-	public void setAlignmentModel(TableAlignmentModel align) {
-		this.align = align;
+	public void setAlignmentModel(TableAlignmentModel ialign) {
+		align = ialign;
 	}
 
 	public SpanModel getSpan() {
 		return span;
 	}
 
-	public void setSpan(SpanModel span) {
-		this.span = span;
+	public void setSpan(SpanModel ispan) {
+		span = ispan;
 	}
 }

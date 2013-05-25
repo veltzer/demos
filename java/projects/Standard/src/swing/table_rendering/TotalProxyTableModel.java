@@ -9,12 +9,12 @@ public class TotalProxyTableModel extends ProxyTableModel {
 	private int totalColumn, descriptionColumn;
 	private String totalString;
 
-	public TotalProxyTableModel(TableModel model, int totalColumn,
-			int descriptionColumn, String totalString) {
+	public TotalProxyTableModel(TableModel model, int itotalColumn,
+			int idescriptionColumn, String itotalString) {
 		super(model);
-		this.totalColumn = totalColumn;
-		this.descriptionColumn = descriptionColumn;
-		this.totalString = totalString;
+		this.totalColumn = itotalColumn;
+		this.descriptionColumn = idescriptionColumn;
+		this.totalString = itotalString;
 	}
 
 	public int getRowCount() {

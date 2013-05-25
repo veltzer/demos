@@ -15,11 +15,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+import java.beans.PropertyVetoException;
 import swing.graphics2d.RollingPolygon;
 
 @SuppressWarnings("serial")
 public class InternalFrameDemo extends JFrame implements ActionListener {
-	JDesktopPane desktop;
+	private JDesktopPane desktop;
 
 	public InternalFrameDemo() {
 		super("InternalFrameDemo");
@@ -86,7 +87,8 @@ public class InternalFrameDemo extends JFrame implements ActionListener {
 		desktop.add(frame);
 		try {
 			frame.setSelected(true);
-		} catch (java.beans.PropertyVetoException e) {
+		} catch (PropertyVetoException e) {
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -124,15 +126,15 @@ public class InternalFrameDemo extends JFrame implements ActionListener {
 
 @SuppressWarnings("serial")
 class MyInternalFrame extends JInternalFrame {
-	static int openFrameCount = 0;
+	private static int openFrameCount = 0;
 
-	static final int xOffset = 30, yOffset = 30;
+	private static final int XOFFSET = 30, YOFFSET = 30;
 
 	public MyInternalFrame() {
 		super("Document #" + (++openFrameCount), true, // resizable
 				true, // closable
 				true, // maximizable
-				true);// iconifiable
+				true); // iconifiable
 
 		// ...Create the GUI and put it in the window...
 
@@ -140,7 +142,7 @@ class MyInternalFrame extends JInternalFrame {
 		setSize(300, 300);
 
 		// Set the window's location.
-		setLocation(xOffset * openFrameCount, yOffset * openFrameCount);
+		setLocation(XOFFSET * openFrameCount, YOFFSET * openFrameCount);
 
 		RollingPolygon rollingPolygon = new RollingPolygon();
 		rollingPolygon.init();

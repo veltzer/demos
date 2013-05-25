@@ -7,7 +7,7 @@ import javax.swing.JLabel;
  * Description of the Class
  * @author Mark Veltzer
  */
-public class HelloWorld {
+public abstract class HelloWorld {
 	/**
 	 * The main program for the HelloWorld class
 	 * @param argv The command line arguments

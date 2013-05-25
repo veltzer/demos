@@ -30,8 +30,9 @@ public class GlassPaneDemo extends JFrame {
 	private class MyGlassPane extends JPanel {
 		@Override
 		protected void paintComponent(Graphics g) {
-			if (!showStar)
+			if (!showStar) {
 				return;
+			}
 			Graphics2D g2 = (Graphics2D) g;
 			g2.setColor(Color.YELLOW);
 			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,

@@ -23,7 +23,7 @@ import javax.swing.table.TableCellRenderer;
 
 @SuppressWarnings("serial")
 public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
-	private final JCheckBox BOOLEAN_RENDERER = new JCheckBox() {
+	private static final JCheckBox BOOLEAN_RENDERER = new JCheckBox() {
 		public void paint(Graphics graphics) {
 			super.paint(graphics);
 			graphics.setColor(gridColor);
@@ -145,10 +145,12 @@ public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
 		if (model.isSpanRoot(row, column)) {
 			int spanRows = row;
 			int spanColumns = column;
-			for (; model.spanBottom(spanRows, column); spanRows++)
-				;
-			for (; model.spanRight(row, spanColumns); spanColumns++)
-				;
+			while (model.spanBotton(spanRows, column)) {
+				spanRows++;
+			}
+			while (model.spanRight(row, spanColumns)) {
+				spanColumns++;
+			}
 			int height = 0;
 			for (int iter = row; iter <= spanRows; iter++) {
 				height += table.getRowHeight(iter);
@@ -196,9 +198,9 @@ public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
 		private int row;
 		private int column;
 
-		public Cell(int row, int column) {
-			this.row = row;
-			this.column = column;
+		public Cell(int irow, int icolumn) {
+			row = irow;
+			column = icolumn;
 		}
 
 		public boolean equals(Object obj) {
