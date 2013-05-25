@@ -4,23 +4,22 @@ ALL:=$(JAVA_STAMP)
 
 .PHONY: all
 all: $(ALL)
-	@echo tell me what to do...
 
 .PHONY: check_imports
 check_imports:
-	@git grep import | grep \\*
+	@./scripts/ok_wrapper.pl git grep import | grep \\*
 
 .PHONY: check_ws_eol
 check_ws_eol:
-	@git grep " $$" -- "*.java"
+	@./scripts/ok_wrapper.pl git grep " $$" -- "*.java"
 
 .PHONY: check_tab_eol
 check_tab_eol:
-	@git grep -l "\s$$" -- "*.java"
+	@./scripts/ok_wrapper.pl git grep -l "\s$$" -- "*.java"
 
 .PHONY: check_dbl_ws
 check_dbl_ws:
-	@git grep "  " -- "*.java"
+	@./scripts/ok_wrapper.pl git grep "  " -- "*.java"
 
 .PHONY: checkstyle
 checkstyle:
