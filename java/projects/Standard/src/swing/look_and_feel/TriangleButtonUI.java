@@ -79,11 +79,17 @@ public class TriangleButtonUI extends MetalButtonUI {
 		Font f = c.getFont();
 		g.setFont(f);
 
+		int gap;
+		if (b.getText() == null) {
+			gap=0;
+		} else {
+			gap=b.getIconTextGap();
+		}
 		String text = SwingUtilities.layoutCompoundLabel(c, fm, b.getText(),
 				b.getIcon(), b.getVerticalAlignment(),
 				b.getHorizontalAlignment(), b.getVerticalTextPosition(),
 				b.getHorizontalTextPosition(), viewRect, iconRect, textRect,
-				b.getText() == null ? 0 : b.getIconTextGap());
+				gap);
 
 		clearTextShiftOffset();
 
@@ -127,8 +133,8 @@ public class TriangleButtonUI extends MetalButtonUI {
 		}
 	}
 
-	protected void paintText(Graphics g, AbstractButton b, Rectangle textRect,
+	protected void paintText(Graphics g, AbstractButton b, Rectangle itextRect,
 			String text) {
-		paintText(g, (JComponent) b, textRect, text);
+		paintText(g, (JComponent) b, itextRect, text);
 	}
 }
