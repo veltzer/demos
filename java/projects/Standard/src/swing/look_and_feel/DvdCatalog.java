@@ -217,6 +217,7 @@ public class DvdCatalog extends JFrame implements Runnable {
 			String.class, String.class, String.class, String.class,
 			String.class, Integer.class
 	};
+
 	public static class DvdModel extends AbstractTableModel implements
 			TableModel, Serializable, ExceptionListener {
 		private List<Object[]> tableData = new ArrayList<Object[]>();

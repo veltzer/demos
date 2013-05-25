@@ -159,7 +159,9 @@ public class VTable extends JTable {
 		}
 	}
 
-	private static final Color FILL_COLOR = new Color(Color.GRAY.getRGB() | 0x7F000000);
+	private static final Color FILL_COLOR = new Color(
+			Color.GRAY.getRGB() | 0x7F000000);
+
 	class ArrowIcon implements Icon {
 		private int size;
 		private int position;

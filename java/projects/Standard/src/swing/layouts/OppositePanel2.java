@@ -48,7 +48,8 @@ public class OppositePanel2 extends JComponent {
 			rightComponentAdded = true;
 			return rightPanel.add(comp);
 		}
-		throw new RuntimeException("Cannot hold more than two components in OppositePanel2");
+		throw new RuntimeException(
+				"Cannot hold more than two components in OppositePanel2");
 	}
 
 	/**
