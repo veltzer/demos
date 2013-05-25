@@ -132,7 +132,8 @@ public class MultiSortableTableModel extends ProxyTableModel {
 						getRowData(o2, iter));
 				if (value != 0) {
 					if (!ascending[iter]) {
-						return (value *= -1);
+						value *= -1;
+						return value;
 					}
 					return (value);
 				}
