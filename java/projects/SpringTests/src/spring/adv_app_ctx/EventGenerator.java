@@ -12,13 +12,12 @@ public class EventGenerator implements ApplicationEventPublisherAware {
 			ApplicationEventPublisher applicationEventPublisher) {
 		this.applicationEventPublisher = applicationEventPublisher;
 	}
-	
+
 	public void doSomething() {
-		///...
+		// /...
 		applicationEventPublisher.publishEvent(new SomethingHappened(this));
 	}
-	
-	
+
 	@SuppressWarnings("serial")
 	public static class SomethingHappened extends ApplicationEvent {
 		public SomethingHappened(Object source) {

@@ -12,20 +12,17 @@ import javax.swing.JFrame;
 /**
  * @author Mark Veltzer
  */
-public class LayoutDemo
-{
+public class LayoutDemo {
 	private JFrame mainFrame;
 
-	public LayoutDemo()
-	{
+	public LayoutDemo() {
 		mainFrame = new JFrame("Layout demo");
 	}
 
 	/**
 	 * 
 	 */
-	private void init()
-	{
+	private void init() {
 
 		JButton button0 = new JButton("button 0");
 		JButton button1 = new JButton("button 1");
@@ -36,11 +33,11 @@ public class LayoutDemo
 		button0.setPreferredSize(new Dimension(40, 40));
 
 		Container c = mainFrame.getContentPane();
-		 c.setLayout(new FlowLayout(FlowLayout.TRAILING));
+		c.setLayout(new FlowLayout(FlowLayout.TRAILING));
 
 		// c.setLayout(new GridLayout(2,2));
 		//
-	//	c.setLayout(new BorderLayout());
+		// c.setLayout(new BorderLayout());
 
 		//
 		// JPanel upperPanel = new JPanel();
@@ -49,38 +46,38 @@ public class LayoutDemo
 		// upperPanel.add(button3);
 		// c.add(upperPanel, BorderLayout.WEST);
 		//
-//		c.add(button0, BorderLayout.CENTER);
-//		c.add(button3, BorderLayout.CENTER);
-//		//
-//		c.add(button2, BorderLayout.EAST);
-//		c.add(button4, BorderLayout.SOUTH);
+		// c.add(button0, BorderLayout.CENTER);
+		// c.add(button3, BorderLayout.CENTER);
+		// //
+		// c.add(button2, BorderLayout.EAST);
+		// c.add(button4, BorderLayout.SOUTH);
 
-		 c.add(button0);
-		 c.add(button1);
-		 c.add(button2);
-		 c.add(button3);
-		 c.add(button4);
+		c.add(button0);
+		c.add(button1);
+		c.add(button2);
+		c.add(button3);
+		c.add(button4);
 
 		mainFrame.addWindowListener(new WindowAdapter() {
 			/*
 			 * (non-Javadoc)
 			 * 
-			 * @see java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent)
+			 * @see
+			 * java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent
+			 * )
 			 */
 			@Override
-			public void windowClosing(WindowEvent e)
-			{
+			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
 		// mainFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE ) ;
-		//mainFrame.setSize(400, 400);
+		// mainFrame.setSize(400, 400);
 		mainFrame.pack();
 		mainFrame.setVisible(true);
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		LayoutDemo demo = new LayoutDemo();
 		demo.init();
 	}

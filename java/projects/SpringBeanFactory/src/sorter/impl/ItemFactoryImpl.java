@@ -5,8 +5,7 @@ import org.springframework.beans.factory.FactoryBean;
 import sorter.Item;
 import sorter.ItemFactory;
 
-
-public class ItemFactoryImpl implements FactoryBean<Object>, ItemFactory{
+public class ItemFactoryImpl implements FactoryBean<Object>, ItemFactory {
 
 	private int counter = 0;
 
@@ -23,7 +22,7 @@ public class ItemFactoryImpl implements FactoryBean<Object>, ItemFactory{
 	}
 
 	public Item createItem() {
-		
-		return  new Item("Item" + (counter++) , 100*Math.random());
+
+		return new Item("Item" + (counter++), 100 * Math.random());
 	}
 }

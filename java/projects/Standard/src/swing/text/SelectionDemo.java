@@ -13,22 +13,19 @@ import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.text.BadLocationException;
 
-public class SelectionDemo extends JPanel
-{
+public class SelectionDemo extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JTextArea textArea;
 
 	private Action selectLineAction;
 
-	public SelectionDemo()
-	{
+	public SelectionDemo() {
 
 	}
 
 	@SuppressWarnings("serial")
-	private void init()
-	{
+	private void init() {
 		setLayout(new BorderLayout());
 
 		textArea = new JTextArea();
@@ -39,20 +36,16 @@ public class SelectionDemo extends JPanel
 
 		selectLineAction = new AbstractAction() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				int position = textArea.getCaretPosition();
-				try
-				{
+				try {
 					int lineNumber = textArea.getLineOfOffset(position);
 					int selectStart = textArea.getLineStartOffset(lineNumber);
 					int selectEnd = textArea.getLineEndOffset(lineNumber);
 					if (textArea.getLineOfOffset(selectEnd) > lineNumber)
 						--selectEnd;
 					textArea.select(selectStart, selectEnd);
-				}
-				catch (BadLocationException e1)
-				{
+				} catch (BadLocationException e1) {
 					e1.printStackTrace();
 				}
 
@@ -67,8 +60,7 @@ public class SelectionDemo extends JPanel
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		SelectionDemo demo = new SelectionDemo();
 		demo.init();
 

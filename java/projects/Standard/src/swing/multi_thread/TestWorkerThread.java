@@ -4,10 +4,10 @@ public class TestWorkerThread implements IRunnableWithControl {
 
 	@Override
 	public void run(IProcessControl control) {
-		int times=10;
+		int times = 10;
 		control.initProgress(times);
-		int i=0;
-		while(i<times && !control.isStopped()) {
+		int i = 0;
+		while (i < times && !control.isStopped()) {
 			control.doPause();
 			try {
 				Thread.sleep(1000);

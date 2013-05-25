@@ -22,7 +22,7 @@
 		<servlet-name>Cart</servlet-name>
 		<url-pattern>/cart</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>CookieForm</servlet-name>
 		<url-pattern>/cookieForm</url-pattern>

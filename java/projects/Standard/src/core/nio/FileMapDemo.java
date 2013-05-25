@@ -16,8 +16,8 @@ public class FileMapDemo {
 			RandomAccessFile f = new RandomAccessFile(
 					new File("/temp/buff.txt"), "rw");
 			FileChannel c = f.getChannel();
-			MappedByteBuffer b = c.map(FileChannel.MapMode.READ_WRITE, 0, c
-					.size());
+			MappedByteBuffer b = c.map(FileChannel.MapMode.READ_WRITE, 0,
+					c.size());
 			b.put((byte) 'O');
 			b.putLong(6, -12L);
 			c.close();

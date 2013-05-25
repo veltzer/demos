@@ -8,23 +8,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class TestServer {
-	private ServerSocket serverSocket;	
+	private ServerSocket serverSocket;
 	private List<Socket> sockets;
-	
-	public TestServer(){
+
+	public TestServer() {
 		try {
-			serverSocket=new ServerSocket(2525);
-			sockets=new LinkedList<Socket>();			
+			serverSocket = new ServerSocket(2525);
+			sockets = new LinkedList<Socket>();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void accept(){
+
+	public void accept() {
 		Socket tempSocket;
-		while(true){		
+		while (true) {
 			try {
-				tempSocket=serverSocket.accept();
+				tempSocket = serverSocket.accept();
 				sockets.add(tempSocket);
 				new Thread(new ClientManager(tempSocket)).start();
 			} catch (Exception e) {
@@ -32,10 +32,10 @@ public class TestServer {
 			}
 		}
 	}
-	
-	public void finalize(){
+
+	public void finalize() {
 		try {
-			for (int i = 0; i <sockets.size(); i++) {
+			for (int i = 0; i < sockets.size(); i++) {
 				sockets.get(i).close();
 			}
 			serverSocket.close();
@@ -43,41 +43,43 @@ public class TestServer {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/******** Inner Class **************************/
-	private class ClientManager implements Runnable{
+	private class ClientManager implements Runnable {
 		private DataInputStream in;
-		
-		public ClientManager(Socket socket){
+
+		public ClientManager(Socket socket) {
 			try {
-				in=new DataInputStream(socket.getInputStream());
+				in = new DataInputStream(socket.getInputStream());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
-		public void run(){
-			String message=null;
-			DataOutputStream out=null;
-			
-			while(true){
+
+		public void run() {
+			String message = null;
+			DataOutputStream out = null;
+
+			while (true) {
 				try {
-					message=in.readUTF();
-					for (int i = 0; i <sockets.size(); i++) {
-						out=new DataOutputStream(((Socket)sockets.get(i)).getOutputStream());
+					message = in.readUTF();
+					for (int i = 0; i < sockets.size(); i++) {
+						out = new DataOutputStream(
+								((Socket) sockets.get(i)).getOutputStream());
 						out.writeUTF(message);
 					}
-				
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}
 	}
+
 	/***********************************************/
 
 	public static void main(String[] args) {
-		TestServer test=new TestServer();
+		TestServer test = new TestServer();
 		test.accept();
 	}
 }

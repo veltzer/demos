@@ -15,8 +15,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
-public class RollingPolygonApp extends JFrame
-{
+public class RollingPolygonApp extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private RollingPolygon rollingPolygon;
@@ -25,14 +24,12 @@ public class RollingPolygonApp extends JFrame
 
 	private AbstractAction stopAction;
 
-	public RollingPolygonApp() throws HeadlessException
-	{
+	public RollingPolygonApp() throws HeadlessException {
 		super("Rollin polygon demo");
 	}
 
 	@SuppressWarnings("serial")
-	private void init()
-	{
+	private void init() {
 		rollingPolygon = new RollingPolygon();
 		rollingPolygon.init();
 		getContentPane().add(rollingPolygon, BorderLayout.CENTER);
@@ -40,8 +37,7 @@ public class RollingPolygonApp extends JFrame
 		// The playAction will be used by both the toolbar and the menu
 		playAction = new AbstractAction() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				this.setEnabled(false);
 				stopAction.setEnabled(true);
 				rollingPolygon.setRunning(true);
@@ -54,8 +50,7 @@ public class RollingPolygonApp extends JFrame
 		// The stopAction will be used by both the toolbar and the menu
 		stopAction = new AbstractAction() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				this.setEnabled(false);
 				playAction.setEnabled(true);
 				rollingPolygon.setRunning(false);
@@ -100,8 +95,7 @@ public class RollingPolygonApp extends JFrame
 	 * @return
 	 */
 	public JButton createToolbarButton(String imageName, String toolTipText,
-			String altText)
-	{
+			String altText) {
 		JButton button = new JButton();
 
 		button.setIcon(new ImageIcon(imageName, altText));
@@ -112,14 +106,10 @@ public class RollingPolygonApp extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
-		try
-		{
+	public static void main(String[] args) {
+		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 

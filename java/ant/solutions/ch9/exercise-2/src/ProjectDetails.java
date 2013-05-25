@@ -11,8 +11,8 @@ public class ProjectDetails extends Task {
 		Collection targets = this.getProject().getTargets().values();
 		for (Iterator iterator = targets.iterator(); iterator.hasNext();) {
 			String task = iterator.next().toString();
-			if (task!=null && !task.trim().equals("")) {
-				this.log( " - " + task + " task");
+			if (task != null && !task.trim().equals("")) {
+				this.log(" - " + task + " task");
 			}
 		}
 		this.log("base dir: " + this.getProject().getBaseDir());

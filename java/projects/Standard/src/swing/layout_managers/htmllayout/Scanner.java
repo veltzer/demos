@@ -1,33 +1,7 @@
-/*
-    HtmlLayout - A superior Java LayoutManager
-    Copyright (C) 1998  Paul Buchheit
-
-    HtmlLayout is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Library General Public
-    License as published by the Free Software Foundation; either
-    version 2 of the License, or (at your option) any later version.
-
-    HtmlLayout is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Library General Public License for more details.
-
-    You should have received a copy of the GNU Library General Public
-    License along with this library; if not, write to the Free
-    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-    HtmlLayout was created by Paul Buchheit, paul@braindamage.org
-    HtmlLayout lives at http://braindamage.org/HtmlLayout
-    There you can find the latest information and software.
-*/
-
-
 package swing.layout_managers.htmllayout;
 
-
-class Scanner
-{
-	static final int LT=0, GT=1, EQ=3, STR=4, EOF=-1, ERROR=-2;
+class Scanner {
+	static final int LT = 0, GT = 1, EQ = 3, STR = 4, EOF = -1, ERROR = -2;
 
 	String currentString;
 	int lastTok;
@@ -44,7 +18,7 @@ class Scanner
 
 	int scanU() {
 		int s = scan();
-		if(s == STR)
+		if (s == STR)
 			currentString = currentString.toUpperCase();
 
 		return s;
@@ -56,13 +30,12 @@ class Scanner
 	}
 
 	private int sscan() {
-		while(true) {
+		while (true) {
 
-		if(pos == end)
-			return EOF;
+			if (pos == end)
+				return EOF;
 
-
-		switch(source.charAt(pos)) {
+			switch (source.charAt(pos)) {
 			case ' ':
 			case '\t':
 			case '\n':
@@ -71,7 +44,7 @@ class Scanner
 				continue;
 
 			case '<':
-				if(inTag) {
+				if (inTag) {
 					return ERROR;
 				} else {
 					pos++;
@@ -80,7 +53,7 @@ class Scanner
 				}
 
 			case '>':
-				if(!inTag) {
+				if (!inTag) {
 					return ERROR;
 				} else {
 					pos++;
@@ -89,7 +62,7 @@ class Scanner
 				}
 
 			case '=':
-				if(inTag) {
+				if (inTag) {
 					pos++;
 					return EQ;
 				}
@@ -97,44 +70,44 @@ class Scanner
 
 			default:
 				return doString();
-		}
+			}
 		}
 	}
 
 	private int doString() {
 		boolean usingQuote = inTag && source.charAt(pos) == '"';
 
-		if(usingQuote)
+		if (usingQuote)
 			pos++;
 
 		int start = pos;
 
 		char c;
-		while(pos < end) {
+		while (pos < end) {
 			c = source.charAt(pos);
-			if(c == '>' || c == '<')
+			if (c == '>' || c == '<')
 				break;
 
-			if(inTag && c == '=')
+			if (inTag && c == '=')
 				break;
 
-			if(c == '"' && usingQuote) {
+			if (c == '"' && usingQuote) {
 				currentString = source.substring(start, pos);
 				pos++;
 				return STR;
 			}
 
-			if(inTag && !usingQuote && isWhitespace(c)) 
+			if (inTag && !usingQuote && isWhitespace(c))
 				break;
 
 			pos++;
 		}
 
 		currentString = source.substring(start, pos);
-		if(!inTag)
+		if (!inTag)
 			currentString = currentString.trim();
 
-		if(currentString.length() == 0)
+		if (currentString.length() == 0)
 			return scan();
 
 		return STR;
@@ -142,8 +115,7 @@ class Scanner
 
 	/* I'm avoiding Character.isWhitespace because it's JDK1.1 */
 	private boolean isWhitespace(char c) {
-		return c <= ' ' 
-			&& (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f');
+		return c <= ' '
+				&& (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f');
 	}
 }
-

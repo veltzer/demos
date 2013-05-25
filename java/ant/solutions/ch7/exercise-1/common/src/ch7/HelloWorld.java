@@ -1,8 +1,8 @@
 package ch5;
 
 /**
- * @author ant (this is the change)   
- *
+ * @author ant (this is the change)
+ * 
  */
 public class HelloWorld {
 

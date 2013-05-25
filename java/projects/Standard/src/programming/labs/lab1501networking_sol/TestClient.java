@@ -6,55 +6,52 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
-public class TestClient implements ActionListener{
+public class TestClient implements ActionListener {
 	private Socket socket;
 	private DataInputStream in;
 	private DataOutputStream out;
 	private ChatClientFrame frame;
-	
-	public TestClient(){
+
+	public TestClient() {
 		try {
-			socket=new Socket("localhost",2525);
-			in=new DataInputStream(socket.getInputStream());
-			out=new DataOutputStream(socket.getOutputStream());
+			socket = new Socket("localhost", 2525);
+			in = new DataInputStream(socket.getInputStream());
+			out = new DataOutputStream(socket.getOutputStream());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		frame=new ChatClientFrame();
-		frame.init(this); 
+		frame = new ChatClientFrame();
+		frame.init(this);
 	}
-	
-	public void read(){
+
+	public void read() {
 		try {
-			while(true){
+			while (true) {
 				frame.addMessage(in.readUTF());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
 
-	public void actionPerformed(ActionEvent ae){
+	public void actionPerformed(ActionEvent ae) {
 		try {
 			out.writeUTF(frame.getMessage());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void finalize(){
+
+	public void finalize() {
 		try {
 			socket.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 	}
-	
 
 	public static void main(String[] args) {
-		TestClient test=new TestClient();
+		TestClient test = new TestClient();
 		test.read();
 	}
 }

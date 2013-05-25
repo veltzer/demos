@@ -23,18 +23,15 @@ import javax.swing.JTextField;
 import swing.graphics2d.RollingPolygon;
 import swing.layouts.StretchLayout;
 
-public class ContainersQuiz extends JFrame
-{
+public class ContainersQuiz extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	public ContainersQuiz()
-	{
+	public ContainersQuiz() {
 		super("ContainersQuiz");
 	}
 
-	private void init()
-	{
+	private void init() {
 		Container c = getContentPane();
 
 		JTabbedPane tabbedPane = new JTabbedPane();
@@ -56,27 +53,24 @@ public class ContainersQuiz extends JFrame
 		setSize(400, 400);
 	}
 
-	private JComponent createTab1()
-	{
+	private JComponent createTab1() {
 		Box box = new Box(BoxLayout.PAGE_AXIS);
 		JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		topPanel.add(new JCheckBox("Enable"));
 		box.add(topPanel);
 
 		Box innerBox = new Box(BoxLayout.PAGE_AXIS);
-		for (int i = 0; i < 8; ++i)
-		{
+		for (int i = 0; i < 8; ++i) {
 			innerBox.add(createPair("value " + i));
 		}
 		box.add(innerBox);
 		return box;
 	}
 
-	private JComponent createTab2()
-	{
+	private JComponent createTab2() {
 		JPanel panel = new JPanel(new BorderLayout());
 
-		//		
+		//
 		// Box buttonsBox = new Box(BoxLayout.PAGE_AXIS);
 		// buttonsBox.add(new JButton("Play"));
 		// buttonsBox.add(new JButton("Stop"));
@@ -96,8 +90,7 @@ public class ContainersQuiz extends JFrame
 		return panel;
 	}
 
-	private JComponent createPair(String labelText)
-	{
+	private JComponent createPair(String labelText) {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(1, 2));
 
@@ -116,8 +109,7 @@ public class ContainersQuiz extends JFrame
 		return panel;
 	}
 
-	private JComponent createTab3()
-	{
+	private JComponent createTab3() {
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 
 		RollingPolygon rollingPolygon = new RollingPolygon();
@@ -133,8 +125,7 @@ public class ContainersQuiz extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		ContainersQuiz app = new ContainersQuiz();
 		app.init();

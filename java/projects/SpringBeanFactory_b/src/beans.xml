@@ -17,46 +17,19 @@
 	</bean>
 
 
-	<bean id="byNameComparator"
-		class="interbit.sorter.comparators.ItemComparatorByName" />
-	<bean id="byPriceComparator"
-		class="interbit.sorter.comparators.ItemComparatorByPrice" />
+	<bean id="byNameComparator" class="interbit.sorter.comparators.ItemComparatorByName" />
+	<bean id="byPriceComparator" class="interbit.sorter.comparators.ItemComparatorByPrice" />
 
 
-	<!-- bean id="addItem" abstract="true"
-		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetObject">
-		<ref local="sorter" />
-		</property>
-		<property name="targetMethod">
-		<value>addItem</value>
-		</property>
-		</bean>
-		
-		<bean id="addItem1" parent="addItem">
-		<property name="arguments">
-		<bean class="interbit.sorter.Item">
-		<constructor-arg>
-		<value>Spring Course</value>
-		</constructor-arg>
-		<constructor-arg>
-		<value>2000</value>
-		</constructor-arg>
-		</bean>
-		</property>
-		</bean>
-		<bean id="addItem2" parent="addItem">
-		<property name="arguments">
-		<bean class="interbit.sorter.Item">
-		<constructor-arg>
-		<value>Extreme Java Course</value>
-		</constructor-arg>
-		<constructor-arg>
-		<value>3000</value>
-		</constructor-arg>
-		</bean>
-		</property>
-		</bean-->
+	<!-- bean id="addItem" abstract="true" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"> 
+		<property name="targetObject"> <ref local="sorter" /> </property> <property 
+		name="targetMethod"> <value>addItem</value> </property> </bean> <bean id="addItem1" 
+		parent="addItem"> <property name="arguments"> <bean class="interbit.sorter.Item"> 
+		<constructor-arg> <value>Spring Course</value> </constructor-arg> <constructor-arg> 
+		<value>2000</value> </constructor-arg> </bean> </property> </bean> <bean 
+		id="addItem2" parent="addItem"> <property name="arguments"> <bean class="interbit.sorter.Item"> 
+		<constructor-arg> <value>Extreme Java Course</value> </constructor-arg> <constructor-arg> 
+		<value>3000</value> </constructor-arg> </bean> </property> </bean -->
 
 	<bean id="itemFactory" class="interbit.sorter.impl.ItemFactoryImpl" />
 	<bean id="benchmark" class="benchmark.BenchmarkInterceptor" />
@@ -66,28 +39,28 @@
 		<property name="beanNames">
 			<value>sorter</value>
 		</property>
-		
+
 		<property name="interceptorNames">
 			<list>
 				<value>sorted</value>
 				<value>oneWaySort</value>
 				<value>benchmark</value>
-				
+
 			</list>
 		</property>
 	</bean>
-	
-	<bean id="sortPointcut" class="aop.SortPointcut"/>
+
+	<bean id="sortPointcut" class="aop.SortPointcut" />
 	<bean name="oneWaySort"
 		class="org.springframework.aop.support.DefaultPointcutAdvisor">
 		<property name="pointcut">
-			<ref local="sortPointcut"/>
+			<ref local="sortPointcut" />
 		</property>
 
 		<property name="advice">
 			<ref local="oneWay" />
 		</property>
 	</bean>
-<bean id="sorted" class="aop.SortedMixin" />
+	<bean id="sorted" class="aop.SortedMixin" />
 
 </beans>

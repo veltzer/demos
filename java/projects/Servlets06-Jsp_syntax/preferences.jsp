@@ -9,25 +9,24 @@
 
 
 <html>
-    <head><title>JSP Page</title>
+<head>
+<title>JSP Page</title>
 </head>
-<body bgcolor='<%=session.getAttribute("bgColor")%>' text='<%=session.getAttribute("fontColor")%>' >
-This is a test
-<form action='' method=POST> 
-    <h3>User preferences</h3>
-    Background color: <select name='bgColor'>
-    <%--
+<body bgcolor='<%=session.getAttribute("bgColor")%>'
+	text='<%=session.getAttribute("fontColor")%>'>
+	This is a test
+	<form action='' method=POST>
+		<h3>User preferences</h3>
+		Background color: <select name='bgColor'>
+			<%--
        Enter your code here
     --%>
-    </select>
-    <br>
-    Font color: <select name='fontColor'>
-    <%--
+		</select> <br> Font color: <select name='fontColor'>
+			<%--
        Enter your code here
     --%>
-    </select><br>
-    <input type=submit value='change'>
-</form>
+		</select><br> <input type=submit value='change'>
+	</form>
 
 </body>
 </html>

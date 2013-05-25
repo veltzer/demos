@@ -1,12 +1,11 @@
 package spring;
 
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.FactoryBean;
 
 public class Log4jFactoryBean implements FactoryBean<Object> {
 	private String logName;
-	
+
 	public String getLogName() {
 		return logName;
 	}
@@ -23,7 +22,7 @@ public class Log4jFactoryBean implements FactoryBean<Object> {
 	@Override
 	public Class<?> getObjectType() {
 		return null;
-//		return Logger.class;
+		// return Logger.class;
 	}
 
 	@Override

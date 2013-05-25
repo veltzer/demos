@@ -8,14 +8,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public abstract class SorterImpl implements Sorter, SorterImplMBean{
+public abstract class SorterImpl implements Sorter, SorterImplMBean {
 
 	private int itemCount;
 	private List<Item> items;
 	private Comparator<Item> comparator;
-	
+
 	public void setList(List<Item> unsorted) {
-		this.items = unsorted; 
+		this.items = unsorted;
 	}
 
 	public void setComparator(Comparator<Item> comparator) {
@@ -30,22 +30,17 @@ public abstract class SorterImpl implements Sorter, SorterImplMBean{
 		return Collections.unmodifiableList(items);
 	}
 
-/*	public void addItem(Item item) {
-		items.add(item);
-	}
-	*/
-	public void setItemCount(int itemCount)
-	{
+	/*
+	 * public void addItem(Item item) { items.add(item); }
+	 */
+	public void setItemCount(int itemCount) {
 		this.itemCount = itemCount;
 	}
-	
+
 	public abstract ItemFactory getItemFactory();
 
-	
-	public void init()
-	{
-		for (int i = 0; i < itemCount; i++)
-		{
+	public void init() {
+		for (int i = 0; i < itemCount; i++) {
 			items.add(getItemFactory().createItem());
 		}
 	}

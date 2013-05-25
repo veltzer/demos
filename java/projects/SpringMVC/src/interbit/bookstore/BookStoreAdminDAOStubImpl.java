@@ -3,7 +3,7 @@ package interbit.bookstore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookStoreAdminDAOStubImpl implements BookStoreAdminDAO{
+public class BookStoreAdminDAOStubImpl implements BookStoreAdminDAO {
 
 	@Override
 	public void addCustomer(Customer customer) {

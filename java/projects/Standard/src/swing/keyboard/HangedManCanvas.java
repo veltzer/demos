@@ -8,33 +8,28 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
-public class HangedManCanvas extends JPanel
-{
+public class HangedManCanvas extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	private int errorLevel;
 
-	public HangedManCanvas()
-	{
+	public HangedManCanvas() {
 		errorLevel = 0;
 		setBackground(Color.WHITE);
 	}
 
-	public int getErrorLevel()
-	{
+	public int getErrorLevel() {
 		return errorLevel;
 	}
 
-	public void setErrorLevel(int errorLevel)
-	{
+	public void setErrorLevel(int errorLevel) {
 		this.errorLevel = errorLevel;
 		repaint();
 	}
 
 	@Override
-	protected void paintComponent(Graphics g)
-	{
+	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(Color.BLUE);

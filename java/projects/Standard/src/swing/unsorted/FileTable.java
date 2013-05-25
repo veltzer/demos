@@ -1,4 +1,5 @@
 package swing.unsorted;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -17,7 +18,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
-
 
 public class FileTable {
 
@@ -48,8 +48,10 @@ public class FileTable {
 		combo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					UIManager.setLookAndFeel(((LookAndFeelInfo)combo.getSelectedItem()).getClassName());
-					UIManager.getLookAndFeel().getDefaults().put("button.border", Color.red);
+					UIManager.setLookAndFeel(((LookAndFeelInfo) combo
+							.getSelectedItem()).getClassName());
+					UIManager.getLookAndFeel().getDefaults()
+							.put("button.border", Color.red);
 					SwingUtilities.updateComponentTreeUI(frm);
 				} catch (ClassNotFoundException e1) {
 					throw new RuntimeException(e1);

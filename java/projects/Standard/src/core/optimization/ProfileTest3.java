@@ -27,13 +27,13 @@ public class ProfileTest3 {
 	/*
 	 * private List<Double> reversedLogList0() { List<Double> result = new
 	 * ArrayList<Double>(TEST_COUNT); for (int i = numbers.size() - 1; i >= 0;
-	 * --i) { int value = getValue(i); // double log = logCache.getLog(value); //
-	 * double log = Math.log(value); double log = cachedLogValues[value];
+	 * --i) { int value = getValue(i); // double log = logCache.getLog(value);
+	 * // double log = Math.log(value); double log = cachedLogValues[value];
 	 * result.add(log); } return result; }
 	 */
 	/*
-	 * private List<Double> reversedLogList1() { LinkedList<Double> result =
-	 * new LinkedList<Double>(); for (int value : numbers) {
+	 * private List<Double> reversedLogList1() { LinkedList<Double> result = new
+	 * LinkedList<Double>(); for (int value : numbers) {
 	 * result.addFirst(cachedLogValues[value]); } return result; }
 	 */
 	private List<Double> reversedLogList() {

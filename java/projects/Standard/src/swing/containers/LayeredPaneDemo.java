@@ -26,8 +26,7 @@ import javax.swing.SwingConstants;
  * images/dukeWaveRed.gif. 
  */
 public class LayeredPaneDemo extends JPanel implements ActionListener,
-		MouseMotionListener
-{
+		MouseMotionListener {
 	/**
 	 * 
 	 */
@@ -57,8 +56,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 
 	private static final int YFUDGE = 57;
 
-	public LayeredPaneDemo()
-	{
+	public LayeredPaneDemo() {
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
 		// Create and load the duke icon.
@@ -79,8 +77,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 
 		// Add several overlapping, colored labels to the layered pane
 		// using absolute positioning/sizing.
-		for (int i = 0; i < layerStrings.length; i++)
-		{
+		for (int i = 0; i < layerStrings.length; i++) {
 			JLabel label = createColoredLabel(layerStrings[i], layerColors[i],
 					origin);
 			layeredPane.add(label, new Integer(i));
@@ -90,21 +87,16 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 
 		// Create and add the Duke label to the layered pane.
 		dukeLabel = new JLabel(icon);
-		if (icon != null)
-		{
-			dukeLabel.setBounds(15, 225, icon.getIconWidth(), icon
-					.getIconHeight());
+		if (icon != null) {
+			dukeLabel.setBounds(15, 225, icon.getIconWidth(),
+					icon.getIconHeight());
 		}
 		/*
-		else
-		{
-			System.err
-					.println("Duke icon not found; using black square instead.");
-			dukeLabel.setBounds(15, 225, 30, 30);
-			dukeLabel.setOpaque(true);
-			dukeLabel.setBackground(Color.BLACK);
-		}
-		*/
+		 * else { System.err
+		 * .println("Duke icon not found; using black square instead.");
+		 * dukeLabel.setBounds(15, 225, 30, 30); dukeLabel.setOpaque(true);
+		 * dukeLabel.setBackground(Color.BLACK); }
+		 */
 		layeredPane.add(dukeLabel, new Integer(2), 0);
 
 		// Add control pane and layered pane to this JPanel.
@@ -115,8 +107,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 	}
 
 	// Create and set up a colored label.
-	private JLabel createColoredLabel(String text, Color color, Point origin)
-	{
+	private JLabel createColoredLabel(String text, Color color, Point origin) {
 		JLabel label = new JLabel(text);
 		label.setVerticalAlignment(SwingConstants.TOP);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -129,8 +120,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 	}
 
 	// Create the control pane for the top of the frame.
-	private JPanel createControlPanel()
-	{
+	private JPanel createControlPanel() {
 		onTop = new JCheckBox("Top Position in Layer");
 		onTop.setSelected(true);
 		onTop.setActionCommand(ON_TOP_COMMAND);
@@ -150,30 +140,24 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 	}
 
 	// Make Duke follow the cursor.
-	public void mouseMoved(MouseEvent e)
-	{
+	public void mouseMoved(MouseEvent e) {
 		dukeLabel.setLocation(e.getX() - XFUDGE, e.getY() - YFUDGE);
 	}
 
-	public void mouseDragged(MouseEvent e)
-	{
+	public void mouseDragged(MouseEvent e) {
 	} // do nothing
 
 	// Handle user interaction with the check box and combo box.
-	public void actionPerformed(ActionEvent e)
-	{
+	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 
-		if (ON_TOP_COMMAND.equals(cmd))
-		{
+		if (ON_TOP_COMMAND.equals(cmd)) {
 			if (onTop.isSelected())
 				layeredPane.moveToFront(dukeLabel);
 			else
 				layeredPane.moveToBack(dukeLabel);
 
-		}
-		else if (LAYER_COMMAND.equals(cmd))
-		{
+		} else if (LAYER_COMMAND.equals(cmd)) {
 			int position = onTop.isSelected() ? 0 : 1;
 			layeredPane.setLayer(dukeLabel, layerList.getSelectedIndex(),
 					position);
@@ -184,8 +168,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
 	 */
-	private static void createAndShowGUI()
-	{
+	private static void createAndShowGUI() {
 		// Make sure we have nice window decorations.
 		JFrame.setDefaultLookAndFeelDecorated(true);
 
@@ -203,13 +186,11 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// Schedule a job for the event-dispatching thread:
 		// creating and showing this application's GUI.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run()
-			{
+			public void run() {
 				createAndShowGUI();
 			}
 		});

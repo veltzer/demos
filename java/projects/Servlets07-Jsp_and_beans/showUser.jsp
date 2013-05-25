@@ -1,12 +1,14 @@
-<%@page contentType="text/html" errorPage="error.jsp" %>
+<%@page contentType="text/html" errorPage="error.jsp"%>
 <%--
     Enter your code here
 --%>
 <html>
-<head><title>User</title></head>
+<head>
+<title>User</title>
+</head>
 <body>
-<h3>The user details are:</h3>
-<%--
+	<h3>The user details are:</h3>
+	<%--
     Enter your code here
 --%>
 </body>

@@ -8,11 +8,11 @@ import org.springframework.core.annotation.Order;
 @Aspect
 @Order(1)
 public class UsageTrackingAspect {
-	@DeclareParents(value = "spring.MyBean", defaultImpl=DefaultUsageTracked.class)
+	@DeclareParents(value = "spring.MyBean", defaultImpl = DefaultUsageTracked.class)
 	private static UsageTracked mixin;
-	
-	//-------------------------
-	
+
+	// -------------------------
+
 	@Before("within(spring.MyBean) && this(usageTracked)")
 	public void recordUsage(UsageTracked usageTracked) {
 		usageTracked.inc();

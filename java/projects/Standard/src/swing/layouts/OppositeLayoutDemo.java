@@ -6,13 +6,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class OppositeLayoutDemo
-{
+public class OppositeLayoutDemo {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] argv)
-	{
+	public static void main(String[] argv) {
 		JFrame frame = new JFrame("Hello World");
 		Container c = frame.getContentPane();
 		// c.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);

@@ -16,7 +16,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		BeanFactory bf = new FileSystemXmlApplicationContext("beans.xml");
-		
+
 		BookStoreAdminDAO bsa = (BookStoreAdminDAO) bf
 				.getBean("BookstoreAdminTest");
 		Book aBook = new Book("title" + System.currentTimeMillis() % 10000,

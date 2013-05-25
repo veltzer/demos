@@ -6,7 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 	public static void main(String[] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/configurable/beans.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"spring/configurable/beans.xml");
 		System.out.println(new MyDomainObject());
 		((AbstractApplicationContext) ctx).close();
 	}

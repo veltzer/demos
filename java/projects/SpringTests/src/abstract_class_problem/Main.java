@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ApplicationContext bf = new ClassPathXmlApplicationContext("beans.xml");
-		MyAbstractClass mac = (MyAbstractClass)bf.getBean("absTest");
+		MyAbstractClass mac = (MyAbstractClass) bf.getBean("absTest");
 		System.out.println(mac.lookupMethod());
 		mac.neverImplemented();
 		((PrintStream) bf).close();

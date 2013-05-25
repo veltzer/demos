@@ -22,31 +22,27 @@ import javax.swing.JToolBar;
  * @author Mark Veltzer
  */
 @SuppressWarnings("serial")
-public class ButtonDemo extends JPanel
-{
+public class ButtonDemo extends JPanel {
 	private JMenuBar menuBar = new JMenuBar();
 
 	private JToolBar toolbar = new JToolBar();
 
 	private AbstractAction action1 = new AbstractAction() {
-		public void actionPerformed(ActionEvent ev)
-		{
+		public void actionPerformed(ActionEvent ev) {
 			setEnabled(false);
 			putValue(NAME, "OK now what?");
 		}
 	};
 
 	private AbstractAction action2 = new AbstractAction() {
-		public void actionPerformed(ActionEvent ev)
-		{
+		public void actionPerformed(ActionEvent ev) {
 			JOptionPane.showMessageDialog(((JComponent) ev.getSource()),
 					"Second button pressed", "Pressed",
 					JOptionPane.PLAIN_MESSAGE);
 		}
 	};
 
-	public ButtonDemo()
-	{
+	public ButtonDemo() {
 		super(new FlowLayout());
 		action1.putValue(Action.NAME, "First");
 		action1.putValue(Action.SHORT_DESCRIPTION, "This is the first Button");
@@ -72,8 +68,7 @@ public class ButtonDemo extends JPanel
 		add(button2);
 	}
 
-	public static void main(String[] argv)
-	{
+	public static void main(String[] argv) {
 		ButtonDemo demo = new ButtonDemo();
 		JFrame frm = new JFrame();
 		frm.getContentPane().add("North", demo.toolbar);

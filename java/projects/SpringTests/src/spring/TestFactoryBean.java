@@ -6,7 +6,7 @@ import org.springframework.beans.factory.FactoryBean;
 
 public class TestFactoryBean implements FactoryBean<Object> {
 	private Date d = new Date();
-	
+
 	@Override
 	public Object getObject() throws Exception {
 		System.out.println(new Date());

@@ -17,7 +17,7 @@ public class WithInterface {
 			Object aScript;
 			aScript = clazz.newInstance();
 			ExampleInterface ifc = (ExampleInterface) aScript;
-			System.out.println(ifc.add(5,5));		
+			System.out.println(ifc.add(5, 5));
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);
 		} catch (CompilationFailedException e) {
@@ -26,8 +26,7 @@ public class WithInterface {
 			throw new RuntimeException(e);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
-		}
-		finally {
+		} finally {
 			try {
 				gcl.close();
 			} catch (IOException e) {

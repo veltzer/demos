@@ -22,17 +22,17 @@ public class TestSubjectJunit4Test {
 
 	@Test
 	public void checkNumberWithPositiveNumber() {
-		assertTrue("Positive values should return 1", testSubject
-				.checkNumber(12) == 1);
+		assertTrue("Positive values should return 1",
+				testSubject.checkNumber(12) == 1);
 	}
 
 	@Test
 	public void checkNumberWithNegativeNumber() {
-		assertTrue("Negative values should return -1", testSubject
-				.checkNumber(-2) == -1);
+		assertTrue("Negative values should return -1",
+				testSubject.checkNumber(-2) == -1);
 	}
 
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void checkNumberWithZero() {
 		testSubject.checkNumber(0);
 	}

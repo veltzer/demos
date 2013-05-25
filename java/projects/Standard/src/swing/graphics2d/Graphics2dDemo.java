@@ -14,18 +14,15 @@ import java.awt.Shape;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Graphics2dDemo extends JPanel
-{
+public class Graphics2dDemo extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	public Graphics2dDemo()
-	{
+	public Graphics2dDemo() {
 		setBackground(Color.ORANGE);
 	}
 
 	@Override
-	protected void paintComponent(Graphics g)
-	{
+	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
 		Graphics2D g2 = (Graphics2D) g;
@@ -34,8 +31,7 @@ public class Graphics2dDemo extends JPanel
 		paintShapes(g2);
 	}
 
-	private void paintLines(Graphics2D g2)
-	{
+	private void paintLines(Graphics2D g2) {
 		// Draw first line,
 		g2.setColor(Color.RED);
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -51,8 +47,7 @@ public class Graphics2dDemo extends JPanel
 		g2.drawLine(30, 30, getWidth() - 30, getHeight() - 90);
 	}
 
-	private void paintText(Graphics2D g2)
-	{
+	private void paintText(Graphics2D g2) {
 		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
 				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g2.translate(100, 200);
@@ -63,14 +58,12 @@ public class Graphics2dDemo extends JPanel
 		g2.drawString("Antialiased", 50, 50);
 	}
 
-	private void paintShapes(Graphics2D g2)
-	{
+	private void paintShapes(Graphics2D g2) {
 		int xPoints[] = { 55, 67, 109, 73, 83, 55, 27, 37, 1, 43 };
 		int yPoints[] = { 0, 36, 36, 54, 96, 72, 96, 54, 36, 36 };
 
 		Shape polygon = new Polygon(xPoints, yPoints, xPoints.length);
-		for (int i = 0; i < 20; ++i)
-		{
+		for (int i = 0; i < 20; ++i) {
 
 			g2.setPaint(new Color((int) (Math.random() * 256), (int) (Math
 					.random() * 256), (int) (Math.random() * 256), 255));
@@ -83,8 +76,7 @@ public class Graphics2dDemo extends JPanel
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// JFrame.setDefaultLookAndFeelDecorated(true);
 		Graphics2dDemo demo = new Graphics2dDemo();
 
@@ -94,8 +86,8 @@ public class Graphics2dDemo extends JPanel
 
 		frame.setSize(500, 500);
 		frame.setVisible(true);
-		//..
-		//..
+		// ..
+		// ..
 	}
 
 }

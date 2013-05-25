@@ -1,7 +1,8 @@
 
 <html>
-<head><title>Hello</title></head>
-<body>
-Hello World
+<head>
+<title>Hello</title>
+</head>
+<body>Hello World
 </body>
 </html>

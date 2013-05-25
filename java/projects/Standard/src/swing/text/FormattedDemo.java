@@ -17,8 +17,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.MaskFormatter;
 
-public class FormattedDemo extends JPanel
-{
+public class FormattedDemo extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JFormattedTextField dateField;
@@ -27,23 +26,18 @@ public class FormattedDemo extends JPanel
 
 	private JButton submitButton;
 
-	public FormattedDemo()
-	{
+	public FormattedDemo() {
 		super(new BorderLayout());
 	}
 
-	private void init()
-	{
+	private void init() {
 		Box textBox = new Box(BoxLayout.Y_AXIS);
 		textBox.add(new JLabel("Please enter date: MM/dd/yyyy hh:mm"));
 
-		try
-		{
-			dateField = new JFormattedTextField(
-					new MaskFormatter("##/##/#### ##:##"));
-		}
-		catch (ParseException e1)
-		{
+		try {
+			dateField = new JFormattedTextField(new MaskFormatter(
+					"##/##/#### ##:##"));
+		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
 		dateField.setText("010119700000");
@@ -52,23 +46,19 @@ public class FormattedDemo extends JPanel
 
 		dateField.getDocument().addDocumentListener(new DocumentListener() {
 
-			public void changedUpdate(DocumentEvent e)
-			{
+			public void changedUpdate(DocumentEvent e) {
 				updateLabel();
 			}
 
-			public void insertUpdate(DocumentEvent e)
-			{
+			public void insertUpdate(DocumentEvent e) {
 				updateLabel();
 			}
 
-			public void removeUpdate(DocumentEvent e)
-			{
+			public void removeUpdate(DocumentEvent e) {
 				updateLabel();
 			}
 
-			private void updateLabel()
-			{
+			private void updateLabel() {
 				enteredTextLabel.setText(dateField.getText());
 			}
 		});
@@ -89,32 +79,21 @@ public class FormattedDemo extends JPanel
 
 		submitButton.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
 	}
-/*
-	private MaskFormatter createFormatter(String s)
-	{
-		MaskFormatter formatter = null;
-		try
-		{
-			formatter = new MaskFormatter(s);
-		}
-		catch (java.text.ParseException exc)
-		{
-			System.err.println("formatter is bad: " + exc.getMessage());
-			System.exit(-1);
-		}
-		return formatter;
-	}
-*/
+
+	/*
+	 * private MaskFormatter createFormatter(String s) { MaskFormatter formatter
+	 * = null; try { formatter = new MaskFormatter(s); } catch
+	 * (java.text.ParseException exc) { System.err.println("formatter is bad: "
+	 * + exc.getMessage()); System.exit(-1); } return formatter; }
+	 */
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		FormattedDemo demo = new FormattedDemo();
 		demo.init();
 

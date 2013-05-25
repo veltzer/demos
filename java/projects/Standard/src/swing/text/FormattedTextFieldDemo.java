@@ -20,8 +20,7 @@ import javax.swing.JPanel;
  * It implements a mortgage calculator that uses four JFormattedTextFields.
  */
 public class FormattedTextFieldDemo extends JPanel implements
-		PropertyChangeListener
-{
+		PropertyChangeListener {
 	private static final long serialVersionUID = 1L;
 
 	// Values for the fields
@@ -65,8 +64,7 @@ public class FormattedTextFieldDemo extends JPanel implements
 
 	private NumberFormat paymentFormat;
 
-	public FormattedTextFieldDemo()
-	{
+	public FormattedTextFieldDemo() {
 		super(new BorderLayout());
 		setUpFormats();
 		double payment = computePayment(amount, rate, numPeriods);
@@ -127,19 +125,13 @@ public class FormattedTextFieldDemo extends JPanel implements
 	}
 
 	/** Called when a field's "value" property changes. */
-	public void propertyChange(PropertyChangeEvent e)
-	{
+	public void propertyChange(PropertyChangeEvent e) {
 		Object source = e.getSource();
-		if (source == amountField)
-		{
+		if (source == amountField) {
 			amount = ((Number) amountField.getValue()).doubleValue();
-		}
-		else if (source == rateField)
-		{
+		} else if (source == rateField) {
 			rate = ((Number) rateField.getValue()).doubleValue();
-		}
-		else if (source == numPeriodsField)
-		{
+		} else if (source == numPeriodsField) {
 			numPeriods = ((Number) numPeriodsField.getValue()).intValue();
 		}
 
@@ -151,8 +143,7 @@ public class FormattedTextFieldDemo extends JPanel implements
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
 	 */
-	private static void createAndShowGUI()
-	{
+	private static void createAndShowGUI() {
 		// Make sure we have nice window decorations.
 		JFrame.setDefaultLookAndFeelDecorated(true);
 
@@ -170,13 +161,11 @@ public class FormattedTextFieldDemo extends JPanel implements
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// Schedule a job for the event-dispatching thread:
 		// creating and showing this application's GUI.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run()
-			{
+			public void run() {
 				createAndShowGUI();
 			}
 		});
@@ -184,19 +173,15 @@ public class FormattedTextFieldDemo extends JPanel implements
 
 	// Compute the monthly payment based on the loan amount,
 	// APR, and length of loan.
-	double computePayment(double loanAmt, double rate, int numPeriods)
-	{
+	double computePayment(double loanAmt, double rate, int numPeriods) {
 		double I, partial1, denominator, answer;
 
 		numPeriods *= 12; // get number of months
-		if (rate > 0.01)
-		{
+		if (rate > 0.01) {
 			I = rate / 100.0 / 12.0; // get monthly rate from annual
 			partial1 = Math.pow((1 + I), (0.0 - numPeriods));
 			denominator = (1 - partial1) / I;
-		}
-		else
-		{ // rate ~= 0
+		} else { // rate ~= 0
 			denominator = numPeriods;
 		}
 
@@ -206,8 +191,7 @@ public class FormattedTextFieldDemo extends JPanel implements
 
 	// Create and set up number formats. These objects also
 	// parse numbers input by user.
-	private void setUpFormats()
-	{
+	private void setUpFormats() {
 		amountFormat = NumberFormat.getNumberInstance();
 
 		percentFormat = NumberFormat.getNumberInstance();

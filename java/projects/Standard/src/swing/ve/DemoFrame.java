@@ -17,8 +17,7 @@ import javax.swing.SwingUtilities;
 
 import swing.graphics2d.RollingPolygon;
 
-public class DemoFrame extends JFrame
-{
+public class DemoFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
@@ -46,13 +45,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jContentPane
-	 *
+	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getJContentPane()
-	{
-		if (jContentPane == null)
-		{
+	private JPanel getJContentPane() {
+		if (jContentPane == null) {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(new BorderLayout());
 			jContentPane.add(getJPanel(), BorderLayout.SOUTH);
@@ -63,13 +60,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jPanel
-	 *
+	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getJPanel()
-	{
-		if (jPanel == null)
-		{
+	private JPanel getJPanel() {
+		if (jPanel == null) {
 			FlowLayout flowLayout = new FlowLayout();
 			flowLayout.setAlignment(java.awt.FlowLayout.RIGHT);
 			jPanel = new JPanel();
@@ -82,18 +77,15 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jButton
-	 *
+	 * 
 	 * @return javax.swing.JButton
 	 */
-	private JButton getJButton()
-	{
-		if (jButton == null)
-		{
+	private JButton getJButton() {
+		if (jButton == null) {
 			jButton = new JButton();
 			jButton.setText("Delete");
 			jButton.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e)
-				{
+				public void actionPerformed(java.awt.event.ActionEvent e) {
 					System.out.println("actionPerformed()");
 				}
 			});
@@ -103,25 +95,21 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes renameButton
-	 *
+	 * 
 	 * @return javax.swing.JButton
 	 */
-	private JButton getRenameButton()
-	{
-		if (renameButton == null)
-		{
+	private JButton getRenameButton() {
+		if (renameButton == null) {
 			renameButton = new JButton();
 			renameButton.setText("Rename");
 			renameButton.addMouseListener(new java.awt.event.MouseAdapter() {
 				@Override
-				public void mouseExited(java.awt.event.MouseEvent e)
-				{
+				public void mouseExited(java.awt.event.MouseEvent e) {
 					renameButton.setText("Rename");
 				}
 
 				@Override
-				public void mouseEntered(java.awt.event.MouseEvent e)
-				{
+				public void mouseEntered(java.awt.event.MouseEvent e) {
 					renameButton.setText("Well...?");
 				}
 			});
@@ -131,13 +119,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jSplitPane
-	 *
+	 * 
 	 * @return javax.swing.JSplitPane
 	 */
-	private JSplitPane getJSplitPane()
-	{
-		if (jSplitPane == null)
-		{
+	private JSplitPane getJSplitPane() {
+		if (jSplitPane == null) {
 			jSplitPane = new JSplitPane();
 			jSplitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
 			jSplitPane.setDividerLocation(100);
@@ -149,13 +135,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jTree
-	 *
+	 * 
 	 * @return javax.swing.JTree
 	 */
-	private JTree getJTree()
-	{
-		if (jTree == null)
-		{
+	private JTree getJTree() {
+		if (jTree == null) {
 			jTree = new JTree();
 		}
 		return jTree;
@@ -163,13 +147,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jScrollPane
-	 *
+	 * 
 	 * @return javax.swing.JScrollPane
 	 */
-	private JScrollPane getJScrollPane()
-	{
-		if (jScrollPane == null)
-		{
+	private JScrollPane getJScrollPane() {
+		if (jScrollPane == null) {
 			jScrollPane = new JScrollPane();
 			jScrollPane.setViewportView(getJPanel1());
 		}
@@ -178,13 +160,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jPanel1
-	 *
+	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getJPanel1()
-	{
-		if (jPanel1 == null)
-		{
+	private JPanel getJPanel1() {
+		if (jPanel1 == null) {
 			jPanel1 = new JPanel();
 			jPanel1.setLayout(new BorderLayout());
 
@@ -199,13 +179,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jJMenuBar
-	 *
+	 * 
 	 * @return javax.swing.JMenuBar
 	 */
-	private JMenuBar getJJMenuBar()
-	{
-		if (jJMenuBar == null)
-		{
+	private JMenuBar getJJMenuBar() {
+		if (jJMenuBar == null) {
 			jJMenuBar = new JMenuBar();
 			jJMenuBar.add(getJMenu());
 		}
@@ -214,13 +192,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jMenu
-	 *
+	 * 
 	 * @return javax.swing.JMenu
 	 */
-	private JMenu getJMenu()
-	{
-		if (jMenu == null)
-		{
+	private JMenu getJMenu() {
+		if (jMenu == null) {
 			jMenu = new JMenu();
 			jMenu.setText("File");
 			jMenu.add(getJMenuItem());
@@ -230,13 +206,11 @@ public class DemoFrame extends JFrame
 
 	/**
 	 * This method initializes jMenuItem
-	 *
+	 * 
 	 * @return javax.swing.JMenuItem
 	 */
-	private JMenuItem getJMenuItem()
-	{
-		if (jMenuItem == null)
-		{
+	private JMenuItem getJMenuItem() {
+		if (jMenuItem == null) {
 			jMenuItem = new JMenuItem();
 			jMenuItem.setMnemonic(KeyEvent.VK_X);
 			jMenuItem.setText("Exit");
@@ -247,11 +221,9 @@ public class DemoFrame extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
-			public void run()
-			{
+			public void run() {
 				DemoFrame thisClass = new DemoFrame();
 				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				thisClass.setVisible(true);
@@ -262,23 +234,21 @@ public class DemoFrame extends JFrame
 	/**
 	 * This is the default constructor
 	 */
-	public DemoFrame()
-	{
+	public DemoFrame() {
 		super();
 		initialize();
 	}
 
 	/**
 	 * This method initializes this
-	 *
+	 * 
 	 * @return void
 	 */
-	private void initialize()
-	{
+	private void initialize() {
 		this.setSize(456, 333);
 		this.setJMenuBar(getJJMenuBar());
 		this.setContentPane(getJContentPane());
 		this.setTitle("JFrame");
 	}
 
-}  //  @jve:decl-index=0:visual-constraint="72,9"
+} // @jve:decl-index=0:visual-constraint="72,9"

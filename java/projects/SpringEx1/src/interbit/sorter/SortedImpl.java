@@ -1,14 +1,13 @@
 package interbit.sorter;
 
-public class SortedImpl implements Sorted{
+public class SortedImpl implements Sorted {
 
 	private boolean sorted;
 
-	public void setSorted()
-	{
+	public void setSorted() {
 		sorted = true;
 	}
-	
+
 	public boolean isSorted() {
 		return sorted;
 	}

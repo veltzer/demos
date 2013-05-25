@@ -8,7 +8,7 @@ import java.nio.channels.FileChannel;
 public class CopyFile {
 	static public void main(String args[]) throws Exception {
 		boolean fast = true;
-		final int size=1024*1024;
+		final int size = 1024 * 1024;
 		if (args.length < 2) {
 			System.err.println("Usage: java CopyFile infile outfile");
 			System.exit(1);

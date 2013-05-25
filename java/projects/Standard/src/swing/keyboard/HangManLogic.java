@@ -3,33 +3,28 @@ package swing.keyboard;
 import java.util.HashSet;
 import java.util.Set;
 
-public class HangManLogic
-{
+public class HangManLogic {
 	private String word;
 
 	private Set<Character> guessedCharacters;
 
-	public HangManLogic()
-	{
+	public HangManLogic() {
 		word = "";
 		guessedCharacters = new HashSet<Character>();
 
 	}
 
-	public final void setWord(String word)
-	{
+	public final void setWord(String word) {
 		this.word = word;
 		guessedCharacters = new HashSet<Character>();
 		// What's missing here?
 	}
 
-	public String getWord()
-	{
+	public String getWord() {
 		return word;
 	}
 
-	public boolean characterIsGuessed(char c)
-	{
+	public boolean characterIsGuessed(char c) {
 		return guessedCharacters.contains(new Character(c));
 	}
 
@@ -37,24 +32,20 @@ public class HangManLogic
 	 * @param c
 	 * @return true when the guessed character is in the word.
 	 */
-	public boolean guessCharacter(char c)
-	{
+	public boolean guessCharacter(char c) {
 		guessedCharacters.add(new Character(c));
 
 		return (word.indexOf(c) >= 0);
 	}
 
-	public char[] getCharacters()
-	{
+	public char[] getCharacters() {
 		return word.toCharArray();
 	}
 
-	public boolean guessComplete()
-	{
+	public boolean guessComplete() {
 		char[] characters = getCharacters();
 
-		for (int i = 0; i < characters.length; ++i)
-		{
+		for (int i = 0; i < characters.length; ++i) {
 			char c = characters[i];
 			if (!guessedCharacters.contains(new Character(c)))
 				return false;

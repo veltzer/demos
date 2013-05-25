@@ -1,14 +1,15 @@
 package programming.labs.lab0702inheritance_sol;
+
 public class Test {
 
 	public static void main(String[] args) {
-		Bank bank=Bank.getBank();
-		for(int i=0;i<3;i++) {
-			double rand=13000*Math.random();
-			int randi=(int)rand;
-			double randd=(double)randi;
-			Account a=new Account(randd);
-			Customer c=new Customer("cust"+i,"id"+i,18+i,a);
+		Bank bank = Bank.getBank();
+		for (int i = 0; i < 3; i++) {
+			double rand = 13000 * Math.random();
+			int randi = (int) rand;
+			double randd = (double) randi;
+			Account a = new Account(randd);
+			Customer c = new Customer("cust" + i, "id" + i, 18 + i, a);
 			bank.addCustomer(c);
 		}
 		System.out.println(bank);

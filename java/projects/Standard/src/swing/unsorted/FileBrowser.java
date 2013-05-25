@@ -1,4 +1,5 @@
 package swing.unsorted;
+
 import java.io.File;
 
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ public class FileBrowser extends JSplitPane implements TreeSelectionListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	protected FileTableModel tableModel;
+
 	public FileBrowser() {
 		super(JSplitPane.HORIZONTAL_SPLIT);
 
@@ -27,12 +29,14 @@ public class FileBrowser extends JSplitPane implements TreeSelectionListener {
 		tree.setRootVisible(false);
 		tree.getSelectionModel().addTreeSelectionListener(this);
 	}
+
 	public void valueChanged(TreeSelectionEvent ev) {
-		if(ev.getPath() != null) {
+		if (ev.getPath() != null) {
 			Object directory = ev.getPath().getLastPathComponent();
-			tableModel.setDirectory((File)directory);
+			tableModel.setDirectory((File) directory);
 		}
 	}
+
 	public static void main(String[] argv) {
 		JFrame frm = new JFrame();
 		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

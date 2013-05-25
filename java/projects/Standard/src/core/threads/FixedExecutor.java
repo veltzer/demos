@@ -28,7 +28,7 @@ public class FixedExecutor {
 
 	private class BlockingThread extends Thread {
 		public BlockingThread() {
-			//setDaemon(true);
+			// setDaemon(true);
 		}
 
 		@Override
@@ -67,17 +67,18 @@ public class FixedExecutor {
 
 	public static void main(String[] args) {
 		// This is the built in java ExecutorService
-		//ExecutorService executor = Executors.newFixedThreadPool(4);
-		
+		// ExecutorService executor = Executors.newFixedThreadPool(4);
+
 		FixedExecutor executor = new FixedExecutor(4);
 
 		Runnable r = new Runnable() {
 
 			public void run() {
-				System.out.println("Doing something from thread "+Thread.currentThread());
+				System.out.println("Doing something from thread "
+						+ Thread.currentThread());
 				// sleep for up to a second
 				try {
-					Thread.sleep((long) (Math.random()*1000));
+					Thread.sleep((long) (Math.random() * 1000));
 				} catch (InterruptedException e) {
 					throw new RuntimeException(e);
 				}

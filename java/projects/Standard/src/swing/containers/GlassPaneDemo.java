@@ -15,8 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class GlassPaneDemo extends JFrame
-{
+public class GlassPaneDemo extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JButton[] buttons = { new JButton("First"), new JButton("Second"),
@@ -28,8 +27,7 @@ public class GlassPaneDemo extends JFrame
 
 	private MyGlassPane myGlassPane;
 
-	private class MyGlassPane extends JPanel
-	{
+	private class MyGlassPane extends JPanel {
 
 		/**
 		 * 
@@ -37,8 +35,7 @@ public class GlassPaneDemo extends JFrame
 		private static final long serialVersionUID = 1L;
 
 		@Override
-		protected void paintComponent(Graphics g)
-		{
+		protected void paintComponent(Graphics g) {
 			if (!showStar)
 				return;
 			Graphics2D g2 = (Graphics2D) g;
@@ -50,8 +47,7 @@ public class GlassPaneDemo extends JFrame
 
 			g2.translate(point.x, point.y);
 			g2.drawOval(-8, -8, 16, 16);
-			for (int i = 0; i < 8; ++i)
-			{
+			for (int i = 0; i < 8; ++i) {
 				g2.drawLine(0, -20, 0, -16);
 				g2.rotate(Math.PI / 4);
 			}
@@ -60,25 +56,21 @@ public class GlassPaneDemo extends JFrame
 
 	}
 
-	public GlassPaneDemo()
-	{
+	public GlassPaneDemo() {
 		super("Glass pane demo");
 		showStar = false;
 		point = new Point(0, 0);
 	}
 
-	private void init()
-	{
+	private void init() {
 		final Container c = getContentPane();
 		c.setLayout(new FlowLayout());
-		for (int i = 0; i < buttons.length; ++i)
-		{
+		for (int i = 0; i < buttons.length; ++i) {
 			final JButton button = buttons[i];
 			button.addMouseListener(new MouseAdapter() {
 
 				@Override
-				public void mouseEntered(MouseEvent e)
-				{
+				public void mouseEntered(MouseEvent e) {
 					showStar = true;
 					point = button.getLocation();
 					point.x += c.getX();
@@ -87,8 +79,7 @@ public class GlassPaneDemo extends JFrame
 				}
 
 				@Override
-				public void mouseExited(MouseEvent e)
-				{
+				public void mouseExited(MouseEvent e) {
 					showStar = false;
 					myGlassPane.repaint();
 				}
@@ -108,8 +99,7 @@ public class GlassPaneDemo extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		GlassPaneDemo app = new GlassPaneDemo();
 		app.init();

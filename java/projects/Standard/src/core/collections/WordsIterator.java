@@ -7,8 +7,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * A demonstration for the use of the collection framework.
- * This class implements the Iterator interface.
+ * A demonstration for the use of the collection framework. This class
+ * implements the Iterator interface.
  * 
  * @author Mark Veltzer
  */

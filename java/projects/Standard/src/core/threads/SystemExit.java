@@ -1,10 +1,10 @@
 package core.threads;
 
 /**
- * This demo shows why System.exit is a bad idea (finally is never called).
- * This does not mean that System.exit should never be called - only
- * that it should be called with extreme care, and probably in less
- * occasions that it is currently being used in...
+ * This demo shows why System.exit is a bad idea (finally is never called). This
+ * does not mean that System.exit should never be called - only that it should
+ * be called with extreme care, and probably in less occasions that it is
+ * currently being used in...
  * 
  * @author Mark Veltzer
  */
@@ -15,8 +15,7 @@ public class SystemExit {
 			System.out.println("in try block");
 			System.exit(0);
 			return;
-		}
-		finally {
+		} finally {
 			System.out.println("in finally block");
 		}
 	}

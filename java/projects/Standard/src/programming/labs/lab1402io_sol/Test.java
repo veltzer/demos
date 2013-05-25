@@ -16,19 +16,18 @@ public class Test {
 	// to be passed. The check for serializable implementation
 	// takes place at runtime and not at compile time
 	public static void writeObject(Object o, String filename) {
-		ObjectOutputStream out=null;
+		ObjectOutputStream out = null;
 		try {
-			out = new ObjectOutputStream(
-					new BufferedOutputStream(
-							new FileOutputStream(filename)));
+			out = new ObjectOutputStream(new BufferedOutputStream(
+					new FileOutputStream(filename)));
 			out.writeObject(o);
-			
+
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {
-			if(out!=null)
+			if (out != null)
 				try {
 					out.close();
 				} catch (IOException e) {
@@ -40,11 +39,10 @@ public class Test {
 	// return is not serializable but rather object
 	// see note above
 	public static Object readObject(String filename) {
-		ObjectInputStream in=null;
+		ObjectInputStream in = null;
 		try {
-			in = new ObjectInputStream(
-					new BufferedInputStream(
-							new FileInputStream(filename)));
+			in = new ObjectInputStream(new BufferedInputStream(
+					new FileInputStream(filename)));
 			Object o = in.readObject();
 			return o;
 		} catch (FileNotFoundException e) {
@@ -54,14 +52,14 @@ public class Test {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		} finally {
-			if(in!=null)
+			if (in != null)
 				try {
 					in.close();
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
 		}
-		
+
 	}
 
 	public static void main(String[] args) {

@@ -6,18 +6,17 @@ import java.util.Properties;
 import java.net.URL;
 
 /**
- * This class is only used to demonstrate the capabilities
- * of Jakarta Ant capabilities.
+ * This class is only used to demonstrate the capabilities of Jakarta Ant
+ * capabilities.
+ * 
  * @author zvika
  */
-public class HelloAnt
-{
+public class HelloAnt {
 	/**
 	 * prints out a welcome message
 	 */
 	public static void main(String[] args) throws Exception {
-		ClassLoader context =
-			Thread.currentThread().getContextClassLoader();
+		ClassLoader context = Thread.currentThread().getContextClassLoader();
 		Properties props = new Properties();
 		props.load(context.getResourceAsStream("conf/app.properties"));
 
@@ -35,7 +34,7 @@ public class HelloAnt
 			JLabel iconLabel = new JLabel(icon);
 			iconLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			this.setLocation(100, 100);
-			this.setSize(800,400);
+			this.setSize(800, 400);
 			this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 			Container content = this.getContentPane();
 			content.setLayout(new BorderLayout());

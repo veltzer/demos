@@ -1,18 +1,17 @@
 package exercise;
 
-
-
 import javax.servlet.jsp.tagext.BodyTagSupport;
+
 /**
- *
- * @author  rank
+ * 
+ * @author rank
  * @version
  */
 @SuppressWarnings("serial")
 public class UpperFilterTag extends BodyTagSupport {
-    
-    /**
-     * Enter you code here
-     */
-    
+
+	/**
+	 * Enter you code here
+	 */
+
 }

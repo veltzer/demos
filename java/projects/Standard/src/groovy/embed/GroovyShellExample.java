@@ -14,9 +14,10 @@ public class GroovyShellExample {
 		binding.setVariable("foo", new Integer(2));
 		GroovyShell shell = new GroovyShell(binding);
 
-		Object value = shell.evaluate("println 'Hello World!'; x = 123; return foo * 10");
+		Object value = shell
+				.evaluate("println 'Hello World!'; x = 123; return foo * 10");
 		assert value.equals(new Integer(20));
-		Integer x=(Integer)binding.getVariable("x");
+		Integer x = (Integer) binding.getVariable("x");
 		assert binding.getVariable("x").equals(new Integer(123));
 		System.out.println(x);
 	}

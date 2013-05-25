@@ -23,8 +23,7 @@ public class AddBookController extends SimpleFormController {
 	}
 
 	@Override
-	protected ModelAndView onSubmit(Object cmd)
-			throws Exception {
+	protected ModelAndView onSubmit(Object cmd) throws Exception {
 		Book book = (Book) cmd;
 		dao.addNewBook(book);
 

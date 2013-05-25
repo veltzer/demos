@@ -15,26 +15,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class LayoutQuiz5 extends JFrame
-{
+public class LayoutQuiz5 extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public LayoutQuiz5() throws HeadlessException
-	{
+	public LayoutQuiz5() throws HeadlessException {
 		super("LayoutQuiz5");
 	}
 
-	private void init()
-	{
+	private void init() {
 		Container c = getContentPane();
 
 		Box box = new Box(BoxLayout.PAGE_AXIS);
-		for (int i = 0; i < 8; ++i)
-		{
+		for (int i = 0; i < 8; ++i) {
 			JComponent comp = createPair("value " + i);
 			comp.setBorder(BorderFactory.createLoweredBevelBorder());
 			box.add(comp);
@@ -45,8 +41,7 @@ public class LayoutQuiz5 extends JFrame
 		setSize(400, 400);
 	}
 
-	private JComponent createPair(String labelText)
-	{
+	private JComponent createPair(String labelText) {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(1, 2));
 
@@ -68,8 +63,7 @@ public class LayoutQuiz5 extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		LayoutQuiz5 app = new LayoutQuiz5();
 		app.init();
 		app.setVisible(true);

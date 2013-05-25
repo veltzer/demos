@@ -8,7 +8,7 @@ import groovy.util.ScriptException;
 import java.io.IOException;
 
 public class ScriptEngine {
-	
+
 	public static void main(String args[]) {
 
 		String[] roots = new String[] { "src/groovy/embed" };
@@ -28,6 +28,6 @@ public class ScriptEngine {
 			throw new RuntimeException(e);
 		}
 		System.out.println(binding.getVariable("output"));
-		
+
 	}
 }

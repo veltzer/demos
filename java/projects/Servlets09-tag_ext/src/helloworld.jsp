@@ -3,8 +3,10 @@
     Enter your code here
 --%>
 <html>
-<head><title>Hello world</title></head>
+<head>
+<title>Hello world</title>
+</head>
 <body>
-<ex:helloworld/>
+	<ex:helloworld />
 </body>
 </html>

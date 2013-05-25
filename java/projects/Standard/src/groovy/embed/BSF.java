@@ -12,10 +12,11 @@ public class BSF {
 		BSFManager manager = new BSFManager();
 		List<Integer> answer;
 		try {
-			answer = (List<Integer>) manager.eval("groovy", "myScript.groovy", 0, 0, myScript);
+			answer = (List<Integer>) manager.eval("groovy", "myScript.groovy",
+					0, 0, myScript);
 		} catch (BSFException e) {
 			throw new RuntimeException(e);
 		}
-		assert(3==answer.size());
+		assert (3 == answer.size());
 	}
 }

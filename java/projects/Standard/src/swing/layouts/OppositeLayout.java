@@ -7,22 +7,18 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 
-public class OppositeLayout implements LayoutManager
-{
+public class OppositeLayout implements LayoutManager {
 
 	/**
 	 * This is a stateless layout.
 	 */
-	public OppositeLayout()
-	{
+	public OppositeLayout() {
 	}
 
-	public void addLayoutComponent(String name, Component comp)
-	{
+	public void addLayoutComponent(String name, Component comp) {
 	}
 
-	public void layoutContainer(Container parent)
-	{
+	public void layoutContainer(Container parent) {
 		boolean isRtl = ComponentOrientation.RIGHT_TO_LEFT.equals(parent
 				.getComponentOrientation());
 		Insets insets = parent.getInsets();
@@ -30,14 +26,13 @@ public class OppositeLayout implements LayoutManager
 
 		Component leftComponent = parent.getComponent(0);
 		Component rightComponent = parent.getComponent(1);
-		if (isRtl)
-		{
+		if (isRtl) {
 			Component swap = leftComponent;
 			leftComponent = rightComponent;
 			rightComponent = swap;
 		}
-		leftComponent.setBounds(insets.left, insets.top, leftComponent
-				.getPreferredSize().width,
+		leftComponent.setBounds(insets.left, insets.top,
+				leftComponent.getPreferredSize().width,
 				leftComponent.getPreferredSize().height);
 		rightComponent.setBounds(size.width
 				- rightComponent.getPreferredSize().width - insets.right,
@@ -45,8 +40,7 @@ public class OppositeLayout implements LayoutManager
 				rightComponent.getPreferredSize().height);
 	}
 
-	public Dimension minimumLayoutSize(Container parent)
-	{
+	public Dimension minimumLayoutSize(Container parent) {
 		Component leftComponent = parent.getComponent(0);
 		Component rightComponent = parent.getComponent(1);
 		Dimension result = new Dimension();
@@ -57,8 +51,7 @@ public class OppositeLayout implements LayoutManager
 		return result;
 	}
 
-	public Dimension preferredLayoutSize(Container parent)
-	{
+	public Dimension preferredLayoutSize(Container parent) {
 		Component leftComponent = parent.getComponent(0);
 		Component rightComponent = parent.getComponent(1);
 		Dimension result = new Dimension();
@@ -69,8 +62,7 @@ public class OppositeLayout implements LayoutManager
 		return result;
 	}
 
-	public void removeLayoutComponent(Component comp)
-	{
+	public void removeLayoutComponent(Component comp) {
 	}
 
 }

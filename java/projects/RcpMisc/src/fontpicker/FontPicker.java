@@ -27,9 +27,9 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * @author clsb1
- *
- * TODO: To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * 
+ *         TODO: To change the template for this generated type comment go to
+ *         Window - Preferences - Java - Code Style - Code Templates
  */
 public class FontPicker {
 
@@ -95,10 +95,10 @@ public class FontPicker {
 		}
 
 		try {
-			font = new Font(null, fontName.getText(), Integer.parseInt(fontSize.getText()), ((Integer)(fontStyle.getData())).intValue());
+			font = new Font(null, fontName.getText(), Integer.parseInt(fontSize
+					.getText()), ((Integer) (fontStyle.getData())).intValue());
 			fontShow.setFont(font);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			// ...
 		}
 	}
@@ -173,7 +173,8 @@ public class FontPicker {
 		Label lbl = new Label(fontStyleCol, SWT.LEFT);
 		lbl.setText("Font style");
 
-		fontStyle = new Text(fontStyleCol, SWT.SINGLE | SWT.READ_ONLY | SWT.BORDER);
+		fontStyle = new Text(fontStyleCol, SWT.SINGLE | SWT.READ_ONLY
+				| SWT.BORDER);
 		fontStyle.setText("Normal");
 		fontStyle.setData(new Integer(SWT.NORMAL));
 
@@ -210,8 +211,7 @@ public class FontPicker {
 				}
 				try {
 					Integer.parseInt(e.text);
-				}
-				catch (Exception ex) {
+				} catch (Exception ex) {
 					e.doit = false;
 				}
 			}

@@ -12,6 +12,6 @@
 		<set-property property="processorClass"
 			value="org.springframework.web.struts.DelegatingRequestProcessor" />
 	</controller>
-	
-	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn"/>
+
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn" />
 </struts-config>

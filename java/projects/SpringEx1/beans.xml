@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
@@ -10,7 +9,7 @@
 				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-	<context:annotation-config/>
+	<context:annotation-config />
 	<bean id="sorter" class="interbit.sorter.impl.SorterImpl"
 		init-method="init">
 		<property name="list">
@@ -22,17 +21,15 @@
 		<property name="itemCount">
 			<value>30000</value>
 		</property>
-		
+
 		<lookup-method name="getItemFactory" bean="&amp;itemFactory" />
 	</bean>
 
 
 	<bean id="itemFactory" class="interbit.sorter.impl.ItemFactoryImpl" />
 
-	<bean id="byNameComparator"
-		class="interbit.sorter.comparators.ItemComparatorByName" />
-	<bean id="byPriceComparator"
-		class="interbit.sorter.comparators.ItemComparatorByPrice" />
+	<bean id="byNameComparator" class="interbit.sorter.comparators.ItemComparatorByName" />
+	<bean id="byPriceComparator" class="interbit.sorter.comparators.ItemComparatorByPrice" />
 
 
 
@@ -48,7 +45,7 @@
 	<aop:aspectj-autoproxy />
 
 	<bean id="benchmarkAspect" class="benchmark.BenchmarkAspect" />
-	<!--bean id="onewayAspect" class="benchmark.OneWayAspect"/-->
+	<!--bean id="onewayAspect" class="benchmark.OneWayAspect"/ -->
 	<bean id="sortableAspect" class="benchmark.SortableAspect" />
 
 
@@ -67,8 +64,7 @@
 
 
 
-	<bean id="exporter"
-		class="org.springframework.jmx.export.MBeanExporter"
+	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter"
 		lazy-init="false">
 		<property name="beans">
 			<map>

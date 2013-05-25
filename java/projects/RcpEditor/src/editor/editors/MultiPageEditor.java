@@ -1,6 +1,5 @@
 package editor.editors;
 
-
 import java.io.StringWriter;
 import java.text.Collator;
 import java.util.ArrayList;
@@ -38,15 +37,16 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 
 /**
- * An example showing how to create a multi-page editor.
- * This example has 3 pages:
+ * An example showing how to create a multi-page editor. This example has 3
+ * pages:
  * <ul>
  * <li>page 0 contains a nested text editor.
  * <li>page 1 allows you to change the font used in page 2
  * <li>page 2 shows the words in page 0 in sorted order
  * </ul>
  */
-public class MultiPageEditor extends MultiPageEditorPart implements IResourceChangeListener{
+public class MultiPageEditor extends MultiPageEditorPart implements
+		IResourceChangeListener {
 
 	/** The text editor used in page 0. */
 	private TextEditor editor;
@@ -56,6 +56,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 
 	/** The text widget used in page 2. */
 	private StyledText text;
+
 	/**
 	 * Creates a multi-page editor example.
 	 */
@@ -63,9 +64,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		super();
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this);
 	}
+
 	/**
-	 * Creates page 0 of the multi-page editor,
-	 * which contains a text editor.
+	 * Creates page 0 of the multi-page editor, which contains a text editor.
 	 */
 	void createPage0() {
 		try {
@@ -73,16 +74,14 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 			int index = addPage(editor, getEditorInput());
 			setPageText(index, editor.getTitle());
 		} catch (PartInitException e) {
-			ErrorDialog.openError(
-				getSite().getShell(),
-				"Error creating nested text editor",
-				null,
-				e.getStatus());
+			ErrorDialog.openError(getSite().getShell(),
+					"Error creating nested text editor", null, e.getStatus());
 		}
 	}
+
 	/**
-	 * Creates page 1 of the multi-page editor,
-	 * which allows you to change the font used in page 2.
+	 * Creates page 1 of the multi-page editor, which allows you to change the
+	 * font used in page 2.
 	 */
 	void createPage1() {
 
@@ -96,7 +95,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		gd.horizontalSpan = 2;
 		fontButton.setLayoutData(gd);
 		fontButton.setText("Change Font...");
-		
+
 		fontButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event) {
 				setFont();
@@ -106,9 +105,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		int index = addPage(composite);
 		setPageText(index, "Properties");
 	}
+
 	/**
-	 * Creates page 2 of the multi-page editor,
-	 * which shows the sorted text.
+	 * Creates page 2 of the multi-page editor, which shows the sorted text.
 	 */
 	void createPage2() {
 		Composite composite = new Composite(getContainer(), SWT.NONE);
@@ -120,6 +119,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		int index = addPage(composite);
 		setPageText(index, "Preview");
 	}
+
 	/**
 	 * Creates the pages of the multi-page editor.
 	 */
@@ -128,8 +128,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		createPage1();
 		createPage2();
 	}
+
 	/**
-	 * The <code>MultiPageEditorPart</code> implementation of this 
+	 * The <code>MultiPageEditorPart</code> implementation of this
 	 * <code>IWorkbenchPart</code> method disposes all nested editors.
 	 * Subclasses may extend.
 	 */
@@ -137,16 +138,18 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this);
 		super.dispose();
 	}
+
 	/**
 	 * Saves the multi-page editor's document.
 	 */
 	public void doSave(IProgressMonitor monitor) {
 		getEditor(0).doSave(monitor);
 	}
+
 	/**
-	 * Saves the multi-page editor's document as another file.
-	 * Also updates the text for page 0's tab, and updates this multi-page editor's input
-	 * to correspond to the nested editor's.
+	 * Saves the multi-page editor's document as another file. Also updates the
+	 * text for page 0's tab, and updates this multi-page editor's input to
+	 * correspond to the nested editor's.
 	 */
 	public void doSaveAs() {
 		IEditorPart editor = getEditor(0);
@@ -154,29 +157,34 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 		setPageText(0, editor.getTitle());
 		setInput(editor.getEditorInput());
 	}
-	/* (non-Javadoc)
-	 * Method declared on IEditorPart
+
+	/*
+	 * (non-Javadoc) Method declared on IEditorPart
 	 */
 	public void gotoMarker(IMarker marker) {
 		setActivePage(0);
 		IDE.gotoMarker(getEditor(0), marker);
 	}
+
 	/**
 	 * The <code>MultiPageEditorExample</code> implementation of this method
 	 * checks that the input is an instance of <code>IFileEditorInput</code>.
 	 */
 	public void init(IEditorSite site, IEditorInput editorInput)
-		throws PartInitException {
+			throws PartInitException {
 		if (!(editorInput instanceof IFileEditorInput))
-			throw new PartInitException("Invalid Input: Must be IFileEditorInput");
+			throw new PartInitException(
+					"Invalid Input: Must be IFileEditorInput");
 		super.init(site, editorInput);
 	}
-	/* (non-Javadoc)
-	 * Method declared on IEditorPart.
+
+	/*
+	 * (non-Javadoc) Method declared on IEditorPart.
 	 */
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
+
 	/**
 	 * Calculates the contents of page 2 when the it is activated.
 	 */
@@ -186,24 +194,30 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 			sortWords();
 		}
 	}
+
 	/**
 	 * Closes all project files on project close.
 	 */
-	public void resourceChanged(final IResourceChangeEvent event){
-		if(event.getType() == IResourceChangeEvent.PRE_CLOSE){
-			Display.getDefault().asyncExec(new Runnable(){
-				public void run(){
-					IWorkbenchPage[] pages = getSite().getWorkbenchWindow().getPages();
-					for (int i = 0; i<pages.length; i++){
-						if(((FileEditorInput)editor.getEditorInput()).getFile().getProject().equals(event.getResource())){
-							IEditorPart editorPart = pages[i].findEditor(editor.getEditorInput());
-							pages[i].closeEditor(editorPart,true);
+	public void resourceChanged(final IResourceChangeEvent event) {
+		if (event.getType() == IResourceChangeEvent.PRE_CLOSE) {
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					IWorkbenchPage[] pages = getSite().getWorkbenchWindow()
+							.getPages();
+					for (int i = 0; i < pages.length; i++) {
+						if (((FileEditorInput) editor.getEditorInput())
+								.getFile().getProject()
+								.equals(event.getResource())) {
+							IEditorPart editorPart = pages[i].findEditor(editor
+									.getEditorInput());
+							pages[i].closeEditor(editorPart, true);
 						}
 					}
-				}            
+				}
 			});
 		}
 	}
+
 	/**
 	 * Sets the font related data to be applied to the text in page 2.
 	 */
@@ -218,16 +232,17 @@ public class MultiPageEditor extends MultiPageEditorPart implements IResourceCha
 			text.setFont(font);
 		}
 	}
+
 	/**
 	 * Sorts the words in page 0, and shows them in page 2.
 	 */
 	void sortWords() {
 
-		String editorText =
-			editor.getDocumentProvider().getDocument(editor.getEditorInput()).get();
+		String editorText = editor.getDocumentProvider()
+				.getDocument(editor.getEditorInput()).get();
 
-		StringTokenizer tokenizer =
-			new StringTokenizer(editorText, " \t\n\r\f!@#\u0024%^&*()-_=+`~[]{};:'\",.<>/?|\\");
+		StringTokenizer tokenizer = new StringTokenizer(editorText,
+				" \t\n\r\f!@#\u0024%^&*()-_=+`~[]{};:'\",.<>/?|\\");
 		ArrayList<String> editorWords = new ArrayList<String>();
 		while (tokenizer.hasMoreTokens()) {
 			editorWords.add(tokenizer.nextToken());

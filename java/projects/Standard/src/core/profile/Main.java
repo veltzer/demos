@@ -15,6 +15,6 @@ class Main {
 		for (int i = 0; i < 1000000; i++) {
 			sum += o.do_that(i);
 		}
-		System.out.println("sum is "+sum);
+		System.out.println("sum is " + sum);
 	}
 }

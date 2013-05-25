@@ -1,6 +1,5 @@
 package programming.labs.lab1001exceptions_sol;
 
-
 public class OverdraftException extends Exception {
 	/**
 	 * 
@@ -10,6 +9,7 @@ public class OverdraftException extends Exception {
 	private double limit;
 	private double balance;
 	private String accountId;
+
 	/**
 	 * @param amount
 	 * @param limit
@@ -24,27 +24,35 @@ public class OverdraftException extends Exception {
 		this.balance = balance;
 		this.accountId = accountId;
 	}
+
 	public double getAmount() {
 		return amount;
 	}
+
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+
 	public double getLimit() {
 		return limit;
 	}
+
 	public void setLimit(double limit) {
 		this.limit = limit;
 	}
+
 	public double getBalance() {
 		return balance;
 	}
+
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+
 	public String getAccountId() {
 		return accountId;
 	}
+
 	public void setAccountId(String accountId) {
 		this.accountId = accountId;
 	}

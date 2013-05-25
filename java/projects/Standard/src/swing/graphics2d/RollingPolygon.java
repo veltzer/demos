@@ -12,8 +12,7 @@ import java.awt.Shape;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class RollingPolygon extends JPanel
-{
+public class RollingPolygon extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
@@ -39,41 +38,32 @@ public class RollingPolygon extends JPanel
 
 	private boolean isRunning;
 
-	private class Roller implements Runnable
-	{
-		public void run()
-		{
-			while (true)
-			{
-				if (isRunning)
-				{
+	private class Roller implements Runnable {
+		public void run() {
+			while (true) {
+				if (isRunning) {
 					xPos += xDelta;
 					yPos += yDelta;
-					if (xPos <= 0)
-					{
+					if (xPos <= 0) {
 						xPos = 0;
 						xDelta = -xDelta;
 					}
-					if (xPos >= getWidth())
-					{
+					if (xPos >= getWidth()) {
 						xPos = getWidth();
 						xDelta = -xDelta;
 					}
-					if (yPos <= 0)
-					{
+					if (yPos <= 0) {
 						yPos = 0;
 						yDelta = -yDelta;
 					}
-					if (yPos >= getHeight())
-					{
+					if (yPos >= getHeight()) {
 						yPos = getHeight();
 						yDelta = -yDelta;
 					}
 					angle += Math.PI / 50;
 
 					gradientPercent += gradientDelta;
-					if ((gradientPercent < 0) || (gradientPercent > 100))
-					{
+					if ((gradientPercent < 0) || (gradientPercent > 100)) {
 						gradientDelta = -gradientDelta;
 						gradientPercent += gradientDelta;
 					}
@@ -81,24 +71,19 @@ public class RollingPolygon extends JPanel
 					repaint();
 
 				}
-				try
-				{
+				try {
 					Thread.sleep(50);
-				}
-				catch (InterruptedException e)
-				{
+				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 			}
 		}
 	}
 
-	public RollingPolygon()
-	{
+	public RollingPolygon() {
 	}
 
-	public void init()
-	{
+	public void init() {
 		int xPoints[] = { -50, 50, 50, -50 };
 		int yPoints[] = { -50, -50, 50, 50 };
 
@@ -118,8 +103,7 @@ public class RollingPolygon extends JPanel
 	}
 
 	@Override
-	protected void paintComponent(Graphics g)
-	{
+	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
 		Graphics2D g2 = (Graphics2D) g;
@@ -128,16 +112,13 @@ public class RollingPolygon extends JPanel
 
 		int redColor = gradientStartColor.getRed()
 				+ (int) ((gradientEndColor.getRed() - gradientStartColor
-						.getRed())
-						* gradientPercent / 100.0);
+						.getRed()) * gradientPercent / 100.0);
 		int greenColor = gradientStartColor.getGreen()
 				+ (int) ((gradientEndColor.getGreen() - gradientStartColor
-						.getGreen())
-						* gradientPercent / 100.0);
+						.getGreen()) * gradientPercent / 100.0);
 		int blueColor = gradientStartColor.getBlue()
 				+ (int) ((gradientEndColor.getBlue() - gradientStartColor
-						.getBlue())
-						* gradientPercent / 100.0);
+						.getBlue()) * gradientPercent / 100.0);
 		Color color = new Color(redColor, greenColor, blueColor);
 
 		g2.setColor(color);
@@ -152,21 +133,18 @@ public class RollingPolygon extends JPanel
 
 	}
 
-	public boolean isRunning()
-	{
+	public boolean isRunning() {
 		return isRunning;
 	}
 
-	public void setRunning(boolean isRunning)
-	{
+	public void setRunning(boolean isRunning) {
 		this.isRunning = isRunning;
 	}
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		RollingPolygon rollingPolygon = new RollingPolygon();
 		rollingPolygon.init();
 		rollingPolygon.setRunning(true);

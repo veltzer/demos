@@ -1,13 +1,14 @@
 package spring.testing;
 
-public class TestSubjectImpl implements TestSubject{
+public class TestSubjectImpl implements TestSubject {
 	private AnImportantDependency anImportantDependency;
-	
+
 	public AnImportantDependency getAnImportantDependency() {
 		return anImportantDependency;
 	}
 
-	public void setAnImportantDependency(AnImportantDependency anImportantDependency) {
+	public void setAnImportantDependency(
+			AnImportantDependency anImportantDependency) {
 		this.anImportantDependency = anImportantDependency;
 	}
 
@@ -20,7 +21,7 @@ public class TestSubjectImpl implements TestSubject{
 			return 1;
 		}
 	}
-	
+
 	public int getAndCheckNumber() {
 		int a = anImportantDependency.doSomethingImportant();
 		return checkNumber(a);

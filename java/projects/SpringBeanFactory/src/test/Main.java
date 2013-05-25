@@ -1,6 +1,5 @@
 package test;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
@@ -17,26 +16,25 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		BeanFactory bf = new FileSystemXmlApplicationContext("beans.xml");
-		Sorter sorter =(Sorter)bf.getBean("sorter");
-		Sorted sorted = (Sorted)sorter;
+		Sorter sorter = (Sorter) bf.getBean("sorter");
+		Sorted sorted = (Sorted) sorter;
 		System.out.println("Sorted: " + sorted.isSorted());
 		sorter.sort();
 		System.out.println("Sorted: " + sorted.isSorted());
 		List<Item> sortedItems = sorter.getItems();
-		double previous=-100000;
+		double previous = -100000;
 		double sum = 0;
-		for (Item item : sortedItems)
-		{
-			double currentPrice=item.getPrice();
-			if(previous>currentPrice) {
+		for (Item item : sortedItems) {
+			double currentPrice = item.getPrice();
+			if (previous > currentPrice) {
 				((AbstractApplicationContext) bf).close();
 				throw new RuntimeException("Oops, sorter is bad");
 			}
-			sum+= item.getPrice();
+			sum += item.getPrice();
 		}
-		System.out.println("sum of all prices is "+sum);
+		System.out.println("sum of all prices is " + sum);
 		((AbstractApplicationContext) bf).close();
 	}
 

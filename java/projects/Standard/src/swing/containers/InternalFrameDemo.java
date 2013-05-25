@@ -21,16 +21,14 @@ import swing.graphics2d.RollingPolygon;
  * InternalFrameDemo.java is a 1.4 application that requires:
  *   MyInternalFrame.java
  */
-public class InternalFrameDemo extends JFrame implements ActionListener
-{
+public class InternalFrameDemo extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	JDesktopPane desktop;
 
-	public InternalFrameDemo()
-	{
+	public InternalFrameDemo() {
 		super("InternalFrameDemo");
 
 		// Make the big window be indented 50 pixels from each edge
@@ -42,7 +40,7 @@ public class InternalFrameDemo extends JFrame implements ActionListener
 
 		// Set up the GUI.
 		desktop = new JDesktopPane(); // a specialized layered pane
-		//createFrame(); // create first "window"
+		// createFrame(); // create first "window"
 		setContentPane(desktop);
 		setJMenuBar(createMenuBar());
 
@@ -50,8 +48,7 @@ public class InternalFrameDemo extends JFrame implements ActionListener
 		desktop.setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
 	}
 
-	protected JMenuBar createMenuBar()
-	{
+	protected JMenuBar createMenuBar() {
 		JMenuBar menuBar = new JMenuBar();
 
 		// Set up the lone menu.
@@ -81,36 +78,27 @@ public class InternalFrameDemo extends JFrame implements ActionListener
 	}
 
 	// React to menu selections.
-	public void actionPerformed(ActionEvent e)
-	{
-		if ("new".equals(e.getActionCommand()))
-		{ // new
+	public void actionPerformed(ActionEvent e) {
+		if ("new".equals(e.getActionCommand())) { // new
 			createFrame();
-		}
-		else
-		{ // quit
+		} else { // quit
 			quit();
 		}
 	}
 
 	// Create a new internal frame.
-	protected void createFrame()
-	{
+	protected void createFrame() {
 		MyInternalFrame frame = new MyInternalFrame();
 		frame.setVisible(true); // necessary as of 1.3
 		desktop.add(frame);
-		try
-		{
+		try {
 			frame.setSelected(true);
-		}
-		catch (java.beans.PropertyVetoException e)
-		{
+		} catch (java.beans.PropertyVetoException e) {
 		}
 	}
 
 	// Quit the application.
-	protected void quit()
-	{
+	protected void quit() {
 		System.exit(0);
 	}
 
@@ -118,8 +106,7 @@ public class InternalFrameDemo extends JFrame implements ActionListener
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
 	 */
-	private static void createAndShowGUI()
-	{
+	private static void createAndShowGUI() {
 		// Make sure we have nice window decorations.
 		JFrame.setDefaultLookAndFeelDecorated(true);
 
@@ -131,21 +118,18 @@ public class InternalFrameDemo extends JFrame implements ActionListener
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// Schedule a job for the event-dispatching thread:
 		// creating and showing this application's GUI.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run()
-			{
+			public void run() {
 				createAndShowGUI();
 			}
 		});
 	}
 }
 
-class MyInternalFrame extends JInternalFrame
-{
+class MyInternalFrame extends JInternalFrame {
 	/**
 	 * 
 	 */
@@ -155,8 +139,7 @@ class MyInternalFrame extends JInternalFrame
 
 	static final int xOffset = 30, yOffset = 30;
 
-	public MyInternalFrame()
-	{
+	public MyInternalFrame() {
 		super("Document #" + (++openFrameCount), true, // resizable
 				true, // closable
 				true, // maximizable

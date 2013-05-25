@@ -4,27 +4,26 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Book implements Serializable {
-	
+
 	private String title;
 	private String author;
 	private double price;
-	
-	public Book(String title, String author, double price){
+
+	public Book(String title, String author, double price) {
 		this.title = title;
 		this.author = author;
 		this.price = price;
 	}
-	
-	
-	public Book(){}
-	
+
+	public Book() {
+	}
+
 	/**
 	 * @return
 	 */
 	public String getAuthor() {
 		return author;
 	}
-
 
 	/**
 	 * @return
@@ -45,7 +44,7 @@ public class Book implements Serializable {
 		title = string;
 	}
 
-	public double getPrice(){
+	public double getPrice() {
 		return price;
 	}
 
@@ -53,7 +52,7 @@ public class Book implements Serializable {
 		this.price = price;
 	}
 
-	public String toString(){
-		return "BookDTO:"+ title + " by:"+ author + " price:"+price;
+	public String toString() {
+		return "BookDTO:" + title + " by:" + author + " price:" + price;
 	}
 }

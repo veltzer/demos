@@ -4,17 +4,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Bank implements Business {
-	private static Bank bank=null;
+	private static Bank bank = null;
 	private List<Customer> customers;
 
 	private Bank() {
-		customers=new LinkedList<Customer>();
+		customers = new LinkedList<Customer>();
 	}
+
 	// can you think of what synchronized does on
 	// a static method ?!?
 	public synchronized static Business getBank() {
-		if (bank==null) {
-			bank=new Bank();
+		if (bank == null) {
+			bank = new Bank();
 		}
 		return bank;
 	}
@@ -28,7 +29,7 @@ public class Bank implements Business {
 		// see note below.
 		customers.remove(index);
 	}
-	
+
 	public Customer getCustomer(int index) {
 		// No need for error checking here
 		// better to get OutOfBounds exception than

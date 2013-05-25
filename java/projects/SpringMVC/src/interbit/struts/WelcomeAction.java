@@ -11,8 +11,7 @@ import org.springframework.beans.factory.BeanNameAware;
 
 public class WelcomeAction extends Action implements BeanNameAware {
 	private String beanName;
-	
-	
+
 	@Override
 	public void setBeanName(String beanName) {
 		this.beanName = beanName;

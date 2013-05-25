@@ -7,9 +7,9 @@ public class MyConfig implements IMyConfig {
 	public String getConfig() {
 		return config;
 	}
-	
+
 	public void setConfig(String c) {
-		config=c;
+		config = c;
 	}
 
 }

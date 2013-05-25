@@ -1,5 +1,3 @@
-
-
 package exercise;
 
 import java.io.Serializable;
@@ -12,45 +10,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
- * @author  rank
- * @version 
+ * 
+ * @author rank
+ * @version
  */
 @SuppressWarnings("serial")
 public class ItemDAO implements Serializable {
-    private static final String URL = "jdbc:odbc:CartServlet";
-    static {
-        try{
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-        } catch (ClassNotFoundException e) {}
-    }
-    
-    public Map<String,Item> findAllItems() throws SQLException {
-        Map<String,Item> items = new HashMap<String,Item>();
-        
-        Connection con = openConnection();
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("Select * from Items");
-        while (rs.next()) {
-            Item item = fillItem(rs);
-            items.put(item.getItemId(),item);
-        }
-        con.close();
+	private static final String URL = "jdbc:odbc:CartServlet";
+	static {
+		try {
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+		} catch (ClassNotFoundException e) {
+		}
+	}
 
-        return items;
-    }
+	public Map<String, Item> findAllItems() throws SQLException {
+		Map<String, Item> items = new HashMap<String, Item>();
 
+		Connection con = openConnection();
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("Select * from Items");
+		while (rs.next()) {
+			Item item = fillItem(rs);
+			items.put(item.getItemId(), item);
+		}
+		con.close();
 
-    private Connection openConnection() throws SQLException {
-        return DriverManager.getConnection(URL,"sa",null); 
-    }
+		return items;
+	}
 
-    private Item fillItem(ResultSet rs) throws SQLException {
-        Item item = new Item();
-        item.setItemId(rs.getString("id"));
-        item.setName(rs.getString("name"));
-        item.setPrice(rs.getDouble("price"));
-        return item;
-    }
-    
+	private Connection openConnection() throws SQLException {
+		return DriverManager.getConnection(URL, "sa", null);
+	}
+
+	private Item fillItem(ResultSet rs) throws SQLException {
+		Item item = new Item();
+		item.setItemId(rs.getString("id"));
+		item.setName(rs.getString("name"));
+		item.setPrice(rs.getDouble("price"));
+		return item;
+	}
+
 }

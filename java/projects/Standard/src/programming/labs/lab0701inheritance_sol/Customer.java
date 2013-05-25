@@ -1,28 +1,29 @@
 package programming.labs.lab0701inheritance_sol;
+
 public class Customer {
 	private String name;
 	private String id;
 	private int age;
 	private Account account;
-	
-	public Customer(){
-		this("John","is-111",30);
+
+	public Customer() {
+		this("John", "is-111", 30);
 	}
-	
-	public Customer(String name,String id,int age){
+
+	public Customer(String name, String id, int age) {
 		setName(name);
 		setId(id);
 		setAge(age);
-		account=new Account(5000);
+		account = new Account(5000);
 	}
-	
-	public Customer(String name,String id,int age,Account account){
+
+	public Customer(String name, String id, int age, Account account) {
 		setName(name);
 		setId(id);
 		setAge(age);
 		setAccount(account);
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
@@ -34,26 +35,26 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
-	
-	public Account getAccount(){
+
+	public Account getAccount() {
 		return account;
 	}
 
 	public void setAge(int age) {
-		if(age>0 && age<120)
-			this.age=age;
+		if (age > 0 && age < 120)
+			this.age = age;
 	}
 
 	public void setId(String id) {
-		this.id=id;
+		this.id = id;
 	}
 
 	public void setName(String name) {
-		this.name=name;
+		this.name = name;
 	}
-	
-	public void setAccount(Account account){
-		this.account=account;
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
 }

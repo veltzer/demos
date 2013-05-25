@@ -1,10 +1,11 @@
 package swing.unsorted;
+
 import javax.swing.table.TableModel;
 
 /**
- * This class adds a totals row to whatever model it is getting.
- * Notice that this is indeed a decorator because it extends the TableModelDecorator
- * class which is a decorator.
+ * This class adds a totals row to whatever model it is getting. Notice that
+ * this is indeed a decorator because it extends the TableModelDecorator class
+ * which is a decorator.
  */
 
 public class TotalRowDecorator extends TableModelDecorator {
@@ -27,9 +28,9 @@ public class TotalRowDecorator extends TableModelDecorator {
 	public Object getValueAt(int row, int col) {
 		if (row == getRowCount() - 1) {
 			long retVal = 0;
-			if (col == colToSum){
-				for (int i = 0 ; i < getRowCount() - 1 ; i++) {
-					retVal += (Long)getValueAt(i, col);
+			if (col == colToSum) {
+				for (int i = 0; i < getRowCount() - 1; i++) {
+					retVal += (Long) getValueAt(i, col);
 				}
 			} else {
 				return "Total";

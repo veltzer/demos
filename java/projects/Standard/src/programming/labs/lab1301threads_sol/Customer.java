@@ -10,8 +10,8 @@ public class Customer {
 	private List<Account> accounts;
 
 	public Customer() {
-		//do not initialize fields you know nothing about
-		//it's better to burn out than to fade away
+		// do not initialize fields you know nothing about
+		// it's better to burn out than to fade away
 		accounts = new ArrayList<Account>();
 	}
 
@@ -23,7 +23,7 @@ public class Customer {
 	}
 
 	public Customer(String name, String id, int age, CheckingAccount account) {
-		this(name,id,age);
+		this(name, id, age);
 		addAccount(account);
 	}
 

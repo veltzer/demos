@@ -12,8 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EtchedBorder;
 
-public class MyFrame extends JFrame
-{
+public class MyFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
@@ -35,13 +34,11 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes centralPanel
-	 *
+	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getCentralPanel()
-	{
-		if (centralPanel == null)
-		{
+	private JPanel getCentralPanel() {
+		if (centralPanel == null) {
 			centralPanel = new JPanel();
 			centralPanel.setLayout(new BorderLayout());
 			centralPanel.add(getJScrollPane(), BorderLayout.CENTER);
@@ -51,16 +48,16 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes bottomPanel
-	 *
+	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getBottomPanel()
-	{
-		if (bottomPanel == null)
-		{
+	private JPanel getBottomPanel() {
+		if (bottomPanel == null) {
 			bottomPanel = new JPanel();
 			bottomPanel.setLayout(new FlowLayout());
-			bottomPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5), BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)));
+			bottomPanel.setBorder(BorderFactory.createCompoundBorder(
+					BorderFactory.createEmptyBorder(5, 5, 5, 5),
+					BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)));
 			bottomPanel.add(getPlayButton(), null);
 			bottomPanel.add(getPauseButton(), null);
 			bottomPanel.add(getStopButton(), null);
@@ -70,13 +67,11 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes playButton
-	 *
+	 * 
 	 * @return javax.swing.JButton
 	 */
-	private JButton getPlayButton()
-	{
-		if (playButton == null)
-		{
+	private JButton getPlayButton() {
+		if (playButton == null) {
 			playButton = new JButton();
 			playButton.setText("Play");
 			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -84,15 +79,14 @@ public class MyFrame extends JFrame
 				public void mouseExited(java.awt.event.MouseEvent e) {
 					playButton.setText("Play");
 				}
+
 				@Override
-				public void mouseEntered(java.awt.event.MouseEvent e)
-				{
+				public void mouseEntered(java.awt.event.MouseEvent e) {
 					playButton.setText("Well?");
 				}
 			});
 			playButton.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e)
-				{
+				public void actionPerformed(java.awt.event.ActionEvent e) {
 					System.out.println("actionPerformed()");
 				}
 			});
@@ -102,18 +96,15 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes pauseButton
-	 *
+	 * 
 	 * @return javax.swing.JButton
 	 */
-	private JButton getPauseButton()
-	{
-		if (pauseButton == null)
-		{
+	private JButton getPauseButton() {
+		if (pauseButton == null) {
 			pauseButton = new JButton();
 			pauseButton.setText("Pause");
 			pauseButton.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e)
-				{
+				public void actionPerformed(java.awt.event.ActionEvent e) {
 					System.out.println("actionPerformed()");
 				}
 			});
@@ -123,13 +114,11 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes stopButton
-	 *
+	 * 
 	 * @return javax.swing.JButton
 	 */
-	private JButton getStopButton()
-	{
-		if (stopButton == null)
-		{
+	private JButton getStopButton() {
+		if (stopButton == null) {
 			stopButton = new JButton();
 			stopButton.setText("Stop");
 		}
@@ -138,13 +127,11 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes jEditorPane
-	 *
+	 * 
 	 * @return javax.swing.JEditorPane
 	 */
-	private JEditorPane getJEditorPane()
-	{
-		if (jEditorPane == null)
-		{
+	private JEditorPane getJEditorPane() {
+		if (jEditorPane == null) {
 			jEditorPane = new JEditorPane();
 		}
 		return jEditorPane;
@@ -152,13 +139,11 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes jScrollPane
-	 *
+	 * 
 	 * @return javax.swing.JScrollPane
 	 */
-	private JScrollPane getJScrollPane()
-	{
-		if (jScrollPane == null)
-		{
+	private JScrollPane getJScrollPane() {
+		if (jScrollPane == null) {
 			jScrollPane = new JScrollPane();
 			jScrollPane.setViewportView(getJEditorPane());
 		}
@@ -168,11 +153,9 @@ public class MyFrame extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
-			public void run()
-			{
+			public void run() {
 				MyFrame thisClass = new MyFrame();
 				thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				thisClass.setVisible(true);
@@ -183,19 +166,17 @@ public class MyFrame extends JFrame
 	/**
 	 * This is the default constructor
 	 */
-	public MyFrame()
-	{
+	public MyFrame() {
 		super();
 		initialize();
 	}
 
 	/**
 	 * This method initializes this
-	 *
+	 * 
 	 * @return void
 	 */
-	private void initialize()
-	{
+	private void initialize() {
 		this.setSize(300, 200);
 		this.setContentPane(getJContentPane());
 		this.setTitle("JFrame");
@@ -203,13 +184,11 @@ public class MyFrame extends JFrame
 
 	/**
 	 * This method initializes jContentPane
-	 *
+	 * 
 	 * @return javax.swing.JPanel
 	 */
-	private JPanel getJContentPane()
-	{
-		if (jContentPane == null)
-		{
+	private JPanel getJContentPane() {
+		if (jContentPane == null) {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(new BorderLayout());
 			jContentPane.add(getCentralPanel(), BorderLayout.CENTER);

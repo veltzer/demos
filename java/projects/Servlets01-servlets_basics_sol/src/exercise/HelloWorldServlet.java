@@ -1,4 +1,3 @@
-
 package exercise;
 
 import java.io.IOException;
@@ -9,14 +8,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- *
- * @author  rank
+ * 
+ * @author rank
  * @version
  */
 @SuppressWarnings("serial")
 public class HelloWorldServlet extends GenericServlet {
-    
-    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-        response.getOutputStream().println("Hello World");
-    }
+
+	public void service(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
+		response.getOutputStream().println("Hello World");
+	}
 }

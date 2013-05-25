@@ -25,25 +25,26 @@
 %>
 
 <html>
-    <head><title>JSP Page</title>
+<head>
+<title>JSP Page</title>
 </head>
-<body bgcolor='<%=session.getAttribute("bgColor")%>' text='<%=session.getAttribute("fontColor")%>' >
-This is a test
-<form action='' method=POST> 
-    <h3>User preferences</h3>
-    Background color: <select name='bgColor'>
-    <% for (int i=0;i<colors.length;i++) { %>
-        <option><%= colors[i]%>
-    <% } %>
-    </select>
-    <br>
-    Font color: <select name='fontColor'>
-    <% for (int i=0;i<colors.length;i++) { %>
-        <option><%= colors[i]%>
-    <% } %>
-    </select><br>
-    <input type=submit value='change'>
-</form>
+<body bgcolor='<%=session.getAttribute("bgColor")%>'
+	text='<%=session.getAttribute("fontColor")%>'>
+	This is a test
+	<form action='' method=POST>
+		<h3>User preferences</h3>
+		Background color: <select name='bgColor'>
+			<% for (int i=0;i<colors.length;i++) { %>
+			<option><%= colors[i]%>
+				<% } %>
+			
+		</select> <br> Font color: <select name='fontColor'>
+			<% for (int i=0;i<colors.length;i++) { %>
+			<option><%= colors[i]%>
+				<% } %>
+			
+		</select><br> <input type=submit value='change'>
+	</form>
 
 </body>
 </html>

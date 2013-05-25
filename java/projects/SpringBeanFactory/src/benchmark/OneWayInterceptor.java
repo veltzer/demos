@@ -8,10 +8,9 @@ public class OneWayInterceptor implements MethodInterceptor {
 
 		Thread oneWay = new Thread(new Runnable() {
 			public void run() {
-				try{
-				inv.proceed();
-				} catch(Throwable e)
-				{
+				try {
+					inv.proceed();
+				} catch (Throwable e) {
 					e.printStackTrace();
 				}
 			};

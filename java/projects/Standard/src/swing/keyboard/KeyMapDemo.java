@@ -11,8 +11,7 @@ import javax.swing.text.JTextComponent;
 import javax.swing.text.Keymap;
 import javax.swing.text.TextAction;
 
-public class KeyMapDemo extends JPanel
-{
+public class KeyMapDemo extends JPanel {
 	/**
 	 * 
 	 */
@@ -91,8 +90,7 @@ public class KeyMapDemo extends JPanel
 			new InsertMeAction("X"), new InsertMeAction("Y"),
 			new InsertMeAction("Z"), };
 
-	public KeyMapDemo()
-	{
+	public KeyMapDemo() {
 		keymap = JTextComponent.addKeymap("Upcase", field.getKeymap());
 		// we didn;t have to add the key map. Instead of the previous line, one
 		// could alternatively use the following line of code:
@@ -102,8 +100,7 @@ public class KeyMapDemo extends JPanel
 		add(field);
 	}
 
-	public static void main(String[] argv)
-	{
+	public static void main(String[] argv) {
 		KeyMapDemo demo = new KeyMapDemo();
 		JFrame frm = new JFrame();
 		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,8 +109,7 @@ public class KeyMapDemo extends JPanel
 		frm.setVisible(true);
 	}
 
-	static class InsertMeAction extends TextAction
-	{
+	static class InsertMeAction extends TextAction {
 
 		/**
 		 * 
@@ -126,8 +122,7 @@ public class KeyMapDemo extends JPanel
 		 * @param s
 		 *            Description of the Parameter
 		 */
-		public InsertMeAction(String s)
-		{
+		public InsertMeAction(String s) {
 			super("insert-me " + s);
 			this.s = s;
 		}
@@ -138,11 +133,9 @@ public class KeyMapDemo extends JPanel
 		 * @param e
 		 *            the action event
 		 */
-		public void actionPerformed(ActionEvent e)
-		{
+		public void actionPerformed(ActionEvent e) {
 			JTextComponent target = getTextComponent(e);
-			if (target != null)
-			{
+			if (target != null) {
 				target.replaceSelection(s);
 			}
 		}

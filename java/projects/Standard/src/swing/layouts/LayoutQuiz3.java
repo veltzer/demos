@@ -11,21 +11,18 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class LayoutQuiz3 extends JFrame
-{
+public class LayoutQuiz3 extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public LayoutQuiz3() throws HeadlessException
-	{
+	public LayoutQuiz3() throws HeadlessException {
 		super("LayoutQuiz3");
 	}
 
-	private void init()
-	{
+	private void init() {
 		Container c = getContentPane();
 
 		{
@@ -33,7 +30,7 @@ public class LayoutQuiz3 extends JFrame
 			box.add(new JButton("top-left"));
 			box.add(Box.createGlue());
 			box.add(new JButton("top-right"));
-			box.setBorder(BorderFactory.createLineBorder(Color.BLUE,5));
+			box.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
 
 			c.add(box, BorderLayout.NORTH);
 		}
@@ -52,8 +49,7 @@ public class LayoutQuiz3 extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		LayoutQuiz3 app = new LayoutQuiz3();
 		app.init();
 		app.setVisible(true);

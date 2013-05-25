@@ -8,23 +8,19 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 
-public class DocumentSizeFilter extends DocumentFilter
-{
+public class DocumentSizeFilter extends DocumentFilter {
 	int maxCharacters;
 
 	boolean DEBUG = false;
 
-	public DocumentSizeFilter(int maxChars)
-	{
+	public DocumentSizeFilter(int maxChars) {
 		maxCharacters = maxChars;
 	}
 
 	@Override
 	public void insertString(FilterBypass fb, int offs, String str,
-			AttributeSet a) throws BadLocationException
-	{
-		if (DEBUG)
-		{
+			AttributeSet a) throws BadLocationException {
+		if (DEBUG) {
 			System.out.println("in DocumentSizeFilter's insertString method");
 		}
 
@@ -40,10 +36,8 @@ public class DocumentSizeFilter extends DocumentFilter
 
 	@Override
 	public void replace(FilterBypass fb, int offs, int length, String str,
-			AttributeSet a) throws BadLocationException
-	{
-		if (DEBUG)
-		{
+			AttributeSet a) throws BadLocationException {
+		if (DEBUG) {
 			System.out.println("in DocumentSizeFilter's replace method");
 		}
 		// This rejects the entire replacement if it would make

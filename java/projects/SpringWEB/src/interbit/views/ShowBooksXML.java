@@ -16,12 +16,14 @@ public class ShowBooksXML implements View {
 	public String getContentType() {
 		return "text/xml";
 	}
+
 	@Override
-	public void render(Map<String,?> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void render(Map<String, ?> model, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		@SuppressWarnings("unchecked")
-		List<Book> books = (List<Book>)model.get("books");
+		List<Book> books = (List<Book>) model.get("books");
 		PrintWriter writer = response.getWriter();
-		for(Book b: books) {
+		for (Book b : books) {
 			writer.print(b);
 		}
 	}

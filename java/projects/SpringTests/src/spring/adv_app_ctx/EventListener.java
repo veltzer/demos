@@ -8,6 +8,7 @@ public class EventListener implements ApplicationListener<SomethingHappened> {
 
 	@Override
 	public void onApplicationEvent(SomethingHappened event) {
-		System.out.println("I found out... something happened to " + event.getSource());
+		System.out.println("I found out... something happened to "
+				+ event.getSource());
 	}
 }

@@ -5,7 +5,7 @@ package programming.samples.bank;
  */
 public class Account {
 	/**
-	 * This is the account id 
+	 * This is the account id
 	 */
 	private String id;
 	/**

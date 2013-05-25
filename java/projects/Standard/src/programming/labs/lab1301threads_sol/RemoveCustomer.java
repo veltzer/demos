@@ -1,6 +1,5 @@
 package programming.labs.lab1301threads_sol;
 
-
 public class RemoveCustomer implements Runnable {
 	private Business bank;
 
@@ -15,11 +14,11 @@ public class RemoveCustomer implements Runnable {
 			// Explain, for every line in the synchronized
 			// block what is it doing inside the synchronized
 			// block
-			synchronized(bank) {
-				//this removes the last customer
-				custnum=bank.getNumOfCustomers();
+			synchronized (bank) {
+				// this removes the last customer
+				custnum = bank.getNumOfCustomers();
 				if (custnum > 0) {
-					bank.removeCustomer(custnum-1);
+					bank.removeCustomer(custnum - 1);
 					custnum--;
 				}
 			}

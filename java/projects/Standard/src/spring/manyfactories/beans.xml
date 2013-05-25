@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="myconfig" class="spring.manyfactories.MyConfig">
-		<property name="config" value="second.xml"/>
+		<property name="config" value="second.xml" />
 	</bean>
 
 </beans>

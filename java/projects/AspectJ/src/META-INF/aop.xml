@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- aop.xml -->
 <aspectj>
-    <aspects>
-        <aspect name="org.meta.aspectj.aspects.BasicAspect"/>
-    </aspects>
+	<aspects>
+		<aspect name="org.meta.aspectj.aspects.BasicAspect" />
+	</aspects>
 </aspectj>

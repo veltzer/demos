@@ -18,7 +18,7 @@ public class GSEExample {
 		try {
 			gse = new GroovyScriptEngine(roots);
 		} catch (IOException e) {
-			throw new RuntimeException(e);			
+			throw new RuntimeException(e);
 		}
 		Binding binding = new Binding();
 		binding.setVariable("input", "world");

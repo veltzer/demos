@@ -23,8 +23,6 @@ public class BookstoreAdminImpl implements BookStoreAdminDAO, BeanFactoryAware {
 		jt.update("insert into BOOKS values(?,?,?)", params);
 	}
 
-	
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Book> showBooks() {
 		JdbcTemplate jt = (JdbcTemplate) bf.getBean("jt");
@@ -39,26 +37,25 @@ public class BookstoreAdminImpl implements BookStoreAdminDAO, BeanFactoryAware {
 
 	}
 
-	
 	public void setBeanFactory(BeanFactory bf) throws BeansException {
 		this.bf = bf;
 	}
-
-
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Book> showBooksBellow(double price) {
 		JdbcTemplate jt = (JdbcTemplate) bf.getBean("jt");
 		Object[] params = new Object[1];
 		params[0] = price;
-		return jt.query("SELECT * from BOOKS where price < ?", params, new RowMapper() {
-			public Object mapRow(ResultSet rs, int num) throws SQLException {
-				String title = rs.getString("title");
-				String author = rs.getString("author");
-				double price = rs.getDouble("price");
-				return new Book(title, author, price);
-			}
-		});
+		return jt.query("SELECT * from BOOKS where price < ?", params,
+				new RowMapper() {
+					public Object mapRow(ResultSet rs, int num)
+							throws SQLException {
+						String title = rs.getString("title");
+						String author = rs.getString("author");
+						double price = rs.getDouble("price");
+						return new Book(title, author, price);
+					}
+				});
 	}
 
 }

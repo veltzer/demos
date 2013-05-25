@@ -8,21 +8,18 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
-public class WordCanvas extends JPanel
-{
+public class WordCanvas extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private HangManLogic hangManLogic;
 
-	public WordCanvas(HangManLogic hangManLogic)
-	{
+	public WordCanvas(HangManLogic hangManLogic) {
 		this.hangManLogic = hangManLogic;
 		setBackground(Color.WHITE);
 	}
 
 	@Override
-	protected void paintComponent(Graphics g)
-	{
+	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(Color.BLUE);
@@ -31,16 +28,13 @@ public class WordCanvas extends JPanel
 		g2.setFont(Font.decode("Courier New-BOLD-60"));
 
 		char[] characters = hangManLogic.getCharacters();
-		for (int i = 0; i < characters.length; ++i)
-		{
+		for (int i = 0; i < characters.length; ++i) {
 			char displayChar = characters[i];
-			if (!hangManLogic.characterIsGuessed(displayChar))
-			{
+			if (!hangManLogic.characterIsGuessed(displayChar)) {
 				displayChar = '_';
 			}
 			g2.drawString("" + displayChar, i * 50 + 20, 100);
 		}
 	}
-
 
 }

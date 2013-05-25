@@ -13,9 +13,9 @@ public abstract class SorterImpl implements Sorter {
 	private int itemCount;
 	private List<Item> items;
 	private Comparator<Item> comparator;
-	
+
 	public void setList(List<Item> unsorted) {
-		this.items = unsorted; 
+		this.items = unsorted;
 	}
 
 	public void setComparator(Comparator<Item> comparator) {
@@ -34,11 +34,10 @@ public abstract class SorterImpl implements Sorter {
 		items.add(item);
 	}
 
-	public void setItemCount(int itemCount)
-	{
+	public void setItemCount(int itemCount) {
 		this.itemCount = itemCount;
 	}
-	
+
 	public abstract ItemFactory getItemFactory();
 
 	public void init() {

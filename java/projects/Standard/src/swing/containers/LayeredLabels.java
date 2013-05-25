@@ -8,8 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-public class LayeredLabels extends JLayeredPane
-{
+public class LayeredLabels extends JLayeredPane {
 	private static final long serialVersionUID = 1L;
 
 	private int maxLevel;
@@ -20,17 +19,14 @@ public class LayeredLabels extends JLayeredPane
 
 	private JLabel[] labels;
 
-	public LayeredLabels()
-	{
+	public LayeredLabels() {
 		maxLevel = 0;
 		init();
 	}
 
-	private void init()
-	{
+	private void init() {
 		labels = new JLabel[colors.length];
-		for (int i = 0; i < labels.length; ++i)
-		{
+		for (int i = 0; i < labels.length; ++i) {
 			labels[i] = new JLabel();
 			final JLabel label = labels[i];
 			label.setBounds(10 + (30 * i), 10 + (30 * i), 120, 120);
@@ -43,8 +39,7 @@ public class LayeredLabels extends JLayeredPane
 			label.addMouseListener(new MouseAdapter() {
 
 				@Override
-				public void mouseClicked(MouseEvent e)
-				{
+				public void mouseClicked(MouseEvent e) {
 					setLayer(label, maxLevel++);
 				}
 			});
@@ -56,8 +51,7 @@ public class LayeredLabels extends JLayeredPane
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		LayeredLabels app = new LayeredLabels();
 		app.init();

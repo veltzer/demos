@@ -8,18 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class OppositePanel extends JPanel
-{
+public class OppositePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	public OppositePanel()
-	{
+	public OppositePanel() {
 		super(new OppositeLayout());
 	}
 
 	@Override
-	public Component add(Component comp)
-	{
+	public Component add(Component comp) {
 		if (getComponentCount() >= 2)
 			throw new RuntimeException(
 					"Cannot hold more than two components in OppositePanel2");
@@ -29,8 +26,7 @@ public class OppositePanel extends JPanel
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 
 		JFrame frame = new JFrame("Hello World");
 

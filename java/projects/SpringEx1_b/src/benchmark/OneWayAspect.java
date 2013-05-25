@@ -11,10 +11,9 @@ public class OneWayAspect {
 
 		Thread oneWay = new Thread(new Runnable() {
 			public void run() {
-				try{
+				try {
 					pjp.proceed();
-				} catch(Throwable e)
-				{
+				} catch (Throwable e) {
 					e.printStackTrace();
 				}
 			};

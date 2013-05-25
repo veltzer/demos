@@ -1,4 +1,3 @@
-
 package exercise;
 
 import java.util.Map;
@@ -12,45 +11,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author  rank
+ * 
+ * @author rank
  * @version
  */
 @SuppressWarnings("serial")
 public class ControllerServlet extends HttpServlet {
 
-    private static final String CATALOG_PAGE = "/list.jsp";
-    private static final String ITEM_PAGE = "/item.jsp";
+	private static final String CATALOG_PAGE = "/list.jsp";
+	private static final String ITEM_PAGE = "/item.jsp";
 
-    public void init() throws ServletException {
-    
-        // create the items list;
-        Map<String,Item> itemList = new TreeMap<String,Item>();
-        itemList.put("1",new Item("1","Monitor",250));
-        itemList.put("2",new Item("2","Hard disk",79.90));
-        itemList.put("3",new Item("3","Mouse",19.90));
-        itemList.put("4",new Item("4","Keyboard",29.90));
-        itemList.put("5",new Item("5","CPU",145.50));
-        itemList.put("6",new Item("6","Fan",8.89));
+	public void init() throws ServletException {
 
-        ServletContext ctx = getServletConfig().getServletContext();
-        ctx.setAttribute("items",itemList);
-    }
+		// create the items list;
+		Map<String, Item> itemList = new TreeMap<String, Item>();
+		itemList.put("1", new Item("1", "Monitor", 250));
+		itemList.put("2", new Item("2", "Hard disk", 79.90));
+		itemList.put("3", new Item("3", "Mouse", 19.90));
+		itemList.put("4", new Item("4", "Keyboard", 29.90));
+		itemList.put("5", new Item("5", "CPU", 145.50));
+		itemList.put("6", new Item("6", "Fan", 8.89));
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, java.io.IOException {
+		ServletContext ctx = getServletConfig().getServletContext();
+		ctx.setAttribute("items", itemList);
+	}
 
-        String mode = request.getParameter("mode");
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException,
+			java.io.IOException {
 
-        RequestDispatcher rd;
-        if (mode.equalsIgnoreCase("cat")) {
-            rd =  request.getRequestDispatcher(CATALOG_PAGE);
-        } else if (mode.equalsIgnoreCase("item")) {
-            rd =  request.getRequestDispatcher(ITEM_PAGE);
-        } else {
-            throw new ServletException("Illegal mode");
-        }
-        rd.forward(request,response);
-    }
+		String mode = request.getParameter("mode");
+
+		RequestDispatcher rd;
+		if (mode.equalsIgnoreCase("cat")) {
+			rd = request.getRequestDispatcher(CATALOG_PAGE);
+		} else if (mode.equalsIgnoreCase("item")) {
+			rd = request.getRequestDispatcher(ITEM_PAGE);
+		} else {
+			throw new ServletException("Illegal mode");
+		}
+		rd.forward(request, response);
+	}
 
 }

@@ -6,7 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Scheduling {
 	public static void main(String[] args) throws Exception {
-		BeanFactory bf = new ClassPathXmlApplicationContext("spring/scheduling/beans.xml");
+		BeanFactory bf = new ClassPathXmlApplicationContext(
+				"spring/scheduling/beans.xml");
 
 		Thread.sleep(20000);
 		((AbstractApplicationContext) bf).close();

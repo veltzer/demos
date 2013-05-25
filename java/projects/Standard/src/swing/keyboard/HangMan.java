@@ -18,8 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.KeyStroke;
 
-public class HangMan extends JFrame
-{
+public class HangMan extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,14 +28,12 @@ public class HangMan extends JFrame
 
 	private HangManLogic hangManLogic;
 
-	public HangMan()
-	{
+	public HangMan() {
 		super("Hangman");
 		hangManLogic = new HangManLogic();
 	}
 
-	private void init()
-	{
+	private void init() {
 
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
@@ -54,8 +51,7 @@ public class HangMan extends JFrame
 
 		addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e)
-			{
+			public void keyTyped(KeyEvent e) {
 				if (e.getModifiers() != 0)
 					return;
 				handleKeyTyped(e.getKeyChar());
@@ -70,8 +66,7 @@ public class HangMan extends JFrame
 		newGameItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F2, 0));
 		newGameItem.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				startNewGame();
 			}
 		});
@@ -82,8 +77,7 @@ public class HangMan extends JFrame
 				InputEvent.CTRL_MASK));
 		exitItem.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
@@ -96,8 +90,7 @@ public class HangMan extends JFrame
 		startNewGame();
 	}
 
-	private void handleKeyTyped(char c)
-	{
+	private void handleKeyTyped(char c) {
 		c = Character.toLowerCase(c);
 		if (c < 'a')
 			return;
@@ -105,31 +98,25 @@ public class HangMan extends JFrame
 			return;
 		if (hangManLogic.characterIsGuessed(c))
 			return;
-		if (hangManLogic.guessCharacter(c))
-		{
+		if (hangManLogic.guessCharacter(c)) {
 			// success!
 			wordCanvas.repaint();
-			if (hangManLogic.guessComplete())
-			{
+			if (hangManLogic.guessComplete()) {
 				JOptionPane.showMessageDialog(this, "You win");
 				startNewGame();
 			}
-		}
-		else
-		{
+		} else {
 			// Wrong character
 			int errorLevel = hangedManCanvas.getErrorLevel() + 1;
 			hangedManCanvas.setErrorLevel(errorLevel);
-			if (errorLevel > 8)
-			{
+			if (errorLevel > 8) {
 				JOptionPane.showMessageDialog(this, "You lose");
 				startNewGame();
 			}
 		}
 	}
 
-	private void startNewGame()
-	{
+	private void startNewGame() {
 		hangManLogic.setWord("underground");
 		hangedManCanvas.setErrorLevel(0);
 		repaint();
@@ -138,8 +125,7 @@ public class HangMan extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		HangMan app = new HangMan();
 		app.init();

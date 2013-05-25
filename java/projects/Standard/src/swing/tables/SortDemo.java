@@ -1,31 +1,30 @@
 package swing.tables;
+
 import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 public class SortDemo extends JPanel {
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-
 	public SortDemo() {
-        FileTableModel m = new FileTableModel();
-        File directory = new File(".");
-        m.setDirectory(directory);
-        add(new JScrollPane(new VTable(m)));
-    }
+		FileTableModel m = new FileTableModel();
+		File directory = new File(".");
+		m.setDirectory(directory);
+		add(new JScrollPane(new VTable(m)));
+	}
 
-
-    public static void main(String[] argv) {
-        SortDemo layout = new SortDemo();
-        JFrame frm = new JFrame();
-        frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frm.getContentPane().add("Center", layout);
-        frm.pack();
-        frm.setVisible(true);
-    }
+	public static void main(String[] argv) {
+		SortDemo layout = new SortDemo();
+		JFrame frm = new JFrame();
+		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frm.getContentPane().add("Center", layout);
+		frm.pack();
+		frm.setVisible(true);
+	}
 }
-

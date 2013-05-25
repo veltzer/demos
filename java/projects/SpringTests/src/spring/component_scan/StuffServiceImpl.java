@@ -14,7 +14,7 @@ public class StuffServiceImpl implements StuffService {
 
 	public void doSomethingWithStuff(int id) {
 		Object o = stuffDao.getStuff(id);
-		
+
 		// do something...
 		System.out.println("doing something with " + o);
 	}

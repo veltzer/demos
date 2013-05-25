@@ -2,8 +2,7 @@ package swing.text;
 
 /*
  * TextComponentDemo.java is a 1.4 application that requires
- * one additional file:
- *   DocumentSizeFilter
+ * one additional file: DocumentSizeFilter
  */
 
 import java.awt.BorderLayout;
@@ -50,8 +49,7 @@ import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
-public class TextComponentDemo extends JFrame
-{
+public class TextComponentDemo extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	JTextPane textPane;
@@ -64,7 +62,7 @@ public class TextComponentDemo extends JFrame
 
 	String newline = "\n";
 
-	HashMap<Object,Action> actions;
+	HashMap<Object, Action> actions;
 
 	// undo helpers
 	protected UndoAction undoAction;
@@ -73,8 +71,7 @@ public class TextComponentDemo extends JFrame
 
 	protected UndoManager undo = new UndoManager();
 
-	public TextComponentDemo()
-	{
+	public TextComponentDemo() {
 		super("TextComponentDemo");
 
 		// Create the text pane and configure it.
@@ -82,13 +79,10 @@ public class TextComponentDemo extends JFrame
 		textPane.setCaretPosition(0);
 		textPane.setMargin(new Insets(5, 5, 5, 5));
 		StyledDocument styledDoc = textPane.getStyledDocument();
-		if (styledDoc instanceof AbstractDocument)
-		{
+		if (styledDoc instanceof AbstractDocument) {
 			doc = (AbstractDocument) styledDoc;
 			doc.setDocumentFilter(new DocumentSizeFilter(MAX_CHARACTERS));
-		}
-		else
-		{
+		} else {
 			System.err
 					.println("Text pane's document isn't an AbstractDocument!");
 			System.exit(-1);
@@ -138,21 +132,18 @@ public class TextComponentDemo extends JFrame
 	}
 
 	// This listens for and reports caret movements.
-	protected class CaretListenerLabel extends JLabel implements CaretListener
-	{
+	protected class CaretListenerLabel extends JLabel implements CaretListener {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
 
-		public CaretListenerLabel(String label)
-		{
+		public CaretListenerLabel(String label) {
 			super(label);
 		}
 
 		// Might not be invoked from the event dispatching thread.
-		public void caretUpdate(CaretEvent e)
-		{
+		public void caretUpdate(CaretEvent e) {
 			displaySelectionInfo(e.getDot(), e.getMark());
 		}
 
@@ -161,33 +152,23 @@ public class TextComponentDemo extends JFrame
 		// must run in the event dispatching thread. We use
 		// invokeLater to schedule the code for execution
 		// in the event dispatching thread.
-		protected void displaySelectionInfo(final int dot, final int mark)
-		{
+		protected void displaySelectionInfo(final int dot, final int mark) {
 			SwingUtilities.invokeLater(new Runnable() {
-				public void run()
-				{
-					if (dot == mark)
-					{ // no selection
-						try
-						{
+				public void run() {
+					if (dot == mark) { // no selection
+						try {
 							Rectangle caretCoords = textPane.modelToView(dot);
 							// Convert it to view coordinates.
 							setText("caret: text position: " + dot
 									+ ", view location = [" + caretCoords.x
 									+ ", " + caretCoords.y + "]" + newline);
-						}
-						catch (BadLocationException ble)
-						{
+						} catch (BadLocationException ble) {
 							setText("caret: text position: " + dot + newline);
 						}
-					}
-					else if (dot < mark)
-					{
+					} else if (dot < mark) {
 						setText("selection from: " + dot + " to " + mark
 								+ newline);
-					}
-					else
-					{
+					} else {
 						setText("selection from: " + mark + " to " + dot
 								+ newline);
 					}
@@ -197,10 +178,8 @@ public class TextComponentDemo extends JFrame
 	}
 
 	// This one listens for edits that can be undone.
-	protected class MyUndoableEditListener implements UndoableEditListener
-	{
-		public void undoableEditHappened(UndoableEditEvent e)
-		{
+	protected class MyUndoableEditListener implements UndoableEditListener {
+		public void undoableEditHappened(UndoableEditEvent e) {
 			// Remember the edit and update the menus.
 			undo.addEdit(e.getEdit());
 			undoAction.updateUndoState();
@@ -209,25 +188,20 @@ public class TextComponentDemo extends JFrame
 	}
 
 	// And this one listens for any changes to the document.
-	protected class MyDocumentListener implements DocumentListener
-	{
-		public void insertUpdate(DocumentEvent e)
-		{
+	protected class MyDocumentListener implements DocumentListener {
+		public void insertUpdate(DocumentEvent e) {
 			displayEditInfo(e);
 		}
 
-		public void removeUpdate(DocumentEvent e)
-		{
+		public void removeUpdate(DocumentEvent e) {
 			displayEditInfo(e);
 		}
 
-		public void changedUpdate(DocumentEvent e)
-		{
+		public void changedUpdate(DocumentEvent e) {
 			displayEditInfo(e);
 		}
 
-		private void displayEditInfo(DocumentEvent e)
-		{
+		private void displayEditInfo(DocumentEvent e) {
 			Document document = e.getDocument();
 			int changeLength = e.getLength();
 			changeLog.append(e.getType().toString() + ": " + changeLength
@@ -237,8 +211,7 @@ public class TextComponentDemo extends JFrame
 	}
 
 	// Add a couple of emacs key bindings for navigation.
-	protected void addBindings()
-	{
+	protected void addBindings() {
 		InputMap inputMap = textPane.getInputMap();
 
 		// Ctrl-b to go backward one character
@@ -259,8 +232,7 @@ public class TextComponentDemo extends JFrame
 	}
 
 	// Create the edit menu.
-	protected JMenu createEditMenu()
-	{
+	protected JMenu createEditMenu() {
 		JMenu menu = new JMenu("Edit");
 
 		// Undo and redo are actions of our own creation.
@@ -285,8 +257,7 @@ public class TextComponentDemo extends JFrame
 	}
 
 	// Create the style menu.
-	protected JMenu createStyleMenu()
-	{
+	protected JMenu createStyleMenu() {
 		JMenu menu = new JMenu("Style");
 
 		Action action = new StyledEditorKit.BoldAction();
@@ -310,9 +281,7 @@ public class TextComponentDemo extends JFrame
 		menu.addSeparator();
 
 		menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
-		menu
-				.add(new StyledEditorKit.FontFamilyAction("SansSerif",
-						"SansSerif"));
+		menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
 
 		menu.addSeparator();
 
@@ -324,8 +293,7 @@ public class TextComponentDemo extends JFrame
 		return menu;
 	}
 
-	protected void initDocument()
-	{
+	protected void initDocument() {
 		String initString[] = { "Use the mouse to place the caret.",
 				"Use the edit menu to cut, copy, paste, and select text.",
 				"Also to undo and redo changes.",
@@ -335,22 +303,17 @@ public class TextComponentDemo extends JFrame
 
 		SimpleAttributeSet[] attrs = initAttributes(initString.length);
 
-		try
-		{
-			for (int i = 0; i < initString.length; i++)
-			{
+		try {
+			for (int i = 0; i < initString.length; i++) {
 				doc.insertString(doc.getLength(), initString[i] + newline,
 						attrs[i]);
 			}
-		}
-		catch (BadLocationException ble)
-		{
+		} catch (BadLocationException ble) {
 			System.err.println("Couldn't insert initial text.");
 		}
 	}
 
-	protected SimpleAttributeSet[] initAttributes(int length)
-	{
+	protected SimpleAttributeSet[] initAttributes(int length) {
 		// Hard-code some attributes.
 		SimpleAttributeSet[] attrs = new SimpleAttributeSet[length];
 
@@ -378,43 +341,34 @@ public class TextComponentDemo extends JFrame
 
 	// The following two methods allow us to find an
 	// action provided by the editor kit by its name.
-	private void createActionTable(JTextComponent textComponent)
-	{
-		actions = new HashMap<Object,Action>();
+	private void createActionTable(JTextComponent textComponent) {
+		actions = new HashMap<Object, Action>();
 		Action[] actionsArray = textComponent.getActions();
-		for (int i = 0; i < actionsArray.length; i++)
-		{
+		for (int i = 0; i < actionsArray.length; i++) {
 			Action a = actionsArray[i];
 			actions.put(a.getValue(Action.NAME), a);
 		}
 	}
 
-	private Action getActionByName(String name)
-	{
+	private Action getActionByName(String name) {
 		return (Action) (actions.get(name));
 	}
 
-	class UndoAction extends AbstractAction
-	{
+	class UndoAction extends AbstractAction {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
 
-		public UndoAction()
-		{
+		public UndoAction() {
 			super("Undo");
 			setEnabled(false);
 		}
 
-		public void actionPerformed(ActionEvent e)
-		{
-			try
-			{
+		public void actionPerformed(ActionEvent e) {
+			try {
 				undo.undo();
-			}
-			catch (CannotUndoException ex)
-			{
+			} catch (CannotUndoException ex) {
 				System.out.println("Unable to undo: " + ex);
 				ex.printStackTrace();
 			}
@@ -422,42 +376,32 @@ public class TextComponentDemo extends JFrame
 			redoAction.updateRedoState();
 		}
 
-		protected void updateUndoState()
-		{
-			if (undo.canUndo())
-			{
+		protected void updateUndoState() {
+			if (undo.canUndo()) {
 				setEnabled(true);
 				putValue(Action.NAME, undo.getUndoPresentationName());
-			}
-			else
-			{
+			} else {
 				setEnabled(false);
 				putValue(Action.NAME, "Undo");
 			}
 		}
 	}
 
-	class RedoAction extends AbstractAction
-	{
+	class RedoAction extends AbstractAction {
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
 
-		public RedoAction()
-		{
+		public RedoAction() {
 			super("Redo");
 			setEnabled(false);
 		}
 
-		public void actionPerformed(ActionEvent e)
-		{
-			try
-			{
+		public void actionPerformed(ActionEvent e) {
+			try {
 				undo.redo();
-			}
-			catch (CannotRedoException ex)
-			{
+			} catch (CannotRedoException ex) {
 				System.out.println("Unable to redo: " + ex);
 				ex.printStackTrace();
 			}
@@ -465,15 +409,11 @@ public class TextComponentDemo extends JFrame
 			undoAction.updateUndoState();
 		}
 
-		protected void updateRedoState()
-		{
-			if (undo.canRedo())
-			{
+		protected void updateRedoState() {
+			if (undo.canRedo()) {
 				setEnabled(true);
 				putValue(Action.NAME, undo.getRedoPresentationName());
-			}
-			else
-			{
+			} else {
 				setEnabled(false);
 				putValue(Action.NAME, "Redo");
 			}
@@ -484,8 +424,7 @@ public class TextComponentDemo extends JFrame
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
 	 */
-	private static void createAndShowGUI()
-	{
+	private static void createAndShowGUI() {
 		// Make sure we have nice window decorations.
 		JFrame.setDefaultLookAndFeelDecorated(true);
 
@@ -499,13 +438,11 @@ public class TextComponentDemo extends JFrame
 	}
 
 	// The standard main method.
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// Schedule a job for the event-dispatching thread:
 		// creating and showing this application's GUI.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run()
-			{
+			public void run() {
 				createAndShowGUI();
 			}
 		});

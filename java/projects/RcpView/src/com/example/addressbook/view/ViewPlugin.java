@@ -12,13 +12,13 @@ import com.example.addressbook.view.views.AddressBookManager;
  */
 public class ViewPlugin extends AbstractUIPlugin {
 
-	//The shared instance.
+	// The shared instance.
 	private static ViewPlugin plugin;
-    private ImageDescriptor friendIconDesc;
-    private ImageDescriptor companyIconDesc;
-    private Image friendIcon;
-    private Image companyIcon;
-	
+	private ImageDescriptor friendIconDesc;
+	private ImageDescriptor companyIconDesc;
+	private Image friendIcon;
+	private Image companyIcon;
+
 	/**
 	 * The constructor.
 	 */
@@ -31,19 +31,19 @@ public class ViewPlugin extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-        friendIconDesc = getImageDescriptor("icons/Person.gif");
-        companyIconDesc = getImageDescriptor("icons/Company.gif");
-        friendIcon = friendIconDesc.createImage();
-        companyIcon = companyIconDesc.createImage();
+		friendIconDesc = getImageDescriptor("icons/Person.gif");
+		companyIconDesc = getImageDescriptor("icons/Company.gif");
+		friendIcon = friendIconDesc.createImage();
+		companyIcon = companyIconDesc.createImage();
 	}
 
 	/**
 	 * This method is called when the plug-in is stopped
 	 */
 	public void stop(BundleContext context) throws Exception {
-        AddressBookManager.save();
-        friendIcon.dispose();
-        companyIcon.dispose();
+		AddressBookManager.save();
+		friendIcon.dispose();
+		companyIcon.dispose();
 		super.stop(context);
 		plugin = null;
 	}
@@ -56,29 +56,31 @@ public class ViewPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns an image descriptor for the image file at the given
-	 * plug-in relative path.
-	 *
-	 * @param path the path
+	 * Returns an image descriptor for the image file at the given plug-in
+	 * relative path.
+	 * 
+	 * @param path
+	 *            the path
 	 * @return the image descriptor
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
-		return AbstractUIPlugin.imageDescriptorFromPlugin("com.example.addressbook.view", path);
+		return AbstractUIPlugin.imageDescriptorFromPlugin(
+				"com.example.addressbook.view", path);
 	}
-    
-    public static Image getFriendIcon() {
-        return plugin.friendIcon;
-    }
-    
-    public static Image getCompanyIcon() {
-        return plugin.companyIcon;
-    }
 
-    public static ImageDescriptor getFriendIconDescriptor() {
-        return plugin.friendIconDesc;
-    }
-    
-    public static ImageDescriptor getCompanyIconDescriptor() {
-        return plugin.companyIconDesc;
-    }
+	public static Image getFriendIcon() {
+		return plugin.friendIcon;
+	}
+
+	public static Image getCompanyIcon() {
+		return plugin.companyIcon;
+	}
+
+	public static ImageDescriptor getFriendIconDescriptor() {
+		return plugin.friendIconDesc;
+	}
+
+	public static ImageDescriptor getCompanyIconDescriptor() {
+		return plugin.companyIconDesc;
+	}
 }

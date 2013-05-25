@@ -9,8 +9,10 @@ public class BenchmarkInterceptor implements MethodInterceptor {
 		long startTime = System.currentTimeMillis();
 		Object result = inv.proceed();
 		long endTime = System.currentTimeMillis();
-		System.out.println("Time took for: " + inv.getThis().getClass().getName() + " " + inv.getMethod().getName()
-				+ " was: " + (endTime - startTime) + " Milliseconds.");
+		System.out.println("Time took for: "
+				+ inv.getThis().getClass().getName() + " "
+				+ inv.getMethod().getName() + " was: " + (endTime - startTime)
+				+ " Milliseconds.");
 		return result;
 	}
 }

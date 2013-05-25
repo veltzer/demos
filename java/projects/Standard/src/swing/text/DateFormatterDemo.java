@@ -18,8 +18,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.DateFormatter;
 
-public class DateFormatterDemo extends JPanel
-{
+public class DateFormatterDemo extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JFormattedTextField dateField;
@@ -42,23 +41,19 @@ public class DateFormatterDemo extends JPanel
 
 		dateField.getDocument().addDocumentListener(new DocumentListener() {
 
-			public void changedUpdate(DocumentEvent e)
-			{
+			public void changedUpdate(DocumentEvent e) {
 				updateLabel();
 			}
 
-			public void insertUpdate(DocumentEvent e)
-			{
+			public void insertUpdate(DocumentEvent e) {
 				updateLabel();
 			}
 
-			public void removeUpdate(DocumentEvent e)
-			{
+			public void removeUpdate(DocumentEvent e) {
 				updateLabel();
 			}
 
-			private void updateLabel()
-			{
+			private void updateLabel() {
 				enteredTextLabel.setText("" + dateField.getValue());
 			}
 		});
@@ -79,8 +74,7 @@ public class DateFormatterDemo extends JPanel
 
 		submitButton.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
 	}

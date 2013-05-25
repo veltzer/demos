@@ -1,107 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.5.0" class="java.beans.XMLDecoder">
- <object class="javax.swing.JPanel">
-  <void method="add">
-   <object class="javax.swing.JButton">
-    <string>Hi World</string>
-    <void property="bounds">
-     <object class="java.awt.Rectangle">
-      <int>151</int>
-      <int>22</int>
-      <int>100</int>
-      <int>100</int>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="javax.swing.JToggleButton">
-    <void property="bounds">
-     <object class="java.awt.Rectangle">
-      <int>56</int>
-      <int>122</int>
-      <int>100</int>
-      <int>100</int>
-     </object>
-    </void>
-    <void property="actionCommand">
-     <string>Toggle Button</string>
-    </void>
-    <void property="label">
-     <string>Toggle Button</string>
-    </void>
-    <void property="model">
-     <void property="actionCommand">
-      <null/>
-     </void>
-     <void property="selected">
-      <boolean>true</boolean>
-     </void>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="javax.swing.JTextField">
-    <void property="bounds">
-     <object class="java.awt.Rectangle">
-      <int>252</int>
-      <int>142</int>
-      <int>100</int>
-      <int>31</int>
-     </object>
-    </void>
-    <void property="text">
-     <string>Text Field</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="javax.swing.JTextArea">
-    <void property="bounds">
-     <object class="java.awt.Rectangle">
-      <int>176</int>
-      <int>187</int>
-      <int>100</int>
-      <int>100</int>
-     </object>
-    </void>
-    <void property="text">
-     <string>This is a text  area</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="javax.swing.JRadioButton">
-    <void property="bounds">
-     <object class="java.awt.Rectangle">
-      <int>54</int>
-      <int>236</int>
-      <int>100</int>
-      <int>100</int>
-     </object>
-    </void>
-    <void property="model">
-     <void property="selected">
-      <boolean>true</boolean>
-     </void>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="javax.swing.JButton">
-    <string></string>
-    <void property="bounds">
-     <object class="java.awt.Rectangle">
-      <int>263</int>
-      <int>12</int>
-      <int>100</int>
-      <int>100</int>
-     </object>
-    </void>
-   </object>
-  </void>
-  <void property="layout">
-   <null/>
-  </void>
- </object>
+	<object class="javax.swing.JPanel">
+		<void method="add">
+			<object class="javax.swing.JButton">
+				<string>Hi World</string>
+				<void property="bounds">
+					<object class="java.awt.Rectangle">
+						<int>151</int>
+						<int>22</int>
+						<int>100</int>
+						<int>100</int>
+					</object>
+				</void>
+			</object>
+		</void>
+		<void method="add">
+			<object class="javax.swing.JToggleButton">
+				<void property="bounds">
+					<object class="java.awt.Rectangle">
+						<int>56</int>
+						<int>122</int>
+						<int>100</int>
+						<int>100</int>
+					</object>
+				</void>
+				<void property="actionCommand">
+					<string>Toggle Button</string>
+				</void>
+				<void property="label">
+					<string>Toggle Button</string>
+				</void>
+				<void property="model">
+					<void property="actionCommand">
+						<null />
+					</void>
+					<void property="selected">
+						<boolean>true</boolean>
+					</void>
+				</void>
+			</object>
+		</void>
+		<void method="add">
+			<object class="javax.swing.JTextField">
+				<void property="bounds">
+					<object class="java.awt.Rectangle">
+						<int>252</int>
+						<int>142</int>
+						<int>100</int>
+						<int>31</int>
+					</object>
+				</void>
+				<void property="text">
+					<string>Text Field</string>
+				</void>
+			</object>
+		</void>
+		<void method="add">
+			<object class="javax.swing.JTextArea">
+				<void property="bounds">
+					<object class="java.awt.Rectangle">
+						<int>176</int>
+						<int>187</int>
+						<int>100</int>
+						<int>100</int>
+					</object>
+				</void>
+				<void property="text">
+					<string>This is a text area</string>
+				</void>
+			</object>
+		</void>
+		<void method="add">
+			<object class="javax.swing.JRadioButton">
+				<void property="bounds">
+					<object class="java.awt.Rectangle">
+						<int>54</int>
+						<int>236</int>
+						<int>100</int>
+						<int>100</int>
+					</object>
+				</void>
+				<void property="model">
+					<void property="selected">
+						<boolean>true</boolean>
+					</void>
+				</void>
+			</object>
+		</void>
+		<void method="add">
+			<object class="javax.swing.JButton">
+				<string></string>
+				<void property="bounds">
+					<object class="java.awt.Rectangle">
+						<int>263</int>
+						<int>12</int>
+						<int>100</int>
+						<int>100</int>
+					</object>
+				</void>
+			</object>
+		</void>
+		<void property="layout">
+			<null />
+		</void>
+	</object>
 </java>

@@ -15,21 +15,18 @@ import javax.swing.JPanel;
 
 import swing.graphics2d.RollingPolygon;
 
-public class LayoutQuiz6 extends JFrame
-{
+public class LayoutQuiz6 extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public LayoutQuiz6() throws HeadlessException
-	{
+	public LayoutQuiz6() throws HeadlessException {
 		super("LayoutQuiz6");
 	}
 
-	private void init()
-	{
+	private void init() {
 		Container c = getContentPane();
 
 		RollingPolygon rollingPolygon = new RollingPolygon();
@@ -52,10 +49,9 @@ public class LayoutQuiz6 extends JFrame
 		setSize(400, 400);
 	}
 
-	private JComponent createButton(String name)
-	{
+	private JComponent createButton(String name) {
 		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(1,1));
+		panel.setLayout(new GridLayout(1, 1));
 		panel.add(new JButton(name));
 		return panel;
 	}
@@ -63,8 +59,7 @@ public class LayoutQuiz6 extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		LayoutQuiz6 app = new LayoutQuiz6();
 		app.init();
 		app.setVisible(true);

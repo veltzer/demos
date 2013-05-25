@@ -13,21 +13,18 @@ import javax.swing.RepaintManager;
 
 import swing.graphics2d.RollingPolygon;
 
-public class LayoutQuiz1 extends JFrame
-{
+public class LayoutQuiz1 extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public LayoutQuiz1() throws HeadlessException
-	{
+	public LayoutQuiz1() throws HeadlessException {
 		super("LayoutQuiz1");
 	}
 
-	private void init()
-	{
+	private void init() {
 		Container c = getContentPane();
 		RollingPolygon rollingPolygon = new RollingPolygon();
 		rollingPolygon.init();
@@ -48,14 +45,12 @@ public class LayoutQuiz1 extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		RepaintManager.setCurrentManager(new RepaintManager() {
 
 			@Override
-			public void paintDirtyRegions()
-			{
+			public void paintDirtyRegions() {
 				long startTime = System.currentTimeMillis();
 				super.paintDirtyRegions();
 				long endTime = System.currentTimeMillis();

@@ -1,44 +1,45 @@
 package programming.labs.lab0702inheritance;
+
 public class Customer {
 	private String name;
 	private String id;
 	private int age;
-	private final int MAX_ACCOUNTS=5;
+	private static final int MAX_ACCOUNTS = 5;
 	// this array will hold the customers accounts
 	private Account[] accounts;
 	// this running index will hold how far down the
 	// array are we
 	private int index;
-	
-	public Customer(){
+
+	public Customer() {
 		// notice that we call the Object constructor here
 		// just to be nice (this is not necessary)
 		super();
 		// we do NOT initialize fields here (it is better
 		// to get nulls and crash than to get default values
 		// and pretend everything is OK when it is not)
-		accounts=new Account[MAX_ACCOUNTS];
-		index=0;
+		accounts = new Account[MAX_ACCOUNTS];
+		index = 0;
 	}
-	
-	public Customer(String name,String id,int age){
+
+	public Customer(String iname, String iid, int iage) {
 		// calling the no parameters constructor - to initialize
 		// the accounts field and other stuff
 		this();
 		// no need to go through setters
-		this.name=name;
-		this.id=id;
-		this.age=age;
-		
+		name = iname;
+		id = iid;
+		age = iage;
+
 	}
-	
-	public Customer(String name,String id,int age,Account account){
+
+	public Customer(String iname, String iid, int iage, Account account) {
 		// call the simpler constructor
-		this(name,id,age);
+		this(iname, iid, iage);
 		// add the account manually
-		accounts[index++]=account;
+		accounts[index++] = account;
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
@@ -50,48 +51,48 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
-	
-	public Account getAccount(int index){
+
+	public Account getAccount(int iindex) {
 		// no need for error checking - better to get
 		// out of bounds exception
-		return accounts[index];
+		return accounts[iindex];
 	}
 
-	public void setAge(int age) {
+	public void setAge(int iage) {
 		// some sanity - should throw an error in the else
 		// clause
-		if(age>0 && age<120)
-			this.age=age;
-		else {
+		if (iage > 0 && iage < 120) {
+			age = iage;
+		} else {
 			System.err.println("error in age");
 		}
 	}
 
-	public void setId(String id) {
-		this.id=id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
-	public void setName(String name) {
-		this.name=name;
+	public void setName(String iname) {
+		name = iname;
 	}
-	
-	public Account addAccount(){
+
+	public Account addAccount() {
 		// no need for manual bound checking - better
 		// to get exception and fix the bug
-		Account a=new Account();
-		accounts[index++]=a;
+		Account a = new Account();
+		accounts[index++] = a;
 		return a;
-		
 	}
-	
-	public int getNumOfAccounts(){
+
+	public int getNumOfAccounts() {
 		return index;
 	}
-	
-	public String toString(){
-		String s="Customer - name:"+name+" age:"+age+" id:"+id+"\n";
-		for(int i=0;i<index;i++) {
-			s+=accounts[i];
+
+	public String toString() {
+		String s = "Customer - name:" + name + " age:" + age + " id:" + id
+				+ "\n";
+		for (int i = 0; i < index; i++) {
+			s += accounts[i];
 		}
 		return s;
 	}

@@ -9,27 +9,27 @@ import javax.swing.JPanel;
 import javax.swing.TransferHandler;
 
 public class DragAndDropDemo extends JPanel {
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	public DragAndDropDemo() {
-        JColorChooser chooser = new JColorChooser();
-        chooser.setDragEnabled(true);
-        JLabel label = new JLabel("Drop Color Here");
-        label.setFont(new Font("SansSerif", Font.BOLD, 22));
-        label.setText("Drop Color Here");
-        label.setTransferHandler(new TransferHandler("foreground"));
-        add(chooser);
-        add(label);
-    }
+		JColorChooser chooser = new JColorChooser();
+		chooser.setDragEnabled(true);
+		JLabel label = new JLabel("Drop Color Here");
+		label.setFont(new Font("SansSerif", Font.BOLD, 22));
+		label.setText("Drop Color Here");
+		label.setTransferHandler(new TransferHandler("foreground"));
+		add(chooser);
+		add(label);
+	}
 
-    public static void main(String[] argv) {
-        JFrame dlg = new JFrame();
-        dlg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        dlg.getContentPane().add("Center", new DragAndDropDemo());
-        dlg.pack();
-        dlg.setVisible(true);
-    }
+	public static void main(String[] argv) {
+		JFrame dlg = new JFrame();
+		dlg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		dlg.getContentPane().add("Center", new DragAndDropDemo());
+		dlg.pack();
+		dlg.setVisible(true);
+	}
 }

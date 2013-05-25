@@ -10,7 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 public class MyCellRenderer implements TableCellRenderer {
-	
+
 	private static class Render extends JComponent {
 		/**
 		 * 
@@ -21,21 +21,20 @@ public class MyCellRenderer implements TableCellRenderer {
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
-			Graphics2D g2=(Graphics2D)g;
-			Rectangle rec=g2.getClipBounds();
-			long cap=rec.width*disk.getSize();
-			g2.drawLine(rec.x, rec.y, (int)cap, rec.height);
+			Graphics2D g2 = (Graphics2D) g;
+			Rectangle rec = g2.getClipBounds();
+			long cap = rec.width * disk.getSize();
+			g2.drawLine(rec.x, rec.y, (int) cap, rec.height);
 		}
-		
+
 	}
-	
-	private static Render r=new Render();
-	
+
+	private static Render r = new Render();
 
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value,
 			boolean isSelected, boolean hasFocus, int row, int column) {
-		r.disk=(Disk)value;
+		r.disk = (Disk) value;
 		return r;
 	}
 

@@ -1,30 +1,31 @@
 package programming.labs.lab0801abstract_sol;
+
 public class Customer {
 	private String name;
 	private String id;
 	private int age;
 	private Account[] accounts;
 	private int index;
-	
-	public Customer(){
-		this("John","is-111",30);
+
+	public Customer() {
+		this("John", "is-111", 30);
 	}
-	
-	public Customer(String name,String id,int age){
+
+	public Customer(String name, String id, int age) {
 		setName(name);
 		setId(id);
 		setAge(age);
-		accounts=new Account[100];
+		accounts = new Account[100];
 	}
-	
-	public Customer(String name,String id,int age,CheckingAccount account){
+
+	public Customer(String name, String id, int age, CheckingAccount account) {
 		setName(name);
 		setId(id);
 		setAge(age);
-		accounts=new Account[100];
+		accounts = new Account[100];
 		addAccount(account);
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
@@ -36,32 +37,32 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
-	
-	public Account getAccount(int index){
-		if(index<this.index)
+
+	public Account getAccount(int index) {
+		if (index < this.index)
 			return accounts[index];
 		return null;
 	}
 
 	public void setAge(int age) {
-		if(age>0 && age<120)
-			this.age=age;
+		if (age > 0 && age < 120)
+			this.age = age;
 	}
 
 	public void setId(String id) {
-		this.id=id;
+		this.id = id;
 	}
 
 	public void setName(String name) {
-		this.name=name;
+		this.name = name;
 	}
-	
-	public void addAccount(Account account){
-		if(index<accounts.length)
-			accounts[index++]=account;
+
+	public void addAccount(Account account) {
+		if (index < accounts.length)
+			accounts[index++] = account;
 	}
-	
-	public int getNumOfAccounts(){
+
+	public int getNumOfAccounts() {
 		return index;
 	}
 

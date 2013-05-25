@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 @Aspect
 public class LoggingAspect {
 	@Around("within(spring.MyBean)")
-	public Object log(ProceedingJoinPoint pjp) throws Throwable{
+	public Object log(ProceedingJoinPoint pjp) throws Throwable {
 		System.out.println("before " + pjp.toShortString());
 		Object r = pjp.proceed();
 		System.out.println("after " + pjp.toShortString());

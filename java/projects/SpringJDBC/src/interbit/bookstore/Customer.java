@@ -41,11 +41,10 @@ public class Customer {
 		this.name = name;
 	}
 
-	Customer()
-	{
-		
+	Customer() {
+
 	}
-	
+
 	public Customer(String id, String name, String email, String address) {
 		super();
 		this.id = id;

@@ -14,13 +14,13 @@ public class WithClassLoader {
 		GroovyClassLoader loader = new GroovyClassLoader(parent);
 		Class<?> groovyClass;
 		try {
-			groovyClass = loader.parseClass(new File("src/groovy/embed/HelloWorld.groovy"));
+			groovyClass = loader.parseClass(new File(
+					"src/groovy/embed/HelloWorld.groovy"));
 		} catch (CompilationFailedException e) {
 			throw new RuntimeException(e);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
-		}
-		finally {
+		} finally {
 			try {
 				loader.close();
 			} catch (IOException e) {
@@ -32,7 +32,7 @@ public class WithClassLoader {
 		try {
 			groovyObject = (GroovyObject) groovyClass.newInstance();
 		} catch (InstantiationException e) {
-			throw new RuntimeException(e);			
+			throw new RuntimeException(e);
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);
 		}

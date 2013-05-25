@@ -28,5 +28,4 @@ public class ItemFactoryImpl implements ItemFactory, FactoryBean<Object> {
 		return false;
 	}
 
-	
 }

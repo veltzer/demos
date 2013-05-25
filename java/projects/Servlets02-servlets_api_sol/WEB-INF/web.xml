@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by Ran Kornfeld (InterBit Training & Consulting) -->
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by Ran Kornfeld (InterBit 
+	Training & Consulting) -->
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
     "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
@@ -23,12 +24,12 @@
 		<servlet-name>Random</servlet-name>
 		<url-pattern>/random</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>SnoopRequest</servlet-name>
 		<url-pattern>/snoopRequest</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>Form</servlet-name>
 		<url-pattern>/form</url-pattern>

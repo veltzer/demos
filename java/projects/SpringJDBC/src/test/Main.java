@@ -21,11 +21,9 @@ public class Main {
 				.getBean("BookstoreAdminTest");
 		Book aBook = new Book("title5", "Shimi", 5);
 
-		try
-		{
+		try {
 			bsa.addNewBook(aBook);
-		} catch (DataIntegrityViolationException ex)
-		{
+		} catch (DataIntegrityViolationException ex) {
 			System.out.println("Got Exception: " + ex.getMessage());
 		}
 
@@ -52,7 +50,7 @@ public class Main {
 		for (Customer c : bsa.showCustomersByName("Shimi")) {
 			System.out.println(c);
 		}
-		
+
 		aBook.setPrice(1900);
 		bsa.updateBook(aBook);
 		((AbstractApplicationContext) bf).close();

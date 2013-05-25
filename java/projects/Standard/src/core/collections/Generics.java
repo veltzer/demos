@@ -9,7 +9,7 @@ public class Generics {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		List<String> li=new ArrayList<String>();
+		List<String> li = new ArrayList<String>();
 		li.add("Hello");
 
 	}

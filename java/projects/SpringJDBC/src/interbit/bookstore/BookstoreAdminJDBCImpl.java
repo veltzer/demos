@@ -7,8 +7,7 @@ import java.util.List;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-public class BookstoreAdminJDBCImpl extends JdbcDaoSupport 
-implements
+public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 		BookStoreAdminDAO {
 
 	public void addNewBook(Book book) {
@@ -92,10 +91,10 @@ implements
 
 	public void updateBook(Book book) {
 		System.out.println("Updating Book");
-		getJdbcTemplate().update(
-				"update Books set title = ?, author = ?, price = ? where title = ?",
-				new Object[] { book.getTitle(), book.getAuthor(),
-						book.getPrice(), book.getTitle() });
+		getJdbcTemplate()
+				.update("update Books set title = ?, author = ?, price = ? where title = ?",
+						new Object[] { book.getTitle(), book.getAuthor(),
+								book.getPrice(), book.getTitle() });
 
 	}
 

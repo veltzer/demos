@@ -17,8 +17,8 @@ public class AspectMain {
 		b.getD();
 		b.setX(4);
 		b.setD(new Date());
-		
-		UsageTracked ut = (UsageTracked)b;
+
+		UsageTracked ut = (UsageTracked) b;
 		System.out.println(ut.getCount() + " methods were invoked on " + ut);
 		((AbstractApplicationContext) bf).close();
 	}

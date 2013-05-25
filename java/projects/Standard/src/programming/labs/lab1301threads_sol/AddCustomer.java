@@ -1,6 +1,5 @@
 package programming.labs.lab1301threads_sol;
 
-
 public class AddCustomer implements Runnable {
 	private Business bank;
 
@@ -15,9 +14,9 @@ public class AddCustomer implements Runnable {
 			// Explain, for every line in the synchronized
 			// block what is it doing inside the synchronized
 			// block
-			synchronized(bank) {
-				//this adds a customer
-				custnum=bank.getNumOfCustomers();
+			synchronized (bank) {
+				// this adds a customer
+				custnum = bank.getNumOfCustomers();
 				if (custnum < 50) {
 					bank.addCustomer(new Customer());
 					custnum++;
@@ -26,7 +25,7 @@ public class AddCustomer implements Runnable {
 			// Why did we move the println out of the
 			// synchronized block ?
 			System.out.println(Thread.currentThread().getName()
-						+ ": Num of Customers " + custnum);
+					+ ": Num of Customers " + custnum);
 			i++;
 			try {
 				Thread.sleep((int) (Math.random() * 500));

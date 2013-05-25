@@ -16,7 +16,8 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"beans.xml");
 		BeanPostProcessor advisor = (BeanPostProcessor) context
 				.getBean("authoproxier");
 		((ConfigurableBeanFactory) context).addBeanPostProcessor(advisor);

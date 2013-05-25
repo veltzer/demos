@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Book extends Item {
 	private String bookname;
 	private String author;
-	
+
 	public String getBookname() {
 		return bookname;
 	}
@@ -27,23 +27,24 @@ public class Book extends Item {
 	@Override
 	public void fromConsole() {
 		try {
-			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					System.in));
 			System.out.print("Enter book name: ");
-			bookname=br.readLine();
+			bookname = br.readLine();
 			System.out.print("Enter author: ");
-			author=br.readLine();
+			author = br.readLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
 	public void toConsole() {
 		super.toConsole();
-		System.out.println("bookname: "+bookname);
-		System.out.println("author: "+author);
-		
+		System.out.println("bookname: " + bookname);
+		System.out.println("author: " + author);
+
 	}
 
 }

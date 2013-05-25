@@ -5,7 +5,7 @@ import interbit.sorter.ItemFactory;
 
 import org.springframework.beans.factory.FactoryBean;
 
-public class ItemFactoryImpl implements FactoryBean<Item>, ItemFactory{
+public class ItemFactoryImpl implements FactoryBean<Item>, ItemFactory {
 
 	private int counter = 0;
 
@@ -22,8 +22,8 @@ public class ItemFactoryImpl implements FactoryBean<Item>, ItemFactory{
 	}
 
 	public Item createItem() {
-		
-		return  new Item("Item" + (counter++) , 100*Math.random());
+
+		return new Item("Item" + (counter++), 100 * Math.random());
 	}
 
 }

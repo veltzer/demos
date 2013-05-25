@@ -22,8 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-public class TimerDemo extends JPanel
-{
+public class TimerDemo extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JTextField loginField;
@@ -34,22 +33,19 @@ public class TimerDemo extends JPanel
 
 	private Action submitAction;
 
-	public TimerDemo()
-	{
+	public TimerDemo() {
 		super(new BorderLayout());
 	}
 
 	@SuppressWarnings("serial")
-	private void init()
-	{
+	private void init() {
 		Box textBox = new Box(BoxLayout.Y_AXIS);
 
 		loginField = new JTextField();
 		loginField.setInputVerifier(new InputVerifier() {
 
 			@Override
-			public boolean verify(JComponent input)
-			{
+			public boolean verify(JComponent input) {
 				boolean isValid = loginField.getText().matches("[\\w]{4,}");
 				return isValid;
 			}
@@ -64,41 +60,32 @@ public class TimerDemo extends JPanel
 		Box submitBox = new Box(BoxLayout.Y_AXIS);
 		submitAction = new AbstractAction() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				String login = loginField.getText();
 				String password = new String(passwordField.getPassword());
 				boolean passwordValid = login.equals(password);
-				if (passwordValid)
-				{
+				if (passwordValid) {
 					JOptionPane.showMessageDialog(TimerDemo.this, "Welcome, "
 							+ login + "!");
 					resetFields();
-				}
-				else
-				{
+				} else {
 					loginField.setEnabled(false);
 					passwordField.setEnabled(false);
 					submitAction.setEnabled(false);
 					SwingWorker worker = new SwingWorker() {
 
 						@Override
-						public Object construct()
-						{
-							try
-							{
+						public Object construct() {
+							try {
 								Thread.sleep(3000);
-							}
-							catch (InterruptedException e)
-							{
+							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
 							return null;
 						}
 
 						@Override
-						public void finished()
-						{
+						public void finished() {
 							resetFields();
 							loginField.setEnabled(true);
 							passwordField.setEnabled(true);
@@ -123,8 +110,7 @@ public class TimerDemo extends JPanel
 
 		typingTimer = new Timer(5000, new ActionListener() {
 
-			public void actionPerformed(ActionEvent e)
-			{
+			public void actionPerformed(ActionEvent e) {
 				resetFields();
 			}
 		});
@@ -132,23 +118,20 @@ public class TimerDemo extends JPanel
 		loginField.addKeyListener(new KeyAdapter() {
 
 			@Override
-			public void keyTyped(KeyEvent e)
-			{
+			public void keyTyped(KeyEvent e) {
 				typingTimer.restart();
 			}
 		});
 		passwordField.addKeyListener(new KeyAdapter() {
 
 			@Override
-			public void keyTyped(KeyEvent e)
-			{
+			public void keyTyped(KeyEvent e) {
 				typingTimer.restart();
 			}
 		});
 	}
 
-	private void resetFields()
-	{
+	private void resetFields() {
 		loginField.setText("");
 		passwordField.setText("");
 
@@ -158,12 +141,10 @@ public class TimerDemo extends JPanel
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 
-			public void run()
-			{
+			public void run() {
 				TimerDemo demo = new TimerDemo();
 				demo.init();
 

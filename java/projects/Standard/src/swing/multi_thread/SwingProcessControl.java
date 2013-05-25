@@ -9,15 +9,13 @@ public class SwingProcessControl implements IProcessControl {
 	JProgressBar pr;
 	boolean stopped;
 	Semaphore sem;
-	
-	public SwingProcessControl(JProgressBar ipr) {
-		pr=ipr;
-		stopped=false;
-		sem=new Semaphore(1);
-	}
-	
 
-	
+	public SwingProcessControl(JProgressBar ipr) {
+		pr = ipr;
+		stopped = false;
+		sem = new Semaphore(1);
+	}
+
 	@Override
 	public boolean isStopped() {
 		return stopped;
@@ -31,12 +29,11 @@ public class SwingProcessControl implements IProcessControl {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	@Override
 	public void cont() {
-		sem.release();		
+		sem.release();
 	}
-
 
 	@Override
 	public void doPause() {
@@ -46,27 +43,27 @@ public class SwingProcessControl implements IProcessControl {
 			throw new RuntimeException(e);
 		}
 		sem.release();
-		
+
 	}
 
 	@Override
 	public void initProgress(int val) {
-		final int ival=val;
+		final int ival = val;
 		SwingUtilities.invokeLater(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				pr.setValue(0);
-				pr.setMaximum(ival);		
+				pr.setMaximum(ival);
 			}
 		});
 	}
 
 	@Override
 	public void reportProgress(int val) {
-		final int ival=val;
+		final int ival = val;
 		SwingUtilities.invokeLater(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				pr.setValue(ival);
@@ -74,29 +71,28 @@ public class SwingProcessControl implements IProcessControl {
 		});
 
 	}
+
 	@Override
 	public void finishProgress() {
 		SwingUtilities.invokeLater(new Runnable() {
-			
+
 			@Override
 			public void run() {
-				pr.setValue(pr.getMaximum());		
+				pr.setValue(pr.getMaximum());
 			}
 		});
 
 	}
+
 	@Override
 	public void stop() {
-		stopped=true;
+		stopped = true;
 	}
-
-
 
 	@Override
 	public void start() {
-		stopped=false;
-		
-	}
+		stopped = false;
 
+	}
 
 }

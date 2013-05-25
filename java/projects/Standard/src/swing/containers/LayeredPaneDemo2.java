@@ -13,8 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-public class LayeredPaneDemo2 extends JFrame
-{
+public class LayeredPaneDemo2 extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JLayeredPane layeredPane;
@@ -25,28 +24,22 @@ public class LayeredPaneDemo2 extends JFrame
 			Color.DARK_GRAY, Color.YELLOW, Color.CYAN, Color.MAGENTA,
 			Color.WHITE };
 
-	private class Shuffler implements Runnable
-	{
+	private class Shuffler implements Runnable {
 
-		public void run()
-		{
-			while (true)
-			{
-				try
-				{
+		public void run() {
+			while (true) {
+				try {
 					Thread.sleep(150);
-				}
-				catch (InterruptedException e)
-				{
+				} catch (InterruptedException e) {
 					throw new RuntimeException(e);
 				}
 				int childrenCount = layeredPane.getComponentCount();
-				if (childrenCount > 0)
-				{
+				if (childrenCount > 0) {
 					int randomComponent = (int) (Math.random() * childrenCount);
 					int randomLevel = (int) (Math.random() * 100);
-					layeredPane.setLayer(layeredPane
-							.getComponent(randomComponent), randomLevel);
+					layeredPane.setLayer(
+							layeredPane.getComponent(randomComponent),
+							randomLevel);
 				}
 			}
 
@@ -54,22 +47,19 @@ public class LayeredPaneDemo2 extends JFrame
 
 	}
 
-	public LayeredPaneDemo2()
-	{
+	public LayeredPaneDemo2() {
 		super("Layered pane demo");
 		level = 0;
 	}
 
-	private void init()
-	{
+	private void init() {
 		final Container c = getContentPane();
 
 		layeredPane = new JLayeredPane();
 		layeredPane.addMouseListener(new MouseAdapter() {
 
 			@Override
-			public void mouseClicked(MouseEvent e)
-			{
+			public void mouseClicked(MouseEvent e) {
 				JComponent comp = new JLabel("component #" + level);
 				comp.setAlignmentX(Component.CENTER_ALIGNMENT);
 				comp.setAlignmentY(Component.CENTER_ALIGNMENT);
@@ -77,8 +67,8 @@ public class LayeredPaneDemo2 extends JFrame
 				comp.setBackground(colors[(int) (Math.random() * colors.length)]);
 				comp.setBorder(BorderFactory.createLineBorder(Color.GREEN, 4));
 				comp.setBounds(e.getX(), e.getY(),
-						comp.getPreferredSize().width*2,
-						comp.getPreferredSize().height*2);
+						comp.getPreferredSize().width * 2,
+						comp.getPreferredSize().height * 2);
 
 				layeredPane.add(comp, new Integer(level));
 				++level;
@@ -94,8 +84,7 @@ public class LayeredPaneDemo2 extends JFrame
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		LayeredPaneDemo2 app = new LayeredPaneDemo2();
 		app.init();

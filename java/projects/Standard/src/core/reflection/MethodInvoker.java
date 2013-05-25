@@ -32,7 +32,7 @@ public class MethodInvoker {
 
 		/**
 		 * @param id
-		 *            The id to set.
+		 * The id to set.
 		 */
 		public void setId(Integer id) {
 			this.id = id;
@@ -43,8 +43,8 @@ public class MethodInvoker {
 	/*
 	 * A helper method which relies on the java beans standard and the fact that
 	 * bean properties are lower case. This method will convert bean names
-	 * (lower case) to the setter method name. So "Name" will give you "setName".
-	 * Maybe java already has a class which does this? Need to check.
+	 * (lower case) to the setter method name. So "Name" will give you
+	 * "setName". Maybe java already has a class which does this? Need to check.
 	 */
 	private static String getSetMethodName(String valName) {
 		String firstLetter = valName.substring(0, 1).toUpperCase();
@@ -74,7 +74,8 @@ public class MethodInvoker {
 	public static void setObjectValue(Object o, String valName, Object newValue) {
 		try {
 			Class<?> c = o.getClass();
-			Method m = c.getMethod(getSetMethodName(valName), newValue.getClass());
+			Method m = c.getMethod(getSetMethodName(valName),
+					newValue.getClass());
 			m.invoke(o, newValue);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -89,8 +90,8 @@ public class MethodInvoker {
 		setObjectValue(a, "title", "kuku");
 		// how does this next line work ? Auto boxing anyone ?
 		setObjectValue(a, "id", 5);
-		System.out.println("title is "+a.getTitle());
-		System.out.println("id is "+a.getId());
+		System.out.println("title is " + a.getTitle());
+		System.out.println("id is " + a.getId());
 
 		// here is a demo with classes that you did not write
 		// in this case: JLabel

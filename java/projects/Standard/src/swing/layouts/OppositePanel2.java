@@ -11,8 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class OppositePanel2 extends JComponent
-{
+public class OppositePanel2 extends JComponent {
 	private static final long serialVersionUID = 1L;
 
 	private JPanel leftPanel;
@@ -25,8 +24,7 @@ public class OppositePanel2 extends JComponent
 
 	private boolean panelsAdded;
 
-	public OppositePanel2()
-	{
+	public OppositePanel2() {
 		super();
 		panelsAdded = false;
 
@@ -42,18 +40,15 @@ public class OppositePanel2 extends JComponent
 	}
 
 	@Override
-	public Component add(Component comp)
-	{
+	public Component add(Component comp) {
 
 		if (!panelsAdded)
 			return super.add(comp);
-		if (!leftComponentAdded)
-		{
+		if (!leftComponentAdded) {
 			leftComponentAdded = true;
 			return leftPanel.add(comp);
 		}
-		if (!rightComponentAdded)
-		{
+		if (!rightComponentAdded) {
 			rightComponentAdded = true;
 			return rightPanel.add(comp);
 		}
@@ -64,8 +59,7 @@ public class OppositePanel2 extends JComponent
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		OppositePanel2 panel = new OppositePanel2();
 
 		panel.add(new JLabel("Hello, this is a message"));

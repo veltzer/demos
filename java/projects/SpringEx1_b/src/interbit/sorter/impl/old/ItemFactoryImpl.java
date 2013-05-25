@@ -20,8 +20,8 @@ public class ItemFactoryImpl implements ItemFactory {
 	}
 
 	public Item createItem() {
-		
-		return  new Item("Item" + (counter++) , 100*Math.random());
+
+		return new Item("Item" + (counter++), 100 * Math.random());
 	}
 
 }

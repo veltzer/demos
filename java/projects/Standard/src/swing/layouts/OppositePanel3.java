@@ -8,16 +8,14 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class OppositePanel3 extends JComponent
-{
+public class OppositePanel3 extends JComponent {
 	private static final long serialVersionUID = 1L;
 
 	private boolean leftComponentAdded;
 
 	private boolean rightComponentAdded;
 
-	public OppositePanel3()
-	{
+	public OppositePanel3() {
 		super();
 
 		setLayout(new BorderLayout());
@@ -25,17 +23,14 @@ public class OppositePanel3 extends JComponent
 	}
 
 	@Override
-	public Component add(Component comp)
-	{
+	public Component add(Component comp) {
 
-		if (!leftComponentAdded)
-		{
+		if (!leftComponentAdded) {
 			leftComponentAdded = true;
 			add(comp, BorderLayout.LINE_START);
 			return comp;
 		}
-		if (!rightComponentAdded)
-		{
+		if (!rightComponentAdded) {
 			rightComponentAdded = true;
 			add(comp, BorderLayout.LINE_END);
 			return comp;
@@ -47,8 +42,7 @@ public class OppositePanel3 extends JComponent
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		OppositePanel3 panel = new OppositePanel3();
 
 		panel.add(new JLabel("Hello, this is a message"));

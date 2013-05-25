@@ -9,23 +9,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class OppositePanel4 extends Box
-{
+public class OppositePanel4 extends Box {
 	private static final long serialVersionUID = 1L;
 
 	private boolean leftComponentAdded;
 
-	public OppositePanel4()
-	{
+	public OppositePanel4() {
 		super(BoxLayout.X_AXIS);
 	}
 
 	@Override
-	public Component add(Component comp)
-	{
+	public Component add(Component comp) {
 
-		if (!leftComponentAdded)
-		{
+		if (!leftComponentAdded) {
 			leftComponentAdded = true;
 			super.add(comp);
 			super.add(createGlue());
@@ -37,8 +33,7 @@ public class OppositePanel4 extends Box
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		OppositePanel4 panel = new OppositePanel4();
 
 		panel.add(new JLabel("Hello, this is a message"));

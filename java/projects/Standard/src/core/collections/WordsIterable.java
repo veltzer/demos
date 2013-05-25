@@ -8,13 +8,14 @@ import java.util.TreeSet;
 
 public class WordsIterable implements Iterable<String> {
 	private String[] words;
-	
+
 	private class WordsIterator implements Iterator<String> {
 
 		private int currentWord;
+
 		public WordsIterator() {
 			super();
-			currentWord=0;
+			currentWord = 0;
 		}
 
 		public boolean hasNext() {
@@ -22,18 +23,19 @@ public class WordsIterable implements Iterable<String> {
 		}
 
 		public String next() {
-			return words[ currentWord++ ] ;
+			return words[currentWord++];
 		}
 
 		public void remove() {
-			throw new UnsupportedOperationException(); 
+			throw new UnsupportedOperationException();
 		}
-		
+
 	}
+
 	public WordsIterable(String input) {
 		words = input.toLowerCase().split("[\\W]+");
 	}
-	
+
 	public Iterator<String> iterator() {
 		return new WordsIterator();
 	}
@@ -48,11 +50,10 @@ public class WordsIterable implements Iterable<String> {
 		Set<String> sortedWords = new TreeSet<String>(
 				new StringsLengthComparator());
 		Map<String, Integer> wordsCount = new HashMap<String, Integer>();
-		
 
-		WordsIterable c=new WordsIterable(s);
+		WordsIterable c = new WordsIterable(s);
 
-		for (String word:c) {
+		for (String word : c) {
 			sortedWords.add(word);
 			if (wordsCount.containsKey(word)) {
 				int wordCount = wordsCount.get(word);

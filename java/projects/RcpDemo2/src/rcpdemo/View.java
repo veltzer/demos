@@ -35,7 +35,7 @@ public class View extends ViewPart {
 			if (parent instanceof Object[]) {
 				return (Object[]) parent;
 			}
-	        return new Object[0];
+			return new Object[0];
 		}
 	}
 
@@ -50,8 +50,8 @@ public class View extends ViewPart {
 		}
 
 		public Image getImage(Object obj) {
-			return PlatformUI.getWorkbench().getSharedImages().getImage(
-					ISharedImages.IMG_OBJ_ELEMENT);
+			return PlatformUI.getWorkbench().getSharedImages()
+					.getImage(ISharedImages.IMG_OBJ_ELEMENT);
 		}
 	}
 
@@ -65,7 +65,7 @@ public class View extends ViewPart {
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		// Provide the input to the ContentProvider
-		viewer.setInput(new String[] {"One", "Two", "Three"});
+		viewer.setInput(new String[] { "One", "Two", "Three" });
 	}
 
 	/**
