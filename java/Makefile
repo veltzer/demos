@@ -65,6 +65,10 @@ debug:
 	$(info CLASSPATH is $(CLASSPATH))
 	$(info HOME is $(HOME))
 
+.PHONY: clean
+clean:
+	$(Q)rm -f $(ALL)
+
 # rules
 
 $(JAVA_STAMP): %.stamp: %.java
