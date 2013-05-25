@@ -50,24 +50,24 @@ public class SortableTableModel extends ProxyTableModel {
 		getModel().setValueAt(aValue, translate(rowIndex), columnIndex);
 	}
 
-	public void sort(int column, Comparator<Object> comparator,
-			boolean ascending) {
-		if (comparator == null) {
-			if (Number.class.isAssignableFrom(getColumnClass(column))) {
-				comparator = new Comparator<Object>() {
+	public void sort(int icolumn, Comparator<Object> icomparator,
+			boolean iascending) {
+		if (icomparator == null) {
+			if (Number.class.isAssignableFrom(getColumnClass(icolumn))) {
+				icomparator = new Comparator<Object>() {
 					public int compare(Object o1, Object o2) {
 						return (((Number) o1).intValue() - ((Number) o2)
 								.intValue());
 					}
 				};
 			} else {
-				comparator = new FallbackComparator();
+				icomparator = new FallbackComparator();
 			}
 		}
 
-		this.column = column;
-		this.comparator = comparator;
-		this.ascending = ascending;
+		column = icolumn;
+		comparator = icomparator;
+		ascending = iascending;
 		int rowCount = getRowCount();
 		List<Integer> rows = new ArrayList<Integer>(rowCount);
 		for (int iter = 0; iter < rowCount; iter++) {
@@ -108,11 +108,11 @@ public class SortableTableModel extends ProxyTableModel {
 		private int column;
 		private boolean ascending;
 
-		public TableComparator(Comparator<Object> comparator, int column,
-				boolean ascending) {
-			this.comparator = comparator;
-			this.column = column;
-			this.ascending = ascending;
+		public TableComparator(Comparator<Object> icomparator, int icolumn,
+				boolean iascending) {
+			comparator = icomparator;
+			column = icolumn;
+			ascending = iascending;
 		}
 
 		private Object getRowData(Object row) {

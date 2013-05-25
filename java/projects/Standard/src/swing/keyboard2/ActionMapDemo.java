@@ -50,7 +50,7 @@ public class ActionMapDemo extends JPanel {
 	}
 
 	class ActionMapModel extends AbstractTableModel {
-		private final String[] COLUMNS = {
+		private static final String[] COLUMNS = {
 				"Key", "Action"
 		};
 		private InputMap input;

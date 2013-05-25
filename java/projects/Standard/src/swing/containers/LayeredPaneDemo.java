@@ -157,7 +157,7 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 			}
 		} else if (LAYER_COMMAND.equals(cmd)) {
 			int position;
-			if (onTop.isSelection()) {
+			if (onTop.isSelected()) {
 				position = 0;
 			} else {
 				position = 1;

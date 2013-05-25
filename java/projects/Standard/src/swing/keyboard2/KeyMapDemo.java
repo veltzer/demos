@@ -16,7 +16,7 @@ public class KeyMapDemo extends JPanel {
 	private JTextField field = new JTextField("Try writing in lower case...");
 	private static Keymap keymap;
 
-	private final static JTextComponent.KeyBinding[] UPCASE_BINDINGS = {
+	private static final JTextComponent.KeyBinding[] UPCASE_BINDINGS = {
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('a'),
 					"insert-me A"),
 			new JTextComponent.KeyBinding(KeyStroke.getKeyStroke('b'),
@@ -71,7 +71,7 @@ public class KeyMapDemo extends JPanel {
 					"insert-me Z"),
 	};
 
-	private final static Action[] UPCASE_ACTIONS = {
+	private static final Action[] UPCASE_ACTIONS = {
 			new InsertMeAction("A"), new InsertMeAction("B"),
 			new InsertMeAction("C"), new InsertMeAction("D"),
 			new InsertMeAction("E"), new InsertMeAction("F"),
@@ -108,9 +108,9 @@ public class KeyMapDemo extends JPanel {
 		 * Creates this object with the appropriate identifier.
 		 * @param s Description of the Parameter
 		 */
-		public InsertMeAction(String s) {
-			super("insert-me " + s);
-			this.s = s;
+		public InsertMeAction(String is) {
+			super("insert-me " + is);
+			s = is;
 		}
 
 		/**

@@ -23,7 +23,7 @@ import javax.swing.table.TableCellRenderer;
 
 @SuppressWarnings("serial")
 public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
-	private static final JCheckBox BOOLEAN_RENDERER = new JCheckBox() {
+	private final JCheckBox booleanRenderer = new JCheckBox() {
 		public void paint(Graphics graphics) {
 			super.paint(graphics);
 			graphics.setColor(gridColor);
@@ -55,16 +55,16 @@ public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
 		gridColor = table.getGridColor();
 		JComponent cmp = this;
 		if (value instanceof Boolean) {
-			BOOLEAN_RENDERER.setHorizontalAlignment(JLabel.CENTER);
+			booleanRenderer.setHorizontalAlignment(JLabel.CENTER);
 			if (isSelected) {
-				BOOLEAN_RENDERER.setForeground(table.getSelectionForeground());
-				BOOLEAN_RENDERER.setBackground(table.getSelectionBackground());
+				booleanRenderer.setForeground(table.getSelectionForeground());
+				booleanRenderer.setBackground(table.getSelectionBackground());
 			} else {
-				BOOLEAN_RENDERER.setForeground(table.getForeground());
-				BOOLEAN_RENDERER.setBackground(table.getBackground());
+				booleanRenderer.setForeground(table.getForeground());
+				booleanRenderer.setBackground(table.getBackground());
 			}
-			BOOLEAN_RENDERER.setSelected(((Boolean) value).booleanValue());
-			cmp = BOOLEAN_RENDERER;
+			booleanRenderer.setSelected(((Boolean) value).booleanValue());
+			cmp = booleanRenderer;
 		} else {
 			setText(value.toString());
 			setBorder(this);
@@ -145,7 +145,7 @@ public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
 		if (model.isSpanRoot(row, column)) {
 			int spanRows = row;
 			int spanColumns = column;
-			while (model.spanBotton(spanRows, column)) {
+			while (model.spanBottom(spanRows, column)) {
 				spanRows++;
 			}
 			while (model.spanRight(row, spanColumns)) {

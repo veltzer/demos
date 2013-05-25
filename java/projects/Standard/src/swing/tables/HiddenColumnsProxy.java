@@ -6,9 +6,9 @@ import javax.swing.table.TableModel;
 public class HiddenColumnsProxy extends ProxyTableModel {
 	private int[] realColumns;
 
-	public HiddenColumnsProxy(TableModel model, int[] realColumns) {
+	public HiddenColumnsProxy(TableModel model, int[] irealColumns) {
 		super(model);
-		this.realColumns = realColumns;
+		this.realColumns = irealColumns;
 	}
 
 	public int[] getColumns() {

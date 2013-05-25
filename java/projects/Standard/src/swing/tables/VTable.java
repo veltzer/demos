@@ -43,11 +43,11 @@ public class VTable extends JTable {
 	private TableModel wrapModel(TableModel m) {
 		model = m;
 		sortModel = new MultiSortableTableModel(m);
-		int[] columns = new int[m.getColumnCount()];
-		for (int iter = 0; iter < columns.length; iter++) {
-			columns[iter] = iter;
+		int[] icolumns = new int[m.getColumnCount()];
+		for (int iter = 0; iter < icolumns.length; iter++) {
+			icolumns[iter] = iter;
 		}
-		hiddenModel = new HiddenColumnsProxy(sortModel, columns);
+		hiddenModel = new HiddenColumnsProxy(sortModel, icolumns);
 		return (hiddenModel);
 	}
 
@@ -71,9 +71,9 @@ public class VTable extends JTable {
 		menu.show((Component) ev.getSource(), ev.getX(), ev.getY());
 	}
 
-	public VTable(TableModel model) {
-		super(model);
-		setModel(wrapModel(model));
+	public VTable(TableModel imodel) {
+		super(imodel);
+		setModel(wrapModel(imodel));
 		getTableHeader().addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent ev) {
 				if (SwingUtilities.isRightMouseButton(ev)) {
@@ -85,14 +85,14 @@ public class VTable extends JTable {
 				if ((columns != null)
 						&& (ev.getModifiers() & KeyEvent.SHIFT_MASK) == KeyEvent.SHIFT_MASK) {
 					if (!toggleAscending(column)) {
-						int[] columns = new int[VTable.this.columns.length + 1];
-						boolean[] ascending = new boolean[VTable.this.ascending.length + 1];
-						System.arraycopy(VTable.this.columns, 0, columns, 0,
-								columns.length - 1);
-						System.arraycopy(VTable.this.ascending, 0, ascending,
-								0, ascending.length - 1);
-						columns[columns.length - 1] = column;
-						ascending[ascending.length - 1] = true;
+						int[] icolumns = new int[VTable.this.columns.length + 1];
+						boolean[] iascending = new boolean[VTable.this.ascending.length + 1];
+						System.arraycopy(VTable.this.columns, 0, icolumns, 0,
+								icolumns.length - 1);
+						System.arraycopy(VTable.this.ascending, 0, iascending,
+								0, iascending.length - 1);
+						icolumns[columns.length - 1] = column;
+						iascending[iascending.length - 1] = true;
 						VTable.this.columns = columns;
 						VTable.this.ascending = ascending;
 					}
@@ -111,9 +111,9 @@ public class VTable extends JTable {
 	}
 
 	private boolean isTheColumnSelected(int column) {
-		int[] columns = hiddenModel.getColumns();
-		for (int iter = 0; iter < columns.length; iter++) {
-			if (columns[iter] == column) {
+		int[] icolumns = hiddenModel.getColumns();
+		for (int iter = 0; iter < icolumns.length; iter++) {
+			if (icolumns[iter] == column) {
 				return true;
 			}
 		}
@@ -161,12 +161,12 @@ public class VTable extends JTable {
 
 	class ArrowIcon implements Icon {
 		private int size;
-		private Color FILL_COLOR = new Color(Color.GRAY.getRGB() | 0x7F000000);
+		private static final Color FILL_COLOR = new Color(Color.GRAY.getRGB() | 0x7F000000);
 		private int position;
 
-		public ArrowIcon(int size, int position) {
-			this.size = size;
-			this.position = position;
+		public ArrowIcon(int isize, int iposition) {
+			size = isize;
+			position = iposition;
 		}
 
 		public int getIconHeight() {
@@ -208,18 +208,18 @@ public class VTable extends JTable {
 	class HideAction extends AbstractAction {
 		private int column;
 
-		public HideAction(String name, int column) {
+		public HideAction(String name, int icolumn) {
 			putValue(NAME, name);
-			this.column = column;
+			column = icolumn;
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			int[] columns = hiddenModel.getColumns();
+			int[] icolumns = hiddenModel.getColumns();
 			int counter = 0;
-			int[] newColumns = new int[columns.length - 1];
-			for (int iter = 0; iter < columns.length; iter++) {
-				if (columns[iter] != column) {
-					newColumns[counter] = columns[iter];
+			int[] newColumns = new int[icolumns.length - 1];
+			for (int iter = 0; iter < icolumns.length; iter++) {
+				if (icolumns[iter] != column) {
+					newColumns[counter] = icolumns[iter];
 					counter++;
 				}
 			}
@@ -231,16 +231,16 @@ public class VTable extends JTable {
 	class ShowAction extends AbstractAction {
 		private int column;
 
-		public ShowAction(String name, int column) {
+		public ShowAction(String name, int icolumn) {
 			putValue(NAME, name);
-			this.column = column;
+			column = icolumn;
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			int[] columns = hiddenModel.getColumns();
-			int[] newColumns = new int[columns.length + 1];
-			System.arraycopy(columns, 0, newColumns, 0, columns.length);
-			newColumns[columns.length] = column;
+			int[] icolumns = hiddenModel.getColumns();
+			int[] newColumns = new int[icolumns.length + 1];
+			System.arraycopy(icolumns, 0, newColumns, 0, icolumns.length);
+			newColumns[icolumns.length] = column;
 			hiddenModel.setColumns(newColumns);
 			sortModel.cancel();
 		}

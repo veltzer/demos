@@ -8,8 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.undo.CannotRedoException;
 
 @SuppressWarnings("serial")
-class RedoAction extends AbstractAction {
-	private static RedoAction INSTANCE = new RedoAction();
+final class RedoAction extends AbstractAction {
+	private static final RedoAction INSTANCE = new RedoAction();
 
 	private RedoAction() {
 		super("Redo", new ImageIcon(UndoAction.class.getResource("Redo24.gif")));
