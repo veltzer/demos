@@ -13,7 +13,6 @@ import java.util.List;
  * methods require the layout container as parameter to read its current font
  * and resolution.
  * @author Karsten Lentzsch
- * @version $Revision: 1.10 $
  * @see Size
  * @see UnitConverter
  * @see DefaultUnitConverter

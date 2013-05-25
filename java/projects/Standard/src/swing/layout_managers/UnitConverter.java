@@ -8,7 +8,6 @@ import java.awt.Component;
  * resolution. The {@link swing.layout_managers.jgoodies.forms.layout.Sizes}
  * class delegates all size conversions to an implementation of this interface.
  * @author Karsten Lentzsch
- * @version $Revision: 1.4 $
  * @see swing.layout_managers.jgoodies.forms.layout.Sizes
  * @see swing.layout_managers.jgoodies.forms.layout.ConstantSize
  * @see AbstractUnitConverter

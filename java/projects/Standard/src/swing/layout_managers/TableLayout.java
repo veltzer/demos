@@ -82,7 +82,6 @@ import java.util.ListIterator;
  * frame.show();
  * }
  * </pre>
- * @version 3.2 5/9/04
  * @author Daniel E. Barbalace
  */
 

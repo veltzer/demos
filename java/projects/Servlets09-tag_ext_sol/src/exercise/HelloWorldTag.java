@@ -7,7 +7,6 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 /**
  * @author Mark Veltzer <mark.veltzer@gmail.com>
- * @version
  */
 @SuppressWarnings("serial")
 public class HelloWorldTag extends TagSupport {

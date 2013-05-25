@@ -44,7 +44,6 @@ import java.util.StringTokenizer;
  * <p>
  * TODO: Consider renaming the inset to offsets.
  * @author Karsten Lentzsch
- * @version $Revision: 1.13 $
  */
 @SuppressWarnings("serial")
 public final class CellConstraints implements Cloneable, Serializable {

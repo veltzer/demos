@@ -9,10 +9,6 @@ import java.util.List;
  * Describes sizes that provide lower and upper bounds as used by the JGoodies
  * {@link swing.layout_managers.jgoodies.forms.layout.FormLayout}.
  * @author Karsten Lentzsch
- * @version $Revision: 1.8 $
- * @see Sizes
- * @see ConstantSize
- * @see Sizes.ComponentSize
  */
 
 @SuppressWarnings("serial")

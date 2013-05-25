@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
  * their default alignment, start size and resizing behavior. API users will use
  * the subclasses {@link ColumnSpec} and {@link RowSpec}.
  * @author Karsten Lentzsch
- * @version $Revision: 1.15 $
  * @see ColumnSpec
  * @see RowSpec
  * @see FormLayout

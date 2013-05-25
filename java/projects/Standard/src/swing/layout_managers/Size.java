@@ -14,7 +14,6 @@ import java.util.List;
  * online too, see <a href="http://www.jgoodies.com/articles/forms.pdf" >
  * http://www.jgoodies.com/articles/forms.pdf</a>.
  * @author Karsten Lentzsch
- * @version $Revision: 1.5 $
  * @see Sizes
  * @see ConstantSize
  */

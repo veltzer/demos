@@ -2,7 +2,6 @@ package exercise;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class Item implements java.io.Serializable {

@@ -22,7 +22,6 @@ import java.util.StringTokenizer;
  * The {@link com.jgoodies.forms.factories.FormFactory} provides predefined
  * frequently used <code>ColumnSpec</code> instances.
  * @author Karsten Lentzsch
- * @version $Revision: 1.6 $
  * @see com.jgoodies.forms.factories.FormFactory
  */
 

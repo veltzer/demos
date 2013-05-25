@@ -6,7 +6,6 @@ import javax.servlet.jsp.tagext.VariableInfo;
 
 /**
  * @author Mark Veltzer <mark.veltzer@gmail.com>
- * @version
  */
 public class ConnectionExtraInfo extends TagExtraInfo {
 

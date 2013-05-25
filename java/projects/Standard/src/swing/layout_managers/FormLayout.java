@@ -106,7 +106,6 @@ import java.util.Map;
  * return builder.getPanel();
  * </pre>
  * @author Karsten Lentzsch
- * @version $Revision: 1.17 $
  * @see ColumnSpec
  * @see RowSpec
  * @see CellConstraints

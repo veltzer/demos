@@ -61,7 +61,6 @@ import java.util.List;
  * Sizes.pixel(99);
  * </pre>
  * @author Karsten Lentzsch
- * @version $Revision: 1.9 $
  * @see Size
  * @see Sizes
  */

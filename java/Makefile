@@ -51,7 +51,7 @@ check_dbl_ws:
 
 .PHONY: check_author
 check_author:
-	@scripts/ok_wrapper.pl git grep "@author" -- "*.java" | grep -v "Mark Veltzer"
+	@scripts/ok_wrapper.pl git grep "@author" -- "*.java" | grep -v "Mark Veltzer <mark.veltzer@gmail.com>"
 
 .PHONY: check_version
 check_version:

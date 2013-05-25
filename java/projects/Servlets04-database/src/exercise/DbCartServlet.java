@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class DbCartServlet extends HttpServlet {

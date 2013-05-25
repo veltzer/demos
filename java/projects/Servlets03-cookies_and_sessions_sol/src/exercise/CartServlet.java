@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class CartServlet extends HttpServlet {

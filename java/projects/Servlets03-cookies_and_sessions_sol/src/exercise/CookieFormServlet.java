@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author rank
- * @version
  */
 @SuppressWarnings("serial")
 public class CookieFormServlet extends HttpServlet {
