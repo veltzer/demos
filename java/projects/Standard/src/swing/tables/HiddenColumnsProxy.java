@@ -2,11 +2,8 @@ package swing.tables;
 
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class HiddenColumnsProxy extends ProxyTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int[] realColumns;
 
 	public HiddenColumnsProxy(TableModel model, int[] realColumns) {

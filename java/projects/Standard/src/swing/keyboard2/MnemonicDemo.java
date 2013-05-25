@@ -10,23 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class MnemonicDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public MnemonicDemo() {
+		@SuppressWarnings("serial")
 		Action a = new AbstractAction() {
-			/**
-				 * 
-				 */
-			private static final long serialVersionUID = 1L;
-
 			public void actionPerformed(ActionEvent ev) {
-				JOptionPane
-						.showMessageDialog(MnemonicDemo.this, "Button Pressed",
-								"Mnemonic", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(MnemonicDemo.this, "Button Pressed",
+					"Mnemonic", JOptionPane.PLAIN_MESSAGE);
 			}
 		};
 		a.putValue(Action.NAME, "Mnemonic");

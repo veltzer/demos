@@ -13,18 +13,15 @@ import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.text.BadLocationException;
 
+@SuppressWarnings("serial")
 public class SelectionDemo extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	private JTextArea textArea;
-
 	private Action selectLineAction;
-
+	
 	public SelectionDemo() {
 
 	}
 
-	@SuppressWarnings("serial")
 	private void init() {
 		setLayout(new BorderLayout());
 
@@ -34,6 +31,7 @@ public class SelectionDemo extends JPanel {
 
 		add(textArea, BorderLayout.CENTER);
 
+		@SuppressWarnings("serial")
 		selectLineAction = new AbstractAction() {
 
 			public void actionPerformed(ActionEvent e) {

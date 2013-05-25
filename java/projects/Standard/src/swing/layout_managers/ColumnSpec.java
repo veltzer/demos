@@ -26,14 +26,10 @@ import java.util.StringTokenizer;
  * @see com.jgoodies.forms.factories.FormFactory
  */
 
+@SuppressWarnings("serial")
 public final class ColumnSpec extends FormSpec {
 
 	// Horizontal Orientations *********************************************
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * By default put components in the left.

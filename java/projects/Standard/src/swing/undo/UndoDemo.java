@@ -26,11 +26,8 @@ import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.undo.AbstractUndoableEdit;
 
+@SuppressWarnings("serial")
 public class UndoDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private static UndoDemo instance;
 	private List<Drawable> drawing = new ArrayList<Drawable>();
 	private boolean fillMode = false;
@@ -39,12 +36,8 @@ public class UndoDemo extends JPanel {
 	private Point startingPoint;
 	private Point currentPoint;
 
+	@SuppressWarnings("serial")
 	public static class PersistentEllipse extends Ellipse2D.Float {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public PersistentEllipse(float x, float y, float width, float height) {
 			super(x, y, width, height);
 		}
@@ -89,12 +82,9 @@ public class UndoDemo extends JPanel {
 		return d;
 	}
 
+	@SuppressWarnings("serial")
 	public static class Drawable extends AbstractUndoableEdit implements
 			Serializable {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private Color color;
 		private Shape shape;
 		private boolean filled;
@@ -151,12 +141,8 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class ToggleFillModeAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		ToggleFillModeAction() {
 			super("Fill");
 		}
@@ -166,12 +152,8 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class SelectColorAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		SelectColorAction() {
 			super("Color");
 		}
@@ -183,12 +165,8 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class DrawRectModeAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		DrawRectModeAction() {
 			super("Rectangle");
 		}
@@ -198,12 +176,8 @@ public class UndoDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class DrawCircleModeAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		DrawCircleModeAction() {
 			super("Circle");
 		}

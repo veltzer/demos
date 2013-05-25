@@ -13,14 +13,9 @@ import java.awt.Insets;
  * @author Daniel E. Barbalace
  */
 
+@SuppressWarnings("serial")
 public class SingleFiledLayout implements java.awt.LayoutManager,
 		java.io.Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	/** Align components in a column */
 	public static final int COLUMN = 0;
 

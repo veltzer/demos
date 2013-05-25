@@ -4,11 +4,8 @@ import java.math.BigDecimal;
 
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class TotalProxyTableModel extends ProxyTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int totalColumn, descriptionColumn;
 	private String totalString;
 

@@ -8,9 +8,8 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class WordCanvas extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	private HangManLogic hangManLogic;
 
 	public WordCanvas(HangManLogic hangManLogic) {

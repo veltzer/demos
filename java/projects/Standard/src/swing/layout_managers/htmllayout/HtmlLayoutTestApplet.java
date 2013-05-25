@@ -19,12 +19,8 @@ import java.net.URL;
  * @see htmllayout.HtmlLayoutTest
  * @author Paul Buchheit
  */
+@SuppressWarnings("serial")
 public class HtmlLayoutTestApplet extends Applet {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	String html;
 	String htmlURL;
 

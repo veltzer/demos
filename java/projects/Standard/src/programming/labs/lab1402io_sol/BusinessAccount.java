@@ -1,7 +1,7 @@
 package programming.labs.lab1402io_sol;
 
+@SuppressWarnings("serial")
 public class BusinessAccount extends Account {
-	private static final long serialVersionUID = 1L;
 	public double AMOUNT_PROTECTION = 10000;
 
 	public BusinessAccount(double balance) {

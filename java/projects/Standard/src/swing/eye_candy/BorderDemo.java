@@ -7,8 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
+@SuppressWarnings("serial")
 public class BorderDemo extends JPanel {
-	private static final long serialVersionUID = 1L;
 
 	public BorderDemo() {
 		setBorder(BorderFactory.createTitledBorder(

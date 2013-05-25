@@ -17,18 +17,11 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.TransferHandler;
 
+@SuppressWarnings("serial")
 public class CopyAndPasteDemo extends JPanel {
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
-
+	@SuppressWarnings("serial")
 	static abstract class TransferableAction extends AbstractAction implements
 			PropertyChangeListener {
-		/**
-		 *
-		 */
-		private static final long serialVersionUID = 1L;
 		private JComponent current;
 
 		public TransferableAction() {
@@ -75,13 +68,8 @@ public class CopyAndPasteDemo extends JPanel {
 			setEnabled((current != null) && enableAction(current));
 		}
 	}
-
+	@SuppressWarnings("serial")
 	static class CopyAction extends TransferableAction {
-		/**
-		 *
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public CopyAction() {
 			putValue(NAME, "Copy");
 			putValue(SMALL_ICON,
@@ -93,12 +81,8 @@ public class CopyAndPasteDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	static class CutAction extends TransferableAction {
-		/**
-		 *
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public CutAction() {
 			putValue(NAME, "Cut");
 			putValue(SMALL_ICON,
@@ -110,12 +94,8 @@ public class CopyAndPasteDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	static class PasteAction extends TransferableAction {
-		/**
-		 *
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public PasteAction() {
 			putValue(NAME, "Paste");
 			putValue(SMALL_ICON,

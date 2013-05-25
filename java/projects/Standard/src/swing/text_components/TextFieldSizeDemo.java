@@ -7,12 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class TextFieldSizeDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public TextFieldSizeDemo() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JTextField field = new JTextField("Default");

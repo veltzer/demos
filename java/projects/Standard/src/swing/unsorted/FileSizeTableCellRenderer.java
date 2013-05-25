@@ -4,9 +4,8 @@ import java.awt.Component;
 
 import javax.swing.JTable;
 
+@SuppressWarnings("serial")
 public class FileSizeTableCellRenderer extends ColorAwareTableCellRenderer {
-
-	private static final long serialVersionUID = 1L;
 	private static String[] suffixes = {
 		"B", "K", "M", "G"
 	};

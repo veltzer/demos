@@ -10,12 +10,8 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.border.EtchedBorder;
 
+@SuppressWarnings("serial")
 public class TriangleEtchedBorder extends EtchedBorder {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@SuppressWarnings("deprecation")
 	public Insets getBorderInsets(Component c) {
 		// right now only button is supported since this border needs intimate

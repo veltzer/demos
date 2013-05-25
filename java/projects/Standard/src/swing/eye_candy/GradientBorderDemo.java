@@ -13,9 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
+@SuppressWarnings("serial")
 public class GradientBorderDemo extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	public GradientBorderDemo() {
 		setBorder(BorderFactory.createCompoundBorder(new ShadowBorder(),
 				new GradientBorder("Title", SystemColor.activeCaption,

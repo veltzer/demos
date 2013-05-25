@@ -16,15 +16,11 @@ import javax.swing.JMenuItem;
  * A simple demonstration for buttons: action listeners, setEnabled, isEnabled.
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class ActionsDemo extends JFrame {
-	private static final long serialVersionUID = 1L;
-
 	private JButton playButton;
-
 	private JButton pauseButton;
-
 	private JButton stopButton;
-
 	private JLabel message;
 
 	public ActionsDemo() {

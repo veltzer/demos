@@ -12,30 +12,18 @@ import java.awt.Shape;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class RollingPolygon extends JPanel {
-
-	private static final long serialVersionUID = 1L;
-
 	private Shape polygon;
-
 	private int xPos;
-
 	private int yPos;
-
 	private int xDelta;
-
 	private int yDelta;
-
 	private double angle;
-
 	private int gradientPercent;
-
 	private int gradientDelta;
-
 	private Color gradientStartColor;
-
 	private Color gradientEndColor;
-
 	private boolean isRunning;
 
 	private class Roller implements Runnable {

@@ -7,12 +7,8 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class ConfigurableButton extends JButton {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public void configurePropertiesFromAction(Action action) {
 		super.configurePropertiesFromAction(action);
 		Object pressed = action.getValue("PRESSED_ICON");

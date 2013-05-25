@@ -244,17 +244,12 @@ public final class Sizes {
 	 * {@link Size} interface for the component sizes:
 	 * <em>min, pref, default</em>.
 	 */
+	@SuppressWarnings("serial")
 	static final class ComponentSize implements Size, Serializable {
-
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		private final transient String name;
 
-		private ComponentSize(String name) {
-			this.name = name;
+		private ComponentSize(String iname) {
+			name = iname;
 		}
 
 		/**

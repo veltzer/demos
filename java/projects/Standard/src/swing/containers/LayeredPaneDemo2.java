@@ -13,13 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
+@SuppressWarnings("serial")
 public class LayeredPaneDemo2 extends JFrame {
-	private static final long serialVersionUID = 1L;
-
 	private JLayeredPane layeredPane;
-
 	private int level;
-
 	private Color[] colors = { Color.GREEN, Color.RED, Color.BLUE, Color.GRAY,
 			Color.DARK_GRAY, Color.YELLOW, Color.CYAN, Color.MAGENTA,
 			Color.WHITE };

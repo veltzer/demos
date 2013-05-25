@@ -22,11 +22,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class VTable extends JTable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private boolean[] ascending = null;
 	private int[] columns = null;
 	private TableModel model;
@@ -130,12 +127,8 @@ public class VTable extends JTable {
 		return -1;
 	}
 
+	@SuppressWarnings("serial")
 	class HeaderRenderer extends DefaultTableCellRenderer {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public Component getTableCellRendererComponent(JTable table,
 				Object value, boolean isSelected, boolean hasFocus, int row,
 				int column) {
@@ -203,11 +196,8 @@ public class VTable extends JTable {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class HideAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private int column;
 
 		public HideAction(String name, int column) {
@@ -230,11 +220,8 @@ public class VTable extends JTable {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class ShowAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private int column;
 
 		public ShowAction(String name, int column) {

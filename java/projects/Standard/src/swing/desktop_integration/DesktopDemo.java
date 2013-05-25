@@ -18,20 +18,13 @@ import org.jdesktop.jdic.desktop.Desktop;
 import org.jdesktop.jdic.desktop.DesktopException;
 import org.jdesktop.jdic.desktop.Message;
 
+@SuppressWarnings("serial")
 public class DesktopDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JFileChooser chooser = new JFileChooser();
 
+	@SuppressWarnings("serial")
 	abstract class DesktopAction extends AbstractAction implements
 			PropertyChangeListener {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public DesktopAction() {
 			setEnabled(false);
 			chooser.addPropertyChangeListener(
@@ -57,12 +50,8 @@ public class DesktopDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class EditAction extends DesktopAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public EditAction() {
 			putValue(NAME, "Edit");
 		}
@@ -76,12 +65,8 @@ public class DesktopDemo extends JPanel {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class PrintAction extends DesktopAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public PrintAction() {
 			putValue(NAME, "Print");
 		}
@@ -94,13 +79,8 @@ public class DesktopDemo extends JPanel {
 			Desktop.print(chooser.getSelectedFile());
 		}
 	}
-
+	@SuppressWarnings("serial")
 	class BrowseAction extends DesktopAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public BrowseAction() {
 			putValue(NAME, "Browse");
 		}
@@ -109,13 +89,8 @@ public class DesktopDemo extends JPanel {
 			Desktop.browse(chooser.getSelectedFile().toURI().toURL());
 		}
 	}
-
+	@SuppressWarnings("serial")
 	class OpenAction extends DesktopAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public OpenAction() {
 			putValue(NAME, "Open");
 		}
@@ -124,13 +99,8 @@ public class DesktopDemo extends JPanel {
 			Desktop.open(chooser.getSelectedFile());
 		}
 	}
-
+	@SuppressWarnings("serial")
 	class MailAction extends DesktopAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public MailAction() {
 			putValue(NAME, "Mail");
 		}

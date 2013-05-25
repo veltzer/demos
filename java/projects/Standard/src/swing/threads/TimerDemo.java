@@ -22,15 +22,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class TimerDemo extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	private JTextField loginField;
-
 	private Timer typingTimer;
-
 	private JPasswordField passwordField;
-
 	private Action submitAction;
 
 	public TimerDemo() {

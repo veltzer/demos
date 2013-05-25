@@ -8,12 +8,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class HiddenColumnDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public HiddenColumnDemo() {
 		FileTableModel m = new FileTableModel();
 		File directory = new File(".");

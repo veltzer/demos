@@ -6,11 +6,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
+@SuppressWarnings("serial")
 public class ColorAwareTableCellRenderer extends DefaultTableCellRenderer
 		implements TableCellRenderer {
-
-	private static final long serialVersionUID = 1L;
-
 	public Component getTableCellRendererComponent(JTable table, Object value,
 			boolean isSelected, boolean hasFocus, int row, int column) {
 

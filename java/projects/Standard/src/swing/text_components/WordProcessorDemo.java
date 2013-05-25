@@ -29,11 +29,8 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import javax.swing.text.StyledEditorKit;
 
+@SuppressWarnings("serial")
 public class WordProcessorDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private TextPane pane = new TextPane();
 	private JToolBar toolbar = new JToolBar();
 	private StyledDocument doc;
@@ -74,12 +71,8 @@ public class WordProcessorDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
+	@SuppressWarnings("serial")
 	class InsertImage extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public InsertImage() {
 			putValue(NAME, "Image");
 		}
@@ -185,12 +178,8 @@ public class WordProcessorDemo extends JPanel {
 
 	}
 
+	@SuppressWarnings("serial")
 	class TextPane extends JTextPane {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public void setCharacterAttributes(AttributeSet attr, boolean replace) {
 			int p0 = pane.getSelectionStart();
 			int p1 = pane.getSelectionEnd();

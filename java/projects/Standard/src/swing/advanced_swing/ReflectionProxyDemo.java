@@ -9,12 +9,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class ReflectionProxyDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public ReflectionProxyDemo() {
 		FileTableModel m = new FileTableModel();
 		m.setDirectory(new File("."));

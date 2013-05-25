@@ -5,12 +5,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class MultilineLabelDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public MultilineLabelDemo() {
 		JTextArea label = new JTextArea(
 				"This is a really really long String!\nIt even has a newline character in it");

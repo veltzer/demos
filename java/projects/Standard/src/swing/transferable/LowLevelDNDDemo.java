@@ -16,11 +16,8 @@ import java.awt.dnd.DropTargetListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class LowLevelDNDDemo extends JPanel {
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
 	private static final DataFlavor[] FLAVORS = new DataFlavor[] {
 			DataFlavor.stringFlavor,
 			new DataFlavor("application/vnd-vPrise-LowLevelDNDDemo",

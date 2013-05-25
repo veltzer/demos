@@ -3,8 +3,8 @@ package swing.unsorted;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class MyTable extends JTable {
-	private static final long serialVersionUID = 1L;
 	private TableColorModel colorModel;
 
 	public MyTable(TableModel model) {

@@ -8,9 +8,8 @@ import javax.swing.table.TableModel;
  * which is a decorator.
  */
 
+@SuppressWarnings("serial")
 public class TotalRowDecorator extends TableModelDecorator {
-
-	private static final long serialVersionUID = 1L;
 	private int colToSum;
 
 	public TotalRowDecorator(TableModel model, int col) {

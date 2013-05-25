@@ -25,13 +25,9 @@ import javax.swing.SwingConstants;
  * LayeredPaneDemo.java is a 1.4 application that requires
  * images/dukeWaveRed.gif. 
  */
+@SuppressWarnings("serial")
 public class LayeredPaneDemo extends JPanel implements ActionListener,
 		MouseMotionListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	private String[] layerStrings = { "Yellow (0)", "Magenta (1)", "Cyan (2)",
 			"Red (3)", "Green (4)" };
 

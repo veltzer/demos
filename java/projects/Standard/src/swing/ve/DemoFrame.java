@@ -17,31 +17,19 @@ import javax.swing.SwingUtilities;
 
 import swing.graphics2d.RollingPolygon;
 
+@SuppressWarnings("serial")
 public class DemoFrame extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-
-	private JPanel jContentPane = null;
-
-	private JPanel jPanel = null;
-
-	private JButton jButton = null;
-
-	private JButton renameButton = null;
-
-	private JSplitPane jSplitPane = null;
-
-	private JTree jTree = null;
-
-	private JScrollPane jScrollPane = null;
-
-	private JPanel jPanel1 = null;
-
-	private JMenuBar jJMenuBar = null;
-
-	private JMenu jMenu = null;
-
-	private JMenuItem jMenuItem = null;
+	private JPanel jContentPane;
+	private JPanel jPanel;
+	private JButton jButton;
+	private JButton renameButton;
+	private JSplitPane jSplitPane;
+	private JTree jTree;
+	private JScrollPane jScrollPane;
+	private JPanel jPanel1;
+	private JMenuBar jJMenuBar;
+	private JMenu jMenu;
+	private JMenuItem jMenuItem;
 
 	/**
 	 * This method initializes jContentPane

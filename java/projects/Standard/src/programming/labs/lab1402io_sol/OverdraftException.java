@@ -1,8 +1,7 @@
 package programming.labs.lab1402io_sol;
 
+@SuppressWarnings("serial")
 public class OverdraftException extends Exception {
-	private static final long serialVersionUID = 1L;
-
 	public OverdraftException(String msg) {
 		super(msg);
 	}

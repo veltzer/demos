@@ -8,12 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+@SuppressWarnings("serial")
 public class ActionSelection extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public ActionSelection() {
 		super(new BorderLayout());
 		JTable table = new JTable(new Object[][] { { "Amy", "Fowler" },

@@ -11,17 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class OppositePanel2 extends JComponent {
-	private static final long serialVersionUID = 1L;
-
 	private JPanel leftPanel;
-
 	private JPanel rightPanel;
-
 	private boolean leftComponentAdded;
-
 	private boolean rightComponentAdded;
-
 	private boolean panelsAdded;
 
 	public OppositePanel2() {

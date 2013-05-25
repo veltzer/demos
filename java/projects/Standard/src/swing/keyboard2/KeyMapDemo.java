@@ -11,11 +11,8 @@ import javax.swing.text.JTextComponent;
 import javax.swing.text.Keymap;
 import javax.swing.text.TextAction;
 
+@SuppressWarnings("serial")
 public class KeyMapDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JTextField field = new JTextField("Try writing in lower case...");
 	private static Keymap keymap;
 
@@ -104,13 +101,8 @@ public class KeyMapDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
+	@SuppressWarnings("serial")
 	static class InsertMeAction extends TextAction {
-
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		/**
 		 * Creates this object with the appropriate identifier.
 		 * @param s Description of the Parameter

@@ -11,12 +11,8 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class SortableTableModel extends ProxyTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private int[] sortedOffsets;
 	private int column;
 	private Comparator<Object> comparator;
 	private boolean ascending;

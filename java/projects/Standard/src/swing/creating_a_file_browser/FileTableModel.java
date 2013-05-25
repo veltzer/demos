@@ -4,11 +4,8 @@ import java.io.File;
 
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class FileTableModel extends AbstractTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private final static String[] COLUMN_NAMES = { "Type", "Name", "Size" };
 	private final static Class<?>[] COLUMN_CLASS = { File.class, String.class,
 			Long.class };

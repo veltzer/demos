@@ -21,17 +21,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.table.TableCellRenderer;
 
+@SuppressWarnings("serial")
 public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("serial")
 	private final JCheckBox BOOLEAN_RENDERER = new JCheckBox() {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public void paint(Graphics graphics) {
 			super.paint(graphics);
 			graphics.setColor(gridColor);

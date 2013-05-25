@@ -11,17 +11,10 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
 /**
- * Description of the Class
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class FileBrowser extends JSplitPane implements TreeSelectionListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * Description of the Field
-	 */
 	private FileTableModel tableModel;
 
 	/**

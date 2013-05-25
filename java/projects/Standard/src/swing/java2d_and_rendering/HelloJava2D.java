@@ -10,12 +10,8 @@ import javax.swing.JFrame;
  * Description of the Class
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class HelloJava2D extends Component {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	/**
 	 * The main program for the HelloJava2D class
 	 * @param argv The command line arguments

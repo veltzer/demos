@@ -16,13 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class IconDemo extends JPanel {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public IconDemo() {
 		Icon duke = new ImageIcon(getClass().getResource("/duke.gif"));
 		Icon no = new NoEntryIcon(duke);
@@ -31,10 +26,10 @@ public class IconDemo extends JPanel {
 	}
 
 	static class NoEntryIcon implements Icon {
-		Icon icon;
+		private Icon icon;
 
-		public NoEntryIcon(Icon icon) {
-			this.icon = icon;
+		public NoEntryIcon(Icon iicon) {
+			icon = iicon;
 		}
 
 		public int getIconHeight() {

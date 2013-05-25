@@ -1,10 +1,7 @@
 package programming.labs.lab1001exceptions_sol;
 
+@SuppressWarnings("serial")
 public class OverdraftException extends Exception {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private double amount;
 	private double limit;
 	private double balance;

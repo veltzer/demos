@@ -6,12 +6,8 @@ package swing.layout_managers.htmllayout;
  * @see htmllayout.HtmlLayout
  * @author Paul Buchheit
  */
+@SuppressWarnings("serial")
 public class BadTableHtmlException extends IllegalArgumentException {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public BadTableHtmlException(String message) {
 		super(message);
 	}

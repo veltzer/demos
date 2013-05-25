@@ -13,8 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class WatermarkImagePanel extends JPanel {
-	private static final long serialVersionUID = 1L;
 	private Image image;
 	private float alpha;
 

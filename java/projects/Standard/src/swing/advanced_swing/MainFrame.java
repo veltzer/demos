@@ -14,12 +14,8 @@ package swing.advanced_swing;
 /**
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class MainFrame extends javax.swing.JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	/** Creates new form MainFrame */
 	public MainFrame() {

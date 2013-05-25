@@ -2,8 +2,8 @@ package swing.table_cell_renderer;
 
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class DisksTableModel extends AbstractTableModel {
-	private static final long serialVersionUID = 1L;
 	private final static String[] COLUMN_NAMES = { "Name", "Size", "Used" };
 	private final static Class<?>[] COLUMN_CLASS = { String.class, Long.class,
 			Long.class };

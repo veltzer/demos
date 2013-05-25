@@ -5,12 +5,8 @@ import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class FrozenDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public FrozenDemo() {
 		FileTableModel m = new FileTableModel();
 		File directory = new File(".");

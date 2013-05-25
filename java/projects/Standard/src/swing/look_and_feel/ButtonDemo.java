@@ -18,29 +18,18 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+@SuppressWarnings("serial")
 public class ButtonDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JMenuBar menuBar = new JMenuBar();
+	@SuppressWarnings("serial")
 	private AbstractAction action1 = new AbstractAction() {
-		/**
-			 * 
-			 */
-		private static final long serialVersionUID = 1L;
-
 		public void actionPerformed(ActionEvent ev) {
 			setEnabled(false);
 			putValue(NAME, "OK now what?");
 		}
 	};
+	@SuppressWarnings("serial")
 	private AbstractAction action2 = new AbstractAction() {
-		/**
-			 * 
-			 */
-		private static final long serialVersionUID = 1L;
-
 		public void actionPerformed(ActionEvent ev) {
 			JOptionPane.showMessageDialog(((JComponent) ev.getSource()),
 					"Second button pressed", "Pressed",

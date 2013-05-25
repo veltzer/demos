@@ -8,10 +8,8 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class HangedManCanvas extends JPanel {
-
-	private static final long serialVersionUID = 1L;
-
 	private int errorLevel;
 
 	public HangedManCanvas() {

@@ -15,13 +15,8 @@ import java.util.List;
  * @see Sizes.ComponentSize
  */
 
+@SuppressWarnings("serial")
 final class BoundedSize implements Size, Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	/**
 	 * Holds the base size.
 	 */

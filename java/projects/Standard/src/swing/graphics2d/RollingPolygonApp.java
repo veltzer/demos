@@ -15,13 +15,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
+@SuppressWarnings("serial")
 public class RollingPolygonApp extends JFrame {
-	private static final long serialVersionUID = 1L;
-
 	private RollingPolygon rollingPolygon;
-
 	private AbstractAction playAction;
-
 	private AbstractAction stopAction;
 
 	public RollingPolygonApp() throws HeadlessException {

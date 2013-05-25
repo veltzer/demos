@@ -17,30 +17,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
+@SuppressWarnings("serial")
 public class ButtonDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JMenuBar menuBar = new JMenuBar();
 	private JToolBar toolbar = new JToolBar();
-	private AbstractAction action1 = new AbstractAction() {
-		/**
-			 * 
-			 */
-		private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("serial")
+	private AbstractAction action1 = new AbstractAction() {
 		public void actionPerformed(ActionEvent ev) {
 			setEnabled(false);
 			putValue(NAME, "OK now what?");
 		}
 	};
+	@SuppressWarnings("serial")
 	private AbstractAction action2 = new AbstractAction() {
-		/**
-			 * 
-			 */
-		private static final long serialVersionUID = 1L;
-
 		public void actionPerformed(ActionEvent ev) {
 			JOptionPane.showMessageDialog(((JComponent) ev.getSource()),
 					"Second button pressed", "Pressed",

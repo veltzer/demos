@@ -12,13 +12,8 @@ import javax.swing.DebugGraphics;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class LayoutQuiz2 extends JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public LayoutQuiz2() throws HeadlessException {
 		super("LayoutQuiz2");
 	}

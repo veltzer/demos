@@ -23,10 +23,8 @@ import javax.swing.JTextField;
 import swing.graphics2d.RollingPolygon;
 import swing.layouts.StretchLayout;
 
+@SuppressWarnings("serial")
 public class ContainersQuiz extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-
 	public ContainersQuiz() {
 		super("ContainersQuiz");
 	}

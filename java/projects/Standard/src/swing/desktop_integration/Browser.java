@@ -23,60 +23,39 @@ import org.jdesktop.jdic.browser.WebBrowser;
 import org.jdesktop.jdic.browser.WebBrowserEvent;
 import org.jdesktop.jdic.browser.WebBrowserListener;
 
+@SuppressWarnings("serial")
 public class Browser extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+	@SuppressWarnings("serial")
 	class ForwardAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public ForwardAction() {
 			putValue(NAME, "Forward");
 			putValue(SMALL_ICON,
 					new ImageIcon(getClass().getResource("/Forward.png")));
 			setEnabled(false);
 		}
-
 		public void actionPerformed(ActionEvent ev) {
 			webBrowser.forward();
 		}
 	}
-
+	@SuppressWarnings("serial")
 	class BackAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public BackAction() {
 			putValue(NAME, "Back");
 			putValue(SMALL_ICON,
 					new ImageIcon(getClass().getResource("/Back.png")));
 			setEnabled(false);
 		}
-
 		public void actionPerformed(ActionEvent ev) {
 			webBrowser.back();
 		}
 	}
-
+	@SuppressWarnings("serial")
 	class BrowseAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public BrowseAction() {
 			putValue(SHORT_DESCRIPTION, "Load the given URL");
 			putValue(NAME, "GO");
 			putValue(SMALL_ICON, BROWSE_ICON);
 		}
-
 		public void actionPerformed(ActionEvent ev) {
 			loadURL();
 		}
@@ -93,7 +72,7 @@ public class Browser extends JPanel {
 	private WebBrowser.Status status;
 
 	public Browser() {
-		this.setLayout(new BorderLayout());
+		setLayout(new BorderLayout());
 		ToolTipManager.sharedInstance().setLightWeightPopupEnabled(false);
 
 		addressField.addActionListener(new ActionListener() {

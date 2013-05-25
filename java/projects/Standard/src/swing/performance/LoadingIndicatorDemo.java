@@ -10,23 +10,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
+@SuppressWarnings("serial")
 public class LoadingIndicatorDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public LoadingIndicatorDemo() {
 		SlowFileTableModel m = new SlowFileTableModel();
 		File directory = new File(".");
 		m.setDirectory(directory);
 		JTable table = new JTable(m);
+		@SuppressWarnings("serial")
 		table.setDefaultRenderer(Icon.class, new DefaultTableCellRenderer() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
 			public Component getTableCellRendererComponent(JTable table,
 					Object value, boolean isSelected, boolean hasFocus,
 					int row, int column) {

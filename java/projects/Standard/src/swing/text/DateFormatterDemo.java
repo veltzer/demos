@@ -18,13 +18,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.DateFormatter;
 
+@SuppressWarnings("serial")
 public class DateFormatterDemo extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	private JFormattedTextField dateField;
-
 	private JLabel enteredTextLabel;
-
 	private JButton submitButton;
 
 	public DateFormatterDemo() {

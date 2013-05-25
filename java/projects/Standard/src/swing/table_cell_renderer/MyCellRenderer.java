@@ -11,11 +11,8 @@ import javax.swing.table.TableCellRenderer;
 
 public class MyCellRenderer implements TableCellRenderer {
 
+	@SuppressWarnings("serial")
 	private static class Render extends JComponent {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		public Disk disk;
 
 		@Override

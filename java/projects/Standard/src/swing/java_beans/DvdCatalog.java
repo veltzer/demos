@@ -41,11 +41,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.text.JTextComponent;
 
+@SuppressWarnings("serial")
 public class DvdCatalog extends JFrame implements Runnable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JTextComponent title;
 	private JTextComponent by;
 	private JTextComponent year;
@@ -173,12 +170,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 		return (box);
 	}
 
+	@SuppressWarnings("serial")
 	static class IconRenderer extends DefaultTableCellRenderer {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public Component getTableCellRendererComponent(JTable table,
 				Object value, boolean isSelected, boolean hasFocus, int row,
 				int column) {
@@ -189,12 +182,9 @@ public class DvdCatalog extends JFrame implements Runnable {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	public static class DvdModel extends AbstractTableModel implements
 			TableModel, Serializable, ExceptionListener {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private final transient String[] COLUMN_NAMES = { "Title", "By",
 				"Featuring", "Year", "Keywords", "Media" };
 		private final transient Class<?>[] COLUMN_CLASSES = { String.class,
@@ -279,12 +269,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class RemoveAction extends AbstractAction implements ListSelectionListener {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public RemoveAction() {
 			putValue(NAME, "Remove");
 			table.getSelectionModel().addListSelectionListener(this);

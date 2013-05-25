@@ -15,11 +15,8 @@ import javax.swing.JFrame;
  * Description of the Class
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class Star extends Component {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	/**
 	 * Description of the Field
 	 */

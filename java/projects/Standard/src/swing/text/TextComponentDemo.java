@@ -1,10 +1,5 @@
 package swing.text;
 
-/*
- * TextComponentDemo.java is a 1.4 application that requires
- * one additional file: DocumentSizeFilter
- */
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -49,26 +44,23 @@ import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
+/*
+ * TextComponentDemo.java is a 1.4 application that requires
+ * one additional file: DocumentSizeFilter
+ */
+
+@SuppressWarnings("serial")
 public class TextComponentDemo extends JFrame {
-	private static final long serialVersionUID = 1L;
-
 	JTextPane textPane;
-
 	AbstractDocument doc;
-
 	static final int MAX_CHARACTERS = 300;
-
 	JTextArea changeLog;
-
 	String newline = "\n";
-
 	HashMap<Object, Action> actions;
 
 	// undo helpers
 	protected UndoAction undoAction;
-
 	protected RedoAction redoAction;
-
 	protected UndoManager undo = new UndoManager();
 
 	public TextComponentDemo() {
@@ -132,12 +124,8 @@ public class TextComponentDemo extends JFrame {
 	}
 
 	// This listens for and reports caret movements.
+	@SuppressWarnings("serial")
 	protected class CaretListenerLabel extends JLabel implements CaretListener {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public CaretListenerLabel(String label) {
 			super(label);
 		}
@@ -354,12 +342,8 @@ public class TextComponentDemo extends JFrame {
 		return (Action) (actions.get(name));
 	}
 
+	@SuppressWarnings("serial")
 	class UndoAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public UndoAction() {
 			super("Undo");
 			setEnabled(false);
@@ -387,12 +371,8 @@ public class TextComponentDemo extends JFrame {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class RedoAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public RedoAction() {
 			super("Redo");
 			setEnabled(false);

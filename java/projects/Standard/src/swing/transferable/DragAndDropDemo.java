@@ -8,12 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
 
+@SuppressWarnings("serial")
 public class DragAndDropDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public DragAndDropDemo() {
 		JColorChooser chooser = new JColorChooser();
 		chooser.setDragEnabled(true);

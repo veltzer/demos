@@ -9,12 +9,8 @@ import javax.swing.JTextField;
 
 import swing.layout_managers.htmllayout.HtmlLayout;
 
+@SuppressWarnings("serial")
 public class HtmlDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public HtmlDemo() {
 		super(new HtmlLayout("<table rows=3 cols=2 hgap=3 vgap=3>" + "<tr>"
 				+ "<td> Name <td component=name>" + "<tr>"

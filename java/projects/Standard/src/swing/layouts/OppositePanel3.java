@@ -8,11 +8,9 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class OppositePanel3 extends JComponent {
-	private static final long serialVersionUID = 1L;
-
 	private boolean leftComponentAdded;
-
 	private boolean rightComponentAdded;
 
 	public OppositePanel3() {

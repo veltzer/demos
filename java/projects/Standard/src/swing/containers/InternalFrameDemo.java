@@ -17,11 +17,8 @@ import javax.swing.KeyStroke;
 
 import swing.graphics2d.RollingPolygon;
 
+@SuppressWarnings("serial")
 public class InternalFrameDemo extends JFrame implements ActionListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	JDesktopPane desktop;
 
 	public InternalFrameDemo() {
@@ -125,12 +122,8 @@ public class InternalFrameDemo extends JFrame implements ActionListener {
 	}
 }
 
+@SuppressWarnings("serial")
 class MyInternalFrame extends JInternalFrame {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	static int openFrameCount = 0;
 
 	static final int xOffset = 30, yOffset = 30;

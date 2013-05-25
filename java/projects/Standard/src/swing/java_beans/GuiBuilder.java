@@ -62,11 +62,8 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
+@SuppressWarnings("serial")
 public class GuiBuilder extends JPanel implements ExceptionListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private final static Class<?>[] SUPPORTED_WIDGETS = new Class[] {
 			JButton.class, JRadioButton.class, JToggleButton.class,
 			JTextField.class, JTextArea.class };
@@ -85,12 +82,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		add("Center", content);
 		tree.setRootVisible(true);
 		tree.addTreeSelectionListener(treeModel);
+		@SuppressWarnings("serial")
 		tree.setCellRenderer(new DefaultTreeCellRenderer() {
-			/**
-				 * 
-				 */
-			private static final long serialVersionUID = 1L;
-
 			public Component getTreeCellRendererComponent(JTree tree,
 					Object value, boolean selected, boolean expanded,
 					boolean leaf, int row, boolean hasFocus) {
@@ -125,12 +118,10 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		propertyModel.setComponent(cmp);
 		if (propertySheet == null) {
 			propertySheet = new JTable(propertyModel);
+
+			@SuppressWarnings("serial")
 			propertySheet.setDefaultEditor(Object.class, new DefaultCellEditor(
 					new JTextField()) {
-				/**
-					 * 
-					 */
-				private static final long serialVersionUID = 1L;
 				private PropertyEditor editor;
 				private boolean asText = false;
 				private DefaultCellEditor alternative;
@@ -192,12 +183,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 	}
 
 	private JToolBar createWidgetBar() {
+		@SuppressWarnings("serial")
 		JToolBar toolbar = new JToolBar() {
-			/**
-				 * 
-				 */
-			private static final long serialVersionUID = 1L;
-
 			public JButton createActionComponent(Action a) {
 				JButton b = super.createActionComponent(a);
 				b.setTransferHandler(new ActionTransferHandler());
@@ -265,11 +252,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		exception.printStackTrace();
 	}
 
+	@SuppressWarnings("serial")
 	class SelectBeanAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private BeanInfo info;
 		private Class<?> beanClass;
 
@@ -312,12 +296,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	static class ActionTransferHandler extends TransferHandler {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public ActionTransferHandler() {
 			super();
 		}
@@ -387,11 +367,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 	}
 
+	@SuppressWarnings("serial")
 	class PropertyModel extends AbstractTableModel {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private final Class<?>[] COLUMNS = new Class[] { String.class,
 				Object.class };
 		private final String[] NAMES = new String[] { "Property", "Value" };

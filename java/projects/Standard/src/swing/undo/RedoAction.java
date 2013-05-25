@@ -7,11 +7,8 @@ import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.undo.CannotRedoException;
 
+@SuppressWarnings("serial")
 class RedoAction extends AbstractAction {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private static RedoAction INSTANCE = new RedoAction();
 
 	private RedoAction() {

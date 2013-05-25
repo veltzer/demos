@@ -11,13 +11,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.border.BevelBorder;
 
+@SuppressWarnings("serial")
 public class LayoutQuiz4 extends JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public LayoutQuiz4() throws HeadlessException {
 		super("LayoutQuiz4");
 	}

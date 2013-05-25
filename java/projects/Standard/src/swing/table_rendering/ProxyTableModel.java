@@ -4,11 +4,8 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public abstract class ProxyTableModel extends AbstractTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private TableModel model;
 
 	public ProxyTableModel(TableModel model) {

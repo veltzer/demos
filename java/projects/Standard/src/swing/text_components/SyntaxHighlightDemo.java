@@ -19,11 +19,8 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
+@SuppressWarnings("serial")
 public class SyntaxHighlightDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Pattern[] keywords = new Pattern[] {
 			Pattern.compile("\\bpublic\\b"), Pattern.compile("\\bimport\\b"),
 			Pattern.compile("\\bprivate\\b"), Pattern.compile("\\btry\\b"),

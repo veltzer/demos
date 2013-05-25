@@ -11,11 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class GridDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5935748627756691956L;
 	private GridBagLayout layout;
 	private GridBagConstraints constraints = new GridBagConstraints();
 

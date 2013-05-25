@@ -11,13 +11,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class LayoutQuiz3 extends JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public LayoutQuiz3() throws HeadlessException {
 		super("LayoutQuiz3");
 	}

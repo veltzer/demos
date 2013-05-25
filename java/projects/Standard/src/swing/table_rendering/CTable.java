@@ -3,11 +3,8 @@ package swing.table_rendering;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class CTable extends JTable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private TableColorModel colors = new DefaultTableColorModel();
 	private TableAlignmentModel align;
 	private VCellRenderer renderer;

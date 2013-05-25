@@ -4,9 +4,8 @@ import java.io.File;
 
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class FileTableModel extends AbstractTableModel {
-
-	private static final long serialVersionUID = 1L;
 	private File[] fileList = new File[0];
 
 	public void setDirectory(File dir) {

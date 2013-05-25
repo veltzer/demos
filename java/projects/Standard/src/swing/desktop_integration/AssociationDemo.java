@@ -19,11 +19,8 @@ import org.jdesktop.jdic.filetypes.Association;
 import org.jdesktop.jdic.filetypes.AssociationException;
 import org.jdesktop.jdic.filetypes.AssociationService;
 
+@SuppressWarnings("serial")
 public class AssociationDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JFileChooser chooser = new JFileChooser();
 	private JTextField associationName = new JTextField(15);
 	private JTextField parameters = new JTextField(15);

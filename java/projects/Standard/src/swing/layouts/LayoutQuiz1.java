@@ -13,13 +13,8 @@ import javax.swing.RepaintManager;
 
 import swing.graphics2d.RollingPolygon;
 
+@SuppressWarnings("serial")
 public class LayoutQuiz1 extends JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public LayoutQuiz1() throws HeadlessException {
 		super("LayoutQuiz1");
 	}

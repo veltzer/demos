@@ -11,11 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
+@SuppressWarnings("serial")
 public class BiDiDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private static JToolBar toolbar;
 
 	public BiDiDemo() {
@@ -37,12 +34,8 @@ public class BiDiDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
+	@SuppressWarnings("serial")
 	class FlipOrientation extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public FlipOrientation() {
 			putValue(NAME, "Flip");
 		}

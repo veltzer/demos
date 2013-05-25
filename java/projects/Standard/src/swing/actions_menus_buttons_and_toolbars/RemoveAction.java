@@ -8,12 +8,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
+@SuppressWarnings("serial")
 public class RemoveAction extends AbstractAction implements
 		ListSelectionListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JTable table;
 
 	public RemoveAction(JTable table) {

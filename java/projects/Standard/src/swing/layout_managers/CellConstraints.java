@@ -46,6 +46,7 @@ import java.util.StringTokenizer;
  * @author Karsten Lentzsch
  * @version $Revision: 1.13 $
  */
+@SuppressWarnings("serial")
 public final class CellConstraints implements Cloneable, Serializable {
 
 	// Alignment Constants *************************************************
@@ -54,11 +55,6 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * Implementation Note: Do not change the order of the following constants.
 	 * The serialization of class Alignment is ordinal-based and relies on it.
 	 */
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Use the column's or row's default alignment.
@@ -944,12 +940,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * An ordinal-based serializable typesafe enumeration for component
 	 * alignment types as used by the {@link FormLayout}.
 	 */
+	@SuppressWarnings("serial")
 	public static final class Alignment implements Serializable {
-
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private static final int HORIZONTAL = 0;
 		private static final int VERTICAL = 1;
 		private static final int BOTH = 2;

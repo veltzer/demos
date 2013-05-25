@@ -8,9 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class OppositePanel extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	public OppositePanel() {
 		super(new OppositeLayout());
 	}

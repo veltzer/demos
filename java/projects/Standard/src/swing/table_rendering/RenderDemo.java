@@ -5,12 +5,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class RenderDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public RenderDemo() {
 		TableModel m = new TotalProxyTableModel(new BusinessTableModel(), 2, 0,
 				"The total value of the column");

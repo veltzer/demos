@@ -6,9 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class IconPositionDemo extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	public IconPositionDemo() {
 		super(new java.awt.GridLayout(3, 6));
 		add(createButton(SwingConstants.RIGHT, SwingConstants.CENTER));

@@ -2,12 +2,8 @@ package swing.advanced_swing;
 
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class ReadOnlyTableModel extends ProxyTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public ReadOnlyTableModel(TableModel model) {
 		super(model);
 	}

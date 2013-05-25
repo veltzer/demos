@@ -8,11 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class SlowFileTableModel extends AbstractTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private final static String[] COLUMN_NAMES = { "Type", "Name", "Size",
 			"Content" };
 	private final static Class<?>[] COLUMN_CLASS = { File.class, String.class,

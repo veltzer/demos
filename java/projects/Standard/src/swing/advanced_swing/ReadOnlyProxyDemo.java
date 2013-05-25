@@ -7,12 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+@SuppressWarnings("serial")
 public class ReadOnlyProxyDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public ReadOnlyProxyDemo() {
 		FileTableModel m = new FileTableModel();
 		m.setDirectory(new File("."));

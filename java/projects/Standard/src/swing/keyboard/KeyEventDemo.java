@@ -7,11 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class KeyEventDemo extends JPanel implements KeyListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JButton button = new JButton("Press Any Key");
 
 	public KeyEventDemo() {

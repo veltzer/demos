@@ -66,14 +66,11 @@ import java.util.List;
  * @see Sizes
  */
 
+@SuppressWarnings("serial")
 public final class ConstantSize implements Size, Serializable {
 
 	// Public Units *********************************************************
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	public static final Unit PIXEL = new Unit("Pixel", "px", true);
 	public static final Unit POINT = new Unit("Point", "pt", true);
 	public static final Unit DIALOG_UNITS_X = new Unit("Dialog units X",
@@ -290,12 +287,8 @@ public final class ConstantSize implements Size, Serializable {
 	 * An ordinal-based serializable typesafe enumeration for units as used in
 	 * instances of {@link ConstantSize}.
 	 */
+	@SuppressWarnings("serial")
 	public static final class Unit implements Serializable {
-
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private final transient String name;
 		private final transient String abbreviation;
 		final transient boolean requiresIntegers;

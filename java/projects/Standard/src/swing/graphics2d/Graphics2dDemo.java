@@ -14,9 +14,8 @@ import java.awt.Shape;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class Graphics2dDemo extends JPanel {
-	private static final long serialVersionUID = 1L;
-
 	public Graphics2dDemo() {
 		setBackground(Color.ORANGE);
 	}

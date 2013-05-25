@@ -5,12 +5,9 @@ import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 
 import sorter.Sorted;
 
+@SuppressWarnings("serial")
 public class SortedIntroducer extends DelegatingIntroductionInterceptor
 		implements Sorted {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private boolean sorted = false;
 
 	@Override

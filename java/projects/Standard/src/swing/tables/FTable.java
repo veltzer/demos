@@ -8,11 +8,8 @@ import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class FTable extends JSplitPane {
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
 	private JScrollPane frozenPane;
 	private JScrollPane notFrozenPane;
 

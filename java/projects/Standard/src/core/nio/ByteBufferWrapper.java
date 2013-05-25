@@ -11,9 +11,8 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 
+@SuppressWarnings("serial")
 public class ByteBufferWrapper implements Externalizable {
-	private static final long serialVersionUID = -3805865550336799492L;
-
 	private ByteBuffer buffer;
 
 	private static final int BLOCK_SIZE = 1024;

@@ -11,11 +11,8 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class MultiSortableTableModel extends ProxyTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int[] sortedOffsets;
 	private int[] columns;
 	private boolean[] ascending;

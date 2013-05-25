@@ -6,11 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class InputVerifierDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JTextField verified = new JTextField("abc");
 	private JTextField other = new JTextField("Another field");
 

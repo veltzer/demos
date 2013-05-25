@@ -33,6 +33,10 @@ all: $(ALL)
 check_imports:
 	@scripts/ok_wrapper.pl git grep import | grep \\*
 
+.PHONY: check_serialid
+check_serialid:
+	@scripts/ok_wrapper.pl git grep -l serialVersionUID -- "*.java"
+
 .PHONY: check_ws_eol
 check_ws_eol:
 	@scripts/ok_wrapper.pl git grep " $$" -- "*.java"

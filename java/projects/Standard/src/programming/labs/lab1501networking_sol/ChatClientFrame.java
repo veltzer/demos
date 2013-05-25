@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class ChatClientFrame extends JFrame {
-	private static final long serialVersionUID = 1L;
 	private JTextArea txtArea;
 	private JTextField txtField;
 	private JPanel panel;

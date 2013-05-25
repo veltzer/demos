@@ -11,12 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class BoxDemo extends Box {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public BoxDemo() {
 		super(BoxLayout.Y_AXIS);
 		add(Box.createVerticalStrut(3));

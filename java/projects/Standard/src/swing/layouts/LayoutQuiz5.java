@@ -15,13 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class LayoutQuiz5 extends JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public LayoutQuiz5() throws HeadlessException {
 		super("LayoutQuiz5");
 	}

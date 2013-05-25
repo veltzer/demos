@@ -6,35 +6,17 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * dateForm.java
- *
- * Created on Jul 22, 2010, 11:47:39 AM
- */
-
 /**
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class dateForm extends javax.swing.JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	/** Creates new form dateForm */
 	public dateForm() {
 		initComponents();
+
+		@SuppressWarnings("serial")
 		PlainDocument p = new PlainDocument() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
 			Pattern p = Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
 
 			private boolean check(String proposed) {

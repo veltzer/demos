@@ -1,26 +1,23 @@
 package swing.java_beans;
 
+@SuppressWarnings("serial")
 public class BeanDemo implements java.io.Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String iusername) {
+		username = iusername;
 	}
 
 	public String getUsername() {
-		return (username);
+		return username;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String ipassword) {
+		password = ipassword;
 	}
 
 	public String getPassword() {
-		return (password);
+		return password;
 	}
 }

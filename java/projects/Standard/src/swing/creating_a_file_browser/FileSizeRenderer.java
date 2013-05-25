@@ -9,11 +9,8 @@ import javax.swing.table.DefaultTableCellRenderer;
  * Description of the Class
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class FileSizeRenderer extends DefaultTableCellRenderer {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	/**
 	 * Description of the Field
 	 */

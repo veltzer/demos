@@ -86,6 +86,7 @@ import java.util.ListIterator;
  * @author Daniel E. Barbalace
  */
 
+@SuppressWarnings("serial")
 public class TableLayout implements java.awt.LayoutManager2,
 		java.io.Serializable, TableLayoutConstants {
 
@@ -98,12 +99,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * redundancy. Also, for ease of reading, z always indicates a parameter
 	 * whose value is either C or R.
 	 */
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+	
 	/** Default row/column size */
 	protected static final double defaultSize[][] = { {}, {} };
 

@@ -8,12 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class FormDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public FormDemo() {
 		super(new FormLayout("2dlu, right:pref:grow, 2dlu, fill:default, 2dlu",
 				"top:2dlu, pref, 2dlu, pref, 2dlu, pref, 2dlu"));

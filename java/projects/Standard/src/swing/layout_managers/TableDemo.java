@@ -8,12 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class TableDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public TableDemo() {
 		double size[][] = {
 				{ 0.05, TableLayout.PREFERRED, 0.05, TableLayout.PREFERRED,

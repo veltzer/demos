@@ -10,8 +10,8 @@ import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
+@SuppressWarnings("serial")
 public class FileBrowser extends JSplitPane implements TreeSelectionListener {
-	private static final long serialVersionUID = 1L;
 	private FileTableModel tableModel;
 
 	public FileBrowser() {

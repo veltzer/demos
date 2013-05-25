@@ -15,9 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class GlassPaneDemo extends JFrame {
-	private static final long serialVersionUID = 1L;
-
 	private JButton[] buttons = { new JButton("First"), new JButton("Second"),
 			new JButton("Third") };
 
@@ -27,13 +26,8 @@ public class GlassPaneDemo extends JFrame {
 
 	private MyGlassPane myGlassPane;
 
+	@SuppressWarnings("serial")
 	private class MyGlassPane extends JPanel {
-
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		@Override
 		protected void paintComponent(Graphics g) {
 			if (!showStar)

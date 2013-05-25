@@ -9,9 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class OppositePanel4 extends Box {
-	private static final long serialVersionUID = 1L;
-
 	private boolean leftComponentAdded;
 
 	public OppositePanel4() {

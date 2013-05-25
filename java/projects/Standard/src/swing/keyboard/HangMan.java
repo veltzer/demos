@@ -18,14 +18,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.KeyStroke;
 
+@SuppressWarnings("serial")
 public class HangMan extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-
 	private WordCanvas wordCanvas;
-
 	private HangedManCanvas hangedManCanvas;
-
 	private HangManLogic hangManLogic;
 
 	public HangMan() {

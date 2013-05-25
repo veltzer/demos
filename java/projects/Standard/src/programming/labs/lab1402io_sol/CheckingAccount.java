@@ -1,8 +1,7 @@
 package programming.labs.lab1402io_sol;
 
+@SuppressWarnings("serial")
 public class CheckingAccount extends Account {
-
-	private static final long serialVersionUID = 1L;
 	private double COMMITION = 0.05;
 
 	public CheckingAccount(double balance) {

@@ -12,25 +12,16 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EtchedBorder;
 
+@SuppressWarnings("serial")
 public class MyFrame extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-
-	private JPanel jContentPane = null;
-
-	private JPanel centralPanel = null;
-
-	private JPanel bottomPanel = null;
-
-	private JButton playButton = null;
-
-	private JButton pauseButton = null;
-
-	private JButton stopButton = null;
-
-	private JEditorPane jEditorPane = null;
-
-	private JScrollPane jScrollPane = null;
+	private JPanel jContentPane;
+	private JPanel centralPanel;
+	private JPanel bottomPanel;
+	private JButton playButton;
+	private JButton pauseButton;
+	private JButton stopButton;
+	private JEditorPane jEditorPanenull;
+	private JScrollPane jScrollPane;
 
 	/**
 	 * This method initializes centralPanel

@@ -22,11 +22,8 @@ import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 import javax.swing.undo.UndoableEdit;
 
+@SuppressWarnings("serial")
 class UndoAction extends AbstractAction {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private List<UndoableEdit> script = new ArrayList<UndoableEdit>();
 	private RecordAction record = new RecordAction();
 	private StopAction stop = new StopAction();
@@ -84,12 +81,8 @@ class UndoAction extends AbstractAction {
 		return record;
 	}
 
+	@SuppressWarnings("serial")
 	class RecordAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		RecordAction() {
 			super("Record", new ImageIcon(
 					UndoAction.class.getResource("Movie24.gif")));
@@ -106,12 +99,8 @@ class UndoAction extends AbstractAction {
 		return stop;
 	}
 
+	@SuppressWarnings("serial")
 	class StopAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		StopAction() {
 			super("Stop", new ImageIcon(
 					UndoAction.class.getResource("Stop24.gif")));
@@ -128,12 +117,8 @@ class UndoAction extends AbstractAction {
 		return play;
 	}
 
+	@SuppressWarnings("serial")
 	class PlayAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		PlayAction() {
 			super("Play", new ImageIcon(
 					UndoAction.class.getResource("Play24.gif")));
@@ -152,12 +137,8 @@ class UndoAction extends AbstractAction {
 		return store;
 	}
 
+	@SuppressWarnings("serial")
 	class StoreAction extends AbstractAction implements ExceptionListener {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		StoreAction() {
 			super("Store", new ImageIcon(
 					UndoAction.class.getResource("Save24.gif")));
@@ -188,12 +169,8 @@ class UndoAction extends AbstractAction {
 		return load;
 	}
 
+	@SuppressWarnings("serial")
 	class LoadAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		LoadAction() {
 			super("Load", new ImageIcon(
 					UndoAction.class.getResource("Open24.gif")));

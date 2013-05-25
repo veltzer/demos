@@ -3,12 +3,8 @@ package swing.look_and_feel;
 import javax.swing.UIDefaults;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
+@SuppressWarnings("serial")
 public class TriangleLookAndFeel extends MetalLookAndFeel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public String getDescription() {
 		return ("A wacky demo of what Swing can really do");
 	}

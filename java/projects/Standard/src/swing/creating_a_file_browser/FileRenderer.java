@@ -10,12 +10,8 @@ import javax.swing.tree.DefaultTreeCellRenderer;
  * Description of the Class
  * @author Mark Veltzer
  */
+@SuppressWarnings("serial")
 public class FileRenderer extends DefaultTreeCellRenderer {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	/**
 	 * Gets the treeCellRendererComponent attribute of the FileRenderer object
 	 * @param tree Description of the Parameter

@@ -1,0 +1,4 @@
+Handling serialid:
+	use
+		@SuppressWarnings("serial")
+	at the class level

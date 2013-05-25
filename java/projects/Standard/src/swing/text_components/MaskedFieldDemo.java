@@ -8,12 +8,8 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 
+@SuppressWarnings("serial")
 public class MaskedFieldDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public MaskedFieldDemo() {
 		JTextField field = new JTextField("0123456789");
 		((AbstractDocument) field.getDocument())

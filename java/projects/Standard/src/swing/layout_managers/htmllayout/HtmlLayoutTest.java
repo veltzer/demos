@@ -13,13 +13,8 @@ import java.io.RandomAccessFile;
  * @see htmllayout.HtmlLayout
  * @author Paul Buchheit
  */
+@SuppressWarnings("serial")
 public class HtmlLayoutTest extends Frame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	HtmlLayoutTest(String title, String html) {
 		super(title);
 

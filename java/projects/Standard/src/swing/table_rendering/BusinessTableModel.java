@@ -2,11 +2,8 @@ package swing.table_rendering;
 
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class BusinessTableModel extends AbstractTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private final static String[] COLUMN_NAMES = { "Deal", "In Progress",
 			"Net Worth" };
 	private Object[] deals = new Object[] { "First", "Another Deal",

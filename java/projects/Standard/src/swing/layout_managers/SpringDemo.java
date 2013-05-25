@@ -10,11 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.Spring;
 import javax.swing.SpringLayout;
 
+@SuppressWarnings("serial")
 public class SpringDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private SpringLayout layout;
 
 	public SpringDemo() {

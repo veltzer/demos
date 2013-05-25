@@ -15,13 +15,8 @@ import javax.swing.JPanel;
 
 import swing.graphics2d.RollingPolygon;
 
+@SuppressWarnings("serial")
 public class LayoutQuiz6 extends JFrame {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public LayoutQuiz6() throws HeadlessException {
 		super("LayoutQuiz6");
 	}

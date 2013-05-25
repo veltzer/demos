@@ -14,11 +14,8 @@ import javax.swing.event.HyperlinkListener;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLFrameHyperlinkEvent;
 
+@SuppressWarnings("serial")
 public class BrowserDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JTextField address = new JTextField("http://www.vprise.com/");;
 	private JEditorPane pane = new JEditorPane();
 

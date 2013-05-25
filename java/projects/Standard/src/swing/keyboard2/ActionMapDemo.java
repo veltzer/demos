@@ -14,12 +14,8 @@ import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class ActionMapDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public ActionMapDemo() {
 		Action a = new ActionMapEditor();
 		JButton button = new JButton(a);
@@ -38,12 +34,8 @@ public class ActionMapDemo extends JPanel {
 		frm.setVisible(true);
 	}
 
+	@SuppressWarnings("serial")
 	class ActionMapEditor extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
 		public ActionMapEditor() {
 			putValue(NAME, "Action Edit");
 		}
@@ -57,12 +49,8 @@ public class ActionMapDemo extends JPanel {
 			dlg.setVisible(true);
 		}
 	}
-
+	@SuppressWarnings("serial")
 	class ActionMapModel extends AbstractTableModel {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 		private final String[] COLUMNS = { "Key", "Action" };
 		private InputMap input;
 		private KeyStroke[] keys;

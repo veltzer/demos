@@ -9,11 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class LayoutDemo extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 	public LayoutDemo() {
 		setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);

@@ -2,11 +2,8 @@ package swing.advanced_swing;
 
 import javax.swing.table.TableModel;
 
+@SuppressWarnings("serial")
 public class FilterTableModel extends ProxyTableModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private int[] rows;
 
 	public FilterTableModel(TableModel model) {

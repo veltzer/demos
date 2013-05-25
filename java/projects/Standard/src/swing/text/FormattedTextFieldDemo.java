@@ -18,10 +18,9 @@ import javax.swing.JPanel;
  * FormattedTextFieldDemo.java is a 1.4 example that requires no other files. It
  * implements a mortgage calculator that uses four JFormattedTextFields.
  */
+@SuppressWarnings("serial")
 public class FormattedTextFieldDemo extends JPanel implements
 		PropertyChangeListener {
-	private static final long serialVersionUID = 1L;
-
 	// Values for the fields
 	private double amount = 100000;
 

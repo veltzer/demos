@@ -7,10 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class GrayTintDemo extends JPanel {
-
-	private static final long serialVersionUID = 1L;
-
 	public GrayTintDemo() {
 		ImageIcon duke = new ImageIcon(getClass().getResource("/duke.gif"));
 		Icon disabled = new ImageIcon(GrayFilter.createDisabledImage(duke

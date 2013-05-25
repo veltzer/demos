@@ -147,12 +147,8 @@ public class PlatformUtility {
 	}
 
 	public void closeDialogWithEscape(final RootPaneContainer wnd) {
+		@SuppressWarnings("serial")
 		Action action = new AbstractAction() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
 			public void actionPerformed(ActionEvent arg0) {
 				((java.awt.Window) wnd).dispose();
 			}

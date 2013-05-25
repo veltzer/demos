@@ -4,9 +4,8 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class Bank implements Business, Serializable {
-	// this is for serialization purposes (don't ask)
-	private static final long serialVersionUID = 1L;
 	private static Bank bank = null;
 	private List<Customer> customers;
 
