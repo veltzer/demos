@@ -31,34 +31,41 @@ all: $(ALL)
 
 .PHONY: check_imports
 check_imports:
-	@scripts/ok_wrapper.pl git grep import | grep \\*
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -e "import .*\.\*" -- "*.java"
 
 .PHONY: check_serialid
 check_serialid:
-	@scripts/ok_wrapper.pl git grep -l serialVersionUID -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l serialVersionUID -- "*.java"
 
 .PHONY: check_ws_eol
 check_ws_eol:
-	@scripts/ok_wrapper.pl git grep " $$" -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep " $$" -- "*.java"
 
 .PHONY: check_tab_eol
 check_tab_eol:
-	@scripts/ok_wrapper.pl git grep -l "\s$$" -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l "\s$$" -- "*.java"
 
 .PHONY: check_dbl_ws
 check_dbl_ws:
-	@scripts/ok_wrapper.pl git grep "  " -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep "  " -- "*.java"
 
 .PHONY: check_author
 check_author:
-	@scripts/ok_wrapper.pl git grep "@author" -- "*.java" | grep -v "Mark Veltzer <mark.veltzer@gmail.com>"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep "@author" -- "*.java" | grep -v "Mark Veltzer <mark.veltzer@gmail.com>"
 
 .PHONY: check_version
 check_version:
-	@scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
 
 .PHONY: check_all
-check_all: check_version check_dbl_ws check_tab_eol check_ws_eol
+check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version
 
 .PHONY: checkstyle
 checkstyle:
