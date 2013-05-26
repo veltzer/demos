@@ -2,8 +2,8 @@ import org.apache.tools.ant.util.GlobPatternMapper;
 
 public class CustomMapper extends GlobPatternMapper {
 
-	protected final static String FROM_POST_PREFIX_ABC = ".abc";
-	protected final static String TO_POST_PREFIX_XYZ = ".xyz";
+	protected static final String FROM_POST_PREFIX_ABC = ".abc";
+	protected static final String TO_POST_PREFIX_XYZ = ".xyz";
 
 	public void setFrom(String from) {
 		super.setFrom(from);

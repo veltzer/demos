@@ -1,4 +1,4 @@
-package ch6;
+package main.ch6;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

@@ -16,6 +16,7 @@ public class ItemDAO implements Serializable {
 		try {
 			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
 		}
 	}
 

@@ -8,8 +8,8 @@ public class MediaCondition implements Condition {
 	private boolean isExists = false;
 
 	// The setter for the "value" attribute
-	public void setdir(String dir) {
-		this.dir = dir;
+	public void setdir(String idir) {
+		dir = idir;
 	}
 
 	// This method evaluates the condition
