@@ -81,8 +81,8 @@ public final class ConstantSize implements Size, Serializable {
 	 * @param unit the size's unit
 	 */
 	ConstantSize(double ivalue, Unit iunit) {
-		value = value;
-		unit = unit;
+		value = ivalue;
+		unit = iunit;
 	}
 
 	/**

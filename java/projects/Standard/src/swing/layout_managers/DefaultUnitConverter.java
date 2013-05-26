@@ -276,7 +276,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 		if (buttonFont != null) {
 			return buttonFont;
 		} else {
-			return JButton().getFont();
+			return new JButton().getFont();
 		}
 	}
 

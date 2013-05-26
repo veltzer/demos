@@ -187,7 +187,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		rowSpecs = new ArrayList<FormSpec>(Arrays.asList(irowSpecs));
 		colGroupIndices = new int[][] {};
 		rowGroupIndices = new int[][] {};
-		int initialCapacity = colSpecs.length * rowSpecs.length / 4;
+		int initialCapacity = icolSpecs.length * irowSpecs.length / 4;
 		constraintMap = new HashMap<Component, CellConstraints>(initialCapacity);
 		componentSizeCache = new ComponentSizeCache(initialCapacity);
 		minimumWidthMeasure = new MinimumWidthMeasure(componentSizeCache);
@@ -1341,6 +1341,10 @@ public final class FormLayout implements LayoutManager2, Serializable {
 			cache = icache;
 		}
 
+		public ComponentSizeCache getCache() {
+			return cache;
+		}
+
 	}
 
 	// Measures a component by computing its minimum width.
@@ -1350,7 +1354,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		}
 
 		public int sizeOf(Component c) {
-			return cache.getMinimumSize(c).width;
+			return getCache().getMinimumSize(c).width;
 		}
 	}
 
@@ -1361,7 +1365,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		}
 
 		public int sizeOf(Component c) {
-			return cache.getMinimumSize(c).height;
+			return getCache().getMinimumSize(c).height;
 		}
 	}
 
@@ -1372,7 +1376,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		}
 
 		public int sizeOf(Component c) {
-			return cache.getPreferredSize(c).width;
+			return getCache().getPreferredSize(c).width;
 		}
 	}
 
@@ -1383,7 +1387,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		}
 
 		public int sizeOf(Component c) {
-			return cache.getPreferredSize(c).height;
+			return getCache().getPreferredSize(c).height;
 		}
 	}
 
