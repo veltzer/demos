@@ -173,16 +173,18 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param rowSpecs an array of row specifications.
 	 * @throws NullPointerException if colSpecs or rowSpecs is null
 	 */
-	public FormLayout(ColumnSpec[] colSpecs, RowSpec[] rowSpecs) {
-		if (colSpecs == null)
+	public FormLayout(ColumnSpec[] icolSpecs, RowSpec[] irowSpecs) {
+		if (icolSpecs == null) {
 			throw new NullPointerException(
 					"The column specifications must not be null.");
-		if (rowSpecs == null)
+		}
+		if (irowSpecs == null) {
 			throw new NullPointerException(
 					"The row specifications must not be null.");
+		}
 
-		this.colSpecs = new ArrayList<FormSpec>(Arrays.asList(colSpecs));
-		this.rowSpecs = new ArrayList<FormSpec>(Arrays.asList(rowSpecs));
+		colSpecs = new ArrayList<FormSpec>(Arrays.asList(icolSpecs));
+		rowSpecs = new ArrayList<FormSpec>(Arrays.asList(irowSpecs));
 		colGroupIndices = new int[][] {};
 		rowGroupIndices = new int[][] {};
 		int initialCapacity = colSpecs.length * rowSpecs.length / 4;
@@ -439,7 +441,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @throws IllegalStateException if a removed column contains components
 	 */
 	private void shiftComponentsHorizontally(int columnIndex, boolean remove) {
-		final int offset = remove ? -1 : 1;
+		int offset;
+		if (remove) {
+			offset = -1;
+		} else {
+			offset = 1;
+		}
 		for (Iterator<Map.Entry<Component, CellConstraints>> i = constraintMap
 				.entrySet().iterator(); i.hasNext();) {
 			Map.Entry<Component, CellConstraints> entry = i.next();
@@ -468,7 +475,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @throws IllegalStateException if a removed column contains components
 	 */
 	private void shiftComponentsVertically(int rowIndex, boolean remove) {
-		final int offset = remove ? -1 : 1;
+		int offset;
+		if (remove) {
+			offset = -1;
+		} else {
+			offset = 1;
+		}
 		for (Iterator<Map.Entry<Component, CellConstraints>> i = constraintMap
 				.entrySet().iterator(); i.hasNext();) {
 			Map.Entry<Component, CellConstraints> entry = i.next();
@@ -498,7 +510,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 */
 	private void adjustGroupIndices(int[][] allGroupIndices, int modifiedIndex,
 			boolean remove) {
-		final int offset = remove ? -1 : +1;
+		int offset;
+		if (remove) {
+			offset = -1;
+		} else {
+			offset = 1;
+		}
 		for (int group = 0; group < allGroupIndices.length; group++) {
 			int[] groupIndices = allGroupIndices[group];
 			for (int i = 0; i < groupIndices.length; i++) {
@@ -524,13 +541,15 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * been added to the container
 	 */
 	public CellConstraints getConstraints(Component component) {
-		if (component == null)
+		if (component == null) {
 			throw new NullPointerException("The component must not be null.");
+		}
 
 		CellConstraints constraints = constraintMap.get(component);
-		if (constraints == null)
+		if (constraints == null) {
 			throw new NullPointerException(
 					"The component has not been added to the container.");
+		}
 
 		return (CellConstraints) constraints.clone();
 	}
@@ -543,10 +562,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * <code>null</code>
 	 */
 	public void setConstraints(Component component, CellConstraints constraints) {
-		if (component == null)
+		if (component == null) {
 			throw new NullPointerException("The component must not be null.");
-		if (constraints == null)
+		}
+		if (constraints == null) {
 			throw new NullPointerException("The constraints must not be null.");
+		}
 
 		constraints.ensureValidGridBounds(getColumnCount(), getRowCount());
 		constraintMap.put(component, (CellConstraints) constraints.clone());
@@ -583,12 +604,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @throws IndexOutOfBoundsException if an index is outside the grid
 	 * @throws IllegalArgumentException if a column index is used twice
 	 */
-	public void setColumnGroups(int[][] colGroupIndices) {
+	public void setColumnGroups(int[][] icolGroupIndices) {
 		int maxColumn = getColumnCount();
 		boolean[] usedIndices = new boolean[maxColumn + 1];
-		for (int group = 0; group < colGroupIndices.length; group++) {
-			for (int j = 0; j < colGroupIndices[group].length; j++) {
-				int colIndex = colGroupIndices[group][j];
+		for (int group = 0; group < icolGroupIndices.length; group++) {
+			for (int j = 0; j < icolGroupIndices[group].length; j++) {
+				int colIndex = icolGroupIndices[group][j];
 				if (colIndex < 1 || colIndex > maxColumn) {
 					throw new IndexOutOfBoundsException(
 							"Invalid column group index " + colIndex
@@ -602,7 +623,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				usedIndices[colIndex] = true;
 			}
 		}
-		this.colGroupIndices = deepClone(colGroupIndices);
+		colGroupIndices = deepClone(icolGroupIndices);
 	}
 
 	/**
@@ -650,12 +671,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param rowGroupIndices a two-dimensional array of row group indices.
 	 * @throws IndexOutOfBoundsException if an index is outside the grid
 	 */
-	public void setRowGroups(int[][] rowGroupIndices) {
+	public void setRowGroups(int[][] irowGroupIndices) {
 		int rowCount = getRowCount();
 		boolean[] usedIndices = new boolean[rowCount + 1];
-		for (int i = 0; i < rowGroupIndices.length; i++) {
-			for (int j = 0; j < rowGroupIndices[i].length; j++) {
-				int rowIndex = rowGroupIndices[i][j];
+		for (int i = 0; i < irowGroupIndices.length; i++) {
+			for (int j = 0; j < irowGroupIndices[i].length; j++) {
+				int rowIndex = irowGroupIndices[i][j];
 				if (rowIndex < 1 || rowIndex > rowCount) {
 					throw new IndexOutOfBoundsException(
 							"Invalid row group index " + rowIndex
@@ -668,7 +689,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				usedIndices[rowIndex] = true;
 			}
 		}
-		this.rowGroupIndices = deepClone(rowGroupIndices);
+		rowGroupIndices = deepClone(irowGroupIndices);
 	}
 
 	/**
@@ -881,15 +902,18 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				.entrySet().iterator(); i.hasNext();) {
 			Map.Entry<Component, CellConstraints> entry = i.next();
 			Component component = entry.getKey();
-			if (!component.isVisible())
+			if (!component.isVisible()) {
 				continue;
+			}
 
 			CellConstraints constraints = entry.getValue();
-			if (constraints.gridWidth == 1)
+			if (constraints.gridWidth == 1) {
 				colComponents[constraints.gridX - 1].add(component);
+			}
 
-			if (constraints.gridHeight == 1)
+			if (constraints.gridHeight == 1) {
 				rowComponents[constraints.gridY - 1].add(component);
+			}
 		}
 	}
 
@@ -938,8 +962,9 @@ public final class FormLayout implements LayoutManager2, Serializable {
 					.entrySet().iterator(); i.hasNext();) {
 				Map.Entry<Component, CellConstraints> entry = i.next();
 				Component component = entry.getKey();
-				if (!component.isVisible())
+				if (!component.isVisible()) {
 					continue;
+				}
 
 				CellConstraints constraints = entry.getValue();
 				if ((constraints.gridWidth > 1)
@@ -1026,7 +1051,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 */
 	private int[] computeOrigins(int[] sizes, int offset) {
 		int count = sizes.length;
-		int origins[] = new int[count + 1];
+		int[] origins = new int[count + 1];
 		origins[0] = offset;
 		for (int i = 1; i <= count; i++) {
 			origins[i] = origins[i - 1] + sizes[i - 1];
@@ -1093,7 +1118,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 			Measure minMeasure, Measure prefMeasure, Measure defaultMeasure) {
 		FormSpec formSpec;
 		int size = formSpecs.size();
-		int result[] = new int[size];
+		int[] result = new int[size];
 		for (int i = 0; i < size; i++) {
 			formSpec = formSpecs.get(i);
 			result[i] = formSpec.maximumSize(container, componentLists[i],
@@ -1120,11 +1145,13 @@ public final class FormLayout implements LayoutManager2, Serializable {
 			int totalMinSize, int totalPrefSize, int[] minSizes, int[] prefSizes) {
 
 		// If we have less space than the total min size answer the min sizes.
-		if (totalSize < totalMinSize)
+		if (totalSize < totalMinSize) {
 			return minSizes;
+		}
 		// If we have more space than the total pref size answer the pref sizes.
-		if (totalSize >= totalPrefSize)
+		if (totalSize >= totalPrefSize) {
 			return prefSizes;
+		}
 
 		int count = formSpecs.size();
 		int[] sizes = new int[count];
@@ -1199,8 +1226,9 @@ public final class FormLayout implements LayoutManager2, Serializable {
 			int totalPrefSize, int[] inputSizes) {
 		double totalFreeSpace = totalSize - totalPrefSize;
 		// Do nothing if there's no free space.
-		if (totalFreeSpace < 0)
+		if (totalFreeSpace < 0) {
 			return inputSizes;
+		}
 
 		// Compute the total weight.
 		int count = formSpecs.size();
@@ -1211,8 +1239,9 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		}
 
 		// Do nothing if there's no resizing column.
-		if (totalWeight == 0.0)
+		if (totalWeight == 0.0) {
 			return inputSizes;
+		}
 
 		int[] sizes = new int[count];
 
@@ -1272,8 +1301,9 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				maximumFixedSpan = 0;
 			}
 			table[i] = maximumFixedSpan;
-			if (maximumFixedSpan < Integer.MAX_VALUE)
+			if (maximumFixedSpan < Integer.MAX_VALUE) {
 				maximumFixedSpan++;
+			}
 		}
 		return table;
 	}
@@ -1285,7 +1315,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * to abstract from horizontal and vertical dimensions as well as minimum
 	 * and preferred sizes.
 	 */
-	static interface Measure {
+	interface Measure {
 
 		/**
 		 * Computes and returns the size of the given <code>Component</code>.
@@ -1299,22 +1329,22 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * An abstract implementation of the <code>Measure</code> interface that
 	 * caches component sizes.
 	 */
-	private static abstract class CachingMeasure implements Measure,
+	private abstract static class CachingMeasure implements Measure,
 			Serializable {
 		/**
 		 * Holds previously requested component sizes. Used to minimize size
 		 * requests to subcomponents.
 		 */
-		protected final ComponentSizeCache cache;
+		private final ComponentSizeCache cache;
 
-		private CachingMeasure(ComponentSizeCache cache) {
-			this.cache = cache;
+		private CachingMeasure(ComponentSizeCache icache) {
+			cache = icache;
 		}
 
 	}
 
 	// Measures a component by computing its minimum width.
-	private static class MinimumWidthMeasure extends CachingMeasure {
+	private static final class MinimumWidthMeasure extends CachingMeasure {
 		private MinimumWidthMeasure(ComponentSizeCache cache) {
 			super(cache);
 		}
@@ -1325,7 +1355,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	}
 
 	// Measures a component by computing its minimum height.
-	private static class MinimumHeightMeasure extends CachingMeasure {
+	private static final class MinimumHeightMeasure extends CachingMeasure {
 		private MinimumHeightMeasure(ComponentSizeCache cache) {
 			super(cache);
 		}
@@ -1336,7 +1366,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	}
 
 	// Measures a component by computing its preferred width.
-	private static class PreferredWidthMeasure extends CachingMeasure {
+	private static final class PreferredWidthMeasure extends CachingMeasure {
 		private PreferredWidthMeasure(ComponentSizeCache cache) {
 			super(cache);
 		}
@@ -1347,7 +1377,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	}
 
 	// Measures a component by computing its preferred height.
-	private static class PreferredHeightMeasure extends CachingMeasure {
+	private static final class PreferredHeightMeasure extends CachingMeasure {
 		private PreferredHeightMeasure(ComponentSizeCache cache) {
 			super(cache);
 		}
@@ -1363,7 +1393,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * A cache for component minimum and preferred sizes. Used to reduce the
 	 * requests to determine a component's size.
 	 */
-	private static class ComponentSizeCache implements Serializable {
+	private static final class ComponentSizeCache implements Serializable {
 		/** Maps components to their minimum sizes. */
 		private final Map<Component, Dimension> minimumSizes;
 
@@ -1464,12 +1494,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		/**
 		 * Holds the origins of the columns.
 		 */
-		public final int[] columnOrigins;
+		private final int[] columnOrigins;
 
 		/**
 		 * Holds the origins of the rows.
 		 */
-		public final int[] rowOrigins;
+		private final int[] rowOrigins;
 
 		private LayoutInfo(int[] xOrigins, int[] yOrigins) {
 			this.columnOrigins = xOrigins;

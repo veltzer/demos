@@ -273,7 +273,11 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 */
 	private Font lookupDefaultDialogFont() {
 		Font buttonFont = UIManager.getFont("Button.font");
-		return buttonFont != null ? buttonFont : new JButton().getFont();
+		if (buttonFont != null) {
+			return buttonFont;
+		} else {
+			return JButton().getFont();
+		}
 	}
 
 	/**
@@ -311,7 +315,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @see #removePropertyChangeListener(String, PropertyChangeListener)
 	 * @see #addPropertyChangeListener(String, PropertyChangeListener)
 	 */
-	public final synchronized void addPropertyChangeListener(
+	public synchronized void addPropertyChangeListener(
 			PropertyChangeListener listener) {
 		changeSupport.addPropertyChangeListener(listener);
 	}
@@ -326,7 +330,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @see #addPropertyChangeListener(String, PropertyChangeListener)
 	 * @see #removePropertyChangeListener(String, PropertyChangeListener)
 	 */
-	public final synchronized void removePropertyChangeListener(
+	public synchronized void removePropertyChangeListener(
 			PropertyChangeListener listener) {
 		changeSupport.removePropertyChangeListener(listener);
 	}
@@ -344,7 +348,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @see #addPropertyChangeListener(java.lang.String,
 	 * java.beans.PropertyChangeListener)
 	 */
-	public final synchronized void addPropertyChangeListener(
+	public synchronized void addPropertyChangeListener(
 			String propertyName, PropertyChangeListener listener) {
 		changeSupport.addPropertyChangeListener(propertyName, listener);
 	}
@@ -360,7 +364,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * java.beans.PropertyChangeListener)
 	 * @see #removePropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
-	public final synchronized void removePropertyChangeListener(
+	public synchronized void removePropertyChangeListener(
 			String propertyName, PropertyChangeListener listener) {
 		changeSupport.removePropertyChangeListener(propertyName, listener);
 	}
@@ -378,12 +382,12 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	// Describes horizontal and vertical dialog base units.
 	private static class DialogBaseUnits {
 
-		final double x;
-		final double y;
+		private final double x;
+		private final double y;
 
 		DialogBaseUnits(double dialogBaseUnitsX, double dialogBaseUnitsY) {
-			this.x = dialogBaseUnitsX;
-			this.y = dialogBaseUnitsY;
+			x = dialogBaseUnitsX;
+			y = dialogBaseUnitsY;
 		}
 
 		public String toString() {

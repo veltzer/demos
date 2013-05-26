@@ -9,7 +9,7 @@ import java.awt.Toolkit;
  * minimizes the effort required to convert font-dependent sizes to pixels.
  * @author Mark Veltzer <mark@veltzer.net>
  */
-abstract public class AbstractUnitConverter implements UnitConverter {
+public abstract class AbstractUnitConverter implements UnitConverter {
 
 	private static final int DTP_RESOLUTION = 72;
 
@@ -89,7 +89,7 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	 * @param component a Component that provides the font and graphics
 	 * @return the horizontal dialog base units
 	 */
-	abstract protected double getDialogBaseUnitsX(Component component);
+	protected abstract double getDialogBaseUnitsX(Component component);
 
 	/**
 	 * Gets and returns the vertical dialog base units. Implementations are
@@ -97,7 +97,7 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	 * @param component a Component that provides the font and graphics
 	 * @return the vertical dialog base units
 	 */
-	abstract protected double getDialogBaseUnitsY(Component component);
+	protected abstract double getDialogBaseUnitsY(Component component);
 
 	// Convenience Methods ***************************************************
 
@@ -187,12 +187,16 @@ abstract public class AbstractUnitConverter implements UnitConverter {
 	 * @return the component's screen resolution
 	 */
 	protected int getScreenResolution(Component c) {
-		if (c == null)
+		if (c == null) {
 			return getDefaultScreenResolution();
+		}
 
 		Toolkit toolkit = c.getToolkit();
-		return toolkit != null ? toolkit.getScreenResolution()
-				: getDefaultScreenResolution();
+		if (toolkit != null) {
+			return toolkit.getScreenResolution();
+		} else {
+			return getDefaultScreenResolution();
+		}
 	}
 
 	private static int defaultScreenResolution = -1;

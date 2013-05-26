@@ -38,13 +38,14 @@ final class BoundedSize implements Size, Serializable {
 	 * @param upperBound the upper bound size
 	 * @throws NullPointerException if the basis is null
 	 */
-	BoundedSize(Size basis, Size lowerBound, Size upperBound) {
-		if (basis == null)
+	BoundedSize(Size ibasis, Size ilowerBound, Size iupperBound) {
+		if (ibasis == null) {
 			throw new NullPointerException(
 					"The basis of a bounded size must not be null.");
-		this.basis = basis;
-		this.lowerBound = lowerBound;
-		this.upperBound = upperBound;
+		}
+		basis = ibasis;
+		lowerBound = ilowerBound;
+		upperBound = iupperBound;
 	}
 
 	// Implementation of the Size Interface *********************************
@@ -89,10 +90,12 @@ final class BoundedSize implements Size, Serializable {
 	 * @see java.util.Hashtable
 	 */
 	public boolean equals(Object object) {
-		if (this == object)
+		if (this == object) {
 			return true;
-		if (!(object instanceof BoundedSize))
+		}
+		if (!(object instanceof BoundedSize)) {
 			return false;
+		}
 		BoundedSize size = (BoundedSize) object;
 		return basis.equals(size.basis)
 				&& ((lowerBound == null && size.lowerBound == null) || (lowerBound != null && lowerBound
