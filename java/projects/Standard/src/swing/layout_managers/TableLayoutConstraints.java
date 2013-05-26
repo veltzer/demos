@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
-public class TableLayoutConstraints implements TableLayoutConstants {
+public class TableLayoutConstraints {
 
 	/** Cell in which the upper left corner of the component lays */
 	public int col1, row1;
@@ -30,7 +30,7 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 
 	public TableLayoutConstraints() {
 		col1 = row1 = col2 = 0;
-		hAlign = vAlign = FULL;
+		hAlign = vAlign = TableLayoutConstants.FULL;
 	}
 
 	/**
@@ -50,8 +50,8 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 		row1 = 0;
 		col2 = 0;
 		row2 = 0;
-		hAlign = FULL;
-		vAlign = FULL;
+		hAlign = TableLayoutConstants.FULL;
+		vAlign = TableLayoutConstants.FULL;
 
 		// Parse constraints using spaces or commas
 		StringTokenizer st = new StringTokenizer(constraints, ", ");
@@ -92,38 +92,38 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 			// Check if token means horizontally justification the component
 			if ((tokenA.equalsIgnoreCase("L"))
 					|| (tokenA.equalsIgnoreCase("LEFT")))
-				hAlign = LEFT;
+				hAlign = TableLayoutConstants.LEFT;
 			else if ((tokenA.equalsIgnoreCase("C"))
 					|| (tokenA.equalsIgnoreCase("CENTER")))
-				hAlign = CENTER;
+				hAlign = TableLayoutConstants.CENTER;
 			else if ((tokenA.equalsIgnoreCase("F"))
 					|| (tokenA.equalsIgnoreCase("FULL")))
-				hAlign = FULL;
+				hAlign = TableLayoutConstants.FULL;
 			else if ((tokenA.equalsIgnoreCase("R"))
 					|| (tokenA.equalsIgnoreCase("RIGHT")))
-				hAlign = RIGHT;
+				hAlign = TableLayoutConstants.RIGHT;
 			else if ((tokenA.equalsIgnoreCase("LD"))
 					|| (tokenA.equalsIgnoreCase("LEADING")))
-				hAlign = LEADING;
+				hAlign = TableLayoutConstants.LEADING;
 			else if ((tokenA.equalsIgnoreCase("TL"))
 					|| (tokenA.equalsIgnoreCase("TRAILING")))
-				hAlign = TRAILING;
+				hAlign = TableLayoutConstants.TRAILING;
 			else
 				throw new RuntimeException();
 
 			// Check if token means horizontally justification the component
 			if ((tokenB.equalsIgnoreCase("T"))
 					|| (tokenB.equalsIgnoreCase("TOP")))
-				vAlign = TOP;
+				vAlign = TableLayoutConstants.TOP;
 			else if ((tokenB.equalsIgnoreCase("C"))
 					|| (tokenB.equalsIgnoreCase("CENTER")))
-				vAlign = CENTER;
+				vAlign = TableLayoutConstants.CENTER;
 			else if ((tokenB.equalsIgnoreCase("F"))
 					|| (tokenB.equalsIgnoreCase("FULL")))
-				vAlign = FULL;
+				vAlign = TableLayoutConstants.FULL;
 			else if ((tokenB.equalsIgnoreCase("B"))
 					|| (tokenB.equalsIgnoreCase("BOTTOM")))
-				vAlign = BOTTOM;
+				vAlign = TableLayoutConstants.BOTTOM;
 			else
 				throw new RuntimeException();
 		} catch (NoSuchElementException error) {
@@ -162,16 +162,16 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 		this.col2 = col2;
 		this.row2 = row2;
 
-		if ((hAlign == LEFT) || (hAlign == RIGHT) || (hAlign == CENTER)
-				|| (hAlign == FULL) || (hAlign == TRAILING)) {
+		if ((hAlign == TableLayoutConstants.LEFT) || (hAlign == TableLayoutConstants.RIGHT) || (hAlign == TableLayoutConstants.CENTER)
+				|| (hAlign == TableLayoutConstants.FULL) || (hAlign == TableLayoutConstants.TRAILING)) {
 			this.hAlign = hAlign;
 		} else
-			this.hAlign = FULL;
+			this.hAlign = TableLayoutConstants.FULL;
 
-		if ((vAlign == LEFT) || (vAlign == RIGHT) || (vAlign == CENTER)) {
+		if ((vAlign == TableLayoutConstants.LEFT) || (vAlign == TableLayoutConstants.RIGHT) || (vAlign == TableLayoutConstants.CENTER)) {
 			this.vAlign = vAlign;
 		} else
-			this.vAlign = FULL;
+			this.vAlign = TableLayoutConstants.FULL;
 	}
 
 	/**

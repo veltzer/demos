@@ -13,13 +13,13 @@ public class TableDemo extends JPanel {
 	public TableDemo() {
 		double size[][] = {
 				{
-						0.05, TableLayout.PREFERRED, 0.05,
-						TableLayout.PREFERRED, TableLayout.FILL, 0.05
+						0.05, TableLayoutConstants.PREFERRED, 0.05,
+						TableLayoutConstants.PREFERRED, TableLayoutConstants.FILL, 0.05
 				},
 				{
-						0.05, TableLayout.PREFERRED, 0.05,
-						TableLayout.PREFERRED, 0.05, TableLayout.PREFERRED,
-						TableLayout.FILL
+						0.05, TableLayoutConstants.PREFERRED, 0.05,
+						TableLayoutConstants.PREFERRED, 0.05, TableLayoutConstants.PREFERRED,
+						TableLayoutConstants.FILL
 				}
 		};
 		setLayout(new TableLayout(size));
