@@ -69,8 +69,8 @@ check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws 
 
 .PHONY: checkstyle
 checkstyle:
-#	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml -r projects/Standard/src
-	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
+#	$(Q)java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml -r projects/Standard/src
+	$(Q)java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
 
 .PHONY: format_eclipse
 format_eclipse:
@@ -99,8 +99,8 @@ $(JAVA_STAMP): %.stamp: %.java
 .PHONY: sloccount
 sloccount:
 	$(info doing [$@])
-	@sloccount .
+	$(Q)sloccount .
 .PHONY: count_files
 count_files:
 	$(info doing [$@])
-	@echo number of Java files: `find . -name "*.java" | wc -l`
+	$(Q)echo number of Java files: `find . -name "*.java" | wc -l`
