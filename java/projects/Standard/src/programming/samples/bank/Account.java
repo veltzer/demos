@@ -1,7 +1,7 @@
 package programming.samples.bank;
 
 /**
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class Account {
 	/**

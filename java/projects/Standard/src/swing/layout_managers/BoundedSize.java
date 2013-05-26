@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Describes sizes that provide lower and upper bounds as used by the JGoodies
  * {@link swing.layout_managers.jgoodies.forms.layout.FormLayout}.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 @SuppressWarnings("serial")

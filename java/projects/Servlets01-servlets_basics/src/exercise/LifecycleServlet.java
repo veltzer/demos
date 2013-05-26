@@ -8,7 +8,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * @author rank
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class LifecycleServlet extends GenericServlet {

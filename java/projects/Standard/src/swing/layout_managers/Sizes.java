@@ -12,7 +12,7 @@ import java.util.List;
  * is delegated to an implementation of {@link UnitConverter}. The conversion
  * methods require the layout container as parameter to read its current font
  * and resolution.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see Size
  * @see UnitConverter
  * @see DefaultUnitConverter

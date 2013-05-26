@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author rank
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class DbCartServlet extends HttpServlet {

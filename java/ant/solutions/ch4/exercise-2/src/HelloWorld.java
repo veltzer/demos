@@ -1,5 +1,5 @@
 /**
- * @author ant
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class HelloWorld {
 

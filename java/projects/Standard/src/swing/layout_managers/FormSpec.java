@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * An abstract class that specifies columns and rows in {@link FormLayout} by
  * their default alignment, start size and resizing behavior. API users will use
  * the subclasses {@link ColumnSpec} and {@link RowSpec}.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see ColumnSpec
  * @see RowSpec
  * @see FormLayout

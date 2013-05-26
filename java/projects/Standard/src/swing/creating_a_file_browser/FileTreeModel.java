@@ -9,7 +9,7 @@ import javax.swing.tree.TreePath;
 
 /**
  * Description of the Class
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class FileTreeModel implements TreeModel, FileFilter {
 	/**

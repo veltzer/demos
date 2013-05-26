@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 /**
  * TableLayoutConstraints binds components to their constraints.
- * @author Daniel E. Barbalace
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 public class TableLayoutConstraints implements TableLayoutConstants {

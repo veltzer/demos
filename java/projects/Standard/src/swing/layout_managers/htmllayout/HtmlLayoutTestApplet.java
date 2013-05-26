@@ -17,7 +17,7 @@ import java.net.URL;
  * HtmlLayoutTest.
  * @see htmllayout.HtmlLayout
  * @see htmllayout.HtmlLayoutTest
- * @author Paul Buchheit
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class HtmlLayoutTestApplet extends Applet {

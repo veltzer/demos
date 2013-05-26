@@ -1,7 +1,7 @@
 package ch5;
 
 /**
- * @author ant (this is the change)
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class HelloWorld {
 

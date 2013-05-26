@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 /**
  * Description of the Class
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class Transform extends Component {

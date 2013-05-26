@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * A demonstration of how to use atomic variables.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 public class Atomics {

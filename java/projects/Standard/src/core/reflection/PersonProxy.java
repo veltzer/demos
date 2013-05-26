@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * This class demos the use of a proxy. It intercepts all calls to an interface
  * (IPerson) using an Invocation Handler.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 public class PersonProxy {
@@ -50,7 +50,7 @@ public class PersonProxy {
 	 * This invocation handler does nothing special but print the calls to it.
 	 * It does not route the calls to any other object nor does it return any
 	 * sane values (always returns null).
-	 * @author Mark Veltzer
+	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
 	static public class PrintingInvocationHandler implements InvocationHandler {
 
@@ -66,7 +66,6 @@ public class PersonProxy {
 	 * The next invocation handler routes all calls to another object and does
 	 * nothing special besides that. It does print stuff to show that it is
 	 * working
-	 * @author Mark Veltzer
 	 */
 	static public class RoutingInvocationHandler implements InvocationHandler {
 		private Object obj;
@@ -91,7 +90,7 @@ public class PersonProxy {
 	 * This next invocation handler synchronized the entire method set of an
 	 * object. Notice that we synchronized on the proxy object and not on the
 	 * object itself although that is an option too.
-	 * @author Mark Veltzer
+	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
 	static public class SynchronizedInvocationHandler implements
 			InvocationHandler {
@@ -116,7 +115,7 @@ public class PersonProxy {
 	 * This is a method similar to Collections.synchronize
 	 * @param o the object to wrap
 	 * @return the proxy object
-	 * @author Mark Veltzer
+	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
 
 	static public Object syncIt(Object o) {
@@ -132,7 +131,7 @@ public class PersonProxy {
 	/**
 	 * This next invocation handler is for any Object. interface. It blocks
 	 * method names which start with "set" and allows all others.
-	 * @author Mark Veltzer
+	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
 	static public class ReadOnlyInvocationHandler implements InvocationHandler {
 		private Object obj;

@@ -24,7 +24,7 @@ import javax.swing.UIManager;
  * and a test string for the average character width. You can configure the font
  * and the test string via the bound Bean properties <em>defaultDialogFont</em>
  * and <em>averageCharacterWidthTestString</em>.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see UnitConverter
  * @see swing.layout_managers.jgoodies.forms.layout.Size
  * @see swing.layout_managers.jgoodies.forms.layout.Sizes

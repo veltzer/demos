@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author rank
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class CartServlet extends HttpServlet {

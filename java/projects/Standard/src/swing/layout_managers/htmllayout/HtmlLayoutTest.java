@@ -11,7 +11,7 @@ import java.io.RandomAccessFile;
  * according to the html. Buttons are created in the place of each component.
  * Used for testing table-html and layout behavior.
  * @see htmllayout.HtmlLayout
- * @author Paul Buchheit
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class HtmlLayoutTest extends Frame {

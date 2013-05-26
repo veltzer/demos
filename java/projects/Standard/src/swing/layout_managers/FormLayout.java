@@ -73,7 +73,7 @@ import java.util.Map;
  * JTextField(), 3); builder.append(&quot;Label2&quot;, new JTextField());
  * builder.append(&quot;Label3&quot;, new JTextField()); builder.append(new
  * JButton(&quot;...&quot;)); return builder.getPanel(); </pre>
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see ColumnSpec
  * @see RowSpec
  * @see CellConstraints

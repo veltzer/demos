@@ -14,7 +14,7 @@ package core.threads;
  * remember the number of permits that each thread took using a map or thread
  * local data and therefore change the signature of the up method to have no
  * arguments.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class NaiiveReadWriteLock {
 	private final int maxPermits;

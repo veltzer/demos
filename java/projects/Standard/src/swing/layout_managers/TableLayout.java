@@ -43,7 +43,7 @@ import java.util.ListIterator;
  * {} public void windowDeiconified (WindowEvent e) {} public void
  * windowActivated (WindowEvent e) {} public void windowDeactivated (WindowEvent
  * e) {} } ); <spc> // Show frame frame.show(); } </pre>
- * @author Daniel E. Barbalace
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 @SuppressWarnings("serial")

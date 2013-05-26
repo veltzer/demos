@@ -7,7 +7,7 @@ import java.awt.Component;
  * example, <i>dialog units</i> require a conversion that honors the font and
  * resolution. The {@link swing.layout_managers.jgoodies.forms.layout.Sizes}
  * class delegates all size conversions to an implementation of this interface.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see swing.layout_managers.jgoodies.forms.layout.Sizes
  * @see swing.layout_managers.jgoodies.forms.layout.ConstantSize
  * @see AbstractUnitConverter

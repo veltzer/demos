@@ -22,7 +22,7 @@ import java.util.List;
  * <td>dlu</td> <td>honors l&amp;f, resolution, and dialog font size</td> </tr>
  * </table> <p> <strong>Examples:</strong> <pre> Sizes.ZERO; Sizes.DLUX9;
  * Sizes.dluX(42); Sizes.pixel(99); </pre>
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see Size
  * @see Sizes
  */

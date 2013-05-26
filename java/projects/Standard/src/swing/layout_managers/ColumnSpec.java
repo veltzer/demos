@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
  * ColumnSpec(&quot;fill:10dlu:0&quot;); </pre> <p> The
  * {@link com.jgoodies.forms.factories.FormFactory} provides predefined
  * frequently used <code>ColumnSpec</code> instances.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see com.jgoodies.forms.factories.FormFactory
  */
 

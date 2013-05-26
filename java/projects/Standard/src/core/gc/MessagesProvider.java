@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Demonstrate the WeakReference. A provided allows for listeners registration,
  * but only holds weak references for those listeners.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class MessagesProvider {
 	private List<WeakReference<MessagesListener>> listeners;

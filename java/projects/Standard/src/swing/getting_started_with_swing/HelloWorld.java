@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 
 /**
  * Description of the Class
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public abstract class HelloWorld {
 	/**

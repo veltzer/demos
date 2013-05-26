@@ -3,7 +3,7 @@ package swing.layout_managers;
 /**
  * TableLayoutConstants define the constants used by all the TableLayout
  * classes.
- * @author Daniel E. Barbalace
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 public abstract class TableLayoutConstants {

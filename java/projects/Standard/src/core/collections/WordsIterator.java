@@ -9,7 +9,7 @@ import java.util.TreeSet;
 /**
  * A demonstration for the use of the collection framework. This class
  * implements the Iterator interface.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 public class WordsIterator implements Iterator<String> {

@@ -9,7 +9,7 @@ import java.awt.Insets;
  * SingleFiledLayout lays out components singled filed. This layout manager is
  * like FlowLayout except that all components are placed in a single row or
  * column.
- * @author Daniel E. Barbalace
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 @SuppressWarnings("serial")

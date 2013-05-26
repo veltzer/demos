@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
  * &quot;right, bottom&quot;); </pre> See also the examples in the
  * {@link FormLayout} class comment. <p> TODO: Consider renaming the inset to
  * offsets.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public final class CellConstraints implements Cloneable, Serializable {
