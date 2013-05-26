@@ -9,7 +9,6 @@ import java.util.StringTokenizer;
  * <strong>Examples:</strong><br>
  * The following examples specify a centered row with a size of 14&nbsp;dlu that
  * won't grow.
- * 
  * <pre>
  * new RowSpec(Sizes.dluX(14));
  * new RowSpec(RowSpec.CENTER, Sizes.dluX(14), 0.0);
@@ -77,7 +76,7 @@ public final class RowSpec extends FormSpec {
 	 * alignment, and no resizing.
 	 * @param size constant size, component size, or bounded size
 	 * @throws IllegalArgumentException if the pixel size is invalid or the
-	 *         resize weight is negative
+	 * resize weight is negative
 	 */
 	public RowSpec(Size size) {
 		super(DEFAULT, size, NO_GROW);
@@ -112,7 +111,7 @@ public final class RowSpec extends FormSpec {
 	 * @param encodedRowSpecs comma separated encoded row specifications
 	 * @return an array of decoded row specifications
 	 * @throws NullPointerException if the encoded row specifications string is
-	 *         <code>null</code>
+	 * <code>null</code>
 	 * @see RowSpec#RowSpec(String)
 	 */
 	public static RowSpec[] decodeSpecs(String encodedRowSpecs) {

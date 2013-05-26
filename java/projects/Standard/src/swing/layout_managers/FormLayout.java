@@ -51,11 +51,9 @@ import java.util.Map;
  * <strong>Example 1</strong> (Plain FormLayout):<br>
  * The following example creates a panel with 3 data columns and 3 data rows;
  * the columns and rows are specified before components are added to the form.
- * 
  * <pre>
  * FormLayout layout = new FormLayout(&quot;right:pref, 6dlu, 50dlu, 4dlu, default&quot;, // columns
  * 		&quot;pref, 3dlu, pref, 3dlu, pref&quot;); // rows
- * 
  * CellConstraints cc = new CellConstraints();
  * JPanel panel = new JPanel(layout);
  * panel.add(new JLabel(&quot;Label1&quot;), cc.xy(1, 1));
@@ -72,11 +70,9 @@ import java.util.Map;
  * This example creates the same panel as above using the
  * {@link com.jgoodies.forms.builder.PanelBuilder} to add components to the
  * form.
- * 
  * <pre>
  * FormLayout layout = new FormLayout(&quot;right:pref, 6dlu, 50dlu, 4dlu, default&quot;, // columns
  * 		&quot;pref, 3dlu, pref, 3dlu, pref&quot;); // rows
- * 
  * PanelBuilder builder = new PanelBuilder(layout);
  * CellConstraints cc = new CellConstraints();
  * builder.addLabel(&quot;Label1&quot;, cc.xy(1, 1));
@@ -93,11 +89,9 @@ import java.util.Map;
  * This example utilizes the
  * {@link com.jgoodies.forms.builder.DefaultFormBuilder} that ships with the
  * source distribution.
- * 
  * <pre>
  * FormLayout layout = new FormLayout(&quot;right:pref, 6dlu, 50dlu, 4dlu, default&quot;, // columns
  * 		&quot;&quot;); // add rows dynamically
- * 
  * DefaultFormBuilder builder = new DefaultFormBuilder(layout);
  * builder.append(&quot;Label1&quot;, new JTextField(), 3);
  * builder.append(&quot;Label2&quot;, new JTextField());
@@ -234,7 +228,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param encodedColumnSpecs comma separated encoded column specifications
 	 * @param encodedRowSpecs comma separated encoded row specifications
 	 * @throws NullPointerException if encodedColumnSpecs or encodedRowSpecs is
-	 *         null
+	 * null
 	 */
 	public FormLayout(String encodedColumnSpecs, String encodedRowSpecs) {
 		this(ColumnSpec.decodeSpecs(encodedColumnSpecs), RowSpec
@@ -279,7 +273,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	/**
 	 * Returns the <code>ColumnSpec</code> at the specified column index.
 	 * @param columnIndex the column index of the requested
-	 *        <code>ColumnSpec</code>
+	 * <code>ColumnSpec</code>
 	 * @return the <code>ColumnSpec</code> at the specified column
 	 * @throws IndexOutOfBoundsException if the column index is out of range
 	 */
@@ -391,11 +385,11 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param columnIndex index of the column to remove
 	 * @throws IndexOutOfBoundsException if the column index is out of range
 	 * @throws IllegalStateException if the column contains components or if the
-	 *         column is already grouped
+	 * column is already grouped
 	 * @see com.jgoodies.forms.extras.FormLayoutUtils#columnContainsComponent(Container,
-	 *      int)
+	 * int)
 	 * @see com.jgoodies.forms.extras.FormLayoutUtils#isGroupedColumn(FormLayout,
-	 *      int)
+	 * int)
 	 */
 	public void removeColumn(int columnIndex) {
 		if (columnIndex < 1 || columnIndex > getColumnCount()) {
@@ -469,11 +463,11 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param rowIndex index of the row to remove
 	 * @throws IndexOutOfBoundsException if the row index is out of range
 	 * @throws IllegalStateException if the row contains components or if the
-	 *         row is already grouped
+	 * row is already grouped
 	 * @see com.jgoodies.forms.extras.FormLayoutUtils#rowContainsComponent(Container,
-	 *      int)
+	 * int)
 	 * @see com.jgoodies.forms.extras.FormLayoutUtils#isGroupedRow(FormLayout,
-	 *      int)
+	 * int)
 	 */
 	public void removeRow(int rowIndex) {
 		if (rowIndex < 1 || rowIndex > getRowCount()) {
@@ -575,7 +569,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param component the component to be queried
 	 * @return the <code>CellConstraints</code> for the specified component
 	 * @throws NullPointerException if component is <code>null</code> or has not
-	 *         been added to the container
+	 * been added to the container
 	 */
 	public CellConstraints getConstraints(Component component) {
 		if (component == null)
@@ -594,7 +588,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param component the component to be modified
 	 * @param constraints the constraints to be applied
 	 * @throws NullPointerException if the component or constraints object is
-	 *         <code>null</code>
+	 * <code>null</code>
 	 */
 	public void setConstraints(Component component, CellConstraints constraints) {
 		if (component == null)
@@ -632,7 +626,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * descriptions.
 	 * <p>
 	 * <strong>Examples:</strong>
-	 * 
 	 * <pre>
 	 * // Group columns 1, 3 and 4.
 	 * setColumnGroups(new int[][] {
@@ -640,7 +633,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * 			1, 3, 4
 	 * 	}
 	 * });
-	 * 
 	 * // Group columns 1, 3, 4, and group columns 7 and 9
 	 * setColumnGroups(new int[][] {
 	 * 		{
@@ -717,7 +709,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * descriptions.
 	 * <p>
 	 * <strong>Examples:</strong>
-	 * 
 	 * <pre>
 	 * // Group rows 1 and 2.
 	 * setRowGroups(new int[][] {
@@ -725,7 +716,6 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * 			1, 2
 	 * 	}
 	 * });
-	 * 
 	 * // Group rows 1 and 2, and group rows 5, 7, and 9.
 	 * setRowGroups(new int[][] {
 	 * 		{
@@ -806,10 +796,10 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param comp the component to be added
 	 * @param constraints the component's cell constraints
 	 * @throws NullPointerException if <code>constraints</code> is
-	 *         <code>null</code>
+	 * <code>null</code>
 	 * @throws IllegalArgumentException if <code>constraints</code> is not a
-	 *         <code>CellConstraints</code> or a String that cannot be used to
-	 *         construct a <code>CellConstraints</code>
+	 * <code>CellConstraints</code> or a String that cannot be used to
+	 * construct a <code>CellConstraints</code>
 	 */
 	public void addLayoutComponent(Component comp, Object constraints) {
 		if (constraints instanceof String) {
@@ -1000,7 +990,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * @param parent the container in which to do the layout
 	 * @param defaultWidthMeasure the measure used to compute the default width
 	 * @param defaultHeightMeasure the measure used to compute the default
-	 *        height
+	 * height
 	 * @return the layout size of the <code>parent</code> container
 	 */
 	private Dimension computeLayoutSize(Container parent,
@@ -1363,17 +1353,13 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * value to zero if a spec can grow, otherwise increases the span by one.
 	 * <p>
 	 * <strong>Examples:</strong>
-	 * 
 	 * <pre>
 	 * "pref, 4dlu, pref, 2dlu, p:grow, 2dlu, pref" ->
 	 * [4, 3, 2, 1, 0, MAX_VALUE, MAX_VALUE]
-	 * 
 	 * "p:grow, 4dlu, p:grow, 9dlu, pref" ->
 	 * [0, 1, 0, MAX_VALUE, MAX_VALUE]
-	 * 
 	 * "p, 4dlu, p, 2dlu, 0:grow" ->
 	 * [4, 3, 2, 1, 0]
-	 * 
 	 * @param formSpecs the column specs or row specs
 	 * @return a table that maps a spec index to the maximum span for
 	 * fixed size specs
@@ -1597,7 +1583,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 		 * Returns the layout's horizontal origin, the origin of the first
 		 * column.
 		 * @return the layout's horizontal origin, the origin of the first
-		 *         column.
+		 * column.
 		 */
 		public int getX() {
 			return columnOrigins[0];

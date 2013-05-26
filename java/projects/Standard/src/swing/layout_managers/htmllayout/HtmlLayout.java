@@ -11,7 +11,6 @@ import java.util.Hashtable;
  * HtmlLayout uses a string containing HTML like table tags to layout
  * components. <BR>
  * Ex: <BR>
- * 
  * <pre>
  * &lt;table rows=2 cols=2&gt;
  * &lt;tr&gt;
@@ -21,7 +20,6 @@ import java.util.Hashtable;
  * &lt;td component=anotherName vert=max&gt;
  * &lt;td component="some other name" horz=max&gt;
  * </pre>
- * 
  * <H1>Tags and their options</H1> <H2>Table</H2>
  * <UL>
  * <LI>Contains TR <BR>
@@ -92,8 +90,8 @@ public class HtmlLayout implements LayoutManager {
 	/**
 	 * Creates an HtmlLayout with the specified "HTML" string.
 	 * @param html The "HTML" which specifies the layout, if this is not valid
-	 *        table-html a BadTableHtmlException will be thrown. Html can be
-	 *        tested ahead of time using HtmlLayoutTest.
+	 * table-html a BadTableHtmlException will be thrown. Html can be
+	 * tested ahead of time using HtmlLayoutTest.
 	 * @see htmllayout.BadTableHtmlException
 	 * @see htmllayout.HtmlLayoutTest
 	 */

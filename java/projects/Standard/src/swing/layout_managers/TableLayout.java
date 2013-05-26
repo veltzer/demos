@@ -29,7 +29,6 @@ import java.util.ListIterator;
  * justification), or it can be placed in the center of the cell. The component
  * could also be left justified or right justified. Similarly, the component can
  * be full, center, top, or bottom justified along the
- * 
  * <pre>
  * public static void main (String args[])
  * {
@@ -178,9 +177,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Constructs an instance of TableLayout.
 	 * @param size widths of columns and heights of rows in the format, {{col0,
-	 *        col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this
-	 *        parameter is invalid, the TableLayout will have exactly one row
-	 *        and one column.
+	 * col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this
+	 * parameter is invalid, the TableLayout will have exactly one row
+	 * and one column.
 	 */
 
 	public TableLayout(double[][] size) {
@@ -197,7 +196,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Constructs an instance of TableLayout.
 	 * @param col widths of columns in the format, {{col0, col1, col2, ...,
-	 *        colN}
+	 * colN}
 	 * @param row heights of rows in the format, {{row0, row1, row2, ..., rowN}
 	 */
 
@@ -208,7 +207,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Initializes the TableLayout for all constructors.
 	 * @param col widths of columns in the format, {{col0, col1, col2, ...,
-	 *        colN}
+	 * colN}
 	 * @param row heights of rows in the format, {{row0, row1, row2, ..., rowN}
 	 */
 
@@ -258,8 +257,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Gets the constraints of a given component.
 	 * @param component desired component
 	 * @return If the given component is found, the constraints associated with
-	 *         that component. If the given component is null or is not found,
-	 *         null is returned.
+	 * that component. If the given component is null or is not found,
+	 * null is returned.
 	 */
 
 	public TableLayoutConstraints getConstraints(Component component) {
@@ -282,8 +281,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param component desired component. This parameter cannot be null.
 	 * @param constraint new set of constraints. This parameter cannot be null.
 	 * @return If the given component is found, the constraints associated with
-	 *         that component. If the given component is null or is not found,
-	 *         null is returned.
+	 * that component. If the given component is null or is not found,
+	 * null is returned.
 	 */
 
 	public void setConstraints(Component component,
@@ -311,18 +310,14 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Adjusts the number and sizes of rows in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
 	 * layout. This can be done with the following code:
-	 * 
 	 * <pre>
 	 * layout.layoutContainer(container);
 	 * container.repaint();
 	 * </pre>
-	 * 
 	 * or
-	 * 
 	 * <pre>
 	 * window.pack()
 	 * </pre>
-	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
 	 * @param column widths of each of the columns
@@ -340,11 +335,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * layout.layoutContainer(container);
 	 * container.repaint();
 	 * </code> or
-	 * 
 	 * <pre>
 	 * window.pack()
 	 * </pre>
-	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
 	 * @param row heights of each of the rows. This parameter cannot be null.
@@ -385,15 +378,13 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * layout.layoutContainer(container);
 	 * container.repaint();
 	 * </code> or
-	 * 
 	 * <pre>
 	 * window.pack()
 	 * </pre>
-	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
 	 * @param i zero-based index of column to set. If this parameter is not
-	 *        valid, an ArrayOutOfBoundsException will be thrown.
+	 * valid, an ArrayOutOfBoundsException will be thrown.
 	 * @param size width of the column. This parameter cannot be null.
 	 * @see #getColumn
 	 */
@@ -409,15 +400,13 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * layout.layoutContainer(container);
 	 * container.repaint();
 	 * </code> or
-	 * 
 	 * <pre>
 	 * window.pack()
 	 * </pre>
-	 * 
 	 * If this is not done, the changes in the layout will not be seen until the
 	 * container is resized.
 	 * @param i zero-based index of row to set. If this parameter is not valid,
-	 *        an ArrayOutOfBoundsException will be thrown.
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @param size height of the row. This parameter cannot be null.
 	 * @see #getRow
 	 */
@@ -478,7 +467,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Gets the width of a single column in this layout.
 	 * @param i zero-based index of row to get. If this parameter is not valid,
-	 *        an ArrayOutOfBoundsException will be thrown.
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @return width of the requested column
 	 * @see #setRow
 	 */
@@ -490,7 +479,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Gets the sizes of a row in this layout.
 	 * @param i zero-based index of row to get. If this parameter is not valid,
-	 *        an ArrayOutOfBoundsException will be thrown.
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @return height of each of the requested row
 	 * @see #setRow
 	 */
@@ -720,7 +709,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Converts this TableLayout to a string.
 	 * @return a string representing the columns and row sizes in the form
-	 *         "{{col0, col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}}"
+	 * "{{col0, col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}}"
 	 */
 
 	public String toString() {
@@ -753,7 +742,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * row or column. For example, on a table with five rows, row -1 and row 5
 	 * are both invalid. Valid rows are 0 through 4, inclusively.
 	 * @return a list of TableLayout.Entry instances refering to the invalid
-	 *         constraints and corresponding components
+	 * constraints and corresponding components
 	 * @see #getOverlappingEntry
 	 */
 
@@ -885,7 +874,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param z indicates row or column
 	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after absolute crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignAbsoluteSize(int z, int availableSize) {
@@ -905,7 +894,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param z indicates row or column
 	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after relative crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignRelativeSize(int z, int availableSize) {
@@ -927,7 +916,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param z indicates row or column
 	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after fill crs have been assigned
-	 *         sizes
+	 * sizes
 	 */
 
 	protected void assignFillSize(int z, int availableSize) {
@@ -996,7 +985,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param availableSize amount of space available in the container
 	 * @param typeOfSize indicates preferred or minimum
 	 * @return the amount of space available after absolute crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignPrefMinSize(int z, int availableSize, double typeOfSize) {
@@ -1191,7 +1180,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * support component orientation is being used, then null is returned.
 	 * @param container Container whose orientation is being queried
 	 * @return the container's orientation or null if no orientation is
-	 *         supported
+	 * supported
 	 */
 
 	protected ComponentOrientation getComponentOrientation(Container container) {
@@ -1225,11 +1214,11 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Calculates the vertical/horizontal offset and size of a component.
 	 * @param entry entry containing component and contraints
 	 * @param preferredSize previously calculated preferred width/height of
-	 *        component
+	 * component
 	 * @param isColumn if true, this method is being called to calculate the
-	 *        offset/size of a column. if false,... of a row.
+	 * offset/size of a column. if false,... of a row.
 	 * @return an array, a, of two integers such that a[0] is the offset and
-	 *         a[1] is the size
+	 * a[1] is the size
 	 */
 
 	protected int[] calculateSizeAndOffset(Entry entry, int preferredSize,
@@ -1594,8 +1583,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * the specified target container.
 	 * @param target the component which needs to be laid out
 	 * @return unconditionally, a Dimension of Integer.MAX_VALUE by
-	 *         Integer.MAX_VALUE since TableLayout does not limit the maximum
-	 *         size of a container
+	 * Integer.MAX_VALUE since TableLayout does not limit the maximum
+	 * size of a container
 	 */
 
 	public Dimension maximumLayoutSize(Container target) {
@@ -1689,7 +1678,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 		/**
 		 * Gets the string representation of this Entry.
 		 * @return a string in the form
-		 *         "(col1, row1, col2, row2, vAlign, hAlign) component"
+		 * "(col1, row1, col2, row2, vAlign, hAlign) component"
 		 */
 
 		public String toString() {

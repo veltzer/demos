@@ -6,7 +6,7 @@ package swing.layout_managers;
  * @author Daniel E. Barbalace
  */
 
-public interface TableLayoutConstants {
+public abstract class TableLayoutConstants {
 
 	/** Indicates that the component is left justified in its cell */
 	public static final int LEFT = 0;

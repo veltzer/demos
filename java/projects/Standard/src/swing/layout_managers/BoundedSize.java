@@ -62,7 +62,7 @@ final class BoundedSize implements Size, Serializable {
 	 * @param defaultMeasure the measure used to determine the default size
 	 * @return the maximum size in pixels
 	 * @see FormSpec#maximumSize(Container, List, FormLayout.Measure,
-	 *      FormLayout.Measure, FormLayout.Measure)
+	 * FormLayout.Measure, FormLayout.Measure)
 	 */
 	public int maximumSize(Container container, List<Component> components,
 			FormLayout.Measure minMeasure, FormLayout.Measure prefMeasure,
@@ -86,7 +86,7 @@ final class BoundedSize implements Size, Serializable {
 	 * Indicates whether some other BoundedSize is "equal to" this one.
 	 * @param object the object with which to compare
 	 * @return <code>true</code> if this object is the same as the object
-	 *         argument, <code>false</code> otherwise.
+	 * argument, <code>false</code> otherwise.
 	 * @see Object#hashCode()
 	 * @see java.util.Hashtable
 	 */

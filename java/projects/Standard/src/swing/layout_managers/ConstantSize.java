@@ -53,11 +53,10 @@ import java.util.List;
  * </table>
  * <p>
  * <strong>Examples:</strong>
- * 
  * <pre>
  * Sizes.ZERO;
  * Sizes.DLUX9;
- * Sizes.dluX(42); 
+ * Sizes.dluX(42);
  * Sizes.pixel(99);
  * </pre>
  * @author Karsten Lentzsch
@@ -130,7 +129,7 @@ public final class ConstantSize implements Size, Serializable {
 	 * @param horizontal true for horizontal, false for vertical
 	 * @return a constant size for the given encoding and unit description
 	 * @throws IllegalArgumentException if the unit requires integer but the
-	 *         value is not an integer
+	 * value is not an integer
 	 */
 	static ConstantSize valueOf(String encodedValueAndUnit, boolean horizontal) {
 		String split[] = ConstantSize.splitValueAndUnit(encodedValueAndUnit);
@@ -219,7 +218,7 @@ public final class ConstantSize implements Size, Serializable {
 	 * Indicates whether some other ConstantSize is "equal to" this one.
 	 * @param o the Object with which to compare
 	 * @return <code>true</code> if this object is the same as the obj argument;
-	 *         <code>false</code> otherwise.
+	 * <code>false</code> otherwise.
 	 * @see java.lang.Object#hashCode()
 	 * @see java.util.Hashtable
 	 */

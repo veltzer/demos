@@ -113,7 +113,7 @@ public class FileTreeModel implements TreeModel, FileFilter {
 	 * Adds a feature to the TreeModelListener attribute of the FileTreeModel
 	 * object
 	 * @param listener The feature to be added to the TreeModelListener
-	 *        attribute
+	 * attribute
 	 */
 	public void addTreeModelListener(TreeModelListener listener) {
 	}

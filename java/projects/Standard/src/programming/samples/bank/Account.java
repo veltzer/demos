@@ -12,9 +12,6 @@ public class Account {
 	 * This is the current balance
 	 */
 	private double balance;
-	/**
-	 * 
-	 */
 	int typeOfAccount;
 	final public static int CHECKING_ACCOUNT = 1;
 	final public static int BUSINESS_ACCOUNT = 2;

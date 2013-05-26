@@ -130,11 +130,13 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @throws NullPointerException if the test string is <code>null</code>
 	 */
 	public void setAverageCharacterWidthTestString(String newTestString) {
-		if (newTestString == null)
+		if (newTestString == null) {
 			throw new NullPointerException("The test string must not be null.");
-		if (newTestString.length() == 0)
+		}
+		if (newTestString.length() == 0) {
 			throw new IllegalArgumentException(
 					"The test string must not be empty.");
+		}
 
 		String oldTestString = averageCharWidthTestString;
 		averageCharWidthTestString = newTestString;
@@ -191,7 +193,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * Lazily computes and answer the global dialog base units. Should be
 	 * re-computed if the l&amp;f, platform, or screen changes.
 	 * @return a cached DialogBaseUnits object used globally if no container is
-	 *         available
+	 * available
 	 */
 	private DialogBaseUnits getGlobalDialogBaseUnits() {
 		if (cachedGlobalDialogBaseUnits == null) {
@@ -244,7 +246,12 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 		double averageCharWidth = computeAverageCharWidth(metrics,
 				averageCharWidthTestString);
 		int ascent = metrics.getAscent();
-		double height = ascent > 14 ? ascent : ascent + (15 - ascent) / 3;
+		double height;
+		if (ascent > 14) {
+			height = ascent;
+		} else {
+			height = ascent + (15 - ascent) / 3;
+		}
 		DialogBaseUnits dialogBaseUnits = new DialogBaseUnits(averageCharWidth,
 				height);
 		logInfo("Computed dialog base units " + dialogBaseUnits + " for: "
@@ -259,7 +266,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * <p>
 	 * Should be re-computed if the l&amp;f, platform, or screen changes.
 	 * @return a DialogBaseUnits object used globally if no container is
-	 *         available
+	 * available
 	 */
 	private DialogBaseUnits computeGlobalDialogBaseUnits() {
 		logInfo("Computing global dialog base units...");
@@ -350,9 +357,9 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @param propertyName one of the property names listed above
 	 * @param listener the PropertyChangeListener to be added
 	 * @see #removePropertyChangeListener(java.lang.String,
-	 *      java.beans.PropertyChangeListener)
+	 * java.beans.PropertyChangeListener)
 	 * @see #addPropertyChangeListener(java.lang.String,
-	 *      java.beans.PropertyChangeListener)
+	 * java.beans.PropertyChangeListener)
 	 */
 	public final synchronized void addPropertyChangeListener(
 			String propertyName, PropertyChangeListener listener) {
@@ -368,7 +375,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @param propertyName a valid property name
 	 * @param listener the PropertyChangeListener to be removed
 	 * @see #addPropertyChangeListener(java.lang.String,
-	 *      java.beans.PropertyChangeListener)
+	 * java.beans.PropertyChangeListener)
 	 * @see #removePropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
 	public final synchronized void removePropertyChangeListener(

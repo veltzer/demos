@@ -1,13 +1,11 @@
 package programming.samples.innerclasses;
 
 /* Write the following exercise:
- * 
  * Write a factory which has workers.
  * Workers should be inner classes of the factory.
  * The factory should hold an array of all it's workers.
  * When ever a worker is created it automatically
  * adds itself to the list of the factory workers.
- * 
  * Write a small test to show that all is working.
  */
 

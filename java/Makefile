@@ -57,6 +57,9 @@ check_author:
 check_version:
 	@scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
 
+.PHONY: check_all
+check_all: check_version check_dbl_ws check_tab_eol check_ws_eol
+
 .PHONY: checkstyle
 checkstyle:
 #	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml -r projects/Standard/src

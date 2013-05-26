@@ -168,8 +168,11 @@ public final class Sizes {
 	 * @return the given Millimeters as pixels
 	 */
 	public static int millimeterAsPixel(double mm, Component component) {
-		return mm == 0d ? 0 : getUnitConverter().millimeterAsPixel(mm,
-				component);
+		if (mm == 0d) {
+			return 0;
+		} else {
+			return getUnitConverter().millimeterAsPixel(mm, component);
+		}
 	}
 
 	/**
@@ -180,8 +183,11 @@ public final class Sizes {
 	 * @return the given Centimeters as pixels
 	 */
 	public static int centimeterAsPixel(double cm, Component component) {
-		return cm == 0d ? 0 : getUnitConverter().centimeterAsPixel(cm,
-				component);
+		if (cm == 0d) {
+			return 0;
+		} else {
+			return getUnitConverter().centimeterAsPixel(cm, component);
+		}
 	}
 
 	/**
@@ -192,7 +198,11 @@ public final class Sizes {
 	 * @return the given Points as pixels
 	 */
 	public static int pointAsPixel(int pt, Component component) {
-		return pt == 0 ? 0 : getUnitConverter().pointAsPixel(pt, component);
+		if (pt == 0) {
+			return 0;
+		} else {
+			return getUnitConverter().pointAsPixel(pt, component);
+		}
 	}
 
 	/**
@@ -203,8 +213,11 @@ public final class Sizes {
 	 * @return the given horizontal dialog units as pixels
 	 */
 	public static int dialogUnitXAsPixel(int dluX, Component component) {
-		return dluX == 0 ? 0 : getUnitConverter().dialogUnitXAsPixel(dluX,
-				component);
+		if (dluX == 0) {
+			return 0;
+		} else {
+			return getUnitConverter().dialogUnitXAsPixel(dluX, component);
+		}
 	}
 
 	/**
@@ -215,8 +228,11 @@ public final class Sizes {
 	 * @return the given vertical dialog units as pixels
 	 */
 	public static int dialogUnitYAsPixel(int dluY, Component component) {
-		return dluY == 0 ? 0 : getUnitConverter().dialogUnitYAsPixel(dluY,
-				component);
+		if (dluY == 0) {
+			return 0;
+		} else {
+			return getUnitConverter().dialogUnitYAsPixel(dluY, component);
+		}
 	}
 
 	// Accessing the Unit Converter *******************************************
@@ -292,8 +308,16 @@ public final class Sizes {
 				FormLayout.Measure minMeasure, FormLayout.Measure prefMeasure,
 				FormLayout.Measure defaultMeasure) {
 
-			FormLayout.Measure measure = this == MINIMUM ? minMeasure
-					: (this == PREFERRED ? prefMeasure : defaultMeasure);
+			FormLayout.Measure measure;
+			if (this == MINIMUM) {
+				measure = minMeasure;
+			} else {
+				if (this == PREFERRED) {
+					measure = prefMeasure;
+				} else {
+					measure = defaultMeasure;
+				}
+			}
 			int maximum = 0;
 			for (Iterator<Component> i = components.iterator(); i.hasNext();) {
 				Component c = (Component) i.next();
