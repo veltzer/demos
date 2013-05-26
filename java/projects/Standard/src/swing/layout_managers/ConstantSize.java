@@ -12,53 +12,16 @@ import java.util.List;
  * <code>ConstantSize</code> using the factory methods and constants in the
  * {@link Sizes} class. Logical constant sizes that vary with the current layout
  * style are delivered by the {@link com.jgoodies.forms.util.LayoutStyle} class.
- * <p>
- * This class supports different size units:
- * <table>
- * <tr>
- * <td><b>Unit</b>&nbsp;</td>
- * <td>&nbsp;<b>Abbreviation</b>&nbsp;</td>
- * <td>&nbsp; <b>Size</b></td>
- * </tr>
- * <tr>
- * <td>Millimeter</td>
- * <td>mm</td>
- * <td>0.1 cm</td>
- * </tr>
- * <tr>
- * <td>Centimeter</td>
- * <td>cm</td>
- * <td>10.0 mm</td>
- * </tr>
- * <tr>
- * <td>Inch</td>
- * <td>in</td>
- * <td>25.4 mm</td>
- * </tr>
- * <tr>
- * <td>DTP Point</td>
- * <td>pt</td>
- * <td>1/72 in</td>
- * </tr>
- * <tr>
- * <td>Pixel</td>
- * <td>px</td>
- * <td>1/(resolution in dpi) in</td>
- * </tr>
- * <tr>
- * <td>Dialog Unit</td>
- * <td>dlu</td>
- * <td>honors l&amp;f, resolution, and dialog font size</td>
- * </tr>
- * </table>
- * <p>
- * <strong>Examples:</strong>
- * <pre>
- * Sizes.ZERO;
- * Sizes.DLUX9;
- * Sizes.dluX(42);
- * Sizes.pixel(99);
- * </pre>
+ * <p> This class supports different size units: <table> <tr>
+ * <td><b>Unit</b>&nbsp;</td> <td>&nbsp;<b>Abbreviation</b>&nbsp;</td>
+ * <td>&nbsp; <b>Size</b></td> </tr> <tr> <td>Millimeter</td> <td>mm</td>
+ * <td>0.1 cm</td> </tr> <tr> <td>Centimeter</td> <td>cm</td> <td>10.0 mm</td>
+ * </tr> <tr> <td>Inch</td> <td>in</td> <td>25.4 mm</td> </tr> <tr> <td>DTP
+ * Point</td> <td>pt</td> <td>1/72 in</td> </tr> <tr> <td>Pixel</td> <td>px</td>
+ * <td>1/(resolution in dpi) in</td> </tr> <tr> <td>Dialog Unit</td>
+ * <td>dlu</td> <td>honors l&amp;f, resolution, and dialog font size</td> </tr>
+ * </table> <p> <strong>Examples:</strong> <pre> Sizes.ZERO; Sizes.DLUX9;
+ * Sizes.dluX(42); Sizes.pixel(99); </pre>
  * @author Karsten Lentzsch
  * @see Size
  * @see Sizes
@@ -195,10 +158,9 @@ public final class ConstantSize implements Size, Serializable {
 
 	/**
 	 * Returns this size as pixel size. Neither requires the component list nor
-	 * the specified measures.
-	 * <p>
-	 * Invoked by {@link swing.layout_managers.jgoodies.forms.layout.FormSpec}
-	 * to determine the size of a column or row.
+	 * the specified measures. <p> Invoked by
+	 * {@link swing.layout_managers.jgoodies.forms.layout.FormSpec} to determine
+	 * the size of a column or row.
 	 * @param container the layout container
 	 * @param components the list of components used to compute the size
 	 * @param minMeasure the measure that determines the minimum sizes

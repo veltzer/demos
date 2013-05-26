@@ -296,14 +296,11 @@ public abstract class FormSpec implements Serializable {
 	 * Returns a string representation of this form specification. The string
 	 * representation consists of three elements separated by a colon (
 	 * <tt>":"</tt>), first the alignment, second the size, and third the resize
-	 * spec.
-	 * <p>
-	 * This method does <em>not</em> return a decoded version of this object;
-	 * the contrary is the case. Many instances will return a string that cannot
-	 * be parsed.
-	 * <p>
-	 * <strong>Note:</strong> The string representation may change at any time.
-	 * It is strongly recommended to not use this string for parsing purposes.
+	 * spec. <p> This method does <em>not</em> return a decoded version of this
+	 * object; the contrary is the case. Many instances will return a string
+	 * that cannot be parsed. <p> <strong>Note:</strong> The string
+	 * representation may change at any time. It is strongly recommended to not
+	 * use this string for parsing purposes.
 	 * @return a string representation of the form specification.
 	 */
 	public final String toString() {
@@ -329,14 +326,11 @@ public abstract class FormSpec implements Serializable {
 	 * Returns a string representation of this form specification. The string
 	 * representation consists of three elements separated by a colon (
 	 * <tt>":"</tt>), first the alignment, second the size, and third the resize
-	 * spec.
-	 * <p>
-	 * This method does <em>not</em> return a decoded version of this object;
-	 * the contrary is the case. Many instances will return a string that cannot
-	 * be parsed.
-	 * <p>
-	 * <strong>Note:</strong> The string representation may change at any time.
-	 * It is strongly recommended to not use this string for parsing purposes.
+	 * spec. <p> This method does <em>not</em> return a decoded version of this
+	 * object; the contrary is the case. Many instances will return a string
+	 * that cannot be parsed. <p> <strong>Note:</strong> The string
+	 * representation may change at any time. It is strongly recommended to not
+	 * use this string for parsing purposes.
 	 * @return a string representation of the form specification.
 	 */
 	public final String toShortString() {
@@ -372,9 +366,8 @@ public abstract class FormSpec implements Serializable {
 
 	/**
 	 * Computes the maximum size for the given list of components, using this
-	 * form spec and the specified measure.
-	 * <p>
-	 * Invoked by FormLayout to determine the size of one of my elements
+	 * form spec and the specified measure. <p> Invoked by FormLayout to
+	 * determine the size of one of my elements
 	 * @param container the layout container
 	 * @param components the list of components to measure
 	 * @param minMeasure the measure used to determine the minimum size

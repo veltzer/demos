@@ -15,17 +15,15 @@ import javax.swing.UIManager;
 
 /**
  * This is the default implementation of the {@link UnitConverter} interface. It
- * converts horizontal and vertical dialog base units to pixels.
- * <p>
- * The horizontal base unit is equal to the average width, in pixels, of the
+ * converts horizontal and vertical dialog base units to pixels. <p> The
+ * horizontal base unit is equal to the average width, in pixels, of the
  * characters in the system font; the vertical base unit is equal to the height,
  * in pixels, of the font. Each horizontal base unit is equal to 4 horizontal
  * dialog units; each vertical base unit is equal to 8 vertical dialog units.
- * <p>
- * The DefaultUnitConverter computes dialog base units using a default font and
- * a test string for the average character width. You can configure the font and
- * the test string via the bound Bean properties <em>defaultDialogFont</em> and
- * <em>averageCharacterWidthTestString</em>.
+ * <p> The DefaultUnitConverter computes dialog base units using a default font
+ * and a test string for the average character width. You can configure the font
+ * and the test string via the bound Bean properties <em>defaultDialogFont</em>
+ * and <em>averageCharacterWidthTestString</em>.
  * @author Karsten Lentzsch
  * @see UnitConverter
  * @see swing.layout_managers.jgoodies.forms.layout.Size
@@ -119,12 +117,9 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	/**
 	 * Sets a string that will be used to compute the average character width.
 	 * By default it is initialized to &quot;X&quot;. You can provide other test
-	 * strings, for example:
-	 * <ul>
-	 * <li>&quot;Xximeee&quot;</li>
+	 * strings, for example: <ul> <li>&quot;Xximeee&quot;</li>
 	 * <li>&quot;ABCEDEFHIJKLMNOPQRSTUVWXYZ&quot;</li>
-	 * <li>&quot;abcdefghijklmnopqrstuvwxyz&quot;</li>
-	 * </ul>
+	 * <li>&quot;abcdefghijklmnopqrstuvwxyz&quot;</li> </ul>
 	 * @param newTestString the test string to be used
 	 * @throws IllegalArgumentException if the test string is empty
 	 * @throws NullPointerException if the test string is <code>null</code>
@@ -205,10 +200,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	/**
 	 * Looks up and returns the dialog base units for the given component. In
 	 * case the component is <code>null</code> the global dialog base units are
-	 * answered.
-	 * <p>
-	 * Before we compute the dialog base units we check whether they have been
-	 * computed and cached before - for the same component
+	 * answered. <p> Before we compute the dialog base units we check whether
+	 * they have been computed and cached before - for the same component
 	 * <code>FontMetrics</code>.
 	 * @param c the component that provides the graphics object
 	 * @return the DialogBaseUnits object for the given component
@@ -229,16 +222,12 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 
 	/**
 	 * Computes and returns the horizontal dialog base units. Honors the font,
-	 * font size and resolution.
-	 * <p>
-	 * Implementation Note: 14dluY map to 22 pixel for 8pt Tahoma on 96 dpi. I
-	 * could not yet manage to compute the Microsoft compliant font height.
-	 * Therefore this method adds a correction value that seems to work well
-	 * with the vast majority of desktop systems.
-	 * <p>
-	 * TODO: Revise the computation of vertical base units, as soon as there are
-	 * more information about the original computation in Microsoft
-	 * environments.
+	 * font size and resolution. <p> Implementation Note: 14dluY map to 22 pixel
+	 * for 8pt Tahoma on 96 dpi. I could not yet manage to compute the Microsoft
+	 * compliant font height. Therefore this method adds a correction value that
+	 * seems to work well with the vast majority of desktop systems. <p> TODO:
+	 * Revise the computation of vertical base units, as soon as there are more
+	 * information about the original computation in Microsoft environments.
 	 * @param metrics the FontMetrics used to measure the dialog font
 	 * @return the horizontal and vertical dialog base units
 	 */
@@ -263,8 +252,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * Computes the global dialog base units. The current implementation assumes
 	 * a fixed 8pt font and on 96 or 120 dpi. A better implementation should ask
 	 * for the main dialog font and should honor the current screen resolution.
-	 * <p>
-	 * Should be re-computed if the l&amp;f, platform, or screen changes.
+	 * <p> Should be re-computed if the l&amp;f, platform, or screen changes.
 	 * @return a DialogBaseUnits object used globally if no container is
 	 * available
 	 */
@@ -293,10 +281,9 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * metrics. The current implementation creates a <code>JPanel</code>. Since
 	 * this panel has no parent, it has no toolkit assigned. And so, requesting
 	 * the font metrics will end up using the default toolkit and its deprecated
-	 * method <code>ToolKit#getFontMetrics()</code>.
-	 * <p>
-	 * TODO: Consider publishing this method and providing a setter, so that an
-	 * API user can set a realized component that has a toolkit assigned.
+	 * method <code>ToolKit#getFontMetrics()</code>. <p> TODO: Consider
+	 * publishing this method and providing a setter, so that an API user can
+	 * set a realized component that has a toolkit assigned.
 	 * @return a component used to compute the default font metrics
 	 */
 	private Component createDefaultGlobalComponent() {
@@ -317,9 +304,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 
 	/**
 	 * Adds a PropertyChangeListener to the listener list. The listener is
-	 * registered for all bound properties of this class.
-	 * <p>
-	 * If listener is null, no exception is thrown and no action is performed.
+	 * registered for all bound properties of this class. <p> If listener is
+	 * null, no exception is thrown and no action is performed.
 	 * @param listener the PropertyChangeListener to be added
 	 * @see #removePropertyChangeListener(PropertyChangeListener)
 	 * @see #removePropertyChangeListener(String, PropertyChangeListener)
@@ -333,9 +319,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	/**
 	 * Removes a PropertyChangeListener from the listener list. This method
 	 * should be used to remove PropertyChangeListeners that were registered for
-	 * all bound properties of this class.
-	 * <p>
-	 * If listener is null, no exception is thrown and no action is performed.
+	 * all bound properties of this class. <p> If listener is null, no exception
+	 * is thrown and no action is performed.
 	 * @param listener the PropertyChangeListener to be removed
 	 * @see #addPropertyChangeListener(PropertyChangeListener)
 	 * @see #addPropertyChangeListener(String, PropertyChangeListener)
@@ -348,12 +333,10 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 
 	/**
 	 * Adds a PropertyChangeListener to the listener list for a specific
-	 * property. The specified property may be user-defined.
-	 * <p>
-	 * Note that if this Model is inheriting a bound property, then no event
-	 * will be fired in response to a change in the inherited property.
-	 * <p>
-	 * If listener is null, no exception is thrown and no action is performed.
+	 * property. The specified property may be user-defined. <p> Note that if
+	 * this Model is inheriting a bound property, then no event will be fired in
+	 * response to a change in the inherited property. <p> If listener is null,
+	 * no exception is thrown and no action is performed.
 	 * @param propertyName one of the property names listed above
 	 * @param listener the PropertyChangeListener to be added
 	 * @see #removePropertyChangeListener(java.lang.String,
@@ -369,9 +352,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	/**
 	 * Removes a PropertyChangeListener from the listener list for a specific
 	 * property. This method should be used to remove PropertyChangeListeners
-	 * that were registered for a specific bound property.
-	 * <p>
-	 * If listener is null, no exception is thrown and no action is performed.
+	 * that were registered for a specific bound property. <p> If listener is
+	 * null, no exception is thrown and no action is performed.
 	 * @param propertyName a valid property name
 	 * @param listener the PropertyChangeListener to be removed
 	 * @see #addPropertyChangeListener(java.lang.String,

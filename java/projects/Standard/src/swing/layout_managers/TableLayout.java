@@ -14,73 +14,35 @@ import java.util.ListIterator;
  * like a spreadsheet. TableLayout allows each row or column to be a different
  * size. A row or column can be given an absolute size in pixels, a percentage
  * of the available space, or it can grow and shrink to fill the remaining space
- * after other rows and columns have been resized.
- * <p>
- * Using spreadsheet terminology, a cell is the intersection of a row and
- * column. Cells have finite, non-negative sizes measured in pixels. The
- * dimensions of a cell depend solely upon the dimensions of its row and column.
- * </p>
- * <p>
- * A component occupies a rectangular group of one or more cells. The component
- * can be aligned in four ways within that cell.
- * </p>
- * <p>
- * A component can be stretched horizontally to fit the cell set (full
- * justification), or it can be placed in the center of the cell. The component
- * could also be left justified or right justified. Similarly, the component can
- * be full, center, top, or bottom justified along the
- * <pre>
- * public static void main (String args[])
- * {
- * // Create a frame
- * Frame frame = new Frame("Example of TableLayout");
- * frame.setBounds (100, 100, 300, 300);
- * <spc>
- * // Create a TableLayout for the frame
- * double border = 10;
- * double size[][] =
- * {{border, 0.10, 20, TableLayout.FILL, 20, 0.20, border}, // Columns
- * {border, 0.20, 20, TableLayout.FILL, 20, 0.20, border}}; // Rows
- * <spc>
- * frame.setLayout (new TableLayout(size));
- * <spc>
- * // Create some buttons
- * String label[] = {"Top", "Bottom", "Left", "Right", "Center", "Overlap"};
- * Button button[] = new Button[label.length];
- * <spc>
- * for (int i = 0; i < label.length; i++)
- * button[i] = new Button(label[i]);
- * <spc>
- * // Add buttons
- * frame.add (button[0], "1, 1, 5, 1"); // Top
- * frame.add (button[1], "1, 5, 5, 5"); // Bottom
- * frame.add (button[2], "1, 3"); // Left
- * frame.add (button[3], "5, 3"); // Right
- * frame.add (button[4], "3, 3, c, c"); // Center
- * frame.add (button[5], "3, 3, 3, 5"); // Overlap
- * <spc>
- * // Allow user to close the window to terminate the program
- * frame.addWindowListener
- * (new WindowListener()
- * {
- * public void windowClosing (WindowEvent e)
- * {
- * System.exit (0);
- * }
- * <spc>
- * public void windowOpened (WindowEvent e) {}
- * public void windowClosed (WindowEvent e) {}
- * public void windowIconified (WindowEvent e) {}
- * public void windowDeiconified (WindowEvent e) {}
- * public void windowActivated (WindowEvent e) {}
- * public void windowDeactivated (WindowEvent e) {}
- * }
- * );
- * <spc>
- * // Show frame
- * frame.show();
- * }
- * </pre>
+ * after other rows and columns have been resized. <p> Using spreadsheet
+ * terminology, a cell is the intersection of a row and column. Cells have
+ * finite, non-negative sizes measured in pixels. The dimensions of a cell
+ * depend solely upon the dimensions of its row and column. </p> <p> A component
+ * occupies a rectangular group of one or more cells. The component can be
+ * aligned in four ways within that cell. </p> <p> A component can be stretched
+ * horizontally to fit the cell set (full justification), or it can be placed in
+ * the center of the cell. The component could also be left justified or right
+ * justified. Similarly, the component can be full, center, top, or bottom
+ * justified along the <pre> public static void main (String args[]) { // Create
+ * a frame Frame frame = new Frame("Example of TableLayout"); frame.setBounds
+ * (100, 100, 300, 300); <spc> // Create a TableLayout for the frame double
+ * border = 10; double size[][] = {{border, 0.10, 20, TableLayout.FILL, 20,
+ * 0.20, border}, // Columns {border, 0.20, 20, TableLayout.FILL, 20, 0.20,
+ * border}}; // Rows <spc> frame.setLayout (new TableLayout(size)); <spc> //
+ * Create some buttons String label[] = {"Top", "Bottom", "Left", "Right",
+ * "Center", "Overlap"}; Button button[] = new Button[label.length]; <spc> for
+ * (int i = 0; i < label.length; i++) button[i] = new Button(label[i]); <spc> //
+ * Add buttons frame.add (button[0], "1, 1, 5, 1"); // Top frame.add (button[1],
+ * "1, 5, 5, 5"); // Bottom frame.add (button[2], "1, 3"); // Left frame.add
+ * (button[3], "5, 3"); // Right frame.add (button[4], "3, 3, c, c"); // Center
+ * frame.add (button[5], "3, 3, 3, 5"); // Overlap <spc> // Allow user to close
+ * the window to terminate the program frame.addWindowListener (new
+ * WindowListener() { public void windowClosing (WindowEvent e) { System.exit
+ * (0); } <spc> public void windowOpened (WindowEvent e) {} public void
+ * windowClosed (WindowEvent e) {} public void windowIconified (WindowEvent e)
+ * {} public void windowDeiconified (WindowEvent e) {} public void
+ * windowActivated (WindowEvent e) {} public void windowDeactivated (WindowEvent
+ * e) {} } ); <spc> // Show frame frame.show(); } </pre>
  * @author Daniel E. Barbalace
  */
 
@@ -177,9 +139,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Constructs an instance of TableLayout.
 	 * @param size widths of columns and heights of rows in the format, {{col0,
-	 * col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this
-	 * parameter is invalid, the TableLayout will have exactly one row
-	 * and one column.
+	 * col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this parameter
+	 * is invalid, the TableLayout will have exactly one row and one column.
 	 */
 
 	public TableLayout(double[][] size) {
@@ -257,8 +218,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Gets the constraints of a given component.
 	 * @param component desired component
 	 * @return If the given component is found, the constraints associated with
-	 * that component. If the given component is null or is not found,
-	 * null is returned.
+	 * that component. If the given component is null or is not found, null is
+	 * returned.
 	 */
 
 	public TableLayoutConstraints getConstraints(Component component) {
@@ -281,8 +242,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param component desired component. This parameter cannot be null.
 	 * @param constraint new set of constraints. This parameter cannot be null.
 	 * @return If the given component is found, the constraints associated with
-	 * that component. If the given component is null or is not found,
-	 * null is returned.
+	 * that component. If the given component is null or is not found, null is
+	 * returned.
 	 */
 
 	public void setConstraints(Component component,
@@ -309,17 +270,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Adjusts the number and sizes of rows in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
-	 * layout. This can be done with the following code:
-	 * <pre>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </pre>
-	 * or
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout. This can be done with the following code: <pre>
+	 * layout.layoutContainer(container); container.repaint(); </pre> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param column widths of each of the columns
 	 * @see #getColumn
 	 */
@@ -332,14 +286,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Adjusts the number and sizes of rows in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
 	 * layout. This can be done with the following code: <code>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </code> or
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout.layoutContainer(container); container.repaint(); </code> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param row heights of each of the rows. This parameter cannot be null.
 	 * @see #getRow
 	 */
@@ -375,14 +324,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Adjusts the width of a single column in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
 	 * layout. This can be done with the following code: <code>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </code> or
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout.layoutContainer(container); container.repaint(); </code> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param i zero-based index of column to set. If this parameter is not
 	 * valid, an ArrayOutOfBoundsException will be thrown.
 	 * @param size width of the column. This parameter cannot be null.
@@ -397,14 +341,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Adjusts the height of a single row in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
 	 * layout. This can be done with the following code: <code>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </code> or
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout.layoutContainer(container); container.repaint(); </code> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param i zero-based index of row to set. If this parameter is not valid,
 	 * an ArrayOutOfBoundsException will be thrown.
 	 * @param size height of the row. This parameter cannot be null.
@@ -1088,10 +1027,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * To lay out the specified container using this layout. This method
 	 * reshapes the components in the specified target container in order to
-	 * satisfy the constraints of all components.
-	 * <p>
-	 * User code should not have to call this method directly.
-	 * </p>
+	 * satisfy the constraints of all components. <p> User code should not have
+	 * to call this method directly. </p>
 	 * @param container container being served by this layout manager
 	 */
 
@@ -1583,8 +1520,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * the specified target container.
 	 * @param target the component which needs to be laid out
 	 * @return unconditionally, a Dimension of Integer.MAX_VALUE by
-	 * Integer.MAX_VALUE since TableLayout does not limit the maximum
-	 * size of a container
+	 * Integer.MAX_VALUE since TableLayout does not limit the maximum size of a
+	 * container
 	 */
 
 	public Dimension maximumLayoutSize(Container target) {

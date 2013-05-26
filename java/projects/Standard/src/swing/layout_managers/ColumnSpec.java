@@ -4,21 +4,14 @@ import java.util.StringTokenizer;
 
 /**
  * Specifies columns in {@link FormLayout} by their default orientation, start
- * size and resizing behavior.
- * <p>
- * <strong>Examples:</strong><br>
- * The following examples specify a column with FILL alignment, a size of
- * 10&nbsp;dlu that won't grow.
- * <pre>
- * new ColumnSpec(Sizes.dluX(10));
- * new ColumnSpec(ColumnSpec.FILL, Sizes.dluX(10), 0.0);
- * new ColumnSpec(ColumnSpec.FILL, Sizes.dluX(10), ColumnSpec.NO_GROW);
- * new ColumnSpec(&quot;10dlu&quot;);
- * new ColumnSpec(&quot;10dlu:0&quot;);
- * new ColumnSpec(&quot;fill:10dlu:0&quot;);
- * </pre>
- * <p>
- * The {@link com.jgoodies.forms.factories.FormFactory} provides predefined
+ * size and resizing behavior. <p> <strong>Examples:</strong><br> The following
+ * examples specify a column with FILL alignment, a size of 10&nbsp;dlu that
+ * won't grow. <pre> new ColumnSpec(Sizes.dluX(10)); new
+ * ColumnSpec(ColumnSpec.FILL, Sizes.dluX(10), 0.0); new
+ * ColumnSpec(ColumnSpec.FILL, Sizes.dluX(10), ColumnSpec.NO_GROW); new
+ * ColumnSpec(&quot;10dlu&quot;); new ColumnSpec(&quot;10dlu:0&quot;); new
+ * ColumnSpec(&quot;fill:10dlu:0&quot;); </pre> <p> The
+ * {@link com.jgoodies.forms.factories.FormFactory} provides predefined
  * frequently used <code>ColumnSpec</code> instances.
  * @author Karsten Lentzsch
  * @see com.jgoodies.forms.factories.FormFactory
@@ -63,10 +56,9 @@ public final class ColumnSpec extends FormSpec {
 
 	/**
 	 * Constructs a <code>ColumnSpec</code> for the given default alignment,
-	 * size and resize weight.
-	 * <p>
-	 * The resize weight must be a non-negative double; you can use
-	 * <code>NO_GROW</code> as a convenience value for no resize.
+	 * size and resize weight. <p> The resize weight must be a non-negative
+	 * double; you can use <code>NO_GROW</code> as a convenience value for no
+	 * resize.
 	 * @param defaultAlignment the spec's default alignment
 	 * @param size constant, component size or bounded size
 	 * @param resizeWeight the spec resize weight

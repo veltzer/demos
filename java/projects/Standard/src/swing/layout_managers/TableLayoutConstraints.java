@@ -36,10 +36,10 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 	/**
 	 * Constructs an TableLayoutConstraints from a string.
 	 * @param constraints indicates TableLayoutConstraints's position and
-	 * justification as a string in the form "row, column" or "row,
-	 * column, horizontal justification, vertical justification" or "row
-	 * 1, column 1, row 2, column 2". It is also acceptable to delimit
-	 * the paramters with spaces instead of commas.
+	 * justification as a string in the form "row, column" or "row, column,
+	 * horizontal justification, vertical justification" or "row 1, column 1,
+	 * row 2, column 2". It is also acceptable to delimit the paramters with
+	 * spaces instead of commas.
 	 */
 
 	public TableLayoutConstraints(String constraints) {

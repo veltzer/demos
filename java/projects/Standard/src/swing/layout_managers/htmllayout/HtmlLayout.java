@@ -9,57 +9,29 @@ import java.util.Hashtable;
 
 /**
  * HtmlLayout uses a string containing HTML like table tags to layout
- * components. <BR>
- * Ex: <BR>
- * <pre>
- * &lt;table rows=2 cols=2&gt;
- * &lt;tr&gt;
- * &lt;td&gt; A label
- * &lt;td component=someName&gt;
- * &lt;tr&gt;
- * &lt;td component=anotherName vert=max&gt;
- * &lt;td component="some other name" horz=max&gt;
- * </pre>
- * <H1>Tags and their options</H1> <H2>Table</H2>
- * <UL>
- * <LI>Contains TR <BR>
- * <BR>
- * <LI>horz= LEFT | RIGHT | CENTER | FIT | (MAX) <BR>
- * Specifies how the table fills the available width
- * <LI>vert= TOP | BOTTOM | CENTER | FIT | (MAX) <BR>
- * Specifies how the table fills the available height
- * <LI>rows=y ; y = rowCount (req)
- * <LI>cols=y ; y = colCount (req)
- * <LI>hgap=y ; y = horizontal gap between components
- * <LI>vgap=y ; y = vertical gap between components
- * <LI>hpad=y ; y = horizontal padding (components made wider)
- * <LI>vpad=y ; y = vertical padding (components made taller)
- * </UL>
- * <H2>TR</H2>
- * <UL>
- * <LI>Contains TD <BR>
- * <BR>
- * <LI>vgap=y ; y = gap between this row and the row above
- * </UL>
- * <H2>TD</H2>
- * <UL>
- * <LI>Contains text (creates a label) or TABLE but only if no component is
- * specified. Nested tables inherit the gaps and pads of their enclosing table.
- * <BR>
- * <BR>
- * <LI>colspan=y
- * <LI>rowspan=y
- * <LI>horz= (LEFT) | RIGHT | CENTER | FIT | MAX <BR>
- * Specifies how the component fills the available cell width
- * <LI>vert= TOP | BOTTOM | (CENTER) | FIT | MAX <BR>
- * Specifies how the component fills the available cell height
- * <LI>hgap=y ; y = horizontal gap between components
- * <LI>vgap=y ; y = vertical gap between components
- * <LI>hpad=y ; y = horizontal padding
- * <LI>vpad=y ; y = vertical padding (components made larger)
- * <LI>component="componentName" ; this is the name that must be used when add
- * is called, as in add(comp, "componentName")
- * </UL>
+ * components. <BR> Ex: <BR> <pre> &lt;table rows=2 cols=2&gt; &lt;tr&gt;
+ * &lt;td&gt; A label &lt;td component=someName&gt; &lt;tr&gt; &lt;td
+ * component=anotherName vert=max&gt; &lt;td component="some other name"
+ * horz=max&gt; </pre> <H1>Tags and their options</H1> <H2>Table</H2> <UL>
+ * <LI>Contains TR <BR> <BR> <LI>horz= LEFT | RIGHT | CENTER | FIT | (MAX) <BR>
+ * Specifies how the table fills the available width <LI>vert= TOP | BOTTOM |
+ * CENTER | FIT | (MAX) <BR> Specifies how the table fills the available height
+ * <LI>rows=y ; y = rowCount (req) <LI>cols=y ; y = colCount (req) <LI>hgap=y ;
+ * y = horizontal gap between components <LI>vgap=y ; y = vertical gap between
+ * components <LI>hpad=y ; y = horizontal padding (components made wider)
+ * <LI>vpad=y ; y = vertical padding (components made taller) </UL> <H2>TR</H2>
+ * <UL> <LI>Contains TD <BR> <BR> <LI>vgap=y ; y = gap between this row and the
+ * row above </UL> <H2>TD</H2> <UL> <LI>Contains text (creates a label) or TABLE
+ * but only if no component is specified. Nested tables inherit the gaps and
+ * pads of their enclosing table. <BR> <BR> <LI>colspan=y <LI>rowspan=y
+ * <LI>horz= (LEFT) | RIGHT | CENTER | FIT | MAX <BR> Specifies how the
+ * component fills the available cell width <LI>vert= TOP | BOTTOM | (CENTER) |
+ * FIT | MAX <BR> Specifies how the component fills the available cell height
+ * <LI>hgap=y ; y = horizontal gap between components <LI>vgap=y ; y = vertical
+ * gap between components <LI>hpad=y ; y = horizontal padding <LI>vpad=y ; y =
+ * vertical padding (components made larger) <LI>component="componentName" ;
+ * this is the name that must be used when add is called, as in add(comp,
+ * "componentName") </UL>
  * @author Paul Buchheit
  */
 public class HtmlLayout implements LayoutManager {
@@ -90,8 +62,8 @@ public class HtmlLayout implements LayoutManager {
 	/**
 	 * Creates an HtmlLayout with the specified "HTML" string.
 	 * @param html The "HTML" which specifies the layout, if this is not valid
-	 * table-html a BadTableHtmlException will be thrown. Html can be
-	 * tested ahead of time using HtmlLayoutTest.
+	 * table-html a BadTableHtmlException will be thrown. Html can be tested
+	 * ahead of time using HtmlLayoutTest.
 	 * @see htmllayout.BadTableHtmlException
 	 * @see htmllayout.HtmlLayoutTest
 	 */

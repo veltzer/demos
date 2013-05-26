@@ -262,8 +262,8 @@ public final class Sizes {
 
 	/**
 	 * An ordinal-based serializable typesafe enumeration that implements the
-	 * {@link Size} interface for the component sizes:
-	 * <em>min, pref, default</em>.
+	 * {@link Size} interface for the component sizes: <em>min, pref,
+	 * default</em>.
 	 */
 	@SuppressWarnings("serial")
 	static final class ComponentSize implements Size, Serializable {
@@ -294,9 +294,8 @@ public final class Sizes {
 
 		/**
 		 * Computes the maximum size for the given list of components, using
-		 * this form spec and the specified measure.
-		 * <p>
-		 * Invoked by FormLayout to determine the size of one of my elements
+		 * this form spec and the specified measure. <p> Invoked by FormLayout
+		 * to determine the size of one of my elements
 		 * @param container the layout container
 		 * @param components the list of components to measure
 		 * @param minMeasure the measure used to determine the minimum size

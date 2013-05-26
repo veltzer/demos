@@ -4,21 +4,13 @@ import java.util.StringTokenizer;
 
 /**
  * Specifies rows in in {@link FormLayout} by their default orientation, start
- * size and resizing behavior.
- * <p>
- * <strong>Examples:</strong><br>
- * The following examples specify a centered row with a size of 14&nbsp;dlu that
- * won't grow.
- * <pre>
- * new RowSpec(Sizes.dluX(14));
- * new RowSpec(RowSpec.CENTER, Sizes.dluX(14), 0.0);
- * new RowSpec(rowSpec.CENTER, Sizes.dluX(14), RowSpec.NO_GROW);
- * new RowSpec(&quot;14dlu&quot;);
- * new RowSpec(&quot;14dlu:0&quot;);
- * new RowSpec(&quot;center:14dlu:0&quot;);
- * </pre>
- * <p>
- * The {@link com.jgoodies.forms.factories.FormFactory} provides predefined
+ * size and resizing behavior. <p> <strong>Examples:</strong><br> The following
+ * examples specify a centered row with a size of 14&nbsp;dlu that won't grow.
+ * <pre> new RowSpec(Sizes.dluX(14)); new RowSpec(RowSpec.CENTER,
+ * Sizes.dluX(14), 0.0); new RowSpec(rowSpec.CENTER, Sizes.dluX(14),
+ * RowSpec.NO_GROW); new RowSpec(&quot;14dlu&quot;); new
+ * RowSpec(&quot;14dlu:0&quot;); new RowSpec(&quot;center:14dlu:0&quot;); </pre>
+ * <p> The {@link com.jgoodies.forms.factories.FormFactory} provides predefined
  * frequently used <code>RowSpec</code> instances.
  * @author Karsten Lentzsch
  * @see com.jgoodies.forms.factories.FormFactory
@@ -58,10 +50,9 @@ public final class RowSpec extends FormSpec {
 
 	/**
 	 * Constructs a <code>RowSpec</code> from the given default orientation,
-	 * size, and resize weight.
-	 * <p>
-	 * The resize weight must be a non-negative double; you can use
-	 * <code>NO_FILL</code> as a convenience value for no resize.
+	 * size, and resize weight. <p> The resize weight must be a non-negative
+	 * double; you can use <code>NO_FILL</code> as a convenience value for no
+	 * resize.
 	 * @param defaultAlignment the row's default alignment
 	 * @param size the row's size as value with unit
 	 * @param resizeWeight the row's resize weight

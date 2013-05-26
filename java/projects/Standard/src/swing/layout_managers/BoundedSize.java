@@ -51,10 +51,8 @@ final class BoundedSize implements Size, Serializable {
 
 	/**
 	 * Returns this size as pixel size. Neither requires the component list nor
-	 * the specified measures. Honors the lower and upper bound.
-	 * <p>
-	 * Invoked by <code>FormSpec</code> to determine the size of a column or
-	 * row.
+	 * the specified measures. Honors the lower and upper bound. <p> Invoked by
+	 * <code>FormSpec</code> to determine the size of a column or row.
 	 * @param container the layout container
 	 * @param components the list of components to measure
 	 * @param minMeasure the measure used to determine the minimum size

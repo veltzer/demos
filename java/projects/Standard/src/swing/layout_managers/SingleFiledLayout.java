@@ -107,10 +107,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 
 	/**
 	 * To lay out the specified container using this layout. This method
-	 * repositions the components in the specified target container.
-	 * <p>
-	 * User code should not have to call this method directly.
-	 * </p>
+	 * repositions the components in the specified target container. <p> User
+	 * code should not have to call this method directly. </p>
 	 * @param container container being served by this layout manager
 	 */
 
