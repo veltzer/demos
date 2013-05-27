@@ -9,7 +9,7 @@ import java.awt.Insets;
  * SingleFiledLayout lays out components singled filed. This layout manager is
  * like FlowLayout except that all components are placed in a single row or
  * column.
- * @author Daniel E. Barbalace
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 @SuppressWarnings("serial")
@@ -67,7 +67,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	 * Constructs an instance of SingleFiledLayout using the default gap and
 	 * LEFT or TOP justification.
 	 * @param orientation ROW or COLUMN -- should the components be aligned in a
-	 *        row or column
+	 * row or column
 	 */
 
 	public SingleFiledLayout(int orientation) {
@@ -77,9 +77,9 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	/**
 	 * Constructs an instance of SingleFiledLayout.
 	 * @param orientation ROW or COLUMN -- should the components be aligned in a
-	 *        row or column
+	 * row or column
 	 * @param justification LEFT, TOP, CENTER, FULL, BOTTOM, RIGHT -- how should
-	 *        components of different sizes be aligned
+	 * components of different sizes be aligned
 	 * @param gap space between components in pixels
 	 */
 
@@ -107,10 +107,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 
 	/**
 	 * To lay out the specified container using this layout. This method
-	 * repositions the components in the specified target container.
-	 * <p>
-	 * User code should not have to call this method directly.
-	 * </p>
+	 * repositions the components in the specified target container. <p> User
+	 * code should not have to call this method directly. </p>
 	 * @param container container being served by this layout manager
 	 */
 

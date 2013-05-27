@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Describes sizes that provide lower and upper bounds as used by the JGoodies
  * {@link swing.layout_managers.jgoodies.forms.layout.FormLayout}.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 @SuppressWarnings("serial")
@@ -38,23 +38,22 @@ final class BoundedSize implements Size, Serializable {
 	 * @param upperBound the upper bound size
 	 * @throws NullPointerException if the basis is null
 	 */
-	BoundedSize(Size basis, Size lowerBound, Size upperBound) {
-		if (basis == null)
+	BoundedSize(Size ibasis, Size ilowerBound, Size iupperBound) {
+		if (ibasis == null) {
 			throw new NullPointerException(
 					"The basis of a bounded size must not be null.");
-		this.basis = basis;
-		this.lowerBound = lowerBound;
-		this.upperBound = upperBound;
+		}
+		basis = ibasis;
+		lowerBound = ilowerBound;
+		upperBound = iupperBound;
 	}
 
 	// Implementation of the Size Interface *********************************
 
 	/**
 	 * Returns this size as pixel size. Neither requires the component list nor
-	 * the specified measures. Honors the lower and upper bound.
-	 * <p>
-	 * Invoked by <code>FormSpec</code> to determine the size of a column or
-	 * row.
+	 * the specified measures. Honors the lower and upper bound. <p> Invoked by
+	 * <code>FormSpec</code> to determine the size of a column or row.
 	 * @param container the layout container
 	 * @param components the list of components to measure
 	 * @param minMeasure the measure used to determine the minimum size
@@ -62,7 +61,7 @@ final class BoundedSize implements Size, Serializable {
 	 * @param defaultMeasure the measure used to determine the default size
 	 * @return the maximum size in pixels
 	 * @see FormSpec#maximumSize(Container, List, FormLayout.Measure,
-	 *      FormLayout.Measure, FormLayout.Measure)
+	 * FormLayout.Measure, FormLayout.Measure)
 	 */
 	public int maximumSize(Container container, List<Component> components,
 			FormLayout.Measure minMeasure, FormLayout.Measure prefMeasure,
@@ -86,15 +85,17 @@ final class BoundedSize implements Size, Serializable {
 	 * Indicates whether some other BoundedSize is "equal to" this one.
 	 * @param object the object with which to compare
 	 * @return <code>true</code> if this object is the same as the object
-	 *         argument, <code>false</code> otherwise.
+	 * argument, <code>false</code> otherwise.
 	 * @see Object#hashCode()
 	 * @see java.util.Hashtable
 	 */
 	public boolean equals(Object object) {
-		if (this == object)
+		if (this == object) {
 			return true;
-		if (!(object instanceof BoundedSize))
+		}
+		if (!(object instanceof BoundedSize)) {
 			return false;
+		}
 		BoundedSize size = (BoundedSize) object;
 		return basis.equals(size.basis)
 				&& ((lowerBound == null && size.lowerBound == null) || (lowerBound != null && lowerBound

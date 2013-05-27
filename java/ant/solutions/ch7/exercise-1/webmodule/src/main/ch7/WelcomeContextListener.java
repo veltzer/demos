@@ -4,7 +4,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 /**
- * @author ant (this is the change)
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class WelcomeContextListener implements ServletContextListener {
 

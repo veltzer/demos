@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * This is a simple demo of java array list API
- * @author mark
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 public class SimpleArrayList {

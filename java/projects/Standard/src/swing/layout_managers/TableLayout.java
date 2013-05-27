@@ -14,80 +14,41 @@ import java.util.ListIterator;
  * like a spreadsheet. TableLayout allows each row or column to be a different
  * size. A row or column can be given an absolute size in pixels, a percentage
  * of the available space, or it can grow and shrink to fill the remaining space
- * after other rows and columns have been resized.
- * <p>
- * Using spreadsheet terminology, a cell is the intersection of a row and
- * column. Cells have finite, non-negative sizes measured in pixels. The
- * dimensions of a cell depend solely upon the dimensions of its row and column.
- * </p>
- * <p>
- * A component occupies a rectangular group of one or more cells. The component
- * can be aligned in four ways within that cell.
- * </p>
- * <p>
- * A component can be stretched horizontally to fit the cell set (full
- * justification), or it can be placed in the center of the cell. The component
- * could also be left justified or right justified. Similarly, the component can
- * be full, center, top, or bottom justified along the
- * 
- * <pre>
- * public static void main (String args[])
- * {
- * // Create a frame
- * Frame frame = new Frame("Example of TableLayout");
- * frame.setBounds (100, 100, 300, 300);
- * <spc>
- * // Create a TableLayout for the frame
- * double border = 10;
- * double size[][] =
- * {{border, 0.10, 20, TableLayout.FILL, 20, 0.20, border}, // Columns
- * {border, 0.20, 20, TableLayout.FILL, 20, 0.20, border}}; // Rows
- * <spc>
- * frame.setLayout (new TableLayout(size));
- * <spc>
- * // Create some buttons
- * String label[] = {"Top", "Bottom", "Left", "Right", "Center", "Overlap"};
- * Button button[] = new Button[label.length];
- * <spc>
- * for (int i = 0; i < label.length; i++)
- * button[i] = new Button(label[i]);
- * <spc>
- * // Add buttons
- * frame.add (button[0], "1, 1, 5, 1"); // Top
- * frame.add (button[1], "1, 5, 5, 5"); // Bottom
- * frame.add (button[2], "1, 3"); // Left
- * frame.add (button[3], "5, 3"); // Right
- * frame.add (button[4], "3, 3, c, c"); // Center
- * frame.add (button[5], "3, 3, 3, 5"); // Overlap
- * <spc>
- * // Allow user to close the window to terminate the program
- * frame.addWindowListener
- * (new WindowListener()
- * {
- * public void windowClosing (WindowEvent e)
- * {
- * System.exit (0);
- * }
- * <spc>
- * public void windowOpened (WindowEvent e) {}
- * public void windowClosed (WindowEvent e) {}
- * public void windowIconified (WindowEvent e) {}
- * public void windowDeiconified (WindowEvent e) {}
- * public void windowActivated (WindowEvent e) {}
- * public void windowDeactivated (WindowEvent e) {}
- * }
- * );
- * <spc>
- * // Show frame
- * frame.show();
- * }
- * </pre>
- * @author Daniel E. Barbalace
+ * after other rows and columns have been resized. <p> Using spreadsheet
+ * terminology, a cell is the intersection of a row and column. Cells have
+ * finite, non-negative sizes measured in pixels. The dimensions of a cell
+ * depend solely upon the dimensions of its row and column. </p> <p> A component
+ * occupies a rectangular group of one or more cells. The component can be
+ * aligned in four ways within that cell. </p> <p> A component can be stretched
+ * horizontally to fit the cell set (full justification), or it can be placed in
+ * the center of the cell. The component could also be left justified or right
+ * justified. Similarly, the component can be full, center, top, or bottom
+ * justified along the <pre> public static void main (String args[]) { // Create
+ * a frame Frame frame = new Frame("Example of TableLayout"); frame.setBounds
+ * (100, 100, 300, 300); <spc> // Create a TableLayout for the frame double
+ * border = 10; double size[][] = {{border, 0.10, 20, TableLayout.FILL, 20,
+ * 0.20, border}, // Columns {border, 0.20, 20, TableLayout.FILL, 20, 0.20,
+ * border}}; // Rows <spc> frame.setLayout (new TableLayout(size)); <spc> //
+ * Create some buttons String label[] = {"Top", "Bottom", "Left", "Right",
+ * "Center", "Overlap"}; Button button[] = new Button[label.length]; <spc> for
+ * (int i = 0; i < label.length; i++) button[i] = new Button(label[i]); <spc> //
+ * Add buttons frame.add (button[0], "1, 1, 5, 1"); // Top frame.add (button[1],
+ * "1, 5, 5, 5"); // Bottom frame.add (button[2], "1, 3"); // Left frame.add
+ * (button[3], "5, 3"); // Right frame.add (button[4], "3, 3, c, c"); // Center
+ * frame.add (button[5], "3, 3, 3, 5"); // Overlap <spc> // Allow user to close
+ * the window to terminate the program frame.addWindowListener (new
+ * WindowListener() { public void windowClosing (WindowEvent e) { System.exit
+ * (0); } <spc> public void windowOpened (WindowEvent e) {} public void
+ * windowClosed (WindowEvent e) {} public void windowIconified (WindowEvent e)
+ * {} public void windowDeiconified (WindowEvent e) {} public void
+ * windowActivated (WindowEvent e) {} public void windowDeactivated (WindowEvent
+ * e) {} } ); <spc> // Show frame frame.show(); } </pre>
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 @SuppressWarnings("serial")
 public class TableLayout implements java.awt.LayoutManager2,
-		java.io.Serializable, TableLayoutConstants {
+		java.io.Serializable {
 
 	/*
 	 * Note: In this file, a cr refers to either a column or a row. cr[C] always
@@ -178,9 +139,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Constructs an instance of TableLayout.
 	 * @param size widths of columns and heights of rows in the format, {{col0,
-	 *        col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this
-	 *        parameter is invalid, the TableLayout will have exactly one row
-	 *        and one column.
+	 * col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}} If this parameter
+	 * is invalid, the TableLayout will have exactly one row and one column.
 	 */
 
 	public TableLayout(double[][] size) {
@@ -197,7 +157,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Constructs an instance of TableLayout.
 	 * @param col widths of columns in the format, {{col0, col1, col2, ...,
-	 *        colN}
+	 * colN}
 	 * @param row heights of rows in the format, {{row0, row1, row2, ..., rowN}
 	 */
 
@@ -208,7 +168,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Initializes the TableLayout for all constructors.
 	 * @param col widths of columns in the format, {{col0, col1, col2, ...,
-	 *        colN}
+	 * colN}
 	 * @param row heights of rows in the format, {{row0, row1, row2, ..., rowN}
 	 */
 
@@ -230,16 +190,16 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		// Make sure rows and columns are valid
 		for (int counter = 0; counter < crSpec[C].length; counter++)
-			if ((crSpec[C][counter] < 0.0) && (crSpec[C][counter] != FILL)
-					&& (crSpec[C][counter] != PREFERRED)
-					&& (crSpec[C][counter] != MINIMUM)) {
+			if ((crSpec[C][counter] < 0.0) && (crSpec[C][counter] != TableLayoutConstants.FILL)
+					&& (crSpec[C][counter] != TableLayoutConstants.PREFERRED)
+					&& (crSpec[C][counter] != TableLayoutConstants.MINIMUM)) {
 				crSpec[C][counter] = 0.0;
 			}
 
 		for (int counter = 0; counter < crSpec[R].length; counter++)
-			if ((crSpec[R][counter] < 0.0) && (crSpec[R][counter] != FILL)
-					&& (crSpec[R][counter] != PREFERRED)
-					&& (crSpec[R][counter] != MINIMUM)) {
+			if ((crSpec[R][counter] < 0.0) && (crSpec[R][counter] != TableLayoutConstants.FILL)
+					&& (crSpec[R][counter] != TableLayoutConstants.PREFERRED)
+					&& (crSpec[R][counter] != TableLayoutConstants.MINIMUM)) {
 				crSpec[R][counter] = 0.0;
 			}
 
@@ -258,8 +218,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Gets the constraints of a given component.
 	 * @param component desired component
 	 * @return If the given component is found, the constraints associated with
-	 *         that component. If the given component is null or is not found,
-	 *         null is returned.
+	 * that component. If the given component is null or is not found, null is
+	 * returned.
 	 */
 
 	public TableLayoutConstraints getConstraints(Component component) {
@@ -282,8 +242,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param component desired component. This parameter cannot be null.
 	 * @param constraint new set of constraints. This parameter cannot be null.
 	 * @return If the given component is found, the constraints associated with
-	 *         that component. If the given component is null or is not found,
-	 *         null is returned.
+	 * that component. If the given component is null or is not found, null is
+	 * returned.
 	 */
 
 	public void setConstraints(Component component,
@@ -310,21 +270,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Adjusts the number and sizes of rows in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
-	 * layout. This can be done with the following code:
-	 * 
-	 * <pre>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </pre>
-	 * 
-	 * or
-	 * 
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * 
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout. This can be done with the following code: <pre>
+	 * layout.layoutContainer(container); container.repaint(); </pre> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param column widths of each of the columns
 	 * @see #getColumn
 	 */
@@ -337,16 +286,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Adjusts the number and sizes of rows in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
 	 * layout. This can be done with the following code: <code>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </code> or
-	 * 
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * 
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout.layoutContainer(container); container.repaint(); </code> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param row heights of each of the rows. This parameter cannot be null.
 	 * @see #getRow
 	 */
@@ -368,9 +310,9 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		// Make sure rows are valid
 		for (int counter = 0; counter < crSpec[z].length; counter++)
-			if ((crSpec[z][counter] < 0.0) && (crSpec[z][counter] != FILL)
-					&& (crSpec[z][counter] != PREFERRED)
-					&& (crSpec[z][counter] != MINIMUM)) {
+			if ((crSpec[z][counter] < 0.0) && (crSpec[z][counter] != TableLayoutConstants.FILL)
+					&& (crSpec[z][counter] != TableLayoutConstants.PREFERRED)
+					&& (crSpec[z][counter] != TableLayoutConstants.MINIMUM)) {
 				crSpec[z][counter] = 0.0;
 			}
 
@@ -382,18 +324,11 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Adjusts the width of a single column in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
 	 * layout. This can be done with the following code: <code>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </code> or
-	 * 
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * 
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout.layoutContainer(container); container.repaint(); </code> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param i zero-based index of column to set. If this parameter is not
-	 *        valid, an ArrayOutOfBoundsException will be thrown.
+	 * valid, an ArrayOutOfBoundsException will be thrown.
 	 * @param size width of the column. This parameter cannot be null.
 	 * @see #getColumn
 	 */
@@ -406,18 +341,11 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Adjusts the height of a single row in this layout. After calling this
 	 * method, the caller should request this layout manager to perform the
 	 * layout. This can be done with the following code: <code>
-	 * layout.layoutContainer(container);
-	 * container.repaint();
-	 * </code> or
-	 * 
-	 * <pre>
-	 * window.pack()
-	 * </pre>
-	 * 
-	 * If this is not done, the changes in the layout will not be seen until the
-	 * container is resized.
+	 * layout.layoutContainer(container); container.repaint(); </code> or <pre>
+	 * window.pack() </pre> If this is not done, the changes in the layout will
+	 * not be seen until the container is resized.
 	 * @param i zero-based index of row to set. If this parameter is not valid,
-	 *        an ArrayOutOfBoundsException will be thrown.
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @param size height of the row. This parameter cannot be null.
 	 * @see #getRow
 	 */
@@ -435,8 +363,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	protected void setCr(int z, int i, double size) {
 		// Make sure size is valid
-		if ((size < 0.0) && (size != FILL) && (size != PREFERRED)
-				&& (size != MINIMUM)) {
+		if ((size < 0.0) && (size != TableLayoutConstants.FILL) && (size != TableLayoutConstants.PREFERRED)
+				&& (size != TableLayoutConstants.MINIMUM)) {
 			size = 0.0;
 		}
 
@@ -478,7 +406,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Gets the width of a single column in this layout.
 	 * @param i zero-based index of row to get. If this parameter is not valid,
-	 *        an ArrayOutOfBoundsException will be thrown.
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @return width of the requested column
 	 * @see #setRow
 	 */
@@ -490,7 +418,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Gets the sizes of a row in this layout.
 	 * @param i zero-based index of row to get. If this parameter is not valid,
-	 *        an ArrayOutOfBoundsException will be thrown.
+	 * an ArrayOutOfBoundsException will be thrown.
 	 * @return height of each of the requested row
 	 * @see #setRow
 	 */
@@ -607,8 +535,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 					+ i + ". Valid range is [0, " + crSpec[z].length + "].");
 
 		// Make sure row size is valid
-		if ((size < 0.0) && (size != FILL) && (size != PREFERRED)
-				&& (size != MINIMUM)) {
+		if ((size < 0.0) && (size != TableLayoutConstants.FILL) && (size != TableLayoutConstants.PREFERRED)
+				&& (size != TableLayoutConstants.MINIMUM)) {
 			size = 0.0;
 		}
 
@@ -720,7 +648,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * Converts this TableLayout to a string.
 	 * @return a string representing the columns and row sizes in the form
-	 *         "{{col0, col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}}"
+	 * "{{col0, col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}}"
 	 */
 
 	public String toString() {
@@ -753,7 +681,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * row or column. For example, on a table with five rows, row -1 and row 5
 	 * are both invalid. Valid rows are 0 through 4, inclusively.
 	 * @return a list of TableLayout.Entry instances refering to the invalid
-	 *         constraints and corresponding components
+	 * constraints and corresponding components
 	 * @see #getOverlappingEntry
 	 */
 
@@ -856,10 +784,10 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		// Assign preferred and minimum sizes (must be done after
 		// assignAbsoluteSize)
-		availableWidth = assignPrefMinSize(C, availableWidth, MINIMUM);
-		availableWidth = assignPrefMinSize(C, availableWidth, PREFERRED);
-		availableHeight = assignPrefMinSize(R, availableHeight, MINIMUM);
-		availableHeight = assignPrefMinSize(R, availableHeight, PREFERRED);
+		availableWidth = assignPrefMinSize(C, availableWidth, TableLayoutConstants.MINIMUM);
+		availableWidth = assignPrefMinSize(C, availableWidth, TableLayoutConstants.PREFERRED);
+		availableHeight = assignPrefMinSize(R, availableHeight, TableLayoutConstants.MINIMUM);
+		availableHeight = assignPrefMinSize(R, availableHeight, TableLayoutConstants.PREFERRED);
 
 		// Assign relative sizes
 		availableWidth = assignRelativeSize(C, availableWidth);
@@ -885,7 +813,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param z indicates row or column
 	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after absolute crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignAbsoluteSize(int z, int availableSize) {
@@ -905,7 +833,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param z indicates row or column
 	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after relative crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignRelativeSize(int z, int availableSize) {
@@ -927,7 +855,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param z indicates row or column
 	 * @param availableSize amount of space available in the container
 	 * @return the amount of space available after fill crs have been assigned
-	 *         sizes
+	 * sizes
 	 */
 
 	protected void assignFillSize(int z, int availableSize) {
@@ -940,7 +868,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 		int numCr = crSpec[z].length;
 
 		for (int counter = 0; counter < numCr; counter++)
-			if (crSpec[z][counter] == FILL)
+			if (crSpec[z][counter] == TableLayoutConstants.FILL)
 				numFillSize++;
 
 		// If numFillSize is zero, the if statement below will always evaluate
@@ -954,7 +882,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		// Assign "fill" cells equal amounts of the remaining space
 		for (int counter = 0; counter < numCr; counter++)
-			if (crSpec[z][counter] == FILL) {
+			if (crSpec[z][counter] == TableLayoutConstants.FILL) {
 				crSize[z][counter] = availableSize / numFillSize;
 				slackSize -= crSize[z][counter];
 			}
@@ -962,7 +890,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 		// Assign one pixel of slack to each FILL cr, starting at the last one,
 		// until all slack has been consumed
 		for (int counter = numCr - 1; (counter >= 0) && (slackSize > 0); counter--) {
-			if (crSpec[z][counter] == FILL) {
+			if (crSpec[z][counter] == TableLayoutConstants.FILL) {
 				crSize[z][counter]++;
 				slackSize--;
 			}
@@ -996,7 +924,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @param availableSize amount of space available in the container
 	 * @param typeOfSize indicates preferred or minimum
 	 * @return the amount of space available after absolute crs have been
-	 *         assigned sizes
+	 * assigned sizes
 	 */
 
 	protected int assignPrefMinSize(int z, int availableSize, double typeOfSize) {
@@ -1025,7 +953,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 					// the current component occupies
 					if ((entry.cr1[z] <= counter) && (entry.cr2[z] >= counter)) {
 						// Setup size and number of adjustable crs
-						Dimension p = (typeOfSize == PREFERRED) ? entry.component
+						Dimension p = (typeOfSize == TableLayoutConstants.PREFERRED) ? entry.component
 								.getPreferredSize() : entry.component
 								.getMinimumSize();
 
@@ -1034,22 +962,22 @@ public class TableLayout implements java.awt.LayoutManager2,
 						int numAdjustable = 0;
 
 						// Calculate for preferred size
-						if (typeOfSize == PREFERRED)
+						if (typeOfSize == TableLayoutConstants.PREFERRED)
 							// Consider all crs this component occupies
 							for (int entryCr = entry.cr1[z]; entryCr <= entry.cr2[z]; entryCr++) {
 								// Subtract absolute, relative, and minumum cr
 								// sizes, which have already been calculated
 								if ((crSpec[z][entryCr] >= 0.0)
-										|| (crSpec[z][entryCr] == MINIMUM)) {
+										|| (crSpec[z][entryCr] == TableLayoutConstants.MINIMUM)) {
 									size -= crSize[z][entryCr];
 								}
 								// Count preferred/min width columns
-								else if (crSpec[z][entryCr] == PREFERRED)
+								else if (crSpec[z][entryCr] == TableLayoutConstants.PREFERRED)
 									numAdjustable++;
 								// Skip any component that occupies a fill cr
 								// because the fill should fulfill the size
 								// requirements
-								else if (crSpec[z][entryCr] == FILL)
+								else if (crSpec[z][entryCr] == TableLayoutConstants.FILL)
 									continue nextComponent;
 							}
 						// Calculate for minimum size
@@ -1062,14 +990,14 @@ public class TableLayout implements java.awt.LayoutManager2,
 								if (crSpec[z][entryCr] >= 0.0)
 									size -= crSize[z][entryCr];
 								// Count preferred/min width columns
-								else if ((crSpec[z][entryCr] == PREFERRED)
-										|| (crSpec[z][entryCr] == MINIMUM)) {
+								else if ((crSpec[z][entryCr] == TableLayoutConstants.PREFERRED)
+										|| (crSpec[z][entryCr] == TableLayoutConstants.MINIMUM)) {
 									numAdjustable++;
 								}
 								// Skip any component that occupies a fill cr
 								// because the fill should fulfill the size
 								// requirements
-								else if (crSpec[z][entryCr] == FILL)
+								else if (crSpec[z][entryCr] == TableLayoutConstants.FILL)
 									continue nextComponent;
 							}
 
@@ -1099,10 +1027,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	/**
 	 * To lay out the specified container using this layout. This method
 	 * reshapes the components in the specified target container in order to
-	 * satisfy the constraints of all components.
-	 * <p>
-	 * User code should not have to call this method directly.
-	 * </p>
+	 * satisfy the constraints of all components. <p> User code should not have
+	 * to call this method directly. </p>
 	 * @param container container being served by this layout manager
 	 */
 
@@ -1151,8 +1077,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 				int preferredWidth = 0;
 				int preferredHeight = 0;
 
-				if ((entry.alignment[C] != FULL)
-						|| (entry.alignment[R] != FULL)) {
+				if ((entry.alignment[C] != TableLayoutConstants.FULL)
+						|| (entry.alignment[R] != TableLayoutConstants.FULL)) {
 					Dimension preferredSize = component[counter]
 							.getPreferredSize();
 
@@ -1191,7 +1117,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * support component orientation is being used, then null is returned.
 	 * @param container Container whose orientation is being queried
 	 * @return the container's orientation or null if no orientation is
-	 *         supported
+	 * supported
 	 */
 
 	protected ComponentOrientation getComponentOrientation(Container container) {
@@ -1225,11 +1151,11 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * Calculates the vertical/horizontal offset and size of a component.
 	 * @param entry entry containing component and contraints
 	 * @param preferredSize previously calculated preferred width/height of
-	 *        component
+	 * component
 	 * @param isColumn if true, this method is being called to calculate the
-	 *        offset/size of a column. if false,... of a row.
+	 * offset/size of a column. if false,... of a row.
 	 * @return an array, a, of two integers such that a[0] is the offset and
-	 *         a[1] is the size
+	 * a[1] is the size
 	 */
 
 	protected int[] calculateSizeAndOffset(Entry entry, int preferredSize,
@@ -1246,7 +1172,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 		// Determine the size of the component
 		int size;
 
-		if ((entryAlignment == FULL) || (cellSetSize < preferredSize))
+		if ((entryAlignment == TableLayoutConstants.FULL) || (cellSetSize < preferredSize))
 			size = cellSetSize;
 		else
 			size = preferredSize;
@@ -1255,31 +1181,31 @@ public class TableLayout implements java.awt.LayoutManager2,
 		// layoutContainer
 		// method, we can treat leading justification as left justification and
 		// trailing justification as right justification.
-		if (isColumn && (entryAlignment == LEADING))
-			entryAlignment = LEFT;
+		if (isColumn && (entryAlignment == TableLayoutConstants.LEADING))
+			entryAlignment = TableLayoutConstants.LEFT;
 
-		if (isColumn && (entryAlignment == TRAILING))
-			entryAlignment = RIGHT;
+		if (isColumn && (entryAlignment == TableLayoutConstants.TRAILING))
+			entryAlignment = TableLayoutConstants.RIGHT;
 
 		// Determine offset
 		int offset;
 
 		switch (entryAlignment) {
-		case LEFT: // Align left/top side along left edge of cell
+		case TableLayoutConstants.LEFT: // Align left/top side along left edge of cell
 			offset = crOffset[isColumn ? entry.cr1[C] : entry.cr1[R]];
 			break;
 
-		case RIGHT: // Align right/bottom side along right edge of cell
+		case TableLayoutConstants.RIGHT: // Align right/bottom side along right edge of cell
 			offset = crOffset[(isColumn ? entry.cr2[C] : entry.cr2[R]) + 1]
 					- size;
 			break;
 
-		case CENTER: // Center justify component
+		case TableLayoutConstants.CENTER: // Center justify component
 			offset = crOffset[isColumn ? entry.cr1[C] : entry.cr1[R]]
 					+ ((cellSetSize - size) >> 1);
 			break;
 
-		case FULL: // Align left/top side along left/top edge of cell
+		case TableLayoutConstants.FULL: // Align left/top side along left/top edge of cell
 			offset = crOffset[isColumn ? entry.cr1[C] : entry.cr1[R]];
 			break;
 
@@ -1319,7 +1245,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 */
 
 	public Dimension preferredLayoutSize(Container container) {
-		return calculateLayoutSize(container, PREFERRED);
+		return calculateLayoutSize(container, TableLayoutConstants.PREFERRED);
 	}
 
 	/**
@@ -1338,7 +1264,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 */
 
 	public Dimension minimumLayoutSize(Container container) {
-		return calculateLayoutSize(container, MINIMUM);
+		return calculateLayoutSize(container, TableLayoutConstants.MINIMUM);
 	}
 
 	/**
@@ -1357,7 +1283,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 		Dimension prefMinSize[] = new Dimension[numEntry];
 
 		for (int i = 0; i < numEntry; i++)
-			prefMinSize[i] = (typeOfSize == PREFERRED) ? entryList[i].component
+			prefMinSize[i] = (typeOfSize == TableLayoutConstants.PREFERRED) ? entryList[i].component
 					.getPreferredSize() : entryList[i].component
 					.getMinimumSize();
 
@@ -1407,7 +1333,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 		for (counter = 0; counter < numCr; counter++)
 			if ((crSpec[z][counter] > 0.0) && (crSpec[z][counter] < 1.0))
 				fillSizeRatio -= crSpec[z][counter];
-			else if (crSpec[z][counter] == FILL)
+			else if (crSpec[z][counter] == TableLayoutConstants.FILL)
 				numFillSize++;
 
 		// Adjust fill ratios to reflect number of fill rows/columns
@@ -1433,8 +1359,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 		int crPrefMin[] = new int[numCr];
 
 		for (counter = 0; counter < numCr; counter++)
-			if ((crSpec[z][counter] == PREFERRED)
-					|| (crSpec[z][counter] == MINIMUM)) {
+			if ((crSpec[z][counter] == TableLayoutConstants.PREFERRED)
+					|| (crSpec[z][counter] == TableLayoutConstants.MINIMUM)) {
 				crPrefMin[counter] = crSize[z][counter];
 			}
 
@@ -1466,8 +1392,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 			for (counter = entry.cr1[z]; counter <= entry.cr2[z]; counter++)
 				if (crSpec[z][counter] >= 1.0)
 					scalableSize -= crSpec[z][counter];
-				else if ((crSpec[z][counter] == PREFERRED)
-						|| (crSpec[z][counter] == MINIMUM)) {
+				else if ((crSpec[z][counter] == TableLayoutConstants.PREFERRED)
+						|| (crSpec[z][counter] == TableLayoutConstants.MINIMUM)) {
 					scalableSize -= crPrefMin[counter];
 				}
 
@@ -1483,7 +1409,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 					// Add scaled size to relativeWidth
 					relativeSize += crSpec[z][counter];
 				// Cr is fill
-				else if ((crSpec[z][counter] == FILL) && (fillSizeRatio != 0.0))
+				else if ((crSpec[z][counter] == TableLayoutConstants.FILL) && (fillSizeRatio != 0.0))
 					// Add fill size to relativeWidth
 					relativeSize += fillSizeRatio;
 			}
@@ -1511,8 +1437,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 			if (crSpec[z][counter] >= 1.0)
 				totalSize += (int) (crSpec[z][counter] + 0.5);
 			// Is the current cr a preferred/minimum size
-			else if ((crSpec[z][counter] == PREFERRED)
-					|| (crSpec[z][counter] == MINIMUM)) {
+			else if ((crSpec[z][counter] == TableLayoutConstants.PREFERRED)
+					|| (crSpec[z][counter] == TableLayoutConstants.MINIMUM)) {
 				// Add preferred/minimum width
 				totalSize += crPrefMin[counter];
 			}
@@ -1594,8 +1520,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * the specified target container.
 	 * @param target the component which needs to be laid out
 	 * @return unconditionally, a Dimension of Integer.MAX_VALUE by
-	 *         Integer.MAX_VALUE since TableLayout does not limit the maximum
-	 *         size of a container
+	 * Integer.MAX_VALUE since TableLayout does not limit the maximum size of a
+	 * container
 	 */
 
 	public Dimension maximumLayoutSize(Container target) {
@@ -1689,7 +1615,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 		/**
 		 * Gets the string representation of this Entry.
 		 * @return a string in the form
-		 *         "(col1, row1, col2, row2, vAlign, hAlign) component"
+		 * "(col1, row1, col2, row2, vAlign, hAlign) component"
 		 */
 
 		public String toString() {

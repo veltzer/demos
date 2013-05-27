@@ -6,9 +6,6 @@ public class Customer {
 	int age;
 	Account account;
 
-	/**
-	 * 
-	 */
 	public Customer() {
 		super();
 	}

@@ -4,7 +4,7 @@ package core.collections;
  * This is a simple single linked list implemented in java without the aid of
  * the java collection package. The drawback of this implementation is that
  * order of iteration is different than order of insertion.
- * @author mark
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 public class SingleLinkedListCorrectIterOrderGeneric<T> {

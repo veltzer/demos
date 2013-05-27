@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 
 /**
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class Split {
 

@@ -2,7 +2,7 @@ package core.gc;
 
 /**
  * A very simple class which will be used for pooling.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class PooledObject {
 	private int id;

@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
  * http://java.sun.com/docs/books/tutorial/uiswing/misc/threads.html Note that
  * the API changed slightly in the 3rd version: You must now invoke start() on
  * the SwingWorker after creating it.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public abstract class SwingWorker {
 	private Object value;

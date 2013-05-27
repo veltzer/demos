@@ -7,7 +7,7 @@ import java.awt.Component;
  * example, <i>dialog units</i> require a conversion that honors the font and
  * resolution. The {@link swing.layout_managers.jgoodies.forms.layout.Sizes}
  * class delegates all size conversions to an implementation of this interface.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see swing.layout_managers.jgoodies.forms.layout.Sizes
  * @see swing.layout_managers.jgoodies.forms.layout.ConstantSize
  * @see AbstractUnitConverter
@@ -21,7 +21,7 @@ public interface UnitConverter {
 	 * @param component the component that provides the graphics object
 	 * @return the given Inches as pixels
 	 */
-	public int inchAsPixel(double in, Component component);
+	int inchAsPixel(double in, Component component);
 
 	/**
 	 * Converts Millimeters and returns pixels using the resolution of the given
@@ -30,7 +30,7 @@ public interface UnitConverter {
 	 * @param component the component that provides the graphics object
 	 * @return the given Millimeters as pixels
 	 */
-	public int millimeterAsPixel(double mm, Component component);
+	int millimeterAsPixel(double mm, Component component);
 
 	/**
 	 * Converts Centimeters and returns pixels using the resolution of the given
@@ -39,7 +39,7 @@ public interface UnitConverter {
 	 * @param component the component that provides the graphics object
 	 * @return the given Centimeters as pixels
 	 */
-	public int centimeterAsPixel(double cm, Component component);
+	int centimeterAsPixel(double cm, Component component);
 
 	/**
 	 * Converts DTP Points and returns pixels using the resolution of the given
@@ -48,7 +48,7 @@ public interface UnitConverter {
 	 * @param component the component that provides the graphics object
 	 * @return the given Points as pixels
 	 */
-	public int pointAsPixel(int pt, Component component);
+	int pointAsPixel(int pt, Component component);
 
 	/**
 	 * Converts horizontal dialog units and returns pixels. Honors the
@@ -57,7 +57,7 @@ public interface UnitConverter {
 	 * @param component a component that provides the font and graphics
 	 * @return the given horizontal dialog units as pixels
 	 */
-	public int dialogUnitXAsPixel(int dluX, Component component);
+	int dialogUnitXAsPixel(int dluX, Component component);
 
 	/**
 	 * Converts vertical dialog units and returns pixels. Honors the resolution,
@@ -66,6 +66,6 @@ public interface UnitConverter {
 	 * @param component a component that provides the font and graphics
 	 * @return the given vertical dialog units as pixels
 	 */
-	public int dialogUnitYAsPixel(int dluY, Component component);
+	int dialogUnitYAsPixel(int dluY, Component component);
 
 }

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.Map;
 
 /**
- * @author rank
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class ItemDAO implements Serializable {

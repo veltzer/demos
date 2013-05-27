@@ -11,7 +11,7 @@ import java.io.RandomAccessFile;
  * escaped. Output is written to "filename.out", where "filename" is the name of
  * the input file. The number of tabs can be set by the -n option, where n is
  * the number.
- * @author Paul Buchheit
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class ProcHtml {
 	public static void main(String args[]) throws Exception {

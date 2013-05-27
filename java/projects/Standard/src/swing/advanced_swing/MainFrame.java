@@ -1,7 +1,7 @@
 package swing.advanced_swing;
 
 /**
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class MainFrame extends javax.swing.JFrame {

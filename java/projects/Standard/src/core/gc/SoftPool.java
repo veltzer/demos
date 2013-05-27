@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * objets, which are softly linked. Not all objects in the pool may actually
  * exist. Notice that this class does not handle synchronization. Maybe it
  * should.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class SoftPool {
 	private LinkedList<SoftReference<PooledObject>> pooledObjects;

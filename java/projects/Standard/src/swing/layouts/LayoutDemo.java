@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public final class LayoutDemo {
 	private JFrame mainFrame;

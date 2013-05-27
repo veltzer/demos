@@ -1,10 +1,9 @@
 package core.instrument.agent;
 
-/** 
+/**
  * This is a very simple bytecode transformer
  * object which does no bytecode manipulation
- * 
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 import java.lang.instrument.ClassFileTransformer;

@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  * Description of the Class
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class FileTypeRenderer extends DefaultTableCellRenderer {

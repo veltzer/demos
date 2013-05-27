@@ -3,7 +3,7 @@ package exercise;
 import java.io.Serializable;
 
 /**
- * @author rank
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class User implements Serializable {

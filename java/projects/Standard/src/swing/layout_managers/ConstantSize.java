@@ -12,55 +12,17 @@ import java.util.List;
  * <code>ConstantSize</code> using the factory methods and constants in the
  * {@link Sizes} class. Logical constant sizes that vary with the current layout
  * style are delivered by the {@link com.jgoodies.forms.util.LayoutStyle} class.
- * <p>
- * This class supports different size units:
- * <table>
- * <tr>
- * <td><b>Unit</b>&nbsp;</td>
- * <td>&nbsp;<b>Abbreviation</b>&nbsp;</td>
- * <td>&nbsp; <b>Size</b></td>
- * </tr>
- * <tr>
- * <td>Millimeter</td>
- * <td>mm</td>
- * <td>0.1 cm</td>
- * </tr>
- * <tr>
- * <td>Centimeter</td>
- * <td>cm</td>
- * <td>10.0 mm</td>
- * </tr>
- * <tr>
- * <td>Inch</td>
- * <td>in</td>
- * <td>25.4 mm</td>
- * </tr>
- * <tr>
- * <td>DTP Point</td>
- * <td>pt</td>
- * <td>1/72 in</td>
- * </tr>
- * <tr>
- * <td>Pixel</td>
- * <td>px</td>
- * <td>1/(resolution in dpi) in</td>
- * </tr>
- * <tr>
- * <td>Dialog Unit</td>
- * <td>dlu</td>
- * <td>honors l&amp;f, resolution, and dialog font size</td>
- * </tr>
- * </table>
- * <p>
- * <strong>Examples:</strong>
- * 
- * <pre>
- * Sizes.ZERO;
- * Sizes.DLUX9;
- * Sizes.dluX(42); 
- * Sizes.pixel(99);
- * </pre>
- * @author Karsten Lentzsch
+ * <p> This class supports different size units: <table> <tr>
+ * <td><b>Unit</b>&nbsp;</td> <td>&nbsp;<b>Abbreviation</b>&nbsp;</td>
+ * <td>&nbsp; <b>Size</b></td> </tr> <tr> <td>Millimeter</td> <td>mm</td>
+ * <td>0.1 cm</td> </tr> <tr> <td>Centimeter</td> <td>cm</td> <td>10.0 mm</td>
+ * </tr> <tr> <td>Inch</td> <td>in</td> <td>25.4 mm</td> </tr> <tr> <td>DTP
+ * Point</td> <td>pt</td> <td>1/72 in</td> </tr> <tr> <td>Pixel</td> <td>px</td>
+ * <td>1/(resolution in dpi) in</td> </tr> <tr> <td>Dialog Unit</td>
+ * <td>dlu</td> <td>honors l&amp;f, resolution, and dialog font size</td> </tr>
+ * </table> <p> <strong>Examples:</strong> <pre> Sizes.ZERO; Sizes.DLUX9;
+ * Sizes.dluX(42); Sizes.pixel(99); </pre>
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see Size
  * @see Sizes
  */
@@ -107,9 +69,9 @@ public final class ConstantSize implements Size, Serializable {
 	 * @param value the size value interpreted in the given units
 	 * @param unit the size's unit
 	 */
-	ConstantSize(int value, Unit unit) {
-		this.value = value;
-		this.unit = unit;
+	ConstantSize(int ivalue, Unit iunit) {
+		value = ivalue;
+		unit = iunit;
 	}
 
 	/**
@@ -118,9 +80,9 @@ public final class ConstantSize implements Size, Serializable {
 	 * @param value the size value interpreted in the given units
 	 * @param unit the size's unit
 	 */
-	ConstantSize(double value, Unit unit) {
-		this.value = value;
-		this.unit = unit;
+	ConstantSize(double ivalue, Unit iunit) {
+		value = ivalue;
+		unit = iunit;
 	}
 
 	/**
@@ -130,18 +92,19 @@ public final class ConstantSize implements Size, Serializable {
 	 * @param horizontal true for horizontal, false for vertical
 	 * @return a constant size for the given encoding and unit description
 	 * @throws IllegalArgumentException if the unit requires integer but the
-	 *         value is not an integer
+	 * value is not an integer
 	 */
 	static ConstantSize valueOf(String encodedValueAndUnit, boolean horizontal) {
-		String split[] = ConstantSize.splitValueAndUnit(encodedValueAndUnit);
+		String[] split = ConstantSize.splitValueAndUnit(encodedValueAndUnit);
 		String encodedValue = split[0];
 		String encodedUnit = split[1];
 		Unit unit = Unit.valueOf(encodedUnit, horizontal);
 		double value = Double.parseDouble(encodedValue);
 		if (unit.requiresIntegers) {
-			if (value != (int) value)
+			if (value != (int) value) {
 				throw new IllegalArgumentException(unit.toString() + " value "
 						+ encodedValue + " must be an integer.");
+			}
 		}
 		return new ConstantSize(value, unit);
 	}
@@ -174,32 +137,32 @@ public final class ConstantSize implements Size, Serializable {
 	 * @return the size in pixels
 	 */
 	public int getPixelSize(Component component) {
-		if (unit == PIXEL)
+		if (unit == PIXEL) {
 			return intValue();
-		else if (unit == POINT)
+		} else if (unit == POINT) {
 			return Sizes.pointAsPixel(intValue(), component);
-		else if (unit == INCH)
+		} else if (unit == INCH) {
 			return Sizes.inchAsPixel(value, component);
-		else if (unit == MILLIMETER)
+		} else if (unit == MILLIMETER) {
 			return Sizes.millimeterAsPixel(value, component);
-		else if (unit == CENTIMETER)
+		} else if (unit == CENTIMETER) {
 			return Sizes.centimeterAsPixel(value, component);
-		else if (unit == DIALOG_UNITS_X)
+		} else if (unit == DIALOG_UNITS_X) {
 			return Sizes.dialogUnitXAsPixel(intValue(), component);
-		else if (unit == DIALOG_UNITS_Y)
+		} else if (unit == DIALOG_UNITS_Y) {
 			return Sizes.dialogUnitYAsPixel(intValue(), component);
-		else
+		} else {
 			throw new IllegalStateException("Invalid unit " + unit);
+		}
 	}
 
 	// Implementing the Size Interface **************************************
 
 	/**
 	 * Returns this size as pixel size. Neither requires the component list nor
-	 * the specified measures.
-	 * <p>
-	 * Invoked by {@link swing.layout_managers.jgoodies.forms.layout.FormSpec}
-	 * to determine the size of a column or row.
+	 * the specified measures. <p> Invoked by
+	 * {@link swing.layout_managers.jgoodies.forms.layout.FormSpec} to determine
+	 * the size of a column or row.
 	 * @param container the layout container
 	 * @param components the list of components used to compute the size
 	 * @param minMeasure the measure that determines the minimum sizes
@@ -219,17 +182,19 @@ public final class ConstantSize implements Size, Serializable {
 	 * Indicates whether some other ConstantSize is "equal to" this one.
 	 * @param o the Object with which to compare
 	 * @return <code>true</code> if this object is the same as the obj argument;
-	 *         <code>false</code> otherwise.
+	 * <code>false</code> otherwise.
 	 * @see java.lang.Object#hashCode()
 	 * @see java.util.Hashtable
 	 */
 	public boolean equals(Object o) {
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (!(o instanceof ConstantSize))
+		}
+		if (!(o instanceof ConstantSize)) {
 			return false;
+		}
 		ConstantSize size = (ConstantSize) o;
-		return this.value == size.value && this.unit == size.unit;
+		return value == size.value && unit == size.unit;
 	}
 
 	/**
@@ -251,9 +216,11 @@ public final class ConstantSize implements Size, Serializable {
 	 * @return a string representation of the constant size
 	 */
 	public String toString() {
-		return (value == intValue()) ? Integer.toString(intValue())
-				+ unit.abbreviation() : Double.toString(value)
-				+ unit.abbreviation();
+		if (value == intValue()) {
+			return Integer.toString(intValue()) + unit.abbreviation();
+		} else {
+			return Double.toString(value) + unit.abbreviation();
+		}
 	}
 
 	// Helper Code **********************************************************
@@ -291,12 +258,12 @@ public final class ConstantSize implements Size, Serializable {
 	public static final class Unit implements Serializable {
 		private final transient String name;
 		private final transient String abbreviation;
-		final transient boolean requiresIntegers;
+		private final transient boolean requiresIntegers;
 
-		private Unit(String name, String abbreviation, boolean requiresIntegers) {
-			this.name = name;
-			this.abbreviation = abbreviation;
-			this.requiresIntegers = requiresIntegers;
+		private Unit(String iname, String iabbreviation, boolean irequiresIntegers) {
+			name = iname;
+			abbreviation = iabbreviation;
+			requiresIntegers = irequiresIntegers;
 		}
 
 		/**
@@ -309,21 +276,26 @@ public final class ConstantSize implements Size, Serializable {
 		 */
 		static Unit valueOf(String str, boolean horizontal) {
 			String lowerCase = str.toLowerCase();
-			if (lowerCase.equals("px") || lowerCase.length() == 0)
+			if (lowerCase.equals("px") || lowerCase.length() == 0) {
 				return PIXEL;
-			else if (lowerCase.equals("dlu"))
-				return horizontal ? DIALOG_UNITS_X : DIALOG_UNITS_Y;
-			else if (lowerCase.equals("pt"))
+			} else if (lowerCase.equals("dlu")) {
+				if (horizontal) {
+					return DIALOG_UNITS_X;
+				} else {
+					return DIALOG_UNITS_Y;
+				}
+			} else if (lowerCase.equals("pt")) {
 				return POINT;
-			else if (lowerCase.equals("in"))
+			} else if (lowerCase.equals("in")) {
 				return INCH;
-			else if (lowerCase.equals("mm"))
+			} else if (lowerCase.equals("mm")) {
 				return MILLIMETER;
-			else if (lowerCase.equals("cm"))
+			} else if (lowerCase.equals("cm")) {
 				return CENTIMETER;
-			else
+			} else {
 				throw new IllegalArgumentException("Invalid unit name '" + str
 						+ "'. Must be one of: " + "px, dlu, pt, mm, cm, in");
+			}
 		}
 
 		public String toString() {

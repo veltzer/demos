@@ -31,36 +31,46 @@ all: $(ALL)
 
 .PHONY: check_imports
 check_imports:
-	@scripts/ok_wrapper.pl git grep import | grep \\*
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -e "import .*\.\*" -- "*.java"
 
 .PHONY: check_serialid
 check_serialid:
-	@scripts/ok_wrapper.pl git grep -l serialVersionUID -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l serialVersionUID -- "*.java"
 
 .PHONY: check_ws_eol
 check_ws_eol:
-	@scripts/ok_wrapper.pl git grep " $$" -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep " $$" -- "*.java"
 
 .PHONY: check_tab_eol
 check_tab_eol:
-	@scripts/ok_wrapper.pl git grep -l "\s$$" -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l "\s$$" -- "*.java"
 
 .PHONY: check_dbl_ws
 check_dbl_ws:
-	@scripts/ok_wrapper.pl git grep "  " -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep "  " -- "*.java"
 
 .PHONY: check_author
 check_author:
-	@scripts/ok_wrapper.pl git grep "@author" -- "*.java" | grep -v "Mark Veltzer <mark.veltzer@gmail.com>"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -e "@author" --and --not -e "Mark Veltzer <mark@veltzer.net>" -- "*.java"
 
 .PHONY: check_version
 check_version:
-	@scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
+
+.PHONY: check_all
+check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version
 
 .PHONY: checkstyle
 checkstyle:
-#	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml -r projects/Standard/src
-	@java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
+#	$(Q)java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml -r projects/Standard/src
+	$(Q)java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
 
 .PHONY: format_eclipse
 format_eclipse:
@@ -89,8 +99,8 @@ $(JAVA_STAMP): %.stamp: %.java
 .PHONY: sloccount
 sloccount:
 	$(info doing [$@])
-	@sloccount .
+	$(Q)sloccount .
 .PHONY: count_files
 count_files:
 	$(info doing [$@])
-	@echo number of Java files: `find . -name "*.java" | wc -l`
+	$(Q)echo number of Java files: `find . -name "*.java" | wc -l`

@@ -10,40 +10,25 @@ import java.util.StringTokenizer;
  * Defines constraints for components that are layed out with the FormLayout.
  * Defines the components display area: grid&nbsp;x, grid&nbsp;y, grid width
  * (column span), grid height (row span), horizontal alignment and vertical
- * alignment.
- * <p>
- * Most methods return <em>this</em> object to enable method chaining.
- * <p>
- * You can set optional insets in a constructor. This is useful if you need to
- * use a pixel-size insets to align perceived component bounds with pixel data,
- * for example an icon. Anyway, this is rarely used. The insets don't affect the
- * size computation for columns and rows. I consider renaming the insets to
- * offsets to better indicate the motivation for this option.
- * <p>
- * <strong>Examples</strong>:<br>
- * The following cell constraints locate a component in the third column of the
- * fifth row; column and row span are 1; the component will be aligned with the
- * column's right-hand side and the row's bottom.
- * 
- * <pre>
- * CellConstraints cc = new CellConstraints();
- * cc.xy(3, 5);
- * cc.xy(3, 5, CellConstraints.RIGHT, CellConstraints.BOTTOM);
- * cc.xy(3, 5, &quot;right, bottom&quot;);
- * 
- * cc.xyw(3, 5, 1);
- * cc.xyw(3, 5, 1, CellConstraints.RIGHT, CellConstraints.BOTTOM);
- * cc.xyw(3, 5, 1, &quot;right, bottom&quot;);
- * 
- * cc.xywh(3, 5, 1, 1);
- * cc.xywh(3, 5, 1, 1, CellConstraints.RIGHT, CellConstraints.BOTTOM);
- * cc.xywh(3, 5, 1, 1, &quot;right, bottom&quot;);
- * </pre>
- * 
- * See also the examples in the {@link FormLayout} class comment.
- * <p>
- * TODO: Consider renaming the inset to offsets.
- * @author Karsten Lentzsch
+ * alignment. <p> Most methods return <em>this</em> object to enable method
+ * chaining. <p> You can set optional insets in a constructor. This is useful if
+ * you need to use a pixel-size insets to align perceived component bounds with
+ * pixel data, for example an icon. Anyway, this is rarely used. The insets
+ * don't affect the size computation for columns and rows. I consider renaming
+ * the insets to offsets to better indicate the motivation for this option. <p>
+ * <strong>Examples</strong>:<br> The following cell constraints locate a
+ * component in the third column of the fifth row; column and row span are 1;
+ * the component will be aligned with the column's right-hand side and the row's
+ * bottom. <pre> CellConstraints cc = new CellConstraints(); cc.xy(3, 5);
+ * cc.xy(3, 5, CellConstraints.RIGHT, CellConstraints.BOTTOM); cc.xy(3, 5,
+ * &quot;right, bottom&quot;); cc.xyw(3, 5, 1); cc.xyw(3, 5, 1,
+ * CellConstraints.RIGHT, CellConstraints.BOTTOM); cc.xyw(3, 5, 1, &quot;right,
+ * bottom&quot;); cc.xywh(3, 5, 1, 1); cc.xywh(3, 5, 1, 1,
+ * CellConstraints.RIGHT, CellConstraints.BOTTOM); cc.xywh(3, 5, 1, 1,
+ * &quot;right, bottom&quot;); </pre> See also the examples in the
+ * {@link FormLayout} class comment. <p> TODO: Consider renaming the inset to
+ * offsets.
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public final class CellConstraints implements Cloneable, Serializable {
@@ -156,14 +141,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Constructs an instance of <code>CellConstraints</code> for the given cell
-	 * position.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * new CellConstraints(1, 3);
-	 * new CellConstraints(1, 3);
-	 * </pre>
+	 * position. <p> <strong>Examples:</strong> <pre> new CellConstraints(1, 3);
+	 * new CellConstraints(1, 3); </pre>
 	 * @param gridX the component's horizontal grid origin
 	 * @param gridY the component's vertical grid origin
 	 */
@@ -173,13 +152,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Constructs an instance of <code>CellConstraints</code> for the given cell
-	 * position, anchor, and fill.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * new CellConstraints(1, 3, CellConstraints.LEFT, CellConstraints.BOTTOM);
-	 * new CellConstraints(1, 3, CellConstraints.CENTER, CellConstraints.FILL);
+	 * position, anchor, and fill. <p> <strong>Examples:</strong> <pre> new
+	 * CellConstraints(1, 3, CellConstraints.LEFT, CellConstraints.BOTTOM); new
+	 * CellConstraints(1, 3, CellConstraints.CENTER, CellConstraints.FILL);
 	 * </pre>
 	 * @param gridX the component's horizontal grid origin
 	 * @param gridY the component's vertical grid origin
@@ -193,14 +168,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Constructs an instance of <code>CellConstraints</code> for the given cell
-	 * position and size.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * new CellConstraints(1, 3, 2, 1);
-	 * new CellConstraints(1, 3, 7, 3);
-	 * </pre>
+	 * position and size. <p> <strong>Examples:</strong> <pre> new
+	 * CellConstraints(1, 3, 2, 1); new CellConstraints(1, 3, 7, 3); </pre>
 	 * @param gridX the component's horizontal grid origin
 	 * @param gridY the component's vertical grid origin
 	 * @param gridWidth the component's horizontal extent
@@ -212,14 +181,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Constructs an instance of <code>CellConstraints</code> for the given cell
-	 * position and size, anchor, and fill.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * new CellConstraints(1, 3, 2, 1, CellConstraints.LEFT, CellConstraints.BOTTOM);
-	 * new CellConstraints(1, 3, 7, 3, CellConstraints.CENTER, CellConstraints.FILL);
-	 * </pre>
+	 * position and size, anchor, and fill. <p> <strong>Examples:</strong> <pre>
+	 * new CellConstraints(1, 3, 2, 1, CellConstraints.LEFT,
+	 * CellConstraints.BOTTOM); new CellConstraints(1, 3, 7, 3,
+	 * CellConstraints.CENTER, CellConstraints.FILL); </pre>
 	 * @param gridX the component's horizontal grid origin
 	 * @param gridY the component's vertical grid origin
 	 * @param gridWidth the component's horizontal extent
@@ -234,15 +199,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Constructs an instance of <code>CellConstraints</code> for the complete
-	 * set of available properties.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * new CellConstraints(1, 3, 2, 1, CellConstraints.LEFT, CellConstraints.BOTTOM,
-	 * 		new Insets(0, 1, 0, 3));
-	 * new CellConstraints(1, 3, 7, 3, CellConstraints.CENTER, CellConstraints.FILL,
-	 * 		new Insets(0, 1, 0, 0));
+	 * set of available properties. <p> <strong>Examples:</strong> <pre> new
+	 * CellConstraints(1, 3, 2, 1, CellConstraints.LEFT, CellConstraints.BOTTOM,
+	 * new Insets(0, 1, 0, 3)); new CellConstraints(1, 3, 7, 3,
+	 * CellConstraints.CENTER, CellConstraints.FILL, new Insets(0, 1, 0, 0));
 	 * </pre>
 	 * @param gridX the component's horizontal grid origin
 	 * @param gridY the component's vertical grid origin
@@ -252,9 +212,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @param vAlign the component's vertical alignment
 	 * @param insets the component's display area <code>Insets</code>
 	 * @throws IndexOutOfBoundsException if the grid origin or extent is
-	 *         negative
+	 * negative
 	 * @throws NullPointerException if the horizontal or vertical alignment is
-	 *         null
+	 * null
 	 * @throws IllegalArgumentException if an alignment orientation is invalid
 	 */
 	public CellConstraints(int gridX, int gridY, int gridWidth, int gridHeight,
@@ -289,16 +249,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Constructs an instance of <code>CellConstraints</code> from the given
-	 * encoded string properties.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * new CellConstraints(&quot;1, 3&quot;);
-	 * new CellConstraints(&quot;1, 3, left, bottom&quot;);
-	 * new CellConstraints(&quot;1, 3, 2, 1, left, bottom&quot;);
-	 * new CellConstraints(&quot;1, 3, 2, 1, l, b&quot;);
-	 * </pre>
+	 * encoded string properties. <p> <strong>Examples:</strong> <pre> new
+	 * CellConstraints(&quot;1, 3&quot;); new CellConstraints(&quot;1, 3, left,
+	 * bottom&quot;); new CellConstraints(&quot;1, 3, 2, 1, left, bottom&quot;);
+	 * new CellConstraints(&quot;1, 3, 2, 1, l, b&quot;); </pre>
 	 * @param encodedConstraints the constraints encoded as string
 	 */
 	public CellConstraints(String encodedConstraints) {
@@ -310,14 +264,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Sets row and column origins; sets width and height to 1; uses the default
-	 * alignments.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xy(1, 1);
-	 * cc.xy(1, 3);
-	 * </pre>
+	 * alignments. <p> <strong>Examples:</strong> <pre> cc.xy(1, 1); cc.xy(1,
+	 * 3); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @return this
@@ -328,16 +276,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Sets row and column origins; sets width and height to 1; decodes
-	 * horizontal and vertical alignments from the given string.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xy(1, 3, &quot;left, bottom&quot;);
-	 * cc.xy(1, 3, &quot;l, b&quot;);
-	 * cc.xy(1, 3, &quot;center, fill&quot;);
-	 * cc.xy(1, 3, &quot;c, f&quot;);
-	 * </pre>
+	 * horizontal and vertical alignments from the given string. <p>
+	 * <strong>Examples:</strong> <pre> cc.xy(1, 3, &quot;left, bottom&quot;);
+	 * cc.xy(1, 3, &quot;l, b&quot;); cc.xy(1, 3, &quot;center, fill&quot;);
+	 * cc.xy(1, 3, &quot;c, f&quot;); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param encodedAlignments describes the horizontal and vertical alignments
@@ -350,14 +292,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Sets the row and column origins; sets width and height to 1; set
-	 * horizontal and vertical alignment using the specified objects.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xy(1, 3, CellConstraints.LEFT, CellConstraints.BOTTOM);
-	 * cc.xy(1, 3, CellConstraints.CENTER, CellConstraints.FILL);
-	 * </pre>
+	 * horizontal and vertical alignment using the specified objects. <p>
+	 * <strong>Examples:</strong> <pre> cc.xy(1, 3, CellConstraints.LEFT,
+	 * CellConstraints.BOTTOM); cc.xy(1, 3, CellConstraints.CENTER,
+	 * CellConstraints.FILL); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param colAlign horizontal component alignment
@@ -371,14 +309,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Sets the row, column, width, and height; uses a height (row span) of 1
-	 * and the horizontal and vertical default alignments.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xyw(1, 3, 7);
-	 * cc.xyw(1, 3, 2);
-	 * </pre>
+	 * and the horizontal and vertical default alignments. <p>
+	 * <strong>Examples:</strong> <pre> cc.xyw(1, 3, 7); cc.xyw(1, 3, 2); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param colSpan the column span or grid width
@@ -391,16 +323,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 	/**
 	 * Sets the row, column, width, and height; decodes the horizontal and
 	 * vertical alignments from the given string. The row span (height) is set
-	 * to 1.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xyw(1, 3, 7, &quot;left, bottom&quot;);
-	 * cc.xyw(1, 3, 7, &quot;l, b&quot;);
-	 * cc.xyw(1, 3, 2, &quot;center, fill&quot;);
-	 * cc.xyw(1, 3, 2, &quot;c, f&quot;);
-	 * </pre>
+	 * to 1. <p> <strong>Examples:</strong> <pre> cc.xyw(1, 3, 7, &quot;left,
+	 * bottom&quot;); cc.xyw(1, 3, 7, &quot;l, b&quot;); cc.xyw(1, 3, 2,
+	 * &quot;center, fill&quot;); cc.xyw(1, 3, 2, &quot;c, f&quot;); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param colSpan the column span or grid width
@@ -416,14 +341,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 	/**
 	 * Sets the row, column, width, and height; sets the horizontal and vertical
 	 * aligment using the specified alignment objects. The row span (height) is
-	 * set to 1.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xyw(1, 3, 2, CellConstraints.LEFT, CellConstraints.BOTTOM);
-	 * cc.xyw(1, 3, 7, CellConstraints.CENTER, CellConstraints.FILL);
-	 * </pre>
+	 * set to 1. <p> <strong>Examples:</strong> <pre> cc.xyw(1, 3, 2,
+	 * CellConstraints.LEFT, CellConstraints.BOTTOM); cc.xyw(1, 3, 7,
+	 * CellConstraints.CENTER, CellConstraints.FILL); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param colSpan the column span or grid width
@@ -438,14 +358,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 	}
 
 	/**
-	 * Sets the row, column, width, and height; uses default alignments.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xywh(1, 3, 2, 1);
-	 * cc.xywh(1, 3, 7, 3);
-	 * </pre>
+	 * Sets the row, column, width, and height; uses default alignments. <p>
+	 * <strong>Examples:</strong> <pre> cc.xywh(1, 3, 2, 1); cc.xywh(1, 3, 7,
+	 * 3); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param colSpan the column span or grid width
@@ -458,16 +373,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Sets the row, column, width, and height; decodes the horizontal and
-	 * vertical alignments from the given string.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xywh(1, 3, 2, 1, &quot;left, bottom&quot;);
-	 * cc.xywh(1, 3, 2, 1, &quot;l, b&quot;);
-	 * cc.xywh(1, 3, 7, 3, &quot;center, fill&quot;);
-	 * cc.xywh(1, 3, 7, 3, &quot;c, f&quot;);
-	 * </pre>
+	 * vertical alignments from the given string. <p> <strong>Examples:</strong>
+	 * <pre> cc.xywh(1, 3, 2, 1, &quot;left, bottom&quot;); cc.xywh(1, 3, 2, 1,
+	 * &quot;l, b&quot;); cc.xywh(1, 3, 7, 3, &quot;center, fill&quot;);
+	 * cc.xywh(1, 3, 7, 3, &quot;c, f&quot;); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param colSpan the column span or grid width
@@ -485,14 +394,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Sets the row, column, width, and height; sets the horizontal and vertical
-	 * aligment using the specified alignment objects.
-	 * <p>
-	 * <strong>Examples:</strong>
-	 * 
-	 * <pre>
-	 * cc.xywh(1, 3, 2, 1, CellConstraints.LEFT, CellConstraints.BOTTOM);
-	 * cc.xywh(1, 3, 7, 3, CellConstraints.CENTER, CellConstraints.FILL);
-	 * </pre>
+	 * aligment using the specified alignment objects. <p>
+	 * <strong>Examples:</strong> <pre> cc.xywh(1, 3, 2, 1,
+	 * CellConstraints.LEFT, CellConstraints.BOTTOM); cc.xywh(1, 3, 7, 3,
+	 * CellConstraints.CENTER, CellConstraints.FILL); </pre>
 	 * @param col the new column index
 	 * @param row the new row index
 	 * @param colSpan the column span or grid width
@@ -519,17 +424,11 @@ public final class CellConstraints implements Cloneable, Serializable {
 	/**
 	 * Decodes and returns the grid bounds and alignments for this constraints
 	 * as an array of six integers. The string representation is a comma
-	 * separated sequence, one of
-	 * 
-	 * <pre>
-	 * "x, y"
-	 * "x, y, w, h"
-	 * "x, y, hAlign, vAlign"
-	 * "x, y, w, h, hAlign, vAlign"
-	 * </pre>
+	 * separated sequence, one of <pre> "x, y" "x, y, w, h"
+	 * "x, y, hAlign, vAlign" "x, y, w, h, hAlign, vAlign" </pre>
 	 * @param encodedConstraints represents horizontal and vertical alignment
 	 * @throws IllegalArgumentException if the encoded constraints do not follow
-	 *         the constraint syntax
+	 * the constraint syntax
 	 */
 	private void initFromConstraints(String encodedConstraints) {
 		StringTokenizer tokenizer = new StringTokenizer(encodedConstraints,
@@ -592,17 +491,13 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Decodes a string description for the horizontal and vertical alignment
-	 * and set the alignment values.
-	 * <p>
-	 * Valid horizontal aligmnents are: left, middle, right, default, and fill.
-	 * Valid vertical alignments are: top, center, bottom, default, and fill.
-	 * The anchor's string representation abbreviates the alignment: l, m, r, d,
-	 * f, t, c, and b.
-	 * <p>
-	 * Anchor examples: "mc" is centered, "lt" is northwest, "mt" is north, "rc"
-	 * east. "md" is horizontally centered and uses the row's default alignment.
-	 * "dt" is on top of the cell and uses the column's default alignment.
-	 * <p>
+	 * and set the alignment values. <p> Valid horizontal aligmnents are: left,
+	 * middle, right, default, and fill. Valid vertical alignments are: top,
+	 * center, bottom, default, and fill. The anchor's string representation
+	 * abbreviates the alignment: l, m, r, d, f, t, c, and b. <p> Anchor
+	 * examples: "mc" is centered, "lt" is northwest, "mt" is north, "rc" east.
+	 * "md" is horizontally centered and uses the row's default alignment. "dt"
+	 * is on top of the cell and uses the column's default alignment. <p>
 	 * @param encodedAlignments represents horizontal and vertical alignment
 	 * @throws IllegalArgumentException if an alignment orientation is invalid
 	 */
@@ -643,7 +538,7 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @param colCount number of columns in the grid
 	 * @param rowCount number of rows in the grid
 	 * @throws IndexOutOfBoundsException if the display area described by this
-	 *         constraints object is not inside the grid
+	 * constraints object is not inside the grid
 	 */
 	public void ensureValidGridBounds(int colCount, int rowCount) {
 		if (gridX <= 0) {
@@ -734,16 +629,13 @@ public final class CellConstraints implements Cloneable, Serializable {
 
 	/**
 	 * Computes and returns the concrete alignment. Takes into account the cell
-	 * alignment and <i>the</i> <code>FormSpec</code> if applicable.
-	 * <p>
-	 * If this constraints object doesn't belong to a single column or row, the
+	 * alignment and <i>the</i> <code>FormSpec</code> if applicable. <p> If this
+	 * constraints object doesn't belong to a single column or row, the
 	 * <code>formSpec</code> parameter is <code>null</code>. In this case the
 	 * cell alignment is answered, but <code>DEFAULT</code> is mapped to
-	 * <code>FILL</code>.
-	 * <p>
-	 * If the cell belongs to a single column or row, we use the cell alignment,
-	 * unless it is <code>DEFAULT</code>, where the alignment is inherited from
-	 * the column or row resp.
+	 * <code>FILL</code>. <p> If the cell belongs to a single column or row, we
+	 * use the cell alignment, unless it is <code>DEFAULT</code>, where the
+	 * alignment is inherited from the column or row resp.
 	 * @param cellAlignment this cell's aligment
 	 * @param formSpec the associated column or row specification
 	 * @return the concrete alignment

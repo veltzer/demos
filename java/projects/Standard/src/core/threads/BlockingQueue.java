@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 /**
  * A simple blocking queue.
- * @author Mark Veltzer
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public class BlockingQueue<E> {
 	private LinkedList<E> linkedList;

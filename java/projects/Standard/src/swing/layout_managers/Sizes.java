@@ -12,7 +12,7 @@ import java.util.List;
  * is delegated to an implementation of {@link UnitConverter}. The conversion
  * methods require the layout container as parameter to read its current font
  * and resolution.
- * @author Karsten Lentzsch
+ * @author Mark Veltzer <mark@veltzer.net>
  * @see Size
  * @see UnitConverter
  * @see DefaultUnitConverter
@@ -168,8 +168,11 @@ public final class Sizes {
 	 * @return the given Millimeters as pixels
 	 */
 	public static int millimeterAsPixel(double mm, Component component) {
-		return mm == 0d ? 0 : getUnitConverter().millimeterAsPixel(mm,
-				component);
+		if (mm == 0d) {
+			return 0;
+		} else {
+			return getUnitConverter().millimeterAsPixel(mm, component);
+		}
 	}
 
 	/**
@@ -180,8 +183,11 @@ public final class Sizes {
 	 * @return the given Centimeters as pixels
 	 */
 	public static int centimeterAsPixel(double cm, Component component) {
-		return cm == 0d ? 0 : getUnitConverter().centimeterAsPixel(cm,
-				component);
+		if (cm == 0d) {
+			return 0;
+		} else {
+			return getUnitConverter().centimeterAsPixel(cm, component);
+		}
 	}
 
 	/**
@@ -192,7 +198,11 @@ public final class Sizes {
 	 * @return the given Points as pixels
 	 */
 	public static int pointAsPixel(int pt, Component component) {
-		return pt == 0 ? 0 : getUnitConverter().pointAsPixel(pt, component);
+		if (pt == 0) {
+			return 0;
+		} else {
+			return getUnitConverter().pointAsPixel(pt, component);
+		}
 	}
 
 	/**
@@ -203,8 +213,11 @@ public final class Sizes {
 	 * @return the given horizontal dialog units as pixels
 	 */
 	public static int dialogUnitXAsPixel(int dluX, Component component) {
-		return dluX == 0 ? 0 : getUnitConverter().dialogUnitXAsPixel(dluX,
-				component);
+		if (dluX == 0) {
+			return 0;
+		} else {
+			return getUnitConverter().dialogUnitXAsPixel(dluX, component);
+		}
 	}
 
 	/**
@@ -215,8 +228,11 @@ public final class Sizes {
 	 * @return the given vertical dialog units as pixels
 	 */
 	public static int dialogUnitYAsPixel(int dluY, Component component) {
-		return dluY == 0 ? 0 : getUnitConverter().dialogUnitYAsPixel(dluY,
-				component);
+		if (dluY == 0) {
+			return 0;
+		} else {
+			return getUnitConverter().dialogUnitYAsPixel(dluY, component);
+		}
 	}
 
 	// Accessing the Unit Converter *******************************************
@@ -246,8 +262,8 @@ public final class Sizes {
 
 	/**
 	 * An ordinal-based serializable typesafe enumeration that implements the
-	 * {@link Size} interface for the component sizes:
-	 * <em>min, pref, default</em>.
+	 * {@link Size} interface for the component sizes: <em>min, pref,
+	 * default</em>.
 	 */
 	@SuppressWarnings("serial")
 	static final class ComponentSize implements Size, Serializable {
@@ -278,9 +294,8 @@ public final class Sizes {
 
 		/**
 		 * Computes the maximum size for the given list of components, using
-		 * this form spec and the specified measure.
-		 * <p>
-		 * Invoked by FormLayout to determine the size of one of my elements
+		 * this form spec and the specified measure. <p> Invoked by FormLayout
+		 * to determine the size of one of my elements
 		 * @param container the layout container
 		 * @param components the list of components to measure
 		 * @param minMeasure the measure used to determine the minimum size
@@ -292,8 +307,16 @@ public final class Sizes {
 				FormLayout.Measure minMeasure, FormLayout.Measure prefMeasure,
 				FormLayout.Measure defaultMeasure) {
 
-			FormLayout.Measure measure = this == MINIMUM ? minMeasure
-					: (this == PREFERRED ? prefMeasure : defaultMeasure);
+			FormLayout.Measure measure;
+			if (this == MINIMUM) {
+				measure = minMeasure;
+			} else {
+				if (this == PREFERRED) {
+					measure = prefMeasure;
+				} else {
+					measure = defaultMeasure;
+				}
+			}
 			int maximum = 0;
 			for (Iterator<Component> i = components.iterator(); i.hasNext();) {
 				Component c = (Component) i.next();

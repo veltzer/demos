@@ -1,7 +1,7 @@
 package org.meta;
 
 /**
- * @author ant
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 public abstract class HelloWorld {
 	public static void main(String[] args) {
