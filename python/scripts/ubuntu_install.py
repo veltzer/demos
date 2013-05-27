@@ -6,6 +6,8 @@
 import subprocess
 
 packs=[
+	'python3.3',
+	'python3.3-doc',
 	'pyqt4-dev-tools',
 	'python-qt4',
 	'python-qt4-sql',
