@@ -62,7 +62,7 @@ if __name__ == "__main__": # register the class as a Gtk widget gobject.type_reg
 	liststore = gtk.ListStore(gobject.TYPE_STRING)
 	entrycompl.completion.set_model(liststore)
 	entrycompl.completion.set_text_column(0)
-	for word in ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqr', 'stu', 'vwx', 'yz']:
+	for word in ['python', 'perl', 'scala', 'c++', 'ruby', 'c#', 'java', 'assembly', 'PHP']:
 		liststore.append([word])
 	win.add(entrycompl)
 	win.show_all()

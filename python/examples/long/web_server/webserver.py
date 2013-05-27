@@ -26,8 +26,9 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 		self.send_response(200)
 		self.send_header('Content-type','text/html')
 		self.end_headers()
-		self.wfile.write('today is the'+str(time.localtime()[7]))
-		self.wfile.write('day in the year '+str(time.localtime()[0]))
+		self.wfile.write('time is the '+str(time)+'<br/>')
+		self.wfile.write('today is the '+str(time.localtime()[7])+'<br/>')
+		self.wfile.write('day in the year '+str(time.localtime()[0])+'<br/>')
 	def handle_dir(self):
 		self.send_response(200)
 		self.send_header('Content-type','text/html')

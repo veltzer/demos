@@ -16,3 +16,7 @@ void Car::setNumber(int inumber) {
 int Car::getNumber(void) {
 	return number;
 }
+
+int Car::add(int a,int b) {
+	return a+b;
+}

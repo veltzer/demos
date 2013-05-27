@@ -62,7 +62,7 @@ class HelloWorld:
 		# This will cause the window to be destroyed by calling
 		# gtk_widget_destroy(window) when "clicked". Again,the destroy
 		# signal could come from here,or the window manager.
-		self.button.connect_object("clicked",gtk.Widget.destroy,self.window)
+		#self.button.connect_object("clicked",gtk.Widget.destroy,self.window)
 
 		# This packs the button into the window (a GTK container).
 		self.window.add(self.button)
