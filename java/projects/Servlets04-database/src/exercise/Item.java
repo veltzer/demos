@@ -19,10 +19,10 @@ public class Item implements java.io.Serializable {
 	public Item() {
 	}
 
-	public Item(String id, String name, double price) {
+	public Item(String id, String iname, double iprice) {
 		itemId = id;
-		this.name = name;
-		this.price = price;
+		name = iname;
+		price = iprice;
 	}
 
 	/**
@@ -37,8 +37,8 @@ public class Item implements java.io.Serializable {
 	 * Setter for property name.
 	 * @param name New value of property name.
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	/**
@@ -53,8 +53,8 @@ public class Item implements java.io.Serializable {
 	 * Setter for property price.
 	 * @param price New value of property price.
 	 */
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(double iprice) {
+		price = iprice;
 	}
 
 	/**
@@ -69,8 +69,8 @@ public class Item implements java.io.Serializable {
 	 * Setter for property itemId.
 	 * @param itemId New value of property itemId.
 	 */
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
+	public void setItemId(String iitemId) {
+		itemId = iitemId;
 	}
 
 }
