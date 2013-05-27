@@ -14,6 +14,24 @@ is the same as:
 		newlist.append(x*x)
 	return newlist
 
+dictionary comprehension:
+=========================
+	{ expr1:expr2 code }
+is the same as:
+	newdict={}
+	code:
+		newdict[expr1]=expr2
+	return newdict
+
+set comprehension:
+==================
+	{ expr code }
+is the same as:
+	newset=set()
+	code:
+		set.add(expr)
+	return newset
+
 generator comprehensions:
 =========================
 	(expr code)
@@ -24,6 +42,6 @@ is the same as:
 example:
 	(x*x for x in xrange(5))
 is the same as:
-	def anonumous():
+	def anonymous():
 		for x in xrange(5):
 			yield x*x
