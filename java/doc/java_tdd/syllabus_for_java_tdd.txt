@@ -1,0 +1,26 @@
+Syllabus for Java TDD course
+============================
+
+Part I: Theory
+==============
+01 Software Testing Overview.ppt
+02 Intro to Unit Testing.ppt
+03 Software Development Methodology.ppt
+04 Agile.ppt
+05 Extreme Programming.ppt
+06 TDD.ppt
+
+Part II: Technical
+==================
+07 Test Doubles.ppt
+08 Design for Testability.ppt
+09 Refactoring.ppt
+10 Refactoring patterns & Antipatterns.ppt
+
+Part III: Practical
+===================
+11 JUnit
+12 JUnitEE
+13 DBUnit (if time permits)
+14 JMockit
+15 PMD

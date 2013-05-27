@@ -1,0 +1,11 @@
+done
+====
+- exception handling and java.
+- software quality by other means:
+	code review
+	code quality
+	design for introspection
+
+todo
+====
+dependency injection and AOP
