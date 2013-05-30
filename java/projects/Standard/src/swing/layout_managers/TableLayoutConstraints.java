@@ -11,16 +11,16 @@ import java.util.StringTokenizer;
 public class TableLayoutConstraints {
 
 	/** Cell in which the upper left corner of the component lays */
-	public int col1, row1;
+	private int col1, row1;
 
 	/** Cell in which the lower right corner of the component lays */
-	public int col2, row2;
+	private int col2, row2;
 
 	/** Horizontal justification if component occupies just one cell */
-	public int hAlign;
+	private int hAlign;
 
 	/** Verical justification if component occupies just one cell */
-	public int vAlign;
+	private int vAlign;
 
 	/**
 	 * Constructs an TableLayoutConstraints with the default settings. This
@@ -29,8 +29,12 @@ public class TableLayoutConstraints {
 	 */
 
 	public TableLayoutConstraints() {
-		col1 = row1 = col2 = 0;
-		hAlign = vAlign = TableLayoutConstants.FULL;
+		col1 = 0;
+		row1 = 0;
+		col2 = 0;
+		row2 = 0;
+		hAlign = TableLayoutConstants.FULL;
+		vAlign = TableLayoutConstants.FULL;
 	}
 
 	/**
@@ -59,8 +63,9 @@ public class TableLayoutConstraints {
 
 		try {
 			// Check constraints
-			if ((numToken != 2) && (numToken != 4) && (numToken != 6))
+			if ((numToken != 2) && (numToken != 4) && (numToken != 6)) {
 				throw new RuntimeException();
+			}
 
 			// Get the first column (assume component is in only one column)
 			String tokenA = st.nextToken();
@@ -91,42 +96,45 @@ public class TableLayoutConstraints {
 
 			// Check if token means horizontally justification the component
 			if ((tokenA.equalsIgnoreCase("L"))
-					|| (tokenA.equalsIgnoreCase("LEFT")))
+					|| (tokenA.equalsIgnoreCase("LEFT"))) {
 				hAlign = TableLayoutConstants.LEFT;
-			else if ((tokenA.equalsIgnoreCase("C"))
-					|| (tokenA.equalsIgnoreCase("CENTER")))
+			} else if ((tokenA.equalsIgnoreCase("C"))
+					|| (tokenA.equalsIgnoreCase("CENTER"))) {
 				hAlign = TableLayoutConstants.CENTER;
-			else if ((tokenA.equalsIgnoreCase("F"))
-					|| (tokenA.equalsIgnoreCase("FULL")))
+			} else if ((tokenA.equalsIgnoreCase("F"))
+					|| (tokenA.equalsIgnoreCase("FULL"))) {
 				hAlign = TableLayoutConstants.FULL;
-			else if ((tokenA.equalsIgnoreCase("R"))
-					|| (tokenA.equalsIgnoreCase("RIGHT")))
+			} else if ((tokenA.equalsIgnoreCase("R"))
+					|| (tokenA.equalsIgnoreCase("RIGHT"))) {
 				hAlign = TableLayoutConstants.RIGHT;
-			else if ((tokenA.equalsIgnoreCase("LD"))
-					|| (tokenA.equalsIgnoreCase("LEADING")))
+			} else if ((tokenA.equalsIgnoreCase("LD"))
+					|| (tokenA.equalsIgnoreCase("LEADING"))) {
 				hAlign = TableLayoutConstants.LEADING;
-			else if ((tokenA.equalsIgnoreCase("TL"))
-					|| (tokenA.equalsIgnoreCase("TRAILING")))
+			} else if ((tokenA.equalsIgnoreCase("TL"))
+					|| (tokenA.equalsIgnoreCase("TRAILING"))) {
 				hAlign = TableLayoutConstants.TRAILING;
-			else
+			} else {
 				throw new RuntimeException();
+			}
 
 			// Check if token means horizontally justification the component
 			if ((tokenB.equalsIgnoreCase("T"))
-					|| (tokenB.equalsIgnoreCase("TOP")))
+					|| (tokenB.equalsIgnoreCase("TOP"))) {
 				vAlign = TableLayoutConstants.TOP;
-			else if ((tokenB.equalsIgnoreCase("C"))
-					|| (tokenB.equalsIgnoreCase("CENTER")))
+			} else if ((tokenB.equalsIgnoreCase("C"))
+					|| (tokenB.equalsIgnoreCase("CENTER"))) {
 				vAlign = TableLayoutConstants.CENTER;
-			else if ((tokenB.equalsIgnoreCase("F"))
-					|| (tokenB.equalsIgnoreCase("FULL")))
+			} else if ((tokenB.equalsIgnoreCase("F"))
+					|| (tokenB.equalsIgnoreCase("FULL"))) {
 				vAlign = TableLayoutConstants.FULL;
-			else if ((tokenB.equalsIgnoreCase("B"))
-					|| (tokenB.equalsIgnoreCase("BOTTOM")))
+			} else if ((tokenB.equalsIgnoreCase("B"))
+					|| (tokenB.equalsIgnoreCase("BOTTOM"))) {
 				vAlign = TableLayoutConstants.BOTTOM;
-			else
+			} else {
 				throw new RuntimeException();
-		} catch (NoSuchElementException error) {
+			}
+		} catch (NoSuchElementException e) {
+			throw new RuntimeError(e);
 		} catch (RuntimeException error) {
 			throw new IllegalArgumentException(
 					"Expected constraints in one of the following formats:\n"
@@ -137,12 +145,14 @@ public class TableLayoutConstraints {
 		}
 
 		// Make sure row2 >= row1
-		if (row2 < row1)
+		if (row2 < row1) {
 			row2 = row1;
+		}
 
 		// Make sure col2 >= col1
-		if (col2 < col1)
+		if (col2 < col1) {
 			col2 = col1;
+		}
 	}
 
 	/**
@@ -155,23 +165,25 @@ public class TableLayoutConstraints {
 	 * @param vAlign vertical justification of a component in a single cell
 	 */
 
-	public TableLayoutConstraints(int col1, int row1, int col2, int row2,
-			int hAlign, int vAlign) {
-		this.col1 = col1;
-		this.row1 = row1;
-		this.col2 = col2;
-		this.row2 = row2;
+	public TableLayoutConstraints(int icol1, int irow1, int icol2, int irow2,
+			int ihAlign, int ivAlign) {
+		col1 = icol1;
+		row1 = irow1;
+		col2 = icol2;
+		row2 = irow2;
 
-		if ((hAlign == TableLayoutConstants.LEFT) || (hAlign == TableLayoutConstants.RIGHT) || (hAlign == TableLayoutConstants.CENTER)
-				|| (hAlign == TableLayoutConstants.FULL) || (hAlign == TableLayoutConstants.TRAILING)) {
-			this.hAlign = hAlign;
-		} else
-			this.hAlign = TableLayoutConstants.FULL;
+		if ((ihAlign == TableLayoutConstants.LEFT) || (ihAlign == TableLayoutConstants.RIGHT) || (ihAlign == TableLayoutConstants.CENTER)
+				|| (ihAlign == TableLayoutConstants.FULL) || (ihAlign == TableLayoutConstants.TRAILING)) {
+			hAlign = ihAlign;
+		} else {
+			hAlign = TableLayoutConstants.FULL;
+		}
 
-		if ((vAlign == TableLayoutConstants.LEFT) || (vAlign == TableLayoutConstants.RIGHT) || (vAlign == TableLayoutConstants.CENTER)) {
-			this.vAlign = vAlign;
-		} else
-			this.vAlign = TableLayoutConstants.FULL;
+		if ((ivAlign == TableLayoutConstants.LEFT) || (ivAlign == TableLayoutConstants.RIGHT) || (ivAlign == TableLayoutConstants.CENTER)) {
+			vAlign = ivAlign;
+		} else {
+			vAlign = TableLayoutConstants.FULL;
+		}
 	}
 
 	/**
@@ -193,10 +205,10 @@ public class TableLayoutConstraints {
 		buffer.append(row2);
 		buffer.append(", ");
 
-		final String h[] = {
+		final String[] h = {
 				"left", "center", "full", "right", "leading", "trailing"
 		};
-		final String v[] = {
+		final String[] v = {
 				"top", "center", "full", "bottom"
 		};
 

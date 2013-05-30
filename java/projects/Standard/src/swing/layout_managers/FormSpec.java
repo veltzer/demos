@@ -101,14 +101,15 @@ public abstract class FormSpec implements Serializable {
 	 * @param resizeWeight the spec resize weight
 	 * @throws IllegalArgumentException if the resize weight is negative
 	 */
-	protected FormSpec(DefaultAlignment defaultAlignment, Size size,
-			double resizeWeight) {
-		this.defaultAlignment = defaultAlignment;
-		this.size = size;
-		this.resizeWeight = resizeWeight;
-		if (resizeWeight < 0)
+	protected FormSpec(DefaultAlignment idefaultAlignment, Size isize,
+			double iresizeWeight) {
+		defaultAlignment = idefaultAlignment;
+		size = isize;
+		resizeWeight = iresizeWeight;
+		if (resizeWeight < 0) {
 			throw new IllegalArgumentException(
 					"The resize weight must be non-negative.");
+		}
 	}
 
 	/**
@@ -117,9 +118,9 @@ public abstract class FormSpec implements Serializable {
 	 * @param defaultAlignment the default alignment
 	 * @param encodedDescription the encoded description
 	 */
-	protected FormSpec(DefaultAlignment defaultAlignment,
+	protected FormSpec(DefaultAlignment idefaultAlignment,
 			String encodedDescription) {
-		this(defaultAlignment, Sizes.DEFAULT, NO_GROW);
+		this(idefaultAlignment, Sizes.DEFAULT, NO_GROW);
 		parseAndInitValues(encodedDescription.toLowerCase());
 	}
 
@@ -231,15 +232,31 @@ public abstract class FormSpec implements Serializable {
 		// Check valid combinations and set min or max.
 		if (size1 instanceof ConstantSize) {
 			if (size2 instanceof Sizes.ComponentSize) {
-				return new BoundedSize(size2, setMax ? null : size1,
-						setMax ? size1 : null);
+				Size p1;
+				Size p2;
+				if (setMax) {
+					p1 = null;
+					p2 = size1;
+				} else {
+					p1 = size1;
+					p2 = null;
+				}
+				return new BoundedSize(size2, p1, p2);
 			}
 			throw new IllegalArgumentException(
 					"Bounded sizes must not be both constants.");
 		} else {
 			if (size2 instanceof ConstantSize) {
-				return new BoundedSize(size1, setMax ? null : size2,
-						setMax ? size2 : null);
+				Size p1;
+				Size p2;
+				if (setMax) {
+					p1 = null;
+					p2 = size2;
+				} else {
+					p1 = size2;
+					p2 = null;
+				}
+				return new BoundedSize(size1, p1, p2);
 			}
 			throw new IllegalArgumentException(
 					"Bounded sizes must not be both logical.");
@@ -254,10 +271,11 @@ public abstract class FormSpec implements Serializable {
 	 */
 	private Size decodeAtomicSize(String token) {
 		Sizes.ComponentSize componentSize = Sizes.ComponentSize.valueOf(token);
-		if (componentSize != null)
+		if (componentSize != null) {
 			return componentSize;
-		else
+		} else {
 			return ConstantSize.valueOf(token, isHorizontal());
+		}
 	}
 
 	/**
@@ -389,8 +407,8 @@ public abstract class FormSpec implements Serializable {
 	public static final class DefaultAlignment implements Serializable {
 		private final transient String name;
 
-		private DefaultAlignment(String name) {
-			this.name = name;
+		private DefaultAlignment(String iname) {
+			name = iname;
 		}
 
 		/**
@@ -401,24 +419,26 @@ public abstract class FormSpec implements Serializable {
 		 * @return the corresponding DefaultAlignment or null
 		 */
 		private static DefaultAlignment valueOf(String str, boolean isHorizontal) {
-			if (str.equals("f") || str.equals("fill"))
+			if (str.equals("f") || str.equals("fill")) {
 				return FILL_ALIGN;
-			else if (str.equals("c") || str.equals("center"))
+			} else if (str.equals("c") || str.equals("center")) {
 				return CENTER_ALIGN;
-			else if (isHorizontal) {
-				if (str.equals("r") || str.equals("right"))
+			} else if (isHorizontal) {
+				if (str.equals("r") || str.equals("right")) {
 					return RIGHT_ALIGN;
-				else if (str.equals("l") || str.equals("left"))
+				} else if (str.equals("l") || str.equals("left")) {
 					return LEFT_ALIGN;
-				else
+				} else {
 					return null;
+				}
 			} else {
-				if (str.equals("t") || str.equals("top"))
+				if (str.equals("t") || str.equals("top")) {
 					return TOP_ALIGN;
-				else if (str.equals("b") || str.equals("bottom"))
+				} else if (str.equals("b") || str.equals("bottom")) {
 					return BOTTOM_ALIGN;
-				else
+				} else {
 					return null;
+				}
 			}
 		}
 
