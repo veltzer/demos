@@ -1589,13 +1589,13 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		public Entry(Component component, TableLayoutConstraints constraint) {
 			int cr1[] = {
-					constraint.col1, constraint.row1
+					constraint.getCol1(), constraint.getRow1()
 			};
 			int cr2[] = {
-					constraint.col2, constraint.row2
+					constraint.getCol2(), constraint.getRow2()
 			};
 			int alignment[] = {
-					constraint.hAlign, constraint.vAlign
+					constraint.gethAlign(), constraint.getvAlign()
 			};
 
 			this.cr1 = cr1;

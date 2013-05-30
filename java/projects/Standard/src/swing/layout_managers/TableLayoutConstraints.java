@@ -29,12 +29,12 @@ public class TableLayoutConstraints {
 	 */
 
 	public TableLayoutConstraints() {
-		col1 = 0;
-		row1 = 0;
-		col2 = 0;
-		row2 = 0;
-		hAlign = TableLayoutConstants.FULL;
-		vAlign = TableLayoutConstants.FULL;
+		setCol1(0);
+		setRow1(0);
+		setCol2(0);
+		setRow2(0);
+		sethAlign(TableLayoutConstants.FULL);
+		setvAlign(TableLayoutConstants.FULL);
 	}
 
 	/**
@@ -50,12 +50,12 @@ public class TableLayoutConstraints {
 		// Use default values for any parameter not specified or specified
 		// incorrectly. The default parameters place the component in a single
 		// cell at column 0, row 0. The component is fully justified.
-		col1 = 0;
-		row1 = 0;
-		col2 = 0;
-		row2 = 0;
-		hAlign = TableLayoutConstants.FULL;
-		vAlign = TableLayoutConstants.FULL;
+		setCol1(0);
+		setRow1(0);
+		setCol2(0);
+		setRow2(0);
+		sethAlign(TableLayoutConstants.FULL);
+		setvAlign(TableLayoutConstants.FULL);
 
 		// Parse constraints using spaces or commas
 		StringTokenizer st = new StringTokenizer(constraints, ", ");
@@ -69,13 +69,13 @@ public class TableLayoutConstraints {
 
 			// Get the first column (assume component is in only one column)
 			String tokenA = st.nextToken();
-			col1 = new Integer(tokenA).intValue();
-			col2 = col1;
+			setCol1(new Integer(tokenA).intValue());
+			setCol2(getCol1());
 
 			// Get the first row (assume component is in only one row)
 			String tokenB = st.nextToken();
-			row1 = new Integer(tokenB).intValue();
-			row2 = row1;
+			setRow1(new Integer(tokenB).intValue());
+			setRow2(getRow1());
 
 			// Get next two tokens
 			tokenA = st.nextToken();
@@ -83,36 +83,36 @@ public class TableLayoutConstraints {
 
 			try {
 				// Attempt to use tokens A and B as col2 and row2
-				col2 = new Integer(tokenA).intValue();
-				row2 = new Integer(tokenB).intValue();
+				setCol2(new Integer(tokenA).intValue());
+				setRow2(new Integer(tokenB).intValue());
 
 				// Get next two tokens
 				tokenA = st.nextToken();
 				tokenB = st.nextToken();
 			} catch (NumberFormatException error) {
-				col2 = col1;
-				row2 = row1;
+				setCol2(getCol1());
+				setRow2(getRow1());
 			}
 
 			// Check if token means horizontally justification the component
 			if ((tokenA.equalsIgnoreCase("L"))
 					|| (tokenA.equalsIgnoreCase("LEFT"))) {
-				hAlign = TableLayoutConstants.LEFT;
+				sethAlign(TableLayoutConstants.LEFT);
 			} else if ((tokenA.equalsIgnoreCase("C"))
 					|| (tokenA.equalsIgnoreCase("CENTER"))) {
-				hAlign = TableLayoutConstants.CENTER;
+				sethAlign(TableLayoutConstants.CENTER);
 			} else if ((tokenA.equalsIgnoreCase("F"))
 					|| (tokenA.equalsIgnoreCase("FULL"))) {
-				hAlign = TableLayoutConstants.FULL;
+				sethAlign(TableLayoutConstants.FULL);
 			} else if ((tokenA.equalsIgnoreCase("R"))
 					|| (tokenA.equalsIgnoreCase("RIGHT"))) {
-				hAlign = TableLayoutConstants.RIGHT;
+				sethAlign(TableLayoutConstants.RIGHT);
 			} else if ((tokenA.equalsIgnoreCase("LD"))
 					|| (tokenA.equalsIgnoreCase("LEADING"))) {
-				hAlign = TableLayoutConstants.LEADING;
+				sethAlign(TableLayoutConstants.LEADING);
 			} else if ((tokenA.equalsIgnoreCase("TL"))
 					|| (tokenA.equalsIgnoreCase("TRAILING"))) {
-				hAlign = TableLayoutConstants.TRAILING;
+				sethAlign(TableLayoutConstants.TRAILING);
 			} else {
 				throw new RuntimeException();
 			}
@@ -120,21 +120,21 @@ public class TableLayoutConstraints {
 			// Check if token means horizontally justification the component
 			if ((tokenB.equalsIgnoreCase("T"))
 					|| (tokenB.equalsIgnoreCase("TOP"))) {
-				vAlign = TableLayoutConstants.TOP;
+				setvAlign(TableLayoutConstants.TOP);
 			} else if ((tokenB.equalsIgnoreCase("C"))
 					|| (tokenB.equalsIgnoreCase("CENTER"))) {
-				vAlign = TableLayoutConstants.CENTER;
+				setvAlign(TableLayoutConstants.CENTER);
 			} else if ((tokenB.equalsIgnoreCase("F"))
 					|| (tokenB.equalsIgnoreCase("FULL"))) {
-				vAlign = TableLayoutConstants.FULL;
+				setvAlign(TableLayoutConstants.FULL);
 			} else if ((tokenB.equalsIgnoreCase("B"))
 					|| (tokenB.equalsIgnoreCase("BOTTOM"))) {
-				vAlign = TableLayoutConstants.BOTTOM;
+				setvAlign(TableLayoutConstants.BOTTOM);
 			} else {
 				throw new RuntimeException();
 			}
 		} catch (NoSuchElementException e) {
-			throw new RuntimeError(e);
+			throw new RuntimeException(e);
 		} catch (RuntimeException error) {
 			throw new IllegalArgumentException(
 					"Expected constraints in one of the following formats:\n"
@@ -145,13 +145,13 @@ public class TableLayoutConstraints {
 		}
 
 		// Make sure row2 >= row1
-		if (row2 < row1) {
-			row2 = row1;
+		if (getRow2() < getRow1()) {
+			setRow2(getRow1());
 		}
 
 		// Make sure col2 >= col1
-		if (col2 < col1) {
-			col2 = col1;
+		if (getCol2() < getCol1()) {
+			setCol2(getCol1());
 		}
 	}
 
@@ -167,22 +167,22 @@ public class TableLayoutConstraints {
 
 	public TableLayoutConstraints(int icol1, int irow1, int icol2, int irow2,
 			int ihAlign, int ivAlign) {
-		col1 = icol1;
-		row1 = irow1;
-		col2 = icol2;
-		row2 = irow2;
+		setCol1(icol1);
+		setRow1(irow1);
+		setCol2(icol2);
+		setRow2(irow2);
 
 		if ((ihAlign == TableLayoutConstants.LEFT) || (ihAlign == TableLayoutConstants.RIGHT) || (ihAlign == TableLayoutConstants.CENTER)
 				|| (ihAlign == TableLayoutConstants.FULL) || (ihAlign == TableLayoutConstants.TRAILING)) {
-			hAlign = ihAlign;
+			sethAlign(ihAlign);
 		} else {
-			hAlign = TableLayoutConstants.FULL;
+			sethAlign(TableLayoutConstants.FULL);
 		}
 
 		if ((ivAlign == TableLayoutConstants.LEFT) || (ivAlign == TableLayoutConstants.RIGHT) || (ivAlign == TableLayoutConstants.CENTER)) {
-			vAlign = ivAlign;
+			setvAlign(ivAlign);
 		} else {
-			vAlign = TableLayoutConstants.FULL;
+			setvAlign(TableLayoutConstants.FULL);
 		}
 	}
 
@@ -195,14 +195,14 @@ public class TableLayoutConstraints {
 	public String toString() {
 		StringBuffer buffer = new StringBuffer();
 
-		buffer.append(col1);
+		buffer.append(getCol1());
 		buffer.append(", ");
-		buffer.append(row1);
+		buffer.append(getRow1());
 		buffer.append(", ");
 
-		buffer.append(col2);
+		buffer.append(getCol2());
 		buffer.append(", ");
-		buffer.append(row2);
+		buffer.append(getRow2());
 		buffer.append(", ");
 
 		final String[] h = {
@@ -212,11 +212,59 @@ public class TableLayoutConstraints {
 				"top", "center", "full", "bottom"
 		};
 
-		buffer.append(h[hAlign]);
+		buffer.append(h[gethAlign()]);
 		buffer.append(", ");
-		buffer.append(v[vAlign]);
+		buffer.append(v[getvAlign()]);
 
 		return buffer.toString();
+	}
+
+	public int getCol1() {
+		return col1;
+	}
+
+	public void setCol1(int icol1) {
+		col1 = icol1;
+	}
+
+	public int getCol2() {
+		return col2;
+	}
+
+	public void setCol2(int icol2) {
+		col2 = icol2;
+	}
+
+	public int gethAlign() {
+		return hAlign;
+	}
+
+	public void sethAlign(int ihAlign) {
+		hAlign = ihAlign;
+	}
+
+	public int getRow1() {
+		return row1;
+	}
+
+	public void setRow1(int irow1) {
+		row1 = irow1;
+	}
+
+	public int getRow2() {
+		return row2;
+	}
+
+	public void setRow2(int irow2) {
+		row2 = irow2;
+	}
+
+	public int getvAlign() {
+		return vAlign;
+	}
+
+	public void setvAlign(int ivAlign) {
+		vAlign = ivAlign;
 	}
 
 }

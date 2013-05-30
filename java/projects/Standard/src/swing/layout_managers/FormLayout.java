@@ -451,8 +451,8 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				.entrySet().iterator(); i.hasNext();) {
 			Map.Entry<Component, CellConstraints> entry = i.next();
 			CellConstraints constraints = entry.getValue();
-			int x1 = constraints.gridX;
-			int w = constraints.gridWidth;
+			int x1 = constraints.getGridX();
+			int w = constraints.getGridWidth();
 			int x2 = x1 + w - 1;
 			if (x1 == columnIndex && remove) {
 				throw new IllegalStateException("The removed column "
@@ -460,9 +460,9 @@ public final class FormLayout implements LayoutManager2, Serializable {
 						+ " must not contain component origins.\n"
 						+ "Illegal component=" + entry.getKey());
 			} else if (x1 >= columnIndex) {
-				constraints.gridX += offset;
+				constraints.setGridX(constraints.getGridX() + offset);
 			} else if (x2 >= columnIndex) {
-				constraints.gridWidth += offset;
+				constraints.setGridWidth(constraints.getGridWidth() + offset);
 			}
 		}
 	}
@@ -485,17 +485,17 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				.entrySet().iterator(); i.hasNext();) {
 			Map.Entry<Component, CellConstraints> entry = i.next();
 			CellConstraints constraints = entry.getValue();
-			int y1 = constraints.gridY;
-			int h = constraints.gridHeight;
+			int y1 = constraints.getGridY();
+			int h = constraints.getGridHeight();
 			int y2 = y1 + h - 1;
 			if (y1 == rowIndex && remove) {
 				throw new IllegalStateException("The removed row " + rowIndex
 						+ " must not contain component origins.\n"
 						+ "Illegal component=" + entry.getKey());
 			} else if (y1 >= rowIndex) {
-				constraints.gridY += offset;
+				constraints.setGridY(constraints.getGridY() + offset);
 			} else if (y2 >= rowIndex) {
-				constraints.gridHeight += offset;
+				constraints.setGridHeight(constraints.getGridHeight() + offset);
 			}
 		}
 	}
@@ -907,12 +907,12 @@ public final class FormLayout implements LayoutManager2, Serializable {
 			}
 
 			CellConstraints constraints = entry.getValue();
-			if (constraints.gridWidth == 1) {
-				colComponents[constraints.gridX - 1].add(component);
+			if (constraints.getGridWidth() == 1) {
+				colComponents[constraints.getGridX() - 1].add(component);
 			}
 
-			if (constraints.gridHeight == 1) {
-				rowComponents[constraints.gridY - 1].add(component);
+			if (constraints.getGridHeight() == 1) {
+				rowComponents[constraints.getGridY() - 1].add(component);
 			}
 		}
 	}
@@ -967,13 +967,13 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				}
 
 				CellConstraints constraints = entry.getValue();
-				if ((constraints.gridWidth > 1)
-						&& (constraints.gridWidth > maxFixedSizeColsTable[constraints.gridX - 1])) {
+				if ((constraints.getGridWidth() > 1)
+						&& (constraints.getGridWidth() > maxFixedSizeColsTable[constraints.getGridX() - 1])) {
 					// int compWidth = minimumWidthMeasure.sizeOf(component);
 					int compWidth = defaultWidthMeasure.sizeOf(component);
 					// int compWidth = preferredWidthMeasure.sizeOf(component);
-					int gridX1 = constraints.gridX - 1;
-					int gridX2 = gridX1 + constraints.gridWidth;
+					int gridX1 = constraints.getGridX() - 1;
+					int gridX2 = gridX1 + constraints.getGridWidth();
 					int lead = xOrigins[gridX1];
 					int trail = width1 - xOrigins[gridX2];
 					int myWidth = lead + compWidth + trail;
@@ -982,14 +982,14 @@ public final class FormLayout implements LayoutManager2, Serializable {
 					}
 				}
 
-				if ((constraints.gridHeight > 1)
-						&& (constraints.gridHeight > maxFixedSizeRowsTable[constraints.gridY - 1])) {
+				if ((constraints.getGridHeight() > 1)
+						&& (constraints.getGridHeight() > maxFixedSizeRowsTable[constraints.getGridY() - 1])) {
 					// int compHeight = minimumHeightMeasure.sizeOf(component);
 					int compHeight = defaultHeightMeasure.sizeOf(component);
 					// int compHeight =
 					// preferredHeightMeasure.sizeOf(component);
-					int gridY1 = constraints.gridY - 1;
-					int gridY2 = gridY1 + constraints.gridHeight;
+					int gridY1 = constraints.getGridY() - 1;
+					int gridY2 = gridY1 + constraints.getGridHeight();
 					int lead = yOrigins[gridY1];
 					int trail = height1 - yOrigins[gridY2];
 					int myHeight = lead + compHeight + trail;
@@ -1079,10 +1079,10 @@ public final class FormLayout implements LayoutManager2, Serializable {
 			Component component = entry.getKey();
 			CellConstraints constraints = entry.getValue();
 
-			int gridX = constraints.gridX - 1;
-			int gridY = constraints.gridY - 1;
-			int gridWidth = constraints.gridWidth;
-			int gridHeight = constraints.gridHeight;
+			int gridX = constraints.getGridX() - 1;
+			int gridY = constraints.getGridY() - 1;
+			int gridWidth = constraints.getGridWidth();
+			int gridHeight = constraints.getGridHeight();
 			cellBounds.x = x[gridX];
 			cellBounds.y = y[gridY];
 			cellBounds.width = x[gridX + gridWidth] - cellBounds.x;
