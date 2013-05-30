@@ -13,8 +13,8 @@ import java.io.RandomAccessFile;
  * the number.
  * @author Mark Veltzer <mark@veltzer.net>
  */
-public class ProcHtml {
-	public static void main(String args[]) throws Exception {
+public abstract class ProcHtml {
+	public static void main(String[] args) {
 		if (args.length == 0 || args[0].length() == 0) {
 			System.err.println("ProcHtml [-numtabs] filename [...]");
 			System.err
@@ -43,8 +43,9 @@ public class ProcHtml {
 					out.write(" +\n");
 				}
 
-				for (int t = 0; t < numtabs; t++)
+				for (int t = 0; t < numtabs; t++) {
 					out.write('\t');
+				}
 
 				out.write("\" ");
 				int q, p = 0;

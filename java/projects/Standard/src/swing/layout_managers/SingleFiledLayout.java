@@ -40,19 +40,19 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	public static final int RIGHT = 4;
 
 	/** Default gap -- derived classes may override */
-	public static int DEFAULT_GAP = 5;
+	public static final int DEFAULT_GAP = 5;
 
 	/** ROW or COLUMN -- should the components be aligned in a row or column */
-	protected int orientation;
+	private int orientation;
 
 	/**
 	 * LEFT, TOP, CENTER, FULL, BOTTOM, RIGHT -- how should components of
 	 * different sizes be aligned
 	 */
-	protected int justification;
+	private int justification;
 
 	/** Space between components in pixels */
-	protected int gap;
+	private int gap;
 
 	/**
 	 * Constructs an instance of SingleFiledLayout that will align components in
@@ -70,8 +70,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	 * row or column
 	 */
 
-	public SingleFiledLayout(int orientation) {
-		this(orientation, LEFT, DEFAULT_GAP);
+	public SingleFiledLayout(int iorientation) {
+		this(iorientation, LEFT, DEFAULT_GAP);
 	}
 
 	/**
@@ -83,22 +83,25 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	 * @param gap space between components in pixels
 	 */
 
-	public SingleFiledLayout(int orientation, int justification, int gap) {
+	public SingleFiledLayout(int iorientation, int ijustification, int igap) {
 		// Validate parameters
-		if (orientation != ROW)
-			orientation = COLUMN;
+		if (iorientation != ROW) {
+			iorientation = COLUMN;
+		}
 
-		if ((justification != CENTER) && (justification != FULL)
-				&& (justification != RIGHT))
-			justification = LEFT;
+		if ((ijustification != CENTER) && (ijustification != FULL)
+				&& (ijustification != RIGHT)) {
+			ijustification = LEFT;
+		}
 
-		if (gap < 0)
-			gap = 0;
+		if (igap < 0) {
+			igap = 0;
+		}
 
 		// Copy parameters
-		this.orientation = orientation;
-		this.justification = justification;
-		this.gap = gap;
+		orientation = iorientation;
+		justification = ijustification;
+		gap = igap;
 	}
 
 	// ******************************************************************************
@@ -124,10 +127,10 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 		int y = inset.top;
 
 		// Get the components inside the container
-		Component component[] = container.getComponents();
+		Component[] component = container.getComponents();
 
 		// Components arranged in a column
-		if (orientation == COLUMN)
+		if (orientation == COLUMN) {
 			// Add each component
 			for (int counter = 0; counter < component.length; counter++) {
 				// Use preferred size of component
@@ -152,6 +155,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 				case RIGHT:
 					x = size.width - d.width - inset.right;
 					break;
+				default:
+					throw new RuntimeException("shouldnt be here");
 				}
 
 				// Set size and location
@@ -160,8 +165,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 				// Increment y
 				y += d.height + gap;
 			}
-		// Components arranged in a row
-		else
+		} else {
+			// Components arranged in a row
 			// Add each component
 			for (int counter = 0; counter < component.length; counter++) {
 				// Use preferred size of component
@@ -186,6 +191,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 				case BOTTOM:
 					y = size.height - d.height - inset.bottom;
 					break;
+				default:
+					throw new RuntimeException("shouldnt be here");
 				}
 
 				// Set size and location
@@ -194,6 +201,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 				// Increment x
 				x += d.width + gap;
 			}
+		}
 	}
 
 	/**
@@ -210,7 +218,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 		int totalHeight = 0; // Height of all components
 
 		// Get the components inside the container
-		Component component[] = container.getComponents();
+		Component[] component = container.getComponents();
 
 		// Components arranged in a column
 		if (orientation == COLUMN) {
@@ -218,25 +226,26 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 			for (int counter = 0; counter < component.length; counter++) {
 				Dimension d = component[counter].getPreferredSize();
 
-				if (totalWidth < d.width)
+				if (totalWidth < d.width) {
 					totalWidth = d.width;
+				}
 
 				totalHeight += d.height + gap;
 			}
 
 			// Subtract extra gap
 			totalHeight -= gap;
-		}
-		// Components arranged in a row
-		else {
+		} else {
+			// Components arranged in a row
 			// Add each component
 			for (int counter = 0; counter < component.length; counter++) {
 				Dimension d = component[counter].getPreferredSize();
 
 				totalWidth += d.width + gap;
 
-				if (totalHeight < d.height)
+				if (totalHeight < d.height) {
 					totalHeight = d.height;
+				}
 			}
 
 			// Subtract extra gap
@@ -265,7 +274,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 		int totalHeight = 0; // Height of all components
 
 		// Get the components inside the container
-		Component component[] = container.getComponents();
+		Component[] component = container.getComponents();
 
 		// Components arranged in a column
 		if (orientation == COLUMN) {
@@ -273,25 +282,26 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 			for (int counter = 0; counter < component.length; counter++) {
 				Dimension d = component[counter].getMinimumSize();
 
-				if (totalWidth < d.width)
+				if (totalWidth < d.width) {
 					totalWidth = d.width;
+				}
 
 				totalHeight += d.height + gap;
 			}
 
 			// Subtract extra gap
 			totalHeight -= gap;
-		}
-		// Components arranged in a row
-		else {
+		} else {
+			// Components arranged in a row
 			// Add each component
 			for (int counter = 0; counter < component.length; counter++) {
 				Dimension d = component[counter].getMinimumSize();
 
 				totalWidth += d.width + gap;
 
-				if (totalHeight < d.height)
+				if (totalHeight < d.height) {
 					totalHeight = d.height;
+				}
 			}
 
 			// Subtract extra gap

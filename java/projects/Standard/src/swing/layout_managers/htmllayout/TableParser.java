@@ -1,26 +1,27 @@
 package swing.layout_managers.htmllayout;
 
 class TableParser {
-	Scanner in;
+	private Scanner in;
 
-	int rows = -1, cols = -1;
-	int hgap, vgap;
-	int hpad, vpad;
-	int horz = HtmlLayout.MAX, vert = HtmlLayout.MAX;
-	Cell cells[][];
+	private int rows = -1, cols = -1;
+	private int hgap, vgap;
+	private int hpad, vpad;
+	private int horz = HtmlLayout.MAX, vert = HtmlLayout.MAX;
+	private Cell[][] cells;
 
-	int curRow, curCol;
-	int gridcount;
-	int cellCount;
-	boolean taken[][];
+	private int curRow, curCol;
+	private int gridcount;
+	private int cellCount;
+	private boolean[][] taken;
 
-	TableParser(Scanner in, boolean eatTable, TableParser parent) {
-		this.in = in;
+	TableParser(Scanner iin, boolean eatTable, TableParser parent) {
+		in = iin;
 
 		if (eatTable) {
 			if (in.scan() != Scanner.LT || in.scanU() != Scanner.STR
-					|| !in.currentString.equals("TABLE"))
+					|| !in.currentString.equals("TABLE")) {
 				error("description must start with TABLE tag");
+			}
 		}
 
 		if (parent != null) {
@@ -34,15 +35,16 @@ class TableParser {
 		finishTable();
 	}
 
-	final static String values[] = {
+	static final String[] VALUES = {
 			"HORZ", "VERT", "ROWS", "COLS", "HGAP", "VGAP", "HPAD", "VPAD",
 			"COLSPAN", "ROWSPAN", "COMPONENT"
 	};
 
-	int lookup(String poss[], String value) {
+	int lookup(String[] poss, String value) {
 		for (int i = 0; i < poss.length; i++) {
-			if (poss[i].equals(value))
+			if (poss[i].equals(value)) {
 				return i;
+			}
 		}
 
 		error("Invalid value " + value);
@@ -50,7 +52,7 @@ class TableParser {
 	}
 
 	// hack, the value of the key returned by parsePair
-	int pairValue;
+	private int pairValue;
 
 	int parsePair() {
 		int key = lookup(values, in.currentString);
@@ -120,19 +122,23 @@ class TableParser {
 			}
 		}
 
-		if (tok != Scanner.GT)
+		if (tok != Scanner.GT) {
 			error("wrong token");
+		}
 
-		if (cols < 1 || rows < 1)
-			error("must specify positive rows and columns for TABLE");
+		if (cols < 1 || rows < 1) {
+			error("must specif positive rows and columns for TABLE");
+		}
 
 		cells = new Cell[rows][cols];
 		taken = new boolean[rows][cols];
 
 		while (in.scan() == Scanner.LT && in.scanU() == Scanner.STR) {
 			if (in.currentString.equals("TR")) {
-				if (parseTR()) // </Table>
+				if (parseTR()) {
+					// </Table>
 					return;
+				}
 			} else if (in.currentString.equals("/TABLE")) {
 				scan(Scanner.GT);
 				return;
@@ -150,8 +156,9 @@ class TableParser {
 		int tok;
 		int curRowVGap = vgap;
 
-		if (!(curRow < rows))
+		if (!(curRow < rows)) {
 			error("Excess rows in table");
+		}
 
 		while ((tok = in.scanU()) == Scanner.STR) {
 			switch (parsePair()) {
@@ -163,14 +170,16 @@ class TableParser {
 			}
 		}
 
-		if (tok != Scanner.GT)
+		if (tok != Scanner.GT) {
 			error("wrong token");
+		}
 
 		while (in.scan() == Scanner.LT && in.scanU() == Scanner.STR) {
 			if (in.currentString.equals("TD")) {
 				parseTD(curRowVGap);
-				if (in.lastTok != Scanner.STR)
+				if (in.lastTok != Scanner.STR) {
 					continue;
+				}
 			}
 
 			if (in.currentString.equals("TR")) {
@@ -212,8 +221,9 @@ class TableParser {
 	}
 
 	private void finishTable() {
-		while (curRow < rows)
+		while (curRow < rows) {
 			finishRow(vgap);
+		}
 	}
 
 	// leaves /table and /tr as the last token if it encounteers them
@@ -244,14 +254,16 @@ class TableParser {
 				c.vpad = pairValue;
 				break;
 			case 8:
-				if (pairValue < 1)
+				if (pairValue < 1) {
 					error("colspan must be >= 1");
+				}
 
 				c.colspan = pairValue;
 				break;
 			case 9:
-				if (pairValue < 1)
+				if (pairValue < 1) {
 					error("rowspan must be >= 1");
+				}
 
 				c.rowspan = pairValue;
 				break;
@@ -263,23 +275,26 @@ class TableParser {
 			}
 		}
 
-		if (tok != Scanner.GT)
+		if (tok != Scanner.GT) {
 			error("wrong token");
+		}
 
 		addCell(c);
 
 		tok = in.scan();
 		if (tok == Scanner.STR) {
-			if (c.name != null)
+			if (c.name != null) {
 				error("TDs can only have a component or text");
+			}
 
 			c.labelText = in.currentString;
 			tok = in.scan();
 		}
 
 		while (true) {
-			if (tok == Scanner.EOF)
+			if (tok == Scanner.EOF) {
 				return;
+			}
 
 			if (tok != Scanner.LT || in.scanU() != Scanner.STR) {
 				error("Parse error");
@@ -292,8 +307,9 @@ class TableParser {
 				scan(Scanner.GT);
 				return;
 			} else if (in.currentString.equals("TABLE")) {
-				if (c.name != null || c.labelText != null)
+				if (c.name != null || c.labelText != null) {
 					error("TDs can't have a component or text with a TABLE");
+				}
 
 				c.nested = new HtmlLayout(this);
 
@@ -307,8 +323,9 @@ class TableParser {
 	private void addCell(Cell c) {
 		while (taken[curRow][curCol]) {
 			curCol++;
-			if (curCol == cols)
+			if (curCol == cols) {
 				error("excess elements");
+			}
 		}
 
 		c.row = curRow;
@@ -320,8 +337,9 @@ class TableParser {
 
 		for (int j = c.row; j < c.row + c.rowspan; j++) {
 			for (int i = c.col; i < c.col + c.colspan; i++) {
-				if (taken[j][i])
+				if (taken[j][i]) {
 					error("table elements overlap");
+				}
 
 				taken[j][i] = true;
 			}
@@ -342,7 +360,8 @@ class TableParser {
 	}
 
 	void scan(int tok) {
-		if (in.scan() != tok)
+		if (in.scan() != tok) {
 			error("wrong token");
+		}
 	}
 }
