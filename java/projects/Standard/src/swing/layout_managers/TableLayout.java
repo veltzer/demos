@@ -193,7 +193,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		// Make sure rows and columns are valid
 		for (int counter = 0; counter < crSpec[C].length; counter++) {
-			if ((crSpec[C][counter] < 0.0) && (crSpec[C][counter] != TableLayoutConstants.FILL)
+			if ((crSpec[C][counter] < 0.0)
+					&& (crSpec[C][counter] != TableLayoutConstants.FILL)
 					&& (crSpec[C][counter] != TableLayoutConstants.PREFERRED)
 					&& (crSpec[C][counter] != TableLayoutConstants.MINIMUM)) {
 				crSpec[C][counter] = 0.0;
@@ -201,7 +202,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 		}
 
 		for (int counter = 0; counter < crSpec[R].length; counter++) {
-			if ((crSpec[R][counter] < 0.0) && (crSpec[R][counter] != TableLayoutConstants.FILL)
+			if ((crSpec[R][counter] < 0.0)
+					&& (crSpec[R][counter] != TableLayoutConstants.FILL)
 					&& (crSpec[R][counter] != TableLayoutConstants.PREFERRED)
 					&& (crSpec[R][counter] != TableLayoutConstants.MINIMUM)) {
 				crSpec[R][counter] = 0.0;
@@ -318,7 +320,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		// Make sure rows are valid
 		for (int counter = 0; counter < crSpec[z].length; counter++) {
-			if ((crSpec[z][counter] < 0.0) && (crSpec[z][counter] != TableLayoutConstants.FILL)
+			if ((crSpec[z][counter] < 0.0)
+					&& (crSpec[z][counter] != TableLayoutConstants.FILL)
 					&& (crSpec[z][counter] != TableLayoutConstants.PREFERRED)
 					&& (crSpec[z][counter] != TableLayoutConstants.MINIMUM)) {
 				crSpec[z][counter] = 0.0;
@@ -372,7 +375,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	protected void setCr(int z, int i, double size) {
 		// Make sure size is valid
-		if ((size < 0.0) && (size != TableLayoutConstants.FILL) && (size != TableLayoutConstants.PREFERRED)
+		if ((size < 0.0) && (size != TableLayoutConstants.FILL)
+				&& (size != TableLayoutConstants.PREFERRED)
 				&& (size != TableLayoutConstants.MINIMUM)) {
 			size = 0.0;
 		}
@@ -547,7 +551,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 		}
 
 		// Make sure row size is valid
-		if ((size < 0.0) && (size != TableLayoutConstants.FILL) && (size != TableLayoutConstants.PREFERRED)
+		if ((size < 0.0) && (size != TableLayoutConstants.FILL)
+				&& (size != TableLayoutConstants.PREFERRED)
 				&& (size != TableLayoutConstants.MINIMUM)) {
 			size = 0.0;
 		}
@@ -810,10 +815,14 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		// Assign preferred and minimum sizes (must be done after
 		// assignAbsoluteSize)
-		availableWidth = assignPrefMinSize(C, availableWidth, TableLayoutConstants.MINIMUM);
-		availableWidth = assignPrefMinSize(C, availableWidth, TableLayoutConstants.PREFERRED);
-		availableHeight = assignPrefMinSize(R, availableHeight, TableLayoutConstants.MINIMUM);
-		availableHeight = assignPrefMinSize(R, availableHeight, TableLayoutConstants.PREFERRED);
+		availableWidth = assignPrefMinSize(C, availableWidth,
+				TableLayoutConstants.MINIMUM);
+		availableWidth = assignPrefMinSize(C, availableWidth,
+				TableLayoutConstants.PREFERRED);
+		availableHeight = assignPrefMinSize(R, availableHeight,
+				TableLayoutConstants.MINIMUM);
+		availableHeight = assignPrefMinSize(R, availableHeight,
+				TableLayoutConstants.PREFERRED);
 
 		// Assign relative sizes
 		availableWidth = assignRelativeSize(C, availableWidth);
@@ -1008,7 +1017,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 									// Count preferred/min width columns
 									numAdjustable++;
 								} else if (crSpec[z][entryCr] == TableLayoutConstants.FILL) {
-									// Skip any component that occupies a fill cr
+									// Skip any component that occupies a fill
+									// cr
 									// because the fill should fulfill the size
 									// requirements
 									continue nextComponent;
@@ -1028,7 +1038,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 									// Count preferred/min width columns
 									numAdjustable++;
 								} else if (crSpec[z][entryCr] == TableLayoutConstants.FILL) {
-									// Skip any component that occupies a fill cr
+									// Skip any component that occupies a fill
+									// cr
 									// because the fill should fulfill the size
 									// requirements
 									continue nextComponent;
@@ -1213,7 +1224,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 		// Determine the size of the component
 		int size;
 
-		if ((entryAlignment == TableLayoutConstants.FULL) || (cellSetSize < preferredSize)) {
+		if ((entryAlignment == TableLayoutConstants.FULL)
+				|| (cellSetSize < preferredSize)) {
 			size = cellSetSize;
 		} else {
 			size = preferredSize;
@@ -1235,11 +1247,13 @@ public class TableLayout implements java.awt.LayoutManager2,
 		int offset;
 
 		switch (entryAlignment) {
-		case TableLayoutConstants.LEFT: // Align left/top side along left edge of cell
+		case TableLayoutConstants.LEFT: // Align left/top side along left edge
+										// of cell
 			offset = icrOffset[isColumn ? entry.cr1[C] : entry.cr1[R]];
 			break;
 
-		case TableLayoutConstants.RIGHT: // Align right/bottom side along right edge of cell
+		case TableLayoutConstants.RIGHT: // Align right/bottom side along right
+											// edge of cell
 			offset = icrOffset[(isColumn ? entry.cr2[C] : entry.cr2[R]) + 1]
 					- size;
 			break;
@@ -1249,7 +1263,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 					+ ((cellSetSize - size) >> 1);
 			break;
 
-		case TableLayoutConstants.FULL: // Align left/top side along left/top edge of cell
+		case TableLayoutConstants.FULL: // Align left/top side along left/top
+										// edge of cell
 			offset = icrOffset[isColumn ? entry.cr1[C] : entry.cr1[R]];
 			break;
 
@@ -1459,7 +1474,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 				if ((crSpec[z][counter] > 0.0) && (crSpec[z][counter] < 1.0)) {
 					// Add scaled size to relativeWidth
 					relativeSize += crSpec[z][counter];
-				} else if ((crSpec[z][counter] == TableLayoutConstants.FILL) && (fillSizeRatio != 0.0)) {
+				} else if ((crSpec[z][counter] == TableLayoutConstants.FILL)
+						&& (fillSizeRatio != 0.0)) {
 					// Cr is fill
 					// Add fill size to relativeWidth
 					relativeSize += fillSizeRatio;

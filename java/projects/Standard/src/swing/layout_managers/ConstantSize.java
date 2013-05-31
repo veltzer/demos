@@ -260,7 +260,8 @@ public final class ConstantSize implements Size, Serializable {
 		private final transient String abbreviation;
 		private final transient boolean requiresIntegers;
 
-		private Unit(String iname, String iabbreviation, boolean irequiresIntegers) {
+		private Unit(String iname, String iabbreviation,
+				boolean irequiresIntegers) {
 			name = iname;
 			abbreviation = iabbreviation;
 			requiresIntegers = irequiresIntegers;

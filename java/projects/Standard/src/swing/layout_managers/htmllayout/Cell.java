@@ -154,14 +154,14 @@ class Cell {
 	}
 
 	void squeezeX(int[] xpos, int[][] touch, int[] count, int[] limit) {
-		squeeze(xpos, touch, count, limit, getCol(), getCol() + getColspan(), reqwidth
-				+ (getCol() == 0 ? 0 : getHgap()));
+		squeeze(xpos, touch, count, limit, getCol(), getCol() + getColspan(),
+				reqwidth + (getCol() == 0 ? 0 : getHgap()));
 
 	}
 
 	void squeezeY(int[] ypos, int[][] touch, int[] count, int[] limit) {
-		squeeze(ypos, touch, count, limit, getRow(), getRow() + getRowspan(), reqheight
-				+ (getRow() == 0 ? 0 : getVgap()));
+		squeeze(ypos, touch, count, limit, getRow(), getRow() + getRowspan(),
+				reqheight + (getRow() == 0 ? 0 : getVgap()));
 	}
 
 	void addToXTable(int[] xpos) {
@@ -175,7 +175,8 @@ class Cell {
 
 	void addToYTable(int[] ypos) {
 		int r = getRow() + getRowspan();
-		int bottom = ypos[getRow()] + reqheight + (getRow() == 0 ? 0 : getVgap());
+		int bottom = ypos[getRow()] + reqheight
+				+ (getRow() == 0 ? 0 : getVgap());
 
 		if (ypos[r] < bottom) {
 			ypos[r] = bottom;

@@ -14,11 +14,13 @@ public class TableDemo extends JPanel {
 		double[][] size = {
 				{
 						0.05, TableLayoutConstants.PREFERRED, 0.05,
-						TableLayoutConstants.PREFERRED, TableLayoutConstants.FILL, 0.05
+						TableLayoutConstants.PREFERRED,
+						TableLayoutConstants.FILL, 0.05
 				},
 				{
 						0.05, TableLayoutConstants.PREFERRED, 0.05,
-						TableLayoutConstants.PREFERRED, 0.05, TableLayoutConstants.PREFERRED,
+						TableLayoutConstants.PREFERRED, 0.05,
+						TableLayoutConstants.PREFERRED,
 						TableLayoutConstants.FILL
 				}
 		};

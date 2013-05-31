@@ -175,7 +175,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @param gridWidth the component's horizontal extent
 	 * @param gridHeight the component's vertical extent
 	 */
-	public CellConstraints(int igridX, int igridY, int igridWidth, int igridHeight) {
+	public CellConstraints(int igridX, int igridY, int igridWidth,
+			int igridHeight) {
 		this(igridX, igridY, igridWidth, igridHeight, DEFAULT, DEFAULT);
 	}
 
@@ -192,9 +193,10 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @param hAlign the component's horizontal alignment
 	 * @param vAlign the component's vertical alignment
 	 */
-	public CellConstraints(int igridX, int igridY, int igridWidth, int igridHeight,
-			Alignment ihAlign, Alignment ivAlign) {
-		this(igridX, igridY, igridWidth, igridHeight, ihAlign, ivAlign, EMPTY_INSETS);
+	public CellConstraints(int igridX, int igridY, int igridWidth,
+			int igridHeight, Alignment ihAlign, Alignment ivAlign) {
+		this(igridX, igridY, igridWidth, igridHeight, ihAlign, ivAlign,
+				EMPTY_INSETS);
 	}
 
 	/**
@@ -217,8 +219,9 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * null
 	 * @throws IllegalArgumentException if an alignment orientation is invalid
 	 */
-	public CellConstraints(int igridX, int igridY, int igridWidth, int igridHeight,
-			Alignment ihAlign, Alignment ivAlign, Insets iinsets) {
+	public CellConstraints(int igridX, int igridY, int igridWidth,
+			int igridHeight, Alignment ihAlign, Alignment ivAlign,
+			Insets iinsets) {
 		setGridX(igridX);
 		setGridY(igridY);
 		setGridWidth(igridWidth);
@@ -555,16 +558,17 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 */
 	public void ensureValidGridBounds(int colCount, int rowCount) {
 		if (getGridX() <= 0) {
-			throw new IndexOutOfBoundsException("The column index " + getGridX()
-					+ " must be positive.");
+			throw new IndexOutOfBoundsException("The column index "
+					+ getGridX() + " must be positive.");
 		}
 		if (getGridX() > colCount) {
-			throw new IndexOutOfBoundsException("The column index " + getGridX()
-					+ " must be less than or equal to " + colCount + ".");
+			throw new IndexOutOfBoundsException("The column index "
+					+ getGridX() + " must be less than or equal to " + colCount
+					+ ".");
 		}
 		if (getGridX() + getGridWidth() - 1 > colCount) {
-			throw new IndexOutOfBoundsException("The grid width " + getGridWidth()
-					+ " must be less than or equal to "
+			throw new IndexOutOfBoundsException("The grid width "
+					+ getGridWidth() + " must be less than or equal to "
 					+ (colCount - getGridX() + 1) + ".");
 		}
 		if (getGridY() <= 0) {
@@ -576,8 +580,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 					+ " must be less than or equal to " + rowCount + ".");
 		}
 		if (getGridY() + getGridHeight() - 1 > rowCount) {
-			throw new IndexOutOfBoundsException("The grid height " + getGridHeight()
-					+ " must be less than or equal to "
+			throw new IndexOutOfBoundsException("The grid height "
+					+ getGridHeight() + " must be less than or equal to "
 					+ (rowCount - getGridY() + 1) + ".");
 		}
 	}

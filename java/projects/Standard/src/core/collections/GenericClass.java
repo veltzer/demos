@@ -3,8 +3,8 @@ package core.collections;
 import java.util.LinkedList;
 
 public final class GenericClass<T, J, R> {
-	//private T t;
-	//private J j;
+	// private T t;
+	// private J j;
 
 	private GenericClass(int y, R r) {
 

@@ -64,6 +64,7 @@ public final class PriorityTest {
 			t2.printNumOperations();
 		}
 	}
+
 	private PriorityTest() {
 	}
 

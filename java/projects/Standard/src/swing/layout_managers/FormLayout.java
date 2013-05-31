@@ -968,7 +968,8 @@ public final class FormLayout implements LayoutManager2, Serializable {
 
 				CellConstraints constraints = entry.getValue();
 				if ((constraints.getGridWidth() > 1)
-						&& (constraints.getGridWidth() > maxFixedSizeColsTable[constraints.getGridX() - 1])) {
+						&& (constraints.getGridWidth() > maxFixedSizeColsTable[constraints
+								.getGridX() - 1])) {
 					// int compWidth = minimumWidthMeasure.sizeOf(component);
 					int compWidth = defaultWidthMeasure.sizeOf(component);
 					// int compWidth = preferredWidthMeasure.sizeOf(component);
@@ -983,7 +984,8 @@ public final class FormLayout implements LayoutManager2, Serializable {
 				}
 
 				if ((constraints.getGridHeight() > 1)
-						&& (constraints.getGridHeight() > maxFixedSizeRowsTable[constraints.getGridY() - 1])) {
+						&& (constraints.getGridHeight() > maxFixedSizeRowsTable[constraints
+								.getGridY() - 1])) {
 					// int compHeight = minimumHeightMeasure.sizeOf(component);
 					int compHeight = defaultHeightMeasure.sizeOf(component);
 					// int compHeight =

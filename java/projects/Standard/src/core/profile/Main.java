@@ -3,6 +3,7 @@ package core.profile;
 final class Main {
 	private Main() {
 	}
+
 	private int method(int lim) {
 		int sum = 0;
 		for (int j = 0; j < lim; j++) {

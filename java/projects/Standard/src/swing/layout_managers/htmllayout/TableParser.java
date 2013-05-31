@@ -10,7 +10,7 @@ class TableParser {
 	private Cell[][] cells;
 
 	private int curRow, curCol;
-	//private int gridcount;
+	// private int gridcount;
 	private int cellCount;
 	private boolean[][] taken;
 
@@ -331,7 +331,8 @@ class TableParser {
 		c.setRow(curRow);
 		c.setCol(curCol);
 
-		if (c.getRow() + c.getRowspan() > getRows() || c.getCol() + c.getColspan() > getCols()) {
+		if (c.getRow() + c.getRowspan() > getRows()
+				|| c.getCol() + c.getColspan() > getCols()) {
 			error("element exceeds table bounds");
 		}
 
@@ -352,7 +353,8 @@ class TableParser {
 	}
 
 	void error(String message) {
-		String context = getIn().getSource().substring(Math.max(0, getIn().getPos() - 10),
+		String context = getIn().getSource().substring(
+				Math.max(0, getIn().getPos() - 10),
 				Math.min(getIn().getPos() + 1, getIn().getSource().length()));
 
 		throw new BadTableHtmlException("Bad html at or before character "

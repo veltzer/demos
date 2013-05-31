@@ -172,14 +172,19 @@ public class TableLayoutConstraints {
 		setCol2(icol2);
 		setRow2(irow2);
 
-		if ((ihAlign == TableLayoutConstants.LEFT) || (ihAlign == TableLayoutConstants.RIGHT) || (ihAlign == TableLayoutConstants.CENTER)
-				|| (ihAlign == TableLayoutConstants.FULL) || (ihAlign == TableLayoutConstants.TRAILING)) {
+		if ((ihAlign == TableLayoutConstants.LEFT)
+				|| (ihAlign == TableLayoutConstants.RIGHT)
+				|| (ihAlign == TableLayoutConstants.CENTER)
+				|| (ihAlign == TableLayoutConstants.FULL)
+				|| (ihAlign == TableLayoutConstants.TRAILING)) {
 			sethAlign(ihAlign);
 		} else {
 			sethAlign(TableLayoutConstants.FULL);
 		}
 
-		if ((ivAlign == TableLayoutConstants.LEFT) || (ivAlign == TableLayoutConstants.RIGHT) || (ivAlign == TableLayoutConstants.CENTER)) {
+		if ((ivAlign == TableLayoutConstants.LEFT)
+				|| (ivAlign == TableLayoutConstants.RIGHT)
+				|| (ivAlign == TableLayoutConstants.CENTER)) {
 			setvAlign(ivAlign);
 		} else {
 			setvAlign(TableLayoutConstants.FULL);
