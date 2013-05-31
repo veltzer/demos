@@ -1,7 +1,6 @@
 package spring.testing;
 
 public interface TestSubject {
-	public int checkNumber(int a);
-
-	public int getAndCheckNumber();
+	int checkNumber(int a);
+	int getAndCheckNumber();
 }

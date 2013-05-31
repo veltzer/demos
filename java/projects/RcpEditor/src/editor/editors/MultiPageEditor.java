@@ -149,10 +149,10 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 	 * correspond to the nested editor's.
 	 */
 	public void doSaveAs() {
-		IEditorPart editor = getEditor(0);
+		IEditorPart ieditor = getEditor(0);
 		editor.doSaveAs();
-		setPageText(0, editor.getTitle());
-		setInput(editor.getEditorInput());
+		setPageText(0, ieditor.getTitle());
+		setInput(ieditor.getEditorInput());
 	}
 
 	/*
@@ -169,9 +169,10 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 	 */
 	public void init(IEditorSite site, IEditorInput editorInput)
 			throws PartInitException {
-		if (!(editorInput instanceof IFileEditorInput))
+		if (!(editorInput instanceof IFileEditorInput)) {
 			throw new PartInitException(
 					"Invalid Input: Must be IFileEditorInput");
+		}
 		super.init(site, editorInput);
 	}
 
@@ -223,8 +224,9 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 		fontDialog.setFontList(text.getFont().getFontData());
 		FontData fontData = fontDialog.open();
 		if (fontData != null) {
-			if (font != null)
+			if (font != null) {
 				font.dispose();
+			}
 			font = new Font(text.getDisplay(), fontData);
 			text.setFont(font);
 		}

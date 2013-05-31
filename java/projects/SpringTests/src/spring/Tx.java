@@ -6,7 +6,7 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 public class Tx {
-	PlatformTransactionManager txManager;
+	private PlatformTransactionManager txManager;
 
 	public void doIt() {
 		TransactionDefinition def = new DefaultTransactionDefinition(

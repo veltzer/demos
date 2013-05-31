@@ -7,12 +7,12 @@ public class MyDomainObject {
 	private String msg;
 	private int code;
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMsg(String imsg) {
+		msg = imsg;
 	}
 
-	public void setCode(int code) {
-		this.code = code;
+	public void setCode(int icode) {
+		code = icode;
 	}
 
 	@Override

@@ -9,8 +9,8 @@ public class EventGenerator implements ApplicationEventPublisherAware {
 
 	@Override
 	public void setApplicationEventPublisher(
-			ApplicationEventPublisher applicationEventPublisher) {
-		this.applicationEventPublisher = applicationEventPublisher;
+			ApplicationEventPublisher iapplicationEventPublisher) {
+		applicationEventPublisher = iapplicationEventPublisher;
 	}
 
 	public void doSomething() {

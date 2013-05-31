@@ -7,8 +7,8 @@ public class TestSubjectTestCase extends
 		AbstractDependencyInjectionSpringContextTests {
 	private TestSubject testSubject;
 
-	public void setTestSubject(TestSubject testSubject) {
-		this.testSubject = testSubject;
+	public void setTestSubject(TestSubject itestSubject) {
+		testSubject = itestSubject;
 	}
 
 	@Override
@@ -35,6 +35,7 @@ public class TestSubjectTestCase extends
 			fail("Expected failure, instead got " + value);
 		} catch (IllegalArgumentException iae) {
 			// This is good !
+			assertTrue("test succeeded", true);
 		}
 	}
 

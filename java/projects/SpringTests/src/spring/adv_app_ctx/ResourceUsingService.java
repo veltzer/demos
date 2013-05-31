@@ -11,8 +11,8 @@ public class ResourceUsingService implements ResourceLoaderAware {
 	private ResourceLoader resourceLoader;
 
 	@Override
-	public void setResourceLoader(ResourceLoader resourceLoader) {
-		this.resourceLoader = resourceLoader;
+	public void setResourceLoader(ResourceLoader iresourceLoader) {
+		resourceLoader = iresourceLoader;
 	}
 
 	public void doSomething() {

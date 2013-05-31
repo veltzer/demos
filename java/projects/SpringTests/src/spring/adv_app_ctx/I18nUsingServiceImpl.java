@@ -11,8 +11,8 @@ public class I18nUsingServiceImpl implements MessageSourceAware,
 	private Locale locale = Locale.getDefault();
 
 	@Override
-	public void setMessageSource(MessageSource messageSource) {
-		this.messageSource = messageSource;
+	public void setMessageSource(MessageSource imessageSource) {
+		messageSource = imessageSource;
 	}
 
 	/*
@@ -25,7 +25,7 @@ public class I18nUsingServiceImpl implements MessageSourceAware,
 		}, locale));
 	}
 
-	public void setLocale(Locale locale) {
-		this.locale = locale;
+	public void setLocale(Locale ilocale) {
+		locale = ilocale;
 	}
 }

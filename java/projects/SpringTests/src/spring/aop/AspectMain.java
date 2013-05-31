@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import spring.MyBean;
 
-public class AspectMain {
+public abstract class AspectMain {
 
 	public static void main(String[] args) {
 		BeanFactory bf = new ClassPathXmlApplicationContext("beans.xml");

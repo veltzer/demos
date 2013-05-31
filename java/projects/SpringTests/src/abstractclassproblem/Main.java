@@ -1,11 +1,11 @@
-package abstract_class_problem;
+package abstractclassproblem;
 
 import java.io.PrintStream;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Main {
+public abstract class Main {
 
 	public static void main(String[] args) {
 		ApplicationContext bf = new ClassPathXmlApplicationContext("beans.xml");

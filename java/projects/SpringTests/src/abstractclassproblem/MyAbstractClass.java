@@ -1,4 +1,4 @@
-package abstract_class_problem;
+package abstractclassproblem;
 
 public abstract class MyAbstractClass {
 	public abstract void neverImplemented();
