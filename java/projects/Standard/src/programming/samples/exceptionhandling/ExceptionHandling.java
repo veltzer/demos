@@ -1,6 +1,6 @@
 package programming.samples.exceptionhandling;
 
-public class ExceptionHandling {
+public abstract class ExceptionHandling {
 
 	/**
 	 * @param args

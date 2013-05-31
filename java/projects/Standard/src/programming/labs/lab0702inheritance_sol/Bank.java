@@ -1,11 +1,11 @@
 package programming.labs.lab0702inheritance_sol;
 
-public class Bank {
+public final class Bank {
 	// this is the single instance that will store the bank
 	private static Bank bank = null;
 	// this is a constant for private use to limit the number
 	// of customers for this bank
-	private final int max_customers = 100;
+	private static final int MAX_CUSTOMERS = 100;
 	// this is the array which will be used to store the
 	// customers
 	private Customer[] customers;
@@ -16,7 +16,7 @@ public class Bank {
 	// private constructor - cannot be called
 	// from the outside
 	private Bank() {
-		customers = new Customer[max_customers];
+		customers = new Customer[MAX_CUSTOMERS];
 		// if there was no next line index would still be
 		// 0 (java guarantees this) but it looks much
 		// better this way
@@ -42,10 +42,10 @@ public class Bank {
 		customers[index++] = customer;
 	}
 
-	public Customer getCustomer(int index) {
+	public Customer getCustomer(int iindex) {
 		// no need for manual error handling here since
 		// we will get out of bounds exception
-		return customers[index];
+		return customers[iindex];
 	}
 
 	public int getNumOfCustomers() {

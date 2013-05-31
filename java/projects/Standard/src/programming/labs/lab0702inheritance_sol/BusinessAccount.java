@@ -1,7 +1,7 @@
 package programming.labs.lab0702inheritance_sol;
 
 public class BusinessAccount extends Account {
-	private final static double AMOUNT_PROTECTION = 10000;
+	private static final double AMOUNT_PROTECTION = 10000;
 
 	// override the parents constructor
 	// notice that if we do not add a constructor
@@ -26,7 +26,7 @@ public class BusinessAccount extends Account {
 	}
 
 	public String toString() {
-		return "Business account - id:" + id + " balance:" + balance
+		return "Business account - id:" + getId() + " balance:" + getBalance()
 				+ " protection:" + AMOUNT_PROTECTION + "\n";
 	}
 

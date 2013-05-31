@@ -1,19 +1,19 @@
 package programming.labs.lab0702inheritance_sol;
 
 public class Account {
-	protected String id;
-	protected double balance;
+	private String id;
+	private double balance;
 	private static int nextId = 1001;
-	private double COMMITION = 0.05;
+	private static final double COMMITION = 0.05;
 
 	public Account() {
 		this(0);
 	}
 
-	public Account(double balance) {
+	public Account(double ibalance) {
 		super();
 		id = "" + nextId++;
-		setBalance(balance);
+		setBalance(ibalance);
 	}
 
 	public double getBalance() {
@@ -24,8 +24,8 @@ public class Account {
 		return id;
 	}
 
-	protected void setBalance(double balance) {
-		this.balance = balance;
+	protected void setBalance(double ibalance) {
+		balance = ibalance;
 	}
 
 	public void deposit(double amount) {

@@ -1,6 +1,6 @@
 package programming.labs.lab0502java_class_definition_sol;
 
-public class Bank {
+public final class Bank {
 	private static Bank bank;
 	private Customer[] customers;
 	private int index;
@@ -24,10 +24,12 @@ public class Bank {
 		}
 	}
 
-	public Customer getCustomer(int index) {
-		if (index < this.index)
-			return customers[index];
-		return null;
+	public Customer getCustomer(int iindex) {
+		if (iindex < index) {
+			return customers[iindex];
+		} else {
+			return null;
+		}
 	}
 
 	public int getNumOfCustomers() {
