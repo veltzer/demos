@@ -33,6 +33,7 @@ public class OppositePanel2 extends JComponent {
 
 		panelsAdded = true;
 	}
+
 	static final String ERR_STRING1 = "Cannot hold more than two components in OppositePanel2";
 
 	@Override

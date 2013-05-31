@@ -62,13 +62,11 @@ public final class OptimizationTest {
 		System.out.println("time for local size: " + (endtime - startTime));
 
 		/*
-		startTime = System.currentTimeMillis();
-		for (@SuppressWarnings("unused")
-		int i : l) {
-		}
-		endtime = System.currentTimeMillis();
-		System.out.println("time for local size: " + (endtime - startTime));
-		*/
+		 * startTime = System.currentTimeMillis(); for
+		 * (@SuppressWarnings("unused") int i : l) { } endtime =
+		 * System.currentTimeMillis();
+		 * System.out.println("time for local size: " + (endtime - startTime));
+		 */
 	}
 
 	private void f() {

@@ -54,6 +54,7 @@ public class Test {
 	}
 
 	private static final String ERR_STRING1 = "bad selection";
+
 	/**
 	 * @param args
 	 */

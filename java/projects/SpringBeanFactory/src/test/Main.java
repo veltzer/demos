@@ -13,6 +13,7 @@ import sorter.Sorter;
 public class Main {
 
 	static final String ERR_STRING1 = "Oops, sorter is bad";
+
 	/**
 	 * @param args
 	 */

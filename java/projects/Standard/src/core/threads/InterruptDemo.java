@@ -30,7 +30,7 @@ public abstract class InterruptDemo {
 				System.out.println("result is " + result);
 			} catch (InterruptedException e) {
 				System.out.println("T1 ending");
-				//throw new RuntimeException(e);
+				// throw new RuntimeException(e);
 			}
 		}
 
@@ -47,7 +47,7 @@ public abstract class InterruptDemo {
 				}
 			} catch (InterruptedException e) {
 				System.out.println("T2 ending");
-				//throw new RuntimeException(e);
+				// throw new RuntimeException(e);
 			}
 		}
 	}

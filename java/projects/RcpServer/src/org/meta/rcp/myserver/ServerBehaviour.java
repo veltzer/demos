@@ -37,8 +37,8 @@ public class ServerBehaviour extends ServerBehaviourDelegate {
 
 	private IProcess process;
 
-	private final static String ERR_STRING1="cannot stop stopped";
-	private final static String ERR_STRING2="cannot stop process";
+	private final static String ERR_STRING1 = "cannot stop stopped";
+	private final static String ERR_STRING2 = "cannot stop process";
 
 	@Override
 	public void stop(boolean force) {

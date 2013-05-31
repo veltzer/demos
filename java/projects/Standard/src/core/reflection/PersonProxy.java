@@ -16,8 +16,11 @@ public abstract class PersonProxy {
 
 	public interface IPerson {
 		void setName(String name);
+
 		String getName();
+
 		void setAge(int age);
+
 		int getAge();
 	}
 

@@ -54,6 +54,7 @@ public class Copy {
 	}
 
 	private static final String ERR_STRING1 = "Copy operation seems to have failed";
+
 	public static void main(String[] args) {
 		// notice the use of relative file names
 		// using absolute file names is from the devil

@@ -19,6 +19,7 @@ public class OppositePanel3 extends JComponent {
 		setLayout(new BorderLayout());
 
 	}
+
 	static final String ERR_STRING1 = "Cannot hold more than two components in OppositePanel2";
 
 	@Override

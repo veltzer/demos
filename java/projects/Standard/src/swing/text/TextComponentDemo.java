@@ -354,7 +354,7 @@ public class TextComponentDemo extends JFrame {
 			try {
 				undo.undo();
 			} catch (CannotUndoException e) {
-				//System.out.println("Unable to undo: " + ex);
+				// System.out.println("Unable to undo: " + ex);
 				throw new RuntimeException(e);
 			}
 			updateUndoState();
@@ -382,7 +382,7 @@ public class TextComponentDemo extends JFrame {
 			try {
 				undo.redo();
 			} catch (CannotRedoException e) {
-				//System.out.println("Unable to redo: " + ex);
+				// System.out.println("Unable to redo: " + ex);
 				throw new RuntimeException(e);
 			}
 			updateRedoState();
