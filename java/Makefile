@@ -86,6 +86,10 @@ checkstyle:
 format_eclipse:
 	$(Q)~/install/eclipse-jee/eclipse -nosplash -application org.eclipse.jdt.core.JavaCodeFormatter -verbose -config support/org.eclipse.jdt.core.prefs `find . -type d -and -name src`
 
+.PHONY: build
+build:
+	$(Q)~/install/eclipse-jee/eclipse -noSplash -data ~/workspace-jee -application org.eclipse.jdt.apt.core.aptBuild
+
 .PHONY: debug
 debug:
 	$(info JAVA_SOURCES is $(JAVA_SOURCES))
