@@ -3,10 +3,13 @@ package core.optimization;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class OptimizationTest {
+public final class OptimizationTest {
 
 	static final int COUNT = 100000000;
 	static final int LIST_SIZE = 1000000;
+
+	private OptimizationTest() {
+	}
 
 	private void lowLevelTest() {
 		int x = 12345678;

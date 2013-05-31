@@ -9,14 +9,14 @@ import java.util.List;
  * Math.log(n) for each n in the original list.
  * @author Mark Veltzer <mark@veltzer.net>
  */
-public abstract class ProfileTest1 {
+public final class ProfileTest1 {
 	private List<Integer> numbers;
 
 	private static final int TEST_COUNT = 50000;
 
 	private static final int MAX_VALUE = 100;
 
-	public ProfileTest1() {
+	private ProfileTest1() {
 		numbers = new LinkedList<Integer>();
 	}
 

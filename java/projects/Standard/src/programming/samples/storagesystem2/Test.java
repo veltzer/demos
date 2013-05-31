@@ -75,7 +75,6 @@ public class Test {
 				break;
 			default:
 				throw new RuntimeException(ERR_STRING1);
-				break;
 			}
 			res = t.getNumber("What is your command? ");
 		}

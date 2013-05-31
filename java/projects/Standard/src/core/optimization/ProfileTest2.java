@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class ProfileTest2 {
+public final class ProfileTest2 {
 	private List<Integer> numbers;
 
 	private static final int TEST_COUNT = 50000;
@@ -29,7 +29,7 @@ public abstract class ProfileTest2 {
 		}
 	}
 
-	public ProfileTest2() {
+	private ProfileTest2() {
 		logCache = new LogCache();
 		numbers = new ArrayList<Integer>();
 	}

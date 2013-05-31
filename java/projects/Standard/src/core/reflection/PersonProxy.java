@@ -49,7 +49,7 @@ public abstract class PersonProxy {
 	 * sane values (always returns null).
 	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
-	private static class PrintingInvocationHandler implements InvocationHandler {
+	public static class PrintingInvocationHandler implements InvocationHandler {
 
 		public Object invoke(Object proxy, Method method, Object[] args) {
 			System.out.println("Object is " + proxy);
@@ -64,7 +64,7 @@ public abstract class PersonProxy {
 	 * nothing special besides that. It does print stuff to show that it is
 	 * working
 	 */
-	private static class RoutingInvocationHandler implements InvocationHandler {
+	public static class RoutingInvocationHandler implements InvocationHandler {
 		private Object obj;
 
 		public RoutingInvocationHandler(Object iobj) {
