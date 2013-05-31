@@ -41,8 +41,8 @@ public class SyntaxHighlightDemo extends JPanel {
 		JTextPane area = new JTextPane();
 		try {
 			area.setPage(getClass().getResource("/SyntaxHighlightDemo.java"));
-		} catch (IOException err) {
-			err.printStackTrace();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 		doc = area.getStyledDocument();
 		add(new JScrollPane(area));
@@ -99,8 +99,8 @@ public class SyntaxHighlightDemo extends JPanel {
 				doc.setCharacterAttributes(start, m.end() - start, stringAttr,
 						true);
 			}
-		} catch (BadLocationException err) {
-			err.printStackTrace();
+		} catch (BadLocationException e) {
+			throw new RuntimeException(e);
 		}
 	}
 

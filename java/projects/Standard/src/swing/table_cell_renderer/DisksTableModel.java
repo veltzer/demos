@@ -23,6 +23,8 @@ public class DisksTableModel extends AbstractTableModel {
 		return Disk.getDisks().size();
 	}
 
+	private static final String ERR_STRING1 = "bad column name";
+
 	public Object getValueAt(int row, int column) {
 		// name
 		if (column == 0) {
@@ -36,7 +38,7 @@ public class DisksTableModel extends AbstractTableModel {
 		if (column == 2) {
 			return Disk.getDisks().get(row).getUsed();
 		}
-		throw new RuntimeException();
+		throw new RuntimeException(ERR_STRING1);
 	}
 
 	public Class<?> getColumnClass(int columnIndex) {

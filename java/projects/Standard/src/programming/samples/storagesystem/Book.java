@@ -34,7 +34,7 @@ public class Book extends Item {
 			System.out.print("Enter author: ");
 			author = br.readLine();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
 	}

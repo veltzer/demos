@@ -350,12 +350,12 @@ public class TextComponentDemo extends JFrame {
 			setEnabled(false);
 		}
 
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent event) {
 			try {
 				undo.undo();
-			} catch (CannotUndoException ex) {
-				System.out.println("Unable to undo: " + ex);
-				ex.printStackTrace();
+			} catch (CannotUndoException e) {
+				//System.out.println("Unable to undo: " + ex);
+				throw new RuntimeException(e);
 			}
 			updateUndoState();
 			redoAction.updateRedoState();
@@ -378,12 +378,12 @@ public class TextComponentDemo extends JFrame {
 			setEnabled(false);
 		}
 
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent ev) {
 			try {
 				undo.redo();
-			} catch (CannotRedoException ex) {
-				System.out.println("Unable to redo: " + ex);
-				ex.printStackTrace();
+			} catch (CannotRedoException e) {
+				//System.out.println("Unable to redo: " + ex);
+				throw new RuntimeException(e);
 			}
 			updateRedoState();
 			undoAction.updateUndoState();

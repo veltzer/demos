@@ -32,7 +32,7 @@ public final class PriorityTest {
 
 				/*
 				 * try { Thread.sleep(1); } catch (InterruptedException e) {
-				 * e.printStackTrace(); }
+				 * throw new RuntimeException(e); }
 				 */
 			}
 		}
@@ -58,7 +58,7 @@ public final class PriorityTest {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 			t1.printNumOperations();
 			t2.printNumOperations();

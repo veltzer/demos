@@ -140,9 +140,11 @@ public class PersonProxy {
 			this.obj = obj;
 		}
 
+		private static final String ERR_STRING1 = "Cannot call set";
+
 		public Object invoke(Object proxy, Method method, Object[] args) {
 			if (method.getName().startsWith("set")) {
-				throw new RuntimeException("Cannot call set");
+				throw new RuntimeException(ERR_STRING1);
 			}
 			try {
 				return method.invoke(obj, args);

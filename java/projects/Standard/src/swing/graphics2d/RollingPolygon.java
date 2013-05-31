@@ -62,7 +62,7 @@ public class RollingPolygon extends JPanel {
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 		}

@@ -12,6 +12,7 @@ import sorter.Sorter;
 
 public class Main {
 
+	static final String ERR_STRING1 = "Oops, sorter is bad";
 	/**
 	 * @param args
 	 */
@@ -30,7 +31,7 @@ public class Main {
 			double currentPrice = item.getPrice();
 			if (previous > currentPrice) {
 				((AbstractApplicationContext) bf).close();
-				throw new RuntimeException("Oops, sorter is bad");
+				throw new RuntimeException(ERR_STRING1);
 			}
 			sum += item.getPrice();
 		}

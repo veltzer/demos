@@ -74,7 +74,7 @@ public class TimerDemo extends JPanel {
 							try {
 								Thread.sleep(3000);
 							} catch (InterruptedException e) {
-								e.printStackTrace();
+								throw new RuntimeException(e);
 							}
 							return null;
 						}

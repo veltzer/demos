@@ -726,8 +726,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 					listInvalid.add(entry.copy());
 				}
 			}
-		} catch (CloneNotSupportedException error) {
-			throw new RuntimeException("Unexpected CloneNotSupportedException");
+		} catch (CloneNotSupportedException e) {
+			throw new RuntimeException(e);
 		}
 
 		return listInvalid;
@@ -768,8 +768,8 @@ public class TableLayout implements java.awt.LayoutManager2,
 					}
 				}
 			}
-		} catch (CloneNotSupportedException error) {
-			throw new RuntimeException("Unexpected CloneNotSupportedException");
+		} catch (CloneNotSupportedException e) {
+			throw new RuntimeException(e);
 		}
 
 		return listOverlapping;

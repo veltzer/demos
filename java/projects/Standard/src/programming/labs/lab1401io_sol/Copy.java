@@ -53,6 +53,7 @@ public class Copy {
 		}
 	}
 
+	private static final String ERR_STRING1 = "Copy operation seems to have failed";
 	public static void main(String[] args) {
 		// notice the use of relative file names
 		// using absolute file names is from the devil
@@ -71,7 +72,7 @@ public class Copy {
 		// Make sure that the copy file exists and throw
 		// an exception if it does not
 		if (!f.exists()) {
-			throw new RuntimeException("Copy operation seems to have failed");
+			throw new RuntimeException(ERR_STRING1);
 		}
 	}
 }

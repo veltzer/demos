@@ -17,7 +17,7 @@ public class JDBC_Test {
 			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Cannot find the Driver!");
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -27,7 +27,7 @@ public class JDBC_Test {
 					.getConnection("jdbc:odbc:ExampleDataSource");
 			statement = connection.createStatement();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -41,7 +41,7 @@ public class JDBC_Test {
 			result = statement.executeQuery("SELECT * FROM chat WHERE ID>2000");
 		} catch (Exception e) {
 			System.out.println("Cannot make an sql statement");
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -66,7 +66,7 @@ public class JDBC_Test {
 			connection.close();
 		} catch (Exception e) {
 			System.out.println("Cannot close the resources");
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

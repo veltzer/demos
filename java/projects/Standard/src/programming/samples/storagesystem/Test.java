@@ -29,8 +29,7 @@ public class Test {
 			String input = br.readLine();
 			return Integer.parseInt(input);
 		} catch (IOException e) {
-			e.printStackTrace();
-			return 0;
+			throw new RuntimeException(e);
 		}
 	}
 

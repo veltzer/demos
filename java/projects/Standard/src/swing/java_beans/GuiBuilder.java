@@ -97,7 +97,7 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 						setIcon(new ImageIcon(img));
 					}
 				} catch (Exception e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 				return cmp;
 			}
@@ -203,11 +203,11 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				oldEditComponent.removeMouseListener(positioner);
 			}
 
-			XMLEncoder e = new XMLEncoder(new BufferedOutputStream(
+			XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(
 					new FileOutputStream(DATA_FILE)));
-			e.setExceptionListener(this);
-			e.writeObject(content);
-			e.close();
+			enc.setExceptionListener(this);
+			enc.writeObject(content);
+			enc.close();
 
 			if (oldEditComponent != null) {
 				oldEditComponent.setBorder(BorderFactory.createLineBorder(
@@ -215,8 +215,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				oldEditComponent.addMouseMotionListener(positioner);
 				oldEditComponent.addMouseListener(positioner);
 			}
-		} catch (IOException ioErr) {
-			ioErr.printStackTrace();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -246,8 +246,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		treeDialog.setVisible(true);
 	}
 
-	public void exceptionThrown(Exception exception) {
-		exception.printStackTrace();
+	public void exceptionThrown(Exception e) {
+		throw new RuntimeException(e);
 	}
 
 	class SelectBeanAction extends AbstractAction {
@@ -263,8 +263,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				if (img != null) {
 					putValue(SMALL_ICON, new ImageIcon(img));
 				}
-			} catch (IntrospectionException err) {
-				err.printStackTrace();
+			} catch (IntrospectionException e) {
+				throw new RuntimeException(e);
 			}
 		}
 
@@ -287,8 +287,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				parent.add(cmp);
 				treeModel.fireTreeStructureChanged();
 				store();
-			} catch (Exception err) {
-				err.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -383,8 +383,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				info = Introspector.getBeanInfo(current.getClass());
 				descriptors = info.getPropertyDescriptors();
 				fireTableDataChanged();
-			} catch (Exception err) {
-				err.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 
@@ -413,8 +413,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				if (m != null) {
 					return (m.invoke(current, (Object[]) null));
 				}
-			} catch (Exception err) {
-				err.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 			return null;
 		}
@@ -436,8 +436,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 							descriptors[rowIndex].getName(), aValue);
 				}
 				store();
-			} catch (Exception err) {
-				err.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}

@@ -108,6 +108,8 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 	// ** java.awt.event.LayoutManager methods ***
 	// ******************************************************************************
 
+	private static final String ERR_STRING1 = "bad justification";
+
 	/**
 	 * To lay out the specified container using this layout. This method
 	 * repositions the components in the specified target container. <p> User
@@ -156,7 +158,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 					x = size.width - d.width - inset.right;
 					break;
 				default:
-					throw new RuntimeException("shouldnt be here");
+					throw new RuntimeException(ERR_STRING1);
 				}
 
 				// Set size and location
@@ -192,7 +194,7 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 					y = size.height - d.height - inset.bottom;
 					break;
 				default:
-					throw new RuntimeException("shouldnt be here");
+					throw new RuntimeException(ERR_STRING1);
 				}
 
 				// Set size and location

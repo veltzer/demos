@@ -28,7 +28,7 @@ public class MessagesProvider {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 				// Let everyone know!
 				notifyListeners("Message #" + counter);
@@ -105,7 +105,7 @@ public class MessagesProvider {
 				try {
 					Thread.sleep(10);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 			// Please can you run the GC?

@@ -11,8 +11,8 @@ class MyException extends Exception {
 
 // the next definition means that function 'met' ** may ** throw the exception
 // 'MyException'. It ** may ** also throw others as well.
-def met() throws MyException { 
-	throw new RuntimeException("fubar")
+def met() throws MyException {
+	throw new RuntimeException('fubar')
 }
 try {
 	met()
@@ -21,7 +21,7 @@ try {
 }
 
 def met2() throws MyException,RuntimeException { 
-	throw new RuntimeException("fubar")
+	throw new RuntimeException('fubar')
 }
 try {
 	met2()

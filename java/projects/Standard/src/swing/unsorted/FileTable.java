@@ -46,21 +46,21 @@ public abstract class FileTable {
 		});
 		final JComboBox<String> combo = new JComboBox<String>();
 		combo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent ev) {
 				try {
 					UIManager.setLookAndFeel(((LookAndFeelInfo) combo
 							.getSelectedItem()).getClassName());
 					UIManager.getLookAndFeel().getDefaults()
 							.put("button.border", Color.red);
 					SwingUtilities.updateComponentTreeUI(frm);
-				} catch (ClassNotFoundException e1) {
-					throw new RuntimeException(e1);
-				} catch (InstantiationException e1) {
-					throw new RuntimeException(e1);
-				} catch (IllegalAccessException e1) {
-					throw new RuntimeException(e1);
-				} catch (UnsupportedLookAndFeelException e1) {
-					throw new RuntimeException(e1);
+				} catch (ClassNotFoundException e) {
+					throw new RuntimeException(e);
+				} catch (InstantiationException e) {
+					throw new RuntimeException(e);
+				} catch (IllegalAccessException e) {
+					throw new RuntimeException(e);
+				} catch (UnsupportedLookAndFeelException e) {
+					throw new RuntimeException(e);
 				}
 
 			}

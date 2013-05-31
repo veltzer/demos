@@ -174,7 +174,7 @@ public class ByteBufferWrapper implements Externalizable {
 			testCustomWrite();
 			testCustomRead();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println("Done");
 	}

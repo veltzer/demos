@@ -16,7 +16,7 @@ public class Test {
 		try {
 			whatisthis.join();
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		whatisthis.run();
 

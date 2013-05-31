@@ -10,6 +10,8 @@ import java.util.StringTokenizer;
 
 public class TableLayoutConstraints {
 
+	private static final String ERR_STRING1 = "bad data";
+
 	/** Cell in which the upper left corner of the component lays */
 	private int col1, row1;
 
@@ -64,7 +66,7 @@ public class TableLayoutConstraints {
 		try {
 			// Check constraints
 			if ((numToken != 2) && (numToken != 4) && (numToken != 6)) {
-				throw new RuntimeException();
+				throw new RuntimeException(ERR_STRING1);
 			}
 
 			// Get the first column (assume component is in only one column)
@@ -114,7 +116,7 @@ public class TableLayoutConstraints {
 					|| (tokenA.equalsIgnoreCase("TRAILING"))) {
 				sethAlign(TableLayoutConstants.TRAILING);
 			} else {
-				throw new RuntimeException();
+				throw new RuntimeException(ERR_STRING1);
 			}
 
 			// Check if token means horizontally justification the component
@@ -131,11 +133,11 @@ public class TableLayoutConstraints {
 					|| (tokenB.equalsIgnoreCase("BOTTOM"))) {
 				setvAlign(TableLayoutConstants.BOTTOM);
 			} else {
-				throw new RuntimeException();
+				throw new RuntimeException(ERR_STRING1);
 			}
 		} catch (NoSuchElementException e) {
 			throw new RuntimeException(e);
-		} catch (RuntimeException error) {
+		} catch (RuntimeException e) {
 			throw new IllegalArgumentException(
 					"Expected constraints in one of the following formats:\n"
 							+ " col1, row1\n col1, row1, col2, row2\n"

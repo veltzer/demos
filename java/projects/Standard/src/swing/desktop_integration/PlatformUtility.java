@@ -219,9 +219,8 @@ public final class PlatformUtility {
 					f
 				});
 			}
-		} catch (Exception err) {
-			err.printStackTrace();
-			return;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 }

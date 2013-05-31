@@ -72,7 +72,7 @@ public class SoftPool {
 			System.out.println("There are " + pool.getAvailableSize()
 					+ " out of " + pool.getSize() + " objects available");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

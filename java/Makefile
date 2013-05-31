@@ -64,8 +64,18 @@ check_version:
 	$(info doing [$@])
 	$(Q)scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
 
+.PHONY: check_printstacktrace
+check_printstacktrace:
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l "printStackTrace()" -- "*.java"
+
+.PHONY: check_exceptionnames
+check_exceptionnames:
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "ERR_STRING" -- "*.java"
+
 .PHONY: check_all
-check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version
+check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames
 
 .PHONY: checkstyle
 checkstyle:

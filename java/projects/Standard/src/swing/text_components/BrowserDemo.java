@@ -27,25 +27,25 @@ public class BrowserDemo extends JPanel {
 			public void actionPerformed(ActionEvent ev) {
 				try {
 					pane.setPage(address.getText());
-				} catch (Throwable t) {
-					t.printStackTrace();
+				} catch (Throwable e) {
+					throw new RuntimeException(e);
 				}
 			}
 		});
 		pane.setEditable(false);
 		pane.addHyperlinkListener(new HyperlinkListener() {
-			public void hyperlinkUpdate(HyperlinkEvent e) {
-				if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
-					JEditorPane ipane = (JEditorPane) e.getSource();
-					if (e instanceof HTMLFrameHyperlinkEvent) {
-						HTMLFrameHyperlinkEvent evt = (HTMLFrameHyperlinkEvent) e;
+			public void hyperlinkUpdate(HyperlinkEvent ev) {
+				if (ev.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+					JEditorPane ipane = (JEditorPane) ev.getSource();
+					if (ev instanceof HTMLFrameHyperlinkEvent) {
+						HTMLFrameHyperlinkEvent evt = (HTMLFrameHyperlinkEvent) ev;
 						HTMLDocument doc = (HTMLDocument) pane.getDocument();
 						doc.processHTMLFrameHyperlinkEvent(evt);
 					} else {
 						try {
-							ipane.setPage(e.getURL());
-						} catch (Throwable t) {
-							t.printStackTrace();
+							ipane.setPage(ev.getURL());
+						} catch (Throwable e) {
+							throw new RuntimeException(e);
 						}
 					}
 				}

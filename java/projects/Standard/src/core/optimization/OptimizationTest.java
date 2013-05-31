@@ -11,24 +11,20 @@ public class OptimizationTest {
 		int x = 12345678;
 		@SuppressWarnings("unused")
 		int y, z, y1, z1;
-		{
-			long startTime = System.currentTimeMillis();
-			for (int i = 0; i < COUNT; ++i) {
-				y = x / 4;
-				z = x * 2;
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("time for /, *: " + (endtime - startTime));
+		long startTime = System.currentTimeMillis();
+		for (int i = 0; i < COUNT; ++i) {
+			y = x / 4;
+			z = x * 2;
 		}
-		{
-			long startTime = System.currentTimeMillis();
-			for (int i = 0; i < COUNT; ++i) {
-				y = x >> 2;
-				z = x << 1;
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("time for << >>: " + (endtime - startTime));
+		long endtime = System.currentTimeMillis();
+		System.out.println("time for /, *: " + (endtime - startTime));
+		startTime = System.currentTimeMillis();
+		for (int i = 0; i < COUNT; ++i) {
+			y = x >> 2;
+			z = x << 1;
 		}
+		endtime = System.currentTimeMillis();
+		System.out.println("time for << >>: " + (endtime - startTime));
 		// {
 		// long startTime = System.currentTimeMillis();
 		// for (int i = 0; i < COUNT; i += 4)
@@ -44,33 +40,30 @@ public class OptimizationTest {
 		// }
 		final int LIST_SIZE = 1000000;
 		List<Integer> l = new ArrayList<Integer>(LIST_SIZE);
-		for (int i = 0; i < LIST_SIZE; ++i)
+		for (int i = 0; i < LIST_SIZE; ++i) {
 			l.add(i);
-		{
-			long startTime = System.currentTimeMillis();
-			for (int i = 0; i < l.size(); ++i) {
-				l.get(i);
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("time for l.size(): " + (endtime - startTime));
 		}
-		{
-			long startTime = System.currentTimeMillis();
-			int size = l.size();
-			for (int i = 0; i < size; ++i) {
-				l.get(i);
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("time for local size: " + (endtime - startTime));
+		startTime = System.currentTimeMillis();
+		for (int i = 0; i < l.size(); ++i) {
+			l.get(i);
 		}
-		{
-			long startTime = System.currentTimeMillis();
-			for (@SuppressWarnings("unused")
-			int i : l) {
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("time for local size: " + (endtime - startTime));
+		endtime = System.currentTimeMillis();
+		System.out.println("time for l.size(): " + (endtime - startTime));
+
+		startTime = System.currentTimeMillis();
+		int size = l.size();
+		for (int i = 0; i < size; ++i) {
+			l.get(i);
 		}
+		endtime = System.currentTimeMillis();
+		System.out.println("time for local size: " + (endtime - startTime));
+
+		startTime = System.currentTimeMillis();
+		for (@SuppressWarnings("unused")
+		int i : l) {
+		}
+		endtime = System.currentTimeMillis();
+		System.out.println("time for local size: " + (endtime - startTime));
 	}
 
 	private void f() {
@@ -85,24 +78,20 @@ public class OptimizationTest {
 
 	private void synchroTest() {
 		final int COUNT = 100000000;
-		{
-			long startTime = System.currentTimeMillis();
-			for (int i = 0; i < COUNT; ++i) {
-				f();
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("time for non-synchronized f(): "
-					+ (endtime - startTime));
+		long startTime = System.currentTimeMillis();
+		for (int i = 0; i < COUNT; ++i) {
+			f();
 		}
-		{
-			long startTime = System.currentTimeMillis();
-			for (int i = 0; i < COUNT; ++i) {
-				g();
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("time for synchronized g(): "
-					+ (endtime - startTime));
+		long endtime = System.currentTimeMillis();
+		System.out.println("time for non-synchronized f(): "
+				+ (endtime - startTime));
+		startTime = System.currentTimeMillis();
+		for (int i = 0; i < COUNT; ++i) {
+			g();
 		}
+		endtime = System.currentTimeMillis();
+		System.out.println("time for synchronized g(): "
+				+ (endtime - startTime));
 	}
 
 	/**
@@ -120,9 +109,8 @@ public class OptimizationTest {
 				test.lowLevelTest();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println("done");
-		;
 	}
 }

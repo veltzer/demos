@@ -67,7 +67,7 @@ final class ProfileTest3 {
 			ProfileTest3 test = new ProfileTest3();
 			test.test();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println("done");
 	}

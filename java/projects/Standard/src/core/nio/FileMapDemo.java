@@ -23,7 +23,7 @@ public class FileMapDemo {
 			c.close();
 			f.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println("Done");
 	}

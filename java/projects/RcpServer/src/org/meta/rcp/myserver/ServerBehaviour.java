@@ -37,17 +37,20 @@ public class ServerBehaviour extends ServerBehaviourDelegate {
 
 	private IProcess process;
 
+	private final static String ERR_STRING1="cannot stop stopped";
+	private final static String ERR_STRING2="cannot stop process";
+
 	@Override
 	public void stop(boolean force) {
 		trace("stop");
 		if (getServer().getServerState() == IServer.STATE_STOPPED) {
-			throw new RuntimeException("cannot stop stopped");
+			throw new RuntimeException(ERR_STRING1);
 		}
 		setServerState(IServer.STATE_STOPPING);
 		try {
 			process.terminate();
 		} catch (DebugException e) {
-			throw new RuntimeException("cannot stop process");
+			throw new RuntimeException(ERR_STRING2);
 		}
 		setServerState(IServer.STATE_STOPPED);
 	}

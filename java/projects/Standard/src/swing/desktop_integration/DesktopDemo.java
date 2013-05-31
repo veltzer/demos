@@ -43,8 +43,8 @@ public class DesktopDemo extends JPanel {
 		public void actionPerformed(ActionEvent ev) {
 			try {
 				perform();
-			} catch (Exception err) {
-				err.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}

@@ -40,8 +40,8 @@ public class BankImpl extends UnicastRemoteObject implements Bank {
 		try {
 			BankImpl bank = new BankImpl();
 			Naming.bind("myBank", bank);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 }

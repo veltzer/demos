@@ -14,7 +14,7 @@ public class OneWayAspect {
 				try {
 					pjp.proceed();
 				} catch (Throwable e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			};
 		});

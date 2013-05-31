@@ -43,11 +43,13 @@ public class Customer implements Serializable {
 		return accounts.get(index);
 	}
 
-	public void setAge(int age) {
-		if (age > 0 && age < 120)
-			this.age = age;
+	private static final String ERR_STRING1 = "bad age";
+
+	public void setAge(int iage) {
+		if (iage > 0 && iage < 120)
+			age = iage;
 		else {
-			throw new RuntimeException("bad age");
+			throw new RuntimeException(ERR_STRING1);
 		}
 	}
 

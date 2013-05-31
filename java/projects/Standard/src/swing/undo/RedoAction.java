@@ -20,12 +20,12 @@ final class RedoAction extends AbstractAction {
 		return INSTANCE;
 	}
 
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent ev) {
 		try {
 			UndoAction.getManager().redo();
-		} catch (CannotRedoException ex) {
-			System.out.println("Unable to redo: " + ex);
-			ex.printStackTrace();
+		} catch (CannotRedoException e) {
+			//System.out.println("Unable to redo: " + ex);
+			throw new RuntimeException(e);
 		}
 		update();
 		UndoAction.getInstance().update();

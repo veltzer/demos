@@ -70,8 +70,8 @@ public class AssociationDemo extends JPanel {
 					assoc.addAction(action);
 
 					svc.registerUserAssociation(assoc);
-				} catch (AssociationException err) {
-					err.printStackTrace();
+				} catch (AssociationException e) {
+					throw new RuntimeException(e);
 				}
 			}
 		});

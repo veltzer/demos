@@ -11,7 +11,7 @@ public class ExceptionHandling {
 		try {
 			r1 = sqrt(9);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println(r1);
 		double r2 = sqrt(-9);

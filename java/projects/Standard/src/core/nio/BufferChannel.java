@@ -26,7 +26,7 @@ public class BufferChannel {
 			channel.write(buff);
 			output.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println("Done");
 	}
