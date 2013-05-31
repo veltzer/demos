@@ -14,8 +14,8 @@ public class AddBookController extends SimpleFormController {
 		return dao;
 	}
 
-	public void setDao(BookStoreAdminDAO dao) {
-		this.dao = dao;
+	public void setDao(BookStoreAdminDAO idao) {
+		dao = idao;
 	}
 
 	public AddBookController() {

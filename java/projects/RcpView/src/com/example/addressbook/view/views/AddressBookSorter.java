@@ -9,11 +9,11 @@ public class AddressBookSorter extends ViewerSorter {
 	private boolean ascend;
 	private ITableLabelProvider labelProvider;
 
-	public AddressBookSorter(int mode, boolean ascend,
-			ITableLabelProvider labelProvider) {
-		this.mode = mode;
-		this.ascend = ascend;
-		this.labelProvider = labelProvider;
+	public AddressBookSorter(int imode, boolean iascend,
+			ITableLabelProvider ilabelProvider) {
+		mode = imode;
+		ascend = iascend;
+		labelProvider = ilabelProvider;
 	}
 
 	public int compare(Viewer viewer, Object obj1, Object obj2) {

@@ -119,7 +119,9 @@
 	     this is for 80 characters line length
         <module name="LineLength"/>
 	-->
+	<!--
         <module name="MethodLength"/>
+	-->
 	<!--
         <module name="ParameterNumber"/>
 	-->

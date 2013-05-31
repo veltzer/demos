@@ -7,9 +7,9 @@ public class Item implements Serializable {
 	private String name;
 	private double price;
 
-	public Item(String name, double price) {
-		this.name = name;
-		this.price = price;
+	public Item(String iname, double iprice) {
+		name = iname;
+		price = iprice;
 	}
 
 	public double getPrice() {

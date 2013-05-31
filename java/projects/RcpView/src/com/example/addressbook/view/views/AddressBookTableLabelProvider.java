@@ -26,6 +26,7 @@ public class AddressBookTableLabelProvider implements ITableLabelProvider {
 		return null;
 	}
 
+	private static final String ERR_STRING1 = "bad column";
 	public String getColumnText(Object o, int column) {
 		if (o instanceof Person) {
 			Person p = (Person) o;
@@ -34,6 +35,8 @@ public class AddressBookTableLabelProvider implements ITableLabelProvider {
 				return p.getLastName() + ", " + p.getFirstName();
 			case NUMBER_COLUMN:
 				return p.getNumber();
+			default:
+				throw new RuntimeException(ERR_STRING1);
 			}
 		}
 		if (o instanceof Company) {
@@ -43,6 +46,8 @@ public class AddressBookTableLabelProvider implements ITableLabelProvider {
 				return c.getName();
 			case NUMBER_COLUMN:
 				return c.getNumber();
+			default:
+				throw new RuntimeException(ERR_STRING1);
 			}
 		}
 

@@ -29,16 +29,17 @@ public class ServerBehaviour extends ServerBehaviourDelegate {
 		while (iterator.hasNext()) {
 			IModule[] module = (IModule[]) iterator.next();
 			IModuleResourceDelta[] delta = getPublishedResourceDelta(module);
-			if (delta == null || delta.length == 0)
+			if (delta == null || delta.length == 0) {
 				continue;
+			}
 			trace("in here");
 		}
 	}
 
 	private IProcess process;
 
-	private final static String ERR_STRING1 = "cannot stop stopped";
-	private final static String ERR_STRING2 = "cannot stop process";
+	private static final String ERR_STRING1 = "cannot stop stopped";
+	private static final String ERR_STRING2 = "cannot stop process";
 
 	@Override
 	public void stop(boolean force) {

@@ -16,8 +16,8 @@ public class ShowBooksController implements Controller {
 		return dao;
 	}
 
-	public void setDao(BookStoreAdminDAO dao) {
-		this.dao = dao;
+	public void setDao(BookStoreAdminDAO idao) {
+		dao = idao;
 	}
 
 	public ModelAndView handleRequest(HttpServletRequest httpservletrequest,

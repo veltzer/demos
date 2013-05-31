@@ -34,15 +34,17 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 				ServerBehaviourDelegate.class, null);
 		dlg.setServerStatePub(IServer.STATE_STARTING);
 
-		if (server.shouldPublish() && ServerCore.isAutoPublishing())
+		if (server.shouldPublish() && ServerCore.isAutoPublishing()) {
 			server.publish(IServer.PUBLISH_INCREMENTAL, monitor);
+		}
 
 		String mainTypeName = "myclass";
 
 		IVMInstall vm = verifyVMInstall(configuration);
 		IVMRunner runner = vm.getVMRunner(mode);
-		if (runner == null)
+		if (runner == null) {
 			runner = vm.getVMRunner(ILaunchManager.RUN_MODE);
+		}
 
 		// Program & VM args
 		String pgmArgs = getProgramArguments(configuration);
@@ -63,8 +65,9 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 		// Create VM config
 		File workingDir = verifyWorkingDirectory(configuration);
 		String workingDirName = null;
-		if (workingDir != null)
+		if (workingDir != null) {
 			workingDirName = workingDir.getAbsolutePath();
+		}
 
 		VMRunnerConfiguration runConfig = new VMRunnerConfiguration(
 				mainTypeName, classpath);

@@ -10,8 +10,8 @@ import com.example.addressbook.view.views.model.Person;
 public class AddressBookCellModifier implements ICellModifier {
 	private TableViewer viewer;
 
-	public AddressBookCellModifier(TableViewer viewer) {
-		this.viewer = viewer;
+	public AddressBookCellModifier(TableViewer iviewer) {
+		viewer = iviewer;
 	}
 
 	public boolean canModify(Object element, String property) {

@@ -69,16 +69,16 @@ public class SampleView extends ViewPart {
 		private String name;
 		private TreeParent parent;
 
-		public TreeObject(String name) {
-			this.name = name;
+		public TreeObject(String iname) {
+			name = iname;
 		}
 
 		public String getName() {
 			return name;
 		}
 
-		public void setParent(TreeParent parent) {
-			this.parent = parent;
+		public void setParent(TreeParent iparent) {
+			parent = iparent;
 		}
 
 		public TreeParent getParent() {
@@ -135,8 +135,9 @@ public class SampleView extends ViewPart {
 
 		public Object[] getElements(Object parent) {
 			if (parent.equals(getViewSite())) {
-				if (invisibleRoot == null)
+				if (invisibleRoot == null) {
 					initialize();
+				}
 				return getChildren(invisibleRoot);
 			}
 			return getChildren(parent);
@@ -157,8 +158,9 @@ public class SampleView extends ViewPart {
 		}
 
 		public boolean hasChildren(Object parent) {
-			if (parent instanceof TreeParent)
+			if (parent instanceof TreeParent) {
 				return ((TreeParent) parent).hasChildren();
+			}
 			return false;
 		}
 
@@ -196,8 +198,9 @@ public class SampleView extends ViewPart {
 
 		public Image getImage(Object obj) {
 			String imageKey = ISharedImages.IMG_OBJ_ELEMENT;
-			if (obj instanceof TreeParent)
+			if (obj instanceof TreeParent) {
 				imageKey = ISharedImages.IMG_OBJ_FOLDER;
+			}
 			return PlatformUI.getWorkbench().getSharedImages()
 					.getImage(imageKey);
 		}

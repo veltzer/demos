@@ -5,10 +5,10 @@ public class Person {
 	private String lastName;
 	private String number;
 
-	public Person(String firstName, String lastName, String number) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.number = number;
+	public Person(String ifirstName, String ilastName, String inumber) {
+		firstName = ifirstName;
+		lastName = ilastName;
+		number = inumber;
 	}
 
 	public String toString() {
@@ -19,23 +19,23 @@ public class Person {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String ifirstName) {
+		firstName = ifirstName;
 	}
 
 	public String getLastName() {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastName(String ilastName) {
+		lastName = ilastName;
 	}
 
 	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setNumber(String inumber) {
+		number = inumber;
 	}
 }
