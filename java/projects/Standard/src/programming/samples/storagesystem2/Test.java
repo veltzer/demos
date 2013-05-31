@@ -53,6 +53,7 @@ public class Test {
 		}
 	}
 
+	private static final String ERR_STRING1 = "bad selection";
 	/**
 	 * @param args
 	 */
@@ -71,6 +72,9 @@ public class Test {
 				break;
 			case 3:
 				t.doPrintInventory();
+				break;
+			default:
+				throw new RuntimeException(ERR_STRING1);
 				break;
 			}
 			res = t.getNumber("What is your command? ");

@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class SentenceClient {
+public abstract class SentenceClient {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Connecting to server...");
 		Socket socket = new Socket("localhost", 9999);

@@ -2,7 +2,7 @@ package core.instrument.agent;
 
 import java.lang.instrument.Instrumentation;
 
-public class SimplePremain {
+public abstract class SimplePremain {
 	/**
 	 * @param args
 	 */

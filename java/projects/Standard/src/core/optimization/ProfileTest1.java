@@ -9,7 +9,7 @@ import java.util.List;
  * Math.log(n) for each n in the original list.
  * @author Mark Veltzer <mark@veltzer.net>
  */
-public class ProfileTest1 {
+public abstract class ProfileTest1 {
 	private List<Integer> numbers;
 
 	private static final int TEST_COUNT = 50000;

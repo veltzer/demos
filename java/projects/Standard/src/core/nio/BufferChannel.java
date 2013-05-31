@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class BufferChannel {
+public abstract class BufferChannel {
 	/**
 	 * @param args
 	 */
@@ -12,8 +12,9 @@ public class BufferChannel {
 		System.out.println("Starting...");
 		try {
 			ByteBuffer buff = ByteBuffer.allocate(1024);
-			for (int i = 0; i < 26; ++i)
+			for (int i = 0; i < 26; ++i) {
 				buff.put((byte) ('a' + i));
+			}
 			System.out.println("pos is: " + buff.position());
 			buff.put((byte) ('a'));
 			System.out.println("pos is: " + buff.position());

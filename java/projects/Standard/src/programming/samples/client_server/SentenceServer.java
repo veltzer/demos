@@ -11,7 +11,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-public class SentenceServer {
+public abstract class SentenceServer {
 	public static void main(String[] args) throws Exception {
 		ServerSocket serverSocket = new ServerSocket(9999);
 		System.out.println("Server started up on " + InetAddress.getLocalHost()

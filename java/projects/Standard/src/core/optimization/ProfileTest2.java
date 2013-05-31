@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProfileTest2 {
+public abstract class ProfileTest2 {
 	private List<Integer> numbers;
 
 	private static final int TEST_COUNT = 50000;

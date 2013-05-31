@@ -7,7 +7,7 @@ import groovy.util.ScriptException;
 
 import java.io.IOException;
 
-public class GSEExample {
+public abstract class GSEExample {
 
 	/**
 	 * @param args

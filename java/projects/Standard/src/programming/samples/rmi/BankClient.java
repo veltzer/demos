@@ -2,7 +2,7 @@ package programming.samples.rmi;
 
 import java.rmi.Naming;
 
-public class BankClient {
+public abstract class BankClient {
 	public static void main(String[] args) {
 		try {
 			Bank bank = (Bank) Naming.lookup("rmi://localhost/myBank");

@@ -15,17 +15,17 @@ public class Factory {
 	private String name;
 
 	public class Worker {
-		String name;
-		int id;
+		private String name;
+		private int id;
 
 		/**
 		 * @param name
 		 * @param id
 		 */
-		public Worker(String name, int id) {
+		public Worker(String iname, int iid) {
 			super();
-			this.name = name;
-			this.id = id;
+			name = iname;
+			id = iid;
 			addWorker(this);
 		}
 
@@ -33,16 +33,16 @@ public class Factory {
 			return name;
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setName(String iname) {
+			name = iname;
 		}
 
 		public int getId() {
 			return id;
 		}
 
-		public void setId(int id) {
-			this.id = id;
+		public void setId(int iid) {
+			id = iid;
 		}
 
 		@Override

@@ -7,8 +7,8 @@ import java.io.IOException;
 
 import org.codehaus.groovy.control.CompilationFailedException;
 
-public class WithInterface {
-	public static void main(String args[]) {
+public abstract class WithInterface {
+	public static void main(String[] args) {
 		String fileName = "src/groovy/embed/GroovyImplementation.groovy";
 		GroovyClassLoader gcl = new GroovyClassLoader();
 		Class<?> clazz;

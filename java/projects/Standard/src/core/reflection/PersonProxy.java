@@ -12,19 +12,16 @@ import java.util.List;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
-public class PersonProxy {
+public abstract class PersonProxy {
 
-	static public interface IPerson {
-		public void setName(String name);
-
-		public String getName();
-
-		public void setAge(int age);
-
-		public int getAge();
+	public interface IPerson {
+		void setName(String name);
+		String getName();
+		void setAge(int age);
+		int getAge();
 	}
 
-	static public class Person implements IPerson {
+	private static class Person implements IPerson {
 		private String name;
 		private int age;
 
@@ -32,16 +29,16 @@ public class PersonProxy {
 			return age;
 		}
 
-		public void setAge(int age) {
-			this.age = age;
+		public void setAge(int iage) {
+			age = iage;
 		}
 
 		public String getName() {
 			return name;
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setName(String iname) {
+			name = iname;
 		}
 
 	}
@@ -52,7 +49,7 @@ public class PersonProxy {
 	 * sane values (always returns null).
 	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
-	static public class PrintingInvocationHandler implements InvocationHandler {
+	private static class PrintingInvocationHandler implements InvocationHandler {
 
 		public Object invoke(Object proxy, Method method, Object[] args) {
 			System.out.println("Object is " + proxy);
@@ -67,11 +64,11 @@ public class PersonProxy {
 	 * nothing special besides that. It does print stuff to show that it is
 	 * working
 	 */
-	static public class RoutingInvocationHandler implements InvocationHandler {
+	private static class RoutingInvocationHandler implements InvocationHandler {
 		private Object obj;
 
-		public RoutingInvocationHandler(Object obj) {
-			this.obj = obj;
+		public RoutingInvocationHandler(Object iobj) {
+			obj = iobj;
 		}
 
 		public Object invoke(Object proxy, Method method, Object[] args) {
@@ -92,12 +89,12 @@ public class PersonProxy {
 	 * object itself although that is an option too.
 	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
-	static public class SynchronizedInvocationHandler implements
+	private static class SynchronizedInvocationHandler implements
 			InvocationHandler {
 		private Object obj;
 
-		public SynchronizedInvocationHandler(Object obj) {
-			this.obj = obj;
+		public SynchronizedInvocationHandler(Object iobj) {
+			obj = iobj;
 		}
 
 		public Object invoke(Object proxy, Method method, Object[] args) {
@@ -118,7 +115,7 @@ public class PersonProxy {
 	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
 
-	static public Object syncIt(Object o) {
+	private static Object syncIt(Object o) {
 		Class<?>[] interfaces = {
 			o.getClass()
 		};
@@ -133,11 +130,11 @@ public class PersonProxy {
 	 * method names which start with "set" and allows all others.
 	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
-	static public class ReadOnlyInvocationHandler implements InvocationHandler {
+	public static class ReadOnlyInvocationHandler implements InvocationHandler {
 		private Object obj;
 
-		public ReadOnlyInvocationHandler(Object obj) {
-			this.obj = obj;
+		public ReadOnlyInvocationHandler(Object iobj) {
+			obj = iobj;
 		}
 
 		private static final String ERR_STRING1 = "Cannot call set";

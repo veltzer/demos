@@ -3,11 +3,12 @@ package core.optimization;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OptimizationTest {
-	public int xx = 12345678;
+public abstract class OptimizationTest {
+
+	static final int COUNT = 100000000;
+	static final int LIST_SIZE = 1000000;
 
 	private void lowLevelTest() {
-		final int COUNT = 100000000;
 		int x = 12345678;
 		@SuppressWarnings("unused")
 		int y, z, y1, z1;
@@ -38,7 +39,6 @@ public class OptimizationTest {
 		// System.out.println("time for << >> with +=2: "
 		// + (endtime - startTime));
 		// }
-		final int LIST_SIZE = 1000000;
 		List<Integer> l = new ArrayList<Integer>(LIST_SIZE);
 		for (int i = 0; i < LIST_SIZE; ++i) {
 			l.add(i);
@@ -58,12 +58,14 @@ public class OptimizationTest {
 		endtime = System.currentTimeMillis();
 		System.out.println("time for local size: " + (endtime - startTime));
 
+		/*
 		startTime = System.currentTimeMillis();
 		for (@SuppressWarnings("unused")
 		int i : l) {
 		}
 		endtime = System.currentTimeMillis();
 		System.out.println("time for local size: " + (endtime - startTime));
+		*/
 	}
 
 	private void f() {
@@ -77,7 +79,6 @@ public class OptimizationTest {
 	}
 
 	private void synchroTest() {
-		final int COUNT = 100000000;
 		long startTime = System.currentTimeMillis();
 		for (int i = 0; i < COUNT; ++i) {
 			f();

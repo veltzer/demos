@@ -12,16 +12,16 @@ public class Book extends Item {
 		return bookname;
 	}
 
-	public void setBookname(String bookname) {
-		this.bookname = bookname;
+	public void setBookname(String ibookname) {
+		bookname = ibookname;
 	}
 
 	public String getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthor(String iauthor) {
+		author = iauthor;
 	}
 
 	@Override

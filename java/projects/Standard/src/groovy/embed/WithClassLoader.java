@@ -8,8 +8,8 @@ import java.io.IOException;
 
 import org.codehaus.groovy.control.CompilationFailedException;
 
-public class WithClassLoader {
-	public static void main(String args[]) {
+public abstract class WithClassLoader {
+	public static void main(String[] args) {
 		ClassLoader parent = WithClassLoader.class.getClassLoader();
 		GroovyClassLoader loader = new GroovyClassLoader(parent);
 		Class<?> groovyClass;
@@ -36,7 +36,7 @@ public class WithClassLoader {
 		} catch (IllegalAccessException e) {
 			throw new RuntimeException(e);
 		}
-		Object[] groovy_args = {};
-		groovyObject.invokeMethod("run", groovy_args);
+		Object[] groovyArgs = {};
+		groovyObject.invokeMethod("run", groovyArgs);
 	}
 }

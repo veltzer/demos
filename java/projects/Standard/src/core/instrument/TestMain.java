@@ -2,7 +2,7 @@ package core.instrument;
 
 import java.util.Date;
 
-public class TestMain {
+public abstract class TestMain {
 
 	/**
 	 * @param args

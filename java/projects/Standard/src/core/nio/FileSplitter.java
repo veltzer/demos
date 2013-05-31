@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class FileSplitter {
+public abstract class FileSplitter {
 
 	public static void split(FileChannel fileIn, int size,
 			FileChannel fileOut1, FileChannel fileOut2) throws IOException {

@@ -26,8 +26,9 @@ public class BankImpl extends UnicastRemoteObject implements Bank {
 
 	public synchronized boolean deposit(String accId, double amount) {
 		Account acc = accounts.get(accId);
-		if (acc == null)
+		if (acc == null) {
 			return false; // no such account
+		}
 		acc.deposit(amount);
 		return true;
 	}

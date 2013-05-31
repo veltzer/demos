@@ -1,6 +1,6 @@
 package programming.samples.interfaces;
 
-public class Test {
+public abstract class Test {
 
 	/**
 	 * @param args

@@ -20,8 +20,8 @@ public class ByteBufferWrapper implements Externalizable {
 		this(null);
 	}
 
-	public ByteBufferWrapper(ByteBuffer buffer) {
-		this.buffer = buffer;
+	public ByteBufferWrapper(ByteBuffer ibuffer) {
+		buffer = ibuffer;
 	}
 
 	/*
@@ -37,10 +37,11 @@ public class ByteBufferWrapper implements Externalizable {
 
 		// My decision is to allocate only as 'limit' bytes for this buffer,
 		// and not the original capacity.
-		if (isDirect)
+		if (isDirect) {
 			buffer = ByteBuffer.allocateDirect(capacity);
-		else
+		} else {
 			buffer = ByteBuffer.allocate(capacity);
+		}
 		byte[] bytesBlock = new byte[BLOCK_SIZE];
 
 		while (limit > 0) {
@@ -106,8 +107,9 @@ public class ByteBufferWrapper implements Externalizable {
 
 	private static void testSimpleWrite() throws Exception {
 		ByteBuffer buff = ByteBuffer.allocate(1024);
-		for (int i = 0; i < 26; ++i)
+		for (int i = 0; i < 26; ++i) {
 			buff.put((byte) ('a' + i));
+		}
 		ByteBufferWrapper wrapper = new ByteBufferWrapper(buff);
 
 		File serialFile = new File("serial.ser");
@@ -137,8 +139,9 @@ public class ByteBufferWrapper implements Externalizable {
 
 	private static void testCustomWrite() throws Exception {
 		ByteBuffer buff = ByteBuffer.allocate(1024);
-		for (int i = 0; i < 26; ++i)
+		for (int i = 0; i < 26; ++i) {
 			buff.put((byte) ('a' + i));
+		}
 		File serialFile = new File("serial.ser");
 
 		ObjectOutputStream output = new BuffersAwareObjectOutputStream(
