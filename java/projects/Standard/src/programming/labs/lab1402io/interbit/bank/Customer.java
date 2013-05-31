@@ -13,17 +13,17 @@ public class Customer {
 		this("John", "is-111", 30);
 	}
 
-	public Customer(String name, String id, int age) {
-		setName(name);
-		setId(id);
-		setAge(age);
+	public Customer(String iname, String iid, int iage) {
+		setName(iname);
+		setId(iid);
+		setAge(iage);
 		accounts = new ArrayList<Account>();
 	}
 
-	public Customer(String name, String id, int age, CheckingAccount account) {
-		setName(name);
-		setId(id);
-		setAge(age);
+	public Customer(String iname, String iid, int iage, CheckingAccount account) {
+		setName(iname);
+		setId(iid);
+		setAge(iage);
 		accounts = new ArrayList<Account>();
 		addAccount(account);
 	}
@@ -41,22 +41,25 @@ public class Customer {
 	}
 
 	public Account getAccount(int index) {
-		if (index < accounts.size())
+		if (index < accounts.size()) {
 			return (Account) accounts.get(index);
-		return null;
+		} else {
+			return null;
+		}
 	}
 
-	public void setAge(int age) {
-		if (age > 0 && age < 120)
-			this.age = age;
+	public void setAge(int iage) {
+		if (iage > 0 && iage < 120) {
+			age = iage;
+		}
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public void addAccount(Account account) {

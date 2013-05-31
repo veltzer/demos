@@ -8,13 +8,13 @@ public abstract class Account implements Serializable {
 	private double balance;
 	private static int nextId = 1001;
 
-	public Account(double balance) {
+	public Account(double ibalance) {
 		id = "" + nextId++;
-		setBalance(balance);
+		setBalance(ibalance);
 	}
 
-	protected void setBalance(double balance) {
-		this.balance = balance;
+	protected void setBalance(double ibalance) {
+		balance = ibalance;
 	}
 
 	public double getBalance() {
@@ -29,5 +29,5 @@ public abstract class Account implements Serializable {
 		balance += amount;
 	}
 
-	public abstract double withdraw(double balance) throws OverdraftException;
+	public abstract double withdraw(double ibalance);
 }

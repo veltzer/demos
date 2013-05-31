@@ -3,7 +3,7 @@ package programming.labs.lab1402io.interbit.bank;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Bank implements Business {
+public final class Bank implements Business {
 	private static Bank bank;
 	private List<Customer> customers;
 	private static boolean isExist;
@@ -25,9 +25,11 @@ public class Bank implements Business {
 	}
 
 	public Customer getCustomer(int index) {
-		if (index < customers.size())
+		if (index < customers.size()) {
 			return (Customer) customers.get(index);
-		return null;
+		} else {
+			return null;
+		}
 	}
 
 	public int getNumOfCustomers() {

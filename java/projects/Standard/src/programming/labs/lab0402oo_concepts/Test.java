@@ -1,6 +1,6 @@
 package programming.labs.lab0402oo_concepts;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		/*

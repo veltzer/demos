@@ -3,7 +3,7 @@ package programming.labs.lab1301threads_sol;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Bank implements Business {
+public final class Bank implements Business {
 	private static Bank bank = null;
 	private List<Customer> customers;
 
@@ -13,7 +13,7 @@ public class Bank implements Business {
 
 	// can you think of what synchronized does on
 	// a static method ?!?
-	public synchronized static Business getBank() {
+	public static synchronized Business getBank() {
 		if (bank == null) {
 			bank = new Bank();
 		}

@@ -7,10 +7,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Copy {
-	static final private int BUF_SIZE = 1024;
+public abstract class Copy {
+	private static final int BUF_SIZE = 1024;
 
-	static public void copy(String inName, String outName) {
+	public static void copy(String inName, String outName) {
 		BufferedInputStream in = null;
 		BufferedOutputStream out = null;
 

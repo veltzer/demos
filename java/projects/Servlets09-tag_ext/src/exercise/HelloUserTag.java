@@ -10,10 +10,10 @@ import javax.servlet.jsp.tagext.TagSupport;
 public class HelloUserTag extends TagSupport {
 
 	/** Holds value of property username. */
-	protected String user;
+	private String user;
 
 	/** Holds value of property loops. */
-	protected int loops = 1;
+	private int loops = 1;
 
 	/**
 	 * Enter your code here
@@ -21,6 +21,22 @@ public class HelloUserTag extends TagSupport {
 
 	public int doStartTag() throws JspException {
 		return EVAL_BODY_INCLUDE;
+	}
+
+	public int getLoops() {
+		return loops;
+	}
+
+	public void setLoops(int iloops) {
+		loops = iloops;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String iuser) {
+		user = iuser;
 	}
 
 	/**

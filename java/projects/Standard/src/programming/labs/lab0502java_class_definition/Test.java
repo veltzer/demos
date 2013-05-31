@@ -1,6 +1,6 @@
 package programming.labs.lab0502java_class_definition;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		/*

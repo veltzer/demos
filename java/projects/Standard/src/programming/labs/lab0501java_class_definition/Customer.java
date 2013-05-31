@@ -10,18 +10,18 @@ public class Customer {
 		this("John", "is-111", 30);
 	}
 
-	public Customer(String name, String id, int age) {
-		setName(name);
-		setId(id);
-		setAge(age);
+	public Customer(String iname, String iid, int iage) {
+		setName(iname);
+		setId(iid);
+		setAge(iage);
 		account = new Account("2323/41", 5000);
 	}
 
-	public Customer(String name, String id, int age, Account account) {
-		setName(name);
-		setId(id);
-		setAge(age);
-		setAccount(account);
+	public Customer(String iname, String iid, int iage, Account iaccount) {
+		setName(iname);
+		setId(iid);
+		setAge(iage);
+		setAccount(iaccount);
 	}
 
 	public int getAge() {

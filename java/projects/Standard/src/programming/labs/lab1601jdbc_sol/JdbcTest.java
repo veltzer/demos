@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JDBC_Test {
+public class JdbcTest {
 
 	private Connection connection;
 	private Statement statement;
 	private ResultSet result;
 
-	public JDBC_Test() {
+	public JdbcTest() {
 		try {
 			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 		} catch (ClassNotFoundException e) {
@@ -71,7 +71,7 @@ public class JDBC_Test {
 	}
 
 	public static void main(String[] args) {
-		JDBC_Test test = new JDBC_Test();
+		JdbcTest test = new JdbcTest();
 		test.getConnection();
 		test.sqlStatements();
 		test.print();
