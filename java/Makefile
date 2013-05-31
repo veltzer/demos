@@ -16,6 +16,7 @@ CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar)
 CLASSPATH_CS:=$(CLASSPATH):$(HOME)/install/checkstyle-5.6/checkstyle-5.6-all.jar
 MAINCLASS:=com.puppycrawl.tools.checkstyle.Main
 ALL:=$(JAVA_STAMP)
+BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
 
 # silent stuff
 ifeq ($(DO_MKDBG),1)
@@ -96,10 +97,12 @@ debug:
 	$(info JAVA_STAMP is $(JAVA_STAMP))
 	$(info CLASSPATH is $(CLASSPATH))
 	$(info HOME is $(HOME))
+	$(info BIN_FOLDERS is $(BIN_FOLDERS))
 
 .PHONY: clean
 clean:
 	$(Q)rm -f $(ALL)
+	$(Q)rm -rf $(BIN_FOLDERS)
 
 # rules
 
