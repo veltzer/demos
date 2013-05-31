@@ -14,7 +14,7 @@ JAVA_SOURCES:=$(shell find . -name "*.java")
 JAVA_STAMP:=$(addsuffix .stamp,$(basename $(JAVA_SOURCES)))
 CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar)
 CLASSPATH_CS:=$(CLASSPATH):$(HOME)/install/checkstyle-5.6/checkstyle-5.6-all.jar
-MAINCLASS:=com.puppycrawl.tools.checkstyle.Main
+MAINCLASS_CS:=com.puppycrawl.tools.checkstyle.Main
 ALL:=$(JAVA_STAMP)
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
 
@@ -98,6 +98,8 @@ debug:
 	$(info CLASSPATH is $(CLASSPATH))
 	$(info HOME is $(HOME))
 	$(info BIN_FOLDERS is $(BIN_FOLDERS))
+	$(info CLASSPATH_CS is $(CLASSPATH_CS))
+	$(info MAINCLASS_CS is $(MAINCLASS_CS))
 
 .PHONY: clean
 clean:
@@ -108,7 +110,7 @@ clean:
 
 $(JAVA_STAMP): %.stamp: %.java
 	$(info doing [$@])
-	$(Q)java -cp $(CLASSPATH_CS) $(MAINCLASS) -c support/checkstyle_config.xml $<
+	$(Q)java -cp $(CLASSPATH_CS) $(MAINCLASS_CS) -c support/checkstyle_config.xml $<
 	$(Q)touch $@
 
 # code measurements
