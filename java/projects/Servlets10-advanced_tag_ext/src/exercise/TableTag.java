@@ -17,7 +17,7 @@ public class TableTag extends TagSupport {
 	/** Holds value of property tableName. */
 	private String tableName;
 
-	ResultSet rs;
+	private ResultSet rs;
 
 	public int doStartTag() throws JspException {
 		try {
@@ -68,8 +68,8 @@ public class TableTag extends TagSupport {
 	 * Setter for property tableName.
 	 * @param tableName New value of property tableName.
 	 */
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
+	public void setTableName(String itableName) {
+		tableName = itableName;
 	}
 
 }

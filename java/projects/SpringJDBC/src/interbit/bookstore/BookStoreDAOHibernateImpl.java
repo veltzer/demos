@@ -3,7 +3,6 @@ package interbit.bookstore;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -39,7 +38,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 			@Override
 			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws SQLException {
 				/*
 				 * List<Book> l =
 				 * (List<Book>)session.createQuery("from Book").list(); for

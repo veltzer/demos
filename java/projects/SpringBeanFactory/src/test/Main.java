@@ -10,7 +10,7 @@ import sorter.Item;
 import sorter.Sorted;
 import sorter.Sorter;
 
-public class Main {
+public abstract class Main {
 
 	static final String ERR_STRING1 = "Oops, sorter is bad";
 

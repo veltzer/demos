@@ -13,16 +13,16 @@ public class ShowBooksController implements Controller {
 	private BookStoreAdminDAO dao;
 	private String viewName;
 
-	public void setViewName(String viewName) {
-		this.viewName = viewName;
+	public void setViewName(String iviewName) {
+		viewName = iviewName;
 	}
 
 	public BookStoreAdminDAO getDao() {
 		return dao;
 	}
 
-	public void setDao(BookStoreAdminDAO dao) {
-		this.dao = dao;
+	public void setDao(BookStoreAdminDAO idao) {
+		dao = idao;
 	}
 
 	@Override

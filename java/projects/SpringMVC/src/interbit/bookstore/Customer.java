@@ -10,48 +10,48 @@ public class Customer {
 		return address;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress(String iaddress) {
+		address = iaddress;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String iemail) {
+		email = iemail;
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	Customer() {
 
 	}
 
-	public Customer(String name, String email, String address) {
+	public Customer(String iname, String iemail, String iaddress) {
 		super();
-		this.name = name;
-		this.email = email;
-		this.address = address;
+		name = iname;
+		email = iemail;
+		address = iaddress;
 	}
 
-	public Customer(String id, String name, String email, String address) {
-		this(name, email, address);
-		this.id = id;
+	public Customer(String iid, String iname, String iemail, String iaddress) {
+		this(iname, iemail, iaddress);
+		id = iid;
 	}
 
 	@Override

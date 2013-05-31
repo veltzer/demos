@@ -10,8 +10,8 @@ public class XfireWsTest extends AbstractDependencyInjectionSpringContextTests {
 	// private Echo echo;
 	private BookStoreAdminDAO bookStoreAdminDAO;
 
-	public void setBookStoreAdminDAO(BookStoreAdminDAO bookStoreAdminDAO) {
-		this.bookStoreAdminDAO = bookStoreAdminDAO;
+	public void setBookStoreAdminDAO(BookStoreAdminDAO ibookStoreAdminDAO) {
+		bookStoreAdminDAO = ibookStoreAdminDAO;
 	}
 
 	/*

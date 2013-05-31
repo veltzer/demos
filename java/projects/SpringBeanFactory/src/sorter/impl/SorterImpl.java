@@ -15,11 +15,11 @@ public abstract class SorterImpl implements Sorter {
 	private Comparator<Item> comparator;
 
 	public void setList(List<Item> unsorted) {
-		this.items = unsorted;
+		items = unsorted;
 	}
 
-	public void setComparator(Comparator<Item> comparator) {
-		this.comparator = comparator;
+	public void setComparator(Comparator<Item> icomparator) {
+		comparator = icomparator;
 	}
 
 	public void sort() {
@@ -33,8 +33,8 @@ public abstract class SorterImpl implements Sorter {
 	/*
 	 * public void addItem(Item item) { items.add(item); }
 	 */
-	public void setItemCount(int itemCount) {
-		this.itemCount = itemCount;
+	public void setItemCount(int iitemCount) {
+		itemCount = iitemCount;
 	}
 
 	public abstract ItemFactory getItemFactory();

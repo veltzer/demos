@@ -51,8 +51,9 @@ public class AddressBookEditorContributor extends
 	 */
 
 	public void setActivePage(IEditorPart part) {
-		if (activeEditorPart == part)
+		if (activeEditorPart == part) {
 			return;
+		}
 
 		activeEditorPart = part;
 

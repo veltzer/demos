@@ -36,8 +36,8 @@ public class User implements Serializable {
 	 * Setter for property fname.
 	 * @param fname New value of property fname.
 	 */
-	public void setFname(String fname) throws Exception {
-		this.fname = fname;
+	public void setFname(String ifname) {
+		fname = ifname;
 	}
 
 	/**
@@ -52,8 +52,8 @@ public class User implements Serializable {
 	 * Setter for property lname.
 	 * @param lname New value of property lname.
 	 */
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setLname(String ilname) {
+		lname = ilname;
 	}
 
 	/**
@@ -68,8 +68,8 @@ public class User implements Serializable {
 	 * Setter for property id.
 	 * @param id New value of property id.
 	 */
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
 	/**
@@ -84,18 +84,19 @@ public class User implements Serializable {
 	 * Setter for property email.
 	 * @param email New value of property email.
 	 */
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String iemail) {
+		email = iemail;
 	}
 
-	public void validate() throws Exception {
-		// throw new Exception("there is a problem");
+	private static final String ERR_STRING1 = "First name is empty";
+	private static final String ERR_STRING2 = "Last name is empty";
 
+	public void validate() {
 		if (fname == null || fname.equals("")) {
-			throw new Exception("First name is empty");
+			throw new RuntimeException(ERR_STRING1);
 		}
 		if (lname == null || lname.equals("")) {
-			throw new Exception("Last name is empty");
+			throw new RuntimeException(ERR_STRING2);
 		}
 
 	}

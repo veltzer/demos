@@ -22,9 +22,7 @@ public class SortPointcut implements Pointcut {
 		return new StaticMethodMatcher() {
 
 			public boolean matches(Method arg0, Class<?> arg1) {
-				if (arg0.getName().equals("sort"))
-					return true;
-				return false;
+				return arg0.getName().equals("sort");
 			}
 
 		};

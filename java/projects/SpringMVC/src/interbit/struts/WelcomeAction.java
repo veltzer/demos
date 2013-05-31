@@ -13,14 +13,13 @@ public class WelcomeAction extends Action implements BeanNameAware {
 	private String beanName;
 
 	@Override
-	public void setBeanName(String beanName) {
-		this.beanName = beanName;
+	public void setBeanName(String ibeanName) {
+		beanName = ibeanName;
 	}
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+			HttpServletRequest request, HttpServletResponse response) {
 
 		System.out.println("in struts action - my name is " + beanName);
 		return null;

@@ -40,8 +40,8 @@ public class RowTag extends TagSupport {
 	 * Setter for property colName.
 	 * @param colName New value of property colName.
 	 */
-	public void setColName(String colName) {
-		this.colName = colName;
+	public void setColName(String icolName) {
+		colName = icolName;
 	}
 
 }

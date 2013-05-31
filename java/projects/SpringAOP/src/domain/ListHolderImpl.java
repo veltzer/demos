@@ -14,13 +14,12 @@ public class ListHolderImpl implements ListHolder {
 
 	}
 
-	public void setNumOfElements(int numOfElements) {
-		this.numOfElements = numOfElements;
+	public void setNumOfElements(int inumOfElements) {
+		numOfElements = inumOfElements;
 	}
 
-	public void setList(List<Integer> list) {
-		this.list = list;
-
+	public void setList(List<Integer> ilist) {
+		list = ilist;
 	}
 
 	public void init() {
