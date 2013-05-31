@@ -27,6 +27,7 @@ public class AddressBookTableLabelProvider implements ITableLabelProvider {
 	}
 
 	private static final String ERR_STRING1 = "bad column";
+
 	public String getColumnText(Object o, int column) {
 		if (o instanceof Person) {
 			Person p = (Person) o;

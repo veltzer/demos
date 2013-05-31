@@ -37,8 +37,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 		return getHibernateTemplate().executeFind(new HibernateCallback() {
 
 			@Override
-			public Object doInHibernate(Session session)
-					throws SQLException {
+			public Object doInHibernate(Session session) throws SQLException {
 				/*
 				 * List<Book> l =
 				 * (List<Book>)session.createQuery("from Book").list(); for
