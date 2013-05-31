@@ -28,9 +28,9 @@ public class TableTag extends TagSupport {
 			}
 			String sql = "SELECT * from " + tableName;
 			Statement stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
+			setRs(stmt.executeQuery(sql));
 
-			if (rs.next()) {
+			if (getRs().next()) {
 				return EVAL_BODY_INCLUDE;
 			}
 		} catch (SQLException e) {
@@ -41,7 +41,7 @@ public class TableTag extends TagSupport {
 
 	public int doAfterBody() throws JspException {
 		try {
-			if (rs.next()) {
+			if (getRs().next()) {
 				return EVAL_BODY_AGAIN;
 			}
 		} catch (SQLException e) {
@@ -52,7 +52,7 @@ public class TableTag extends TagSupport {
 	}
 
 	public int doEndTag() throws JspException {
-		rs = null;
+		setRs(null);
 		return EVAL_PAGE;
 	}
 
@@ -70,6 +70,14 @@ public class TableTag extends TagSupport {
 	 */
 	public void setTableName(String itableName) {
 		tableName = itableName;
+	}
+
+	public ResultSet getRs() {
+		return rs;
+	}
+
+	public void setRs(ResultSet rs) {
+		this.rs = rs;
 	}
 
 }
