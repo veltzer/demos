@@ -76,8 +76,8 @@ public class TableTag extends TagSupport {
 		return rs;
 	}
 
-	public void setRs(ResultSet rs) {
-		this.rs = rs;
+	public void setRs(ResultSet irs) {
+		rs = irs;
 	}
 
 }
