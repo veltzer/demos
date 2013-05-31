@@ -76,7 +76,7 @@ public class HtmlLayout implements LayoutManager {
 	}
 
 	HtmlLayout(TableParser parent) {
-		parse(parent.in, false, parent);
+		parse(parent.getIn(), false, parent);
 	}
 
 	/**
@@ -88,8 +88,8 @@ public class HtmlLayout implements LayoutManager {
 	 * other components are added will never be a problem.
 	 */
 	public void addLabels(Container parent) {
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].addLabels(parent);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].addLabels(parent);
 		}
 
 		labelsAdded = true;
@@ -116,7 +116,7 @@ public class HtmlLayout implements LayoutManager {
 		}
 
 		compToCell.put(comp, c);
-		c.comp = comp;
+		c.setComp(comp);
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class HtmlLayout implements LayoutManager {
 		prefDim.width = -1;
 		Cell c = compToCell.remove(comp);
 		if (c != null) {
-			c.comp = null;
+			c.setComp(null);
 		}
 	}
 
@@ -146,24 +146,24 @@ public class HtmlLayout implements LayoutManager {
 
 	void parse(Scanner s, boolean eatTable, TableParser parent) {
 		TableParser tp = new TableParser(s, eatTable, parent);
-		rows = tp.rows;
-		cols = tp.cols;
-		horzAlign = tp.horz;
-		vertAlign = tp.vert;
+		rows = tp.getRows();
+		cols = tp.getCols();
+		horzAlign = tp.getHorz();
+		vertAlign = tp.getVert();
 
-		cells = new Cell[tp.cellCount];
+		setCells(new Cell[tp.getCellCount()]);
 		int cpos = 0;
 
-		cellsColFirst = new Cell[tp.cellCount];
+		cellsColFirst = new Cell[tp.getCellCount()];
 		int ccfpos = 0;
 
 		for (int i = 0; i < rows * cols; i++) {
-			if (tp.cells[i / cols][i % cols] != null) {
-				cells[cpos] = tp.cells[i / cols][i % cols];
+			if (tp.getCells()[i / cols][i % cols] != null) {
+				getCells()[cpos] = tp.getCells()[i / cols][i % cols];
 				cpos++;
 			}
-			if (tp.cells[i % rows][i / rows] != null) {
-				cellsColFirst[ccfpos] = tp.cells[i % rows][i / rows];
+			if (tp.getCells()[i % rows][i / rows] != null) {
+				cellsColFirst[ccfpos] = tp.getCells()[i % rows][i / rows];
 				ccfpos++;
 			}
 		}
@@ -181,12 +181,12 @@ public class HtmlLayout implements LayoutManager {
 		int[] ypos = new int[rows + 1];
 		int[] xpos = new int[cols + 1];
 
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].updateSize(whichSize);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].updateSize(whichSize);
 		}
 
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].addToYTable(ypos);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].addToYTable(ypos);
 			cellsColFirst[i].addToXTable(xpos);
 		}
 
@@ -248,8 +248,8 @@ public class HtmlLayout implements LayoutManager {
 		layoutDim(xpos, left, right, true);
 		layoutDim(ypos, top, bottom, false);
 
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].finalLayout(xpos, ypos);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].finalLayout(xpos, ypos);
 		}
 	}
 
@@ -258,11 +258,11 @@ public class HtmlLayout implements LayoutManager {
 
 		boolean[] want = new boolean[pos.length - 1];
 
-		for (int i = 0; i < cells.length; i++) {
+		for (int i = 0; i < getCells().length; i++) {
 			if (isX) {
 				cellsColFirst[i].firstXLayout(pos, want);
 			} else {
-				cells[i].firstYLayout(pos, want);
+				getCells()[i].firstYLayout(pos, want);
 			}
 		}
 
@@ -301,11 +301,11 @@ public class HtmlLayout implements LayoutManager {
 				limit[i] = Integer.MAX_VALUE;
 			}
 
-			for (int i = 0; i < cells.length; i++) {
+			for (int i = 0; i < getCells().length; i++) {
 				if (isX) {
 					cellsColFirst[i].squeezeX(vals, touch, count, limit);
 				} else {
-					cells[i].squeezeY(vals, touch, count, limit);
+					getCells()[i].squeezeY(vals, touch, count, limit);
 				}
 			}
 
@@ -401,8 +401,8 @@ public class HtmlLayout implements LayoutManager {
 	}
 
 	void addCellsToTable(Hashtable<String, Cell> nToCell) {
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].addToNameTable(nToCell);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].addToNameTable(nToCell);
 		}
 	}
 
@@ -418,18 +418,26 @@ public class HtmlLayout implements LayoutManager {
 
 		System.err.println("HtmlLayout" + descString());
 
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].dump(space + 2);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].dump(space + 2);
 		}
 	}
 
 	public String toString() {
 		String s = "[HtmlLayout" + descString() + " cells =";
 
-		for (int i = 0; i < cells.length; i++) {
-			s += " " + cells[i];
+		for (int i = 0; i < getCells().length; i++) {
+			s += " " + getCells()[i];
 		}
 
 		return s + "]";
+	}
+
+	public Cell[] getCells() {
+		return cells;
+	}
+
+	public void setCells(Cell[] icells) {
+		cells = icells;
 	}
 }

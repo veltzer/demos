@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ProfileTest3 {
+final class ProfileTest3 {
 	private List<Integer> numbers;
 
 	private static final int TEST_COUNT = 50000;
@@ -13,7 +13,7 @@ public class ProfileTest3 {
 
 	private double[] cachedLogValues;
 
-	public ProfileTest3() {
+	private ProfileTest3() {
 		cachedLogValues = new double[MAX_VALUE];
 		for (int i = 0; i < MAX_VALUE; ++i) {
 			cachedLogValues[i] = Math.log(i);

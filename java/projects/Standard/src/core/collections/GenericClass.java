@@ -2,11 +2,11 @@ package core.collections;
 
 import java.util.LinkedList;
 
-public class GenericClass<T, J, R> {
-	T t;
-	J j;
+public final class GenericClass<T, J, R> {
+	//private T t;
+	//private J j;
 
-	public GenericClass(int y, R r) {
+	private GenericClass(int y, R r) {
 
 	}
 

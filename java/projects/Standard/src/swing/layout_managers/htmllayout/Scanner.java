@@ -3,51 +3,53 @@ package swing.layout_managers.htmllayout;
 class Scanner {
 	static final int LT = 0, GT = 1, EQ = 3, STR = 4, EOF = -1, ERROR = -2;
 
-	String currentString;
-	int lastTok;
+	private String currentString;
+	private int lastTok;
 
-	boolean inTag;
+	private boolean inTag;
 
-	String source;
-	int pos, end;
+	private String source;
+	private int pos, end;
 
-	Scanner(String source) {
-		this.source = source;
-		end = source.length();
+	Scanner(String isource) {
+		setSource(isource);
+		end = getSource().length();
 	}
 
 	int scanU() {
 		int s = scan();
-		if (s == STR)
-			currentString = currentString.toUpperCase();
+		if (s == STR) {
+			setCurrentString(getCurrentString().toUpperCase());
+		}
 
 		return s;
 	}
 
 	int scan() {
-		lastTok = sscan();
-		return lastTok;
+		setLastTok(sscan());
+		return getLastTok();
 	}
 
 	private int sscan() {
 		while (true) {
 
-			if (pos == end)
+			if (getPos() == end) {
 				return EOF;
+			}
 
-			switch (source.charAt(pos)) {
+			switch (getSource().charAt(getPos())) {
 			case ' ':
 			case '\t':
 			case '\n':
 			case '\r':
-				pos++;
+				setPos(getPos() + 1);
 				continue;
 
 			case '<':
 				if (inTag) {
 					return ERROR;
 				} else {
-					pos++;
+					setPos(getPos() + 1);
 					inTag = true;
 					return LT;
 				}
@@ -56,14 +58,14 @@ class Scanner {
 				if (!inTag) {
 					return ERROR;
 				} else {
-					pos++;
+					setPos(getPos() + 1);
 					inTag = false;
 					return GT;
 				}
 
 			case '=':
 				if (inTag) {
-					pos++;
+					setPos(getPos() + 1);
 					return EQ;
 				}
 				// else fall through
@@ -75,40 +77,46 @@ class Scanner {
 	}
 
 	private int doString() {
-		boolean usingQuote = inTag && source.charAt(pos) == '"';
+		boolean usingQuote = inTag && getSource().charAt(getPos()) == '"';
 
-		if (usingQuote)
-			pos++;
+		if (usingQuote) {
+			setPos(getPos() + 1);
+		}
 
-		int start = pos;
+		int start = getPos();
 
 		char c;
-		while (pos < end) {
-			c = source.charAt(pos);
-			if (c == '>' || c == '<')
+		while (getPos() < end) {
+			c = getSource().charAt(getPos());
+			if (c == '>' || c == '<') {
 				break;
+			}
 
-			if (inTag && c == '=')
+			if (inTag && c == '=') {
 				break;
+			}
 
 			if (c == '"' && usingQuote) {
-				currentString = source.substring(start, pos);
-				pos++;
+				setCurrentString(getSource().substring(start, getPos()));
+				setPos(getPos() + 1);
 				return STR;
 			}
 
-			if (inTag && !usingQuote && isWhitespace(c))
+			if (inTag && !usingQuote && isWhitespace(c)) {
 				break;
+			}
 
-			pos++;
+			setPos(getPos() + 1);
 		}
 
-		currentString = source.substring(start, pos);
-		if (!inTag)
-			currentString = currentString.trim();
+		setCurrentString(getSource().substring(start, getPos()));
+		if (!inTag) {
+			setCurrentString(getCurrentString().trim());
+		}
 
-		if (currentString.length() == 0)
+		if (getCurrentString().length() == 0) {
 			return scan();
+		}
 
 		return STR;
 	}
@@ -117,5 +125,37 @@ class Scanner {
 	private boolean isWhitespace(char c) {
 		return c <= ' '
 				&& (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f');
+	}
+
+	public String getCurrentString() {
+		return currentString;
+	}
+
+	public void setCurrentString(String icurrentString) {
+		currentString = icurrentString;
+	}
+
+	public int getLastTok() {
+		return lastTok;
+	}
+
+	public void setLastTok(int ilastTok) {
+		lastTok = ilastTok;
+	}
+
+	public int getPos() {
+		return pos;
+	}
+
+	public void setPos(int ipos) {
+		pos = ipos;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String isource) {
+		source = isource;
 	}
 }

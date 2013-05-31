@@ -39,8 +39,9 @@ public class SelectionDemo extends JPanel {
 					int lineNumber = textArea.getLineOfOffset(position);
 					int selectStart = textArea.getLineStartOffset(lineNumber);
 					int selectEnd = textArea.getLineEndOffset(lineNumber);
-					if (textArea.getLineOfOffset(selectEnd) > lineNumber)
+					if (textArea.getLineOfOffset(selectEnd) > lineNumber) {
 						--selectEnd;
+					}
 					textArea.select(selectStart, selectEnd);
 				} catch (BadLocationException e1) {
 					e1.printStackTrace();

@@ -8,8 +8,8 @@ package core.threads;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
-public class SystemExit {
-	static public void main(String[] args) {
+public abstract class SystemExit {
+	public static void main(String[] args) {
 		try {
 			System.out.println("in try block");
 			System.exit(0);

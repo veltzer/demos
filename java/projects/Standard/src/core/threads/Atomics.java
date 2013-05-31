@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
-public class Atomics {
+public abstract class Atomics {
 
 	private static class MyRunnable implements Runnable {
 		private int myVal;
@@ -34,7 +34,7 @@ public class Atomics {
 		}
 	}
 
-	static public void main(String[] args) {
+	public static void main(String[] args) {
 		AtomicInteger at = new AtomicInteger(0);
 		Runnable run1 = new MyRunnable(0, at, 50000);
 		Runnable run2 = new MyRunnable(1, at, 50000);

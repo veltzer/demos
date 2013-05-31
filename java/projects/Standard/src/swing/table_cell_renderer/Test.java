@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
-public class Test {
+public final class Test {
 
 	/**
 	 * @param args
@@ -14,7 +14,7 @@ public class Test {
 		new Test();
 	}
 
-	public Test() {
+	private Test() {
 		JTable tab = new JTable(new DisksTableModel());
 		tab.getColumnModel().getColumn(2).setCellRenderer(new MyCellRenderer());
 		JFrame frm = new JFrame();

@@ -20,15 +20,15 @@ public class PooledObject {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int iid) {
+		id = iid;
 	}
 
 	public double[] getData() {
 		return data;
 	}
 
-	public void setData(double[] data) {
-		this.data = data;
+	public void setData(double[] idata) {
+		data = idata;
 	}
 }

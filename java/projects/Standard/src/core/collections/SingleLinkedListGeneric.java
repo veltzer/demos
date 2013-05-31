@@ -8,7 +8,7 @@ package core.collections;
  */
 
 public class SingleLinkedListGeneric<T> {
-	static private class SingleLinkedListElem<T> {
+	private static final class SingleLinkedListElem<T> {
 		private T data;
 		private SingleLinkedListElem<T> next;
 
@@ -18,7 +18,7 @@ public class SingleLinkedListGeneric<T> {
 		}
 	}
 
-	static public class Iterator<T> {
+	public static final class Iterator<T> {
 		private SingleLinkedListElem<T> curr;
 
 		private Iterator(SingleLinkedListElem<T> icurr) {

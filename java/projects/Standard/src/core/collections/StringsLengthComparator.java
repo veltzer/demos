@@ -11,8 +11,9 @@ public class StringsLengthComparator implements Comparator<String> {
 
 	public int compare(String s0, String s1) {
 		int lengthDiff = s0.length() - s1.length();
-		if (lengthDiff != 0)
+		if (lengthDiff != 0) {
 			return lengthDiff;
+		}
 		return s0.compareTo(s1);
 	}
 

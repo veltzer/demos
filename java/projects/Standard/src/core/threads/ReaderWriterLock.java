@@ -35,10 +35,10 @@ public class ReaderWriterLock {
 			}
 		}
 
-		public ReadWriteThread(boolean reader, ReaderWriterLock lock) {
+		public ReadWriteThread(boolean ireader, ReaderWriterLock ilock) {
 			super();
-			this.reader = reader;
-			this.lock = lock;
+			reader = ireader;
+			lock = ilock;
 		}
 	}
 

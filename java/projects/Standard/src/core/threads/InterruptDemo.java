@@ -7,7 +7,7 @@ package core.threads;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
-public class InterruptDemo {
+public abstract class InterruptDemo {
 	// This thread runs forever and always consumes CPU
 	private static class T1 extends Thread {
 

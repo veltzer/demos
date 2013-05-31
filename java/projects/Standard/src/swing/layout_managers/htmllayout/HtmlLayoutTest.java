@@ -20,16 +20,16 @@ public class HtmlLayoutTest extends Frame {
 
 		HtmlLayout hl = new HtmlLayout(html);
 		setLayout(hl);
-		addComps(hl.cells);
+		addComps(hl.getCells());
 	}
 
-	void addComps(Cell cells[]) {
+	void addComps(Cell[] cells) {
 		for (int i = 0; i < cells.length; i++) {
-			if (cells[i].name != null) {
-				Button b = new Button(cells[i].name);
-				add(b, cells[i].name);
-			} else if (cells[i].nested != null) {
-				addComps(cells[i].nested.cells);
+			if (cells[i].getName() != null) {
+				Button b = new Button(cells[i].getName());
+				add(b, cells[i].getName());
+			} else if (cells[i].getNested() != null) {
+				addComps(cells[i].getNested().getCells());
 			}
 		}
 	}
@@ -45,7 +45,7 @@ public class HtmlLayoutTest extends Frame {
 		}
 	}
 
-	public static void main(String args[]) throws IOException {
+	public static void main(String[] args) throws IOException {
 		if (args.length == 0) {
 			System.err.println("HtmlLayoutTest filename [...]");
 			System.err
@@ -56,7 +56,7 @@ public class HtmlLayoutTest extends Frame {
 
 		for (int i = 0; i < args.length; i++) {
 			RandomAccessFile raf = new RandomAccessFile(args[i], "r");
-			byte data[] = new byte[(int) raf.length()];
+			byte[] data = new byte[(int) raf.length()];
 			raf.readFully(data);
 			raf.close();
 

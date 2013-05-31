@@ -2,6 +2,7 @@ package swing.layout_managers.htmllayout;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
@@ -15,6 +16,7 @@ import java.io.RandomAccessFile;
  */
 public abstract class ProcHtml {
 	public static void main(String[] args) {
+		try {
 		if (args.length == 0 || args[0].length() == 0) {
 			System.err.println("ProcHtml [-numtabs] filename [...]");
 			System.err
@@ -32,9 +34,10 @@ public abstract class ProcHtml {
 		}
 
 		for (int i = firstArg; i < args.length; i++) {
-			RandomAccessFile in = new RandomAccessFile(args[i], "r");
+			RandomAccessFile in;
+			in = new RandomAccessFile(args[i], "r");
 			BufferedWriter out = new BufferedWriter(new FileWriter(args[i]
-					+ ".out"));
+						+ ".out"));
 
 			String s;
 			boolean first = true;
@@ -64,5 +67,8 @@ public abstract class ProcHtml {
 			in.close();
 			out.close();
 		}
+	} catch (IOException e) {
+			throw new RuntimeException(e);
+	}
 	}
 }

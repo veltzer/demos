@@ -3,7 +3,7 @@ package core.collections;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Generics {
+public abstract class Generics {
 
 	/**
 	 * @param args

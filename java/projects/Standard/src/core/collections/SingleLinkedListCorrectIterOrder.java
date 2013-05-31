@@ -8,7 +8,7 @@ package core.collections;
  */
 
 public class SingleLinkedListCorrectIterOrder {
-	static private class SingleLinkedListElem {
+	private static final class SingleLinkedListElem {
 		private Object data;
 		private SingleLinkedListElem next;
 
@@ -18,7 +18,7 @@ public class SingleLinkedListCorrectIterOrder {
 		}
 	}
 
-	static public class Iterator {
+	public static final class Iterator {
 		private SingleLinkedListElem curr;
 
 		private Iterator(SingleLinkedListElem icurr) {
