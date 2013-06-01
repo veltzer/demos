@@ -6,6 +6,7 @@
 import glob # for glob
 import xml.dom.minidom # for parse
 
+addJars=False
 jar_list=glob.glob('lib/*.jar')
 jar_list.extend(glob.glob('static/*.jar'))
 classpath_list=glob.glob('projects/*/.classpath')
@@ -23,11 +24,12 @@ for filename in classpath_list:
 		if node.getAttribute('kind')=='lib':
 			node.parentNode.removeChild(node)
 	# add all the jars
-	for jar in jar_list:
-		e=document.createElementNS(None,'classpathentry')
-		e.setAttribute('kind','lib')
-		e.setAttribute('path','../../'+jar)
-		document.firstChild.appendChild(e)
+	if addJars:
+		for jar in jar_list:
+			e=document.createElementNS(None,'classpathentry')
+			e.setAttribute('kind','lib')
+			e.setAttribute('path','../../'+jar)
+			document.firstChild.appendChild(e)
 	# remove white space
 	remove_list=[]
 	for child in iterate_children(document.firstChild):

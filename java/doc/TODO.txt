@@ -1,5 +1,6 @@
 Build system:
 =============
+- do a script that checks the names of the projects.
 - add a script to suppress the verbose info coming out of
 	the checkstyle.
 - seperate the java to it's own project (javaapi).
