@@ -56,6 +56,8 @@
 			<sequential>
 				<echo>doing @{folder}</echo>
 				<delete dir="@{folder}/bin"/>
+				<delete dir="@{folder}/WEB-INF/classes"/>
+				<delete dir="@{folder}/WebContent/WEB-INF/classes"/>
 			</sequential>
 		</for>
 	</target>
