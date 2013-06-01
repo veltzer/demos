@@ -10,4 +10,7 @@
 	<target name="resolve" description="--> retrieve dependencies with ivy" depends="init-ivy">
 		<ivy:retrieve />
 	</target>
+	<target name="clean" description="clean generated files">
+		<delete dir="lib"/>
+	</target>
 </project>

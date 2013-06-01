@@ -60,5 +60,10 @@
 				<delete dir="@{folder}/WebContent/WEB-INF/classes"/>
 			</sequential>
 		</for>
+		<delete file="jxl.log"/>
+		<delete>
+			<fileset dir="." includes="**/.ant-targets-build.xml"/>
+		</delete>
+		<delete dir="lib"/>
 	</target>
 </project>
