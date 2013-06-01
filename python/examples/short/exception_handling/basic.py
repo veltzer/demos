@@ -3,7 +3,7 @@
 from __future__ import print_function
 
 """
-Example for catching all exception types.
+Example code for raising an exception,catching it and executing finally code in python.
 
 	Mark Veltzer <mark@veltzer.net>
 """
@@ -11,7 +11,7 @@ Example for catching all exception types.
 try:
 	raise ValueError("hello")
 # this next line catches all exceptions, logs and throws them back...
-except Exception,e:
+except ValueError,e:
 	print("in except",e)
 	raise e
 finally:
