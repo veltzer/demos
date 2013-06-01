@@ -5,5 +5,4 @@ package exercise;
  */
 
 class HelloWorldTag {
-	
 }

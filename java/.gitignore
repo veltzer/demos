@@ -10,3 +10,4 @@ java.hprof.txt
 /ivy/lib/*.jar
 /lib/*.jar
 .ant-targets-build.xml
+/jxl.log

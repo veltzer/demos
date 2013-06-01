@@ -4,5 +4,4 @@ package exercise;
  */
 
 class HelloUserTag {
-	
 }
