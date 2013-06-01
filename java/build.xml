@@ -1,0 +1,62 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="hello-ivy" default="build">
+	<!-- new tasks -->
+	<taskdef resource="org/apache/ivy/ant/antlib.xml"
+			uri="antlib:org.apache.ivy.ant">
+		<classpath>
+			<pathelement location="/usr/share/java/ivy.jar" />
+		</classpath>
+	</taskdef>
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="/usr/share/java/ant-contrib.jar"/>
+		</classpath>
+	</taskdef>
+	<!-- paths -->
+	<path id="external-jars">
+		<fileset dir="lib">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="static">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	<!-- targets -->
+	<target name="resolve" description="--> retrieve dependencies with ivy">
+		<delete dir="lib"/>
+		<ivy:retrieve />
+	</target>
+	<target name="build" description="build just one target">
+		<for param="folder">
+			<path>
+			      <dirset dir="projects" includes="*"/>
+			</path>
+			<sequential>
+				<echo>doing @{folder}</echo>
+				<mkdir dir="@{folder}/bin"/>
+				<javac
+					srcdir="@{folder}/src"
+					destdir="@{folder}/bin"
+					target="1.7"
+					debug="true"
+					deprecation="true"
+					optimize="true"
+					failonerror="true"
+					includeantruntime="false"
+				>
+					<classpath refid="external-jars"/>
+				</javac>
+			</sequential>
+		</for>
+	</target>
+	<target name="clean" description="clean everything">
+		<for param="folder">
+			<path>
+			      <dirset dir="projects" includes="*"/>
+			</path>
+			<sequential>
+				<echo>doing @{folder}</echo>
+				<delete dir="@{folder}/bin"/>
+			</sequential>
+		</for>
+	</target>
+</project>

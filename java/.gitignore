@@ -5,5 +5,8 @@ build
 dist
 java.hprof.txt
 /maven/mvn-app
-ant/*.jar
+#ant/*.jar
 *.stamp
+/ivy/lib/*.jar
+/lib/*.jar
+.ant-targets-build.xml
