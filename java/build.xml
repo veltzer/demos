@@ -48,7 +48,7 @@
 			</sequential>
 		</for>
 	</target>
-	<target name="clean" description="clean everything">
+	<target name="clean" description="clean projects">
 		<for param="folder">
 			<path>
 			      <dirset dir="projects" includes="*"/>
@@ -60,6 +60,8 @@
 				<delete dir="@{folder}/WebContent/WEB-INF/classes"/>
 			</sequential>
 		</for>
+	</target>
+	<target name="dist-clean" description="clean everything" depends="clean">
 		<delete file="jxl.log"/>
 		<delete>
 			<fileset dir="." includes="**/.ant-targets-build.xml"/>
