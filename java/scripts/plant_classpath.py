@@ -6,6 +6,8 @@
 import glob # for glob
 import xml.dom.minidom # for parse
 
+raise ValueError("you really should use eclipse variables and not this script")
+
 addJars=False
 jar_list=glob.glob('lib/*.jar')
 jar_list.extend(glob.glob('static/*.jar'))
