@@ -38,7 +38,7 @@
 					destdir="@{folder}/bin"
 					target="1.7"
 					debug="true"
-					deprecation="true"
+					deprecation="false"
 					optimize="true"
 					failonerror="true"
 					includeantruntime="false"

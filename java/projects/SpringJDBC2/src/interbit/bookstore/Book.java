@@ -2,10 +2,10 @@ package interbit.bookstore;
 
 import java.io.Serializable;
 
-import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.DynamicUpdate;
 
 @SuppressWarnings("serial")
-@Entity
+@DynamicUpdate
 public class Book implements Serializable {
 
 	private String title;
