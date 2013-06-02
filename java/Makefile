@@ -13,7 +13,7 @@ DO_MKDBG?=0
 JAVA_SOURCES:=$(shell find . -name "*.java")
 JAVA_STAMP:=$(addsuffix .stamp,$(basename $(JAVA_SOURCES)))
 CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar)
-CLASSPATH_CS:=$(CLASSPATH):$(HOME)/install/checkstyle-5.6/checkstyle-5.6-all.jar
+CLASSPATH_CS:=$(CLASSPATH)
 MAINCLASS_CS:=com.puppycrawl.tools.checkstyle.Main
 ALL:=$(JAVA_STAMP)
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
@@ -85,8 +85,7 @@ check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws 
 
 .PHONY: checkstyle
 checkstyle:
-#	$(Q)java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml -r projects/Standard/src
-	$(Q)java -jar ~/install/checkstyle-5.6/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
+	$(Q)java -jar lib/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
 
 .PHONY: format_eclipse
 format_eclipse:
