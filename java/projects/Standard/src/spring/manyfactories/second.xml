@@ -4,9 +4,5 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="myworker" class="spring.manyfactories.SecondWorker">
-		<property name="name" val="mark"/>
-		<property name="car" id="mycar"/>
 	</bean>
-	<bean id="mycar" class="com.hyndai.sdfd">
-
 </beans>
