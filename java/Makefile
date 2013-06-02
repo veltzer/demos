@@ -75,8 +75,13 @@ check_exceptionnames:
 	$(info doing [$@])
 	$(Q)scripts/ok_wrapper.pl git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "ERR_STRING" -- "*.java"
 
+.PHONY: check_src
+check_src:
+	$(info doing [$@])
+	$(Q)scripts/check_src.sh
+
 .PHONY: check_all
-check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames
+check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src
 
 .PHONY: checkstyle
 checkstyle:
