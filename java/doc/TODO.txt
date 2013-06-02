@@ -1,7 +1,5 @@
 Build system:
 =============
-- do a script that checks the names of the projects (they
-	should be equal to the names of the folders they are in).
 - add a script to suppress the verbose info coming out of
 	the checkstyle.
 - run eclipse-jee and:
