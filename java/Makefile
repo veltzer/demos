@@ -80,8 +80,13 @@ check_src:
 	$(info doing [$@])
 	$(Q)scripts/check_src.sh
 
+.PHONY: check_names
+check_names:
+	$(info doing [$@])
+	$(Q)scripts/check_names.py
+
 .PHONY: check_all
-check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src
+check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names
 
 .PHONY: checkstyle
 checkstyle:

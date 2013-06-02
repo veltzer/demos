@@ -4,20 +4,25 @@
 # ones according to jars in lib
 
 import glob # for glob
-import xml.dom.minidom # for parse
-import xpath # for find
+import xml.etree.ElementTree # for ElementTree
+import os.path # for split
 
 projects_list=glob.glob('projects/*/.project')
+debug=False
 
 for project in projects_list:
-	print('doing',project)
-	document = xml.dom.minidom.parse(project)
-	val=xpath.find('projectDescription/name', doc)
-	print(val)
-	"""
+	if debug:
+		print('doing',project)
+	(path,folder)=os.path.split(project)
+	(path2,folder2)=os.path.split(path)
+	if debug:
+		print(folder2)
+	document = xml.etree.ElementTree.ElementTree(file=project)
 	counter=0
-	for node in document.getElementsByTagName('name'):
-		print(node.nodeValue)
+	for element in document.findall('./name'):
+		if element.text!=folder2:
+			raise ValueError("bad name for project "+project+" ("+folder2+" vs "+element.text+")")
+		if debug:
+			print(element.text)
 		counter+=1
 	assert counter==1
-	"""
