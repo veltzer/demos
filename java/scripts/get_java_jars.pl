@@ -4,10 +4,18 @@ use strict;
 use diagnostics;
 use File::Basename;
 
+=head ABOUT
+
+This script reads an Eclipse .classpath file, finds all lib entries
+in it and outputs the classpath in various forms needed for various
+tools.
+
+=cut
+
 =head TODO
 
-Turn this script into one using a standard XML parser and not cat/grep
-combination.
+- turn this into python.
+- use a standard XML parser instead of cat/grep combo.
 
 =cut
 

@@ -12,7 +12,7 @@ DO_MKDBG?=0
 
 JAVA_SOURCES:=$(shell find . -name "*.java")
 JAVA_STAMP:=$(addsuffix .stamp,$(basename $(JAVA_SOURCES)))
-CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar)
+CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar static/*.jar)
 CLASSPATH_CS:=$(CLASSPATH)
 MAINCLASS_CS:=com.puppycrawl.tools.checkstyle.Main
 ALL:=$(JAVA_STAMP)

@@ -1,5 +1,8 @@
 Build system:
 =============
+- add a script to suppress the verbose info coming out of
+	the checkstyle.
+- get to full manual make build.
 - run eclipse-jee and:
 	- make sure everything builds
 	- make sure that all projects have an src folder (even web ones).
@@ -8,8 +11,6 @@ Build system:
 - separate the java project as a lean and mean project on it's own.
 - get ridd of deprecated APIs so that ant build with be with deprecation true.
 - do a script that checks the names of the projects.
-- add a script to suppress the verbose info coming out of
-	the checkstyle.
 - seperate the java to it's own project (javaapi).
 - add ant to build the entire project.
 - get ridd of the jars in '/lib' and use the ones from the OS

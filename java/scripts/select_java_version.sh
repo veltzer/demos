@@ -5,11 +5,11 @@ select item in sun openjdk auto quit
 do
 	case $item in
 		sun)
-			sudo update-java-alternatives --set java-6-sun
+			sudo update-java-alternatives --set java-7-sun
 			exit 0
 			;;
 		openjdk)
-			sudo update-java-alternatives --set java-6-openjdk
+			sudo update-java-alternatives --set java-7-openjdk
 			exit 0
 			;;
 		auto)
