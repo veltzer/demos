@@ -7,12 +7,12 @@ package core.threads;
  * This is highly system and JRE dependent.
  * @author Mark Veltzer <mark@veltzer.net>
  */
-public class PriorityTest {
+public final class PriorityTest {
 	/**
 	 * The longer the array - the more difference we will see with the threads'
 	 * timing (when dealing with different priorities).
 	 */
-	int[] data = new int[100];
+	private int[] data = new int[100];
 
 	private class ActingThread extends Thread {
 		private int numOperations;
@@ -25,13 +25,14 @@ public class PriorityTest {
 		public void run() {
 			while (true) {
 				data[0] = 0;
-				for (int i = 1; i < data.length; ++i)
+				for (int i = 1; i < data.length; ++i) {
 					data[i] = 1 + data[i - 1];
+				}
 				++numOperations;
 
 				/*
 				 * try { Thread.sleep(1); } catch (InterruptedException e) {
-				 * e.printStackTrace(); }
+				 * throw new RuntimeException(e); }
 				 */
 			}
 		}
@@ -57,11 +58,14 @@ public class PriorityTest {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 			t1.printNumOperations();
 			t2.printNumOperations();
 		}
+	}
+
+	private PriorityTest() {
 	}
 
 	/**

@@ -35,8 +35,8 @@ public class TableHelper implements java.io.Serializable {
 		return html;
 	}
 
-	public void setData(String[][] data) {
-		this.data = data;
+	public void setData(String[][] idata) {
+		data = idata;
 	}
 
 	/**
@@ -51,8 +51,8 @@ public class TableHelper implements java.io.Serializable {
 	 * Setter for property bgcolor.
 	 * @param bgcolor New value of property bgcolor.
 	 */
-	public void setBgcolor(String bgcolor) {
-		this.bgcolor = bgcolor;
+	public void setBgcolor(String ibgcolor) {
+		bgcolor = ibgcolor;
 	}
 
 }

@@ -19,6 +19,12 @@ packs=[
 	'openjdk-7-jre',
 	'openjdk-7-jdk',
 	'openjdk-7-doc',
+	'ivy',
+	'ivy-doc',
+	'ant',
+	'ant-doc',
+	'ant-optional',
+	'ant-contrib',
 ]
 
 args=['sudo','apt-get','install']

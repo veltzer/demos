@@ -7,7 +7,7 @@ package core.threads;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
-public class InterruptDemo {
+public abstract class InterruptDemo {
 	// This thread runs forever and always consumes CPU
 	private static class T1 extends Thread {
 
@@ -30,7 +30,7 @@ public class InterruptDemo {
 				System.out.println("result is " + result);
 			} catch (InterruptedException e) {
 				System.out.println("T1 ending");
-				// e.printStackTrace();
+				// throw new RuntimeException(e);
 			}
 		}
 
@@ -47,7 +47,7 @@ public class InterruptDemo {
 				}
 			} catch (InterruptedException e) {
 				System.out.println("T2 ending");
-				// e.printStackTrace();
+				// throw new RuntimeException(e);
 			}
 		}
 	}

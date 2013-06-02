@@ -9,9 +9,9 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 
 public class DocumentSizeFilter extends DocumentFilter {
-	int maxCharacters;
+	private int maxCharacters;
 
-	boolean DEBUG = false;
+	static final boolean DEBUG = false;
 
 	public DocumentSizeFilter(int maxChars) {
 		maxCharacters = maxChars;
@@ -28,10 +28,11 @@ public class DocumentSizeFilter extends DocumentFilter {
 		// the contents too long. Another option would be
 		// to truncate the inserted string so the contents
 		// would be exactly maxCharacters in length.
-		if ((fb.getDocument().getLength() + str.length()) <= maxCharacters)
+		if ((fb.getDocument().getLength() + str.length()) <= maxCharacters) {
 			super.insertString(fb, offs, str, a);
-		else
+		} else {
 			Toolkit.getDefaultToolkit().beep();
+		}
 	}
 
 	@Override
@@ -44,10 +45,11 @@ public class DocumentSizeFilter extends DocumentFilter {
 		// the contents too long. Another option would be
 		// to truncate the replacement string so the contents
 		// would be exactly maxCharacters in length.
-		if ((fb.getDocument().getLength() + str.length() - length) <= maxCharacters)
+		if ((fb.getDocument().getLength() + str.length() - length) <= maxCharacters) {
 			super.replace(fb, offs, length, str, a);
-		else
+		} else {
 			Toolkit.getDefaultToolkit().beep();
+		}
 	}
 
 }

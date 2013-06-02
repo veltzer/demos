@@ -20,6 +20,8 @@ public class OppositePanel3 extends JComponent {
 
 	}
 
+	static final String ERR_STRING1 = "Cannot hold more than two components in OppositePanel2";
+
 	@Override
 	public Component add(Component comp) {
 
@@ -33,8 +35,7 @@ public class OppositePanel3 extends JComponent {
 			add(comp, BorderLayout.LINE_END);
 			return comp;
 		}
-		throw new RuntimeException(
-				"Cannot hold more than two components in OppositePanel2");
+		throw new RuntimeException(ERR_STRING1);
 	}
 
 	/**

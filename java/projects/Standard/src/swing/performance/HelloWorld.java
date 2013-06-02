@@ -3,7 +3,7 @@ package swing.performance;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class HelloWorld {
+public abstract class HelloWorld {
 	public static void main(String[] argv) {
 		JFrame frm = new JFrame("Hello World");
 		frm.getContentPane().add("Center", new JLabel("Hi World"));

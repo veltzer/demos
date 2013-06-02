@@ -32,11 +32,11 @@ public class FontPicker {
 		me.run();
 	}
 
-	Text fontName;
-	Text fontStyle;
-	Text fontSize;
-	Label fontShow;
-	Font font;
+	private Text fontName;
+	private Text fontStyle;
+	private Text fontSize;
+	private Label fontShow;
+	private Font font;
 
 	public void run() {
 		Display display = new Display();
@@ -93,7 +93,7 @@ public class FontPicker {
 					.getText()), ((Integer) (fontStyle.getData())).intValue());
 			fontShow.setFont(font);
 		} catch (Exception e) {
-			// ...
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -107,8 +107,8 @@ public class FontPicker {
 		fontNameCol.setLayoutData(gd1);
 
 		class FontNameButton {
-			Button btn;
-			final String font;
+			private Button btn;
+			private final String font;
 
 			FontNameButton(String aFont) {
 				font = aFont;
@@ -144,9 +144,9 @@ public class FontPicker {
 		fontStyleCol.setLayoutData(gd2);
 
 		class FontStyleButton {
-			Button btn;
-			final String styleName;
-			final int style;
+			private Button btn;
+			private final String styleName;
+			private final int style;
 
 			FontStyleButton(String aName, int aStyle, boolean selected) {
 				styleName = aName;

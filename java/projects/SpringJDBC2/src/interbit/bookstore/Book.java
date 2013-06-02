@@ -2,20 +2,20 @@ package interbit.bookstore;
 
 import java.io.Serializable;
 
-import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.DynamicUpdate;
 
 @SuppressWarnings("serial")
-@Entity
+@DynamicUpdate
 public class Book implements Serializable {
 
 	private String title;
 	private String author;
 	private double price;
 
-	public Book(String title, String author, double price) {
-		this.title = title;
-		this.author = author;
-		this.price = price;
+	public Book(String ititle, String iauthor, double iprice) {
+		title = ititle;
+		author = iauthor;
+		price = iprice;
 	}
 
 	public Book() {
@@ -39,20 +39,20 @@ public class Book implements Serializable {
 	/**
 	 * @param string
 	 */
-	public void setAuthor(String string) {
-		author = string;
+	public void setAuthor(String iauthor) {
+		author = iauthor;
 	}
 
-	public void setTitle(String string) {
-		title = string;
+	public void setTitle(String ititle) {
+		title = ititle;
 	}
 
 	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(double iprice) {
+		price = iprice;
 	}
 
 	public String toString() {

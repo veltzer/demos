@@ -30,7 +30,7 @@ public class RemoveCustomer implements Runnable {
 			try {
 				Thread.sleep((int) (Math.random() * 500));
 			} catch (Exception e) {
-
+				throw new RuntimeException(e);
 			}
 		}
 	}

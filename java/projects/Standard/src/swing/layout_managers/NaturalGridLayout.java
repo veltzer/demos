@@ -10,21 +10,21 @@ import java.awt.LayoutManager;
 public class NaturalGridLayout implements LayoutManager {
 	private int rows;
 	private int columns;
-	private final static GetSize PREFERRED_SIZE = new GetSize() {
+	private static final GetSize PREFERRED_SIZE = new GetSize() {
 		public Dimension getSize(Component cmp) {
 			return (cmp.getPreferredSize());
 		}
 	};
 
-	private final static GetSize MINIMUM_SIZE = new GetSize() {
+	private static final GetSize MINIMUM_SIZE = new GetSize() {
 		public Dimension getSize(Component cmp) {
 			return (cmp.getMinimumSize());
 		}
 	};
 
-	public NaturalGridLayout(int rows, int columns) {
-		this.rows = rows;
-		this.columns = columns;
+	public NaturalGridLayout(int irows, int icolumns) {
+		rows = irows;
+		columns = icolumns;
 	}
 
 	public void addLayoutComponent(String name, Component comp) {
@@ -84,8 +84,8 @@ public class NaturalGridLayout implements LayoutManager {
 	public void removeLayoutComponent(Component comp) {
 	}
 
-	static interface GetSize {
-		public Dimension getSize(Component cmp);
+	interface GetSize {
+		Dimension getSize(Component cmp);
 	}
 
 	private Dimension layoutSize(Container parent, GetSize sizer) {

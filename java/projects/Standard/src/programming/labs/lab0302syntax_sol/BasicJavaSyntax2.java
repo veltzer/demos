@@ -1,6 +1,6 @@
 package programming.labs.lab0302syntax_sol;
 
-public class BasicJavaSyntax2 {
+public abstract class BasicJavaSyntax2 {
 
 	public static void main(String[] args) {
 		int arraySize = Integer.parseInt(args[0]);

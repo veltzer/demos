@@ -33,17 +33,18 @@ public class SelectionDemo extends JPanel {
 
 		selectLineAction = new AbstractAction() {
 
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent ev) {
 				int position = textArea.getCaretPosition();
 				try {
 					int lineNumber = textArea.getLineOfOffset(position);
 					int selectStart = textArea.getLineStartOffset(lineNumber);
 					int selectEnd = textArea.getLineEndOffset(lineNumber);
-					if (textArea.getLineOfOffset(selectEnd) > lineNumber)
+					if (textArea.getLineOfOffset(selectEnd) > lineNumber) {
 						--selectEnd;
+					}
 					textArea.select(selectStart, selectEnd);
-				} catch (BadLocationException e1) {
-					e1.printStackTrace();
+				} catch (BadLocationException e) {
+					throw new RuntimeException(e);
 				}
 
 			}

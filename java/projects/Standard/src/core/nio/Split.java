@@ -8,7 +8,7 @@ import java.nio.channels.FileChannel;
 /**
  * @author Mark Veltzer <mark@veltzer.net>
  */
-public class Split {
+public abstract class Split {
 
 	/**
 	 * @param args

@@ -8,57 +8,58 @@ import java.awt.Label;
 import java.util.Hashtable;
 
 class Cell {
-	int hfill = HtmlLayout.LEFT;
-	int vfill = HtmlLayout.CENTER;
+	private int hfill = HtmlLayout.LEFT;
+	private int vfill = HtmlLayout.CENTER;
 
-	String name;
-	HtmlLayout nested;
-	String labelText;
+	private String name;
+	private HtmlLayout nested;
+	private String labelText;
 
-	Component comp;
-	int row, col;
-	int rowspan = 1, colspan = 1;
-	int hgap, vgap;
-	int hpad, vpad;
+	private Component comp;
+	private int row, col;
+	private int rowspan = 1, colspan = 1;
+	private int hgap, vgap;
+	private int hpad, vpad;
 
 	Cell(int hg, int vg, int hp, int vp) {
-		hgap = hg;
-		vgap = vg;
-		hpad = hp;
-		vpad = vp;
+		setHgap(hg);
+		setVgap(vg);
+		setHpad(hp);
+		setVpad(vp);
 	}
 
 	void addToNameTable(Hashtable<String, Cell> nameToCell) {
-		if (name != null) {
-			if (nameToCell.put(name, this) != null) {
+		if (getName() != null) {
+			if (nameToCell.put(getName(), this) != null) {
 				throw new BadTableHtmlException("Duplicate component name: "
-						+ name);
+						+ getName());
 			}
-		} else if (nested != null) {
-			nested.addCellsToTable(nameToCell);
+		} else if (getNested() != null) {
+			getNested().addCellsToTable(nameToCell);
 		}
 	}
 
 	private int reqwidth, reqheight;
 
 	void addLabels(Container parent) {
-		if (labelText != null && comp == null) {
-			comp = new Label(labelText);
-			parent.add(comp, HtmlLayout.anonLabelName);
-		} else if (nested != null) {
-			nested.addLabels(parent);
+		if (getLabelText() != null && getComp() == null) {
+			setComp(new Label(getLabelText()));
+			parent.add(getComp(), HtmlLayout.ANONLABELNAME);
+		} else if (getNested() != null) {
+			getNested().addLabels(parent);
 		}
 	}
 
-	void finalLayout(int xpos[], int ypos[]) {
-		if (comp == null && nested == null)
+	void finalLayout(int[] xpos, int[] ypos) {
+		if (getComp() == null && getNested() == null) {
 			return;
+		}
 
-		int r = row + rowspan;
-		int c = col + colspan;
+		int r = getRow() + getRowspan();
+		int c = getCol() + getColspan();
 
-		int ll = xpos[col];
-		int lt = ypos[row];
+		int ll = xpos[getCol()];
+		int lt = ypos[getRow()];
 		int mr = xpos[c];
 		int mb = ypos[r];
 
@@ -67,18 +68,20 @@ class Cell {
 		int top = lt;
 		int bottom = mb;
 
-		if (col != 0)
-			left += hgap;
-		if (row != 0)
-			top += vgap;
+		if (getCol() != 0) {
+			left += getHgap();
+		}
+		if (getRow() != 0) {
+			top += getVgap();
+		}
 
-		if (hfill != HtmlLayout.MAX && hfill != HtmlLayout.FIT) {
-			left = HtmlLayout.calcTopOrLeft(left, right, reqwidth, hfill);
+		if (getHfill() != HtmlLayout.MAX && getHfill() != HtmlLayout.FIT) {
+			left = HtmlLayout.calcTopOrLeft(left, right, reqwidth, getHfill());
 			right = left + reqwidth;
 		}
 
-		if (vfill != HtmlLayout.MAX && vfill != HtmlLayout.FIT) {
-			top = HtmlLayout.calcTopOrLeft(top, bottom, reqheight, vfill);
+		if (getVfill() != HtmlLayout.MAX && getVfill() != HtmlLayout.FIT) {
+			top = HtmlLayout.calcTopOrLeft(top, bottom, reqheight, getVfill());
 			bottom = top + reqheight;
 		}
 
@@ -88,37 +91,43 @@ class Cell {
 
 	private void position(int ll, int lt, int mr, int mb, int l, int t, int r,
 			int b) {
-		if (l < ll)
+		if (l < ll) {
 			l = ll;
-		if (t < lt)
+		}
+		if (t < lt) {
 			t = lt;
-		if (r > mr)
+		}
+		if (r > mr) {
 			r = mr;
-		if (b > mb)
+		}
+		if (b > mb) {
 			b = mb;
+		}
 
-		if (comp != null) {
-			comp.setBounds(l, t, r - l, b - t);
+		if (getComp() != null) {
+			getComp().setBounds(l, t, r - l, b - t);
 		} else {
-			nested.layout(t, b, l, r);
+			getNested().layout(t, b, l, r);
 		}
 	}
 
-	void firstXLayout(int xpos[], boolean wantX[]) {
+	void firstXLayout(int[] xpos, boolean[] wantX) {
 		addToXTable(xpos);
 
-		if (hfill == HtmlLayout.MAX) {
-			for (int i = col; i < col + colspan; i++)
+		if (getHfill() == HtmlLayout.MAX) {
+			for (int i = getCol(); i < getCol() + getColspan(); i++) {
 				wantX[i] = true;
+			}
 		}
 	}
 
-	void firstYLayout(int ypos[], boolean wantY[]) {
+	void firstYLayout(int[] ypos, boolean[] wantY) {
 		addToYTable(ypos);
 
-		if (vfill == HtmlLayout.MAX) {
-			for (int i = row; i < row + rowspan; i++)
+		if (getVfill() == HtmlLayout.MAX) {
+			for (int i = getRow(); i < getRow() + getRowspan(); i++) {
 				wantY[i] = true;
+			}
 		}
 	}
 
@@ -128,111 +137,232 @@ class Cell {
 		reqheight = d.height;
 	}
 
-	private void squeeze(int pos[], int touch[][], int count[], int limit[],
+	private void squeeze(int[] pos, int[][] touch, int[] count, int[] limit,
 			int start, int end, int size) {
 
 		int availsize = pos[end] - pos[start];
 		if (availsize > size) {
 			int mylimit = availsize - size;
 
-			if (mylimit < limit[end])
+			if (mylimit < limit[end]) {
 				limit[end] = mylimit;
+			}
 
 		} else {
 			touch[end][count[end]++] = start;
 		}
 	}
 
-	void squeezeX(int xpos[], int touch[][], int count[], int limit[]) {
-		squeeze(xpos, touch, count, limit, col, col + colspan, reqwidth
-				+ (col == 0 ? 0 : hgap));
+	void squeezeX(int[] xpos, int[][] touch, int[] count, int[] limit) {
+		squeeze(xpos, touch, count, limit, getCol(), getCol() + getColspan(),
+				reqwidth + (getCol() == 0 ? 0 : getHgap()));
 
 	}
 
-	void squeezeY(int ypos[], int touch[][], int count[], int limit[]) {
-		squeeze(ypos, touch, count, limit, row, row + rowspan, reqheight
-				+ (row == 0 ? 0 : vgap));
+	void squeezeY(int[] ypos, int[][] touch, int[] count, int[] limit) {
+		squeeze(ypos, touch, count, limit, getRow(), getRow() + getRowspan(),
+				reqheight + (getRow() == 0 ? 0 : getVgap()));
 	}
 
-	void addToXTable(int xpos[]) {
-		int c = col + colspan;
-		int right = xpos[col] + reqwidth + (col == 0 ? 0 : hgap);
+	void addToXTable(int[] xpos) {
+		int c = getCol() + getColspan();
+		int right = xpos[getCol()] + reqwidth + (getCol() == 0 ? 0 : getHgap());
 
-		if (xpos[c] < right)
+		if (xpos[c] < right) {
 			xpos[c] = right;
+		}
 	}
 
-	void addToYTable(int ypos[]) {
-		int r = row + rowspan;
-		int bottom = ypos[row] + reqheight + (row == 0 ? 0 : vgap);
+	void addToYTable(int[] ypos) {
+		int r = getRow() + getRowspan();
+		int bottom = ypos[getRow()] + reqheight
+				+ (getRow() == 0 ? 0 : getVgap());
 
-		if (ypos[r] < bottom)
+		if (ypos[r] < bottom) {
 			ypos[r] = bottom;
+		}
 	}
 
-	static final Insets zeroInsets = new Insets(0, 0, 0, 0);
+	static final Insets ZERO_INSETS = new Insets(0, 0, 0, 0);
 
 	Dimension getSize(int whichSize) {
-		if (nested != null)
-			return nested.layoutSize(zeroInsets, whichSize);
+		if (getNested() != null) {
+			return getNested().layoutSize(ZERO_INSETS, whichSize);
+		}
 
-		if (comp == null || !comp.isVisible())
+		if (getComp() == null || !getComp().isVisible()) {
 			return new Dimension(0, 0);
+		}
 
 		Dimension d;
 		if (whichSize == HtmlLayout.MIN) {
-			d = comp.getMinimumSize();
+			d = getComp().getMinimumSize();
 		} else if (whichSize == HtmlLayout.PREF) {
-			d = comp.getPreferredSize();
+			d = getComp().getPreferredSize();
 		} else {
 			throw new IllegalArgumentException("Bad whichSize " + whichSize);
 		}
 
-		if (vpad != 0 || hpad != 0)
-			d = new Dimension(d.width + hpad, d.height + vpad);
+		if (getVpad() != 0 || getHpad() != 0) {
+			d = new Dimension(d.width + getHpad(), d.height + getVpad());
+		}
 
 		return d;
 	}
 
 	private String descString() {
 		return " pos = "
-				+ row
+				+ getRow()
 				+ ", "
-				+ col
+				+ getCol()
 				+ " span = "
-				+ rowspan
+				+ getRowspan()
 				+ ", "
-				+ colspan
+				+ getColspan()
 				+ " fill = "
-				+ hfill
+				+ getHfill()
 				+ ", "
-				+ vfill
+				+ getVfill()
 				+ " gap = "
-				+ hgap
+				+ getHgap()
 				+ ", "
-				+ vgap
+				+ getVgap()
 				+ " pad = "
-				+ hpad
+				+ getHpad()
 				+ ", "
-				+ vpad
-				+ (name != null ? (" name = " + name)
-						: (nested != null ? (" nested = ")
-								: (labelText != null ? (" label = " + labelText)
+				+ getVpad()
+				+ (getName() != null ? (" name = " + getName())
+						: (getNested() != null ? (" nested = ")
+								: (getLabelText() != null ? (" label = " + getLabelText())
 										: " empty ")));
 	}
 
 	void dump(int space) {
-		for (int i = 0; i < space; i++)
+		for (int i = 0; i < space; i++) {
 			System.err.print(' ');
+		}
 
 		System.err.println("Cell" + descString());
 
-		if (nested != null)
-			nested.dump(space + 3);
+		if (getNested() != null) {
+			getNested().dump(space + 3);
+		}
 	}
 
 	public String toString() {
 		return "[Cell pos = " + descString()
-				+ (nested != null ? nested.toString() : "") + "]";
+				+ (getNested() != null ? getNested().toString() : "") + "]";
+	}
+
+	public int getCol() {
+		return col;
+	}
+
+	public void setCol(int icol) {
+		col = icol;
+	}
+
+	public int getColspan() {
+		return colspan;
+	}
+
+	public void setColspan(int icolspan) {
+		colspan = icolspan;
+	}
+
+	public Component getComp() {
+		return comp;
+	}
+
+	public void setComp(Component icomp) {
+		comp = icomp;
+	}
+
+	public int getHfill() {
+		return hfill;
+	}
+
+	public void setHfill(int ihfill) {
+		hfill = ihfill;
+	}
+
+	public int getVfill() {
+		return vfill;
+	}
+
+	public void setVfill(int ivfill) {
+		vfill = ivfill;
+	}
+
+	public int getHgap() {
+		return hgap;
+	}
+
+	public void setHgap(int ihgap) {
+		hgap = ihgap;
+	}
+
+	public int getVgap() {
+		return vgap;
+	}
+
+	public void setVgap(int ivgap) {
+		vgap = ivgap;
+	}
+
+	public int getHpad() {
+		return hpad;
+	}
+
+	public void setHpad(int ihpad) {
+		hpad = ihpad;
+	}
+
+	public int getRow() {
+		return row;
+	}
+
+	public void setRow(int irow) {
+		row = irow;
+	}
+
+	public int getRowspan() {
+		return rowspan;
+	}
+
+	public void setRowspan(int irowspan) {
+		rowspan = irowspan;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String iname) {
+		name = iname;
+	}
+
+	public String getLabelText() {
+		return labelText;
+	}
+
+	public void setLabelText(String ilabelText) {
+		labelText = ilabelText;
+	}
+
+	public HtmlLayout getNested() {
+		return nested;
+	}
+
+	public void setNested(HtmlLayout inested) {
+		nested = inested;
+	}
+
+	public int getVpad() {
+		return vpad;
+	}
+
+	public void setVpad(int ivpad) {
+		vpad = ivpad;
 	}
 }

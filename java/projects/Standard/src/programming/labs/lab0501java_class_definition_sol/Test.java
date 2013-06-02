@@ -1,6 +1,6 @@
 package programming.labs.lab0501java_class_definition_sol;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		Customer customer1 = new Customer();

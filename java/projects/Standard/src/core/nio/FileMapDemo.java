@@ -5,7 +5,7 @@ import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class FileMapDemo {
+public abstract class FileMapDemo {
 
 	/**
 	 * @param args
@@ -23,7 +23,7 @@ public class FileMapDemo {
 			c.close();
 			f.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		System.out.println("Done");
 	}

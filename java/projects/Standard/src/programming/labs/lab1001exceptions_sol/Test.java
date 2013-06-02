@@ -1,6 +1,6 @@
 package programming.labs.lab1001exceptions_sol;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		Business business = Bank.getBank();

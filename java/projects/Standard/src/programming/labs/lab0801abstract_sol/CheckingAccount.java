@@ -2,7 +2,7 @@ package programming.labs.lab0801abstract_sol;
 
 public class CheckingAccount extends Account {
 
-	private double COMMITION = 0.05;
+	private static final double COMMITION = 0.05;
 
 	public CheckingAccount(double balance) {
 		super(balance);
@@ -12,7 +12,8 @@ public class CheckingAccount extends Account {
 		if (amount * (1 + COMMITION) <= getBalance()) {
 			setBalance(getBalance() - (amount * (1 + COMMITION)));
 			return amount * (1 + COMMITION);
-		} else
+		} else {
 			return 0.0;
+		}
 	}
 }

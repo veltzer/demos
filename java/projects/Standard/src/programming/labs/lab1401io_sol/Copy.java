@@ -7,10 +7,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Copy {
-	static final private int BUF_SIZE = 1024;
+public abstract class Copy {
+	private static final int BUF_SIZE = 1024;
 
-	static public void copy(String inName, String outName) {
+	public static void copy(String inName, String outName) {
 		BufferedInputStream in = null;
 		BufferedOutputStream out = null;
 
@@ -53,6 +53,8 @@ public class Copy {
 		}
 	}
 
+	private static final String ERR_STRING1 = "Copy operation seems to have failed";
+
 	public static void main(String[] args) {
 		// notice the use of relative file names
 		// using absolute file names is from the devil
@@ -71,7 +73,7 @@ public class Copy {
 		// Make sure that the copy file exists and throw
 		// an exception if it does not
 		if (!f.exists()) {
-			throw new RuntimeException("Copy operation seems to have failed");
+			throw new RuntimeException(ERR_STRING1);
 		}
 	}
 }

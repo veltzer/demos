@@ -4,6 +4,8 @@ package programming.samples.bank;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 public class Account {
+	public static final int CHECKING_ACCOUNT = 1;
+	public static final int BUSINESS_ACCOUNT = 2;
 	/**
 	 * This is the account id
 	 */
@@ -12,21 +14,19 @@ public class Account {
 	 * This is the current balance
 	 */
 	private double balance;
-	int typeOfAccount;
-	final public static int CHECKING_ACCOUNT = 1;
-	final public static int BUSINESS_ACCOUNT = 2;
+	private int typeOfAccount;
 	private static int counter = 0;
 
 	/**
 	 * @param balance
 	 * @param typeOfAccount
 	 */
-	public Account(int typeOfAccount, double balance) {
+	public Account(int itypeOfAccount, double ibalance) {
 		super();
-		this.balance = balance;
-		this.typeOfAccount = typeOfAccount;
+		balance = ibalance;
+		typeOfAccount = itypeOfAccount;
 		Integer i = new Integer(counter);
-		this.id = i.toString();
+		id = i.toString();
 		counter++;
 	}
 
@@ -40,8 +40,8 @@ public class Account {
 	/**
 	 * @param id
 	 */
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
 	/**
@@ -54,8 +54,8 @@ public class Account {
 	/**
 	 * @param balance
 	 */
-	public void setBalance(double balance) {
-		this.balance = balance;
+	public void setBalance(double ibalance) {
+		balance = ibalance;
 	}
 
 	/**
@@ -68,12 +68,12 @@ public class Account {
 	/**
 	 * @param typeOfAccount
 	 */
-	public void setTypeOfAccount(int typeOfAccount) {
+	public void setTypeOfAccount(int itypeOfAccount) {
 		if (typeOfAccount != BUSINESS_ACCOUNT
 				&& typeOfAccount != CHECKING_ACCOUNT) {
 			System.err.println("Wrong account type");
 			return;
 		}
-		this.typeOfAccount = typeOfAccount;
+		typeOfAccount = itypeOfAccount;
 	}
 }

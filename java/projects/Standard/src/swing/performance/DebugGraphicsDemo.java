@@ -4,7 +4,7 @@ import javax.swing.DebugGraphics;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class DebugGraphicsDemo {
+public abstract class DebugGraphicsDemo {
 	public static void main(String[] argv) {
 		JFrame frm = new JFrame("Hello World");
 		JLabel hi = new JLabel("Hi World");

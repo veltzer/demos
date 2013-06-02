@@ -1,6 +1,6 @@
 package programming.labs.lab1201collections_sol;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		Business bank = Bank.getBank();

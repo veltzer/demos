@@ -11,7 +11,7 @@ public class OneWayInterceptor implements MethodInterceptor {
 				try {
 					inv.proceed();
 				} catch (Throwable e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			};
 		});

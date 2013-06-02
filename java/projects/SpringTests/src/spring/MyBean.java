@@ -29,69 +29,72 @@ public class MyBean implements BeanFactoryAware, BeanNameAware, LogAware {
 	private Logger logger;
 
 	@Override
-	public void setLog(Logger logger) {
-		this.setLogger(logger);
+	public void setLog(Logger ilogger) {
+		setLogger(ilogger);
 	}
 
 	public Class<?> getC() {
 		return c;
 	}
 
-	public void setC(Class<?> c) {
-		this.c = c;
+	public void setC(Class<?> ic) {
+		c = ic;
 	}
 
 	public List<Object> getStuff() {
 		return stuff;
 	}
 
-	public void setStuff(List<Object> stuff) {
-		this.stuff = stuff;
+	public void setStuff(List<Object> istuff) {
+		stuff = istuff;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setX(int ix) {
+		x = ix;
 	}
 
 	public Date getD() {
 		return d;
 	}
 
-	public void setD(Date d) {
-		this.d = d;
+	public void setD(Date id) {
+		d = id;
 	}
 
+	private static final String ERR_STRING1 = "negative value";
+
 	public void failOnNegative(int i) {
-		if (i < 0)
-			throw new RuntimeException(i + " is negative !!!");
+		if (i < 0) {
+			throw new RuntimeException(ERR_STRING1);
+		}
 	}
 
 	public int getX() {
 		return x;
 	}
 
-	public void setBeanFactory(BeanFactory beanFactory) {
-		this.beanFactory = beanFactory;
+	public void setBeanFactory(BeanFactory ibeanFactory) {
+		beanFactory = ibeanFactory;
 		System.out.println(beanFactory);
 	}
 
-	public void setBeanName(String beanName) {
-		this.beanName = beanName;
+	public void setBeanName(String ibeanName) {
+		beanName = ibeanName;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public Logger getLogger() {
 		return logger;
 	}
 
-	public void setLogger(Logger logger) {
-		this.logger = logger;
+	public void setLogger(Logger ilogger) {
+		logger = ilogger;
 	}
 }

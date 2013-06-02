@@ -1,6 +1,6 @@
 package programming.samples.deprecation;
 
-public class Test {
+public abstract class Test {
 
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {

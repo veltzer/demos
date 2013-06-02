@@ -9,12 +9,12 @@ public class Tree<D> {
 		children = new SingleLinkedListCorrectIterOrderGeneric<Tree<D>>();
 	}
 
-	public void add(Tree<D> data) {
-		children.add(data);
+	public void add(Tree<D> idata) {
+		children.add(idata);
 	}
 
-	public void add(D data) {
-		children.add(new Tree<D>(data));
+	public void add(D idata) {
+		children.add(new Tree<D>(idata));
 	}
 
 	public void print(int depth) {
@@ -39,30 +39,54 @@ public class Tree<D> {
 	};
 
 	static class DirOrFile {
-		protected String name;
-		protected int id;
-		protected Color color;
+		private String name;
+		private int id;
+		private Color color;
 
 		@Override
 		public String toString() {
-			return name + "," + id + ',' + color;
+			return getName() + "," + getId() + ',' + getColor();
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String iname) {
+			name = iname;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int iid) {
+			id = iid;
+		}
+
+		public Color getColor() {
+			return color;
+		}
+
+		public void setColor(Color icolor) {
+			color = icolor;
 		}
 	};
 
 	static class Dir extends DirOrFile {
 		public Dir(String iname, int iid, Color icolor) {
-			name = iname;
-			id = iid;
-			color = icolor;
+			setName(iname);
+			setId(iid);
+			setColor(icolor);
 			// Check that the color is right
 		}
 	}
 
 	static class File extends DirOrFile {
 		public File(String iname, int iid, Color icolor) {
-			name = iname;
-			id = iid;
-			color = icolor;
+			setName(iname);
+			setId(iid);
+			setColor(icolor);
 			// Check that the color is right
 		}
 	}

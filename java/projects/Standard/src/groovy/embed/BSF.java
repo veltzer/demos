@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.bsf.BSFException;
 import org.apache.bsf.BSFManager;
 
-public class BSF {
+public abstract class BSF {
 	@SuppressWarnings("unchecked")
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		String myScript = "println('Hello World')\nreturn [1, 2, 3]";
 		BSFManager manager = new BSFManager();
 		List<Integer> answer;

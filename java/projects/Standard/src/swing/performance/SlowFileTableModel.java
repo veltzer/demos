@@ -10,10 +10,10 @@ import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
 public class SlowFileTableModel extends AbstractTableModel {
-	private final static String[] COLUMN_NAMES = {
+	private static final String[] COLUMN_NAMES = {
 			"Type", "Name", "Size", "Content"
 	};
-	private final static Class<?>[] COLUMN_CLASS = {
+	private static final Class<?>[] COLUMN_CLASS = {
 			File.class, String.class, Long.class, Icon.class
 	};
 	private static final Icon LOADING = new ImageIcon("loading.gif");
@@ -77,9 +77,9 @@ public class SlowFileTableModel extends AbstractTableModel {
 		private File file;
 		private int offset;
 
-		IconLoader(File file, int offset) {
-			this.file = file;
-			this.offset = offset;
+		IconLoader(File ifile, int ioffset) {
+			file = ifile;
+			offset = ioffset;
 		}
 
 		public void run() {

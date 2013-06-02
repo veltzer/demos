@@ -4,7 +4,6 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
@@ -38,11 +37,11 @@ public class AddressBookWizardPage extends WizardPage {
 	 * Constructor for SampleNewWizardPage.
 	 * @param pageName
 	 */
-	public AddressBookWizardPage(ISelection selection) {
+	public AddressBookWizardPage(ISelection iselection) {
 		super("File Selection Page");
 		setTitle("Select File");
 		setDescription("This wizard creates a new file with *.adb extension that can be opened by the Address Book file editor.");
-		this.selection = selection;
+		selection = iselection;
 	}
 
 	/**
@@ -94,18 +93,20 @@ public class AddressBookWizardPage extends WizardPage {
 	 */
 
 	private void initialize() {
-		if (selection != null && selection.isEmpty() == false
+		if (selection != null && !selection.isEmpty()
 				&& selection instanceof IStructuredSelection) {
 			IStructuredSelection ssel = (IStructuredSelection) selection;
-			if (ssel.size() > 1)
+			if (ssel.size() > 1) {
 				return;
+			}
 			Object obj = ssel.getFirstElement();
 			if (obj instanceof IResource) {
 				IContainer container;
-				if (obj instanceof IContainer)
+				if (obj instanceof IContainer) {
 					container = (IContainer) obj;
-				else
+				} else {
 					container = ((IResource) obj).getParent();
+				}
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
@@ -162,7 +163,7 @@ public class AddressBookWizardPage extends WizardPage {
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
 			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("adb") == false) {
+			if (!ext.equalsIgnoreCase("adb")) {
 				updateStatus("File extension must be \"adb\"");
 				return;
 			}

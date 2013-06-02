@@ -15,15 +15,15 @@ public class Customer {
 		accounts = new ArrayList<Account>();
 	}
 
-	public Customer(String name, String id, int age) {
+	public Customer(String iname, String iid, int iage) {
 		this();
-		setName(name);
-		setId(id);
-		setAge(age);
+		setName(iname);
+		setId(iid);
+		setAge(iage);
 	}
 
-	public Customer(String name, String id, int age, CheckingAccount account) {
-		this(name, id, age);
+	public Customer(String iname, String iid, int iage, CheckingAccount account) {
+		this(iname, iid, iage);
 		addAccount(account);
 	}
 
@@ -43,19 +43,22 @@ public class Customer {
 		return accounts.get(index);
 	}
 
-	public void setAge(int age) {
-		if (age > 0 && age < 120)
-			this.age = age;
-		else
-			throw new RuntimeException("Bad age");
+	private static final String ERR_STRING1 = "bad age";
+
+	public void setAge(int iage) {
+		if (iage > 0 && iage < 120) {
+			age = iage;
+		} else {
+			throw new RuntimeException(ERR_STRING1);
+		}
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public void addAccount(Account account) {

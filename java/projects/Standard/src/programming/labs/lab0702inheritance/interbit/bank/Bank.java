@@ -16,11 +16,13 @@ public final class Bank {
 		return bank;
 	}
 
+	private static final String ERR_STRING1 = "no more customers";
+
 	public void addCustomer(Customer customer) {
 		if (index < customers.length) {
 			customers[index++] = customer;
 		} else {
-			throw new RuntimeException("no more customers");
+			throw new RuntimeException(ERR_STRING1);
 		}
 	}
 

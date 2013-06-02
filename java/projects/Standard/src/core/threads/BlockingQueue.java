@@ -19,7 +19,7 @@ public class BlockingQueue<E> {
 				try {
 					wait();
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 			return linkedList.removeFirst();

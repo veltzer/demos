@@ -18,7 +18,7 @@ public class TestClient implements ActionListener {
 			in = new DataInputStream(socket.getInputStream());
 			out = new DataOutputStream(socket.getOutputStream());
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		frame = new ChatClientFrame();
 		frame.init(this);
@@ -30,7 +30,7 @@ public class TestClient implements ActionListener {
 				frame.addMessage(in.readUTF());
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -38,7 +38,7 @@ public class TestClient implements ActionListener {
 		try {
 			out.writeUTF(frame.getMessage());
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -46,7 +46,7 @@ public class TestClient implements ActionListener {
 		try {
 			socket.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

@@ -90,7 +90,7 @@ public final class RowSpec extends FormSpec {
 	 * different conversion factors.
 	 * @return true for horizontal, false for vertical
 	 */
-	protected final boolean isHorizontal() {
+	protected boolean isHorizontal() {
 		return false;
 	}
 
@@ -106,9 +106,10 @@ public final class RowSpec extends FormSpec {
 	 * @see RowSpec#RowSpec(String)
 	 */
 	public static RowSpec[] decodeSpecs(String encodedRowSpecs) {
-		if (encodedRowSpecs == null)
+		if (encodedRowSpecs == null) {
 			throw new NullPointerException(
 					"The row description must not be null.");
+		}
 
 		StringTokenizer tokenizer = new StringTokenizer(encodedRowSpecs, ", ");
 		int rowCount = tokenizer.countTokens();

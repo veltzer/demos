@@ -35,8 +35,8 @@ import java.util.Hashtable;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 public class HtmlLayout implements LayoutManager {
-	static final String anonLabelName = new String("Anonymous label");
-	boolean labelsAdded;
+	static final String ANONLABELNAME = new String("Anonymous label");
+	private boolean labelsAdded;
 
 	// x in xLayoutSize()
 	static final int MIN = 0, PREF = 1;
@@ -45,19 +45,19 @@ public class HtmlLayout implements LayoutManager {
 	static final int LEFT = 0, RIGHT = 1, CENTER = 2, FIT = 3, MAX = 4,
 			TOP = 5, BOTTOM = 6;
 
-	static final String ALIGNNAMES[] = {
+	static final String[] ALIGNNAMES = {
 			"LEFT", "RIGHT", "CENTER", "FIT", "MAX", "TOP", "BOTTOM"
 	};
 
 	/* these tables are shared by the layout and all nested layouts */
-	Hashtable<String, Cell> nameToCell;
-	Hashtable<Component, Cell> compToCell;
+	private Hashtable<String, Cell> nameToCell;
+	private Hashtable<Component, Cell> compToCell;
 
 	/* this belongs only to this layout */
-	Cell cells[], cellsColFirst[];
-	int rows, cols;
-	int horzAlign = MAX, vertAlign = MAX;
-	Dimension prefDim = new Dimension(-1, -1);
+	private Cell[] cells, cellsColFirst;
+	private int rows, cols;
+	private int horzAlign = MAX, vertAlign = MAX;
+	private Dimension prefDim = new Dimension(-1, -1);
 
 	/**
 	 * Creates an HtmlLayout with the specified "HTML" string.
@@ -76,7 +76,7 @@ public class HtmlLayout implements LayoutManager {
 	}
 
 	HtmlLayout(TableParser parent) {
-		parse(parent.in, false, parent);
+		parse(parent.getIn(), false, parent);
 	}
 
 	/**
@@ -88,11 +88,11 @@ public class HtmlLayout implements LayoutManager {
 	 * other components are added will never be a problem.
 	 */
 	public void addLabels(Container parent) {
-		for (int i = 0; i < cells.length; i++)
-			cells[i].addLabels(parent);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].addLabels(parent);
+		}
 
 		labelsAdded = true;
-		;
 	}
 
 	/**
@@ -100,20 +100,23 @@ public class HtmlLayout implements LayoutManager {
 	 */
 	public void addLayoutComponent(String name, Component comp) {
 		prefDim.width = -1;
-		if (name == anonLabelName)
+		if (name == ANONLABELNAME) {
 			return;
+		}
 
-		if (name == null)
+		if (name == null) {
 			throw new IllegalArgumentException("null component name");
+		}
 
 		Cell c = nameToCell.get(name);
 
-		if (c == null)
+		if (c == null) {
 			throw new IllegalArgumentException(
 					"Cannot add to layout: unknown component name " + name);
+		}
 
 		compToCell.put(comp, c);
-		c.comp = comp;
+		c.setComp(comp);
 	}
 
 	/**
@@ -122,8 +125,9 @@ public class HtmlLayout implements LayoutManager {
 	public void removeLayoutComponent(Component comp) {
 		prefDim.width = -1;
 		Cell c = compToCell.remove(comp);
-		if (c != null)
-			c.comp = null;
+		if (c != null) {
+			c.setComp(null);
+		}
 	}
 
 	/**
@@ -142,46 +146,47 @@ public class HtmlLayout implements LayoutManager {
 
 	void parse(Scanner s, boolean eatTable, TableParser parent) {
 		TableParser tp = new TableParser(s, eatTable, parent);
-		rows = tp.rows;
-		cols = tp.cols;
-		horzAlign = tp.horz;
-		vertAlign = tp.vert;
+		rows = tp.getRows();
+		cols = tp.getCols();
+		horzAlign = tp.getHorz();
+		vertAlign = tp.getVert();
 
-		cells = new Cell[tp.cellCount];
+		setCells(new Cell[tp.getCellCount()]);
 		int cpos = 0;
 
-		cellsColFirst = new Cell[tp.cellCount];
+		cellsColFirst = new Cell[tp.getCellCount()];
 		int ccfpos = 0;
 
 		for (int i = 0; i < rows * cols; i++) {
-			if (tp.cells[i / cols][i % cols] != null) {
-				cells[cpos] = tp.cells[i / cols][i % cols];
+			if (tp.getCells()[i / cols][i % cols] != null) {
+				getCells()[cpos] = tp.getCells()[i / cols][i % cols];
 				cpos++;
 			}
-			if (tp.cells[i % rows][i / rows] != null) {
-				cellsColFirst[ccfpos] = tp.cells[i % rows][i / rows];
+			if (tp.getCells()[i % rows][i / rows] != null) {
+				cellsColFirst[ccfpos] = tp.getCells()[i % rows][i / rows];
 				ccfpos++;
 			}
 		}
 	}
 
 	Dimension layoutSize(Container parent, int whichSize) {
-		if (!labelsAdded)
+		if (!labelsAdded) {
 			addLabels(parent);
+		}
 
 		return layoutSize(parent.getInsets(), whichSize);
 	}
 
 	Dimension layoutSize(Insets insets, int whichSize) {
-		int ypos[] = new int[rows + 1];
-		int xpos[] = new int[cols + 1];
+		int[] ypos = new int[rows + 1];
+		int[] xpos = new int[cols + 1];
 
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].updateSize(whichSize);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].updateSize(whichSize);
 		}
 
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].addToYTable(ypos);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].addToYTable(ypos);
 			cellsColFirst[i].addToXTable(xpos);
 		}
 
@@ -198,8 +203,9 @@ public class HtmlLayout implements LayoutManager {
 	 * @see java.awt.LayoutManager#layoutContainer
 	 */
 	public void layoutContainer(Container parent) {
-		if (!labelsAdded)
+		if (!labelsAdded) {
 			addLabels(parent);
+		}
 
 		Insets insets = parent.getInsets();
 		Dimension d = parent.getSize();
@@ -236,26 +242,27 @@ public class HtmlLayout implements LayoutManager {
 	}
 
 	private void doLayout(int top, int bottom, int left, int right) {
-		int ypos[] = new int[rows + 1];
-		int xpos[] = new int[cols + 1];
+		int[] ypos = new int[rows + 1];
+		int[] xpos = new int[cols + 1];
 
 		layoutDim(xpos, left, right, true);
 		layoutDim(ypos, top, bottom, false);
 
-		for (int i = 0; i < cells.length; i++)
-			cells[i].finalLayout(xpos, ypos);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].finalLayout(xpos, ypos);
+		}
 	}
 
-	private void layoutDim(int pos[], int start, int end, boolean isX) {
+	private void layoutDim(int[] pos, int start, int end, boolean isX) {
 		pos[0] = start;
 
-		boolean want[] = new boolean[pos.length - 1];
+		boolean[] want = new boolean[pos.length - 1];
 
-		for (int i = 0; i < cells.length; i++) {
+		for (int i = 0; i < getCells().length; i++) {
 			if (isX) {
 				cellsColFirst[i].firstXLayout(pos, want);
 			} else {
-				cells[i].firstYLayout(pos, want);
+				getCells()[i].firstYLayout(pos, want);
 			}
 		}
 
@@ -271,30 +278,38 @@ public class HtmlLayout implements LayoutManager {
 	}
 
 	// squeeze the components to make this 'pixels' pixels smaller
-	private void squeeze(int pixels, int vals[], boolean isX) {
-		int touch[][] = new int[vals.length][isX ? rows : cols];
-		int limit[] = new int[vals.length];
+	private void squeeze(int pixels, int[] vals, boolean isX) {
+		int size;
+		if (isX) {
+			size = rows;
+		} else {
+			size = cols;
+		}
+		int[][] touch = new int[vals.length][size];
+		int[] limit = new int[vals.length];
 
 		int downto = vals[vals.length - 1] - pixels;
 
 		// less than 2 is dumb and I think bad things could happen
-		if (downto < 2)
+		if (downto < 2) {
 			return;
+		}
 
 		while (vals[vals.length - 1] > downto) {
-			int count[] = new int[vals.length];
-			for (int i = 0; i < limit.length; i++)
+			int[] count = new int[vals.length];
+			for (int i = 0; i < limit.length; i++) {
 				limit[i] = Integer.MAX_VALUE;
+			}
 
-			for (int i = 0; i < cells.length; i++) {
+			for (int i = 0; i < getCells().length; i++) {
 				if (isX) {
 					cellsColFirst[i].squeezeX(vals, touch, count, limit);
 				} else {
-					cells[i].squeezeY(vals, touch, count, limit);
+					getCells()[i].squeezeY(vals, touch, count, limit);
 				}
 			}
 
-			boolean scale[] = new boolean[vals.length];
+			boolean[] scale = new boolean[vals.length];
 			int max = maxSqueeze(vals.length - 1, touch, count, limit, vals,
 					scale);
 
@@ -312,8 +327,8 @@ public class HtmlLayout implements LayoutManager {
 		}
 	}
 
-	private int maxSqueeze(int rule, int touch[][], int count[], int limit[],
-			int vals[], boolean scale[]) {
+	private int maxSqueeze(int rule, int[][] touch, int[] count, int[] limit,
+			int[] vals, boolean[] scale) {
 
 		// this rule will be scaled, not slidden
 		scale[rule] = true;
@@ -325,32 +340,36 @@ public class HtmlLayout implements LayoutManager {
 			int othermax = maxSqueeze(touch[rule][i], touch, count, limit,
 					vals, scale);
 
-			if (othermax < max)
+			if (othermax < max) {
 				max = othermax;
+			}
 		}
 
 		return max;
 	}
 
-	private void grow(int pixels, int vals[], boolean where[]) {
+	private void grow(int pixels, int[] vals, boolean[] where) {
 
 		int count = 0;
 		for (int i = 0; i < where.length; i++) {
-			if (where[i])
+			if (where[i]) {
 				count++;
+			}
 		}
 
 		boolean all = count == 0;
 
-		if (all)
+		if (all) {
 			count = where.length;
+		}
 
 		double dif = (pixels - 0.001) / count;
 		double a = 0.0;
 
 		for (int i = 0; i < where.length; i++) {
-			if (all || where[i])
+			if (all || where[i]) {
 				a += dif;
+			}
 
 			vals[i + 1] += (int) a;
 		}
@@ -382,8 +401,8 @@ public class HtmlLayout implements LayoutManager {
 	}
 
 	void addCellsToTable(Hashtable<String, Cell> nToCell) {
-		for (int i = 0; i < cells.length; i++) {
-			cells[i].addToNameTable(nToCell);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].addToNameTable(nToCell);
 		}
 	}
 
@@ -393,21 +412,32 @@ public class HtmlLayout implements LayoutManager {
 	}
 
 	void dump(int space) {
-		for (int i = 0; i < space; i++)
+		for (int i = 0; i < space; i++) {
 			System.err.print(' ');
+		}
 
 		System.err.println("HtmlLayout" + descString());
 
-		for (int i = 0; i < cells.length; i++)
-			cells[i].dump(space + 2);
+		for (int i = 0; i < getCells().length; i++) {
+			getCells()[i].dump(space + 2);
+		}
 	}
 
 	public String toString() {
 		String s = "[HtmlLayout" + descString() + " cells =";
 
-		for (int i = 0; i < cells.length; i++)
-			s += " " + cells[i];
+		for (int i = 0; i < getCells().length; i++) {
+			s += " " + getCells()[i];
+		}
 
 		return s + "]";
+	}
+
+	public Cell[] getCells() {
+		return cells;
+	}
+
+	public void setCells(Cell[] icells) {
+		cells = icells;
 	}
 }

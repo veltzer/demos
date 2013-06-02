@@ -16,7 +16,7 @@ public class TestServer {
 			serverSocket = new ServerSocket(2525);
 			sockets = new LinkedList<Socket>();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -28,7 +28,7 @@ public class TestServer {
 				sockets.add(tempSocket);
 				new Thread(new ClientManager(tempSocket)).start();
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -40,7 +40,7 @@ public class TestServer {
 			}
 			serverSocket.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -52,7 +52,7 @@ public class TestServer {
 			try {
 				in = new DataInputStream(socket.getInputStream());
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 
@@ -70,7 +70,7 @@ public class TestServer {
 					}
 
 				} catch (Exception e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 		}

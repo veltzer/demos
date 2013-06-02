@@ -51,17 +51,18 @@ import javax.swing.undo.UndoManager;
 
 @SuppressWarnings("serial")
 public class TextComponentDemo extends JFrame {
-	JTextPane textPane;
-	AbstractDocument doc;
 	static final int MAX_CHARACTERS = 300;
-	JTextArea changeLog;
-	String newline = "\n";
-	HashMap<Object, Action> actions;
+
+	private JTextPane textPane;
+	private AbstractDocument doc;
+	private JTextArea changeLog;
+	private String newline = "\n";
+	private HashMap<Object, Action> actions;
 
 	// undo helpers
-	protected UndoAction undoAction;
-	protected RedoAction redoAction;
-	protected UndoManager undo = new UndoManager();
+	private UndoAction undoAction;
+	private RedoAction redoAction;
+	private UndoManager undo = new UndoManager();
 
 	public TextComponentDemo() {
 		super("TextComponentDemo");
@@ -281,7 +282,7 @@ public class TextComponentDemo extends JFrame {
 	}
 
 	protected void initDocument() {
-		String initString[] = {
+		String[] initString = {
 				"Use the mouse to place the caret.",
 				"Use the edit menu to cut, copy, paste, and select text.",
 				"Also to undo and redo changes.",
@@ -349,12 +350,12 @@ public class TextComponentDemo extends JFrame {
 			setEnabled(false);
 		}
 
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent event) {
 			try {
 				undo.undo();
-			} catch (CannotUndoException ex) {
-				System.out.println("Unable to undo: " + ex);
-				ex.printStackTrace();
+			} catch (CannotUndoException e) {
+				// System.out.println("Unable to undo: " + ex);
+				throw new RuntimeException(e);
 			}
 			updateUndoState();
 			redoAction.updateRedoState();
@@ -377,12 +378,12 @@ public class TextComponentDemo extends JFrame {
 			setEnabled(false);
 		}
 
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent ev) {
 			try {
 				undo.redo();
-			} catch (CannotRedoException ex) {
-				System.out.println("Unable to redo: " + ex);
-				ex.printStackTrace();
+			} catch (CannotRedoException e) {
+				// System.out.println("Unable to redo: " + ex);
+				throw new RuntimeException(e);
 			}
 			updateRedoState();
 			undoAction.updateUndoState();

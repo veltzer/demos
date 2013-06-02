@@ -1,6 +1,6 @@
 package programming.labs.lab0701inheritance_sol;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		Bank bank = Bank.getBank();

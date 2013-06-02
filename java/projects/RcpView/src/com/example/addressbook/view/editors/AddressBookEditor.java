@@ -64,11 +64,11 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 	private TextEditor sourceEditor;
 
 	// Pages indexes:
-	int contactPageIndex;
-	int sourcePageIndex;
+	private int contactPageIndex;
+	private int sourcePageIndex;
 
 	// Status
-	boolean wasModified;
+	private boolean wasModified;
 
 	void createContactPage() {
 		FormToolkit toolkit = new FormToolkit(getContainer().getDisplay());
@@ -252,7 +252,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 			sourcePageIndex = addPage(sourceEditor, getEditorInput());
 			setPageText(sourcePageIndex, "Source");
 		} catch (PartInitException e) {
-			// ...
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -340,6 +340,7 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 			}
 		} catch (Exception e) {
 			// Assuming the rest of the data is missing...
+			throw new RuntimeException(e);
 		}
 	}
 

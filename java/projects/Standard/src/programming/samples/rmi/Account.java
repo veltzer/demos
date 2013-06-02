@@ -6,10 +6,10 @@ public class Account implements java.io.Serializable {
 	private String user;
 	private double balance;
 
-	public Account(String accId, String user, double balance) {
-		this.accId = accId;
-		this.user = user;
-		this.balance = balance;
+	public Account(String iaccId, String iuser, double ibalance) {
+		accId = iaccId;
+		user = iuser;
+		balance = ibalance;
 	}
 
 	public double getBalance() {

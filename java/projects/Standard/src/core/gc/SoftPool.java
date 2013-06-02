@@ -38,8 +38,9 @@ public class SoftPool {
 		while (!pooledObjects.isEmpty()) {
 			SoftReference<PooledObject> reference = pooledObjects.removeLast();
 			PooledObject referee = reference.get();
-			if (referee != null)
+			if (referee != null) {
 				return referee;
+			}
 		}
 		// This means that we have no more objects in the pool.
 		// What do we do here?
@@ -57,8 +58,9 @@ public class SoftPool {
 	public int getAvailableSize() {
 		int result = 0;
 		for (Reference<PooledObject> reference : pooledObjects) {
-			if (reference.get() != null)
+			if (reference.get() != null) {
 				result++;
+			}
 		}
 		return result;
 	}
@@ -70,7 +72,7 @@ public class SoftPool {
 			System.out.println("There are " + pool.getAvailableSize()
 					+ " out of " + pool.getSize() + " objects available");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

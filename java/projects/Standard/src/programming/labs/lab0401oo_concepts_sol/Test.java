@@ -1,6 +1,6 @@
 package programming.labs.lab0401oo_concepts_sol;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		Customer customer1 = new Customer();

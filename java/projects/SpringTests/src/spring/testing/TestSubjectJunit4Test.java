@@ -14,8 +14,8 @@ public class TestSubjectJunit4Test {
 	private TestSubject testSubject;
 
 	@Autowired
-	public void setTestSubject(TestSubject testSubject) {
-		this.testSubject = testSubject;
+	public void setTestSubject(TestSubject itestSubject) {
+		testSubject = itestSubject;
 	}
 
 	// ----------------- TESTS -------------------

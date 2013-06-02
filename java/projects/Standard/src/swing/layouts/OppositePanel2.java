@@ -34,6 +34,8 @@ public class OppositePanel2 extends JComponent {
 		panelsAdded = true;
 	}
 
+	static final String ERR_STRING1 = "Cannot hold more than two components in OppositePanel2";
+
 	@Override
 	public Component add(Component comp) {
 
@@ -48,8 +50,7 @@ public class OppositePanel2 extends JComponent {
 			rightComponentAdded = true;
 			return rightPanel.add(comp);
 		}
-		throw new RuntimeException(
-				"Cannot hold more than two components in OppositePanel2");
+		throw new RuntimeException(ERR_STRING1);
 	}
 
 	/**

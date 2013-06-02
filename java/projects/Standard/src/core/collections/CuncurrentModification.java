@@ -3,7 +3,7 @@ package core.collections;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CuncurrentModification {
+public abstract class CuncurrentModification {
 
 	/**
 	 * @param args

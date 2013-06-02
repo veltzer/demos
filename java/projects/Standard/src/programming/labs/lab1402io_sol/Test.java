@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class Test {
+public abstract class Test {
 
 	// notice that the method does not require serializable
 	// to be passed. The check for serializable implementation
@@ -27,12 +27,13 @@ public class Test {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} finally {
-			if (out != null)
+			if (out != null) {
 				try {
 					out.close();
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
+			}
 		}
 	}
 
@@ -52,12 +53,13 @@ public class Test {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		} finally {
-			if (in != null)
+			if (in != null) {
 				try {
 					in.close();
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
+			}
 		}
 
 	}

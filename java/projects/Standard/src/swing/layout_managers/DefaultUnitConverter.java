@@ -348,8 +348,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * @see #addPropertyChangeListener(java.lang.String,
 	 * java.beans.PropertyChangeListener)
 	 */
-	public synchronized void addPropertyChangeListener(
-			String propertyName, PropertyChangeListener listener) {
+	public synchronized void addPropertyChangeListener(String propertyName,
+			PropertyChangeListener listener) {
 		changeSupport.addPropertyChangeListener(propertyName, listener);
 	}
 
@@ -364,8 +364,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * java.beans.PropertyChangeListener)
 	 * @see #removePropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
-	public synchronized void removePropertyChangeListener(
-			String propertyName, PropertyChangeListener listener) {
+	public synchronized void removePropertyChangeListener(String propertyName,
+			PropertyChangeListener listener) {
 		changeSupport.removePropertyChangeListener(propertyName, listener);
 	}
 

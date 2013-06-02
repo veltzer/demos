@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.RepaintManager;
 
-public class RepaintManagerDemo {
+public abstract class RepaintManagerDemo {
 	public static void main(String[] argv) {
 		RepaintManager.setCurrentManager(new RepaintManager() {
 			public void paintDirtyRegions() {

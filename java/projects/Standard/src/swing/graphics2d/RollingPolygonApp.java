@@ -104,7 +104,7 @@ public class RollingPolygonApp extends JFrame {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
 		RollingPolygonApp app = new RollingPolygonApp();

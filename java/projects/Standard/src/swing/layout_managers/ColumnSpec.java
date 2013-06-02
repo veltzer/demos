@@ -97,7 +97,7 @@ public final class ColumnSpec extends FormSpec {
 	 * different conversion factors.
 	 * @return always true (for horizontal)
 	 */
-	protected final boolean isHorizontal() {
+	protected boolean isHorizontal() {
 		return true;
 	}
 
@@ -113,9 +113,10 @@ public final class ColumnSpec extends FormSpec {
 	 * @see ColumnSpec#ColumnSpec(String)
 	 */
 	public static ColumnSpec[] decodeSpecs(String encodedColumnSpecs) {
-		if (encodedColumnSpecs == null)
+		if (encodedColumnSpecs == null) {
 			throw new NullPointerException(
 					"The column description must not be null.");
+		}
 
 		StringTokenizer tokenizer = new StringTokenizer(encodedColumnSpecs,
 				", ");

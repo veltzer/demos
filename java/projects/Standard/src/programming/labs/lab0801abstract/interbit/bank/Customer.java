@@ -11,17 +11,17 @@ public class Customer {
 		this("John", "is-111", 30);
 	}
 
-	public Customer(String name, String id, int age) {
-		setName(name);
-		setId(id);
-		setAge(age);
+	public Customer(String iname, String iid, int iage) {
+		setName(iname);
+		setId(iid);
+		setAge(iage);
 		accounts = new Account[100];
 	}
 
-	public Customer(String name, String id, int age, Account account) {
-		setName(name);
-		setId(id);
-		setAge(age);
+	public Customer(String iname, String iid, int iage, Account account) {
+		setName(iname);
+		setId(iid);
+		setAge(iage);
 		accounts = new Account[100];
 		addAccount(account);
 	}
@@ -38,28 +38,32 @@ public class Customer {
 		return name;
 	}
 
-	public Account getAccount(int index) {
-		if (index < this.index)
-			return accounts[index];
-		return null;
+	public Account getAccount(int iindex) {
+		if (iindex < index) {
+			return accounts[iindex];
+		} else {
+			return null;
+		}
 	}
 
-	public void setAge(int age) {
-		if (age > 0 && age < 120)
-			this.age = age;
+	public void setAge(int iage) {
+		if (iage > 0 && iage < 120) {
+			age = iage;
+		}
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public void addAccount(Account account) {
-		if (index < accounts.length)
+		if (index < accounts.length) {
 			accounts[index++] = account;
+		}
 	}
 
 	public int getNumOfAccounts() {

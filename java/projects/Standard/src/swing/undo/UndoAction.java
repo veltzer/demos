@@ -57,11 +57,11 @@ final class UndoAction extends AbstractAction {
 		return INSTANCE;
 	}
 
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent ev) {
 		try {
 			getManager().undo();
-		} catch (CannotUndoException ex) {
-			ex.printStackTrace();
+		} catch (CannotUndoException e) {
+			throw new RuntimeException(e);
 		}
 		update();
 		RedoAction.getInstance().update();
@@ -151,13 +151,13 @@ final class UndoAction extends AbstractAction {
 					e.writeObject(script);
 					e.close();
 				}
-			} catch (IOException ioErr) {
-				ioErr.printStackTrace();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			}
 		}
 
-		public void exceptionThrown(Exception exception) {
-			exception.printStackTrace();
+		public void exceptionThrown(Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -182,8 +182,8 @@ final class UndoAction extends AbstractAction {
 					script = (List<UndoableEdit>) d.readObject();
 					d.close();
 				}
-			} catch (IOException ioErr) {
-				ioErr.printStackTrace();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}

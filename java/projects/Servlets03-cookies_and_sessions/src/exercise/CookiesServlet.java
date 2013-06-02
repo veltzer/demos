@@ -24,14 +24,11 @@ public class CookiesServlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 
-		String cName = request.getParameter("cname");
-		String cVal = request.getParameter("cval");
-		if (cName != null && cVal != null) {
-			/**
-			 * Enter your code here
-			 */
-
-		}
+		// String cName = request.getParameter("cname");
+		// String cVal = request.getParameter("cval");
+		/*
+		 * if (cName != null && cVal != null) { // Enter your code here }
+		 */
 
 		/**
 		 * Enter your code here

@@ -28,7 +28,7 @@ public class MessagesProvider {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 				// Let everyone know!
 				notifyListeners("Message #" + counter);
@@ -62,9 +62,9 @@ public class MessagesProvider {
 	private void notifyListeners(String message) {
 		for (WeakReference<MessagesListener> ref : listeners) {
 			MessagesListener listener = ref.get();
-			if (listener != null)
+			if (listener != null) {
 				listener.messageArrived(message);
-			else {
+			} else {
 				// Wow! The object has been destroyed!
 				System.out.println("Found null listener");
 				// Would want to remove this listener. For purpose
@@ -105,12 +105,13 @@ public class MessagesProvider {
 				try {
 					Thread.sleep(10);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 			// Please can you run the GC?
-			if (i > 10000)
+			if (i > 10000) {
 				System.gc();
+			}
 		}
 
 	}

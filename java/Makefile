@@ -14,8 +14,9 @@ JAVA_SOURCES:=$(shell find . -name "*.java")
 JAVA_STAMP:=$(addsuffix .stamp,$(basename $(JAVA_SOURCES)))
 CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar)
 CLASSPATH_CS:=$(CLASSPATH):$(HOME)/install/checkstyle-5.6/checkstyle-5.6-all.jar
-MAINCLASS:=com.puppycrawl.tools.checkstyle.Main
+MAINCLASS_CS:=com.puppycrawl.tools.checkstyle.Main
 ALL:=$(JAVA_STAMP)
+BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
 
 # silent stuff
 ifeq ($(DO_MKDBG),1)
@@ -64,8 +65,18 @@ check_version:
 	$(info doing [$@])
 	$(Q)scripts/ok_wrapper.pl git grep -l "@version" -- "*.java"
 
+.PHONY: check_printstacktrace
+check_printstacktrace:
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l "printStackTrace()" -- "*.java"
+
+.PHONY: check_exceptionnames
+check_exceptionnames:
+	$(info doing [$@])
+	$(Q)scripts/ok_wrapper.pl git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "ERR_STRING" -- "*.java"
+
 .PHONY: check_all
-check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version
+check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames
 
 .PHONY: checkstyle
 checkstyle:
@@ -74,7 +85,11 @@ checkstyle:
 
 .PHONY: format_eclipse
 format_eclipse:
-	~/install/eclipse-jee/eclipse -nosplash -application org.eclipse.jdt.core.JavaCodeFormatter -verbose -config support/org.eclipse.jdt.core.prefs `find . -type d -and -name src`
+	$(Q)~/install/eclipse-jee/eclipse -nosplash -application org.eclipse.jdt.core.JavaCodeFormatter -verbose -config support/org.eclipse.jdt.core.prefs `find . -type d -and -name src`
+
+.PHONY: build
+build:
+	$(Q)~/install/eclipse-jee/eclipse -noSplash -data ~/workspace-jee -application org.eclipse.jdt.apt.core.aptBuild
 
 .PHONY: debug
 debug:
@@ -82,16 +97,20 @@ debug:
 	$(info JAVA_STAMP is $(JAVA_STAMP))
 	$(info CLASSPATH is $(CLASSPATH))
 	$(info HOME is $(HOME))
+	$(info BIN_FOLDERS is $(BIN_FOLDERS))
+	$(info CLASSPATH_CS is $(CLASSPATH_CS))
+	$(info MAINCLASS_CS is $(MAINCLASS_CS))
 
 .PHONY: clean
 clean:
 	$(Q)rm -f $(ALL)
+	$(Q)rm -rf $(BIN_FOLDERS)
 
 # rules
 
 $(JAVA_STAMP): %.stamp: %.java
 	$(info doing [$@])
-	$(Q)java -cp $(CLASSPATH_CS) $(MAINCLASS) -c support/checkstyle_config.xml $<
+	$(Q)java -cp $(CLASSPATH_CS) $(MAINCLASS_CS) -c support/checkstyle_config.xml $<
 	$(Q)touch $@
 
 # code measurements

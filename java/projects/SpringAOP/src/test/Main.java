@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import domain.ListHolder;
 
-public class Main {
+public abstract class Main {
 
 	/**
 	 * @param args

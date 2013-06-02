@@ -20,7 +20,7 @@ public class RowTag extends TagSupport {
 			if (table == null) {
 				throw new JspException("No parent table tag.");
 			}
-			ResultSet rs = table.rs;
+			ResultSet rs = table.getRs();
 			pageContext.getOut().print(rs.getString(colName));
 		} catch (Exception e) {
 			throw new JspException(e);
@@ -40,8 +40,8 @@ public class RowTag extends TagSupport {
 	 * Setter for property colName.
 	 * @param colName New value of property colName.
 	 */
-	public void setColName(String colName) {
-		this.colName = colName;
+	public void setColName(String icolName) {
+		colName = icolName;
 	}
 
 }

@@ -7,9 +7,9 @@ import groovy.util.ScriptException;
 
 import java.io.IOException;
 
-public class ScriptEngine {
+public abstract class ScriptEngine {
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 
 		String[] roots = new String[] {
 			"src/groovy/embed"

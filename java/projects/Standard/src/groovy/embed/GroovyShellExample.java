@@ -3,7 +3,7 @@ package groovy.embed;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 
-public class GroovyShellExample {
+public abstract class GroovyShellExample {
 
 	/**
 	 * @param args

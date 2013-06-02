@@ -3,7 +3,7 @@
 from __future__ import print_function
 
 """
-Example code for raising an exception,catching it and executing finally code in python.
+Example for catching all exception types.
 
 	Mark Veltzer <mark@veltzer.net>
 """

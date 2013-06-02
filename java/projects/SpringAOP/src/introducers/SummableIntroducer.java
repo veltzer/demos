@@ -14,8 +14,9 @@ public class SummableIntroducer extends DelegatingIntroductionInterceptor
 
 	@Override
 	public Object invoke(MethodInvocation inv) throws Throwable {
-		if (!inv.getMethod().getName().equals("getSum"))
+		if (!inv.getMethod().getName().equals("getSum")) {
 			count++;
+		}
 		return super.invoke(inv);
 	}
 }

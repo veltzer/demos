@@ -1,7 +1,7 @@
 package programming.labs.lab1001exceptions_sol;
 
 @SuppressWarnings("serial")
-public class OverdraftException extends Exception {
+public class OverdraftException extends RuntimeException {
 	private double amount;
 	private double limit;
 	private double balance;
@@ -13,44 +13,44 @@ public class OverdraftException extends Exception {
 	 * @param balance
 	 * @param accountId
 	 */
-	public OverdraftException(double amount, double limit, double balance,
-			String accountId) {
+	public OverdraftException(double iamount, double ilimit, double ibalance,
+			String iaccountId) {
 		super();
-		this.amount = amount;
-		this.limit = limit;
-		this.balance = balance;
-		this.accountId = accountId;
+		amount = iamount;
+		limit = ilimit;
+		balance = ibalance;
+		accountId = iaccountId;
 	}
 
 	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setAmount(double iamount) {
+		amount = iamount;
 	}
 
 	public double getLimit() {
 		return limit;
 	}
 
-	public void setLimit(double limit) {
-		this.limit = limit;
+	public void setLimit(double ilimit) {
+		limit = ilimit;
 	}
 
 	public double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(double balance) {
-		this.balance = balance;
+	public void setBalance(double ibalance) {
+		balance = ibalance;
 	}
 
 	public String getAccountId() {
 		return accountId;
 	}
 
-	public void setAccountId(String accountId) {
-		this.accountId = accountId;
+	public void setAccountId(String iaccountId) {
+		accountId = iaccountId;
 	}
 }

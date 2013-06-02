@@ -45,12 +45,10 @@ public class CookieFormServlet extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 
-		String rem = request.getParameter("remember");
-		if (rem != null && rem.equals("on")) {
-			/**
-			 * Enter your code here
-			 */
-		}
+		// String rem = request.getParameter("remember");
+		/*
+		 * if (rem != null && rem.equals("on")) { // Enter your code here }
+		 */
 
 		out.println("<html>");
 		out.println("<head>");

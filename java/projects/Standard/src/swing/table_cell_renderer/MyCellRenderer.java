@@ -13,7 +13,7 @@ public class MyCellRenderer implements TableCellRenderer {
 
 	@SuppressWarnings("serial")
 	private static class Render extends JComponent {
-		public Disk disk;
+		private Disk disk;
 
 		@Override
 		protected void paintComponent(Graphics g) {

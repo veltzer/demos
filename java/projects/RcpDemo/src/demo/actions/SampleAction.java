@@ -54,7 +54,7 @@ public class SampleAction implements IWorkbenchWindowActionDelegate {
 	 * for the message dialog.
 	 * @see IWorkbenchWindowActionDelegate#init
 	 */
-	public void init(IWorkbenchWindow window) {
-		this.window = window;
+	public void init(IWorkbenchWindow iwindow) {
+		window = iwindow;
 	}
 }

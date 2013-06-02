@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class OppositePanel extends JPanel {
+	static final String ERR_STRING1 = "Cannot hold more than two components in OppositePanel2";
+
 	public OppositePanel() {
 		super(new OppositeLayout());
 	}
@@ -17,8 +19,7 @@ public class OppositePanel extends JPanel {
 	@Override
 	public Component add(Component comp) {
 		if (getComponentCount() >= 2) {
-			throw new RuntimeException(
-					"Cannot hold more than two components in OppositePanel2");
+			throw new RuntimeException(ERR_STRING1);
 		}
 		return super.add(comp);
 	}

@@ -9,7 +9,7 @@ import java.util.List;
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
-public class SimpleArrayList {
+public abstract class SimpleArrayList {
 
 	/**
 	 * @param args

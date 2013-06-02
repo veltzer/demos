@@ -1,6 +1,6 @@
 package programming.samples.threads;
 
-public class Test {
+public abstract class Test {
 
 	/**
 	 * @param args
@@ -16,7 +16,7 @@ public class Test {
 		try {
 			whatisthis.join();
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		whatisthis.run();
 

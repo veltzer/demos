@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Main {
+public abstract class Main {
 
 	public static void main(String[] args) {
 		ApplicationContext factory = new ClassPathXmlApplicationContext(
@@ -22,9 +22,9 @@ public class Main {
 		((AbstractApplicationContext) factory).close();
 	}
 
-	static private ApplicationContext f = null;
+	private static ApplicationContext f = null;
 
-	static public synchronized ApplicationContext getInstance() {
+	public static synchronized ApplicationContext getInstance() {
 		return f;
 	}
 }

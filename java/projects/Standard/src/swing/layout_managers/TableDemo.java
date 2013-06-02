@@ -11,14 +11,16 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class TableDemo extends JPanel {
 	public TableDemo() {
-		double size[][] = {
+		double[][] size = {
 				{
 						0.05, TableLayoutConstants.PREFERRED, 0.05,
-						TableLayoutConstants.PREFERRED, TableLayoutConstants.FILL, 0.05
+						TableLayoutConstants.PREFERRED,
+						TableLayoutConstants.FILL, 0.05
 				},
 				{
 						0.05, TableLayoutConstants.PREFERRED, 0.05,
-						TableLayoutConstants.PREFERRED, 0.05, TableLayoutConstants.PREFERRED,
+						TableLayoutConstants.PREFERRED, 0.05,
+						TableLayoutConstants.PREFERRED,
 						TableLayoutConstants.FILL
 				}
 		};

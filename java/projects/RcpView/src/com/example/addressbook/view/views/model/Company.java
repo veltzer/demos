@@ -5,9 +5,9 @@ public class Company {
 	private String number;
 	private Employee ceo;
 
-	public Company(String name, String number) {
-		this.name = name;
-		this.number = number;
+	public Company(String iname, String inumber) {
+		name = iname;
+		number = inumber;
 	}
 
 	public String toString() {
@@ -18,23 +18,23 @@ public class Company {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setNumber(String inumber) {
+		number = inumber;
 	}
 
 	public Employee getCeo() {
 		return ceo;
 	}
 
-	public void setCeo(Employee ceo) {
-		this.ceo = ceo;
+	public void setCeo(Employee iceo) {
+		ceo = iceo;
 	}
 }

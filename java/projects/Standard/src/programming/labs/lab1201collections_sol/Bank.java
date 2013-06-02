@@ -3,7 +3,7 @@ package programming.labs.lab1201collections_sol;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Bank implements Business {
+public final class Bank implements Business {
 	private static Bank bank = null;
 	private List<Customer> customers;
 

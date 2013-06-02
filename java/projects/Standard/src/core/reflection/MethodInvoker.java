@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 import javax.swing.JLabel;
 
-public class MethodInvoker {
+public abstract class MethodInvoker {
 	/*
 	 * An inner class for demo. remember that "static" means it holds no
 	 * reference to the outer class or requires it for construction
@@ -14,8 +14,8 @@ public class MethodInvoker {
 
 		private Integer id;
 
-		public void setTitle(String title) {
-			this.title = title;
+		public void setTitle(String ititle) {
+			title = ititle;
 			System.out.println("Title set to: " + title);
 		}
 
@@ -33,8 +33,8 @@ public class MethodInvoker {
 		/**
 		 * @param id The id to set.
 		 */
-		public void setId(Integer id) {
-			this.id = id;
+		public void setId(Integer iid) {
+			id = iid;
 			System.out.println("id set to: " + id);
 		}
 	}

@@ -5,14 +5,15 @@ public class Account {
 	private double balance;
 	private int typeOfAccount;
 	private static int nextId = 1001;
-	private final int CHECKING_ACCOUNT = 1;
-	private final int BUSINESS_ACCOUNT = 2;
+	private static final int CHECKING_ACCOUNT = 1;
+	private static final int BUSINESS_ACCOUNT = 2;
 
-	public Account(double balance) {
+	public Account(double ibalance) {
 		id = "" + nextId++;
 		typeOfAccount = CHECKING_ACCOUNT;
-		if (balance > 0)
-			this.balance = balance;
+		if (ibalance > 0) {
+			balance = ibalance;
+		}
 	}
 
 	public double getBalance() {
@@ -27,12 +28,13 @@ public class Account {
 		return typeOfAccount;
 	}
 
-	public void setTypeOfAccount(int typeOfAccount) {
-		if (typeOfAccount == CHECKING_ACCOUNT
-				|| typeOfAccount == BUSINESS_ACCOUNT)
-			this.typeOfAccount = typeOfAccount;
-		else
-			this.typeOfAccount = CHECKING_ACCOUNT;
+	public void setTypeOfAccount(int itypeOfAccount) {
+		if (itypeOfAccount == CHECKING_ACCOUNT
+				|| itypeOfAccount == BUSINESS_ACCOUNT) {
+			typeOfAccount = itypeOfAccount;
+		} else {
+			typeOfAccount = CHECKING_ACCOUNT;
+		}
 	}
 
 	public void deposit(double amount) {
@@ -40,10 +42,11 @@ public class Account {
 	}
 
 	public double withdraw(double amount) {
-		if (amount <= balance)
+		if (amount <= balance) {
 			return amount;
-		else
+		} else {
 			return 0.0;
+		}
 	}
 
 	public String toString() {

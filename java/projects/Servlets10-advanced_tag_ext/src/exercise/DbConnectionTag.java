@@ -50,8 +50,8 @@ public class DbConnectionTag extends TagSupport {
 	 * Setter for property driver.
 	 * @param driver New value of property driver.
 	 */
-	public void setDriver(String driver) {
-		this.driver = driver;
+	public void setDriver(String idriver) {
+		driver = idriver;
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class DbConnectionTag extends TagSupport {
 	 * Setter for property url.
 	 * @param url New value of property url.
 	 */
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUrl(String iurl) {
+		url = iurl;
 	}
 
 	/**
@@ -82,8 +82,8 @@ public class DbConnectionTag extends TagSupport {
 	 * Setter for property user.
 	 * @param user New value of property user.
 	 */
-	public void setUser(String user) {
-		this.user = user;
+	public void setUser(String iuser) {
+		user = iuser;
 	}
 
 	/**
@@ -98,8 +98,8 @@ public class DbConnectionTag extends TagSupport {
 	 * Setter for property password.
 	 * @param password New value of property password.
 	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String ipassword) {
+		password = ipassword;
 	}
 
 }

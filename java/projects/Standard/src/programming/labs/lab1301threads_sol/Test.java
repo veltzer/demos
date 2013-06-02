@@ -1,6 +1,6 @@
 package programming.labs.lab1301threads_sol;
 
-public class Test {
+public abstract class Test {
 
 	public static void main(String[] args) {
 		AddCustomer add = new AddCustomer();

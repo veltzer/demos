@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class Bank implements Business, Serializable {
+public final class Bank implements Business, Serializable {
 	private static Bank bank = null;
 	private List<Customer> customers;
 
@@ -13,7 +13,7 @@ public class Bank implements Business, Serializable {
 		customers = new LinkedList<Customer>();
 	}
 
-	public synchronized static Business getBank() {
+	public static synchronized Business getBank() {
 		if (bank == null) {
 			bank = new Bank();
 		}

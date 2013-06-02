@@ -1,6 +1,6 @@
 package programming.labs.lab1001exceptions.interbit.bank;
 
-public class Bank implements Business {
+public final class Bank implements Business {
 	private static Bank bank;
 	private Customer[] customers;
 	private int index;
@@ -24,10 +24,12 @@ public class Bank implements Business {
 		}
 	}
 
-	public Customer getCustomer(int index) {
-		if (index < this.index)
-			return customers[index];
-		return null;
+	public Customer getCustomer(int iindex) {
+		if (iindex < index) {
+			return customers[iindex];
+		} else {
+			return null;
+		}
 	}
 
 	public int getNumOfCustomers() {

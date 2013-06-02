@@ -10,8 +10,8 @@ public class Log4jFactoryBean implements FactoryBean<Object> {
 		return logName;
 	}
 
-	public void setLogName(String logName) {
-		this.logName = logName;
+	public void setLogName(String ilogName) {
+		logName = ilogName;
 	}
 
 	@Override

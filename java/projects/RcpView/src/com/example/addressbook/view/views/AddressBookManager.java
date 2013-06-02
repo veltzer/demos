@@ -17,7 +17,7 @@ import com.example.addressbook.view.views.model.AddressBook;
 import com.example.addressbook.view.views.model.Company;
 import com.example.addressbook.view.views.model.Person;
 
-public class AddressBookManager {
+public abstract class AddressBookManager {
 	private static AddressBook instance;
 
 	public static AddressBook getInstance() {
@@ -57,7 +57,7 @@ public class AddressBookManager {
 				writer.println(company.getNumber());
 			}
 		} catch (Exception e) {
-			// Log the error...
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				if (writer != null) {
@@ -65,6 +65,7 @@ public class AddressBookManager {
 				}
 			} catch (Exception e) {
 				// Can't even close files, eh?
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -81,7 +82,9 @@ public class AddressBookManager {
 			}
 		} catch (FileNotFoundException e) {
 			// Ignore -- no existing data.
+			return;
 		} catch (Exception e) {
+			throw new RuntimeException(e);
 			// Log the error...
 		} finally {
 			try {
@@ -90,6 +93,7 @@ public class AddressBookManager {
 				}
 			} catch (Exception e) {
 				// Can't even close files, eh?
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -114,6 +118,7 @@ public class AddressBookManager {
 			}
 		} catch (Exception e) {
 			// Should log the error...
+			throw new RuntimeException(e);
 		}
 	}
 

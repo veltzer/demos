@@ -3,39 +3,39 @@ package swing.table_cell_renderer;
 import java.util.ArrayList;
 
 public class Disk {
-	public Disk(String name, long size, long used) {
+	public Disk(String iname, long isize, long iused) {
 		super();
-		this.name = name;
-		this.size = size;
-		this.used = used;
+		name = iname;
+		size = isize;
+		used = iused;
 	}
 
-	protected String name;
-	protected long size;
-	protected long used;
+	private String name;
+	private long size;
+	private long used;
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public long getSize() {
 		return size;
 	}
 
-	public void setSize(long size) {
-		this.size = size;
+	public void setSize(long isize) {
+		size = isize;
 	}
 
 	public long getUsed() {
 		return used;
 	}
 
-	public void setUsed(long used) {
-		this.used = used;
+	public void setUsed(long iused) {
+		used = iused;
 	}
 
 	private static ArrayList<Disk> instance;

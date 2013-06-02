@@ -12,8 +12,9 @@ public class SortedIntroducer extends DelegatingIntroductionInterceptor
 
 	@Override
 	public Object invoke(MethodInvocation inv) throws Throwable {
-		if (inv.getMethod().getName().equals("sort"))
+		if (inv.getMethod().getName().equals("sort")) {
 			sorted = true;
+		}
 		return super.invoke(inv);
 	}
 

@@ -171,16 +171,16 @@ public class FormattedTextFieldDemo extends JPanel implements
 
 	// Compute the monthly payment based on the loan amount,
 	// APR, and length of loan.
-	double computePayment(double loanAmt, double rate, int numPeriods) {
-		double I, partial1, denominator, answer;
+	double computePayment(double loanAmt, double irate, int inumPeriods) {
+		double iI, partial1, denominator, answer;
 
-		numPeriods *= 12; // get number of months
-		if (rate > 0.01) {
-			I = rate / 100.0 / 12.0; // get monthly rate from annual
-			partial1 = Math.pow((1 + I), (0.0 - numPeriods));
-			denominator = (1 - partial1) / I;
-		} else { // rate ~= 0
-			denominator = numPeriods;
+		inumPeriods *= 12; // get number of months
+		if (irate > 0.01) {
+			iI = irate / 100.0 / 12.0; // get monthly rate from annual
+			partial1 = Math.pow((1 + iI), (0.0 - inumPeriods));
+			denominator = (1 - partial1) / iI;
+		} else { // irate ~= 0
+			denominator = inumPeriods;
 		}
 
 		answer = (-1 * loanAmt) / denominator;

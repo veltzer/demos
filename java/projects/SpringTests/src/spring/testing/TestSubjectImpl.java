@@ -8,8 +8,8 @@ public class TestSubjectImpl implements TestSubject {
 	}
 
 	public void setAnImportantDependency(
-			AnImportantDependency anImportantDependency) {
-		this.anImportantDependency = anImportantDependency;
+			AnImportantDependency ianImportantDependency) {
+		anImportantDependency = ianImportantDependency;
 	}
 
 	public int checkNumber(int a) {

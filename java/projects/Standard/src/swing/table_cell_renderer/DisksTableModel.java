@@ -4,10 +4,10 @@ import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
 public class DisksTableModel extends AbstractTableModel {
-	private final static String[] COLUMN_NAMES = {
+	private static final String[] COLUMN_NAMES = {
 			"Name", "Size", "Used"
 	};
-	private final static Class<?>[] COLUMN_CLASS = {
+	private static final Class<?>[] COLUMN_CLASS = {
 			String.class, Long.class, Long.class
 	};
 
@@ -23,6 +23,8 @@ public class DisksTableModel extends AbstractTableModel {
 		return Disk.getDisks().size();
 	}
 
+	private static final String ERR_STRING1 = "bad column name";
+
 	public Object getValueAt(int row, int column) {
 		// name
 		if (column == 0) {
@@ -36,7 +38,7 @@ public class DisksTableModel extends AbstractTableModel {
 		if (column == 2) {
 			return Disk.getDisks().get(row).getUsed();
 		}
-		throw new RuntimeException();
+		throw new RuntimeException(ERR_STRING1);
 	}
 
 	public Class<?> getColumnClass(int columnIndex) {

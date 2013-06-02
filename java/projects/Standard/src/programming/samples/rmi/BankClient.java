@@ -2,7 +2,7 @@ package programming.samples.rmi;
 
 import java.rmi.Naming;
 
-public class BankClient {
+public abstract class BankClient {
 	public static void main(String[] args) {
 		try {
 			Bank bank = (Bank) Naming.lookup("rmi://localhost/myBank");
@@ -11,8 +11,8 @@ public class BankClient {
 			Account acc = bank.find(accId);
 			System.out.println(acc);
 			acc.deposit(800);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 }

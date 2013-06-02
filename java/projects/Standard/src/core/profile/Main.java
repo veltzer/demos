@@ -1,7 +1,10 @@
 package core.profile;
 
-class Main {
-	int do_that(int lim) {
+final class Main {
+	private Main() {
+	}
+
+	private int method(int lim) {
 		int sum = 0;
 		for (int j = 0; j < lim; j++) {
 			sum += j;
@@ -13,7 +16,7 @@ class Main {
 		Main o = new Main();
 		int sum = 0;
 		for (int i = 0; i < 1000000; i++) {
-			sum += o.do_that(i);
+			sum += o.method(i);
 		}
 		System.out.println("sum is " + sum);
 	}

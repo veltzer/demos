@@ -1,0 +1,4 @@
+- make sure you have python installed.
+- first run './scripts/ubuntu_install.py' to make sure you have ivy and ant jars.
+- then run ant resolve to get a 'lib' folder with all the jars you need.
+- now you can just run 'ant' to build the whole thing.

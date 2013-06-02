@@ -8,8 +8,8 @@ public class StuffServiceImpl implements StuffService {
 	private StuffDao stuffDao;
 
 	@Autowired
-	public void setStuffDao(StuffDao stuffDao) {
-		this.stuffDao = stuffDao;
+	public void setStuffDao(StuffDao istuffDao) {
+		stuffDao = istuffDao;
 	}
 
 	public void doSomethingWithStuff(int id) {

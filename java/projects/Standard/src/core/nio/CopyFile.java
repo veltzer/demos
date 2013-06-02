@@ -5,8 +5,8 @@ import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class CopyFile {
-	static public void main(String args[]) throws Exception {
+public abstract class CopyFile {
+	public static void main(String[] args) throws Exception {
 		boolean fast = true;
 		final int size = 1024 * 1024;
 		if (args.length < 2) {

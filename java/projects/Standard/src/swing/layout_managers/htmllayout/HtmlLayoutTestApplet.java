@@ -21,8 +21,8 @@ import java.net.URL;
  */
 @SuppressWarnings("serial")
 public class HtmlLayoutTestApplet extends Applet {
-	String html;
-	String htmlURL;
+	private String html;
+	private String htmlURL;
 
 	public void init() {
 		htmlURL = getParameter("htmlURL");
@@ -62,7 +62,7 @@ public class HtmlLayoutTestApplet extends Applet {
 
 	@SuppressWarnings("deprecation")
 	private String readString(InputStream is) throws IOException {
-		byte data[] = new byte[10000];
+		byte[] data = new byte[10000];
 		int c, pos = 0;
 
 		while (pos < data.length
@@ -70,8 +70,9 @@ public class HtmlLayoutTestApplet extends Applet {
 			pos += c;
 		}
 
-		if (pos == 0)
+		if (pos == 0) {
 			return null;
+		}
 
 		return new String(data, 0, 0, pos); // for 1.0
 	}

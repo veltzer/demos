@@ -1,10 +1,10 @@
 package programming.samples.bank;
 
 public class Customer {
-	String name;
-	String id;
-	int age;
-	Account account;
+	private String name;
+	private String id;
+	private int age;
+	private Account account;
 
 	public Customer() {
 		super();
@@ -15,12 +15,12 @@ public class Customer {
 	 * @param id
 	 * @param age
 	 */
-	public Customer(String name, String id, int age, Account account) {
+	public Customer(String iname, String iid, int iage, Account iaccount) {
 		super();
-		this.name = name;
-		this.id = id;
-		this.age = age;
-		this.account = account;
+		name = iname;
+		id = iid;
+		age = iage;
+		account = iaccount;
 	}
 
 	/**
@@ -37,24 +37,24 @@ public class Customer {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String iid) {
+		id = iid;
 	}
 
 	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setAge(int iage) {
+		age = iage;
 	}
 
 	public void printMe() {
@@ -73,8 +73,8 @@ public class Customer {
 		return account;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setAccount(Account iaccount) {
+		account = iaccount;
 	}
 
 }

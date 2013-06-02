@@ -9,7 +9,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.dao.DataIntegrityViolationException;
 
-public class Main {
+public abstract class Main {
 
 	/**
 	 * @param args

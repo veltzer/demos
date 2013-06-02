@@ -1,6 +1,6 @@
 package programming.labs.lab0301syntax_sol;
 
-public class BasicJavaSyntax {
+public abstract class BasicJavaSyntax {
 
 	public static void main(String[] args) {
 		int[] arr = new int[100];

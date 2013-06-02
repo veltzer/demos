@@ -34,8 +34,8 @@ public class FormattedDemo extends JPanel {
 		try {
 			dateField = new JFormattedTextField(new MaskFormatter(
 					"##/##/#### ##:##"));
-		} catch (ParseException e1) {
-			e1.printStackTrace();
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
 		}
 		dateField.setText("010119700000");
 		dateField.select(0, dateField.getText().length());

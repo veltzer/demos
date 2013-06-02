@@ -112,8 +112,7 @@ public class Browser extends JPanel {
 		try {
 			webBrowser = new WebBrowser(new URL("http://www.vprise.com/"));
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
-			return;
+			throw new RuntimeException(e);
 		}
 		add("Center", webBrowser);
 

@@ -1,9 +1,9 @@
 package programming.samples.bank;
 
-public class Bank {
-	static private Bank bank = null;
+public final class Bank {
+	private static Bank bank = null;
 
-	static public Bank getBank() {
+	public static Bank getBank() {
 		if (bank == null) {
 			bank = new Bank();
 		}
@@ -12,10 +12,10 @@ public class Bank {
 
 	private Customer[] customers;
 	private int index;
-	private final static int size = 100;
+	private static final int SIZE = 100;
 
 	private Bank() {
-		customers = new Customer[size];
+		customers = new Customer[SIZE];
 		index = 0;
 	}
 
@@ -31,7 +31,7 @@ public class Bank {
 		return index;
 	}
 
-	static public void main(String[] args) {
+	public static void main(String[] args) {
 		Account myaccount = new Account(Account.CHECKING_ACCOUNT, 3000);
 		Customer c = new Customer("mark", "014995815", 35, myaccount);
 		Bank b = Bank.getBank();

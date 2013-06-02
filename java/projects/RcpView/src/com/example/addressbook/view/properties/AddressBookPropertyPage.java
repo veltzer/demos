@@ -56,7 +56,7 @@ public class AddressBookPropertyPage extends PropertyPage {
 					.getPersistentProperty(new QualifiedName(
 							PROPERTY_QUALIFIER, NICE_PROPERTY))));
 		} catch (CoreException e) {
-			// ... report error
+			throw new RuntimeException(e);
 		}
 	}
 

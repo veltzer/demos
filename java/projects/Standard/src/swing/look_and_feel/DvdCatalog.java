@@ -261,13 +261,13 @@ public class DvdCatalog extends JFrame implements Runnable {
 
 		private void store() {
 			try {
-				XMLEncoder e = new XMLEncoder(new BufferedOutputStream(
+				XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(
 						new FileOutputStream(CD_DATA_FILE)));
-				e.setExceptionListener(this);
-				e.writeObject(this);
-				e.close();
-			} catch (IOException ioErr) {
-				ioErr.printStackTrace();
+				enc.setExceptionListener(this);
+				enc.writeObject(this);
+				enc.close();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			}
 		}
 
@@ -299,8 +299,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 			// the table is not editable at the moment
 		}
 
-		public void exceptionThrown(Exception exception) {
-			exception.printStackTrace();
+		public void exceptionThrown(Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 
