@@ -1,5 +1,6 @@
 Build system:
 =============
+- get to ant build again (this time with deprecation).
 - add a script to suppress the verbose info coming out of
 	the checkstyle.
 - run eclipse-jee and:
