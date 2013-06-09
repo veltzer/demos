@@ -8,7 +8,7 @@ An example of an application sending an email.
 
 import smtplib
 import email.mime.text
-import ConfigParser
+import configparser
 import os
 import sys
 

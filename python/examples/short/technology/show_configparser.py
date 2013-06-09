@@ -1,17 +1,17 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
 This is an example of how to use pythons built-in configparser.
 
 	Mark Veltzer <mark@veltzer.net>
 """
-import ConfigParser
+import configparser
 import os.path
 
 inifile=os.path.expanduser('~/.demo.ini')
 if os.path.isfile(inifile):
 	print('inifile exists, reading it')
-	config=ConfigParser.ConfigParser()
+	config=configparser.ConfigParser()
 	config.read(inifile)
 	myint=config.getint('mysection','myint')
 	mybool=config.getboolean('mysection','mybool')
@@ -21,7 +21,7 @@ if os.path.isfile(inifile):
 	print('myfloat is {myfloat}'.format(**vars()))
 else:
 	print('inifile did not exist, writing it for the first time. find it in {inifile}'.format(**vars()))
-	config=ConfigParser.ConfigParser()
+	config=configparser.ConfigParser()
 	config.add_section('mysection')
 	config.set('mysection','myint',str(15))
 	config.set('mysection','mybool',str(True))

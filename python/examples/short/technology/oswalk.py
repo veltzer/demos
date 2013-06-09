@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
 This is an example of the 'os.walk' API that allows one to traverse
@@ -7,10 +7,12 @@ This is used to implement find(1)+grep(1) in just a few lines of python.
 
 	Mark Veltzer <mark@veltzer.net>
 """
-import os # for .path.join
+import os # for .path.join, .walk
 import re # for .compile,.finditer
-import sys # for .argv,.walk
+import sys # for .argv
 
+if len(sys.argv)<2:
+	raise ValueError("plase pass regexp")
 c=re.compile(sys.argv[1])
 
 for root,dirs,files in os.walk('.'):
