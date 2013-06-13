@@ -1,5 +1,7 @@
 Build system:
 =============
+- make a script that generates the eclipse variable which
+	is then used by all the eclipse projects.
 - get to ant build again (this time with deprecation).
 - add a script to suppress the verbose info coming out of
 	the checkstyle.

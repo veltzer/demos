@@ -1,0 +1,2 @@
+#Library('hello',[ 'hello.c' ])
+SharedLibrary('hello',[ 'hello.c' ])
