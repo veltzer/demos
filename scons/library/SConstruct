@@ -1,2 +1,4 @@
-#Library('hello',[ 'hello.c' ])
-SharedLibrary('hello',[ 'hello.c' ])
+env = Environment()
+env.Replace(CC="ccache gcc")
+env.Replace(CCFLAGS="-O2")
+env.SharedLibrary('hello',[ 'hello.c' ])
