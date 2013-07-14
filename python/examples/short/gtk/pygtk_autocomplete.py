@@ -55,7 +55,7 @@ class EntryMultiCompletion(gtk.Entry):
 		# stop the event propagation
 		return True
 
-if __name__ == "__main__": # register the class as a Gtk widget gobject.type_register(EntryMultiCompletion)
+if __name__=="__main__": # register the class as a Gtk widget gobject.type_register(EntryMultiCompletion)
 	win=gtk.Window()
 	win.connect("delete-event", gtk.main_quit)
 	entrycompl=EntryMultiCompletion()
