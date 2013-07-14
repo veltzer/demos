@@ -14,6 +14,9 @@ packs=[
 	'python-qt4-dbus',
 	'python3-pyqt4',
 	'python3-dbus.mainloop.qt',
+	'python-newt',
+	'python3-newt',
+	'python-dialog',
 ]
 
 args=['sudo','apt-get','install']
