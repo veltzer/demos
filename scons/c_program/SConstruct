@@ -1,1 +1,4 @@
-Program('hello.c')
+env=Environment()
+env['CCCOMSTR']='Compiling [$TARGET]'
+env.Program('hello.c')
+# Program('hello.c')

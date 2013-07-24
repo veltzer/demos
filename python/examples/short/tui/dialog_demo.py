@@ -273,11 +273,11 @@ def demo():
 
     d.add_persistent_args(["--backtitle", "pythondialog demo"])
 
-    infobox_demo(d)
-    gauge_demo(d)
-    answer = yesno_demo(d)
-    msgbox_demo(d, answer)
-    textbox_demo(d)
+    #infobox_demo(d)
+    #gauge_demo(d)
+    #answer = yesno_demo(d)
+    #msgbox_demo(d, answer)
+    #textbox_demo(d)
     name = inputbox_demo(d)
     favorite_day = menu_demo(d)
     toppings = checklist_demo(d)
