@@ -1,5 +1,6 @@
+- do example of using the multithreading module.
 - do an example of how to exit from a python script
-	(quit(),exit() and all).
+	(quit(),exit(), os._exit() and all).
 - do an oo demo of 'isinstance' and 'issubclass'
 - show the problems of inheritance in python and why we need __
 - show using the iterator interface directly.

@@ -9,5 +9,5 @@ This example shows how to call popen and get the return text.
 import os
 
 (pin,pout)=os.popen2(["ls","-l"])
-for line in enumerate(pout):
-	print(line)
+for number, line in enumerate(pout):
+	print(number, line)
