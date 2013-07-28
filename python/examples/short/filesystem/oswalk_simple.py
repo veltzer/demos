@@ -15,6 +15,10 @@ if len(sys.argv)<2:
 root_folder=sys.argv[1]
 
 for root,dirs,files in os.walk(root_folder):
-	for file in files:
-		full=os.path.join(root,file)
+	print(root)
+	for cfile in files:
+		full=os.path.join(root,cfile)
+		print(full)
+	for cdir in dirs:
+		full=os.path.join(root,cdir)
 		print(full)
