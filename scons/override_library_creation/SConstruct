@@ -1,0 +1,10 @@
+def MySharedLibrary(env, library, sources, **args):
+	# pre build commands
+	ret=env.OriginalSharedLibrary(library, sources)
+	# post build commands
+	return ret
+
+env = Environment()
+env['BUILDERS']['OriginalSharedLibrary']=env['BUILDERS']['SharedLibrary']
+env['BUILDERS']['SharedLibrary']=MySharedLibrary
+env.SharedLibrary('hello',[ 'hello.c' ])
