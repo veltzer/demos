@@ -15,7 +15,6 @@ http://stackoverflow.com/questions/359498/how-can-i-unload-a-dll-using-ctypes-in
 """
 
 import ctypes
-import dl
 import signal
 
 l=ctypes.cdll.LoadLibrary("libacl.so")
