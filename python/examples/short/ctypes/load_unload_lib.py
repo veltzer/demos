@@ -8,6 +8,9 @@ You can see that this actually works by using pmap(1) on
 the python process and seeing that the library libacl
 is no longer there...
 
+References:
+http://stackoverflow.com/questions/359498/how-can-i-unload-a-dll-using-ctypes-in-python
+
 	Mark Veltzer <mark@veltzer.net>
 """
 
