@@ -1,7 +1,7 @@
 def MySharedLibrary(env, library, sources, **args):
-	# pre build commands
+	print "before"
 	ret=env.OriginalSharedLibrary(library, sources)
-	# post build commands
+	print "after"
 	return ret
 
 env = Environment()
