@@ -32,7 +32,11 @@
 	<!-- targets -->
 	<target name="resolve" description="--> retrieve dependencies with ivy">
 		<delete dir="lib"/>
-		<ivy:retrieve />
+		<ivy:retrieve type="jar"/>
+	</target>
+	<target name="resolve-nodelete" description="--> retrieve dependencies with ivy and don't delete the folder">
+		<ivy:settings file="ivysettings.xml" />
+		<ivy:retrieve pattern="lib/[artifact].[ext]" type="jar"/>
 	</target>
 	<target name="build" description="build just one target">
 		<for param="folder">
