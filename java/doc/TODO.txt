@@ -1,3 +1,8 @@
+Now:
+====
+run checkstyle as part of ant.
+
+
 Build system:
 =============
 - make a script that generates the eclipse variable which
@@ -18,15 +23,15 @@ Build system:
 	to ~/.m2.
 - seperate the java to it's own project (javaapi).
 
-code:
+Code:
 =====
 - remove interbit references from the code.
-- make sure that the author is just me.
 
 Extreme:
 ========
 - add an example showing how long it takes to take locks in java.
 	compare that to atomics.
+- do example of memory access reordering in Java.
 
 Swing:
 ======
