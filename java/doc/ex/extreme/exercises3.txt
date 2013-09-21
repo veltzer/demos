@@ -1,0 +1,31 @@
+﻿Exercise Book
+
+
+Memory Management
+Soft-Value Cache implementation
+
+Exercise description:
+Write a memory sensitive cache that will wrap the values as SoftReferences.
+
+class SoftCache<K,V> extends AbstractMap<K,V>
+
+It is important that the cache will remove Entries that were GC.
+You need to implement the removal at the put & size operations.
+All operations should have an average of O(1).
+
+Tip: you should use a ReferenceQueue.
+
+
+Overriding Class Behavior
+
+Exercise description:
+By changing classes at load time, we can change their behavior in every way we wish (almost). In this exercise, we will prevent a class from using System.exit.
+
+Step 1:
+Write a simple HelloWorld class that prints something, and then calls System.exit(1). 
+
+Step 2:
+Create and use a class-loader that will prevent HelloWorld from using System.exit. Every time System.exit should have been called, the program will instead output "Exit attempted with status code n" (where n is the argument to System.exit), and keep on running (i.e., no exit takes place).
+
+Tip: Check how class names are stored inside class files (e.g. by using a hex viewer).
+

@@ -1,0 +1,128 @@
+﻿Chapter 1 – Multi-threading
+
+Exercise 1.1
+Let’s build a simple semaphore. This is only for the sake of an exercise, in “real life” we would have used an implementation provided by the java.util.concurrent package. Our semaphore is a class with 
+private integer count field, 
+constructor that receives an integer and sets initial count to provided number, 
+2 methods – up and down: 
+up(int amount) increases the internal count by provided amount,
+down(int amount) decreases internal count by the amount if the amount is available (count – amount >= 0); otherwise waits until the requested amount becomes available.
+Code stub:
+public class Semaphore {
+private int count;
+…
+public Semaphore(int capacity) { … }
+public … void down(int amount) { … )
+public … void up(int amount) { … } 
+}
+What are the synchronization alternatives for Semaphore class?
+Check – are your numeric operations safe from an overflow? 
+
+Exercise 1.2
+Using the semaphore from previous exercise, implement a naive Read/Write lock. Again, this is just an exercise – a better implementation exists in the java.util.concurrent package. You can assume that the number of simultaneous operations is at most 1,000,000.  Our class should have the following methods:
+public class NaiiveReadWriteLock {
+public void aquireReadLock() { … }
+public void releaseReadLock() { … }
+public void aquireWriteLock() { … }
+public void releaseWriteLock() { … }
+}
+Exercise 1.3
+Using the material we learned, create a lazily initialized singleton. 
+Chapter 2 – IO
+Exercise 2.1
+1. Using the material we learned, let’s implement a serializable singleton.
+2. Write a program that test that the singleton (after de-serialization) maintains its identity.
+What new Java 5 feature is based on singletons? Does it have the “serialization” problem? 
+Chapter 3 – Memory Management
+Exercise 3.1
+In this exercise we will create a utility for easier reference finalization – designed to resemble Java Object.finalize() method, but avoiding its pitfalls. Our first step is to define a finalizable reference interface:
+public interface FinalizableReference {
+  void finalizeReferent();
+}
+In the second step we create the mechanism of invoking the finalizeReferent() method – implementation of reference queue. We make our queue based on a lazy singleton, like we learned in the first chapter of the course. 
+class FinalizableReferenceQueue extends ReferenceQueue<Object> {
+…
+  public static ReferenceQueue<Object> getInstance() {…}
+  private FinalizableReferenceQueueTemplate() {
+    new CleanerThread().start();
+  }
+  private class CleanerThread extends Thread {
+    private CleanerThread() {
+      super("CleanerThread");
+      setDaemon(true);
+    }
+    @Override public void run() {…}
+  }
+}
+In the third step, we create abstract reference implementations that define reference-GC interaction (soft/weak/phantom). For the exercise we will only create soft finalizable reference. 
+public abstract class FinalizableSoftReference<T>
+    extends SoftReference<T> implements FinalizableReference {
+    protected FinalizableSoftReference(T referent) {…}
+}
+This class is abstract, since finalizeReferent() implementation will be provided by a sub-class.
+In the fourth and final step, we will test our infrastructure by creating the following test method:
+  public static void main(String[] args) throws IOException {
+    final Set<Reference<StringBuffer>> set = 
+          Collections.newSetFromMap(
+            new ConcurrentHashMap<Reference<StringBuffer>,Boolean>());
+    while(true) {
+      for (int i = 0; i < 2000; i++) {
+        System.out.print("+");
+        set.add(
+         new FinalizableSoftReference<StringBuffer>(
+             new StringBuffer(1024)) {
+                    public void finalizeReferent() {
+                      set.remove(this);
+                      System.out.print("-");
+                    }
+                  });
+      }
+      try {
+        Thread.sleep(2000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+}
+We will now run this method, limiting the maximum VM memory to 8MB (using VM flag we learned in the chapter) and switching on GC output to console. Can you explain the result?
+Chapter 4 – Reflection
+Exercise 4.1
+We have the following implementation of the Service Locator1 pattern:
+public class Registry {
+  private final static Map<Class<?>, Object> services =
+      new ConcurrentHashMap<Class<?>, Object>();
+
+  /** Acquire an implementation of a service. */
+  public static <T> T get(Class<T> service Class) {
+    return serviceClass.cast(services.get(serviceClass));
+  }
+
+  /** Set service implementation. */
+  public static <T> void set(Class<T> service Class, T service) {
+    services.put(service Class, service);
+}
+1. Using what we learned about dynamic proxies, enhance the above framework with printing how long does it take for every method in every service to execute. 
+2. Test your implementation using HelloService.class and HelloServiceImpl.class
+3. Define @Time annotation. Modify the framework again to only print how long a method executes if the method is annotated with @Time annotation. Test your new implementation.
+Exercise 4.2
+In this exercise we will observe a difference between Java language and the way our program is represented in bytecode. There are several such differences, and one should take them in consideration when using reflection. Write the following code:
+public class Test {
+  public class Inner {}
+  public static void main(String[] args) throws Exception {
+    Inner.class.newInstance();
+  }
+}
+Run the code. What is the result? Why?
+In order to explain the result decompile (with javap) both Test.class and Test$Inner.class. Now can you explain what happened? What modifier can be added to the Inner class to make above code complete without error?
+Chapter 5 – Collections and Generics
+Exercise 5.1
+In this exercise we will implement a MultiMap – a useful data structure absent from standard JDK distribution but available in popular 3rd party collection libraries, like Guava2. MultiMap allows storing multiple values for a given key, using a List, for example. Our goal is to provide the following API:
+public class MultiHashMap<K,V> {
+  public List<V> put(K key, V value) {…}
+  public Set<Entry<K,V>> pairs() {…}
+  public List<V> getAll(K key) {…}
+  public void remove(K key, V value) {…}
+  public void removeAll(K key) {…}
+}
+Internally, the MultiMap uses Map<K,List<V>>. Can our class also extend AbstractMap<K, List<V>> - what are the benefits and the “price”?
+What is the difference, in terms of Generic parameters, between our getAll/removeAll and get/remove in Map interface? Can you explain the definition of Map?

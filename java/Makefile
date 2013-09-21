@@ -28,7 +28,7 @@ Q:=@
 endif # DO_MKDBG
 
 .PHONY: all
-all: $(ALL) check_all
+all: $(ALL)
 
 .PHONY: check_imports
 check_imports:
@@ -85,8 +85,15 @@ check_names:
 	$(info doing [$@])
 	$(Q)scripts/check_names.py
 
+.PHONY: check_interbit
+check_interbit:
+	$(info doing [$@])
+	$(Q)-git grep -l "interbit" | grep -v Makefile
+	$(Q)-git grep -l "Interbit" | grep -v Makefile
+	$(Q)-git grep -l "InterBit" | grep -v Makefile
+
 .PHONY: check_all
-check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names
+check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names check_interbit
 
 .PHONY: checkstyle
 checkstyle:

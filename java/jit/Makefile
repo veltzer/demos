@@ -18,4 +18,4 @@ run_jit_trace:
 
 .PHONY: clean
 clean:
-	-rm InlineMe.class java.hprof.txt
+	-rm -f InlineMe.class java.hprof.txt *.stamp

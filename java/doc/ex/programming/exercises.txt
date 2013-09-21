@@ -1,0 +1,223 @@
+﻿Java Programming exercises
+
+Basic syntax
+============
+
+Lab 1
+	Create an array of 100 integers.
+	Fill it with random values in the range [1…1000].
+	Hint:  the following line retrieves a random integer within the scope [0… N-1]:
+	int  r  =  (int) ( N * Math.random());
+	Calculate the average of the array contents and print it out.
+
+Lab 2
+	Change the program so that main would receive parameters for the array size and the values range. 
+	Hint:  the following line retrieves an integer from string
+	int  r  =  Integer.parseInt(String);
+
+OO Concepts
+===========
+
+Lab 1
+Create a class Customer according to the following specification:
+
+	Customer
+	name: String
+	id: String
+	age: int
+
+	Customer()
+	Customer(name:String, id:String, age:int)
+	getName(): String
+	getId(): String
+	getAge(): int
+	setName(name: String): void
+	setId(id:String): void
+	setAge(age:int): void
+
+Lab 2
+Create a class Account according to the following specification:
+
+	Account
+	id: String
+	balance: double
+
+	Account(id: String, balance: double)
+	getId(): String
+	getBalance(): double
+	deposit(double amount): void
+	withdraw(double: amount): double
+
+The withdraw method should return the balance after withdrawal. 
+
+Add the following to class Customer:
+A class member of type Account.
+A Constructor that gets all parameters, including Account.
+The methods setAccount & getAccount.
+
+Java class definition
+=====================
+
+Lab 1
+	Add to the class Account the field - typeOfAccount : int (with a setter and a getter).
+Create two final fields: CHECKING_ACCOUNT=1 & BUSINESS_ACCOUNT=2  to validate the type of the Account.
+Use a static field to create Account id sequence.
+Remove the id parameter from Account constructor and use the sequence instead.
+
+Lab 2
+Create a Singleton Bank according to the following specification:
+
+	Bank
+	bank: Bank static
+	customers: Customer[]
+	index: int
+
+	Bank()
+	addCustomer(customer:Customer): void
+	getCustomer(index:int): Customer
+	getNumofCustomers(): int
+	getBank(): Bank static
+
+Note: A singleton object class insures that only one instance of the class can exist at any given time. This is done by hiding the constructor (by making it private), and using a static method to handle the insanitation of the object. Here is a sample singleton class:
+
+	public class Singleton {
+		private Singleton() {
+		}
+		static private Singleton _instance=null;
+
+		static public Singleton getInstance() {
+			if (null==_instance) {
+				_instance=new Singleton();
+			}
+			return _instance;
+		}
+
+Inheritance
+===========
+
+Lab 1
+Put the classes Bank, Customer & Account inside the package meta.bank.
+Add to the class Account a final field named COMMISSION of type double. Change the withdraw method to add commission for each withdraw. The method's return value should now return the actual amount withdrawn, including commission.
+Add to the package meta.bank a class named BusinessAccount that extends the class Account.
+Override the withdraw method, so that a BusinessAccount may be in overdraft. Create AMOUNT_PROTECTION final field that holds the limit for the overdraft.
+
+Lab 2 
+Change the class Customer according to the following specification:
+
+	Customer
+	name: String
+	id: String
+	age: int
+	accounts: Account[]
+
+	Customer()
+	Customer(name:String, id:String, age:int)
+	Customer(name:String, id:String, age:int, account:Account)
+	getName(): String
+	getId(): String
+	getAge(): int
+	getAccount(index:int): Account
+	addAccount(): Account
+	setName(name: String): void
+	setId(id:String): void
+	setAge(age:int): void
+
+Modify the Test class. Add iteration over the customer array. For each customer, withdraw 6000 and print his balance. While iterating, find and print the value of AMOUNT_PROTECTION.
+
+Abstract classes
+================
+Change the class Account to abstract according to the following specification:
+
+	Account
+	id: String
+	balance: double
+
+	Account(balance: double)
+	getId(): String
+	getBalance(): double
+	setBalance(balance: double): void
+	deposit(double amount): void
+	withdraw(double: amount): double abstract
+
+The withdraw method should return actual amount withdrawn after commission. 
+
+Create a class CheckingAccount that extends the Account class according to the following specification:
+
+	CheckingAccount
+	COMMITION: double (constant)
+
+	CheckingAccount(balance:duoble)
+	withdraw(double: amount): double
+
+Change the class BusinessAccount to extend the class CheckingAccount.
+
+Create an interface Business according to the following specification:
+
+	Business interface
+	addCustomer(customer: Customer)
+	getCustomer(index: int): Customer
+	getNumOfCustomers(): int
+
+Change the Bank class to implements the Business interface.
+
+Exception Handling
+==================
+
+Change the withdraw method to throw an OverdraftException For the CheckingAccount when the balance is under 0 and for BusinessAccount when the balance is under – AMOUNT_PROTECTION.
+
+Collections
+===========
+
+Modify the class Bank. Change the customers field type to List. Fix the methods addCustomer(Customer), getCustomer(int) & getNumOfCustomers().
+
+Modify the class Customer. Change the accounts field type to List. Fix the methods addAccount(Account), getAccount(int) & getNumOfAccounts().
+
+Multi-Threading
+===============
+
+Create Runnable class called AddCustomer. If the number of the customers in the bank is under 50, the run method will try to add a customer to the bank. (Iteration until 100).
+
+Create Runnable class called RemoveCustomer. If the number of the customers in the bank is positive, the run method will try to remove a customer from the bank. (Iteration until 100).
+
+Create Test class that created two AddCustomer threads and two RemoveCustomer threads.
+
+IO
+==
+
+Lab 1
+Create a file origin.txt with text.
+Use BufferedInputStream and BufferedOutputStream to copy the origin.txt file text to copy.txt file text.
+
+
+Lab 2
+Create a Test class that writes and reads the bank object.
+Use the .ser file.
+
+Networking
+==========
+Create a simple chat program (One client sends a message to the server and all the clients see it).
+Client
+Create a ChatClientFrame instance for a Graphical User Interface, and invoke its init() method.
+Note: the actionPerformed method belongs to an "event listener" (not to be confused with a socket listener!). This method will be invoked when the client presses the “Send” button, or types Enter.
+Use the ChatClientFrame methods: String getMessage() & void addMessage(String).
+Wrap the socket inputStream & outputStream with DataInputStream & DataOutputStream.
+Modify the thread main to try to always read a message from the server and add it to the GUI.
+Use the actionPerformed to get a message from the GUI and sent it to the server.
+Don’t forget to close resources.
+
+Server
+Create thread main that always tries to accept a client.
+Run thread for each client. Each thread will try to read from the client and than write the message for all the clients.
+Don’t forget to close resources.
+
+JDBC
+====
+Create table with the fields: name String & id Number.
+Add 3 people to the table: “Yossi” 1111, “Pasi” 2222, “Moshe” 3333.
+Select the rows with id that is bigger than 2000.
+Print the result.
+
+Notes
+=====
+1. Exercise about inner classes is missing. Make one up.
+2. Big exercise (abstract and interfaces) is attached (StorageSystems).

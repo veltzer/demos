@@ -132,7 +132,7 @@ public abstract class AddressBookManager {
 	 * Person("John", "Doe", "1234")); instance.addFriend(new Person("Xavier",
 	 * "Anon", "2345")); instance.addFriend(new Person("Anony", "Moose",
 	 * "2345")); instance.addFriend(new Person("Jane", "Doe", "4567"));
-	 * instance.addCompany(new Company("Interbit", "9999"));
+	 * instance.addCompany(new Company("Hinbit", "9999"));
 	 * instance.addCompany(new Company("Acme Computers Corporation", "0000"));
 	 * Employee boss = new Employee("Kermit", "DeFrog", "1", null); Employee e1
 	 * = new Employee("Swedish", "Chef", "2", boss); Employee e2 = new

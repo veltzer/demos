@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: View Plug-in
 Bundle-SymbolicName: com.example.addressbook.view; singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Vendor: Interbit
+Bundle-Vendor: Hinbit
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
