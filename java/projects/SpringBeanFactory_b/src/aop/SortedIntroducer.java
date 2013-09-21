@@ -1,6 +1,7 @@
 package aop;
 
-import interbit.sorter.Sorted;
+
+import meta.sorter.Sorted;
 
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;

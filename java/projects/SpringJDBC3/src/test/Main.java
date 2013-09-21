@@ -1,9 +1,10 @@
 package test;
 
-import interbit.bookstore.Book;
-import interbit.bookstore.BookStoreAdminDAO;
 
 import java.io.PrintStream;
+
+import meta.bookstore.Book;
+import meta.bookstore.BookStoreAdminDAO;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

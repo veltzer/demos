@@ -1,10 +1,11 @@
 package test;
 
-import interbit.sorter.Item;
-import interbit.sorter.Sorted;
-import interbit.sorter.Sorter;
 
 import java.util.List;
+
+import meta.sorter.Item;
+import meta.sorter.Sorted;
+import meta.sorter.Sorter;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.AbstractApplicationContext;

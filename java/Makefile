@@ -128,6 +128,7 @@ $(JAVA_STAMP): %.stamp: %.java
 sloccount:
 	$(info doing [$@])
 	$(Q)sloccount .
+
 .PHONY: count_files
 count_files:
 	$(info doing [$@])

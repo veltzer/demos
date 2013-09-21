@@ -1,7 +1,8 @@
 package benchmark;
 
-import interbit.sorter.Sorted;
-import interbit.sorter.SortedImpl;
+
+import meta.sorter.Sorted;
+import meta.sorter.SortedImpl;
 
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;

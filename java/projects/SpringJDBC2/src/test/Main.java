@@ -1,8 +1,9 @@
 package test;
 
-import interbit.bookstore.Book;
-import interbit.bookstore.BookStoreAdminDAO;
-import interbit.bookstore.Customer;
+
+import meta.bookstore.Book;
+import meta.bookstore.BookStoreAdminDAO;
+import meta.bookstore.Customer;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.AbstractApplicationContext;

@@ -1,6 +1,7 @@
 package aop;
 
-import interbit.sorter.Sorted;
+
+import meta.sorter.Sorted;
 
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
 
