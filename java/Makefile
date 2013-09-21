@@ -28,7 +28,7 @@ Q:=@
 endif # DO_MKDBG
 
 .PHONY: all
-all: $(ALL)
+all: $(ALL) check_all
 
 .PHONY: check_imports
 check_imports:
