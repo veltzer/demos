@@ -3,6 +3,7 @@ Now:
 - run checkstyle as part of ant.
 - get ridd of the static jars in the static folder.
 - separate this project to it's own tree and away from generic demos.
+	do it fresh, with no history (for obvious reasons)
 
 Build system:
 =============
