@@ -10,10 +10,10 @@ import org.aspectj.lang.annotation.DeclareParents;
 
 @Aspect
 public class SortableAspect {
-	@DeclareParents(value = "interbit.sorter.impl.SorterImpl+", defaultImpl = SortedImpl.class)
+	@DeclareParents(value = "meta.sorter.impl.SorterImpl+", defaultImpl = SortedImpl.class)
 	private static Sorted mixin;
 
-	@AfterReturning("execution(* interbit.*.*.sort(..)) &&" + "this(sorted)")
+	@AfterReturning("execution(* meta.*.*.sort(..)) &&" + "this(sorted)")
 	public void setSorted(Sorted sorted) {
 		sorted.setSorted();
 	}

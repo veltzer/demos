@@ -14,13 +14,13 @@
 		<property name="password" value="" />
 	</bean>
 
-	<bean id="BookstoreAdminTest" class="interbit.bookstore.BookstoreAdminJDBCImpl">
+	<bean id="BookstoreAdminTest" class="meta.bookstore.BookstoreAdminJDBCImpl">
 		<property name="dataSource">
 			<ref local="mainDataSource" />
 		</property>
 	</bean>
 
-	<bean id="BookstoreAdminTest2" class="interbit.bookstore.BookStoreDAOHibernateImpl">
+	<bean id="BookstoreAdminTest2" class="meta.bookstore.BookStoreDAOHibernateImpl">
 		<property name="sessionFactory">
 			<ref local="mySessionFactory" />
 		</property>

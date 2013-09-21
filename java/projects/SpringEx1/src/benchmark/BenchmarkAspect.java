@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Aspect;
 
 @Aspect
 public class BenchmarkAspect {
-	@Around("execution(* interbit.sorter.Sorter.*(..))")
+	@Around("execution(* meta.sorter.Sorter.*(..))")
 	public Object invoke(ProceedingJoinPoint pjp) throws Throwable {
 		long startTime = System.currentTimeMillis();
 		Object result = pjp.proceed();

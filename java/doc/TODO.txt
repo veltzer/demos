@@ -24,9 +24,9 @@ Build system:
 	to ~/.m2.
 - seperate the java to it's own project (javaapi).
 
-Code:
-=====
-- remove interbit references from the code.
+Files:
+======
+- remove ex files from interbit.
 
 Extreme:
 ========

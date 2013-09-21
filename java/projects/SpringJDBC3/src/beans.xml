@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
 		"http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-	<bean id="BookstoreAdmin" class="interbit.bookstore.BookStoreDAO">
+	<bean id="BookstoreAdmin" class="meta.bookstore.BookStoreDAO">
 		<property name="sessionFactory">
 			<ref local="mySessionFactory" />
 		</property>

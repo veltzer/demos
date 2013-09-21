@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
 		"http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-	<bean id="sorter" class="interbit.sorter.impl.SorterImpl"
+	<bean id="sorter" class="meta.sorter.impl.SorterImpl"
 		init-method="init">
 		<property name="list">
 			<bean class="java.util.ArrayList"></bean>
@@ -17,21 +17,21 @@
 	</bean>
 
 
-	<bean id="byNameComparator" class="interbit.sorter.comparators.ItemComparatorByName" />
-	<bean id="byPriceComparator" class="interbit.sorter.comparators.ItemComparatorByPrice" />
+	<bean id="byNameComparator" class="meta.sorter.comparators.ItemComparatorByName" />
+	<bean id="byPriceComparator" class="meta.sorter.comparators.ItemComparatorByPrice" />
 
 
 	<!-- bean id="addItem" abstract="true" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"> 
 		<property name="targetObject"> <ref local="sorter" /> </property> <property 
 		name="targetMethod"> <value>addItem</value> </property> </bean> <bean id="addItem1" 
-		parent="addItem"> <property name="arguments"> <bean class="interbit.sorter.Item"> 
+		parent="addItem"> <property name="arguments"> <bean class="meta.sorter.Item"> 
 		<constructor-arg> <value>Spring Course</value> </constructor-arg> <constructor-arg> 
 		<value>2000</value> </constructor-arg> </bean> </property> </bean> <bean 
-		id="addItem2" parent="addItem"> <property name="arguments"> <bean class="interbit.sorter.Item"> 
+		id="addItem2" parent="addItem"> <property name="arguments"> <bean class="meta.sorter.Item"> 
 		<constructor-arg> <value>Extreme Java Course</value> </constructor-arg> <constructor-arg> 
 		<value>3000</value> </constructor-arg> </bean> </property> </bean -->
 
-	<bean id="itemFactory" class="interbit.sorter.impl.ItemFactoryImpl" />
+	<bean id="itemFactory" class="meta.sorter.impl.ItemFactoryImpl" />
 	<bean id="benchmark" class="benchmark.BenchmarkInterceptor" />
 	<bean id="oneWay" class="benchmark.OneWayInterceptor" />
 	<bean id="authoproxier"

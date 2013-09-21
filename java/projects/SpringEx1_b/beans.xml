@@ -9,7 +9,7 @@
 				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-	<bean id="sorter" class="interbit.sorter.impl.SorterImpl"
+	<bean id="sorter" class="meta.sorter.impl.SorterImpl"
 		init-method="init">
 		<property name="list">
 			<bean class="java.util.ArrayList" />
@@ -23,10 +23,10 @@
 		<lookup-method name="getItemFactory" bean="&amp;itemFactory" />
 	</bean>
 
-	<bean id="itemFactory" class="interbit.sorter.impl.ItemFactoryImpl" />
+	<bean id="itemFactory" class="meta.sorter.impl.ItemFactoryImpl" />
 
-	<bean id="byNameComparator" class="interbit.sorter.comparators.ItemComparatorByName" />
-	<bean id="byPriceComparator" class="interbit.sorter.comparators.ItemComparatorByPrice" />
+	<bean id="byNameComparator" class="meta.sorter.comparators.ItemComparatorByName" />
+	<bean id="byPriceComparator" class="meta.sorter.comparators.ItemComparatorByPrice" />
 
 
 	<aop:aspectj-autoproxy proxy-target-class="true" />

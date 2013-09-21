@@ -36,7 +36,7 @@
 
 
 	<bean name="/bookStore" class="org.codehaus.xfire.spring.remoting.XFireExporter">
-		<property name="serviceInterface" value="interbit.bookstore.BookStoreAdminDAO" />
+		<property name="serviceInterface" value="meta.bookstore.BookStoreAdminDAO" />
 		<property name="serviceBean" ref="BookstoreAdminTest">
 		</property>
 		<!-- the XFire bean is defined in the xfire.xml file -->

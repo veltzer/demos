@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Aspect;
 
 @Aspect
 public class OneWayAspect {
-	@Around("execution(* interbit.sorter.Sorter.sort(..))")
+	@Around("execution(* meta.sorter.Sorter.sort(..))")
 	public Object invoke(final ProceedingJoinPoint pjp) throws Throwable {
 
 		Thread oneWay = new Thread(new Runnable() {

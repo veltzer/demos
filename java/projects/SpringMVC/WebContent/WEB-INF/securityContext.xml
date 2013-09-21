@@ -17,7 +17,7 @@
 
 	<global-method-security secured-annotations="enabled"
 		jsr250-annotations="enabled">
-		<protect-pointcut expression="execution(* interbit.bookstore.*.add*(..))"
+		<protect-pointcut expression="execution(* meta.bookstore.*.add*(..))"
 			access="ROLE_ADMIN" />
 	</global-method-security>
 </beans:beans>
