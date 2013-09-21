@@ -1,1 +1,0 @@
-ant compare-src -Dsrc.archive.target=./common.v2/src
