@@ -1,0 +1,26 @@
+<!--
+This is an example of a page having an ifram and resizing the iframe according to its
+real size.
+
+	Mark Veltzer
+-->
+<html>
+	<head>
+		<script>
+			// This function is here to receive an event from the iframe about the size
+			// that it needs so that it could resize the iframe as needed and we would
+			// not need to hardcode a size for the iframe in the above 'iframe'
+			// declaration...
+			function alertsize(pixels){
+				alert('got resize of '+pixels+' pixels')
+				document.getElementById('myframe').style.height=pixels+"px";
+			}
+		</script>
+	</head>
+	<body>
+		<p>This is data before the iframe</p>
+		<iframe id='myframe' src='iframe_resize_content.html' width='100%'>
+		</iframe>
+		<p>This is data after the iframe</p>
+	</body>
+</html>

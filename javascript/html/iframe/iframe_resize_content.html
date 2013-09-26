@@ -1,0 +1,29 @@
+<!--
+This is content for the iframe_resize.html example
+
+		Mark Veltzer
+-->
+<html>
+	<script>
+		// this code must only be executed after the frame has already
+		// go it's final size.
+		// - for regular HTML this coincides with the 'onload' event.
+		// - for dynamic javascript you have to time the function
+		// on your own...
+		window.onload=function() {
+			window.parent.alertsize(document.body.scrollHeight)
+		}
+	</script>
+	<body>
+		This is content line 0 out of 10</br>
+		This is content line 1 out of 10</br>
+		This is content line 2 out of 10</br>
+		This is content line 3 out of 10</br>
+		This is content line 4 out of 10</br>
+		This is content line 5 out of 10</br>
+		This is content line 6 out of 10</br>
+		This is content line 7 out of 10</br>
+		This is content line 8 out of 10</br>
+		This is content line 9 out of 10</br>
+	</body>
+</html>
