@@ -1,2 +1,0 @@
-prototype.js web site:
-	http://prototypejs.org

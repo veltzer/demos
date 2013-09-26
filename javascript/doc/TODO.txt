@@ -1,4 +1,0 @@
-- add demos of YUI.
-- add demos of require.js.
-- add demo of "use strict";
-	see http://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it 

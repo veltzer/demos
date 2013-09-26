@@ -1,2 +1,0 @@
-http://eloquentjavascript.net/
-	A nice book about javascript programming.

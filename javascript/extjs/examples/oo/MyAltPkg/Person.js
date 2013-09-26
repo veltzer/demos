@@ -1,1 +1,0 @@
-../MyPkg/Person.js

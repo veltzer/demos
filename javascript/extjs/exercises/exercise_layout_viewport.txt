@@ -1,8 +1,0 @@
-Create a full screen application with a viewport.
-Make the viewport use a border layout manager.
-use a DIFFERENT LAYOUT MANAGER in each of the 5 border layout areas
-and stock them with widgets.
-	Hbox
-	vbox
-	fit
-	accordion
