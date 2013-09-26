@@ -17,18 +17,19 @@
 	<head>
 		<script>
 			window.onbeforeunload=function() {
-				if(/Firefox[\/\s](\d+)/.test(navigator.userAgent) && new Number(RegExp.$1) >= 4) {
-					if(confirm("Are you Sure do you want to leave this wonderful demo?")) {
-						history.go();
+				if(/Firefox[\/\s](\d+)/.test(window.navigator.userAgent) && new Number(RegExp.$1) >= 4) {
+					if(window.confirm("Are you Sure do you want to leave this wonderful demo?")) {
+						window.history.go();
 					} else {
 						window.setTimeout(function() {
 							window.stop();
 						}, 1);
 					}
+					return null;
 				} else {
 					return "Are you Sure do you want to leave this wonderful demo?";
 				}
-			}
+			};
 			/*
 			window.onbeforeunload = function() {
 				console.log("what?!?")
