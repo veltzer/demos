@@ -1,2 +1,0 @@
-- add an example of modernizer.
-- canvas_advanced exercise has the solution - remove it.

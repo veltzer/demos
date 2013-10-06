@@ -1,2 +1,0 @@
-1. Exercise about inner classes is missing. Make one up.
-2. Big exercise (abstract and interfaces) is attached (StorageSystems).

@@ -1,6 +1,0 @@
-Panel + fields exercise
-=======================
-Create a Ext.form.Panel under which you will put 3 text fields.
-first two fields will be enabled and the third disabled.
-Whenever the user changes the input in the first two fields
-calculate the sum of the first two fields and place it in the third one.

@@ -1,2 +1,0 @@
-Use the xml.dom.minidom module to parse some xml and do some computation on it.
-Use the attached xml file for the input.

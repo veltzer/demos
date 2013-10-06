@@ -1,1 +1,0 @@
-Create a jquery based button widget
