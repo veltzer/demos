@@ -11,3 +11,6 @@ if you install eclipse-juno here is how to "Scala enable" it:
 
 another option is to download a scala pre-made eclipse IDE from typesafe.com:
 http://www.typesafe.com/stack/downloads/scala-ide
+
+Official sdk is at:
+http://scala-ide.org/download/sdk.html
