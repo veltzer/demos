@@ -1,0 +1,4 @@
+exercises in scala:
+	http://aperiodic.net/phil/scala/s-99
+parallelizing operation in scala:
+	http://stackoverflow.com/questions/7663903/which-operations-on-scala-parallel-collections-are-parallelized
