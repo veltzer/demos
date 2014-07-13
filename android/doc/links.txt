@@ -5,26 +5,17 @@ http://source.android.com/source/initializing.html
 Android initialisation:
 http://blog.csdn.net/loughsky/article/details/3293922
 
-Android notes:
-http://elinux.org/Android_Notes#C_Library_.28bionic.29_info
-
-Bionic and pthread locks:
-http://stackoverflow.com/questions/2282949/bionic-andorid-libc-mutex-variants
-
 Bionic:
 http://codingrelic.geekhold.com/2008/11/six-million-dollar-libc.html
+http://elinux.org/Android_Notes#C_Library_.28bionic.29_info
+http://stackoverflow.com/questions/2282949/bionic-andorid-libc-mutex-variants
 
 Kernel:
 http://mjg59.livejournal.com/100221.html
 http://elinux.org/Android_Kernel_Features
 
-Notes:
-http://elinux.org/Android_Notes#C_Library_.28bionic.29_info
-
-Building the android kernel:
+Building the android kernel or module:
 http://marakana.com/forums/android/examples/111.html
-
-Building an android kernel module:
 http://stackoverflow.com/questions/6282669/how-do-you-create-a-loadable-kernel-module-for-android
 
 ueventd:
@@ -36,3 +27,15 @@ http://www.youtube.com/watch?v=byFTAhXVF7k
 Binder:
 http://www.osnews.com/story/13674/Introduction_to_OpenBinder_and_Interview_with_Dianne_Hackborn
 http://www.angryredplanet.com/~hackbod/openbinder/docs/html/index.html
+
+opensl-es:
+http://audioprograming.wordpress.com/2012/03/03/android-audio-streaming-with-opensl-es-and-the-ndk/
+http://www.slideshare.net/DSPIP/android-audio-opensl
+http://stackoverflow.com/questions/14842803/low-latency-audio-playback-on-android
+https://source.android.com/devices/latency_design.html
+in the ndk:
+	docs/opensles/OpenSL_ES_Specification_1.0.1.pdf
+	samples/native-audio/jni/native-audio-jni.c
+
+graphics:
+https://source.android.com/devices/graphics.html
