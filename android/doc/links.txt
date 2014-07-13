@@ -33,6 +33,8 @@ http://audioprograming.wordpress.com/2012/03/03/android-audio-streaming-with-ope
 http://www.slideshare.net/DSPIP/android-audio-opensl
 http://stackoverflow.com/questions/14842803/low-latency-audio-playback-on-android
 https://source.android.com/devices/latency_design.html
+http://mindtherobot.com/blog/555/android-audio-problems-hidden-limitations-and-opensl-es
+https://code.google.com/p/csipsimple/issues/detail?id=2096
 in the ndk:
 	docs/opensles/OpenSL_ES_Specification_1.0.1.pdf
 	samples/native-audio/jni/native-audio-jni.c
