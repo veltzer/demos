@@ -1,0 +1,5 @@
+if you want to run xpath on the command line in linux you need
+xpath(1) installed.
+
+then just issue:
+	xpath -e //book file.xml
