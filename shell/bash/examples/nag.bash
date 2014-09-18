@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -u
 
 while [[ true ]]; do
 	echo nag nag...
