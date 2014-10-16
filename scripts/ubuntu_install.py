@@ -62,7 +62,7 @@ packs=[
 	'libncurses5-dev',
 	'x11proto-core-dev',
 	'libx11-dev',
-	'libreadline-gplv2-dev',
+	#'libreadline-gplv2-dev',
 	'libz-dev',
 	'libgl1-mesa-dev',
 	'g++-multilib',
