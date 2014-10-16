@@ -7,11 +7,71 @@
 
 import subprocess # for check_call()
 
+tcl_version='8.6'
+
 packs=[
+	# scons
 	'scons',
 	'scons-doc',
-	'pipemeter',
-	'blktool',
+
+	# console fun
+	'cowsay',
+	'figlet',
+	'sl',
+
+	# ruby
+	'rails3', # for Ruby on Rails
+	#'mongrel', # for a database
+
+	# xpath
+	'libxml-xpath-perl',
+
+	# tcl
+	'tk',
+	'tcl',
+	'tcl-doc',
+	'tcl{0}'.format(tcl_version),
+	'tcl{0}-dev'.format(tcl_version),
+	'tcl{0}-doc'.format(tcl_version),
+
+	# llvm
+	'llvm-gcc-4.8',
+	'llvm-runtime',
+
+	# scala
+	'scala', # for scala(1), scalac(1), scalap(1), scaladoc(1) and more...
+
+	# csharp
+	'mono-runtime',
+	'monodevelop',
+
+	# android
+	'gcc-arm-linux-gnueabi',
+	# these are old versions which are no longer supported on ubuntu
+	#'gcc-4.5-arm-linux-gnueabi',
+	#'gcc-4.4-arm-linux-gnueabi',
+	'gperf',
+	'git-core',
+	'gnupg',
+	'flex',
+	'bison',
+	'gperf',
+	'build-essential',
+	'zip',
+	'curl',
+	'zlib1g-dev',
+	'libc6-dev',
+	'libncurses5-dev',
+	'x11proto-core-dev',
+	'libx11-dev',
+	'libreadline-gplv2-dev',
+	'libz-dev',
+	'libgl1-mesa-dev',
+	'g++-multilib',
+	'mingw32',
+	'tofrodos',
+	# these I can't find in ubuntu using apt-cache search. Fortunately, the build works:
+	#'ia32-libs',
 ]
 
 args=['sudo','apt-get','install','--assume-yes']
