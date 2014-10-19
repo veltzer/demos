@@ -10,4 +10,4 @@ With -w, strict and diagnostics you get much better error handling.
 use strict;
 use diagnostics;
 
-print "Hello, World!\n"
+print 'Hello, World!'."\n"

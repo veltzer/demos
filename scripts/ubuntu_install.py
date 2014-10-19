@@ -70,6 +70,11 @@ packs=[
 	'tofrodos',
 	# these I can't find in ubuntu using apt-cache search. Fortunately, the build works:
 	#'ia32-libs',
+
+	# perl
+	'libnet-github-perl',
+	'libconfig-inifiles-perl',
+	'libfile-homedir-perl',
 ]
 
 args=['sudo','apt-get','install','--assume-yes']
