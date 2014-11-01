@@ -1,17 +1,21 @@
 #!/bin/bash
 
-# this is the a rather efficient implementation of pstree
-# in bash.
-# - output of ps is directly pumped into a while loop which reads
-# all the data into three arrays and then a call to a recursive
-# function that uses no external processes.
-# - ps is told to do the bare minium: output only the columns that
-# we need (comm,pid,ppid) and no header line. -e is to show all
-# processes.
-# - "grep -v defunct" is used to suppress lines of defunct processes
-# which have 4 components instead of 3.
-# - notice the local definitions which are important in order for
-# the recursion to work.
+<<COMMENT
+
+this is the a rather efficient implementation of pstree
+in bash.
+- output of ps is directly pumped into a while loop which reads
+all the data into three arrays and then a call to a recursive
+function that uses no external processes.
+- ps is told to do the bare minium: output only the columns that
+we need (comm,pid,ppid) and no header line. -e is to show all
+processes.
+- "grep -v defunct" is used to suppress lines of defunct processes
+which have 4 components instead of 3.
+- notice the local definitions which are important in order for
+the recursion to work.
+
+COMMENT
 
 ps -o comm,pid,ppid --no-headers -e | grep -v defunct | (
 	while read line; do

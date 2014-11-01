@@ -1,10 +1,14 @@
 #!/bin/bash -u
 
-# TODO:
-# 1. stop using a temp file
-# 2. stop using wc -l and use a flag instead for end of file
-# 3. add a PID_TO_CHILDREN structure to give fast access to children
-# of a pid.
+<<COMMENT
+
+TODO:
+1. stop using a temp file
+2. stop using wc -l and use a flag instead for end of file
+3. add a PID_TO_CHILDREN structure to give fast access to children
+of a pid.
+
+COMMENT
 
 # -e is for all processes
 # --no-headers is to avoid the pesty first line
@@ -13,10 +17,10 @@
 # bacause brain dead ps does not have a clear option not to align
 # columns and we need consistency for tr
 ps -e --no-headers -o pid,ppid,comm > out.txt
+
 # note that we get the number of lines from the out.txt file
 # and do not run ps(1) again to avoid consistency problems
 numlines=`wc -l out.txt | cut -d " " -f 1`
-#echo "numlines is $numlines"
 
 # save the old file descriptor
 exec 3>&0
