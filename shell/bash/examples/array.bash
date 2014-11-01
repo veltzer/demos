@@ -1,13 +1,14 @@
 #!/bin/bash -u
 
-#
-# This is a simple array example in bash.
-# we create the array the bash way
-#
-#	Mark Veltzer
-#
-# References:
-# - http://tldp.org/LDP/abs/html/arrays.html
+<<COMMENT
+
+This is a simple array example in bash.
+we create the array the bash way
+
+References:
+- http://tldp.org/LDP/abs/html/arrays.html
+
+COMMENT
 
 # the two next lines are both wrong
 #x=(56,23,14)

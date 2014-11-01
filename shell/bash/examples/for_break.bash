@@ -1,8 +1,12 @@
 #!/bin/bash -u
 
-# this script shows how to break in the middle of a for loop
-# in case anything goes wrong.
-# give it a list of filenames that exist and some that dont
+<<COMMENT
+
+this script shows how to break in the middle of a for loop
+in case anything goes wrong.
+give it a list of filenames that exist and some that dont
+
+COMMENT
 
 for x in $@
 do

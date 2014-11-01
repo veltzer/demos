@@ -1,6 +1,10 @@
 #!/bin/bash -u
 
-# an example that shows that variables in bash functions are global by default
+<<COMMENT
+
+An example that shows that variables in bash functions are global by default
+
+COMMENT
 
 function a {
 	pid_by_name[6]=8

@@ -1,7 +1,14 @@
 #!/bin/bash -u
 
-#FUNCS=()
-#CALLS=()
+<<COMMENT
+
+counting numbers of calls to functions
+
+COMMENT
+
+# no need for this initialisation
+# FUNCS=()
+# CALLS=()
 
 function find_func {
 	local name=$1

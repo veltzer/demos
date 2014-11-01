@@ -1,6 +1,14 @@
 #!/bin/bash -u
 
-# local only works in bash
+<<COMMENT
+
+examples of how to write functions in bash which accept any number
+of arguments.
+
+NOTES:
+local only works in bash
+
+COMMENT
 
 function print_all_args {
 	local x=1

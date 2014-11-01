@@ -1,11 +1,13 @@
 #!/bin/bash -u
 
-# Showing how to wait for a specific process to end.
-# note: in bash you cannot wait for any process to end
-# so you cannot launch many processes waiting for the first
-# one to end not knowing which one that will be...
-#
-#	Mark Veltzer
+<<COMMENT
+
+Showing how to wait for a specific process to end.
+note: in bash you cannot wait for any process to end
+so you cannot launch many processes waiting for the first
+one to end not knowing which one that will be...
+
+COMMENT
 
 echo "running sleep 5 in the background..."
 sleep 5 &
