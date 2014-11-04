@@ -1,2 +1,5 @@
 #!/bin/sed -f
-s/veltzer/zeltzer/g
+
+# this script substitutes words for other words
+
+s/be/tee/g

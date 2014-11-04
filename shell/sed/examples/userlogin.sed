@@ -1,4 +1,17 @@
 #!/bin/sed -f
-/:\/bin\/false *$/b
-/:\/usr\/bin\/nologin *$/b
-s/:[^:]\+$/:\/usr\/bin\/tcsh/
+
+# this script show only real users that can login to your system.
+# run it so:
+# userlogin.sed < /etc/passwd
+
+/:\/bin\/false$/ {
+        h
+        d
+}
+$g
+
+/:\/usr\/sbin\/nologin$/ {
+        h
+        d
+}
+$g

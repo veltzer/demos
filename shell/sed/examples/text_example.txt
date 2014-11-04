@@ -1,13 +1,10 @@
-this
-are
-lines
-that dont
-start with
-interbit
-and
-some other
-lines
-interbit
-and
-this end
-the file
+to
+be
+or
+not
+to
+be
+that
+is
+the
+question
