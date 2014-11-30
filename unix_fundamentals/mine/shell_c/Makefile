@@ -1,4 +1,6 @@
-cshell: cshell.c
-	gcc -O3 -s -o cshell cshell.c -Wall -Werror
+cshell.elf: cshell.c
+	gcc -O3 -s -o cshell.elf cshell.c -Wall -Werror
+
+.PHONY: clean
 clean:
-	-rm cshell
+	-rm cshell.elf
