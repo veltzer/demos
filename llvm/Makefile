@@ -1,14 +1,24 @@
-LLVMC:=llvmc-2.9
+LLVMC:=llvm-gcc
+ALL:=hello.elf hello.bc
 
 .PHONY: all
-all: hello.exe hello.bc
+all: hello.elf
+	$(info doing [$@])
 
-hello.exe: hello.c
-	$(LLVMC) hello.c -o hello.exe
+hello.elf: hello.c
+	$(info doing [$@])
+	@$(LLVMC) $< -o $@
 
 hello.bc: hello.c
-	$(LLVMC) -emit-llvm hello.c -c -o hello.bc
+	$(info doing [$@])
+	@$(LLVMC) $< -c -o $@
 
 .PHONY: clean
 clean:
-	-rm -f hello.exe hello.bc
+	$(info doing [$@])
+	@rm -f $(ALL)
+
+.PHONY: run
+run:
+	$(info doing [$@])
+	@./hello.elf

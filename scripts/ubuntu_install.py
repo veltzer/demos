@@ -35,7 +35,7 @@ packs=[
 	'tcl{0}-doc'.format(tcl_version),
 
 	# llvm
-	'llvm-gcc-4.8',
+	'llvm-gcc',
 	'llvm-runtime',
 
 	# scala
@@ -65,13 +65,17 @@ packs=[
 	'x11proto-core-dev',
 	'libx11-dev',
 	#'libreadline-gplv2-dev',
-	'libz-dev',
+	'zlib1g-dev',
 	'libgl1-mesa-dev',
 	'g++-multilib',
 	'mingw32',
 	'tofrodos',
 	# these I can't find in ubuntu using apt-cache search. Fortunately, the build works:
 	#'ia32-libs',
+
+	# go
+	'gccgo-go',
+	'golang',
 ]
 
 args=['sudo','apt-get','install','--assume-yes']
