@@ -1,6 +1,7 @@
 from __future__ import print_function
 
 env=Environment()
+env['PROGSUFFIX']='.elf'
 env.Program('hello.c')
 
 t=env.Entry('hello.c')

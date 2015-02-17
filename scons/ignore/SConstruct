@@ -10,4 +10,5 @@ l2_env.Append(
 	LIBPATH=[ '.' ],
 )
 l2=l2_env.SharedLibrary('goodbye',[ 'goodbye.c' ])
-Ignore(l2, l1)
+# Release this line to unleash the devil
+#Ignore(l2, l1)

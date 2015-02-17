@@ -1,4 +1,5 @@
 env=Environment()
+env['PROGSUFFIX']='.elf'
 #print(type(env.Object))
 env.Repository('/tmp')
 o=env.Object(source='hello.c',target='foo/goodbye.o')

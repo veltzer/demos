@@ -1,4 +1,5 @@
 env=Environment()
+env['PROGSUFFIX']='.elf'
 env.Append(
 	CXXFLAGS=[ '-O2', '-g3'],
 	CPPPATH=[ '/foo', '/bar' ],

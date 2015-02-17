@@ -1,7 +1,7 @@
 def compress_javascript(target,source,env):
-	print "targe is ",target
-	print "source is ",source
-	print "env is ",env
+	#print "target is ",target
+	#print "source is ",source
+	#print "env is ",env
 	return None
 VariantDir('build','src')
 bld=Builder(action=compress_javascript)

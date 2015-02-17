@@ -11,6 +11,7 @@ def print_cmd_line(s, target, source, env):
 		print_set.add(tgt)
 
 env=Environment()
+env['PROGSUFFIX']='.elf'
 env['PRINT_CMD_LINE_FUNC']=print_cmd_line
 lib=env.Program('hello.c')
 env.AddPostAction(lib, post_action)

@@ -1,8 +1,9 @@
 env=Environment()
+env['PROGSUFFIX']='.elf'
 bin1=env.Program('hello.c')
 bin2=env.Program('world.c')
 
-doDefault=True
+doDefault=False
 if doDefault:
 	for x in bin1[0].sources_set:
 		env.Default(x)
