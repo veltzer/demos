@@ -1,0 +1,4 @@
+env = Environment()
+env.Replace(CCFLAGS="-O2")
+env.SharedLibrary('foo',[ 'sharedlibrary.c' ])
+env.Program('foo',[ 'program.c' ])
