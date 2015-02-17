@@ -1,4 +1,2 @@
 env=Environment()
-env['CCCOMSTR']='Compiling [$TARGET]'
-env.Program('hello.c')
-# Program('hello.c')
+SConscript('SConscript', exports=['env'])

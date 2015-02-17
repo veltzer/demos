@@ -1,3 +1,4 @@
+# scons database
 .sconsign.dblite
 # scons calls object files for shared libraries .os
 *.os
@@ -7,3 +8,5 @@
 *.so
 # executables
 *.elf
+# cache
+sconscache

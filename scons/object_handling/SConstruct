@@ -1,5 +1,5 @@
 env=Environment()
-print(type(env.Object))
+#print(type(env.Object))
 env.Repository('/tmp')
 o=env.Object(source='hello.c',target='foo/goodbye.o')
 #o=env.Object('hello.c')

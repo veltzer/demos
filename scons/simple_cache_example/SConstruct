@@ -4,4 +4,4 @@ env.Append(
 	CPPPATH=[ '/foo', '/bar' ],
 )
 env.Program('hello.cc')
-env.CacheDir('mycache')
+env.CacheDir('sconscache')

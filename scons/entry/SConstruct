@@ -5,6 +5,6 @@ env.Program('hello.c')
 
 t=env.Entry('hello.c')
 
-print(t)
-print(type(t))
-print(str(t))
+#print(t)
+#print(type(t))
+#print(str(t))
