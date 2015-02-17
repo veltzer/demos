@@ -1,4 +1,9 @@
-out/*
 .sconsign.dblite
 # scons calls object files for shared libraries .os
 *.os
+# scons calls object files for programs .o
+*.o
+# libraries
+*.so
+# executables
+*.elf
