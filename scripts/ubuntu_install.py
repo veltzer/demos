@@ -10,10 +10,6 @@ import subprocess # for check_call
 tcl_version='8.6'
 
 packs=[
-	# scons
-	'scons',
-	'scons-doc',
-
 	# console fun
 	'cowsay',
 	'figlet',
