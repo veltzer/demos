@@ -1,3 +1,0 @@
-env=Environment()
-env['PROGSUFFIX'] = '.elf'
-env.Program('hello.c')

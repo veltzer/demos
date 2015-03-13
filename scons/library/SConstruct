@@ -1,3 +1,0 @@
-env = Environment()
-env.Replace(CCFLAGS="-O2")
-env.SharedLibrary('add',[ 'add.c' ])
