@@ -1,3 +1,0 @@
-Chris,Shiflett,chris@brainbulb.com
-Bob,Levis,bob@levis.com
-John,Doe,hohn.dow@example.com
