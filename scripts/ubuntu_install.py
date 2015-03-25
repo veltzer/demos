@@ -15,10 +15,6 @@ packs=[
 	'figlet',
 	'sl',
 
-	# ruby
-	'rails3', # for Ruby on Rails
-	#'mongrel', # for a database
-
 	# xpath
 	'libxml-xpath-perl',
 
