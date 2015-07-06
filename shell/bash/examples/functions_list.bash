@@ -18,3 +18,4 @@ declare -f | grep myfunc
 declare -F | grep myfunc
 typeset -f | grep myfunc
 typeset -F | grep myfunc
+compgen -A function myfunc
