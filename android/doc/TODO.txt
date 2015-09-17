@@ -1,6 +1,0 @@
-- finish seeing the internals lecture and add everything he says.
-- how to build native libraries and the .mk makefiles.
-- The slides mention that pthread conditions are not available.
-	fix that cause it seems that they are available.
-- show how to create a native library from within eclipse and deliver it
-	to the target.

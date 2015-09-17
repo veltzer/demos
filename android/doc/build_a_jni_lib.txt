@@ -1,5 +1,0 @@
-1) locate your ndk (say $NDK).
-2) copy the folder $NDK/sample/hello-jni to your own folder.
-3) export a variable called NDK that holds the location of your NDK.
-4) add $NDK to your path.
-5) go to the root of the application and issue 'ndk-build'
