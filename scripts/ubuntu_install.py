@@ -27,7 +27,12 @@ packs=[
 	'tcl{0}-doc'.format(tcl_version),
 
 	# llvm
-	'llvm-gcc',
+	'llvm-3.4',
+	'llvm-3.4-doc',
+	'llvm-3.5',
+	'llvm-3.5-doc',
+	'llvm-3.6',
+	'llvm-3.6-doc',
 	'llvm-runtime',
 
 	# scala
@@ -38,7 +43,7 @@ packs=[
 	'monodevelop',
 
 	# android
-	'gcc-arm-linux-gnueabi',
+	#'gcc-arm-linux-gnueabi',
 	# these are old versions which are no longer supported on ubuntu
 	#'gcc-4.5-arm-linux-gnueabi',
 	#'gcc-4.4-arm-linux-gnueabi',
@@ -60,14 +65,9 @@ packs=[
 	'zlib1g-dev',
 	'libgl1-mesa-dev',
 	'g++-multilib',
-	'mingw32',
 	'tofrodos',
 	# these I can't find in ubuntu using apt-cache search. Fortunately, the build works:
 	#'ia32-libs',
-
-	# go
-	'gccgo-go',
-	'golang',
 ]
 
 args=['sudo','apt-get','install','--assume-yes']
