@@ -7,8 +7,6 @@ ubuntu to compile and work with this package.
 
 import subprocess # for check_call
 
-tcl_version='8.6'
-
 packs=[
 	# console fun
 	'cowsay',
@@ -17,14 +15,6 @@ packs=[
 
 	# xpath
 	'libxml-xpath-perl',
-
-	# tcl
-	'tk',
-	'tcl',
-	'tcl-doc',
-	'tcl{0}'.format(tcl_version),
-	'tcl{0}-dev'.format(tcl_version),
-	'tcl{0}-doc'.format(tcl_version),
 
 	# llvm
 	'llvm-3.4',
