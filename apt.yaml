@@ -1,0 +1,54 @@
+---
+packages:
+       # console fun
+       - name: cowsay
+       - name: figlet
+       - name: sl
+
+       # xpath
+       - name: libxml-xpath-perl
+
+       # llvm
+       - name: llvm-3.4
+       - name: llvm-3.4-doc
+       - name: llvm-3.5
+       - name: llvm-3.5-doc
+       - name: llvm-3.6
+       - name: llvm-3.6-doc
+       - name: llvm-runtime
+
+       # scala
+       - name: scala
+         reason: for scala(1), scalac(1), scalap(1), scaladoc(1) and more...
+
+
+       # csharp
+       - name: mono-runtime
+       - name: monodevelop
+
+       # android
+       #'gcc-arm-linux-gnueabi
+       # these are old versions which are no longer supported on ubuntu
+       #'gcc-4.5-arm-linux-gnueabi
+       #'gcc-4.4-arm-linux-gnueabi
+       - name: gperf
+       - name: git-core
+       - name: gnupg
+       - name: flex
+       - name: bison
+       - name: gperf
+       - name: build-essential
+       - name: zip
+       - name: curl
+       - name: zlib1g-dev
+       - name: libc6-dev
+       - name: libncurses5-dev
+       - name: x11proto-core-dev
+       - name: libx11-dev
+       # - name: libreadline-gplv2-dev
+       - name: zlib1g-dev
+       - name: libgl1-mesa-dev
+       - name: g++-multilib
+       - name: tofrodos
+       # these I can't find in ubuntu using apt-cache search. Fortunately, the build works:
+       # -name: ia32-libs
