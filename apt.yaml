@@ -9,12 +9,8 @@ packages:
        - name: libxml-xpath-perl
 
        # llvm
-       - name: llvm-3.4
-       - name: llvm-3.4-doc
-       - name: llvm-3.5
-       - name: llvm-3.5-doc
-       - name: llvm-3.6
-       - name: llvm-3.6-doc
+       - name: llvm-3.8
+       - name: llvm-3.8-doc
        - name: llvm-runtime
 
        # scala
