@@ -1,2 +1,0 @@
-Selecting the last N lines from a table:
-	select * from TbWkWork order by id desc limit 1;

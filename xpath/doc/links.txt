@@ -1,4 +1,0 @@
-Example of xpath expressions:
-	http://msdn.microsoft.com/en-us/library/ms256086.aspx
-W3C examples:
-	http://www.w3schools.com/xpath/xpath_examples.asp
