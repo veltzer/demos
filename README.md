@@ -8,5 +8,5 @@ They are also fairly well documented.
 Some are formulated as exercises and some as examples.
 Operating system is Linux (ofcourse).
 
-	Mark Veltzer, 2011-2014
+	Mark Veltzer, 2011-2020
 	mark.veltzer@gmail.com
