@@ -8,4 +8,8 @@ tools.stamp: config/deps.py
 
 .PHONY: clean
 clean:
+	@rm tools.stamp
+
+.PHONY: clean_hard
+clean_hard:
 	@git clean -qffxd
