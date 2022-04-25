@@ -1,4 +1,4 @@
-packs=[
+packages=[
     # console fun
     'cowsay',
     'figlet',
