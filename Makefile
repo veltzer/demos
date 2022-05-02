@@ -1,14 +1,10 @@
 .PHONY: all
-all: tools.stamp
+all:
 	@true
-
-tools.stamp: config/deps.py
-	$(info doing [$@])
-	$(Q)pymakehelper touch_mkdir $@
 
 .PHONY: clean
 clean:
-	$(Q)rm tools.stamp
+	$(Q)rm $(ALL)
 
 .PHONY: clean_hard
 clean_hard:
