@@ -1,5 +1,4 @@
-/tools
-/tools.stamp
+*.stamp
 __pycache__
 *.pyo
 *.pyc
