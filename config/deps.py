@@ -6,22 +6,22 @@ packages=[
     # xpath
     'libxml-xpath-perl',
     # llvm
-    'llvm-3.8',
-    'llvm-3.8-doc',
+    'llvm-14',
+    'llvm-14-doc',
     'llvm-runtime',
     # scala
     # for scala(1), scalac(1), scalap(1), scaladoc(1) and more...
     'scala',
     # csharp
     'mono-runtime',
-    'monodevelop',
+    'mono-devel',
     # android
     #'gcc-arm-linux-gnueabi
     # these are old versions which are no longer supported on ubuntu
     #'gcc-4.5-arm-linux-gnueabi
     #'gcc-4.4-arm-linux-gnueabi
     'gperf',
-    'git-core',
+    'git',
     'gnupg',
     'flex',
     'bison',
