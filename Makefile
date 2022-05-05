@@ -4,8 +4,9 @@ all:
 
 .PHONY: clean
 clean:
-	$(Q)rm $(ALL)
+	$(info doing [$@])
 
 .PHONY: clean_hard
 clean_hard:
-	$(Q)git clean -qffxd
+	$(info doing [$@])
+	git clean -qffxd
