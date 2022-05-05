@@ -49,7 +49,7 @@ if hasattr(platform, "freedesktop_os_release"):
     if VERSION_ID == "22.04":
         llvm_ver = 14
 else:
-    llmv_ver = 12 
+    llvm_ver = 12 
 
 packages.extend([
     # llvm
