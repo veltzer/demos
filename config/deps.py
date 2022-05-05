@@ -1,3 +1,5 @@
+import platform
+
 packages=[
     # console fun
     'cowsay',
@@ -5,10 +7,6 @@ packages=[
     'sl',
     # xpath
     'libxml-xpath-perl',
-    # llvm
-    'llvm-14',
-    'llvm-14-doc',
-    'llvm-runtime',
     # scala
     # for scala(1), scalac(1), scalap(1), scaladoc(1) and more...
     'scala',
@@ -42,3 +40,20 @@ packages=[
     # these I can't find in ubuntu using apt-cache search. Fortunately, the build works:
     #'ia32-libs',
 ]
+    
+if hasattr(platform, "freedesktop_os_release"):
+    desktop = platform.freedesktop_os_release()
+    VERSION_ID = desktop["VERSION_ID"]
+    # what version of urcu?
+    opt_urcu_ver = None
+    if VERSION_ID == "22.04":
+        llvm_ver = 14
+else:
+    llmv_ver = 12 
+
+packages.extend([
+    # llvm
+    f"llvm-{llvm_ver}",
+    f"llvm-{llvm_ver}-doc",
+    "llvm-runtime",
+])
