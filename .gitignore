@@ -1,5 +1,18 @@
+# generated
+/build
+/dist
+/target
+/out
+
+# installations
+/external
+/install
+
+# python
+__pycache__/
+*.py[oc]
+
+# mine
+/.venv/
+/.pydmt/
 *.stamp
-__pycache__
-*.pyo
-*.pyc
-/.pydmt
