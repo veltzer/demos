@@ -48,6 +48,8 @@ if hasattr(platform, "freedesktop_os_release"):
     opt_urcu_ver = None
     if VERSION_ID == "22.04":
         llvm_ver = 14
+    if VERSION_ID == "22.10":
+        llvm_ver = 14
 else:
     llvm_ver = 12 
 
