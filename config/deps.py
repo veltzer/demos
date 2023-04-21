@@ -46,12 +46,14 @@ if hasattr(platform, "freedesktop_os_release"):
     VERSION_ID = desktop["VERSION_ID"]
     # what version of urcu?
     opt_urcu_ver = None
+    llvm_ver = None
     if VERSION_ID == "22.04":
         llvm_ver = 14
     if VERSION_ID == "22.10":
         llvm_ver = 14
-else:
-    llvm_ver = 12 
+    if VERSION_ID == "23.04":
+        llvm_ver = 14
+    assert llvm_ver is not None
 
 packages.extend([
     # llvm
