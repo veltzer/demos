@@ -53,6 +53,8 @@ if hasattr(platform, "freedesktop_os_release"):
         llvm_ver = 14
     if VERSION_ID == "23.04":
         llvm_ver = 14
+    if VERSION_ID == "23.10":
+        llvm_ver = 17
     assert llvm_ver is not None
 
 packages.extend([
