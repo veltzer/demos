@@ -143,5 +143,11 @@ build/
 *.qcow2
 *.iso
 
-# eclipse
+# dev envs
 .cache
+.settings
+.classpath
+.project
+.project.xml
+.idea
+build.properties
