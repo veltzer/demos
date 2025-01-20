@@ -142,3 +142,6 @@ build/
 # qemu
 *.qcow2
 *.iso
+
+# eclipse
+.cache
