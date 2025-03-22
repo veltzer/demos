@@ -1,3 +1,7 @@
+"""
+Ubuntu system level depenencies for this project
+"""
+
 import platform
 
 packages=[
@@ -40,7 +44,7 @@ packages=[
     # these I can"t find in ubuntu using apt-cache search. Fortunately, the build works:
     #"ia32-libs",
 ]
-    
+
 if hasattr(platform, "freedesktop_os_release"):
     desktop = platform.freedesktop_os_release()
     VERSION_ID = desktop["VERSION_ID"]
