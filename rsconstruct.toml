@@ -18,7 +18,7 @@ src_files = ["README.md"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
 
-[processor.checker.shellcheck]
+[processor.checker.ishellcheck]
 src_dirs = ["gwt/scripts"]
 
 # ─── xml / svg ───────────────────────────────────────────────────────────────
@@ -39,9 +39,8 @@ args = [
 
 # ─── java ────────────────────────────────────────────────────────────────────
 
-[processor.checker.checkstyle]
+[processor.checker.icheckstyle]
 src_dirs = ["gwt"]
-args = ["-c", "checkstyle.xml"]
 
 # ─── html ────────────────────────────────────────────────────────────────────
 
